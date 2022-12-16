@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.df6;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.rt7;
+import com.baidu.tieba.pw7;
 import com.baidu.tieba.wp4;
+import com.baidu.tieba.yf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class UserDiyModel extends FaceBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -114,7 +114,7 @@ public class UserDiyModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003532 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    rt7.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
+                    pw7.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -151,7 +151,7 @@ public class UserDiyModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<DiyEmotionData> r = df6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<DiyEmotionData> r = yf6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
                 if (r == null) {
                     return;
@@ -202,11 +202,18 @@ public class UserDiyModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            new Thread(new a(this)).start();
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterListener(this.a);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_DIY_EMOTION_INFO);
             return true;
@@ -214,16 +221,9 @@ public class UserDiyModel extends FaceBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new Thread(new a(this)).start();
-        }
-    }
-
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_DIY_EMOTION_INFO, TbConfig.SERVER_ADDRESS + "c/e/meme/collect");
             tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

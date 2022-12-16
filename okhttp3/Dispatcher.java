@@ -2,6 +2,8 @@ package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,8 +22,9 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.RealCall;
 import okhttp3.internal.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Dispatcher {
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -34,16 +37,31 @@ public final class Dispatcher {
     public final Deque<RealCall.AsyncCall> runningAsyncCalls;
     public final Deque<RealCall> runningSyncCalls;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(773793992, "Lokhttp3/Dispatcher;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(773793992, "Lokhttp3/Dispatcher;");
+        }
+    }
+
     public Dispatcher() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -111,12 +129,12 @@ public final class Dispatcher {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {executorService};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -128,44 +146,97 @@ public final class Dispatcher {
         this.executorService = executorService;
     }
 
-    private <T> void finished(Deque<T> deque, T t, boolean z) {
-        int runningCallsCount;
+    private <T> void finished(Deque<T> deque, T t) {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65538, this, deque, t, z) == null) {
+        if (interceptable == null || interceptable.invokeLL(65539, this, deque, t) == null) {
             synchronized (this) {
                 if (deque.remove(t)) {
-                    if (z) {
-                        promoteCalls();
-                    }
-                    runningCallsCount = runningCallsCount();
                     runnable = this.idleCallback;
                 } else {
                     throw new AssertionError("Call wasn't in-flight!");
                 }
             }
-            if (runningCallsCount == 0 && runnable != null) {
+            if (!promoteAndExecute() && runnable != null) {
                 runnable.run();
             }
         }
     }
 
-    private void promoteCalls() {
+    private boolean promoteAndExecute() {
+        InterceptResult invokeV;
+        int i;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || this.runningAsyncCalls.size() >= this.maxRequests || this.readyAsyncCalls.isEmpty()) {
-            return;
-        }
-        Iterator<RealCall.AsyncCall> it = this.readyAsyncCalls.iterator();
-        while (it.hasNext()) {
-            RealCall.AsyncCall next = it.next();
-            if (runningCallsForHost(next) < this.maxRequestsPerHost) {
-                it.remove();
-                this.runningAsyncCalls.add(next);
-                executorService().execute(next);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            synchronized (this) {
+                Iterator<RealCall.AsyncCall> it = this.readyAsyncCalls.iterator();
+                while (it.hasNext()) {
+                    RealCall.AsyncCall next = it.next();
+                    if (this.runningAsyncCalls.size() >= this.maxRequests) {
+                        break;
+                    } else if (runningCallsForHost(next) < this.maxRequestsPerHost) {
+                        it.remove();
+                        arrayList.add(next);
+                        this.runningAsyncCalls.add(next);
+                    }
+                }
+                if (runningCallsCount() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
-            if (this.runningAsyncCalls.size() >= this.maxRequests) {
+            int size = arrayList.size();
+            for (i = 0; i < size; i++) {
+                ((RealCall.AsyncCall) arrayList.get(i)).executeOn(executorService());
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private int runningCallsForHost(RealCall.AsyncCall asyncCall) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, asyncCall)) == null) {
+            int i = 0;
+            for (RealCall.AsyncCall asyncCall2 : this.runningAsyncCalls) {
+                if (!asyncCall2.get().forWebSocket && asyncCall2.host().equals(asyncCall.host())) {
+                    i++;
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public void setMaxRequests(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (i >= 1) {
+                synchronized (this) {
+                    this.maxRequests = i;
+                }
+                promoteAndExecute();
                 return;
             }
+            throw new IllegalArgumentException("max < 1: " + i);
+        }
+    }
+
+    public void setMaxRequestsPerHost(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (i >= 1) {
+                synchronized (this) {
+                    this.maxRequestsPerHost = i;
+                }
+                promoteAndExecute();
+                return;
+            }
+            throw new IllegalArgumentException("max < 1: " + i);
         }
     }
 
@@ -186,60 +257,13 @@ public final class Dispatcher {
         }
     }
 
-    private int runningCallsForHost(RealCall.AsyncCall asyncCall) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, asyncCall)) == null) {
-            int i = 0;
-            for (RealCall.AsyncCall asyncCall2 : this.runningAsyncCalls) {
-                if (!asyncCall2.get().forWebSocket && asyncCall2.host().equals(asyncCall.host())) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void enqueue(RealCall.AsyncCall asyncCall) {
+    public void enqueue(RealCall.AsyncCall asyncCall) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, asyncCall) == null) {
             synchronized (this) {
-                if (this.runningAsyncCalls.size() < this.maxRequests && runningCallsForHost(asyncCall) < this.maxRequestsPerHost) {
-                    this.runningAsyncCalls.add(asyncCall);
-                    executorService().execute(asyncCall);
-                } else {
-                    this.readyAsyncCalls.add(asyncCall);
-                }
+                this.readyAsyncCalls.add(asyncCall);
             }
-        }
-    }
-
-    public synchronized void setMaxRequests(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            synchronized (this) {
-                if (i >= 1) {
-                    this.maxRequests = i;
-                    promoteCalls();
-                } else {
-                    throw new IllegalArgumentException("max < 1: " + i);
-                }
-            }
-        }
-    }
-
-    public synchronized void setMaxRequestsPerHost(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            synchronized (this) {
-                if (i >= 1) {
-                    this.maxRequestsPerHost = i;
-                    promoteCalls();
-                } else {
-                    throw new IllegalArgumentException("max < 1: " + i);
-                }
-            }
+            promoteAndExecute();
         }
     }
 
@@ -255,7 +279,7 @@ public final class Dispatcher {
     public void finished(RealCall.AsyncCall asyncCall) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, asyncCall) == null) {
-            finished(this.runningAsyncCalls, asyncCall, true);
+            finished(this.runningAsyncCalls, asyncCall);
         }
     }
 
@@ -271,7 +295,7 @@ public final class Dispatcher {
     public void finished(RealCall realCall) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, realCall) == null) {
-            finished(this.runningSyncCalls, realCall, false);
+            finished(this.runningSyncCalls, realCall);
         }
     }
 

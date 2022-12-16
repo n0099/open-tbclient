@@ -583,14 +583,14 @@ public class PlaybackControlView extends FrameLayout {
         this.showTimeoutMs = 5000;
         this.repeatToggleModes = 0;
         this.showShuffleButton = false;
-        int i4 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027d;
+        int i4 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0281;
         if (attributeSet2 != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, R.styleable.PlaybackControlView, 0, 0);
             try {
                 this.rewindMs = obtainStyledAttributes.getInt(3, this.rewindMs);
                 this.fastForwardMs = obtainStyledAttributes.getInt(1, this.fastForwardMs);
                 this.showTimeoutMs = obtainStyledAttributes.getInt(5, this.showTimeoutMs);
-                i4 = obtainStyledAttributes.getResourceId(0, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027d);
+                i4 = obtainStyledAttributes.getResourceId(0, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0281);
                 this.repeatToggleModes = getRepeatToggleModes(obtainStyledAttributes, this.repeatToggleModes);
                 this.showShuffleButton = obtainStyledAttributes.getBoolean(4, this.showShuffleButton);
             } finally {
@@ -609,60 +609,60 @@ public class PlaybackControlView extends FrameLayout {
         this.controlDispatcher = new com.google.android.exoplayer2.DefaultControlDispatcher();
         LayoutInflater.from(context).inflate(i4, this);
         setDescendantFocusability(262144);
-        this.durationView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090960);
-        this.positionView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090966);
-        TimeBar timeBar = (TimeBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090968);
+        this.durationView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09097a);
+        this.positionView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090980);
+        TimeBar timeBar = (TimeBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090982);
         this.timeBar = timeBar;
         if (timeBar != null) {
             timeBar.addListener(this.componentListener);
         }
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090965);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09097f);
         this.playButton = findViewById;
         if (findViewById != null) {
             findViewById.setOnClickListener(this.componentListener);
         }
-        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090964);
+        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09097e);
         this.pauseButton = findViewById2;
         if (findViewById2 != null) {
             findViewById2.setOnClickListener(this.componentListener);
         }
-        View findViewById3 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090967);
+        View findViewById3 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090981);
         this.previousButton = findViewById3;
         if (findViewById3 != null) {
             findViewById3.setOnClickListener(this.componentListener);
         }
-        View findViewById4 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090962);
+        View findViewById4 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09097c);
         this.nextButton = findViewById4;
         if (findViewById4 != null) {
             findViewById4.setOnClickListener(this.componentListener);
         }
-        View findViewById5 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09096a);
+        View findViewById5 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090984);
         this.rewindButton = findViewById5;
         if (findViewById5 != null) {
             findViewById5.setOnClickListener(this.componentListener);
         }
-        View findViewById6 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090961);
+        View findViewById6 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09097b);
         this.fastForwardButton = findViewById6;
         if (findViewById6 != null) {
             findViewById6.setOnClickListener(this.componentListener);
         }
-        ImageView imageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090969);
+        ImageView imageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090983);
         this.repeatToggleButton = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(this.componentListener);
         }
-        View findViewById7 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09096b);
+        View findViewById7 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090985);
         this.shuffleButton = findViewById7;
         if (findViewById7 != null) {
             findViewById7.setOnClickListener(this.componentListener);
         }
         Resources resources = context.getResources();
-        this.repeatOffButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ef);
-        this.repeatOneButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f0);
-        this.repeatAllButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ee);
-        this.repeatOffButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05ec);
-        this.repeatOneButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05ed);
-        this.repeatAllButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05eb);
+        this.repeatOffButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804fa);
+        this.repeatOneButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804fb);
+        this.repeatAllButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f9);
+        this.repeatOffButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05f3);
+        this.repeatOneButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05f4);
+        this.repeatAllButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05f2);
     }
 
     private void seekTo(long j) {

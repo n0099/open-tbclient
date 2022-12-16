@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,7 +140,7 @@ public class d<T> {
                             if (b3.longValue() > 30) {
                                 z = false;
                                 if (z) {
-                                    a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
+                                    a(1, 201001, "操作频繁请,稍后再试");
                                     return;
                                 }
                                 com.sdk.x.a aVar = new com.sdk.x.a(this.d, new com.sdk.w.a(this, i));

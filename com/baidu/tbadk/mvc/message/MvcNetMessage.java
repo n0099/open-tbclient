@@ -2,15 +2,15 @@ package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.cd5;
+import com.baidu.tieba.td5;
+import com.baidu.tieba.ud5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class MvcNetMessage<T extends bd5, D extends cd5> extends NetMessage {
+public class MvcNetMessage<T extends td5, D extends ud5> extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
@@ -45,7 +45,7 @@ public class MvcNetMessage<T extends bd5, D extends cd5> extends NetMessage {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            return this.requestData.g(z);
+            return this.requestData.h(z);
         }
         return invokeZ.objValue;
     }

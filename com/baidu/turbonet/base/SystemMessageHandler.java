@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ua9;
+import com.baidu.tieba.de9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SystemMessageHandler extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,25 +26,25 @@ public class SystemMessageHandler extends Handler {
 
     private native void nativeDoRunLoopOnce(long j, long j2);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public interface c {
             void a(Message message, boolean z);
         }
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0491a implements c {
+        /* loaded from: classes7.dex */
+        public static class C0508a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Method a;
 
-            public C0491a() {
+            public C0508a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,11 +60,11 @@ public class SystemMessageHandler extends Handler {
                 try {
                     this.a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e) {
-                    ua9.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
+                    de9.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
                 } catch (NoSuchMethodException e2) {
-                    ua9.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e2);
+                    de9.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e2);
                 } catch (RuntimeException e3) {
-                    ua9.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e3);
+                    de9.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e3);
                 }
             }
 
@@ -78,22 +78,22 @@ public class SystemMessageHandler extends Handler {
                 try {
                     method.invoke(message, Boolean.valueOf(z));
                 } catch (IllegalAccessException unused) {
-                    ua9.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
+                    de9.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (IllegalArgumentException unused2) {
-                    ua9.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
+                    de9.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (RuntimeException unused3) {
-                    ua9.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
+                    de9.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (InvocationTargetException unused4) {
-                    ua9.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
+                    de9.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
                     this.a = null;
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class b implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class SystemMessageHandler extends Handler {
             if (Build.VERSION.SDK_INT >= 22) {
                 a = new b();
             } else {
-                a = new C0491a();
+                a = new C0508a();
             }
         }
 

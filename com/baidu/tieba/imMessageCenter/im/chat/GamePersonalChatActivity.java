@@ -14,12 +14,13 @@ import com.baidu.tbadk.core.atomData.GamePersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba7;
+import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,10 +34,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public CustomMessageListener e0;
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean r1(ba7 ba7Var) {
+    public boolean r1(za7 za7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ba7Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, za7Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -140,7 +141,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
                 if (data instanceof HashMap) {
                     HashMap hashMap = (HashMap) data;
                     String str = (String) hashMap.get("key");
-                    if ("add".equalsIgnoreCase((String) hashMap.get("action"))) {
+                    if (StickerDataChangeType.ADD.equalsIgnoreCase((String) hashMap.get("action"))) {
                         this.a.c0.add(str);
                     } else {
                         this.a.c0.remove(str);
@@ -289,13 +290,13 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
             return;
         }
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(getPageContext().getPageActivity());
-        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07b7);
-        tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f037c);
-        tBAlertBuilder.m(true);
-        tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0fc7, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
-        tBAlertBuilder.g();
-        tBAlertBuilder.h(false);
-        tBAlertBuilder.w();
+        tBAlertBuilder.v(R.string.game_back_tip);
+        tBAlertBuilder.m(R.string.cancel_game_match);
+        tBAlertBuilder.o(true);
+        tBAlertBuilder.t(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0501, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0ffe, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+        tBAlertBuilder.i();
+        tBAlertBuilder.j(false);
+        tBAlertBuilder.y();
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback

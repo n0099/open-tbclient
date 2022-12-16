@@ -1,289 +1,314 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64InputStream;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.dialog.WriteTipBubbleController;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public abstract class jb9 implements dc9 {
+/* loaded from: classes5.dex */
+public class jb9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qc9 a;
-    public String b;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final EditorTools b;
+    @Nullable
+    public WriteTipBubbleController c;
+    public final CustomMessageListener d;
+    public final WriteTipBubbleController.b e;
 
-    public abstract nc9 j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jb9 a;
 
-    public abstract nc9 k(String str, byte[] bArr, Map<String, String> map) throws IOException;
+        /* loaded from: classes5.dex */
+        public class a extends ik5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947877672, "Lcom/baidu/tieba/jb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947877672, "Lcom/baidu/tieba/jb9;");
-                return;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ik5
+            public String doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return UtilHelper.getClipBoardContent();
+                }
+                return (String) invokeV.objValue;
             }
         }
-        c = kc9.m();
+
+        /* loaded from: classes5.dex */
+        public class b implements mj5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public b(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.mj5
+            /* renamed from: a */
+            public void onReturnDataInUI(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                    return;
+                }
+                this.a.a.h(str);
+            }
+        }
+
+        public c(jb9 jb9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jb9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a != null) {
+                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                    mk5.b(new a(this), new b(this));
+                    return;
+                }
+                this.a.h(UtilHelper.getClipBoardContent());
+            }
+        }
     }
 
-    public jb9() {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jb9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jb9 jb9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jb9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements WriteTipBubbleController.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jb9 a;
+
+        public b(jb9 jb9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jb9Var;
+        }
+
+        @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
+        public void a(View view2, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, str) != null) || this.a.c == null) {
+                return;
+            }
+            TiebaStatic.log("c13802");
+            this.a.c.c();
+            UtilHelper.clearClipBoard();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.a.getPageActivity(), 25049, str, false, null)));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ jb9 b;
+
+        public d(jb9 jb9Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb9Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jb9Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View s = this.b.b.a.s(31);
+                WriteTipBubbleController writeTipBubbleController = this.b.c;
+                writeTipBubbleController.d(s, this.b.a.getString(R.string.find_new_link) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
+            }
+        }
+    }
+
+    public jb9(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, editorTools};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new qc9();
-        this.b = "";
+        this.d = new a(this, 2001011);
+        this.e = new b(this);
+        this.a = tbPageContext;
+        this.b = editorTools;
     }
 
-    public final HashMap<String, String> c() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>(2);
-            hashMap.put("Content-type", "application/x-www-form-urlencoded");
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dc9
-    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return i(this.b, jSONObject, z, z2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dc9
-    public boolean b(File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return h(this.b, file, j, z, z2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = kc9.k(z);
-            }
-            return this.b;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public final String e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        String c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean isUBCDebug = this.a.isUBCDebug();
-            if (TextUtils.isEmpty(str)) {
-                str = d(isUBCDebug);
-            }
-            if (z2) {
-                c2 = kc9.h(str);
-            } else {
-                c2 = kc9.c(str);
-            }
-            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
-                c2 = qd9.a(c2, "debug", "1");
-            }
-            if (z) {
-                c2 = qd9.a(c2, "reallog", "1");
-            }
-            if (pb9.o().E()) {
-                return qd9.a(c2, "beta", "1");
-            }
-            return c2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final boolean f(nc9 nc9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, nc9Var)) == null) {
-            if (nc9Var == null) {
-                return false;
-            }
-            if (!nc9Var.e()) {
-                if (c) {
-                    Log.d("UploadManager", "postByteRequest, fail: " + nc9Var.d());
-                } else {
-                    mc9.a().i(nc9Var.d(), null);
-                }
-                if (pb9.o().M()) {
-                    g(nc9Var.c());
-                }
-                nc9Var.a();
-                return false;
-            }
-            try {
-                int i = new JSONObject(nc9Var.b()).getInt("error");
-                if (i != 0) {
-                    if (c) {
-                        Log.d("UploadManager", "server error");
-                    }
-                    if (!c) {
-                        mc9.a().k(i);
-                    }
-                }
-            } catch (Exception e) {
-                if (c) {
-                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
-                } else {
-                    mc9.a().j(Log.getStackTraceString(e));
-                }
-            }
-            nc9Var.a();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void g(int i) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean z = true;
-            if (i != 403 && i != 408 && i != 499) {
-                if (i >= 500 && i < 600) {
-                    j = 300000;
-                } else {
-                    z = false;
-                    if (!z) {
-                        pb9.o().Z(currentTimeMillis);
-                        return;
-                    }
-                    return;
-                }
-            } else {
-                j = 60000;
-            }
-            currentTimeMillis += j;
-            if (!z) {
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.post(new c(this));
         }
     }
 
-    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        InputStream inputStream;
+    public void f() {
+        WriteTipBubbleController writeTipBubbleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (file == null || !file.exists()) {
-                return false;
-            }
-            String e = e(str, z, z2);
-            HashMap<String, String> c2 = c();
-            if (rc9.m().p() && j > 0) {
-                c2.put("Content-Length", String.valueOf(j));
-            }
-            InputStream inputStream2 = null;
-            try {
-                inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
-                try {
-                    try {
-                        boolean f = f(j(e, inputStream, c2));
-                        ld9.b(inputStream);
-                        return f;
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (c) {
-                            Log.d("UploadManager", "postByteRequest, Exception: ", e);
-                        } else {
-                            mc9.a().i(null, Log.getStackTraceString(e));
-                        }
-                        ld9.b(inputStream);
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    inputStream2 = inputStream;
-                    ld9.b(inputStream2);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                inputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return invokeCommon.booleanValue;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (writeTipBubbleController = this.c) != null) {
+            writeTipBubbleController.c();
         }
     }
 
-    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        byte[] a;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (jSONObject != null && (a = nd9.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
-                a[0] = 117;
-                a[1] = 123;
-                String e = e(str, z, z2);
-                HashMap<String, String> c2 = c();
-                if (rc9.m().p()) {
-                    c2.put("Content-Length", String.valueOf(a.length));
-                }
-                try {
-                    return f(k(e, a, c2));
-                } catch (IOException e2) {
-                    if (c) {
-                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
-                    } else {
-                        mc9.a().i(null, Log.getStackTraceString(e2));
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.registerListener(this.d);
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public final void h(String str) {
+        View findViewById;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !xi.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
+            int i = 0;
+            TbPageContext<?> tbPageContext = this.a;
+            if (tbPageContext != null && tbPageContext.getPageActivity() != null && (findViewById = this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0926c8)) != null && findViewById.getVisibility() == 0) {
+                i = 5000;
+            }
+            if (this.c == null) {
+                this.c = new WriteTipBubbleController(this.a, this.e);
+            }
+            ah.a().postDelayed(new d(this, str), i);
+        }
     }
 }

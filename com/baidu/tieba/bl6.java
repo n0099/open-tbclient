@@ -1,81 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.view.FrsTopItemInfoView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ItemInfo;
 /* loaded from: classes3.dex */
-public class bl6 implements lk6 {
+public class bl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
+    public FrsTopItemInfoView b;
 
-    public bl6() {
+    public bl6(BaseFragment baseFragment) {
+        FrsViewData frsViewData;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        if (baseFragment == null) {
+            return;
+        }
+        this.a = baseFragment;
+        this.b = new FrsTopItemInfoView(baseFragment.getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        this.b.setLayoutParams(layoutParams);
+        b();
+        BaseFragment baseFragment2 = this.a;
+        if ((baseFragment2 instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) baseFragment2).d) != null && frsViewData.getForum() != null) {
+            ForumData forum = frsViewData.getForum();
+            this.b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
         }
     }
 
-    @Override // com.baidu.tieba.lk6
-    public kn<? extends xu4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            return new tn6(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (kn) invokeLLZ.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lk6
-    public hj6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void b() {
+        FrsTopItemInfoView frsTopItemInfoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            return new wr6(tbPageContext, bdUniqueId, bdUniqueId2);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frsTopItemInfoView = this.b) != null) {
+            frsTopItemInfoView.e();
         }
-        return (hj6) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lk6
-    public kn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void c(ItemInfo itemInfo) {
+        FrsTopItemInfoView frsTopItemInfoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
-                return new wm6(tbPageContext, bdUniqueId, bdUniqueId2);
-            }
-            throw new IllegalArgumentException("Unsupported adapter type.");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) && (frsTopItemInfoView = this.b) != null) {
+            frsTopItemInfoView.setData(itemInfo);
         }
-        return (kn) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lk6
-    public kn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == oo8.d) {
-                return new um6(tbPageContext, bdUniqueId, z);
-            }
-            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
-                return new un6(tbPageContext, bdUniqueId, bdUniqueId2, z);
-            }
-            throw new IllegalArgumentException("Unsupported adapter type.");
-        }
-        return (kn) invokeCommon.objValue;
     }
 }

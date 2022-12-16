@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xo implements dr8 {
+public class xo implements cu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public oj a;
@@ -75,7 +75,7 @@ public class xo implements dr8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     xo xoVar = this.a.c;
-                    xoVar.a.onShowErr(4, xoVar.g.getString(R.string.obfuscated_res_0x7f0f15cd));
+                    xoVar.a.onShowErr(4, xoVar.g.getString(R.string.obfuscated_res_0x7f0f1608));
                     qj.a = 1;
                 }
             }
@@ -83,13 +83,13 @@ public class xo implements dr8 {
 
         /* renamed from: com.baidu.tieba.xo$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0474b implements Runnable {
+        public class RunnableC0486b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0474b(b bVar, String str) {
+            public RunnableC0486b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,13 +143,13 @@ public class xo implements dr8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = a15.c(y05.d(this.a)).a;
+                String d = a15.c(y05.d(this.a)).d();
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
-                    if (StringUtils.isNull(str)) {
+                    if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0474b(this, str));
+                        this.c.b.post(new RunnableC0486b(this, d));
                     }
                 }
             }
@@ -280,7 +280,7 @@ public class xo implements dr8 {
                         return;
                     }
                     if (i <= 1000) {
-                        ojVar.onShowErr(2, qj.a(R.string.voice_record_short_tip));
+                        ojVar.onShowErr(2, qj.a(R.string.obfuscated_res_0x7f0f160d));
                         FieldBuilder fieldBuilder = new FieldBuilder();
                         fieldBuilder.append("file", str);
                         fieldBuilder.append("dur", Integer.valueOf(i));
@@ -337,11 +337,14 @@ public class xo implements dr8 {
                         this.a.c = null;
                         if (this.a.d == mj.b) {
                             xo xoVar3 = this.a;
-                            xoVar3.a.onShowErr(3, xoVar3.g.getString(R.string.voice_record_timeout_sixty_tip));
-                            return;
+                            xoVar3.a.onShowErr(3, xoVar3.g.getString(R.string.obfuscated_res_0x7f0f160f));
+                        } else if (this.a.d == mj.c) {
+                            xo xoVar4 = this.a;
+                            xoVar4.a.onShowErr(3, xoVar4.g.getString(R.string.obfuscated_res_0x7f0f160e));
+                        } else {
+                            xo xoVar5 = this.a;
+                            xoVar5.a.onShowErr(3, xoVar5.g.getString(R.string.obfuscated_res_0x7f0f1610));
                         }
-                        xo xoVar4 = this.a;
-                        xoVar4.a.onShowErr(3, xoVar4.g.getString(R.string.voice_record_timeout_tip));
                     }
                 } else {
                     qj.a = 1;
@@ -380,7 +383,7 @@ public class xo implements dr8 {
         return (xo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -388,7 +391,7 @@ public class xo implements dr8 {
         }
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -408,7 +411,7 @@ public class xo implements dr8 {
         }
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -441,7 +444,7 @@ public class xo implements dr8 {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -460,7 +463,7 @@ public class xo implements dr8 {
         }
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -468,7 +471,7 @@ public class xo implements dr8 {
         }
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -486,7 +489,7 @@ public class xo implements dr8 {
         }
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -495,7 +498,7 @@ public class xo implements dr8 {
         }
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public void e(oj ojVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, ojVar) == null) {
@@ -518,7 +521,7 @@ public class xo implements dr8 {
         }
     }
 
-    @Override // com.baidu.tieba.dr8
+    @Override // com.baidu.tieba.cu8
     public boolean c(oj ojVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -531,7 +534,7 @@ public class xo implements dr8 {
             if (!FileHelper.checkSD()) {
                 String sdErrorString = FileHelper.getSdErrorString();
                 if (sdErrorString == null) {
-                    sdErrorString = qj.a(R.string.obfuscated_res_0x7f0f15ce);
+                    sdErrorString = qj.a(R.string.voice_error_sdcard);
                 }
                 this.a.onShowErr(0, sdErrorString);
                 return false;
@@ -547,7 +550,7 @@ public class xo implements dr8 {
             p();
             boolean g = to.g(c2, i, this.e);
             if (g) {
-                this.a.onStartedRecorder(true);
+                this.a.onStartedRecorder(true, this.d);
                 qj.a = 2;
             } else {
                 qj.a = 1;
@@ -555,7 +558,7 @@ public class xo implements dr8 {
                 FieldBuilder fieldBuilder = new FieldBuilder();
                 fieldBuilder.append("voiceType", Integer.valueOf(i));
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_START, "onTouch-getBtnMsgsendVoice: user click too often", fieldBuilder.toString());
-                this.a.onStartedRecorder(false);
+                this.a.onStartedRecorder(false, this.d);
             }
             return g;
         }

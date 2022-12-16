@@ -1,7 +1,7 @@
 package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface ISailorDownloadListener extends INoProGuard {
     void onDownloadFlash(String str);
 

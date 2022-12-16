@@ -20,17 +20,17 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f874a;
+    public Context f897a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f875a;
+    public final Object f898a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f876a;
+    public final String f899a;
     public final Object b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final String f877b;
+    public final String f900b;
     public final String c;
     public final String d;
     public volatile String e;
@@ -51,13 +51,13 @@ public class a {
                 return;
             }
         }
-        this.f875a = new Object();
+        this.f898a = new Object();
         this.b = new Object();
-        this.f876a = "mipush_region";
-        this.f877b = "mipush_country_code";
+        this.f899a = "mipush_region";
+        this.f900b = "mipush_country_code";
         this.c = "mipush_region.lock";
         this.d = "mipush_country_code.lock";
-        this.f874a = context;
+        this.f897a = context;
     }
 
     public static a a(Context context) {
@@ -87,13 +87,13 @@ public class a {
         File file = new File(context.getFilesDir(), str);
         FileLock fileLock2 = null;
         if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m89a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m99a("No ready file to get data from " + str);
             return null;
         }
         synchronized (obj) {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
-                com.xiaomi.push.ab.m161a(file2);
+                com.xiaomi.push.ab.m171a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -184,7 +184,7 @@ public class a {
                     try {
                         try {
                             File file = new File(context.getFilesDir(), (String) str3);
-                            com.xiaomi.push.ab.m161a(file);
+                            com.xiaomi.push.ab.m171a(file);
                             randomAccessFile = new RandomAccessFile(file, "rw");
                             try {
                                 fileLock = randomAccessFile.getChannel().lock();
@@ -257,7 +257,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (TextUtils.isEmpty(this.e)) {
-                this.e = a(this.f874a, "mipush_region", "mipush_region.lock", this.f875a);
+                this.e = a(this.f897a, "mipush_region", "mipush_region.lock", this.f898a);
             }
             return this.e;
         }
@@ -270,7 +270,7 @@ public class a {
             return;
         }
         this.e = str;
-        a(this.f874a, this.e, "mipush_region", "mipush_region.lock", this.f875a);
+        a(this.f897a, this.e, "mipush_region", "mipush_region.lock", this.f898a);
     }
 
     public String b() {
@@ -278,7 +278,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (TextUtils.isEmpty(this.f)) {
-                this.f = a(this.f874a, "mipush_country_code", "mipush_country_code.lock", this.b);
+                this.f = a(this.f897a, "mipush_country_code", "mipush_country_code.lock", this.b);
             }
             return this.f;
         }
@@ -291,6 +291,6 @@ public class a {
             return;
         }
         this.f = str;
-        a(this.f874a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
+        a(this.f897a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
     }
 }

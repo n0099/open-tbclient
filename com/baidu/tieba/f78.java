@@ -1,77 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes4.dex */
-public class f78 extends kn<a88, CardViewHolder<s88>> {
+public class f78 implements e78, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public m46<a88> b;
+    public String a;
+    public int b;
+    public int c;
+    public ArrayList<PreLoadImageInfo> d;
+    public String e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f78(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    @Override // com.baidu.tieba.e78
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    public f78(ExcContent excContent) {
+        Long l;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
+            this.d = new ArrayList<>(1);
+            this.a = excContent.src;
+            String str = excContent.bsize;
+            this.e = str;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    this.b = xg.e(split[0], 0);
+                    this.c = xg.e(split[1], 0);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (this.b <= 0) {
+                this.b = 1;
+            }
+            if (this.c <= 0) {
+                this.c = 1;
+            }
+            String str2 = excContent.cdn_src;
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.procType = 17;
+            preLoadImageInfo.height = this.c;
+            preLoadImageInfo.width = this.b;
+            if (StringUtils.isNull(str2)) {
+                preLoadImageInfo.imgUrl = this.a;
+            } else {
+                preLoadImageInfo.imgUrl = str2;
+            }
+            this.d.add(preLoadImageInfo);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<s88> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            s88 s88Var = new s88(this.a);
-            s88Var.n(this.b);
-            return new CardViewHolder<>(s88Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 0) {
+                return 0;
+            }
+            return (i * this.c) / this.b;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeI.intValue;
     }
 
-    public void u(m46<a88> m46Var) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
-            this.b = m46Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a88 a88Var, CardViewHolder<s88> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a88Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(a88Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return (View) invokeCommon.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 }

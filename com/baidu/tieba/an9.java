@@ -1,21 +1,33 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface an9 {
-    void a();
+public class an9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(int i, String str);
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return b();
+        }
+        return invokeV.booleanValue;
+    }
 
-    void a(boolean z, int i, String... strArr);
-
-    void b();
-
-    void b(RippedAd rippedAd, String... strArr);
-
-    void c();
-
-    void c(int i, String str);
-
-    void d(RippedAd rippedAd, String... strArr);
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.MODEL;
+            if (gn9.a(str)) {
+                return false;
+            }
+            return str.equalsIgnoreCase("OPPO R9sk");
+        }
+        return invokeV.booleanValue;
+    }
 }

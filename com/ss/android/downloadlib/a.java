@@ -13,7 +13,6 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.ss.android.downloadlib.addownload.b.d;
 import com.ss.android.downloadlib.addownload.b.i;
 import com.ss.android.downloadlib.addownload.j;
@@ -35,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0677a, ag {
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0694a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
@@ -44,10 +43,10 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0677
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC0660a implements Runnable {
+    public class RunnableC0677a implements Runnable {
         public final int b;
 
-        public RunnableC0660a(int i) {
+        public RunnableC0677a(int i) {
             this.b = i;
         }
 
@@ -258,14 +257,14 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0677
         return d;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0694a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
         a(5);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0694a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
@@ -863,13 +862,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0677
             return;
         }
         d a2 = d.a();
-        RunnableC0660a runnableC0660a = new RunnableC0660a(i);
+        RunnableC0677a runnableC0677a = new RunnableC0677a(i);
         if (this.b > 0) {
             j = 2000;
         } else {
             j = 8000;
         }
-        a2.a(runnableC0660a, j);
+        a2.a(runnableC0677a, j);
         this.b = currentTimeMillis;
     }
 
@@ -1005,9 +1004,9 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0677
                         if (intent != null) {
                             downloadInfo.getTempCacheData().remove(IntentData.KEY);
                             com.ss.android.socialbase.appdownloader.c.a(j.getContext(), intent);
-                            l.a(jSONObject, UnitedSchemeConstants.UNITED_SCHEME_BACKUP, (Object) 1);
+                            l.a(jSONObject, "backup", (Object) 1);
                         } else {
-                            l.a(jSONObject, UnitedSchemeConstants.UNITED_SCHEME_BACKUP, (Object) 2);
+                            l.a(jSONObject, "backup", (Object) 2);
                         }
                     }
                     com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);

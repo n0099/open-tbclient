@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -95,37 +94,58 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
             this.this$0 = iMSetNickNameRequest;
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:23:0x00d5  */
+        /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public void run() {
             int i;
+            IMListener removeListener;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str2 = "";
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");
-                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    if (i == 0) {
-                        int updateMemberNickName = GroupInfoDAOImpl.updateMemberNickName(this.this$0.mContext, this.this$0.mGroupId, String.valueOf(this.this$0.mBuid), this.this$0.mNickName);
-                        if (updateMemberNickName < 0) {
-                            String str2 = IMSetNickNameRequest.TAG;
-                            LogUtils.d(str2, "updateMemberNickName error " + updateMemberNickName);
-                            str = "update local db error";
-                            i = updateMemberNickName;
-                        } else {
-                            String str3 = IMSetNickNameRequest.TAG;
-                            LogUtils.d(str3, "updateMemberNickName successful " + updateMemberNickName);
-                        }
+                    if (!jSONObject.has("tips")) {
+                        str = "";
+                    } else {
+                        str = jSONObject.optString("tips");
+                        String str3 = IMSetNickNameRequest.TAG;
+                        LogUtils.d(str3, "tips:" + str);
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                        String str4 = IMSetNickNameRequest.TAG;
+                        LogUtils.d(str4, "resultMsg:" + str);
                     }
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMSetNickNameRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
-                IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
-                if (removeListener instanceof BIMValueCallBack) {
-                    ((BIMValueCallBack) removeListener).onResult(i, str, this.this$0.mGroupId);
+                if (i == 0) {
+                    int updateMemberNickName = GroupInfoDAOImpl.updateMemberNickName(this.this$0.mContext, this.this$0.mGroupId, String.valueOf(this.this$0.mBuid), this.this$0.mNickName);
+                    if (updateMemberNickName < 0) {
+                        String str5 = IMSetNickNameRequest.TAG;
+                        LogUtils.d(str5, "updateMemberNickName error " + updateMemberNickName);
+                        str2 = "update local db error";
+                        i = updateMemberNickName;
+                        removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
+                        if (!(removeListener instanceof BIMValueCallBack)) {
+                            ((BIMValueCallBack) removeListener).onResult(i, str2, this.this$0.mGroupId);
+                            return;
+                        }
+                        return;
+                    }
+                    String str6 = IMSetNickNameRequest.TAG;
+                    LogUtils.d(str6, "updateMemberNickName successful " + updateMemberNickName);
+                }
+                str2 = str;
+                removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
+                if (!(removeListener instanceof BIMValueCallBack)) {
                 }
             }
         }
@@ -171,7 +191,7 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     private String getFansGroupRequestParam() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             return "method=set_member_name&group_id=" + this.mGroupId + "&member_name=" + this.mNickName + getCommonParams();
         }
         return (String) invokeV.objValue;
@@ -180,7 +200,7 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     private String getNormalGroupRequestParam() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             return "method=set_member_name&appid=" + this.mAppid + "&group_id=" + this.mGroupId + "&member_id=" + this.mBuid + "&name=" + this.mNickName + "&timestamp=" + currentTimeMillis + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid);

@@ -9,7 +9,7 @@ import java.util.Map;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

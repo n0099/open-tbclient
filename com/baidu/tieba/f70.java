@@ -5,5 +5,5 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes4.dex */
 public interface f70 {
-    HttpURLConnection a(URL url) throws IOException;
+    HttpURLConnection openHttpURLConnection(URL url) throws IOException;
 }

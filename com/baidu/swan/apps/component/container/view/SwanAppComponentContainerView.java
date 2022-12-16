@@ -12,11 +12,11 @@ import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f12;
-import com.baidu.tieba.n02;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.vz1;
-import com.baidu.tieba.y02;
+import com.baidu.tieba.e12;
+import com.baidu.tieba.m02;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.uz1;
+import com.baidu.tieba.x02;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public vz1 b;
+    public uz1 b;
     public Path c;
     public ScrollView d;
 
@@ -47,7 +47,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
                 return;
             }
         }
-        e = pk1.a;
+        e = ok1.a;
     }
 
     public ScrollView getScrollView() {
@@ -84,20 +84,20 @@ public class SwanAppComponentContainerView extends FrameLayout {
         Path path;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && Build.VERSION.SDK_INT >= 21 && (path = this.c) != null && this.a != null) {
-            vz1 vz1Var = this.b;
-            if (vz1Var instanceof n02) {
-                n02 n02Var = (n02) vz1Var;
-                if (n02Var.n > 0) {
+            uz1 uz1Var = this.b;
+            if (uz1Var instanceof m02) {
+                m02 m02Var = (m02) uz1Var;
+                if (m02Var.n > 0) {
                     path.reset();
                     Path path2 = this.c;
                     float left = this.a.getLeft();
                     float top = this.a.getTop();
                     float right = this.a.getRight();
                     float bottom = this.a.getBottom();
-                    int i = n02Var.n;
+                    int i = m02Var.n;
                     path2.addRoundRect(left, top, right, bottom, i, i, Path.Direction.CW);
                     if (e) {
-                        Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + n02Var.n);
+                        Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + m02Var.n);
                     }
                     canvas.save();
                     canvas.clipPath(this.c);
@@ -134,10 +134,10 @@ public class SwanAppComponentContainerView extends FrameLayout {
         }
     }
 
-    public void setModel(@NonNull vz1 vz1Var) {
+    public void setModel(@NonNull uz1 uz1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vz1Var) == null) {
-            this.b = vz1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uz1Var) == null) {
+            this.b = uz1Var;
         }
     }
 
@@ -159,14 +159,14 @@ public class SwanAppComponentContainerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
             if (this.a == view2) {
-                f12.o("Component-ContainerView", "repeat setTargetView with the same view");
+                e12.o("Component-ContainerView", "repeat setTargetView with the same view");
                 return;
             }
             if (this.c == null) {
                 this.c = new Path();
             }
             if (this.a != null) {
-                y02.a("Component-ContainerView", "repeat setTargetView with the different view");
+                x02.a("Component-ContainerView", "repeat setTargetView with the different view");
                 removeView(this.a);
             }
             this.a = view2;

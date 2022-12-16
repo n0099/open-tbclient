@@ -44,19 +44,19 @@ public class x0<T> {
     public void b(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            w0<T>[] p = this.a.p();
+            w0<T>[] o = this.a.o();
             int i = this.a.b;
             for (int i2 = 0; i2 < i; i2++) {
-                p[i2].a(this, t);
+                o[i2].a(this, t);
             }
-            this.a.q();
+            this.a.p();
         }
     }
 
     public void c(w0<T> w0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w0Var) == null) {
-            this.a.j(w0Var, true);
+            this.a.i(w0Var, true);
         }
     }
 }

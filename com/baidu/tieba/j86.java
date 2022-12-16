@@ -1,63 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public class j86 implements i86 {
+/* loaded from: classes5.dex */
+public final class j86 extends g86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
 
-    @Override // com.baidu.tieba.i86
-    public void a(u66 item, long j, u86 displayer, o66 config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-        }
-    }
-
-    @Override // com.baidu.tieba.i86
-    public void b(u66 item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-        }
-    }
-
-    @Override // com.baidu.tieba.i86
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.i86
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.i86
-    public boolean d(u66 item, long j, u86 displayer, o66 config) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j86() {
+        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,9 +22,35 @@ public class j86 implements i86 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.g86
+    public boolean b(p76 item, s96 timer, j76 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            q76 e = item.e();
+            if (e.i() == 0) {
+                return false;
+            }
+            if (this.b) {
+                if (e.i() != 1) {
+                    return false;
+                }
+            } else if (e.i() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

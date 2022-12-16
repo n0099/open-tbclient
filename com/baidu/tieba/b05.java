@@ -130,7 +130,7 @@ public class b05 {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Intent) {
                     Intent intent = (Intent) data;
-                    String g = ba5.g(intent);
+                    String g = ca5.g(intent);
                     if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
                         if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
                             return;

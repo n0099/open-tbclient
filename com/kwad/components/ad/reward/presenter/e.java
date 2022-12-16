@@ -21,18 +21,18 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static long pD;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         boolean bJ();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b extends a {
         void bI();
     }

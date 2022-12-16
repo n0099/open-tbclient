@@ -255,7 +255,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public void setParamIsVertail(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && getIntent() != null) {
-            getIntent().putExtra("is_vertail", z);
+            getIntent().putExtra(PARAM_IS_VERTAIL, z);
         }
     }
 

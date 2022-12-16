@@ -33,7 +33,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -450,7 +450,7 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             int i = this.bH;
-            String str = i == -1 ? "timeout" : i != 1 ? "h5error" : AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
+            String str = i == -1 ? com.alipay.sdk.data.a.O : i != 1 ? "h5error" : AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
             com.kwad.sdk.core.e.b.w("RewardActionBarWeb", "show webCard fail, reason: " + str);
         }
     }
@@ -667,8 +667,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091157);
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091086);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911b6);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e8);
         }
     }
 

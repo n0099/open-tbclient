@@ -1,115 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
-public class n48 implements m48, PreLoadImageProvider {
-    public static /* synthetic */ Interceptable $ic;
+public class n48 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 1;
+    public static int c = 2;
+    public static int d = 1;
+    public static int e = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public ArrayList<PreLoadImageInfo> d;
-    public String e;
 
-    @Override // com.baidu.tieba.m48
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947952599, "Lcom/baidu/tieba/n48;")) == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public n48(ExcContent excContent) {
-        Long l;
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
-            this.d = new ArrayList<>(1);
-            this.a = excContent.src;
-            String str = excContent.bsize;
-            this.e = str;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.b = xg.e(split[0], 0);
-                    this.c = xg.e(split[1], 0);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.b <= 0) {
-                this.b = 1;
-            }
-            if (this.c <= 0) {
-                this.c = 1;
-            }
-            String str2 = excContent.cdn_src;
-            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-            preLoadImageInfo.procType = 17;
-            preLoadImageInfo.height = this.c;
-            preLoadImageInfo.width = this.b;
-            if (StringUtils.isNull(str2)) {
-                preLoadImageInfo.imgUrl = this.a;
-            } else {
-                preLoadImageInfo.imgUrl = str2;
-            }
-            this.d.add(preLoadImageInfo);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947952599, "Lcom/baidu/tieba/n48;");
         }
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
+    public static void a(int i, String str, int i2, int i3, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i <= 0) {
-                return 0;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("tid", str);
+            statisticItem.param("obj_locate", i2);
+            statisticItem.param("obj_source", i3);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str3);
+            if (i3 == d) {
+                statisticItem.param("obj_name", str2);
             }
-            return (i * this.c) / this.b;
+            TiebaStatic.log(statisticItem);
         }
-        return invokeI.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (ArrayList) invokeV.objValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,9 +11,51 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m52 extends g52<JSONObject, fw1> {
+public class m52 extends f52<JSONObject, ew1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements g52 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.g52
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d52 d52Var = new d52();
+                d52Var.g(this.a);
+                d52Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
+            }
+        }
+
+        public static g52 b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                aVar.a = str;
+                return aVar;
+            }
+            return (g52) invokeL.objValue;
+        }
+    }
 
     public m52() {
         Interceptable interceptable = $ic;
@@ -29,30 +72,30 @@ public class m52 extends g52<JSONObject, fw1> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k52
+    @Override // com.baidu.tieba.j52
     @NonNull
     /* renamed from: c */
-    public fw1 a(@NonNull JSONObject jSONObject) {
+    public ew1 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             if (jSONObject == null) {
-                return new fw1(202);
+                return new ew1(202);
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                return new fw1(202, "data is required");
+                return new ew1(202, "data is required");
             }
-            String optString = optJSONObject.optString("content");
-            String optString2 = optJSONObject.optString("type");
-            String optString3 = optJSONObject.optString("source");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
-                f12.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
-                k42.d().e(i42.a(optString2, optString, optString3));
-                return new fw1(0);
+            String optString = optJSONObject.optString("path");
+            if (TextUtils.isEmpty(optString)) {
+                return new ew1(202, "path is required");
             }
-            return new fw1(202);
+            t42 b = t42.b();
+            if (!b.d()) {
+                b.g(a.b(optString));
+            }
+            return new ew1(0);
         }
-        return (fw1) invokeL.objValue;
+        return (ew1) invokeL.objValue;
     }
 }

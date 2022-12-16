@@ -1,19 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class lf2 {
+/* loaded from: classes5.dex */
+public class lf2 extends of2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public String c;
-    @Nullable
-    public String d;
+
+    @Override // com.baidu.tieba.nf2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "key_cur_preset_apps_extension_core_ver" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nf2
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "key_cur_preset_apps_extension_core_ver_name" : (String) invokeV.objValue;
+    }
 
     public lf2() {
         Interceptable interceptable = $ic;

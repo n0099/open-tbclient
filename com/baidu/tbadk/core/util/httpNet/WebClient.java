@@ -16,8 +16,8 @@ import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.fj;
-import com.baidu.tieba.qy4;
 import com.baidu.tieba.rg;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -336,7 +336,7 @@ public class WebClient implements rg.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (qy4.k().l("image_no_cache_switch", 0) != 1) {
+            if (ry4.l().m("image_no_cache_switch", 0) != 1) {
                 return true;
             }
             return this.needCache;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.m.i;
 import com.kwad.sdk.api.core.fragment.KsFragment;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends KsFragment implements com.kwad.sdk.g.kwai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -23,7 +23,6 @@ import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class Decoder {
@@ -180,7 +179,7 @@ public final class Decoder {
         UPPER_TABLE = new String[]{"CTRL_PS", " ", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "B", "C", "D", ExifInterface.LONGITUDE_EAST, "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "U", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
         LOWER_TABLE = new String[]{"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", Config.DEVICE_WIDTH, "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
         MIXED_TABLE = new String[]{"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", IStringUtil.WINDOWS_FOLDER_SEPARATOR, "^", "_", "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
-        PUNCT_TABLE = new String[]{"", "\r", "\r\n", ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ParamableElem.DIVIDE_PARAM, "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, "{", "}", "CTRL_UL"};
+        PUNCT_TABLE = new String[]{"", "\r", "\r\n", ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, "{", "}", "CTRL_UL"};
         DIGIT_TABLE = new String[]{"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "CTRL_UL", "CTRL_US"};
     }
 

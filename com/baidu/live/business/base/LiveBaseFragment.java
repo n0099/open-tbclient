@@ -17,7 +17,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.ub0;
+import com.baidu.tieba.tb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,9 +78,9 @@ public abstract class LiveBaseFragment extends Fragment {
         void onTabPageShowLog(String str, String str2);
     }
 
-    public abstract RecyclerView r1();
+    public abstract void B1(boolean z);
 
-    public abstract void u1(boolean z);
+    public abstract RecyclerView y1();
 
     public LiveBaseFragment() {
         Interceptable interceptable = $ic;
@@ -105,106 +105,24 @@ public abstract class LiveBaseFragment extends Fragment {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            t1(null);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            A1(null);
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
             this.b = null;
-            ub0.a().e(this);
+            tb0.a().e(this);
         }
     }
 
-    public void A1(String str) {
+    public void A1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void B1(LiveFeedConfig liveFeedConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFeedConfig) == null) {
-            this.c = liveFeedConfig;
-        }
-    }
-
-    public void C1(LiveFeedReserveWrapData liveFeedReserveWrapData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveFeedReserveWrapData) == null) {
-            this.d = liveFeedReserveWrapData;
-        }
-    }
-
-    public void D1(LiveFeedWrapData liveFeedWrapData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, liveFeedWrapData) == null) {
-            this.b = liveFeedWrapData;
-        }
-    }
-
-    public void E1(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.r = aVar;
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onCreate(bundle);
-        }
-    }
-
-    public void v1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            u1(z);
-        }
-    }
-
-    public int q1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RecyclerView.LayoutManager layoutManager = r1().getLayoutManager();
-            if (layoutManager instanceof LinearLayoutManager) {
-                return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
-            }
-            if (!(layoutManager instanceof StaggeredGridLayoutManager)) {
-                return 0;
-            }
-            int[] findLastVisibleItemPositions = ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(null);
-            return Math.max(findLastVisibleItemPositions[0], findLastVisibleItemPositions[1]);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean s1(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, str, str2, i)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            return (str + "_" + str2 + "_" + i).equals(this.q);
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public void t1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, onLoadMoreListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, onLoadMoreListener) == null) {
             this.s = onLoadMoreListener;
             this.p = 1;
             String str = this.q;
@@ -221,10 +139,60 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public boolean x1() {
+    public void C1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            B1(z);
+        }
+    }
+
+    public void G1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void H1(LiveFeedConfig liveFeedConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, liveFeedConfig) == null) {
+            this.c = liveFeedConfig;
+        }
+    }
+
+    public void I1(LiveFeedReserveWrapData liveFeedReserveWrapData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, liveFeedReserveWrapData) == null) {
+            this.d = liveFeedReserveWrapData;
+        }
+    }
+
+    public void J1(LiveFeedWrapData liveFeedWrapData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, liveFeedWrapData) == null) {
+            this.b = liveFeedWrapData;
+        }
+    }
+
+    public void K1(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.r = aVar;
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onCreate(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+            super.onCreate(bundle);
+        }
+    }
+
+    public boolean D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             this.p = 0;
             String str = this.q;
             if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -243,10 +211,10 @@ public abstract class LiveBaseFragment extends Fragment {
         return invokeV.booleanValue;
     }
 
-    public boolean y1() {
+    public boolean E1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             this.p = 0;
             String str = this.q;
             if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -265,10 +233,10 @@ public abstract class LiveBaseFragment extends Fragment {
         return invokeV.booleanValue;
     }
 
-    public boolean z1() {
+    public boolean F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             this.p = 0;
             String str = this.q;
             if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -285,5 +253,37 @@ public abstract class LiveBaseFragment extends Fragment {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public int x1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            RecyclerView.LayoutManager layoutManager = y1().getLayoutManager();
+            if (layoutManager instanceof LinearLayoutManager) {
+                return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
+            }
+            if (!(layoutManager instanceof StaggeredGridLayoutManager)) {
+                return 0;
+            }
+            int[] findLastVisibleItemPositions = ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(null);
+            return Math.max(findLastVisibleItemPositions[0], findLastVisibleItemPositions[1]);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean z1(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, str, str2, i)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            return (str + "_" + str2 + "_" + i).equals(this.q);
+        }
+        return invokeLLI.booleanValue;
     }
 }

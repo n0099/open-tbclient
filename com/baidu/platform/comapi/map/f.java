@@ -45,7 +45,7 @@ public class f implements ah {
     public aq f;
     public boolean g;
     public e h;
-    public InterfaceC0128f i;
+    public InterfaceC0142f i;
     public g j;
     public k k;
     public int l;
@@ -59,7 +59,7 @@ public class f implements ah {
 
     /* renamed from: com.baidu.platform.comapi.map.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0128f {
+    public interface InterfaceC0142f {
         EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
@@ -252,7 +252,7 @@ public class f implements ah {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements InterfaceC0128f {
+    public class c implements InterfaceC0142f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
@@ -281,7 +281,7 @@ public class f implements ah {
             this(fVar);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0128f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0142f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public class f implements ah {
             return (EGLContext) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0128f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0142f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, egl10, eGLDisplay, eGLContext) == null) && !egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
@@ -1614,11 +1614,11 @@ public class f implements ah {
         }
     }
 
-    public void a(InterfaceC0128f interfaceC0128f) {
+    public void a(InterfaceC0142f interfaceC0142f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0128f) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0142f) == null) {
             n();
-            this.i = interfaceC0128f;
+            this.i = interfaceC0142f;
         }
     }
 

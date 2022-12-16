@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class aw5 {
+public class aw5 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<SdkLiveInfoData> a;
 
     public aw5() {
         Interceptable interceptable = $ic;
@@ -28,19 +27,15 @@ public class aw5 {
         }
     }
 
-    public void a(JSONObject jSONObject, String str) {
-        JSONArray optJSONArray;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("live_list")) != null && optJSONArray.length() > 0) {
-            this.a = new ArrayList<>(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                    sdkLiveInfoData.fromJson(optJSONObject, str);
-                    this.a.add(sdkLiveInfoData);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("result", bw5.b(AppRuntime.getAppContext()));
+            return bundle2;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

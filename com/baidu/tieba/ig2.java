@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,17 +8,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public class ig2 {
+public class ig2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, jg2> a;
+    public final jg2 a;
+    public final Runnable b;
+    public String c;
+    public String[] d;
+    public AtomicBoolean e;
+    public List<ig2> f;
 
-    public ig2() {
+    public ig2(jg2 jg2Var, Runnable runnable, String str, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jg2Var, runnable, str, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,58 +37,93 @@ public class ig2 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.e = new AtomicBoolean(false);
+        this.f = Collections.synchronizedList(new ArrayList());
+        this.a = jg2Var;
+        this.b = runnable;
+        this.c = str;
+        this.d = strArr;
     }
 
-    public void b() {
+    public void a(ig2 ig2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ig2Var) == null) && !this.f.contains(ig2Var)) {
+            this.f.add(ig2Var);
         }
     }
 
-    public void a(jg2 jg2Var, String... strArr) {
+    public void g(ig2 ig2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jg2Var, strArr) == null) && strArr != null && strArr.length != 0) {
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.a.put(str, jg2Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, ig2Var) == null) {
+            this.f.remove(ig2Var);
         }
     }
 
-    public ArrayList<jg2> c(String... strArr) {
-        InterceptResult invokeL;
+    public String[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            ArrayList<jg2> arrayList = null;
-            if (strArr != null && strArr.length != 0) {
-                for (String str : strArr) {
-                    if (!TextUtils.isEmpty(str)) {
-                        for (String str2 : this.a.keySet()) {
-                            if (str2.startsWith(str) || str.startsWith(str2)) {
-                                if (arrayList == null) {
-                                    arrayList = new ArrayList<>();
-                                }
-                                arrayList.add(this.a.get(str2));
-                            }
-                        }
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (ArrayList) invokeL.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public void d(jg2 jg2Var, String... strArr) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, jg2Var, strArr) == null) && strArr != null && strArr.length != 0) {
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.a.get(str) == jg2Var) {
-                    this.a.remove(str);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            yg3.k(this, this.c);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.run();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.set(true);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                h();
+            } finally {
+                this.a.g(this);
             }
         }
     }

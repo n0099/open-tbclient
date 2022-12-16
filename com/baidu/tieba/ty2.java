@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ty2 implements xy2 {
+public class ty2 implements wy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
 
-    @Override // com.baidu.tieba.xy2
+    @Override // com.baidu.tieba.wy2
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageSwitchCost" : (String) invokeV.objValue;
     }
 
     public ty2() {
@@ -37,7 +37,7 @@ public class ty2 implements xy2 {
         this.b = -1L;
     }
 
-    @Override // com.baidu.tieba.xy2
+    @Override // com.baidu.tieba.wy2
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class ty2 implements xy2 {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.xy2
+    @Override // com.baidu.tieba.wy2
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -63,7 +63,7 @@ public class ty2 implements xy2 {
         }
     }
 
-    @Override // com.baidu.tieba.xy2
+    @Override // com.baidu.tieba.wy2
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {

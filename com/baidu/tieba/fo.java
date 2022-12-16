@@ -50,7 +50,7 @@ public class fo extends kn<go, NoDataItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new NoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0076, viewGroup, false));
+            return new NoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false));
         }
         return (NoDataItemViewHolder) invokeL.objValue;
     }

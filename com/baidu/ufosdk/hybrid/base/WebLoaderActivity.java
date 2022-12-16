@@ -43,7 +43,7 @@ import com.baidu.ufosdk.p1;
 import com.baidu.ufosdk.s1;
 import com.baidu.ufosdk.ui.BdShimmerView;
 import java.util.Timer;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WebLoaderActivity extends FeedbackBrowserActivity implements View.OnClickListener, o1.a, i, j, k.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
     public o1 y;
     public Timer z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                 if (p1.e(this) && webView != null && !TextUtils.isEmpty(webView.getUrl())) {
                     webView.reload();
                 } else if (webView == null) {
-                    Toast.makeText(this, (int) R.string.feedback_network_tips, 0).show();
+                    Toast.makeText(this, (int) R.string.obfuscated_res_0x7f0f062d, 0).show();
                     finish();
                 } else {
                     this.x.setVisibility(0);
@@ -329,7 +329,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                         this.o.setVisibility(8);
                         this.p.setVisibility(0);
                         this.u.setVisibility(0);
-                        Toast.makeText(this, (int) R.string.feedback_network_tips, 0).show();
+                        Toast.makeText(this, (int) R.string.obfuscated_res_0x7f0f062d, 0).show();
                         return;
                     } else if (!TextUtils.isEmpty(this.B) && (fVar = this.f) != null) {
                         String str = this.B;
@@ -367,7 +367,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                     this.p.setVisibility(0);
                     this.u.setVisibility(0);
                     this.o.setVisibility(8);
-                    Toast.makeText(this, (int) R.string.feedback_network_tips, 0).show();
+                    Toast.makeText(this, (int) R.string.obfuscated_res_0x7f0f062d, 0).show();
                     return;
                 case 1004:
                     this.x.setVisibility(8);
@@ -428,8 +428,8 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             a aVar = new a(this);
             this.I = aVar;
             registerReceiver(aVar, new IntentFilter("com.baidu.ufosdk.ACTION_SIGN"));
-            setContentView(R.layout.ufo_webload_layout);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cd4);
+            setContentView(R.layout.obfuscated_res_0x7f0d08dc);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d41);
             this.m = relativeLayout;
             boolean z2 = this.b;
             int i10 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
@@ -439,13 +439,13 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                 i = -1;
             }
             relativeLayout.setBackgroundColor(i);
-            FeedbackTitleBar feedbackTitleBar = (FeedbackTitleBar) findViewById(R.id.webload_titlebar);
+            FeedbackTitleBar feedbackTitleBar = (FeedbackTitleBar) findViewById(R.id.obfuscated_res_0x7f09271b);
             this.n = feedbackTitleBar;
             Resources resources = getResources();
-            int i11 = R.color.common_white;
-            feedbackTitleBar.setBackgroundColor(resources.getColor(R.color.common_white));
+            int i11 = R.color.obfuscated_res_0x7f060636;
+            feedbackTitleBar.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060636));
             this.n.b.setVisibility(8);
-            BdShimmerView bdShimmerView = (BdShimmerView) findViewById(R.id.bd_shimmer_view);
+            BdShimmerView bdShimmerView = (BdShimmerView) findViewById(R.id.obfuscated_res_0x7f090373);
             this.x = bdShimmerView;
             if (this.b) {
                 i2 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
@@ -454,58 +454,58 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             }
             bdShimmerView.setBackgroundColor(i2);
             this.x.setType(b.m());
-            RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(R.id.network_exception_layout);
+            RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09171a);
             this.p = relativeLayout2;
             Resources resources2 = getResources();
             if (this.b) {
-                i11 = R.color.common_black;
+                i11 = R.color.obfuscated_res_0x7f060469;
             }
             relativeLayout2.setBackgroundColor(resources2.getColor(i11));
-            ImageView imageView = (ImageView) findViewById(R.id.nework_image);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091749);
             this.q = imageView;
             if (this.b) {
-                i3 = R.drawable.network_exception_dark;
+                i3 = R.drawable.obfuscated_res_0x7f080ea7;
             } else {
-                i3 = R.drawable.network_exception;
+                i3 = R.drawable.obfuscated_res_0x7f080ea6;
             }
             imageView.setBackgroundResource(i3);
-            TextView textView = (TextView) findViewById(R.id.netwrok_tips);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09171c);
             this.r = textView;
             Resources resources3 = getResources();
             if (this.b) {
-                i4 = R.color.network_tips_color_dark;
+                i4 = R.color.obfuscated_res_0x7f0608bb;
             } else {
-                i4 = R.color.network_tips_color;
+                i4 = R.color.obfuscated_res_0x7f0608ba;
             }
             textView.setTextColor(resources3.getColor(i4));
-            Button button = (Button) findViewById(R.id.reload_btn);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091c85);
             this.s = button;
             Resources resources4 = getResources();
             if (this.b) {
-                i5 = R.color.network_button_reload_color_dark;
+                i5 = R.color.obfuscated_res_0x7f0608b7;
             } else {
-                i5 = R.color.network_button_reload_color;
+                i5 = R.color.obfuscated_res_0x7f0608b6;
             }
             button.setTextColor(resources4.getColor(i5));
             Button button2 = this.s;
             if (this.b) {
-                i6 = R.drawable.network_btn_selector_dark;
+                i6 = R.drawable.obfuscated_res_0x7f080ea5;
             } else {
-                i6 = R.drawable.network_btn_selector;
+                i6 = R.drawable.obfuscated_res_0x7f080ea4;
             }
             button2.setBackgroundResource(i6);
-            View findViewById = findViewById(R.id.divider_line);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090840);
             this.t = findViewById;
             Resources resources5 = getResources();
             if (this.b) {
-                i7 = R.color.bottom_bar_diriver_color_dark;
+                i7 = R.color.obfuscated_res_0x7f06043c;
             } else {
-                i7 = R.color.bottom_bar_diriver_color;
+                i7 = R.color.obfuscated_res_0x7f06043b;
             }
             findViewById.setBackgroundColor(resources5.getColor(i7));
-            this.u = (RelativeLayout) findViewById(R.id.bottom_bar);
-            this.v = (FrameLayout) findViewById(R.id.back_layout);
-            this.w = (ImageView) findViewById(R.id.back_button);
+            this.u = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0903f2);
+            this.v = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090328);
+            this.w = (ImageView) findViewById(R.id.obfuscated_res_0x7f090325);
             RelativeLayout relativeLayout3 = this.u;
             if (!this.b) {
                 i10 = -1;
@@ -513,12 +513,12 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             relativeLayout3.setBackgroundColor(i10);
             ImageView imageView2 = this.w;
             if (this.b) {
-                i8 = R.drawable.bottom_back_button_dark;
+                i8 = R.drawable.obfuscated_res_0x7f08032a;
             } else {
-                i8 = R.drawable.bottom_back_button;
+                i8 = R.drawable.obfuscated_res_0x7f080329;
             }
             imageView2.setBackgroundResource(i8);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906eb);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906fd);
             this.o = frameLayout;
             frameLayout.post(new l(this));
             this.v.setOnClickListener(this);

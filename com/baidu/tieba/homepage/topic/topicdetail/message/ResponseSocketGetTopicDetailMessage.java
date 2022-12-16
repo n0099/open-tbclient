@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e77;
+import com.baidu.tieba.c87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.NewHottopic.NewHottopicResIdl;
 public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e77 mTopicDetailData;
+    public c87 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicDetailMessage() {
@@ -35,13 +35,13 @@ public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage 
         }
     }
 
-    public e77 getTopicDetailData() {
+    public c87 getTopicDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mTopicDetailData;
         }
-        return (e77) invokeV.objValue;
+        return (c87) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -57,9 +57,9 @@ public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage 
             setError(newHottopicResIdl.error.errorno.intValue());
             setErrorString(newHottopicResIdl.error.usermsg);
             if (getError() == 0 && newHottopicResIdl.data != null) {
-                e77 e77Var = new e77();
-                this.mTopicDetailData = e77Var;
-                e77Var.b(newHottopicResIdl.data);
+                c87 c87Var = new c87();
+                this.mTopicDetailData = c87Var;
+                c87Var.b(newHottopicResIdl.data);
             }
             return newHottopicResIdl;
         }

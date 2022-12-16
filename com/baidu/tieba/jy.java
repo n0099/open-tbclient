@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class jy extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RichTextLayout h;
-    public tr4 i;
+    public vr4 i;
     public int j;
     public String k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class jy extends hx {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements zy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +91,9 @@ public class jy extends hx {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.j().booleanValue()) {
                     ThreadData threadData = this.a.i.getThreadData();
-                    x36.a(threadData.getId());
-                    x36.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    x36.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    s46.a(threadData.getId());
+                    s46.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    s46.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -184,12 +184,12 @@ public class jy extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tr4Var) == null) {
-            this.i = tr4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, vr4Var) == null) {
+            this.i = vr4Var;
             this.h.setTransmit(j().booleanValue());
-            this.h.a(tr4Var);
+            this.h.a(vr4Var);
             this.h.setJumpToPbListener(new a(this));
             this.h.setFrom(this.k);
         }

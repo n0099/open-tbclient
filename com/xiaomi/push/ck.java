@@ -35,7 +35,7 @@ public class ck extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo217a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100957" : (String) invokeV.objValue;
@@ -51,21 +51,21 @@ public class ck extends al.a {
         ArrayList<cj.a> arrayList6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            arrayList = this.a.f165a;
+            arrayList = this.a.f188a;
             synchronized (arrayList) {
-                arrayList2 = this.a.f165a;
+                arrayList2 = this.a.f188a;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.a.f165a;
+                    arrayList3 = this.a.f188a;
                     if (arrayList3.size() > 1) {
                         cj cjVar = this.a;
-                        arrayList6 = this.a.f165a;
+                        arrayList6 = this.a.f188a;
                         cjVar.a(arrayList6);
                     } else {
                         cj cjVar2 = this.a;
-                        arrayList4 = this.a.f165a;
+                        arrayList4 = this.a.f188a;
                         cjVar2.b((cj.a) arrayList4.get(0));
                     }
-                    arrayList5 = this.a.f165a;
+                    arrayList5 = this.a.f188a;
                     arrayList5.clear();
                     System.gc();
                 }

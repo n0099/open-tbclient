@@ -1,37 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class go0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
+    public long a;
+    public final long b;
+    public final long c;
+    public long d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public long g;
+    public long h;
+    @SuppressLint({"HandlerLeak"})
+    public final Handler i;
+
+    public abstract void k();
 
     /* loaded from: classes4.dex */
-    public class a implements NadRequester.b {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e71 a;
-        public final /* synthetic */ go0 b;
+        public final /* synthetic */ go0 a;
 
-        public a(go0 go0Var, e71 e71Var) {
+        public a(go0 go0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {go0Var, e71Var};
+                Object[] objArr = {go0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,35 +48,53 @@ public class go0 {
                     return;
                 }
             }
-            this.b = go0Var;
-            this.a = e71Var;
+            this.a = go0Var;
         }
 
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            long j;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                this.a.dismiss();
-                this.b.f();
-            }
-        }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.a.dismiss();
-                this.b.d(list);
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                synchronized (this.a) {
+                    if (this.a.e) {
+                        return;
+                    }
+                    long elapsedRealtime = this.a.d - SystemClock.elapsedRealtime();
+                    this.a.a = elapsedRealtime;
+                    if (elapsedRealtime <= this.a.g) {
+                        this.a.k();
+                        this.a.f = true;
+                    } else {
+                        long elapsedRealtime2 = SystemClock.elapsedRealtime();
+                        this.a.l(elapsedRealtime);
+                        long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
+                        long j2 = 0;
+                        if (elapsedRealtime < this.a.c) {
+                            j = elapsedRealtime - elapsedRealtime3;
+                            if (j < 0) {
+                                sendMessageDelayed(obtainMessage(1), j2);
+                            }
+                        } else {
+                            j = this.a.c - elapsedRealtime3;
+                            while (j < 0) {
+                                j += this.a.c;
+                            }
+                        }
+                        j2 = j;
+                        sendMessageDelayed(obtainMessage(1), j2);
+                    }
+                }
             }
         }
     }
 
-    public go0(@NonNull Map<String, String> map) {
+    public go0(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,51 +104,98 @@ public class go0 {
                 return;
             }
         }
-        this.a = map;
+        this.e = false;
+        this.f = false;
+        this.i = new a(this);
+        this.c = j2;
+        this.a = j;
+        this.b = j;
     }
 
-    public final boolean c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
+    public void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adBaseModel)) == null) {
-            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(@NonNull e71 e71Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, e71Var, str) == null) {
-            RequestParameters.b bVar = new RequestParameters.b();
-            bVar.q(str);
-            bVar.n(this.a);
-            NadRequester.a(bVar.o(), new a(this, e71Var));
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.h = j;
         }
     }
 
-    public final void d(@NonNull List<AdBaseModel> list) {
+    public final synchronized void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (p01.g(list)) {
-                f();
-                return;
-            }
-            AdBaseModel adBaseModel = (AdBaseModel) p01.d(list, 0);
-            if (!c(adBaseModel)) {
-                f();
-            } else {
-                ji0.d(adBaseModel.f.c, aj0.b(), null);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.e = true;
+                this.i.removeCallbacksAndMessages(null);
             }
         }
     }
 
-    public final void f() {
+    public final synchronized long i() {
+        InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            t21.a().showToast(aj0.b(), aj0.b().getString(R.string.obfuscated_res_0x7f0f0c1f));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                j = this.b - this.h;
+            }
+            return j;
         }
+        return invokeV.longValue;
+    }
+
+    public final synchronized long j() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                j = this.a - this.g;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public final synchronized go0 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.f) {
+                    return this;
+                }
+                this.e = false;
+                if (this.a <= 0) {
+                    k();
+                    this.f = true;
+                    return this;
+                }
+                this.d = SystemClock.elapsedRealtime() + this.a;
+                this.i.sendMessage(this.i.obtainMessage(1));
+                return this;
+            }
+        }
+        return (go0) invokeV.objValue;
+    }
+
+    public final synchronized go0 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.f) {
+                    return this;
+                }
+                this.e = false;
+                if (this.a <= this.g) {
+                    k();
+                    this.f = true;
+                    return this;
+                }
+                this.d = SystemClock.elapsedRealtime() + this.a;
+                this.i.sendMessage(this.i.obtainMessage(1));
+                return this;
+            }
+        }
+        return (go0) invokeV.objValue;
     }
 }

@@ -17,8 +17,8 @@ import com.baidu.nps.main.manager.Bundle;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.xi0;
 import com.baidu.tieba.yi0;
-import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class ComponentArchManager implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends zi0>, zi0> b;
+    public final SimpleArrayMap<Class<? extends yi0>, yi0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -61,27 +61,111 @@ public class ComponentArchManager implements LifecycleObserver {
         this.b = new SimpleArrayMap<>();
     }
 
-    public static /* synthetic */ void r(ComponentArchManager componentArchManager, IComponentPlugin iComponentPlugin, boolean z, int i, Object obj) {
+    public static /* synthetic */ void l(ComponentArchManager componentArchManager, IComponentPlugin iComponentPlugin, boolean z, int i, Object obj) {
         if (obj == null) {
             if ((i & 2) != 0) {
                 z = true;
             }
-            componentArchManager.q(iComponentPlugin, z);
+            componentArchManager.k(iComponentPlugin, z);
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: registerComponent");
     }
 
+    public void a(ViewGroup parentView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, parentView) == null) {
+            Intrinsics.checkNotNullParameter(parentView, "parentView");
+            for (IComponentPlugin iComponentPlugin : this.a) {
+                iComponentPlugin.C(parentView);
+            }
+        }
+    }
+
+    public final void b(IComponentPlugin iComponentPlugin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iComponentPlugin) == null) {
+            Context context = this.c;
+            if (context != null) {
+                iComponentPlugin.p((Activity) context);
+                iComponentPlugin.injectContext(this.c);
+                iComponentPlugin.s(this);
+                iComponentPlugin.r();
+                iComponentPlugin.v();
+                return;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
+        }
+    }
+
+    public final void c(IComponentPlugin iComponentPlugin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iComponentPlugin) == null) {
+            this.d.removeObserver(iComponentPlugin);
+            iComponentPlugin.g();
+        }
+    }
+
+    public final void d(xi0 event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            for (IComponentPlugin iComponentPlugin : this.a) {
+                iComponentPlugin.o(event);
+            }
+        }
+    }
+
+    public final void e(IComponentPlugin iComponentPlugin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iComponentPlugin) == null) {
+            iComponentPlugin.onInit();
+        }
+    }
+
+    public final void f(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
+            Intrinsics.checkNotNullParameter(intent, "intent");
+            for (IComponentPlugin iComponentPlugin : this.a) {
+                iComponentPlugin.onNewIntent(intent);
+            }
+        }
+    }
+
+    public <T extends yi0> T j(Class<T> clazz) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, clazz)) == null) {
+            Intrinsics.checkNotNullParameter(clazz, "clazz");
+            yi0 yi0Var = this.b.get(clazz);
+            if (!(yi0Var instanceof yi0)) {
+                yi0Var = null;
+            }
+            return (T) yi0Var;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public final void q(IComponentPlugin componentPlugin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, componentPlugin) == null) {
+            Intrinsics.checkNotNullParameter(componentPlugin, "componentPlugin");
+            c(componentPlugin);
+            this.a.remove(componentPlugin);
+        }
+    }
+
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.c;
         }
         return (Context) invokeV.objValue;
     }
 
-    public final void o() {
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             for (IComponentPlugin iComponentPlugin : this.a) {
@@ -90,20 +174,9 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroy() {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o();
-            t();
-            this.b.clear();
-            this.a.clear();
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             Lifecycle lifecycle = this.d;
             for (IComponentPlugin iComponentPlugin : this.a) {
                 lifecycle.removeObserver(iComponentPlugin);
@@ -111,91 +184,18 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public void h(ViewGroup parentView) {
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parentView) == null) {
-            Intrinsics.checkNotNullParameter(parentView, "parentView");
-            for (IComponentPlugin iComponentPlugin : this.a) {
-                iComponentPlugin.g(parentView);
-            }
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            i();
+            n();
+            this.b.clear();
+            this.a.clear();
         }
     }
 
-    public final void i(IComponentPlugin iComponentPlugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iComponentPlugin) == null) {
-            Context context = this.c;
-            if (context != null) {
-                iComponentPlugin.c((Activity) context);
-                iComponentPlugin.injectContext(this.c);
-                iComponentPlugin.e(this);
-                iComponentPlugin.d();
-                iComponentPlugin.f();
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
-        }
-    }
-
-    public final void j(IComponentPlugin iComponentPlugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iComponentPlugin) == null) {
-            this.d.removeObserver(iComponentPlugin);
-            iComponentPlugin.a();
-        }
-    }
-
-    public final void k(yi0 event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            for (IComponentPlugin iComponentPlugin : this.a) {
-                iComponentPlugin.b(event);
-            }
-        }
-    }
-
-    public final void l(IComponentPlugin iComponentPlugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iComponentPlugin) == null) {
-            iComponentPlugin.onInit();
-        }
-    }
-
-    public final void m(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
-            Intrinsics.checkNotNullParameter(intent, "intent");
-            for (IComponentPlugin iComponentPlugin : this.a) {
-                iComponentPlugin.onNewIntent(intent);
-            }
-        }
-    }
-
-    public <T extends zi0> T p(Class<T> clazz) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, clazz)) == null) {
-            Intrinsics.checkNotNullParameter(clazz, "clazz");
-            zi0 zi0Var = this.b.get(clazz);
-            if (!(zi0Var instanceof zi0)) {
-                zi0Var = null;
-            }
-            return (T) zi0Var;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public final void u(IComponentPlugin componentPlugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, componentPlugin) == null) {
-            Intrinsics.checkNotNullParameter(componentPlugin, "componentPlugin");
-            j(componentPlugin);
-            this.a.remove(componentPlugin);
-        }
-    }
-
-    public final boolean n(int i, KeyEvent event) {
+    public final boolean h(int i, KeyEvent event) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
@@ -211,12 +211,12 @@ public class ComponentArchManager implements LifecycleObserver {
         return invokeIL.booleanValue;
     }
 
-    public final void q(IComponentPlugin component, boolean z) {
+    public final void k(IComponentPlugin component, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, component, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, component, z) == null) {
             Intrinsics.checkNotNullParameter(component, "component");
-            l(component);
-            i(component);
+            e(component);
+            b(component);
             if (z) {
                 this.d.addObserver(component);
             }
@@ -224,9 +224,9 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public final void s(Class<? extends zi0> clazz, zi0 componentService) {
+    public final void m(Class<? extends yi0> clazz, yi0 componentService) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, clazz, componentService) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, clazz, componentService) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
             Intrinsics.checkNotNullParameter(componentService, "componentService");
             this.b.put(clazz, componentService);

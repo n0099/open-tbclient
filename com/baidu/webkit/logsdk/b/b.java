@@ -118,7 +118,7 @@ public final class b {
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().getLong("timeout", 604800000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().getLong(com.alipay.sdk.data.a.O, 604800000L) : invokeV.longValue;
     }
 
     public static String d() {

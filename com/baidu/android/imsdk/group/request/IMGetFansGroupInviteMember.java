@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatuser.ChatUser;
@@ -10,7 +9,6 @@ import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.GroupSortUserList;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,7 +89,7 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00cb  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00b9  */
     /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -141,7 +139,6 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
                         i3 = optInt;
                         LogUtils.e(TAG, "IMGetFansGroupInviteMember JSONException", e);
                         i2 = 1010;
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
                         if (!(removeListener instanceof BIMValueCallBack)) {

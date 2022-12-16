@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ac implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public final class ac implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.components.core.c.a.c mApkDownloadHelper;
     public final com.kwad.sdk.core.webview.b mJsBridgeContext;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

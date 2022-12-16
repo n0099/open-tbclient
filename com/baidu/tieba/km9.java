@@ -1,31 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public final class km9 {
+/* loaded from: classes5.dex */
+public class km9 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] SVGImageView;
-    public static final int SVGImageView_css = 0;
-    public static final int SVGImageView_svg = 1;
+    public static int a = -1;
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918034, "Lcom/baidu/tieba/km9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947918034, "Lcom/baidu/tieba/km9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947918034, "Lcom/baidu/tieba/km9;")) == null) {
+            return;
         }
-        SVGImageView = new int[]{R.attr.obfuscated_res_0x7f0401ef, R.attr.obfuscated_res_0x7f04066d};
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947918034, "Lcom/baidu/tieba/km9;");
+        }
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
+            }
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i = a;
+            if (i >= 0) {
+                return i;
+            }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return a;
+        }
+        return invokeL.intValue;
     }
 }

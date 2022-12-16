@@ -221,40 +221,55 @@ public class SyncGroupMessageService {
         return invokeLJ.intValue;
     }
 
-    public void execute(Context context, int i, long j, long j2, int i2) {
+    public void execute(Context context, int i, long j, long j2, int i2, long j3, long j4, String str) {
+        DialogRecord dialogRecord;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            String str = TAG;
-            LogUtils.d(str, "SYNCGROUPNEW group sync execute 1 \"to\":" + j + " " + j2 + " " + i2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), str}) == null) {
+            String str2 = TAG;
+            LogUtils.d(str2, "SYNCGROUPNEW group sync execute 1 \"to\":" + j + " " + j2 + " " + i2);
             synchronized (synobject) {
-                DialogRecord dialogRecord = DialogRecordDBManager.getInstance(context).getDialogRecord(i, j);
-                if (dialogRecord == null) {
-                    dialogRecord = new DialogRecord().setCategory(i).setContacter(j).setJumpToRecent(0).setMaxMsgid(0L).setUpdateTime(System.currentTimeMillis());
-                    long add = DialogRecordDBManager.getInstance(context).add(dialogRecord);
-                    dialogRecord.setJumpToRecent(1);
-                    String str2 = TAG;
-                    LogUtils.d(str2, "SYNCGROUPNEW " + dialogRecord.toString());
-                    if (add < 0) {
-                        String str3 = TAG;
-                        LogUtils.e(str3, "SYNCGROUPNEW add dialogRecord err " + add);
-                        return;
+                try {
+                    try {
+                        DialogRecord dialogRecord2 = DialogRecordDBManager.getInstance(context).getDialogRecord(i, j);
+                        if (dialogRecord2 == null) {
+                            DialogRecord updateTime = new DialogRecord().setCategory(i).setContacter(j).setJumpToRecent(0).setMaxMsgid(0L).setUpdateTime(System.currentTimeMillis());
+                            long add = DialogRecordDBManager.getInstance(context).add(updateTime);
+                            updateTime.setJumpToRecent(1);
+                            String str3 = TAG;
+                            LogUtils.d(str3, "SYNCGROUPNEW " + updateTime.toString());
+                            if (add < 0) {
+                                String str4 = TAG;
+                                LogUtils.e(str4, "SYNCGROUPNEW add dialogRecord err " + add);
+                                return;
+                            }
+                            dialogRecord = updateTime;
+                        } else {
+                            if (dialogRecord2.getMaxMsgid() <= 0) {
+                                dialogRecord2.setJumpToRecent(1);
+                            } else {
+                                dialogRecord2.setJumpToRecent(0);
+                            }
+                            dialogRecord = dialogRecord2;
+                        }
+                        dialogRecord.setState(0);
+                        putNew(dialogRecord);
+                        execute(context, dialogRecord, i2, j3, j4, str);
+                    } catch (Throwable th) {
+                        th = th;
+                        throw th;
                     }
-                } else if (dialogRecord.getMaxMsgid() <= 0) {
-                    dialogRecord.setJumpToRecent(1);
-                } else {
-                    dialogRecord.setJumpToRecent(0);
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-                dialogRecord.setState(0);
-                putNew(dialogRecord);
-                execute(context, dialogRecord, i2);
             }
         }
     }
 
-    public void execute(Context context, DialogRecord dialogRecord, int i) {
+    public void execute(Context context, DialogRecord dialogRecord, int i, long j, long j2, String str) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, dialogRecord, i) == null) {
-            int i2 = 0;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, dialogRecord, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            int i3 = 0;
             if (i == 0) {
                 this.mComplete = false;
             }
@@ -271,11 +286,13 @@ public class SyncGroupMessageService {
                     dialogRecord2 = getNew();
                     if (dialogRecord2 != null) {
                         LogUtils.d(TAG, "SYNCGROUPNEW to work...");
-                        i = 2;
-                        i2 = 1;
+                        i3 = 1;
+                        i2 = 2;
+                    } else {
+                        i2 = i;
                     }
                 } else {
-                    i = 0;
+                    i2 = 0;
                 }
                 if (dialogRecord2 == null) {
                     LogUtils.d(TAG, "SYNCGROUP loging trigger dialog is null --2");
@@ -286,16 +303,20 @@ public class SyncGroupMessageService {
                 if (this.mGroupSyncMap.size() < 1) {
                     syncGroupMessage = new SyncGroupMessage(context);
                 }
-                if (syncGroupMessage != null) {
+                SyncGroupMessage syncGroupMessage2 = syncGroupMessage;
+                if (syncGroupMessage2 != null) {
                     LogUtils.d(TAG, "find sync group message worker!");
-                    remove(dialogRecord2, i2);
-                    syncGroupMessage.setDialogRecord(dialogRecord2);
-                    syncGroupMessage.setCompleteListener(new SyncStrategy.CompleteListener(this, chatObject, i, context) { // from class: com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService.1
+                    remove(dialogRecord2, i3);
+                    syncGroupMessage2.setDialogRecord(dialogRecord2);
+                    syncGroupMessage2.setCompleteListener(new SyncStrategy.CompleteListener(this, chatObject, i2, context, j, j2, str) { // from class: com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ SyncGroupMessageService this$0;
                         public final /* synthetic */ Context val$context;
+                        public final /* synthetic */ String val$eventList;
                         public final /* synthetic */ ChatObject val$key;
+                        public final /* synthetic */ long val$msgId;
+                        public final /* synthetic */ long val$notifyId;
                         public final /* synthetic */ int val$triggerReason;
 
                         {
@@ -303,11 +324,11 @@ public class SyncGroupMessageService {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, chatObject, Integer.valueOf(i), context};
+                                Object[] objArr = {this, chatObject, Integer.valueOf(i2), context, Long.valueOf(j), Long.valueOf(j2), str};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i4 = newInitContext.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -315,28 +336,31 @@ public class SyncGroupMessageService {
                             }
                             this.this$0 = this;
                             this.val$key = chatObject;
-                            this.val$triggerReason = i;
+                            this.val$triggerReason = i2;
                             this.val$context = context;
+                            this.val$msgId = j;
+                            this.val$notifyId = j2;
+                            this.val$eventList = str;
                         }
 
                         @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy.CompleteListener
                         public void onComplete(DialogRecord dialogRecord3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogRecord3) == null) {
-                                String str = SyncGroupMessageService.TAG;
-                                LogUtils.d(str, "SYNCGROUP  complete " + this.val$key.getContacter() + " trigger " + this.val$triggerReason);
+                                String str2 = SyncGroupMessageService.TAG;
+                                LogUtils.d(str2, "SYNCGROUP  complete " + this.val$key.getContacter() + " trigger " + this.val$triggerReason);
                                 this.this$0.mGroupSyncMap.remove(this.this$0.getChatObject(this.val$context, dialogRecord3));
                                 if (this.this$0.mDialogRecords.isEmpty() && this.val$triggerReason == 0) {
                                     LogUtils.d(SyncGroupMessageService.TAG, "all SYNCGROUP complete ");
                                     ChatUserManagerImpl.getInstance(this.val$context).syncUsersAttr();
                                     this.this$0.mComplete = true;
                                 }
-                                this.this$0.execute(this.val$context, null, -1);
+                                this.this$0.execute(this.val$context, null, -1, this.val$msgId, this.val$notifyId, this.val$eventList);
                             }
                         }
                     });
-                    syncGroupMessage.start(i);
-                    this.mGroupSyncMap.put(chatObject, syncGroupMessage);
+                    syncGroupMessage2.start(i2, j, j2, str);
+                    this.mGroupSyncMap.put(chatObject, syncGroupMessage2);
                 }
             }
         }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class DelayInitNightPluginSwitch extends kf {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY = "delay_init_night_plugin_12_23";
+    public static final String KEY = "delay_init_night_plugin_12_34";
     public static final int TYPE_CLOSE = 0;
     public static final int TYPE_OPEN = 1;
     public transient /* synthetic */ FieldHolder $fh;

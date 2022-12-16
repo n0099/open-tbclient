@@ -1,38 +1,20 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes6.dex */
-public class u95 extends v95 {
+public class u95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.v95
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CloudControlRequest.REQUEST_KEY_FILTER : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v95
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.v95
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
-        }
-    }
+    public List<FutureTask<Boolean>> a;
+    public List<t95> b;
+    public ErrorData c;
 
     public u95() {
         Interceptable interceptable = $ic;
@@ -45,6 +27,34 @@ public class u95 extends v95 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void a(ErrorData errorData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
+            return;
+        }
+        this.c = errorData;
+        for (FutureTask<Boolean> futureTask : this.a) {
+            futureTask.cancel(true);
+        }
+        for (t95 t95Var : this.b) {
+            t95Var.a();
+        }
+    }
+
+    public void b(List<t95> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void c(List<FutureTask<Boolean>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 }

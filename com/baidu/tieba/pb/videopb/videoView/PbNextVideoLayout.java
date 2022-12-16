@@ -111,7 +111,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData != null && threadData.getThreadVideoInfo() != null) {
             this.b.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e45);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e7c);
             this.d.setText(threadData.getTitle());
             this.f.setProgress(0);
         }
@@ -278,13 +278,13 @@ public class PbNextVideoLayout extends RelativeLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06f2, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09189d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a0);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09189f);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09189c);
-            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09189e);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080958, R.color.CAM_X0622, null);
+            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0703, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091907);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09190a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091909);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091906);
+            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091908);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, null);
         }
     }
 
@@ -292,7 +292,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = true;
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e45);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e7c);
             a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
@@ -311,7 +311,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e46);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e7d);
             this.f.setProgress(0);
         }
     }

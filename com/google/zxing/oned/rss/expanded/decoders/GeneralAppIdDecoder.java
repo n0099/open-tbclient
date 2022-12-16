@@ -1,10 +1,10 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.sapi2.views.logindialog.QuickLoginDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -182,16 +182,16 @@ public final class GeneralAppIdDecoder {
                 case 235:
                     c = '&';
                     break;
-                case 236:
+                case Constants.METHOD_IM_CONSULT_NOTIFY_MSG /* 236 */:
                     c = '\'';
                     break;
-                case 237:
+                case Constants.METHOD_IM_CONSULT_IM_UPDATE_MSG /* 237 */:
                     c = '(';
                     break;
-                case QuickLoginDialog.HEIGHT_ONEKEY /* 238 */:
+                case 238:
                     c = ')';
                     break;
-                case 239:
+                case Constants.METHOD_IM_CONSULT_IM_FILTER_SESSION_MSG /* 239 */:
                     c = '*';
                     break;
                 case 240:
@@ -219,7 +219,7 @@ public final class GeneralAppIdDecoder {
                     c = '<';
                     break;
                 case GDiffPatcher.DATA_INT /* 248 */:
-                    c = '=';
+                    c = a.h;
                     break;
                 case 249:
                     c = '>';

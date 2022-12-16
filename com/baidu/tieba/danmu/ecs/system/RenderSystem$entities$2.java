@@ -1,8 +1,8 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import com.baidu.tieba.p0;
+import com.baidu.tieba.u96;
 import com.baidu.tieba.z0;
-import com.baidu.tieba.z86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a&\u0012\f\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002 \u0003*\u0012\u0012\f\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002\u0018\u00010\u00010\u0001H\n"}, d2 = {"<anonymous>", "Lcom/badlogic/ashley/utils/ImmutableArray;", "Lcom/badlogic/ashley/core/Entity;", "kotlin.jvm.PlatformType"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class RenderSystem$entities$2 extends Lambda implements Function0<z0<p0>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public final class RenderSystem$entities$2 extends Lambda implements Function0<z
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.this$0.f().j(z86.a.c());
+            return this.this$0.f().j(u96.a.c());
         }
         return (z0) invokeV.objValue;
     }

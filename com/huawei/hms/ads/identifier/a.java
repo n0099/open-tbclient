@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     @Keep
@@ -28,7 +28,7 @@ public final class a implements ServiceConnection {
 
     @Keep
     /* renamed from: com.huawei.hms.ads.identifier.a$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

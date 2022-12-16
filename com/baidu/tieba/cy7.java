@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,22 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cy7 implements xn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
-    public static final BdUniqueId j;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public List<PbSortType> g;
-    public boolean h;
+    public int a;
+    public String b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,38 +31,80 @@ public class cy7 implements xn {
                 return;
             }
         }
-        i = BdUniqueId.gen();
-        j = BdUniqueId.gen();
+        d = BdUniqueId.gen();
+    }
+
+    public cy7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = true;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public cy7(BdUniqueId bdUniqueId) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
         }
-        this.b = j;
-        this.c = 0;
-        this.d = false;
-        this.b = bdUniqueId;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.c = z;
+        }
     }
 }

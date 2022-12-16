@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes6.dex */
 public class ww {
@@ -127,7 +126,7 @@ public class ww {
         if (r2.h == false) goto L40;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
-        r5[r11] = com.bumptech.glide.disklrucache.StrictLineReader.CR;
+        r5[r11] = 13;
         r11 = r11 + 1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:51:0x0110, code lost:
@@ -206,7 +205,7 @@ public class ww {
             if (i9 == 0) {
                 if (bVar.h) {
                     i5 = 5;
-                    bArr2[4] = StrictLineReader.CR;
+                    bArr2[4] = 13;
                 } else {
                     i5 = 4;
                 }
@@ -256,7 +255,7 @@ public class ww {
                         return bVar.a;
                     }
                     if (bVar.h) {
-                        bArr2[i16] = StrictLineReader.CR;
+                        bArr2[i16] = 13;
                         i16++;
                     }
                     i4 = i16 + 1;
@@ -277,7 +276,7 @@ public class ww {
                 } else if (i2 - i13 != i10 - 2) {
                     if (bVar.g && i3 > 0 && i9 != 19) {
                         if (bVar.h) {
-                            bArr2[i3] = StrictLineReader.CR;
+                            bArr2[i3] = 13;
                             i3++;
                         }
                         i4 = i3 + 1;
@@ -335,7 +334,7 @@ public class ww {
                         return bVar.a;
                     }
                     if (bVar.h) {
-                        bArr2[i22] = StrictLineReader.CR;
+                        bArr2[i22] = 13;
                         i22++;
                     }
                     i4 = i22 + 1;

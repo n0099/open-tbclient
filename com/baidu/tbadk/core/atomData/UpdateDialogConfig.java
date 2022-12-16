@@ -53,7 +53,7 @@ public class UpdateDialogConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0a23));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.live_error_system_not_support));
             return false;
         }
         return invokeV.booleanValue;

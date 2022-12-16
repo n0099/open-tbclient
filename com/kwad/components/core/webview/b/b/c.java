@@ -16,7 +16,7 @@ import com.kwad.components.core.webview.b.kwai.j;
 import com.kwad.components.core.webview.jshandler.aa;
 import com.kwad.components.core.webview.jshandler.k;
 import com.kwad.sdk.utils.az;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +224,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onCreate();
-            this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09123d);
+            this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09129c);
         }
     }
 }

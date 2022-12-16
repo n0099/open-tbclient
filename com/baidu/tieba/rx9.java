@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class rx9 extends ux9 implements px9 {
+import com.google.ar.core.InstallActivity;
+/* loaded from: classes6.dex */
+public final class rx9 extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public final /* synthetic */ InstallActivity a;
 
-    public rx9() {
+    public rx9(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,28 +28,15 @@ public class rx9 extends ux9 implements px9 {
                 return;
             }
         }
-        this.c = "*";
+        this.a = installActivity;
     }
 
-    @Override // com.baidu.tieba.ox9
-    public String f() {
-        InterceptResult invokeV;
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.px9
-    public void b(String str) throws IllegalArgumentException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (str != null) {
-                this.c = str;
-                return;
-            }
-            throw new IllegalArgumentException("http resource descriptor must not be null");
-        }
+        this.a.m();
     }
 }

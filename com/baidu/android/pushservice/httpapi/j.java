@@ -4,11 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.jni.PushSocket;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -98,7 +98,7 @@ public class j extends com.baidu.android.pushservice.g.c {
                 if (!PushSocket.isIPv4Reachable()) {
                     str = "https://[240c:4006::6666]/v6/0025?type=ipv4,ipv6&dn=" + this.c;
                 }
-                com.baidu.android.pushservice.d.b a2 = com.baidu.android.pushservice.d.c.a(this.a, str, "GET", (HashMap<String, String>) null, (String) null, "httpsdns.baidu.com");
+                com.baidu.android.pushservice.d.b a2 = com.baidu.android.pushservice.d.c.a(this.a, str, "GET", (HashMap<String, String>) null, (String) null, DnsTransmitter.IDC_HOST);
                 int b = a2.b();
                 inputStream = a2.a();
                 try {
@@ -108,7 +108,7 @@ public class j extends com.baidu.android.pushservice.g.c {
                             try {
                                 JSONObject jSONObject = new JSONObject(a3).getJSONObject("data").getJSONObject(this.c);
                                 JSONArray optJSONArray = jSONObject.optJSONArray("ip");
-                                JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                                JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
                                 int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
                                 int length2 = optJSONArray == null ? 0 : optJSONArray.length();
                                 if (length2 + length > 0) {

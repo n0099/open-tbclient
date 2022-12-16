@@ -13,7 +13,7 @@ import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,7 +87,7 @@ public class d extends com.baidu.platform.base.d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, searchResult)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray(TiebaStatic.LogFields.RESULT)) == null || optJSONArray.length() == 0) {
+                if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
                     return false;
                 }
                 if (this.c) {
@@ -157,7 +157,7 @@ public class d extends com.baidu.platform.base.d {
                     poiDetailInfo.setAdCode(jSONObject.optInt("adcode"));
                     poiDetailInfo.setProvince(jSONObject.optString("province"));
                     poiDetailInfo.setCity(jSONObject.optString("city"));
-                    poiDetailInfo.setArea(jSONObject.optString("area"));
+                    poiDetailInfo.setArea(jSONObject.optString(DnsModel.AREA_KEY));
                     poiDetailInfo.setTelephone(jSONObject.optString("telephone"));
                     poiDetailInfo.setUid(jSONObject.optString("uid"));
                     poiDetailInfo.setStreetId(jSONObject.optString("setStreetId"));

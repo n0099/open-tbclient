@@ -7,24 +7,24 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba7;
-import com.baidu.tieba.ga7;
+import com.baidu.tieba.eb7;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.ui5;
+import com.baidu.tieba.nj5;
+import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements ba7 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements za7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
     public abstract void initView();
 
-    public abstract boolean r1(ba7 ba7Var);
+    public abstract boolean r1(za7 za7Var);
 
     public abstract boolean s1(Bundle bundle);
 
@@ -69,8 +69,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.baidu.tieba.ba7
-    public void E0() {
+    @Override // com.baidu.tieba.za7
+    public void F0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             v1();
@@ -157,13 +157,13 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (msglistModel != null) {
                 msglistModel.setImageUploadUIProgressCallback(this.j);
             }
-            b1();
+            c1();
             if (!r1(this)) {
                 return;
             }
             u1();
             y1();
-            ga7.a = ui5.b();
+            eb7.a = nj5.b();
         }
     }
 
@@ -183,7 +183,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             }
             initView();
             adjustResizeForSoftInput(R.color.common_color_10022, false);
-            b1();
+            c1();
             if (!r1(this)) {
                 return;
             }

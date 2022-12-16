@@ -11,21 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes4.dex */
-public class i73 extends c63 {
+public class i73 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i73(c53 c53Var) {
-        super(c53Var, "/swanAPI/setNavigationBarTitle");
+    public i73(b53 b53Var) {
+        super(b53Var, "/swanAPI/showNavigationBarLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c53Var};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,41 +37,40 @@ public class i73 extends c63 {
         }
     }
 
-    @Override // com.baidu.tieba.c63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeLLLL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, f43Var)) == null) {
-            if (c63.b) {
-                Log.d("BarTitleAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (b63.b) {
+                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                f12.c("navigationTitle", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            if (e43Var != null && e43Var.n0()) {
+                if (b63.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
             }
-            String optString = optParamsAsJo.optString("title");
-            o32 V = sp2.U().V();
+            n32 V = rp2.U().V();
             if (V == null) {
-                f12.c("navigationTitle", "manager is null");
+                e12.c("navigationLoading", "manager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            l32 m = V.m();
-            if (m != null && m.w2(optString, true)) {
-                z = true;
+            k32 m = V.m();
+            if (m == null) {
+                e12.c("navigationLoading", "swanAppFragment is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!m.N2()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                e12.c("navigationLoading", "show navigation loading progressbar fail");
+                return false;
             } else {
-                z = false;
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            if (!z) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                f12.c("navigationTitle", "set title fail");
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
         }
         return invokeLLLL.booleanValue;
     }

@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FRAMES_PER_MMAP = 20;
@@ -90,7 +90,7 @@ public class EC3TrackImpl extends AbstractTrack {
         return (long[]) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class BitStreamInfo extends EC3SpecificBox.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -34,7 +34,7 @@ public class PersonalChatMessage extends ChatMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (getMsgType() != 33 && getMsgType() != 32) {
+            if (getMsgType() != 33 && getMsgType() != 32 && getMsgType() != 37) {
                 return getContent();
             }
             return getEncodeContent();

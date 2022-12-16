@@ -1,61 +1,84 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ps9;
-import com.baidu.tieba.sn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class os9 implements ps9.a<pn9> {
+public class os9 extends FunNativeAd2Bridger<ns9, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ps9 a;
+    public boolean b;
+    public final /* synthetic */ js9 c;
 
-    public os9(ps9 ps9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public os9(js9 js9Var, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ps9Var};
+            Object[] objArr = {js9Var, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ps9Var;
+        this.c = js9Var;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.ps9.a
-    public void a(pn9 pn9Var) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, ns9 ns9Var, BaseNativeAd2<ns9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pn9Var) == null) {
-            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", pn9Var.a);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ns9Var, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.ps9.a
-    public void b(pn9 pn9Var) {
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(ns9 ns9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pn9Var) == null) {
-            pn9 pn9Var2 = pn9Var;
-            LogPrinter.v("Update SerialSlotId:%s", pn9Var2.a);
-            HashMap<String, un9> hashMap = this.a.c;
-            String str = pn9Var2.a;
-            hashMap.put(str, new un9(str, new bo9(this, pn9Var2)));
-            sn9 sn9Var = this.a.b;
-            synchronized (sn9Var.a) {
-                sn9Var.a(pn9Var2.a).add(new sn9.b(pn9Var2));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ns9Var)) == null) {
+            return ((TTNativeExpressAd) ns9Var.a).getExpressAdView();
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, ns9 ns9Var, BaseNativeAd2<ns9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ns9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            ns9 ns9Var2 = ns9Var;
+            expressInflater.inflate();
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(ns9Var2);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            } else {
+                LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
             }
+            this.c.onShowStart(ns9Var2, this.b);
+            this.b = true;
         }
     }
 }

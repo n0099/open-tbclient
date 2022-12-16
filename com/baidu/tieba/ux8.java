@@ -1,239 +1,242 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.YuvImage;
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
+import tbclient.ThemeCardPropMain;
 /* loaded from: classes6.dex */
 public class ux8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long k = 1350000;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948226484, "Lcom/baidu/tieba/ux8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948226484, "Lcom/baidu/tieba/ux8;");
         }
     }
 
-    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
-                return false;
-            }
-            SparseArray sparseArray = new SparseArray();
-            Iterator<a> it = arrayList.iterator();
-            while (it.hasNext()) {
-                a next = it.next();
-                int i = next.a;
-                int i2 = next.b;
-                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
-                    return false;
-                }
-                int pixel = bitmap.getPixel(i, i2);
-                if (sparseArray.get(pixel) != null) {
-                    return false;
-                }
-                next.c = pixel;
-                sparseArray.put(pixel, next);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Bitmap b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            Bitmap bitmap = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
-                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
-                byteArrayOutputStream.close();
-                return bitmap;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return bitmap;
-            }
-        }
-        return (Bitmap) invokeLII.objValue;
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            try {
-                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
-                context.sendBroadcast(intent);
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
         }
     }
 
-    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
+    public ux8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
-            int i3 = i * i2;
-            int i4 = 0;
-            int i5 = 0;
-            for (int i6 = 0; i6 < i2; i6++) {
-                int i7 = 0;
-                while (i7 < i) {
-                    int i8 = iArr[i5];
-                    int i9 = (iArr[i5] & 16711680) >> 16;
-                    int i10 = (iArr[i5] & 65280) >> 8;
-                    int i11 = 255;
-                    int i12 = (iArr[i5] & 255) >> 0;
-                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
-                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
-                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
-                    int i16 = i4 + 1;
-                    if (i13 < 0) {
-                        i13 = 0;
-                    } else if (i13 > 255) {
-                        i13 = 255;
-                    }
-                    bArr[i4] = (byte) i13;
-                    if (i6 % 2 == 0 && i5 % 2 == 0) {
-                        int i17 = i3 + 1;
-                        if (i15 < 0) {
-                            i15 = 0;
-                        } else if (i15 > 255) {
-                            i15 = 255;
-                        }
-                        bArr[i3] = (byte) i15;
-                        i3 = i17 + 1;
-                        if (i14 < 0) {
-                            i11 = 0;
-                        } else if (i14 <= 255) {
-                            i11 = i14;
-                        }
-                        bArr[i17] = (byte) i11;
-                    }
-                    i5++;
-                    i7++;
-                    i4 = i16;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.j = 0;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void k(ThemeCardPropMain themeCardPropMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, themeCardPropMain) != null) || themeCardPropMain == null) {
+            return;
+        }
+        this.a = themeCardPropMain.props_id.longValue();
+        this.b = themeCardPropMain.title;
+        this.c = themeCardPropMain.description;
+        this.d = themeCardPropMain.example_url;
+        this.e = themeCardPropMain.permission;
+        this.f = themeCardPropMain.props_state_img;
+        this.g = themeCardPropMain.in_use.intValue();
+        this.h = themeCardPropMain.free_user_level.intValue();
+        String str = themeCardPropMain.activity_url;
+        this.i = themeCardPropMain.is_finished.intValue();
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public static byte[] e(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
-            return g(bitmap.getWidth(), bitmap.getHeight(), bitmap);
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.f = str;
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.baidu.tieba.ux8$a> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> f(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                SparseArray sparseArray = new SparseArray();
-                int i = 0;
-                loop0: for (int i2 = 0; i2 < width; i2++) {
-                    for (int i3 = 0; i3 < height; i3++) {
-                        int pixel = bitmap.getPixel(i2, i3);
-                        a aVar = new a(i2, i3);
-                        if (sparseArray.get(pixel) == null) {
-                            sparseArray.put(pixel, aVar);
-                            i++;
-                        }
-                        if (i == 3) {
-                            break loop0;
-                        }
-                    }
-                }
-                ArrayList<a> arrayList = new ArrayList<>();
-                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
-                    arrayList.add(sparseArray.valueAt(i4));
-                }
-                return arrayList;
-            }
-            return new ArrayList<>();
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.j = i;
         }
-        return (ArrayList) invokeL.objValue;
     }
 
-    public static byte[] g(int i, int i2, Bitmap bitmap) {
-        InterceptResult invokeIIL;
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
-            int i3 = i * i2;
-            try {
-                int[] iArr = new int[i3];
-                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
-                byte[] bArr = new byte[(i3 * 3) / 2];
-                d(bArr, iArr, i, i2);
-                return bArr;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.c = str;
         }
-        return (byte[]) invokeIIL.objValue;
     }
 
-    public static Bitmap h(Bitmap bitmap, float f) {
-        InterceptResult invokeLF;
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                Matrix matrix = new Matrix();
-                matrix.postRotate(f);
-                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.d = str;
         }
-        return (Bitmap) invokeLF.objValue;
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.b = str;
+        }
     }
 }

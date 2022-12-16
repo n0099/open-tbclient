@@ -5,25 +5,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class s80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
     public long b;
-    public int c;
-    public String d;
-    public boolean e;
-    public byte[] f;
-    public long g;
+    public long c;
+    public int d;
+    public String e;
+    public boolean f;
+    public byte[] g;
     public long h;
     public long i;
-    public int j;
-    public boolean k;
+    public long j;
+    public int k;
     public boolean l;
     public boolean m;
-    public long n;
-    public boolean o;
+    public boolean n;
+    public long o;
+    public boolean p;
+    public List<n80> q;
 
     public s80() {
         Interceptable interceptable = $ic;
@@ -39,30 +43,32 @@ public class s80 {
             }
         }
         this.a = new byte[0];
-        this.b = 15000L;
-        this.c = -1;
-        this.d = "";
-        this.e = false;
-        this.f = new byte[0];
-        this.g = 60000L;
-        this.h = -1L;
+        this.b = -1L;
+        this.c = 5000L;
+        this.d = -1;
+        this.e = "";
+        this.f = false;
+        this.g = new byte[0];
+        this.h = 60000L;
         this.i = -1L;
-        this.j = -1;
-        this.k = false;
+        this.j = -1L;
+        this.k = -1;
         this.l = false;
         this.m = false;
-        this.n = -1L;
-        this.o = false;
+        this.n = false;
+        this.o = -1L;
+        this.p = false;
+        this.q = new ArrayList();
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.m) {
-                return "Request correlationId :" + this.n + ", serviceId :" + this.h + ", methodId :" + this.i + ", connectState :" + this.j + ", isNotify :" + this.e + ", bodySize :" + this.a.length;
+            if (this.n) {
+                return "Request correlationId :" + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", connectState :" + this.k + ", isNotify :" + this.f + ", bodySize :" + this.a.length;
             }
-            return "Response correlationId " + this.n + ", serviceId :" + this.h + ", methodId :" + this.i + ", errorCode :" + this.c + ", errorMsg :" + this.d + ", intervalMs :" + this.g + ", isNotify :" + this.e + ", bodySize :" + this.f.length;
+            return "Response correlationId " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", errorCode :" + this.d + ", errorMsg :" + this.e + ", intervalMs :" + this.h + ", isNotify :" + this.f + ", bodySize :" + this.g.length;
         }
         return (String) invokeV.objValue;
     }

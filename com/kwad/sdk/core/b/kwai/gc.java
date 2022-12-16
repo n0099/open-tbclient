@@ -9,7 +9,7 @@ public final class gc implements com.kwad.sdk.core.d<com.kwad.components.core.we
             return;
         }
         sVar.kD = jSONObject.optInt("currentTime");
-        sVar.NZ = jSONObject.optBoolean("failed");
+        sVar.NZ = jSONObject.optBoolean(com.alipay.sdk.util.f.j);
         sVar.Oa = jSONObject.optBoolean("finished");
     }
 
@@ -24,7 +24,7 @@ public final class gc implements com.kwad.sdk.core.d<com.kwad.components.core.we
         }
         boolean z = sVar.NZ;
         if (z) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "failed", z);
+            com.kwad.sdk.utils.r.putValue(jSONObject, com.alipay.sdk.util.f.j, z);
         }
         boolean z2 = sVar.Oa;
         if (z2) {

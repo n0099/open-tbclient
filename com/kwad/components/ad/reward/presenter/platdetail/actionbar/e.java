@@ -16,7 +16,7 @@ import com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardAction
 import com.kwad.components.core.m.j;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e extends com.kwad.components.ad.reward.presenter.a implements RewardActionBarControl.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091086);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e8);
         }
     }
 

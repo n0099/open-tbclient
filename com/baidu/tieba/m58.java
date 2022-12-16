@@ -1,31 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatEnterForumViewHolder;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.view.EmotionView;
+import com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class m58 extends kn<jy7, VideoTabPbFloatEnterForumViewHolder> {
+public class m58 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public boolean b;
+    public List<EmotionImageData> a;
+    public int b;
+    public EmotionView.c c;
+    public PbEmotionBar.i d;
+    public Set<String> e;
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -54,106 +81,235 @@ public class m58 extends kn<jy7, VideoTabPbFloatEnterForumViewHolder> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof VideoPbCommentFloatFragment)) {
-                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.a.a;
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", videoPbCommentFloatFragment.K().getForumId());
-                statisticItem.param("tid", videoPbCommentFloatFragment.K().m2());
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", videoPbCommentFloatFragment.K().q1());
-                statisticItem.param("obj_source", 1);
-                statisticItem.param("obj_type", 16);
-                statisticItem.param("obj_locate", videoPbCommentFloatFragment.K3());
-                TiebaStatic.log(statisticItem);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && (view2 instanceof EmotionView)) {
+                EmotionView emotionView = (EmotionView) view2;
+                this.a.d.b(emotionView.getData(), emotionView.getIsGif());
+                TiebaStatic.log("c12176");
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m58(Context context, BdUniqueId bdUniqueId, BaseFragment baseFragment) {
-        super(context, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m58 a;
+
+        public b(m58 m58Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m58Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m58Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                ArrayList arrayList = new ArrayList();
+                if (!ListUtils.isEmpty(this.a.a)) {
+                    for (EmotionImageData emotionImageData : this.a.a) {
+                        if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                            arrayList.add(emotionImageData.getThumbUrl());
+                        }
+                    }
+                }
+                this.a.d.a(null, null, arrayList);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m58 a;
+
+        public c(m58 m58Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m58Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m58Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                if (this.a.e == null) {
+                    return Boolean.TRUE;
+                }
+                for (String str : this.a.e) {
+                    if (!TextUtils.isEmpty(str)) {
+                        m95.k().h(str);
+                    }
+                }
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public EmotionView a;
+        public TextView b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public m58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = baseFragment;
+        this.e = new HashSet();
     }
 
-    public void v(boolean z) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            new c(this).execute(new Void[0]);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jy7 jy7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        u(i, view2, viewGroup, jy7Var, videoTabPbFloatEnterForumViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public VideoTabPbFloatEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = yi.g(this.mContext, R.dimen.tbds156);
-            layoutParams.topMargin = yi.g(this.mContext, R.dimen.M_H_X003);
-            layoutParams.rightMargin = yi.g(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = yi.g(this.mContext, R.dimen.M_H_X005);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            View view2 = new View(this.mContext);
-            view2.setId(R.id.obfuscated_res_0x7f090a2a);
-            view2.setAlpha(0.5f);
-            frameLayout.addView(view2, new FrameLayout.LayoutParams(-1, -1));
-            return new VideoTabPbFloatEnterForumViewHolder(this.mContext, frameLayout);
-        }
-        return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
-    }
-
-    public View u(int i, View view2, ViewGroup viewGroup, jy7 jy7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        InterceptResult invokeCommon;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jy7Var, videoTabPbFloatEnterForumViewHolder})) == null) {
-            if (jy7Var != null) {
-                videoTabPbFloatEnterForumViewHolder.setData(jy7Var.a);
-                videoTabPbFloatEnterForumViewHolder.b(new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!ListUtils.isEmpty(this.a)) {
+                return this.a.size() + 1;
             }
-            if (this.b) {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(0);
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void e(List<EmotionImageData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    public void f(EmotionView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    public void g(PbEmotionBar.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, iVar) == null) {
+            this.d = iVar;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && this.b != i) {
+            this.b = i;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                dVar = new d();
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d054c, (ViewGroup) null);
+                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.obfuscated_res_0x7f091096);
+                dVar.a = emotionView;
+                emotionView.k0();
+                dVar.a.setController(this.c);
+                dVar.a.setOnClickListener(new a(this));
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092489);
+                dVar.b = textView;
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
+                dVar.b.setOnClickListener(new b(this));
+                view3.setTag(dVar);
             } else {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(8);
+                view3 = view2;
+                dVar = (d) view2.getTag();
             }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-            View view3 = videoTabPbFloatEnterForumViewHolder.d;
-            if (this.b) {
-                i2 = R.color.CAM_X0201;
-            } else {
-                i2 = R.color.transparent;
+            if (i >= 0) {
+                if (i < this.a.size()) {
+                    dVar.a.getLayoutParams().width = this.b;
+                    dVar.a.getLayoutParams().height = this.b;
+                    dVar.a.F();
+                    dVar.a.setTag(R.id.obfuscated_res_0x7f091096, null);
+                    EmotionImageData emotionImageData = this.a.get(i);
+                    if (emotionImageData != null) {
+                        dVar.a.m0(emotionImageData);
+                        if (this.e != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                            Set<String> set = this.e;
+                            set.add(emotionImageData.getThumbUrl() + dVar.a.getLoadProcType());
+                        }
+                    }
+                    dVar.a.setVisibility(0);
+                    dVar.b.setVisibility(8);
+                } else if (i == this.a.size()) {
+                    dVar.b.getLayoutParams().width = this.b;
+                    dVar.b.getLayoutParams().height = this.b;
+                    dVar.a.setVisibility(8);
+                    dVar.b.setVisibility(0);
+                }
             }
-            SkinManager.setBackgroundColor(view3, i2);
-            videoTabPbFloatEnterForumViewHolder.a();
-            return view2;
+            return view3;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeILL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w47;
+import com.baidu.tieba.u57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,15 +39,6 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
         }
     }
 
-    public DataRes getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.resultData;
-        }
-        return (DataRes) invokeV.objValue;
-    }
-
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
     @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
@@ -68,16 +59,27 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            w47.a = false;
-            if (w47.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-                this.resultData = w47.b();
-                w47.a = true;
-                w47.a();
+            u57.a = false;
+            if (u57.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+                this.resultData = u57.b();
+                u57.a = true;
+                u57.a();
             } else {
                 this.resultData = personalizedResIdl.data;
             }
             return personalizedResIdl;
         }
         return invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public DataRes getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resultData;
+        }
+        return (DataRes) invokeV.objValue;
     }
 }

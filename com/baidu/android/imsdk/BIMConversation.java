@@ -27,7 +27,6 @@ import com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener;
 import com.baidu.android.imsdk.mcast.IMcastSetListener;
 import com.baidu.android.imsdk.upload.AsyncChatTask;
 import com.baidu.android.imsdk.upload.IUploadTransferListener;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -363,7 +362,6 @@ public class BIMConversation implements NoProGuard {
                 if (iSendMessageStatusListener2 != null) {
                     iSendMessageStatusListener2.onSendStatus(1007, chatMsg);
                 }
-                new IMTrack.CrashBuilder(this.mContext).exception(e.getMessage()).build();
             }
         }
     }

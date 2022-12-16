@@ -3,7 +3,6 @@ package okhttp3.internal.platform;
 import android.os.Build;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +30,7 @@ import okhttp3.Protocol;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AndroidPlatform extends Platform {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LOG_LENGTH = 4000;
@@ -43,7 +42,7 @@ public class AndroidPlatform extends Platform {
     public final OptionalMethod<Socket> setUseSessionTickets;
     public final Class<?> sslParametersClass;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AndroidCertificateChainCleaner extends CertificateChainCleaner {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +83,7 @@ public class AndroidPlatform extends Platform {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
                 try {
-                    return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
+                    return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
                 } catch (IllegalAccessException e) {
                     throw new AssertionError(e);
                 } catch (InvocationTargetException e2) {
@@ -106,7 +105,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AndroidTrustRootIndex implements TrustRootIndex {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +180,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CloseGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -317,7 +316,7 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket, str, list) == null) {
             if (str != null) {
@@ -364,6 +363,9 @@ public class AndroidPlatform extends Platform {
         OptionalMethod optionalMethod2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!Platform.isAndroid()) {
+                return null;
+            }
             try {
                 try {
                     cls = Class.forName("com.android.org.conscrypt.SSLParametersImpl");
@@ -389,10 +391,23 @@ public class AndroidPlatform extends Platform {
         return (Platform) invokeV.objValue;
     }
 
-    public static boolean supportsAlpn() {
+    public static int getSdkInt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                return Build.VERSION.SDK_INT;
+            } catch (NoClassDefFoundError unused) {
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean supportsAlpn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (Security.getProvider("GMSCore_OpenSSL") != null) {
                 return true;
             }
@@ -422,6 +437,34 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
+    public boolean isCleartextTrafficPermitted(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                return super.isCleartextTrafficPermitted(str);
+            }
+            try {
+                Class<?> cls = Class.forName("android.security.NetworkSecurityPolicy");
+                return api24IsCleartextTrafficPermitted(str, cls, cls.getMethod("getInstance", new Class[0]).invoke(null, new Object[0]));
+            } catch (ClassNotFoundException | NoSuchMethodException unused) {
+                return super.isCleartextTrafficPermitted(str);
+            } catch (IllegalAccessException e) {
+                e = e;
+                throw Util.assertionError("unable to determine cleartext support", e);
+            } catch (IllegalArgumentException e2) {
+                e = e2;
+                throw Util.assertionError("unable to determine cleartext support", e);
+            } catch (InvocationTargetException e3) {
+                e = e3;
+                throw Util.assertionError("unable to determine cleartext support", e);
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // okhttp3.internal.platform.Platform
+    @Nullable
     public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -475,40 +518,28 @@ public class AndroidPlatform extends Platform {
         return (String) invokeL.objValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x000f, code lost:
+        if (android.os.Build.VERSION.SDK_INT < 22) goto L10;
+     */
     @Override // okhttp3.internal.platform.Platform
-    public boolean isCleartextTrafficPermitted(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.security.NetworkSecurityPolicy");
-                return api24IsCleartextTrafficPermitted(str, cls, cls.getMethod("getInstance", new Class[0]).invoke(null, new Object[0]));
-            } catch (ClassNotFoundException | NoSuchMethodException unused) {
-                return super.isCleartextTrafficPermitted(str);
-            } catch (IllegalAccessException e) {
-                e = e;
-                throw Util.assertionError("unable to determine cleartext support", e);
-            } catch (IllegalArgumentException e2) {
-                e = e2;
-                throw Util.assertionError("unable to determine cleartext support", e);
-            } catch (InvocationTargetException e3) {
-                e = e3;
-                throw Util.assertionError("unable to determine cleartext support", e);
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // okhttp3.internal.platform.Platform
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public SSLContext getSSLContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 16 && i < 22) {
+            boolean z = true;
+            try {
+                if (Build.VERSION.SDK_INT >= 16) {
+                }
+                z = false;
+            } catch (NoClassDefFoundError unused) {
+            }
+            if (z) {
                 try {
                     return SSLContext.getInstance("TLSv1.2");
-                } catch (NoSuchAlgorithmException unused) {
+                } catch (NoSuchAlgorithmException unused2) {
                 }
             }
             try {
@@ -531,7 +562,7 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void log(int i, String str, Throwable th) {
+    public void log(int i, String str, @Nullable Throwable th) {
         int min;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str, th) == null) {

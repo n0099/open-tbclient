@@ -23,7 +23,7 @@ import com.kwad.sdk.utils.bd;
 import com.kwad.sdk.utils.q;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public final class c {
             boolean a = m.oF().a(ksScene, "loadFullScreenVideoAd");
             ksScene.setAdStyle(3);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0582a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(fullScreenVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.fullscreen.c.1
+            KsAdLoadManager.a(new a.C0599a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(fullScreenVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.fullscreen.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;

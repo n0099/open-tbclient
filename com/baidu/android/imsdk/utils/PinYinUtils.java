@@ -105,6 +105,20 @@ public class PinYinUtils {
         return (String) invokeL.objValue;
     }
 
+    public static String getPyHeader(String str) {
+        InterceptResult invokeL;
+        Iterator<HanziToPinyin.Token> it;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String str2 = "";
+            while (HanziToPinyin.getInstance().get(str).iterator().hasNext()) {
+                str2 = str2 + it.next().target.charAt(0);
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String getPy(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -122,7 +136,7 @@ public class PinYinUtils {
 
     public static void sortByPinYin(List<? extends PinYinObject> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) != null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, list) != null) || list == null) {
             return;
         }
         Collections.sort(list, pyComparator);

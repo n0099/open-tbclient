@@ -3,27 +3,35 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import org.json.JSONObject;
-/* compiled from: lambda */
-/* loaded from: classes3.dex */
-public final /* synthetic */ class co9 implements RippedAd.Acceptor {
+import java.io.File;
+/* loaded from: classes4.dex */
+public class co9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ co9 a = new co9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ co9() {
+    public static String a(File file, Object obj) {
+        InterceptResult invokeLL;
+        String b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
+            synchronized (obj) {
+                b = do9.b(file);
+            }
+            return b;
+        }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
-    public final String accept(Object obj) {
-        InterceptResult invokeL;
-        String optString;
+    public static boolean b(String str, File file, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            optString = ((JSONObject) obj).optString("url");
-            return optString;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
+            synchronized (obj) {
+                e = do9.e(str, file, z);
+            }
+            return e;
         }
-        return (String) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 }

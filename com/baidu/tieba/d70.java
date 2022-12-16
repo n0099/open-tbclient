@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d70 implements f70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class d70 implements f70 {
     }
 
     @Override // com.baidu.tieba.f70
-    public HttpURLConnection a(URL url) throws IOException {
+    public HttpURLConnection openHttpURLConnection(URL url) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {

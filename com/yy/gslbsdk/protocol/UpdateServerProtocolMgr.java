@@ -2,6 +2,7 @@ package com.yy.gslbsdk.protocol;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.dns.cache.DnsCacheHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +92,7 @@ public class UpdateServerProtocolMgr {
                     JSONObject jSONObject = new JSONObject(str);
                     int translateErrCode = translateErrCode(jSONObject.getInt("s"));
                     int i = jSONObject.getInt("ver");
-                    JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                    JSONArray jSONArray = jSONObject.getJSONArray(DnsCacheHelper.DIR_NAME);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         int i3 = jSONObject2.getInt("v");

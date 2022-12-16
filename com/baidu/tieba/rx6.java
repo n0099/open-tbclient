@@ -1,76 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.tieba.ip4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class rx6 extends BaseAdapter {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class rx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<dt4> b;
-    public int c;
+    public final VoiceRoomListNetModel a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes6.dex */
+    public static final class a implements NetModel.k<px6, qx6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ hp4<List<VoiceRoomWrapper>> a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-        public View c;
-        public TextView d;
-        public TextView e;
-
-        public b() {
+        public a(hp4<List<VoiceRoomWrapper>> hp4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hp4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = hp4Var;
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.m
+        public void q(MvcSocketResponsedMessage<qx6, ?> mvcSocketResponsedMessage, MvcSocketMessage<px6, qx6> mvcSocketMessage, MvcNetMessage<px6, qx6> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048576, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
+                if (mvcSocketResponsedMessage.getError() == 0) {
+                    this.a.a(new ip4.c(mvcSocketResponsedMessage.getData().a()));
+                    return;
+                }
+                hp4<List<VoiceRoomWrapper>> hp4Var = this.a;
+                String errorString = mvcSocketResponsedMessage.getErrorString();
+                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                hp4Var.a(new ip4.a(errorString, null, 2, null));
             }
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        @Override // com.baidu.tbadk.mvc.model.NetModel.l
+        public void y(MvcHttpResponsedMessage<qx6> mvcHttpResponsedMessage, MvcHttpMessage<px6, qx6> mvcHttpMessage, MvcNetMessage<px6, qx6> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
+                if (mvcHttpResponsedMessage.getError() == 0) {
+                    this.a.a(new ip4.c(mvcHttpResponsedMessage.getData().a()));
+                    return;
+                }
+                hp4<List<VoiceRoomWrapper>> hp4Var = this.a;
+                String errorString = mvcHttpResponsedMessage.getErrorString();
+                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                hp4Var.a(new ip4.a(errorString, null, 2, null));
+            }
         }
     }
 
-    public rx6(Context context) {
+    public rx6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,110 +91,20 @@ public class rx6 extends BaseAdapter {
                 return;
             }
         }
-        this.c = -1;
-        this.a = context;
+        this.a = new VoiceRoomListNetModel();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public dt4 getItem(int i) {
-        InterceptResult invokeI;
+    public final void a(TbPageContext<?> tbPageContext, long j, long j2, hp4<List<VoiceRoomWrapper>> callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < getCount()) {
-                return this.b.get(i);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            px6 px6Var = new px6(j, j2);
+            this.a.setUniqueId(tbPageContext.getUniqueId());
+            this.a.j0(px6Var);
+            this.a.i0(new a(callback));
+            this.a.loadData();
+            callback.a(new ip4.b(null, 1, null));
         }
-        return (dt4) invokeI.objValue;
-    }
-
-    public void c(List<dt4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<dt4> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0381, (ViewGroup) null);
-                bVar = new b(null);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eba);
-                bVar.a = tbImageView;
-                tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08127e);
-                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914e4);
-                bVar.b = tbImageView2;
-                tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08127e);
-                bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f08127e);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0914fa);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091658);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ac0);
-                view2.setTag(bVar);
-            }
-            SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0105, 1);
-            if (i == this.c) {
-                SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f080457);
-            } else {
-                bVar.c.setBackgroundResource(R.color.common_color_10022);
-            }
-            dt4 item = getItem(i);
-            if (item != null) {
-                bVar.d.setText(item.b);
-                bVar.a.K(item.d, 10, false);
-                bVar.b.K(item.g, 10, false);
-                int i2 = item.f;
-                if (i2 == 5) {
-                    bVar.e.setVisibility(8);
-                } else if (i2 == 3) {
-                    bVar.e.setVisibility(0);
-                    bVar.e.setText(wx6.b(item.a(), false, item.s));
-                } else {
-                    bVar.e.setVisibility(0);
-                    bVar.e.setText(wx6.b(item.b(), false, item.s));
-                }
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

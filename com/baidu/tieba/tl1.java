@@ -1,7 +1,23 @@
 package com.baidu.tieba;
+
+import java.io.File;
 /* loaded from: classes6.dex */
 public interface tl1 {
-    void a(mw1 mw1Var);
+    String a(String str);
 
-    void b(ma4 ma4Var);
+    nc2 b();
+
+    void c();
+
+    File[] d();
+
+    String e();
+
+    void f();
+
+    void g();
+
+    String h(String str);
+
+    void i();
 }

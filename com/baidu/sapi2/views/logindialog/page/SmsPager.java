@@ -428,15 +428,15 @@ public class SmsPager extends LinearLayout implements a.c {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04eb, this);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091dea);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d87);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091de8);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091de6);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091df0);
+            LayoutInflater.from(this.a).inflate(R.layout.layout_sapi_dialog_sms_pager, this);
+            this.e = (TextView) findViewById(R.id.sapi_sdk_tv_input_code_tip);
+            this.f = (FrameLayout) findViewById(R.id.sapi_sdk_fl_input_box);
+            this.g = (TextView) findViewById(R.id.sapi_sdk_tv_error_tip);
+            this.h = (TextView) findViewById(R.id.sapi_sdk_tv_change_phone_number);
+            this.i = (TextView) findViewById(R.id.sapi_sdk_tv_resend_code);
             this.h.setOnClickListener(new b(this));
             this.i.setOnClickListener(new c(this));
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01011a);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.sapi_sdk_shake);
             this.o = loadAnimation;
             loadAnimation.setRepeatCount(5);
             d();
@@ -501,12 +501,12 @@ public class SmsPager extends LinearLayout implements a.c {
             aVar.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.n.setBox(i);
             if (ColorType.DARK == this.c) {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810e1));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810df));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.sapi_sdk_verification_edit_bg_normal_dark));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.sapi_sdk_verification_edit_bg_error_dark));
                 this.n.setTextColor(Color.parseColor("#CCFFFFFF"));
             } else {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810e0));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810de));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.sapi_sdk_verification_edit_bg_normal));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.sapi_sdk_verification_edit_bg_error));
                 this.n.setTextColor(Color.parseColor("#1F1F1F"));
             }
             this.n.b();

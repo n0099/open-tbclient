@@ -333,7 +333,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010092);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
             this.a = loadAnimation;
             loadAnimation.setAnimationListener(new b(this));
             Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c0);

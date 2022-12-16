@@ -1,32 +1,95 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    @NonNull
+    public final Map<String, b> a;
 
-    public gq0(int i, String str, String str2) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.optString("type");
+            jSONObject.optString("zip_url");
+            jSONObject.optInt("width");
+            jSONObject.optInt("height");
+        }
+
+        public /* synthetic */ b(JSONObject jSONObject, a aVar) {
+            this(jSONObject);
+        }
+    }
+
+    public gq0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
+        this.a = new HashMap();
+    }
+
+    @Nullable
+    public static gq0 a(@Nullable JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return null;
+            }
+            gq0 gq0Var = new gq0();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    b bVar = new b(optJSONObject, null);
+                    q01.e(gq0Var.a, bVar.a, bVar);
+                }
+            }
+            return gq0Var;
+        }
+        return (gq0) invokeL.objValue;
     }
 }

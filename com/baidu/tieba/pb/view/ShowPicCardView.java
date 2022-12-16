@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.sp4;
+import com.baidu.tieba.xr8;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public yo8 b;
+    public xr8 b;
     public TbImageView c;
     public LinearLayout d;
     public ImageView e;
@@ -105,22 +105,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074e, (ViewGroup) this, true);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a15);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090405);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09227e);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b7);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f21);
+            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d075f, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a80);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090406);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ef);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0907cf);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f90);
         }
     }
 
-    public yo8 getData() {
+    public xr8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (yo8) invokeV.objValue;
+        return (xr8) invokeV.objValue;
     }
 
     public ImageView getIcon() {
@@ -141,10 +141,10 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        yo8 yo8Var;
+        xr8 xr8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (yo8Var = this.b) != null) {
-            sp4.o(this.a, yo8Var.e());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (xr8Var = this.b) != null) {
+            sp4.o(this.a, xr8Var.e());
         }
     }
 
@@ -155,34 +155,34 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         }
     }
 
-    public void setData(yo8 yo8Var) {
+    public void setData(xr8 xr8Var) {
         float f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, yo8Var) == null) && yo8Var != null && this.b != yo8Var) {
-            this.b = yo8Var;
-            if (!StringUtils.isNULL(yo8Var.f())) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, xr8Var) == null) && xr8Var != null && this.b != xr8Var) {
+            this.b = xr8Var;
+            if (!StringUtils.isNULL(xr8Var.f())) {
                 this.f.setVisibility(0);
-                this.f.setText(yo8Var.f());
+                this.f.setText(xr8Var.f());
             } else {
                 this.f.setVisibility(8);
             }
-            if (!StringUtils.isNULL(yo8Var.a())) {
+            if (!StringUtils.isNULL(xr8Var.a())) {
                 this.g.setVisibility(0);
-                this.g.setText(yo8Var.a());
+                this.g.setText(xr8Var.a());
             } else {
                 this.g.setVisibility(8);
             }
             if (this.i) {
                 this.c.setSupportNoImage(true);
             }
-            int d = yo8Var.d();
-            int b = yo8Var.b();
+            int d = xr8Var.d();
+            int b = xr8Var.b();
             if (d > 0 && b > 0) {
                 this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.c.setOnClickListener(this);
                 this.c.setInterceptOnClick(true);
                 this.c.setDefaultResource(R.drawable.icon_click);
-                this.c.K(yo8Var.c(), 18, false);
+                this.c.K(xr8Var.c(), 18, false);
                 int l = yi.l(this.a) - (yi.g(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
                 float f2 = b / d;
                 if (f2 > 1.7777778f) {

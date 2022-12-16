@@ -1,208 +1,65 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.account.safeManage.AccountSafeModel;
-import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
-import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pq5 implements View.OnClickListener {
+public class pq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseActivity a;
-    public qq5 b;
-    public AccountSafeModel c;
-    public qb d;
+    public int a;
+    public ForumManageModel b;
+    public ThreadData c;
 
-    /* loaded from: classes5.dex */
-    public class a extends qb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pq5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pq5 pq5Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pq5Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pq5Var;
-        }
-
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            String errorString;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.a.c != null) {
-                    this.a.c.G(false);
-                }
-                this.a.a.closeLoadingDialog();
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    xi8 xi8Var = null;
-                    if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
-                        xi8Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
-                    }
-                    if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
-                        xi8Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.F(xi8Var);
-                    }
-                    if (this.a.b != null && this.a.c != null && this.a.c.A() != null) {
-                        this.a.b.d(this.a.c.A().f());
-                        return;
-                    }
-                    return;
-                }
-                if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c81);
-                } else {
-                    errorString = responsedMessage.getErrorString();
-                }
-                this.a.a.showToast(errorString);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070709, "Lcom/baidu/tieba/pq5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948070709, "Lcom/baidu/tieba/pq5;");
-                return;
-            }
-        }
-        e = TbConfig.TIEBA_ADDRESS + "mo/q/accountSecurity/accountOption";
-    }
-
-    public pq5(BaseActivity baseActivity) {
+    public pq5(int i, ForumManageModel forumManageModel, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i), forumManageModel, threadData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-        this.d = aVar;
-        this.a = baseActivity;
-        baseActivity.registerListener(aVar);
-        this.b = new qq5(this.a, this);
-        this.c = new AccountSafeModel(this.a);
-        if (BdNetTypeUtil.isNetWorkAvailable()) {
-            g();
-        } else {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c81);
-        }
+        this.a = i;
+        this.b = forumManageModel;
+        this.c = threadData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090353) {
-                TiebaStatic.log("c10013");
-                if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c81);
-                } else {
-                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{e});
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090057) {
-                AccountSafeModel accountSafeModel = this.c;
-                if (accountSafeModel != null) {
-                    str = accountSafeModel.getJumpUrl();
-                } else {
-                    str = "";
-                }
-                AntiHelper.p(this.a, str);
-            }
-        }
-    }
-
-    public void e(int i) {
-        qq5 qq5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (qq5Var = this.b) != null) {
-            qq5Var.e(i);
-        }
-    }
-
-    public View d() {
+    public ForumManageModel a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.a();
+            return this.b;
         }
-        return (View) invokeV.objValue;
+        return (ForumManageModel) invokeV.objValue;
     }
 
-    public void f() {
+    public ThreadData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.closeLoadingDialog();
-            AccountSafeModel accountSafeModel = this.c;
-            if (accountSafeModel != null) {
-                accountSafeModel.cancelLoadData();
-            }
-            qq5 qq5Var = this.b;
-            if (qq5Var != null) {
-                qq5Var.c();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (ThreadData) invokeV.objValue;
     }
 
-    public final void g() {
-        AccountSafeModel accountSafeModel;
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (accountSafeModel = this.c) != null && !accountSafeModel.C()) {
-            this.c.E();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 }

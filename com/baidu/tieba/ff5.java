@@ -1,72 +1,112 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.pay.PayConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ff5 {
     public static /* synthetic */ Interceptable $ic;
+    public static ff5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public hf5 a;
-    public String b;
 
-    public ff5(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947762228, "Lcom/baidu/tieba/ff5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947762228, "Lcom/baidu/tieba/ff5;");
+        }
+    }
+
+    public ff5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized ff5 c() {
+        InterceptResult invokeV;
+        ff5 ff5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ff5.class) {
+                if (a == null) {
+                    a = new ff5();
+                }
+                ff5Var = a;
+            }
+            return ff5Var;
+        }
+        return (ff5) invokeV.objValue;
+    }
+
+    public void a(PayConfig payConfig, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
+            if (payConfig != null && context != null) {
+                if (!d()) {
+                    e(R.string.plugin_pay_wallet_not_found);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
                 return;
             }
+            e(R.string.plugin_pay_error);
         }
-        this.b = str;
     }
 
-    public final void a(String str, int i) {
-        int intValue;
+    public void b(String str, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || xi.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) != null) || tbPageContext == null) {
             return;
         }
-        int i2 = intValue + 1;
-        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
-        if (intValue2 > 0) {
-            i = (i + (intValue2 * (i2 - 1))) / i2;
-        }
-        TbSingleton.getInstance().setAnimAvgFps(str, i);
-        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
-        if (i2 >= 5) {
-            TbSingleton.getInstance().setAnimComputedFps(str, i);
-            gf5.a();
-        }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
     }
 
-    public void b() {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
-            if (this.a == null) {
-                this.a = new hf5();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(2001351) || !TbadkCoreApplication.getInst().isWalletShouldOpen() || Build.VERSION.SDK_INT < 8) {
+                return false;
             }
-            this.a.c();
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void c() {
-        hf5 hf5Var;
+    public final void e(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hf5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
-            hf5Var.d();
-            a(this.b, this.a.b());
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            yi.P(TbadkCoreApplication.getInst().getContext(), i);
         }
     }
 }

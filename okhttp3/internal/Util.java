@@ -40,16 +40,18 @@ import javax.annotation.Nullable;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
+import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import okhttp3.internal.http2.Header;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_BYTE_ARRAY;
@@ -553,7 +555,7 @@ public final class Util {
     public static boolean verifyAsIpAddress(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
             return VERIFY_AS_IP_ADDRESS.matcher(str).matches();
         }
         return invokeL.booleanValue;
@@ -609,6 +611,19 @@ public final class Util {
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static Headers toHeaders(List<Header> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, list)) == null) {
+            Headers.Builder builder = new Headers.Builder();
+            for (Header header : list) {
+                Internal.instance.addLenient(builder, header.name.utf8(), header.value.utf8());
+            }
+            return builder.build();
+        }
+        return (Headers) invokeL.objValue;
     }
 
     public static boolean decodeIpv4Suffix(String str, int i, int i2, byte[] bArr, int i3) {
@@ -865,7 +880,7 @@ public final class Util {
     public static String trimSubstring(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65572, null, str, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65573, null, str, i, i2)) == null) {
             int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i, i2);
             return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i2));
         }

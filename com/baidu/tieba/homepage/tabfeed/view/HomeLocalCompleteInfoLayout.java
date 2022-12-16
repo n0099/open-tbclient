@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.s57;
+import com.baidu.tieba.q67;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements tx {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            s57.h();
+            q67.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -164,13 +164,13 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements tx {
             setPadding(g, 0, g, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0885));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08b3));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0886));
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08b4));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, yi.g(getContext(), R.dimen.tbds75));
             int g2 = yi.g(getContext(), R.dimen.M_W_X004);
             layoutParams2.setMargins(g2, yi.g(getContext(), R.dimen.M_H_X005), g2, yi.g(getContext(), R.dimen.tbds38));
@@ -191,14 +191,14 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements tx {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                qw4 d = qw4.d(textView);
+                rw4 d = rw4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
                 d.A(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                qw4 d2 = qw4.d(eMTextView);
+                rw4 d2 = rw4.d(eMTextView);
                 d2.v(R.color.CAM_X0302);
                 d2.z(R.dimen.T_X08);
                 d2.A(R.string.F_X01);
@@ -210,7 +210,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements tx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            qw4 d3 = qw4.d(this);
+            rw4 d3 = rw4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

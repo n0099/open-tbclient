@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e66;
-import com.baidu.tieba.pi5;
+import com.baidu.tieba.hj5;
+import com.baidu.tieba.z66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e66 a;
+    public z66 a;
     public int b;
     public int c;
 
@@ -92,12 +92,12 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.b = R.drawable.obfuscated_res_0x7f08094e;
+        this.b = R.drawable.icon_pure_card_more22;
         this.c = R.color.CAM_X0111;
-        this.a = new e66(g((Activity) context), this);
+        this.a = new z66(g((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094e, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_more22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void f(ThreadData threadData) {
@@ -130,7 +130,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || pi5.a()) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || hj5.a()) {
             return;
         }
         this.a.n();

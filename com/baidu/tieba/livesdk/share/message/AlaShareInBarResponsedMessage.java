@@ -3,18 +3,18 @@ package com.baidu.tieba.livesdk.share.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.uk7;
+import com.baidu.tieba.sn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uk7 data;
+    public sn7 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaShareInBarResponsedMessage() {
@@ -34,13 +34,13 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public uk7 getShareInBarData() {
+    public sn7 getShareInBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.data;
         }
-        return (uk7) invokeV.objValue;
+        return (sn7) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -49,9 +49,9 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getStatusCode() == 200 && jSONObject != null) {
-                uk7 uk7Var = new uk7();
-                this.data = uk7Var;
-                uk7Var.a(jSONObject);
+                sn7 sn7Var = new sn7();
+                this.data = sn7Var;
+                sn7Var.a(jSONObject);
             }
         }
     }

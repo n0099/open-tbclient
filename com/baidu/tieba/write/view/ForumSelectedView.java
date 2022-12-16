@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -110,12 +110,12 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cb, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905d1);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d4);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905d0);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0905d2);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cc, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905d2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d4);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d5);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905d1);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0905d3);
             setOnClickListener(this);
             c();
         }
@@ -132,7 +132,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-        qw4 d = qw4.d(this.d);
+        rw4 d = rw4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0206);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);

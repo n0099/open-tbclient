@@ -3,16 +3,15 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
-import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.upload.AsyncChatTask;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -120,15 +119,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             HashMap hashMap = new HashMap();
-            try {
-                String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-                CookieManager cookieManager = CookieManager.getInstance();
-                cookieManager.setCookie("baidu.com", "BDUSS=" + bduss);
-                hashMap.put("cookie", cookieManager.getCookie("baidu.com"));
-            } catch (Exception e) {
-                LogUtils.e("IMGenBosObjectUrlRequest", "set bduss exception");
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            }
+            hashMap.put("Cookie", "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -195,7 +186,6 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 } catch (UnsupportedEncodingException e) {
                     LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
                     sb.append("&content_type=" + URLEncoder.encode(this.mContentType));
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
             }
             if (!TextUtils.isEmpty(this.mFormat)) {
@@ -207,23 +197,25 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             sb.append("&img_height=" + this.mOriHeight);
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             sb.append("&timestamp=" + currentTimeMillis);
-            sb.append("&account_type=");
+            sb.append("&cuid=" + Utility.getDeviceId(this.mContext));
+            int loginType = AccountManagerImpl.getInstance(this.mContext).getLoginType();
+            sb.append("&account_type=" + loginType);
             String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-            if (AccountManager.isCuidLogin(this.mContext)) {
-                sb.append(6);
+            if (loginType == 6) {
                 sb.append("&token=");
                 sb.append(bduss);
-            } else {
-                sb.append(1);
+            } else if (loginType == 11) {
+                sb.append("&client_id=" + AccountManagerImpl.getInstance(this.mContext).getXDClientId());
             }
             try {
                 str = getMd5("" + currentTimeMillis + bduss + appid);
             } catch (Exception e2) {
                 LogUtils.e(IMGenBosObjectUrlRequest.class.getSimpleName(), "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
             sb.append("&sign=" + str);
-            return sb.toString().getBytes();
+            String sb2 = sb.toString();
+            LogUtils.d("IMGenBosObjectUrlRequest", "param :" + sb2 + ", subBduss :" + bduss.substring(0, 10));
+            return sb2.getBytes();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -262,7 +254,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                     i3 = jSONObject2.getInt("error_code");
                     str = jSONObject2.getString("authorization");
                     try {
-                        str2 = jSONObject2.getString("date");
+                        str2 = jSONObject2.getString(GfhKeyValue.TYPE_DATE);
                         try {
                             hashMap2 = new HashMap();
                             hashMap2.put(AsyncChatTask.PUT_URL, jSONObject2.getString(AsyncChatTask.PUT_URL));
@@ -281,7 +273,6 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                         } catch (JSONException e) {
                             e = e;
                             LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             str3 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                             hashMap = null;
                             str4 = str;

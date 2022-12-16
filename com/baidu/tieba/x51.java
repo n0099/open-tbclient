@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface x51 {
     public static final x51 a = new a();
 
-    boolean a(Intent intent);
+    boolean a(int i);
 
     /* loaded from: classes6.dex */
     public static class a implements x51 {
@@ -21,13 +20,13 @@ public interface x51 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.x51
-        public boolean a(Intent intent) {
-            InterceptResult invokeL;
+        public boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 return false;
             }
-            return invokeL.booleanValue;
+            return invokeI.booleanValue;
         }
 
         public a() {
@@ -64,7 +63,7 @@ public interface x51 {
                     return;
                 }
             }
-            a = w51.d();
+            a = v51.e();
         }
 
         @NonNull

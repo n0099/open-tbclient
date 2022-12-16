@@ -1,20 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public il8 d;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final fl8 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-800628455, "Lcom/baidu/tieba/fl8$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-800628455, "Lcom/baidu/tieba/fl8$b;");
+                    return;
+                }
+            }
+            a = new fl8(null);
+        }
+    }
 
     public fl8() {
         Interceptable interceptable = $ic;
@@ -26,42 +58,99 @@ public class fl8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = null;
     }
 
-    public int a() {
+    public static fl8 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeV.intValue;
+        return (fl8) invokeV.objValue;
     }
 
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.c;
+            if (str == null) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a && this.b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ fl8(a aVar) {
+        this();
+    }
+
+    public void a(Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && uri != null && b(uri)) {
+            this.c = null;
+        }
+    }
+
+    public final boolean b(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            if (this.d == null) {
+                this.d = new il8();
+            }
+            return this.d.a(uri);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = true;
+            this.c = str;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void g(Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, uri, str) != null) || !b(uri)) {
             return;
         }
-        try {
-            this.a = jSONObject.optInt("errno");
-            jSONObject.optString("errmsg");
-            this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        this.b = true;
+        if (!TextUtils.isEmpty(str)) {
+            this.c = hl8.a(str);
+        } else {
+            this.c = null;
         }
     }
 }

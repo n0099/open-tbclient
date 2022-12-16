@@ -1,68 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+import tbclient.User;
+import tbclient.VoiceRoom;
+/* loaded from: classes6.dex */
 public class sx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<dt4> b;
 
-    public void d(String str) {
+    public static List<ox6> a(List<VoiceRoom> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public sx6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (VoiceRoom voiceRoom : list) {
+                if (voiceRoom != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    ox6 ox6Var = new ox6();
+                    ox6Var.a = voiceRoom.room_name;
+                    ox6Var.c = String.valueOf(voiceRoom.talker_num);
+                    ox6Var.d = String.valueOf(voiceRoom.joined_num);
+                    ox6Var.e = voiceRoom.room_id.longValue();
+                    for (User user : voiceRoom.talker) {
+                        if (user != null) {
+                            arrayList2.add(user.portrait);
+                        }
+                    }
+                    ox6Var.b = arrayList2;
+                    arrayList.add(ox6Var);
+                }
             }
+            return arrayList;
         }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<dt4> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void e(List<dt4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.b = list;
-        }
+        return (List) invokeL.objValue;
     }
 }

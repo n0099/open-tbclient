@@ -15,7 +15,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.xz4;
 import com.baidu.tieba.yi;
@@ -110,11 +110,11 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
                 CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.a;
                 cardItemRecentUpdateLayout.i = !cardItemRecentUpdateLayout.i;
                 if (!this.a.i) {
-                    this.a.g.setText(R.string.obfuscated_res_0x7f0f05f1);
+                    this.a.g.setText(R.string.obfuscated_res_0x7f0f05f8);
                     this.a.f.setMaxLines(3);
                     return;
                 }
-                this.a.g.setText(R.string.obfuscated_res_0x7f0f065d);
+                this.a.g.setText(R.string.obfuscated_res_0x7f0f0664);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xz4(10)));
@@ -203,17 +203,17 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a4, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff7);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff8);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff4);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090ff6);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090ff5);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091053);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091054);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091050);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091052);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091051);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05f1))));
-            qw4 d = qw4.d(this.f);
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05f8))));
+            rw4 d = rw4.d(this.f);
             d.z(R.dimen.T_X06);
             d.w(R.dimen.M_T_X002);
             this.f.setPadding(yi.g(context, R.dimen.M_W_X005), 0, 0, yi.g(context, R.dimen.M_H_X005));
@@ -221,8 +221,8 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
             this.f.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f05f1);
-            qw4.d(this.f).z(R.dimen.T_X06);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f05f8);
+            rw4.d(this.f).z(R.dimen.T_X06);
             this.g.setPadding(yi.g(context, R.dimen.M_W_X005), yi.g(context, R.dimen.M_H_X005), 0, yi.g(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -236,25 +236,25 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements tx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            qw4 d = qw4.d(this);
+            rw4 d = rw4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            qw4 d2 = qw4.d(this.a);
+            rw4 d2 = rw4.d(this.a);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            qw4 d3 = qw4.d(this.b);
+            rw4 d3 = rw4.d(this.b);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0108);
-            qw4 d4 = qw4.d(this.c);
+            rw4 d4 = rw4.d(this.c);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0108);
-            qw4 d5 = qw4.d(this.f);
+            rw4 d5 = rw4.d(this.f);
             d5.A(R.string.F_X01);
             d5.v(R.color.CAM_X0105);
-            qw4 d6 = qw4.d(this.g);
+            rw4 d6 = rw4.d(this.g);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0304);
-            qw4.d(this.d).f(R.color.CAM_X0111);
+            rw4.d(this.d).f(R.color.CAM_X0111);
         }
     }
 }

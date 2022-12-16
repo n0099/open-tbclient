@@ -75,7 +75,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0137b implements Runnable {
+        public class RunnableC0151b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -83,7 +83,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             public final /* synthetic */ String c;
             public final /* synthetic */ b d;
 
-            public RunnableC0137b(b bVar, String str, String str2, String str3) {
+            public RunnableC0151b(b bVar, String str, String str2, String str3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,7 +175,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                         new Handler(Looper.getMainLooper()).post(new a(this));
                         return;
                     }
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0137b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0151b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
                 } catch (OperationCanceledException e) {
                     new Handler(Looper.getMainLooper()).post(new c(this));
                     Log.e(e);
@@ -283,7 +283,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10cf);
+            setTitleText(R.string.sapi_sdk_title_login_xiaomi);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

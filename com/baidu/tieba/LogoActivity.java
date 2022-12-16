@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -25,10 +24,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z56 a;
-    public lp5 b;
+    public u66 a;
+    public gq5 b;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.de5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ve5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,9 +76,9 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            lp5 lp5Var = this.b;
-            if (lp5Var != null) {
-                lp5Var.f();
+            gq5 gq5Var = this.b;
+            if (gq5Var != null) {
+                gq5Var.f();
             }
         }
     }
@@ -92,9 +91,9 @@ public class LogoActivity extends BaseFragmentActivity {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             }
             super.onResume();
-            lp5 lp5Var = this.b;
-            if (lp5Var != null) {
-                lp5Var.g();
+            gq5 gq5Var = this.b;
+            if (gq5Var != null) {
+                gq5Var.g();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
             }
         }
@@ -105,9 +104,9 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            lp5 lp5Var = this.b;
-            if (lp5Var != null) {
-                lp5Var.c(configuration);
+            gq5 gq5Var = this.b;
+            if (gq5Var != null) {
+                gq5Var.c(configuration);
             }
         }
     }
@@ -130,21 +129,21 @@ public class LogoActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             getWindow().setFlags(1024, 1024);
             if (Build.VERSION.SDK_INT > 16) {
-                getWindow().getDecorView().setSystemUiVisibility(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES);
+                getWindow().getDecorView().setSystemUiVisibility(1028);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d057a);
+            setContentView(R.layout.obfuscated_res_0x7f0d058a);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                lp5 lp5Var = new lp5(this);
-                this.b = lp5Var;
-                lp5Var.d(bundle);
+                gq5 gq5Var = new gq5(this);
+                this.b = gq5Var;
+                gq5Var.d(bundle);
                 return;
             }
             if (getIntent() != null) {
                 TbadkCoreApplication.setIntent((Intent) getIntent().getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
             }
-            z56 z56Var = new z56(this);
-            this.a = z56Var;
-            z56Var.i();
+            u66 u66Var = new u66(this);
+            this.a = u66Var;
+            u66Var.k();
         }
     }
 
@@ -156,11 +155,11 @@ public class LogoActivity extends BaseFragmentActivity {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3004);
             }
             super.onDestroy();
-            lp5 lp5Var = this.b;
-            if (lp5Var != null) {
-                lp5Var.e();
+            gq5 gq5Var = this.b;
+            if (gq5Var != null) {
+                gq5Var.e();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-                fx4.m();
+                fx4.l();
             }
         }
     }

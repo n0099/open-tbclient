@@ -1,93 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.Iterator;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes3.dex */
-public class br8 extends zq8 {
+public class br8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
+    public int a;
+    public long b;
+    public boolean c;
+    public String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br8(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
+    public br8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    @Override // com.baidu.tieba.zq8
-    public void a() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zq8
-    public boolean c() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.zq8
-    public cr8 g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    public void c(StarInfo starInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            cr8 cr8Var = new cr8();
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                int i2 = 0;
-                int size = arrayList.size();
-                Iterator<Integer> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    int i3 = i2 + 1;
-                    cr8 h = h(randomAccessFile, it.next().intValue(), i, str);
-                    if (h == null) {
-                        return null;
-                    }
-                    d((int) (((i3 * 50.0f) / size) + 30.0f));
-                    if (!StringUtils.isNull(h.a)) {
-                        return h;
-                    }
-                    if (h.b != 0) {
-                        return h;
-                    }
-                    i2 = i3;
-                    cr8Var = h;
-                }
-            } catch (FileNotFoundException unused) {
-            }
-            return cr8Var;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+            return;
         }
-        return (cr8) invokeLLI.objValue;
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        boolean z = true;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
+            }
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
+            }
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
+        }
+        if (starInfo.trade == null) {
+            z = false;
+        }
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
+            }
+            String str3 = starInfo.trade.url;
+        }
+        this.d = starInfo.star_forum_headimg;
     }
 }

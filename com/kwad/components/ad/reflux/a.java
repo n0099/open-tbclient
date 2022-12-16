@@ -15,7 +15,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends com.kwad.sdk.core.download.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,13 +32,13 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     public int le;
     public int lf;
     public int lg;
-    public InterfaceC0546a lh;
+    public InterfaceC0563a lh;
     public c mApkDownloadHelper;
     public String title;
 
     /* renamed from: com.kwad.components.ad.reflux.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0546a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0563a {
         void eF();
     }
 
@@ -108,12 +108,12 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     }
 
     private void eU() {
-        InterfaceC0546a interfaceC0546a;
+        InterfaceC0563a interfaceC0563a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0546a = this.lh) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0563a = this.lh) == null) {
             return;
         }
-        interfaceC0546a.eF();
+        interfaceC0563a.eF();
     }
 
     private void setApkDownloadHelper(c cVar) {
@@ -130,10 +130,10 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
         }
     }
 
-    public final void a(InterfaceC0546a interfaceC0546a) {
+    public final void a(InterfaceC0563a interfaceC0563a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0546a) == null) {
-            this.lh = interfaceC0546a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0563a) == null) {
+            this.lh = interfaceC0563a;
         }
     }
 

@@ -1,5 +1,5 @@
 package com.kwad.sdk.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a {
     String getAppId();
 

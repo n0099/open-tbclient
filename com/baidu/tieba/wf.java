@@ -9,7 +9,5 @@ public interface wf {
 
     boolean netABTest();
 
-    boolean netBdABTest();
-
     boolean qaHttpsTest();
 }

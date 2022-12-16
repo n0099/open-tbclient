@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.tr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -113,29 +113,38 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
-        C();
-        B();
+        J();
+        I();
     }
 
-    public void D(b bVar) {
+    public void K(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public final void B() {
+    public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterTask(309366);
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
+        }
+    }
+
+    public final void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             registerListener(this.b);
         }
     }
 
-    public final void C() {
+    public final void J() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            uo8.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-            uo8.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            tr8.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+            tr8.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -143,19 +152,10 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             sendMessage(new BfbInfoRequestMessage());
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            MessageManager.getInstance().unRegisterTask(309366);
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
-        }
     }
 }

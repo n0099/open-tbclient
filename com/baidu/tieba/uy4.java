@@ -91,8 +91,8 @@ public class uy4 {
             this.c = create;
             GreyUtil.grey(create);
             ch.i(this.c, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d020a, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09076d);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
             if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
                 textView.setText(this.d);
             }
@@ -125,8 +125,8 @@ public class uy4 {
             this.c = create;
             GreyUtil.grey(create);
             ch.i(this.c, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d020a, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09076d);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
             if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
                 textView.setText(this.d);
             }

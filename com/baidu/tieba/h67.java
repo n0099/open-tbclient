@@ -1,89 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h67 extends kn<s67, AdapterViewHolder<HotTopicRankLayout>> implements t57 {
+public class h67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public String b;
 
-    public void u(Cdo cdo) {
+    public static boolean a(j25 j25Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cdo) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h67(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), x17.a);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, j25Var, str)) == null) {
+            long n = ry4.l().n("key_card_interest_close_click_time_" + str, 0L);
+            if (n != 0) {
+                int currentTimeMillis = (int) (((((System.currentTimeMillis() - n) / 1000) / 60) / 60) / 24);
+                if (j25Var.a() != -1 && currentTimeMillis >= j25Var.a()) {
+                    return true;
+                }
+                return false;
             }
+            return false;
         }
-        this.a = tbPageContext;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t57
-    public void h(String str) {
+    public static boolean d(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (!f()) {
+                return false;
+            }
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            j25 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+            if (homepageInterestConfig == null || i2 <= 0) {
+                return false;
+            }
+            if (b(homepageInterestConfig)) {
+                return true;
+            }
+            if (ry4.l().m("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                if (a(homepageInterestConfig, currentAccount) && i == 0) {
+                    return true;
+                }
+            } else if (e(homepageInterestConfig) && i == 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeII.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public AdapterViewHolder<HotTopicRankLayout> onCreateViewHolder(ViewGroup viewGroup) {
+    public static boolean b(j25 j25Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new AdapterViewHolder<>(new HotTopicRankLayout(viewGroup.getContext()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, j25Var)) == null) {
+            if (j25Var.c() == 1) {
+                return true;
+            }
+            return false;
         }
-        return (AdapterViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s67 s67Var, AdapterViewHolder<HotTopicRankLayout> adapterViewHolder) {
-        InterceptResult invokeCommon;
+    public static boolean e(j25 j25Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s67Var, adapterViewHolder})) == null) {
-            if (s67Var != null && adapterViewHolder != null) {
-                HotTopicRankLayout a = adapterViewHolder.a();
-                a.setTabCode(this.b);
-                a.a(s67Var);
-                a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return adapterViewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, j25Var)) == null) {
+            if (j25Var.d() == 1) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!UbsABTestHelper.isRecommendCardInterestABTestA() || !f()) {
+                return false;
+            }
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            j25 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+            if (homepageInterestConfig == null) {
+                return false;
+            }
+            if (b(homepageInterestConfig)) {
+                return true;
+            }
+            if (ry4.l().m("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                if (a(homepageInterestConfig, currentAccount)) {
+                    return true;
+                }
+            } else if (e(homepageInterestConfig)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                return false;
+            }
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            j25 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+            if (homepageInterestConfig == null) {
+                return false;
+            }
+            if (ry4.l().m("key_card_interest_close_click_num_" + currentAccount, 0) >= homepageInterestConfig.b()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

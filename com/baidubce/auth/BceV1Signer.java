@@ -19,7 +19,6 @@ import com.baidubce.util.DateUtils;
 import com.baidubce.util.HashUtils;
 import com.baidubce.util.HttpUtils;
 import com.baidubce.util.JoinerUtils;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -197,7 +196,7 @@ public class BceV1Signer implements Signer {
             SortedMap<String, String> headersToSign = getHeadersToSign(internalRequest.getHeaders(), signOptions.getHeadersToSign());
             String canonicalHeaders = getCanonicalHeaders(headersToSign);
             if (signOptions.getHeadersToSign() != null) {
-                str = JoinerUtils.on(ParamableElem.DIVIDE_PARAM, headersToSign.keySet()).trim().toLowerCase();
+                str = JoinerUtils.on(";", headersToSign.keySet()).trim().toLowerCase();
             } else {
                 str = "";
             }

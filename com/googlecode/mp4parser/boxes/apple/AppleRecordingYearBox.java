@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.boxes.apple;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import java.util.Date;
 import java.util.TimeZone;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AppleRecordingYearBox extends AppleDataBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -101,7 +102,7 @@ public class AppleRecordingYearBox extends AppleDataBox {
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("AppleRecordingYearBox.java", AppleRecordingYearBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "", "", "", "java.util.Date"), 27);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "java.util.Date", "date", "", "void"), 31);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "java.util.Date", GfhKeyValue.TYPE_DATE, "", "void"), 31);
     }
 
     public static String iso8601toRfc822Date(String str) {

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.fk5;
+import com.baidu.tieba.al5;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -130,8 +129,8 @@ public class ThirdStatisticHelper {
                 StringBuilder sb = new StringBuilder();
                 for (String str : list) {
                     sb.append(str);
-                    if (!str.endsWith(ParamableElem.DIVIDE_PARAM)) {
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    if (!str.endsWith(";")) {
+                        sb.append(";");
                     }
                 }
                 sb.deleteCharAt(sb.length() - 1);
@@ -152,7 +151,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", fk5.b());
+                httpURLConnection.setRequestProperty("User-Agent", al5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -173,7 +172,7 @@ public class ThirdStatisticHelper {
                     sb.append(allCookies);
                 }
                 if (str != null) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    sb.append(";");
                     sb.append(str);
                 }
                 return sb.toString();

@@ -1,7 +1,6 @@
 package com.baidu.ugc.editvideo.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Div implements Externalizable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +40,7 @@ public final class Div implements Externalizable {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("start", this.start);
-                jSONObject.put(IntentConfig.STOP, this.stop);
+                jSONObject.put("stop", this.stop);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -73,7 +72,7 @@ public final class Div implements Externalizable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             this.start = jSONObject.optInt("start");
-            this.stop = jSONObject.optInt(IntentConfig.STOP);
+            this.stop = jSONObject.optInt("stop");
         }
     }
 

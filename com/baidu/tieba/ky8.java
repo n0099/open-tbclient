@@ -1,8 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.widget.ListView.BdExpandListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.themeCenter.SkinProgressView;
+import com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity;
+import com.baidu.tieba.themeCenter.background.BackgroundSetHttpResponseMessage;
+import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
+import com.baidu.tieba.themeCenter.background.BackgroundSetSocketResponseMessage;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,45 +30,170 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.TimeZone;
-/* loaded from: classes4.dex */
-public class ky8 extends BdAsyncTask<Void, Void, List<ly8>> {
+/* loaded from: classes5.dex */
+public class ky8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public Context b;
-    public int c;
-    public SimpleDateFormat d;
-    public SimpleDateFormat e;
+    public BackgroundPreviewActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public jy8 e;
+    public BdExpandListView f;
+    public hy8 g;
+    public SkinProgressView h;
+    public DressItemData i;
+    public ey8 j;
+    public View.OnClickListener k;
+    public qb l;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(List<ly8> list);
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky8 a;
+
+        public a(ky8 ky8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && this.a.i != null && this.a.j != null) {
+                TiebaStatic.log(new StatisticItem("c10284"));
+                if (this.a.i.getInUse()) {
+                    my4.e(this.a.a.getPageContext().getPageActivity(), 8);
+                } else {
+                    this.a.j.e(this.a.i, true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends qb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ky8 ky8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky8Var;
+        }
+
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            if (!(responsedMessage instanceof BackgroundSetHttpResponseMessage) && !(responsedMessage instanceof BackgroundSetSocketResponseMessage)) {
+                return;
+            }
+            if (responsedMessage.getError() != 0) {
+                int i = wx8.b;
+                if (responsedMessage.getError() == wx8.c) {
+                    i = wx8.a;
+                }
+                this.a.j.d(i, responsedMessage.getErrorString(), this.a.i, ((BackgroundSetRequestMessage) responsedMessage.getOrginalMessage().getExtra()).getFromDetail());
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c10286").param("obj_id", this.a.i.getPropsId()).param("obj_type", this.a.i.getFreeUserLevel()));
+            this.a.i.setInUse(true);
+            this.a.m();
+            ry4 l = ry4.l();
+            l.x("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), this.a.i.getPropsId());
+        }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947929535, "Lcom/baidu/tieba/ky8;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929535, "Lcom/baidu/tieba/ky8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947929535, "Lcom/baidu/tieba/ky8;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947929535, "Lcom/baidu/tieba/ky8;");
+        m = yi.g(TbadkApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029e);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.c.setVisibility(0);
         }
     }
 
-    public ky8(Context context) {
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.l);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            tr8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            tr8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        }
+    }
+
+    public ky8(BackgroundPreviewActivity backgroundPreviewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {backgroundPreviewActivity};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,49 +203,100 @@ public class ky8 extends BdAsyncTask<Void, Void, List<ly8>> {
                 return;
             }
         }
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
-        this.e = new SimpleDateFormat("mm:ss");
-        this.d = new SimpleDateFormat("HH:mm:ss");
-        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.e.setTimeZone(timeZone);
-        this.d.setTimeZone(timeZone);
+        this.k = new a(this);
+        this.l = new b(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
+        this.a = backgroundPreviewActivity;
+        View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0132, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903cc);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.showBottomLine(false);
+        this.f = (BdExpandListView) this.a.findViewById(R.id.obfuscated_res_0x7f091a67);
+        this.h = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f092669);
+        ey8 ey8Var = new ey8(backgroundPreviewActivity.getPageContext(), this.a.getUniqueId());
+        this.j = ey8Var;
+        ey8Var.c(this.a.x1());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public List<ly8> doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
+    public void j(BdExpandListView.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            List<ly8> a2 = my8.a(this.b);
-            my8.d("/sdcard", a2, false);
-            my8.d("/sdcard/DCIM", a2, true);
-            my8.e(a2);
-            return a2;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.f.setExpandListRefreshListener(bVar);
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(List<ly8> list) {
+    public void g() {
+        hy8 hy8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            super.onPostExecute(list);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(list);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ig5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+                SkinManager.setBackgroundResource(this.d, R.color.common_color_10262);
+            }
+            BdExpandListView bdExpandListView = this.f;
+            if (bdExpandListView != null && bdExpandListView.getVisibility() == 0 && (hy8Var = this.g) != null) {
+                hy8Var.notifyDataSetChanged();
             }
         }
     }
 
-    public void d(a aVar) {
+    public final void m() {
+        DressItemData dressItemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (dressItemData = this.i) == null) {
+            return;
+        }
+        boolean inUse = dressItemData.getInUse();
+        int activityFinish = this.i.getActivityFinish();
+        this.h.setFontSize(yi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702b7));
+        if (inUse) {
+            this.h.b(0, 0.0f, this.i.getFreeUserLevel(), activityFinish, 2);
+        } else {
+            this.h.b(9, 0.0f, this.i.getFreeUserLevel(), activityFinish, 2);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(m);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public void l(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dressItemData) == null) {
+            this.i = dressItemData;
+            if (dressItemData == null) {
+                k();
+                return;
+            }
+            e();
+            if (this.e == null) {
+                jy8 jy8Var = new jy8(this.a);
+                this.e = jy8Var;
+                jy8Var.e(dressItemData);
+                this.f.addHeaderView(this.e.b());
+                this.e.d();
+                this.f.setExpandView(this.e.b(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702bb));
+                hy8 hy8Var = new hy8(this.a.getPageContext(), dressItemData);
+                this.g = hy8Var;
+                this.f.setAdapter((ListAdapter) hy8Var);
+                i();
+                this.a.registerListener(this.l);
+            }
+            this.h.setDressData(this.i);
+            this.h.setOnClickListener(this.k);
+            m();
         }
     }
 }

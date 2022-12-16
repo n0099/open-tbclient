@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IAudioListener extends IInterface {
     void onCanPlay() throws RemoteException;
 
@@ -40,7 +40,7 @@ public interface IAudioListener extends IInterface {
 
     void onTimeUpdate(int i, int i2) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Stub extends Binder implements IAudioListener {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioListener";
@@ -66,7 +66,7 @@ public interface IAudioListener extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class Proxy implements IAudioListener {
             public static /* synthetic */ Interceptable $ic;
             public static IAudioListener sDefaultImpl;
@@ -510,7 +510,7 @@ public interface IAudioListener extends IInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Default implements IAudioListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

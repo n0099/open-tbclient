@@ -29,7 +29,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     public boolean b;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i c1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i b1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
@@ -38,7 +38,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.de5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ve5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,13 +94,13 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager s0() {
+    public VoiceManager r0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             PersonPolymericFragment personPolymericFragment = this.a;
             if (personPolymericFragment != null) {
-                return personPolymericFragment.s0();
+                return personPolymericFragment.r0();
             }
             return null;
         }
@@ -144,9 +144,9 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0737);
+            setContentView(R.layout.obfuscated_res_0x7f0d0748);
             this.a = new PersonPolymericFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090aea, this.a).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090b05, this.a).commit();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !n9.g().i("MainTabActivity")) {
                 this.b = true;
             }

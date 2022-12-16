@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mf9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mf9 {
+    boolean a(JSONObject jSONObject, boolean z, boolean z2);
 
-    public abstract String a();
-
-    public abstract void b();
-
-    public abstract void c();
+    boolean b(File file, long j, boolean z, boolean z2);
 }

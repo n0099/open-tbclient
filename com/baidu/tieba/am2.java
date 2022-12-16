@@ -8,17 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class am2 extends zh2<qm2> {
+public class am2 extends yh2<pm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zh2
+    @Override // com.baidu.tieba.yh2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
     }
 
     public am2() {
@@ -36,14 +37,25 @@ public class am2 extends zh2<qm2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zh2
+    @Override // com.baidu.tieba.yh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull qm2 qm2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pm2 pm2Var) {
+        Object obj;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qm2Var) == null) {
-            qm2Var.seekTo(command.arg1);
-            String str = command.what;
-            d(qm2Var, str, "SeekTo: " + command.arg1, false);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pm2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
+        ArrayList arrayList = (ArrayList) obj;
+        if (command.arg1 != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        String str = (String) arrayList.get(0);
+        String f = ad3.l().f(str, (String) arrayList.get(1));
+        command.ret = pm2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
+        String str2 = command.what;
+        d(pm2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
     }
 }

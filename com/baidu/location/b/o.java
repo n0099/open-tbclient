@@ -275,8 +275,8 @@ public class o {
                 if (jSONObject.has(WebChromeClient.KEY_ARG_CALLBACK)) {
                     this.c = jSONObject.getString(WebChromeClient.KEY_ARG_CALLBACK);
                 }
-                if (jSONObject.has("timeout")) {
-                    long j = jSONObject.getLong("timeout");
+                if (jSONObject.has(com.alipay.sdk.data.a.O)) {
+                    long j = jSONObject.getLong(com.alipay.sdk.data.a.O);
                     if (j >= 1000) {
                         long unused = o.j = j;
                     }

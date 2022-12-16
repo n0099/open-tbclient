@@ -253,7 +253,7 @@ public class CronetDelegator implements f70 {
         this.g = context;
     }
 
-    public static ClassLoader g(Context context) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
+    public static ClassLoader f(Context context) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -264,13 +264,13 @@ public class CronetDelegator implements f70 {
     }
 
     @Override // com.baidu.tieba.f70
-    public HttpURLConnection a(URL url) throws IOException {
+    public HttpURLConnection openHttpURLConnection(URL url) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
             try {
                 if (this.a == null) {
-                    h();
+                    g();
                 }
                 if (this.b != null && this.a != null) {
                     return (HttpURLConnection) this.b.invoke(this.a, url);
@@ -285,12 +285,12 @@ public class CronetDelegator implements f70 {
         return (HttpURLConnection) invokeL.objValue;
     }
 
-    public void h() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                ClassLoader g = g(this.g);
-                Class<?> cls = Class.forName("org.chromium.net.CronetEngine$Builder", true, g);
+                ClassLoader f = f(this.g);
+                Class<?> cls = Class.forName("org.chromium.net.CronetEngine$Builder", true, f);
                 Object newInstance = cls.getDeclaredConstructor(Context.class).newInstance(this.g);
                 if (this.f.v()) {
                     try {
@@ -304,8 +304,8 @@ public class CronetDelegator implements f70 {
                 }
                 b bVar = new b(this, null);
                 try {
-                    Class<?> cls2 = Class.forName("org.chromium.net.HostResolver", true, g);
-                    newInstance = newInstance.getClass().getDeclaredMethod("setHostResolver", cls2).invoke(newInstance, Proxy.newProxyInstance(g, new Class[]{cls2}, bVar));
+                    Class<?> cls2 = Class.forName("org.chromium.net.HostResolver", true, f);
+                    newInstance = newInstance.getClass().getDeclaredMethod("setHostResolver", cls2).invoke(newInstance, Proxy.newProxyInstance(f, new Class[]{cls2}, bVar));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -318,18 +318,18 @@ public class CronetDelegator implements f70 {
                     }
                 }
                 this.a = cls.getDeclaredMethod("build", new Class[0]).invoke(newInstance, new Object[0]);
-                Class<?> cls3 = Class.forName("org.chromium.net.CronetEngine", true, g);
+                Class<?> cls3 = Class.forName("org.chromium.net.CronetEngine", true, f);
                 if (this.f.u()) {
-                    Class<?> cls4 = Class.forName("org.chromium.net.NetworkQualityRttListener", true, g);
-                    Class<?> cls5 = Class.forName("org.chromium.net.NetworkQualityThroughputListener", true, g);
+                    Class<?> cls4 = Class.forName("org.chromium.net.NetworkQualityRttListener", true, f);
+                    Class<?> cls5 = Class.forName("org.chromium.net.NetworkQualityThroughputListener", true, f);
                     Method declaredMethod = cls3.getDeclaredMethod("addRttListener", cls4);
                     Method declaredMethod2 = cls3.getDeclaredMethod("addThroughputListener", cls5);
                     this.c = cls3.getDeclaredMethod("getEffectiveConnectionType", new Class[0]);
-                    declaredMethod.invoke(this.a, Proxy.newProxyInstance(g, new Class[]{cls4}, bVar));
-                    declaredMethod2.invoke(this.a, Proxy.newProxyInstance(g, new Class[]{cls5}, bVar));
+                    declaredMethod.invoke(this.a, Proxy.newProxyInstance(f, new Class[]{cls4}, bVar));
+                    declaredMethod2.invoke(this.a, Proxy.newProxyInstance(f, new Class[]{cls5}, bVar));
                 }
                 this.b = cls3.getDeclaredMethod("openConnection", URL.class);
-                Class<?> cls6 = Class.forName("org.chromium.net.CronetEngine$AppState", true, g);
+                Class<?> cls6 = Class.forName("org.chromium.net.CronetEngine$AppState", true, f);
                 this.d = cls6;
                 cls3.getDeclaredMethod("notifyBdAppStatusChange", cls6);
             } catch (ClassNotFoundException e4) {

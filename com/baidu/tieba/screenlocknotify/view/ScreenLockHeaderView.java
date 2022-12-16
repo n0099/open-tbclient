@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.li8;
+import com.baidu.tieba.dl8;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ScreenLockHeaderView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public li8 h;
+    public dl8 h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -55,20 +55,20 @@ public class ScreenLockHeaderView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a9, (ViewGroup) this, true);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090afa);
-        this.b = findViewById(R.id.obfuscated_res_0x7f090af9);
-        this.c = findViewById(R.id.obfuscated_res_0x7f0915b6);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09128c);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091774);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c1);
-        this.g = findViewById(R.id.obfuscated_res_0x7f09133e);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07bc, (ViewGroup) this, true);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090b15);
+        this.b = findViewById(R.id.obfuscated_res_0x7f090b14);
+        this.c = findViewById(R.id.obfuscated_res_0x7f091619);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912eb);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0917dd);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092534);
+        this.g = findViewById(R.id.obfuscated_res_0x7f09139e);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f0810e5);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f08110f);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e19);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1a);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091e18);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e86);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e87);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091e85);
         this.k.setVisibility(8);
     }
 
@@ -148,24 +148,24 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(li8 li8Var) {
+    public void d(dl8 dl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, li8Var) == null) {
-            this.h = li8Var;
-            this.a.setText(li8Var.a);
-            this.d.setText(a(li8Var.l));
-            this.e.setText(li8Var.e);
-            this.f.setText(b(li8Var.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, dl8Var) == null) {
+            this.h = dl8Var;
+            this.a.setText(dl8Var.a);
+            this.d.setText(a(dl8Var.l));
+            this.e.setText(dl8Var.e);
+            this.f.setText(b(dl8Var.i));
         }
     }
 
-    public li8 getData() {
+    public dl8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.h;
         }
-        return (li8) invokeV.objValue;
+        return (dl8) invokeV.objValue;
     }
 
     public View getEditText() {

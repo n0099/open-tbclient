@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class hn5<T> implements yn5 {
+public class hn5 extends gn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
+    public MultiDelPostMenuView c;
+    public ViewGroup d;
 
-    public hn5(List<T> list) {
+    public hn5(TbPageContext tbPageContext, ViewGroup viewGroup, wm5 wm5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {tbPageContext, viewGroup, wm5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,29 +30,52 @@ public class hn5<T> implements yn5 {
                 return;
             }
         }
-        this.a = list;
+        this.d = viewGroup;
+        en5 en5Var = new en5(tbPageContext, new xm5(wm5Var));
+        this.b = en5Var;
+        en5Var.d(this);
+        this.c = new MultiDelPostMenuView(tbPageContext, this);
     }
 
-    @Override // com.baidu.tieba.yn5
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.gn5
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return "";
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
+            return;
         }
-        return invokeI.objValue;
+        this.a = false;
+        MultiDelPostMenuView multiDelPostMenuView = this.c;
+        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
+            this.d.removeView(this.c);
+        }
+        dn5 dn5Var = this.b;
+        if (dn5Var != null) {
+            dn5Var.dismiss();
+        }
+        this.c = null;
+        this.d = null;
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.yn5
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gn5
+    public void d(int i) {
+        MultiDelPostMenuView multiDelPostMenuView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.size();
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
+            multiDelPostMenuView.setDelCount(i);
         }
-        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gn5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
+            return;
+        }
+        this.a = true;
+        ViewGroup viewGroup = this.d;
+        if (viewGroup != null) {
+            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
+        }
     }
 }

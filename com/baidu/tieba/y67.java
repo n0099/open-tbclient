@@ -1,78 +1,84 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.HomeLocalCompleteInfoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y67 implements xn {
+public class y67 extends kn<o77, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements r67 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public TbPageContext a;
+    public View.OnClickListener b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282191, "Lcom/baidu/tieba/y67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282191, "Lcom/baidu/tieba/y67;");
-                return;
-            }
+    @Override // com.baidu.tieba.r67
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
-        e = BdUniqueId.gen();
     }
 
-    public y67() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y67(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
+        super(tbPageContext.getPageActivity(), o77.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.b = onClickListener;
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static y67 a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public AdapterViewHolder<HomeLocalCompleteInfoLayout> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            y67 y67Var = new y67();
-            y67Var.a = jSONObject.optString("title");
-            y67Var.b = jSONObject.optString("desc");
-            y67Var.c = jSONObject.optString("tag");
-            y67Var.d = jSONObject.optString("img");
-            return y67Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new AdapterViewHolder<>(new HomeLocalCompleteInfoLayout(viewGroup.getContext()));
         }
-        return (y67) invokeL.objValue;
+        return (AdapterViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o77 o77Var, AdapterViewHolder<HomeLocalCompleteInfoLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o77Var, adapterViewHolder})) == null) {
+            if (o77Var != null && adapterViewHolder != null) {
+                HomeLocalCompleteInfoLayout a = adapterViewHolder.a();
+                a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+                a.setCloseClickListener(this.b);
+                q67.o();
+                return adapterViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

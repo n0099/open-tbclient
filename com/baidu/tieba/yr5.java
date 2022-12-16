@@ -1,71 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
+import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class yr5 extends ob {
+/* loaded from: classes7.dex */
+public class yr5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public AdWebViewActivity a;
+    public zs8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yr5() {
-        super(304001);
+    public yr5(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adWebViewActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = adWebViewActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.lb
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
-    }
-
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public void a(zs8 zs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                gs5 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
-                if (addressListData != null) {
-                    for (ks5 ks5Var : addressListData.a()) {
-                        List<z35> a = ks5Var.a();
-                        ArrayList arrayList = new ArrayList();
-                        for (z35 z35Var : a) {
-                            if (!this.a && z35Var.h() == 1) {
-                                arrayList.add(z35Var);
-                            }
-                        }
-                        a.removeAll(arrayList);
-                    }
-                }
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zs8Var) == null) {
+            this.b = zs8Var;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageContext().getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && ch.f(adWebViewActivity.getPageContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && ch.f(adWebViewActivity.getPageContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && ch.f(adWebViewActivity.getPageContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        AdWebViewActivity adWebViewActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            zs8 zs8Var = this.b;
+            if ((zs8Var != null && zs8Var.onJsPrompt(str2, jsPromptResult)) || (adWebViewActivity = this.a) == null || !ch.f(adWebViewActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

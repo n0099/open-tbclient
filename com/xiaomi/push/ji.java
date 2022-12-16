@@ -44,13 +44,13 @@ public class ji {
         int i2 = 0;
         switch (b) {
             case 2:
-                jfVar.m554a();
+                jfVar.m564a();
                 return;
             case 3:
                 jfVar.a();
                 return;
             case 4:
-                jfVar.m542a();
+                jfVar.m552a();
                 return;
             case 5:
             case 7:
@@ -58,21 +58,21 @@ public class ji {
             default:
                 return;
             case 6:
-                jfVar.m552a();
+                jfVar.m562a();
                 return;
             case 8:
-                jfVar.m543a();
+                jfVar.m553a();
                 return;
             case 10:
-                jfVar.m544a();
+                jfVar.m554a();
                 return;
             case 11:
-                jfVar.m551a();
+                jfVar.m561a();
                 return;
             case 12:
-                jfVar.m549a();
+                jfVar.m559a();
                 while (true) {
-                    byte b2 = jfVar.m545a().a;
+                    byte b2 = jfVar.m555a().a;
                     if (b2 == 0) {
                         jfVar.f();
                         return;
@@ -82,27 +82,27 @@ public class ji {
                     }
                 }
             case 13:
-                je m547a = jfVar.m547a();
-                while (i2 < m547a.f812a) {
+                je m557a = jfVar.m557a();
+                while (i2 < m557a.f835a) {
                     int i3 = i - 1;
-                    a(jfVar, m547a.a, i3);
-                    a(jfVar, m547a.b, i3);
+                    a(jfVar, m557a.a, i3);
+                    a(jfVar, m557a.b, i3);
                     i2++;
                 }
                 jfVar.h();
                 return;
             case 14:
-                jj m548a = jfVar.m548a();
-                while (i2 < m548a.f813a) {
-                    a(jfVar, m548a.a, i - 1);
+                jj m558a = jfVar.m558a();
+                while (i2 < m558a.f836a) {
+                    a(jfVar, m558a.a, i - 1);
                     i2++;
                 }
                 jfVar.j();
                 return;
             case 15:
-                jd m546a = jfVar.m546a();
-                while (i2 < m546a.f811a) {
-                    a(jfVar, m546a.a, i - 1);
+                jd m556a = jfVar.m556a();
+                while (i2 < m556a.f834a) {
+                    a(jfVar, m556a.a, i - 1);
                     i2++;
                 }
                 jfVar.i();

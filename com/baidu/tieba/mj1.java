@@ -1,122 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileFilter;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
-public class mj1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static mj1 b = null;
-    public static int c = Integer.MAX_VALUE;
-    public static long d = 120;
+public final class mj1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
 
-    /* loaded from: classes5.dex */
-    public class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(mj1 mj1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                if (Pattern.matches("cpu[0-9]", file.getName())) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    public mj1() {
-        int i;
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        int a2 = (a() / 2) + 2;
-        if (a2 > 3) {
-            i = 3;
-        } else {
-            i = a2;
-        }
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, c, d, TimeUnit.SECONDS, new PriorityBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.setThreadFactory(new lj1());
-        this.a.allowCoreThreadTimeOut(true);
-    }
-
-    public static mj1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (mj1.class) {
-                if (b == null) {
-                    b = new mj1();
-                }
-            }
-            return b;
-        }
-        return (mj1) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
             try {
-                return new File("/sys/devices/system/cpu/").listFiles(new a(this)).length;
-            } catch (Throwable unused) {
-                return 2;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(ij1 ij1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ij1Var) == null) {
-            try {
-                this.a.execute(ij1Var);
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                byte[] bArr3 = new byte[16];
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
+                }
+                cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                byte[] doFinal = cipher.doFinal(bArr2);
+                byte[] e = sj1.e(bArr2);
+                byte[] bArr4 = new byte[doFinal.length + e.length];
+                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
+                return bArr4;
             } catch (Throwable th) {
-                pj1.d(th);
+                oj1.d(th);
+                return null;
             }
         }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] b(byte[] bArr, byte[] bArr2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
+            try {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                byte[] bArr3 = new byte[16];
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
+                }
+                cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                if (z) {
+                    byte[] bArr4 = new byte[bArr2.length - 16];
+                    System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
+                    bArr2 = bArr4;
+                }
+                return cipher.doFinal(bArr2);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (byte[]) invokeLLZ.objValue;
     }
 }

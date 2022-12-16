@@ -138,7 +138,7 @@ public abstract class u1<P extends a> extends p1<h4, P> {
                 for (int i = 0; i < this.b.b; i++) {
                     if (this.b.get(i).a.equals(str)) {
                         w4Var = this.b.get(i).b;
-                        this.b.i(i);
+                        this.b.h(i);
                     }
                 }
             }

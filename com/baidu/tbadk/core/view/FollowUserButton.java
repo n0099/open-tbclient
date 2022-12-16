@@ -105,7 +105,7 @@ public class FollowUserButton extends TBSpecificationBtn implements r05 {
         pz4Var.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
         pz4Var.r(R.color.CAM_X0304);
         setConfig(pz4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
     }
 
     @Override // com.baidu.tieba.r05
@@ -184,7 +184,7 @@ public class FollowUserButton extends TBSpecificationBtn implements r05 {
                 pz4Var.t(R.color.CAM_X0109);
                 pz4Var.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                 setConfig(pz4Var);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010));
+                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 setVisibility(0);
                 pz4 pz4Var2 = new pz4();
@@ -193,7 +193,7 @@ public class FollowUserButton extends TBSpecificationBtn implements r05 {
                 pz4Var2.r(R.color.CAM_X0304);
                 setConfig(pz4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

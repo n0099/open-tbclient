@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PackageControl {
     public static /* synthetic */ Interceptable $ic;
     public static volatile PackageControl sInstance;

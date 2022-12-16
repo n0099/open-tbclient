@@ -13,6 +13,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
+import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes8.dex */
 public final class c {
@@ -41,7 +42,7 @@ public final class c {
             public final void run() {
                 OutputStream outputStream = null;
                 try {
-                    a.C0609a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
+                    a.C0626a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
                     if (by != null) {
                         outputStream = by.au(0);
                         if (c.a(str, outputStream, new a())) {
@@ -64,7 +65,7 @@ public final class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C0609a by = aVar.by(str2);
+                a.C0626a by = aVar.by(str2);
                 if (by != null) {
                     outputStream = by.au(0);
                     if (a(str, outputStream, aVar2)) {
@@ -98,7 +99,7 @@ public final class c {
                 httpURLConnection.setReadTimeout(120000);
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setDoInput(true);
-                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
                 httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                 httpURLConnection.setRequestProperty("User-Agent", o.getUserAgent());
                 httpURLConnection.setRequestProperty("BrowserUa", o.tD());

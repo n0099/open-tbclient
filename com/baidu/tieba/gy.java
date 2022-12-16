@@ -107,7 +107,7 @@ public class gy extends cx implements sx<ThreadData>, tx {
             }
         }
         this.j = 0;
-        this.k = R.drawable.obfuscated_res_0x7f080608;
+        this.k = R.drawable.ic_icon_pure_card_delete_svg;
         this.l = R.color.CAM_X0111;
         this.n = new a(this);
         this.j = i;
@@ -126,9 +126,9 @@ public class gy extends cx implements sx<ThreadData>, tx {
         i(new RelativeLayout.LayoutParams(-1, -1));
     }
 
-    public void n(tr4 tr4Var) {
+    public void n(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr4Var) == null) {
             m(Align.ALIGN_RIGHT_TOP);
         }
     }

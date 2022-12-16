@@ -35,7 +35,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BdZeusUpdate {
     public static /* synthetic */ Interceptable $ic;
     public static BdZeusUpdate e;
@@ -45,7 +45,7 @@ public class BdZeusUpdate {
     public String c;
     public boolean d;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public class BdZeusUpdate {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

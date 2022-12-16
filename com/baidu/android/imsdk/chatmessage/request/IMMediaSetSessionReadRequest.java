@@ -3,8 +3,12 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
+import com.baidu.android.imsdk.chatmessage.ChatSession;
+import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IMediaSetSessionReadListener;
+import com.baidu.android.imsdk.consult.db.BusinessMessageDBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -17,6 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,6 +93,19 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
         this.mKey = str;
     }
 
+    private long getBusinessMaxMsgid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            List<ChatSession> busiChatSessions = BusinessMessageDBManager.getInstance(this.mContext).getBusiChatSessions(27, -1, 0L, 0L, Long.MAX_VALUE, -1, 1);
+            if (busiChatSessions != null && busiChatSessions.size() > 0) {
+                return busiChatSessions.get(0).getLastMsgId();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public /* bridge */ /* synthetic */ Map getHeaders() {
         return super.getHeaders();
@@ -112,8 +130,16 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public /* bridge */ /* synthetic */ boolean shouldAbort() {
-        return super.shouldAbort();
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if ((!AccountManager.getMediaRole(this.mContext) && this.mContactorType != -1) || AccountManager.isCuidLogin(this.mContext)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -131,10 +157,19 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
+                }
+                if (AccountManager.getMediaRole(this.mContext)) {
+                    jSONObject.put("role", 2);
+                } else {
+                    jSONObject.put("role", 1);
+                }
+                long businessMaxMsgid = getBusinessMaxMsgid();
+                if (businessMaxMsgid > 0) {
+                    jSONObject.put("max_msgid", businessMaxMsgid);
                 }
                 jSONObject.put("lastmsg_time", this.mLastTime);
                 jSONObject.put("sign", generateSign(jSONObject));
@@ -172,13 +207,24 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
                 i2 = jSONObject.optInt("error_code", 0);
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 if (i2 == 0) {
+                    boolean z = true;
                     if (this.mContactorType == -1) {
+                        List<Integer> unreadChatTypesByAllClassType = ChatSessionManagerImpl.getInstance(this.mContext).getUnreadChatTypesByAllClassType();
                         ArrayList arrayList = new ArrayList();
+                        if (unreadChatTypesByAllClassType != null) {
+                            arrayList.addAll(unreadChatTypesByAllClassType);
+                        }
                         arrayList.add(57);
                         ChatMsgManager.setMsgReadByChatTpyes(this.mContext, arrayList, 0L);
+                        ChatSessionManagerImpl.getInstance(this.mContext).setAllBusinessSessionRead(27);
                     } else if (this.mContactorType == 2) {
                         ChatMsgManager.setAllMsgRead(this.mContext, 1, this.mContacter, false);
                     }
+                    ChatSessionManagerImpl chatSessionManagerImpl = ChatSessionManagerImpl.getInstance(this.mContext);
+                    if (this.mContactorType == -1) {
+                        z = false;
+                    }
+                    chatSessionManagerImpl.writeServerUnreadnum(0, z);
                 }
             } catch (JSONException e) {
                 LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e);

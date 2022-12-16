@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] d;
@@ -35,7 +35,7 @@ public final class HttpUrl {
     public final String h;
     public final String i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";
@@ -828,7 +828,7 @@ public final class HttpUrl {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append('=');
+                    sb.append(com.alipay.sdk.encrypt.a.h);
                     sb.append(str2);
                 }
             }

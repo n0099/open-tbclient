@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
 import android.net.http.Headers;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.network.outback.core.MediaType;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.RequestBody;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.outback.manager.HttpManager;
-import com.baidu.searchbox.network.outback.request.PostFormRequest;
-import com.baidu.searchbox.network.outback.request.RequestCall;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.request.GetRequest;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.searchbox.http.request.RequestCall;
 import com.baidu.searchbox.network.outback.statistics.RequestCallException;
-import com.baidu.searchbox.network.outback.support.request.HttpRequestCompat;
-import com.baidu.searchbox.network.outback.support.request.PostBodyRequest;
-import com.baidu.searchbox.network.outback.support.request.PostMultiPartFormRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,20 +19,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import okhttp3.Response;
+import okhttp3.internal.Util;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class zf implements IHttpNet {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final bg a;
-    public Request.Builder<?> b;
+    public HttpRequestBuilder b;
     public RequestCall c;
     public Response d;
 
@@ -87,85 +82,8 @@ public class zf implements IHttpNet {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends RequestBody {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf a;
-
-        public a(zf zfVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zfVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zfVar;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.core.RequestBody
-        @Nullable
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return MediaType.parse("multipart/form-data; boundary=--------7da3d81520810*");
-            }
-            return (MediaType) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.core.RequestBody
-        public void writeTo(OutputStream outputStream) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
-                DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-                if (this.a.a.b().j() != null) {
-                    Iterator<BasicNameValuePair> it = this.a.a.b().j().iterator();
-                    while (it.hasNext()) {
-                        BasicNameValuePair next = it.next();
-                        if (next != null) {
-                            String name = next.getName();
-                            String value = next.getValue();
-                            if (value != null && name != null) {
-                                dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
-                                byte[] bytes = value.getBytes("UTF-8");
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
-                                dataOutputStream.writeBytes("\r\n");
-                                dataOutputStream.write(bytes);
-                                dataOutputStream.writeBytes("\r\n");
-                            }
-                        }
-                    }
-                }
-                if (this.a.a.b().g != null) {
-                    for (Map.Entry<String, byte[]> entry : this.a.a.b().g.entrySet()) {
-                        String key = entry.getKey();
-                        byte[] value2 = entry.getValue();
-                        if (value2 != null) {
-                            dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
-                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n");
-                            dataOutputStream.writeBytes("\r\n");
-                            dataOutputStream.write(value2);
-                            dataOutputStream.writeBytes("\r\n");
-                        }
-                    }
-                }
-                dataOutputStream.writeBytes("----------7da3d81520810*--\r\n");
-                dataOutputStream.flush();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class b {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,13 +91,13 @@ public class zf implements IHttpNet {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(269542275, "Lcom/baidu/tieba/zf$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(269542244, "Lcom/baidu/tieba/zf$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(269542275, "Lcom/baidu/tieba/zf$b;");
+                    classClinitInterceptable.invokePostClinit(269542244, "Lcom/baidu/tieba/zf$a;");
                     return;
                 }
             }
@@ -216,17 +134,12 @@ public class zf implements IHttpNet {
             }
         }
         this.a = bgVar;
-        int i3 = b.a[httpNetType.ordinal()];
+        int i3 = a.a[httpNetType.ordinal()];
         if (i3 != 1) {
             if (i3 != 2) {
                 if (i3 == 3) {
-                    if (((wf) ServiceManager.getService(wf.a)).netBdABTest()) {
-                        this.b = new HttpRequestCompat(HttpManager.getDefault(BdBaseApplication.getInst())).postRequest();
-                        return;
-                    } else {
-                        this.b = new HttpRequestCompat(HttpManager.getDefault(BdBaseApplication.getInst())).postMultiPartRequest();
-                        return;
-                    }
+                    this.b = HttpManager.getDefault(BdBaseApplication.getInst()).postByteRequest();
+                    return;
                 }
                 return;
             }
@@ -236,13 +149,12 @@ public class zf implements IHttpNet {
         this.b = HttpManager.getDefault(BdBaseApplication.getInst()).getRequest();
     }
 
-    /* JADX WARN: Type inference failed for: r5v2, types: [com.baidu.searchbox.network.outback.core.Request$Builder] */
     @Override // com.baidu.adp.lib.network.http.IHttpNet
     public void a(URL url, int i, int i2) {
-        Request.Builder<?> builder;
+        HttpRequestBuilder httpRequestBuilder;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, url, i, i2) == null) && (builder = this.b) != null && url != null) {
-            builder.url(url.toString()).connectionTimeout(i * 2).readTimeout(i2 * 2).requestSubFrom(8927);
+        if ((interceptable == null || interceptable.invokeLII(1048576, this, url, i, i2) == null) && (httpRequestBuilder = this.b) != null && url != null) {
+            httpRequestBuilder.url(url.toString()).connectionTimeout(i * 2).readTimeout(i2 * 2).requestSubFrom(8927);
         }
     }
 
@@ -262,12 +174,12 @@ public class zf implements IHttpNet {
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
     public void f() {
-        Request.Builder<?> builder;
+        HttpRequestBuilder httpRequestBuilder;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (builder = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (httpRequestBuilder = this.b) == null) {
             return;
         }
-        builder.addHeaders(this.a.b().g());
+        httpRequestBuilder.addHeaders(this.a.b().g());
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
@@ -313,29 +225,55 @@ public class zf implements IHttpNet {
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public int c() {
+    public int c() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Request.Builder<?> builder = this.b;
-            if (builder == null) {
+            HttpRequestBuilder httpRequestBuilder = this.b;
+            if (httpRequestBuilder == null) {
                 return 0;
             }
-            if (builder instanceof PostFormRequest.PostFormRequestBuilder) {
-                ((PostFormRequest.PostFormRequestBuilder) builder).params(this.a.b().i());
-            } else if (builder instanceof PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) {
-                ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) builder).addParams(this.a.b().i());
-                if (this.a.b().g != null) {
-                    for (Map.Entry<String, byte[]> entry : this.a.b().g.entrySet()) {
-                        String key = entry.getKey();
-                        byte[] value = entry.getValue();
-                        if (value != null) {
-                            ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) this.b).addBytes(key, "file", "application/octet-stream", value);
+            if (httpRequestBuilder instanceof GetRequest.GetRequestBuilder) {
+                ((GetRequest.GetRequestBuilder) httpRequestBuilder).addUrlParams(this.a.b().i());
+            } else if (httpRequestBuilder instanceof PostFormRequest.PostFormRequestBuilder) {
+                ((PostFormRequest.PostFormRequestBuilder) httpRequestBuilder).addParams(this.a.b().i());
+            } else if (httpRequestBuilder instanceof PostByteRequest.PostByteRequestBuilder) {
+                ((PostByteRequest.PostByteRequestBuilder) httpRequestBuilder).mediaType("multipart/form-data; boundary=--------7da3d81520810*");
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                if (this.a.b().j() != null) {
+                    Iterator<BasicNameValuePair> it = this.a.b().j().iterator();
+                    while (it.hasNext()) {
+                        BasicNameValuePair next = it.next();
+                        if (next != null) {
+                            String name = next.getName();
+                            String value = next.getValue();
+                            if (value != null && name != null) {
+                                byteArrayOutputStream.write("----------7da3d81520810*\r\n".getBytes(Util.UTF_8));
+                                byte[] bytes = value.getBytes("UTF-8");
+                                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"\r\n").getBytes(Util.UTF_8));
+                                byteArrayOutputStream.write("\r\n".getBytes(Util.UTF_8));
+                                byteArrayOutputStream.write(bytes);
+                                byteArrayOutputStream.write("\r\n".getBytes(Util.UTF_8));
+                            }
                         }
                     }
                 }
-            } else if (builder instanceof PostBodyRequest.PostBodyRequestBuilder) {
-                ((PostBodyRequest.PostBodyRequestBuilder) builder).requestBody(new a(this));
+                if (this.a.b().g != null) {
+                    for (Map.Entry<String, byte[]> entry : this.a.b().g.entrySet()) {
+                        String key = entry.getKey();
+                        byte[] value2 = entry.getValue();
+                        if (value2 != null) {
+                            byteArrayOutputStream.write("----------7da3d81520810*\r\n".getBytes(Util.UTF_8));
+                            byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n").getBytes(Util.UTF_8));
+                            byteArrayOutputStream.write("\r\n".getBytes(Util.UTF_8));
+                            byteArrayOutputStream.write(value2);
+                            byteArrayOutputStream.write("\r\n".getBytes(Util.UTF_8));
+                        }
+                    }
+                }
+                byteArrayOutputStream.write("----------7da3d81520810*--\r\n".getBytes(Util.UTF_8));
+                byteArrayOutputStream.flush();
+                ((PostByteRequest.PostByteRequestBuilder) this.b).content(byteArrayOutputStream.toByteArray());
             }
             return 0;
         }

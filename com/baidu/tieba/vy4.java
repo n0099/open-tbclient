@@ -95,7 +95,7 @@ public class vy4 extends ReplacementSpan {
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            float[] z = ow4.z(i);
+            float[] z = pw4.z(i);
             if (!Arrays.equals(this.a, z)) {
                 this.a = z;
             }
@@ -175,8 +175,8 @@ public class vy4 extends ReplacementSpan {
                 rectF.bottom = i4 + i8;
             } else {
                 Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (sw4.b(charSequence)) {
-                    sw4.a(fontMetricsInt, (int) paint.getTextSize());
+                if (tw4.b(charSequence)) {
+                    tw4.a(fontMetricsInt, (int) paint.getTextSize());
                     i6 = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
                 } else {
                     i6 = (((fontMetricsInt.descent - fontMetricsInt.ascent) - this.h) / 2) + 0;

@@ -109,7 +109,7 @@ public class fr4 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                kq8.a("", 7);
+                jt8.a("", 7);
             }
         }
     }
@@ -152,11 +152,11 @@ public class fr4 {
                 } else {
                     this.this$0.a = null;
                 }
-                sb5.o(this.this$0.B());
+                kc5.o(this.this$0.B());
                 if (this.this$0.a != null) {
-                    sb5.n(this.this$0.a.getBDUSS());
-                    sb5.q(this.this$0.a.getTbs());
-                    sb5.p(this.this$0.a.getStoken());
+                    kc5.n(this.this$0.a.getBDUSS());
+                    kc5.q(this.this$0.a.getTbs());
+                    kc5.p(this.this$0.a.getStoken());
                 }
             }
         }
@@ -198,7 +198,7 @@ public class fr4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             dh.a().b(new b());
-            qy4.k().x("app_inverval", System.currentTimeMillis());
+            ry4.l().y("app_inverval", System.currentTimeMillis());
         }
     }
 
@@ -498,11 +498,11 @@ public class fr4 {
             intent2.putExtra("intent_data_accountData", accountData);
             intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
             TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            sb5.o(!TextUtils.isEmpty(str2));
+            kc5.o(!TextUtils.isEmpty(str2));
             if (accountData != null) {
-                sb5.n(accountData.getBDUSS());
-                sb5.q(accountData.getTbs());
-                sb5.p(accountData.getStoken());
+                kc5.n(accountData.getBDUSS());
+                kc5.q(accountData.getTbs());
+                kc5.p(accountData.getStoken());
             }
         }
     }
@@ -564,14 +564,14 @@ public class fr4 {
     public void F(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, accountData, application) == null) {
-            se7.a("onAccountChanged()");
+            zf7.a("onAccountChanged()");
             BdLog.e("账号切换");
-            qy4 k2 = qy4.k();
-            String q = k2.q("current_used_theme_" + g(), null);
-            if (StringUtils.isNull(q)) {
+            ry4 l = ry4.l();
+            String r = l.r("current_used_theme_" + g(), null);
+            if (StringUtils.isNull(r)) {
                 this.e = 0;
             } else {
-                String[] split = q.split("/");
+                String[] split = r.split("/");
                 if (split != null && split.length >= 2) {
                     this.e = xg.e(split[0], 0);
                 } else {
@@ -580,7 +580,7 @@ public class fr4 {
             }
             e();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            se7.a("send METHOD_ACCOUNT_CHANGE");
+            zf7.a("send METHOD_ACCOUNT_CHANGE");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
             MessageManager.getInstance().registerStickyMode(2005019);
@@ -630,28 +630,28 @@ public class fr4 {
             } else if (!StringUtils.isNull(accountData.getID())) {
                 str = "set_application_account:logined";
             }
-            fy4.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
+            gy4.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
             if (!this.b) {
                 if (accountData == null && this.a != null) {
                     this.b = true;
-                    se7.a("account == null && mAccount != null");
+                    zf7.a("account == null && mAccount != null");
                 } else if (this.a == null && accountData != null) {
                     this.b = true;
-                    se7.a("mAccount == null && account != null 初始化");
+                    zf7.a("mAccount == null && account != null 初始化");
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
                         this.b = true;
-                        se7.a("mAccount != null && account != null");
+                        zf7.a("mAccount != null && account != null");
                     }
                 }
             }
             this.a = accountData;
-            kq8.n();
+            jt8.n();
             if (this.b) {
                 BdSocketLinkService.setHasAbsoluteClose(false);
                 BdSocketLinkService.setAvailable(true);
-                ca5.b(0, 0, 0, 1, 2);
+                da5.b(0, 0, 0, 1, 2);
                 BdSocketLinkService.startService(true, "account changed");
             }
             hc.b().a("setCurrentAccountInUI", new a(this, accountData, context));
@@ -680,6 +680,23 @@ public class fr4 {
         }
     }
 
+    public void f(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048592, this, str, z) != null) || str == null) {
+            return;
+        }
+        z9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from search_data where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from search_post_data where account=?", new Object[]{str});
+        if (z) {
+            mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
+        }
+    }
+
     public void N(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -703,19 +720,6 @@ public class fr4 {
         }
     }
 
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, str) != null) || str == null) {
-            return;
-        }
-        z9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
-    }
-
     public void y() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048610, this) != null) || this.j) {
@@ -728,18 +732,18 @@ public class fr4 {
                 if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
                     AccountData e = gr4.e();
                     if (e != null) {
-                        fy4.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
+                        gy4.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
                         J(e, TbadkCoreApplication.getInst());
                     } else {
-                        fy4.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
+                        gy4.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
                     }
                 } else {
-                    fy4.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
+                    gy4.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            cf5.b().i(System.currentTimeMillis() - currentTimeMillis);
+            uf5.b().i(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 }

@@ -268,11 +268,11 @@ public class FollowUserSpinnerBtn extends LinearLayout implements r05 {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029e, this);
+            LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
             setOrientation(0);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912f5);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c74);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092263);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091354);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091cdf);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922d4);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c9);
             Paint paint = new Paint(1);
             this.e = paint;
@@ -293,11 +293,11 @@ public class FollowUserSpinnerBtn extends LinearLayout implements r05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f0666);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f066e);
                 this.f = R.color.CAM_X0101;
                 this.g = R.color.CAM_X0904;
             } else {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02b1);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02b6);
                 this.f = R.color.CAM_X0105;
                 this.g = R.color.CAM_X0901;
             }

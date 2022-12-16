@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.recent_history.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.tx5;
+import com.baidu.tieba.ny5;
+import com.baidu.tieba.oy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sx5 mHistoryData;
+    public ny5 mHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRecentHistoryResponseMessage() {
@@ -37,13 +37,13 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public sx5 getRecentHistoryData() {
+    public ny5 getRecentHistoryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mHistoryData;
         }
-        return (sx5) invokeV.objValue;
+        return (ny5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -54,22 +54,22 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            sx5 sx5Var = new sx5();
-            this.mHistoryData = sx5Var;
+            ny5 ny5Var = new ny5();
+            this.mHistoryData = ny5Var;
             boolean z = true;
             if (jSONObject.optInt("has_more") != 1) {
                 z = false;
             }
-            sx5Var.a = z;
+            ny5Var.a = z;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    tx5 tx5Var = new tx5();
-                    tx5Var.a(optJSONArray.optJSONObject(i2));
-                    arrayList2.add(tx5Var);
+                    oy5 oy5Var = new oy5();
+                    oy5Var.a(optJSONArray.optJSONObject(i2));
+                    arrayList2.add(oy5Var);
                 }
                 arrayList = arrayList2;
             }

@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,7 +104,7 @@ public class a {
                     }
                     return null;
                 }
-                String string = query.getString(query.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
+                String string = query.getString(query.getColumnIndex("proxy"));
                 if (query != null) {
                     query.close();
                 }

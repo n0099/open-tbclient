@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.CharacterSetECI;
@@ -20,7 +19,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PDF417HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTE_COMPACTION = 1;
@@ -100,8 +99,8 @@ public final class PDF417HighLevelEncoder {
                 return;
             }
         }
-        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, StrictLineReader.CR, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, Base64.INTERNAL_PADDING, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, 43, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, ExifInterface.START_CODE, BaseNCodec.PAD_DEFAULT, 94, 0, 32, 0, 0, 0};
-        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, 33, StrictLineReader.CR, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, 10, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, 34, 124, ExifInterface.START_CODE, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 63, 123, 125, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 0};
+        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 13, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, Base64.INTERNAL_PADDING, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, 43, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, ExifInterface.START_CODE, BaseNCodec.PAD_DEFAULT, 94, 0, 32, 0, 0, 0};
+        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, 33, 13, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, 10, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, 34, 124, ExifInterface.START_CODE, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 63, 123, 125, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 0};
         MIXED = new byte[128];
         PUNCTUATION = new byte[128];
         DEFAULT_ENCODING = Charset.forName("ISO-8859-1");

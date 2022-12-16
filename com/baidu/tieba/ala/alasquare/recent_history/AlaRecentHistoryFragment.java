@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel;
 import com.baidu.tieba.az4;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.tx5;
-import com.baidu.tieba.ux5;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.oy5;
+import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +26,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaRecentHistoryModel a;
-    public ux5 b;
+    public py5 b;
     public int c;
-    public ka5 d;
+    public la5 d;
     public az4.g e;
     public BdListView.p f;
     public AlaRecentHistoryModel.b g;
@@ -124,7 +124,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
-        public void a(boolean z, List<tx5> list) {
+        public void a(boolean z, List<oy5> list) {
             String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
@@ -134,15 +134,15 @@ public class AlaRecentHistoryFragment extends BaseFragment {
                 this.a.b.o(list, z);
                 if (ListUtils.isEmpty(list)) {
                     if (this.a.c == 0) {
-                        string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1221);
+                        string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f125a);
                     } else {
-                        string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1222);
+                        string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f125b);
                     }
                     AlaRecentHistoryFragment alaRecentHistoryFragment2 = this.a;
-                    alaRecentHistoryFragment2.y1(true, alaRecentHistoryFragment2.b.g(), string);
+                    alaRecentHistoryFragment2.E1(true, alaRecentHistoryFragment2.b.g(), string);
                     return;
                 }
-                this.a.y1(false, null, null);
+                this.a.E1(false, null, null);
             }
         }
 
@@ -152,7 +152,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 this.a.b.e();
                 if (z) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f122b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1264);
                 } else {
                     AlaRecentHistoryFragment alaRecentHistoryFragment = this.a;
                     alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.b.g(), str, false);
@@ -180,9 +180,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         this.g = new c(this);
     }
 
-    public final void x1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             hideNetRefreshView(this.b.g());
             if (ListUtils.getCount(this.a.getData()) == 0) {
                 showLoadingView(this.b.g());
@@ -194,10 +194,10 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
     }
 
-    public static AlaRecentHistoryFragment v1(int i) {
+    public static AlaRecentHistoryFragment C1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             AlaRecentHistoryFragment alaRecentHistoryFragment = new AlaRecentHistoryFragment();
             Bundle bundle = new Bundle();
             bundle.putInt("key_type", i);
@@ -210,19 +210,37 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ux5 ux5Var = this.b;
-            if (ux5Var != null) {
-                ux5Var.k(i);
+            py5 py5Var = this.b;
+            if (py5Var != null) {
+                py5Var.k(i);
             }
+        }
+    }
+
+    public final void E1(boolean z, ViewGroup viewGroup, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), viewGroup, str}) == null) {
+            if (this.d == null) {
+                this.d = new la5(getPageContext().getPageActivity(), null);
+            }
+            if (z) {
+                this.d.attachView(viewGroup);
+                this.d.c().setVisibility(8);
+                this.d.m(null);
+                this.d.d().setVisibility(0);
+                this.d.d().setText(str);
+                return;
+            }
+            this.d.dettachView(viewGroup);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
             if (arguments == null) {
@@ -241,13 +259,13 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = new AlaRecentHistoryModel(getPageContext(), this.c, this.g);
-            ux5 ux5Var = new ux5(getPageContext(), this.c);
-            this.b = ux5Var;
-            ux5Var.p(this.e);
+            py5 py5Var = new py5(getPageContext(), this.c);
+            this.b = py5Var;
+            py5Var.p(this.e);
             this.b.r(this.f);
-            x1();
+            D1();
             if (this.c == 0) {
                 TiebaStatic.log("c12650");
             }
@@ -259,15 +277,15 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             AlaRecentHistoryModel alaRecentHistoryModel = this.a;
             if (alaRecentHistoryModel != null) {
                 alaRecentHistoryModel.onDestroy();
             }
-            ux5 ux5Var = this.b;
-            if (ux5Var != null) {
-                ux5Var.l();
+            py5 py5Var = this.b;
+            if (py5Var != null) {
+                py5Var.l();
             }
         }
     }
@@ -275,26 +293,8 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            x1();
-        }
-    }
-
-    public final void y1(boolean z, ViewGroup viewGroup, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), viewGroup, str}) == null) {
-            if (this.d == null) {
-                this.d = new ka5(getPageContext().getPageActivity(), null);
-            }
-            if (z) {
-                this.d.attachView(viewGroup);
-                this.d.c().setVisibility(8);
-                this.d.m(null);
-                this.d.d().setVisibility(0);
-                this.d.d().setText(str);
-                return;
-            }
-            this.d.dettachView(viewGroup);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            D1();
         }
     }
 }

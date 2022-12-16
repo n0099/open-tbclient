@@ -103,15 +103,15 @@ public class BdToastHelper {
             } else if (bdToastData.getIconType() == 2) {
                 bdToast.f(BdToast.ToastIcon.FAILURE);
             } else if (bdToastData.getIconType() == 3) {
-                bdToast.e(R.drawable.obfuscated_res_0x7f0807f7);
+                bdToast.e(R.drawable.icon_mask_frs_firstlike40);
             } else if (bdToastData.getIconType() == 4) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f080846, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+                bdToast.g(R.drawable.icon_mask_toast_grow, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
             } else if (bdToastData.getIconType() == 5) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f08084e, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+                bdToast.g(R.drawable.icon_mask_usergrowthjiasu, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
             } else if (bdToastData.getIconType() == 6) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f08088f, UtilHelper.getDimenPixelSize(R.dimen.tbds580), UtilHelper.getDimenPixelSize(R.dimen.tbds231));
+                bdToast.g(R.drawable.icon_mask_world_cup_flag, UtilHelper.getDimenPixelSize(R.dimen.tbds580), UtilHelper.getDimenPixelSize(R.dimen.tbds231));
             } else if (bdToastData.getIconType() == 7) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f08088e, UtilHelper.getDimenPixelSize(R.dimen.tbds580), UtilHelper.getDimenPixelSize(R.dimen.tbds231));
+                bdToast.g(R.drawable.icon_mask_world_cup_ball, UtilHelper.getDimenPixelSize(R.dimen.tbds580), UtilHelper.getDimenPixelSize(R.dimen.tbds231));
             }
         }
     }

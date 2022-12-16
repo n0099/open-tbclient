@@ -3,7 +3,9 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
+import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,6 +27,7 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaDeleteSessionRequest";
     public transient /* synthetic */ FieldHolder $fh;
+    public int mClassType;
     public long mContacter;
     public long mContactorPauid;
     public String mContactorThirdid;
@@ -39,16 +42,16 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
     }
 
-    public IMMediaDeleteSessionRequest(Context context, long j, int i, long j2, String str, long j3, String str2) {
+    public IMMediaDeleteSessionRequest(Context context, long j, int i, long j2, String str, int i2, long j3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), str2};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), Long.valueOf(j3), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,6 +66,7 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = i;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
+        this.mClassType = i2;
     }
 
     public IMMediaDeleteSessionRequest(Context context, long j, long j2, String str) {
@@ -136,10 +140,13 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
+                }
+                if (this.mClassType > 0) {
+                    jSONObject.put("pa_classtype", this.mClassType);
                 }
                 jSONObject.put("lastmsg_time", this.mLastTime);
                 jSONObject.put("sign", generateSign(jSONObject));
@@ -178,6 +185,11 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 if (i2 == 0 && this.mContactorType == 2) {
                     ChatMessageDBManager.getInstance(this.mContext).deleteAllMsg(new ChatObject(this.mContext, 1, this.mContacter));
+                } else if (i2 == 0 && this.mClassType > 0) {
+                    BIMManager.removeSessionByClasstype(this.mContext, this.mClassType);
+                }
+                if (i2 == 0) {
+                    ChatSessionManagerImpl.getInstance(this.mContext).writeServerUnreadnum(0, true);
                 }
             } catch (JSONException e) {
                 LogUtils.e(TAG, "IMMediaDeleteSessionRequest JSONException", e);

@@ -1,90 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.jb5;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
+import tbclient.UcCard;
+import tbclient.UcCardInfo;
 /* loaded from: classes4.dex */
-public class f98 implements jb5, PersonPostModel.d, PersonPostModel.c {
+public class f98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public PersonPostModel a;
-    @Nullable
-    public jb5.a b;
+    public List<a> a;
 
-    public f98(@NonNull TbPageContext tbPageContext) {
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+        public boolean c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(UcCardInfo ucCardInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, ucCardInfo) != null) || ucCardInfo == null) {
+                return;
+            }
+            this.a = ucCardInfo.title;
+            String str = ucCardInfo.pic;
+            String str2 = ucCardInfo.jmp;
+            String str3 = ucCardInfo.tip;
+            this.b = ucCardInfo.st.intValue();
+        }
+    }
+
+    public f98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, PersonPostModel.FROM_PERSON_POLYMERIC);
     }
 
-    @Override // com.baidu.tieba.jb5
-    public void a(@Nullable jb5.a aVar) {
+    public void a(UcCard ucCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.b = aVar;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ucCard) != null) || ucCard == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.jb5
-    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
-            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
-        }
-    }
-
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-    public void i0(PersonPostModel personPostModel, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, personPostModel, z) == null) && this.b != null) {
-            ArrayList arrayList = new ArrayList();
-            Iterator<xn> it = personPostModel.threadList.iterator();
-            while (it.hasNext()) {
-                xn next = it.next();
-                if (next instanceof CardPersonDynamicThreadData) {
-                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
-                    if (!TextUtils.equals(threadData.getTid(), "0")) {
-                        arrayList.add(threadData);
-                    }
+        String str = ucCard.name;
+        String str2 = ucCard.icon;
+        String str3 = ucCard.doc;
+        String str4 = ucCard.jmp;
+        this.a = new ArrayList();
+        List<UcCardInfo> list = ucCard.uc_cards;
+        if (list != null) {
+            for (UcCardInfo ucCardInfo : list) {
+                if (ucCardInfo != null) {
+                    a aVar = new a();
+                    aVar.a(ucCardInfo);
+                    this.a.add(aVar);
                 }
             }
-            this.b.b(arrayList, personPostModel.getDataResMap());
-            this.b.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-    public void q0(PersonPostModel personPostModel, boolean z) {
-        jb5.a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && (aVar = this.b) != null) {
-            aVar.a();
         }
     }
 }

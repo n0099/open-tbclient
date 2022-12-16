@@ -1,127 +1,194 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.searchbox.player.UniversalPlayer;
+import com.baidu.searchbox.player.kernel.AbsVideoKernel;
+import com.baidu.searchbox.player.layer.BaseKernelLayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pq7 {
+public class pq7 extends UniversalPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public BaseActivity<?> b;
-    public NavigationBar c;
-    public View d;
-    public NoNetworkView e;
-    public TextView f;
-    public TextView g;
+    public Context a;
 
-    public pq7(BaseActivity<?> baseActivity, View.OnClickListener onClickListener) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pq7(@Nullable Context context, @NonNull String str) {
+        super(context, new BaseKernelLayer(AbsVideoKernel.NORMAL_PLAYER), str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BaseKernelLayer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = baseActivity;
-        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f092118);
-        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f092114);
-        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f092115);
-        this.c = navigationBar;
-        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f13bc));
-        this.f = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b.getString(R.string.obfuscated_res_0x7f0f0377), onClickListener);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0540), onClickListener);
-        this.g = addTextButton;
-        addTextButton.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
-        layoutParams.leftMargin = yi.g(this.b, R.dimen.obfuscated_res_0x7f0701be);
-        this.f.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.g.getLayoutParams();
-        layoutParams2.rightMargin = yi.g(this.b, R.dimen.obfuscated_res_0x7f0701be);
-        this.g.setLayoutParams(layoutParams2);
-        int g = yi.g(this.b, R.dimen.tbds27);
-        this.g.setPadding(g, 0, g, 0);
-        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f092127);
-        View view2 = new View(baseActivity.getPageContext().getPageActivity());
-        view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070266)));
-        View view3 = new View(baseActivity.getPageContext().getPageActivity());
-        view3.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9)));
-        this.a.addFooterView(view2);
-        this.a.addHeaderView(view3);
+        this.a = context;
     }
 
-    public TextView a() {
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.a;
         }
-        return (TextView) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public TextView b() {
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            sq4 layoutMode = this.b.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
-                z = false;
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                return baseKernelLayer.getVideoHeight();
             }
-            layoutMode.l(z);
-            this.b.getLayoutMode().k(this.d);
-            this.e.d(this.b.getPageContext(), i);
-            this.c.onChangeSkinType(this.b.getPageContext(), i);
-            SkinManager.setViewTextColor(this.g, (int) R.color.navbar_btn_color);
-            SkinManager.setViewTextColor(this.f, (int) R.color.navi_back_text_color);
-            SkinManager.setBackgroundResource(this.g, R.drawable.s_navbar_button_bg);
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public void d(lq7 lq7Var) {
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public int getVideoWidth() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lq7Var) == null) {
-            this.a.setAdapter((ListAdapter) lq7Var);
-        }
-    }
-
-    public void e(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0510));
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+            if (baseKernelLayer != null) {
+                return baseKernelLayer.getVideoWidth();
             }
-            this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0540));
-            this.g.setEnabled(!z2);
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onCompletion();
+            getPlayerCallbackManager().onUpdateProgress(getPosition(), getBufferingPosition(), getDuration());
+            this.mProgressHelper.cancel();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onSeekComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onSeekComplete();
+            this.mProgressHelper.start();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.pause();
+            this.mProgressHelper.cancel();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.release();
+            this.mProgressHelper.cancel();
+            disableOrientationEventHelper();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.resume();
+            this.mProgressHelper.start();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public final void resumeFromError() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            setVideoUrl(this.mVideoTask.videoUrl);
+            super.resumePlayer(false);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.start();
+            this.mProgressHelper.start();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.stop();
+            this.mProgressHelper.cancel();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
+    public void goBackOrForeground(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            super.goBackOrForeground(z);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void setVideoUrl(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            super.setVideoUrl(str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void setupPlugin(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
+            super.setupPlugin(context);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void setStageInfo(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) {
+            super.setStageInfo(str, str2, str3);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void setVideoUrl(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) {
+            super.setVideoUrl(str, z);
         }
     }
 }

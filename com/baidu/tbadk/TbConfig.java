@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -142,6 +142,8 @@ public class TbConfig {
     public static String GET_BFB_INFO = null;
     public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
     public static final String GET_CHANNEL_ADDRESS = "c/s/channelIconConfig";
+    public static final String GET_CHAT_GROUP_ROOM_LIST = "c/f/chat/getRoomListByFid";
+    public static final String GET_CHAT_ROOM_DETAIL = "c/f/chat/getChatRoomDetail";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
     public static final String GET_FEEDBACK_TIP = "mo/q/msg/remindnumber";
     public static final String GET_FORBIDDEN_FANS = "c/u/fans/blockPage";
@@ -171,6 +173,7 @@ public class TbConfig {
     public static final String GET_QM_STICKERS = "c/f/video/qmStickers";
     public static final String GET_RN_SYNC_ADDRESS = "c/s/newRnSync";
     public static final String GET_STICKERS = "c/f/video/sticker";
+    public static final String GET_SUBSCRIBE_GROUP_CHAT_LIST = "c/u/chat/getChatSubscriptionList";
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
     public static final String GET_TRACK_CONFIG = "c/s/trackConfig";
     public static final String GET_USER_FREE_CHANCE = "c/e/present/getUserFreeChance";
@@ -348,6 +351,7 @@ public class TbConfig {
     public static final String SET_PERSONAL_CARD = "c/c/encourage/theme/setCard";
     public static final String SET_PRIVATE = "c/c/friend/setprivate";
     public static String SET_USER_PICS = null;
+    public static final String SHARE_CONTENT_TO_CHAT_GROUP_ROOM = "c/c/chatroom/shareCard";
     public static final String SHARE_HUB_DIR_NAME = "share_hub";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SMART_APP_URL = "c/f/frs/smartapplist";
@@ -410,6 +414,8 @@ public class TbConfig {
     public static final String URL_CALL_FANS = "god/rights/callFans";
     public static final String URL_CANCEL_FORBIDDEN_FORUM = "c/c/excellent/submitCancelDislike";
     public static final String URL_CANDIDATE_SEARCH = "c/f/bawu/search";
+    public static final String URL_CHAT_ROOM = "https://tieba.baidu.com/mo/q/wise-bawu-core/group-chat-manage?fr=room&customfullscreen=1&nonavigationbar=1";
+    public static final String URL_CHAT_ROOM_NOTICEMODIFY = "https://tieba.baidu.com/mo/q/wise-bawu-core/group-chat-manage#/preview?";
     public static final String URL_CHECK_INTEREST_COMMIT = "c/s/checkInterestCommit";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
     public static final String URL_CHECK_SHOW_INIT_NAME_DIALOG = "c/s/initNickname";
@@ -422,6 +428,7 @@ public class TbConfig {
     public static final String URL_CREATE_COLLEGE = "https://tieba.baidu.com/mo/q/creativeCenter?local=college";
     public static final String URL_DAILY_PAGE = "c/f/general/dailyPage";
     public static final String URL_DELETE_REPLY_AT_MSG = "c/c/post/delmsg";
+    public static final String URL_DELETE_USER_DATA = "c/c/user/delAllUserData";
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/ufosdk/postview/tSi1tVlylkKfcPzxh%2FBspQ%3D%3D/222251";
     public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
@@ -506,6 +513,8 @@ public class TbConfig {
     public static final String URL_WORKS_INFO = "https://tieba.baidu.com/mo/q/wise-creative-core/guide";
     public static final String URL_WORK_VIDEO_GUIDE = "c/c/video/upGradeVideoUp";
     public static final String URL_YOUNGSTER_VERIFY_AUTHID = "c/c/user/passAuthidVerify";
+    public static final String USER_GROWTH_APPLY_ALI_AUTH_INFO_URL;
+    public static final String USER_GROWTH_GET_ALI_AUTH_INFO_URL;
     public static final String USER_GROWTH_GUIDE_MAIN_URL;
     public static final String USER_GROWTH_TASK_CENTER_MAIN_URL;
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
@@ -830,6 +839,11 @@ public class TbConfig {
         sb.append("mo/q/hybrid-main-user/growRules?fr=taskDes");
         USER_GROWTH_GUIDE_MAIN_URL = sb.toString();
         URL_THEME_CENTER = TIEBA_ADDRESS + "mo/q/hybrid/pretendCenter?page_from=1&customfullscreen=1&nonavigationbar=1&skin=";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(TIEBA_ADDRESS);
+        sb2.append("c/e/alipay/alipayApplyUserInfo");
+        USER_GROWTH_APPLY_ALI_AUTH_INFO_URL = sb2.toString();
+        USER_GROWTH_GET_ALI_AUTH_INFO_URL = TIEBA_ADDRESS + "c/e/alipay/alipayGetUserInfo";
     }
 
     public TbConfig() {
@@ -1301,7 +1315,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                l95.k().t(i);
+                m95.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

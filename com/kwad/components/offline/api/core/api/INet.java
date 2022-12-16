@@ -1,11 +1,11 @@
 package com.kwad.components.offline.api.core.api;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface INet {
     public static final int HTTP_STATUS_CODE_INVALID = -1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface HostType {
         public static final String API = "api";
         public static final String CDN = "cdn";

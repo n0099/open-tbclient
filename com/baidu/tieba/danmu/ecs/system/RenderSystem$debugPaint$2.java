@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import android.graphics.Paint;
-import com.baidu.tieba.p66;
+import com.baidu.tieba.k76;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n"}, d2 = {"<anonymous>", "Landroid/graphics/Paint;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class RenderSystem$debugPaint$2 extends Lambda implements Function0<Paint> {
     public static /* synthetic */ Interceptable $ic;
     public static final RenderSystem$debugPaint$2 INSTANCE;
@@ -60,7 +60,7 @@ public final class RenderSystem$debugPaint$2 extends Lambda implements Function0
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (p66.a()) {
+            if (k76.a()) {
                 Paint paint = new Paint();
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setColor(-65536);

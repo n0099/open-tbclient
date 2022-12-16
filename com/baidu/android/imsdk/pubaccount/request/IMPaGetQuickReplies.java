@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +9,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.pubaccount.IGetQuickReplyListener;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.QuickReply;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,8 +128,8 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0081  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x003e  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x006d  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -148,8 +146,7 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
                 jSONObject = new JSONObject(str2);
                 i2 = jSONObject.getInt("error_code");
                 jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-            } catch (JSONException e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            } catch (JSONException unused) {
             }
             if (i2 == 0) {
                 if (jSONObject.has("response_params")) {

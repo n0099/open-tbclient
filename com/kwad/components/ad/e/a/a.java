@@ -16,7 +16,7 @@ import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.bc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -160,9 +160,9 @@ public final class a extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c3);
-            this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910c4);
-            this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f0910c5);
+            this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091125);
+            this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f091126);
+            this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f091127);
         }
     }
 }

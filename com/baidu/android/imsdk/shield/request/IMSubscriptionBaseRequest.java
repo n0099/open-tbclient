@@ -24,6 +24,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSubscriptionBaseRequest";
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean ignoreUk;
     public String mKey;
     public List<String> mMiNiAppTopicList;
     public long mPaid;
@@ -50,7 +51,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public boolean shouldAbort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -81,6 +82,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
         this.mPaid = j;
         this.mKey = str;
         this.mSource = str2;
+        this.ignoreUk = false;
     }
 
     private String getHostUrl() {
@@ -98,7 +100,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
                     }
                     return Constants.URL_HTTP_QA;
                 }
-                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
+                return Constants.URL_HTTP_RD_8111;
             }
             return "https://pim.baidu.com/";
         }
@@ -148,7 +150,9 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
                 jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-                jSONObject.put("uk", uk);
+                if (!this.ignoreUk) {
+                    jSONObject.put("uk", uk);
+                }
                 if (this.mTopicList != null && this.mTopicList.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
                     for (Long l : this.mTopicList) {
@@ -163,9 +167,13 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
                     }
                     jSONObject.put("fminapp_topic", jSONArray2);
                 }
-                jSONObject.put("pa_uid", this.mPaid);
+                jSONObject.put(Constants.EXTRA_PAUID_TYPE, this.mPaid);
                 jSONObject.put("source", this.mSource);
-                jSONObject.put("sign", getMd5(String.valueOf(appid) + uk + currentTimeMillis));
+                if (this.ignoreUk) {
+                    jSONObject.put("sign", getMd5(String.valueOf(appid) + currentTimeMillis));
+                } else {
+                    jSONObject.put("sign", getMd5(String.valueOf(appid) + uk + currentTimeMillis));
+                }
                 if (AccountManager.isCuidLogin(this.mContext)) {
                     i = 1;
                 } else {
@@ -180,5 +188,12 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
             }
         }
         return (byte[]) invokeV.objValue;
+    }
+
+    public void setIgnoreUk(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.ignoreUk = z;
+        }
     }
 }

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiInfo;
+import android.net.wifi.ScanResult;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface xe3 {
-    void a(WifiInfo wifiInfo);
+    void a(List<ScanResult> list);
 }

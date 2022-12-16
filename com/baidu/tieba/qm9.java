@@ -3,22 +3,56 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import java.util.Comparator;
-/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public final /* synthetic */ class qm9 implements Comparator {
+public abstract class qm9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ qm9 a = new qm9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ qm9() {
+    public static float a(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
+            if (str == null) {
+                return f;
+            }
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception unused) {
+                return f;
+            }
+        }
+        return invokeLF.floatValue;
     }
 
-    @Override // java.util.Comparator
-    public final int compare(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    public static int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? xs9.e((PidLoader) obj, (PidLoader) obj2) : invokeLL.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (str == null) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return i;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            if (str == null) {
+                return j;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception unused) {
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
     }
 }

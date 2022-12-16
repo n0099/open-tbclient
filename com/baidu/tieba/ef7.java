@@ -1,93 +1,87 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.LoadDraftMessage;
+import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes3.dex */
-public class ef7 implements ff7 {
+/* loaded from: classes4.dex */
+public class ef7 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public me7 a;
+    public int b;
 
-    public ef7() {
+    public ef7(me7 me7Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {me7Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(6);
-        this.a = hashMap;
-        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a = me7Var;
+        this.b = i;
     }
 
-    @Override // com.baidu.tieba.ff7
-    public boolean a(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    public final LoadDraftResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length >= 2) {
-                ChatMessage chatMessage = chatMessageArr[0];
-                ChatMessage chatMessage2 = chatMessageArr[1];
-                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
-                    return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
+            loadDraftResponsedMessage.setError(-18);
+            return loadDraftResponsedMessage;
+        }
+        return (LoadDraftResponsedMessage) invokeI.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
+            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
+                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
+                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
+                } else {
+                    str = "";
                 }
-                return this.a.containsKey(c(chatMessageArr));
+                LoadDraftMessage.a data = loadDraftMessage.getData();
+                ChatSetting a = this.a.a(str, data.a);
+                if (a == null) {
+                    return a(loadDraftMessage.getCmd());
+                }
+                String draft = a.getDraft();
+                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
+                aVar.a = draft;
+                String str2 = data.a;
+                try {
+                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return loadDraftResponsedMessage;
             }
-            return false;
+            return a(this.b);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ff7
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null) {
-            return;
-        }
-        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
-        View childAt = listView.getChildAt(lastVisiblePosition);
-        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
-        if (childAt != null && childAt2 != null) {
-            TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f09215b);
-            TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.obfuscated_res_0x7f09215b);
-            if (chatMessageArr != null && chatMessageArr.length > 1) {
-                ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
-            }
-        }
-    }
-
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length > 1 && chatMessageArr[0] != null && chatMessageArr[1] != null) {
-                return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

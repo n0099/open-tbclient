@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +39,7 @@ public class BusinessAccountData implements Serializable {
             return;
         }
         boolean z2 = false;
-        if (jSONObject.optInt("is_business_account") == 1) {
+        if (jSONObject.optInt(IMUserExtraData.KEY_IS_BUSINESS_ACCOUNT) == 1) {
             z = true;
         } else {
             z = false;

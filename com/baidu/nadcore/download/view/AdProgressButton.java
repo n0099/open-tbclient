@@ -18,17 +18,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e31;
-import com.baidu.tieba.fl0;
-import com.baidu.tieba.mk0;
-import com.baidu.tieba.n31;
+import com.baidu.tieba.d31;
+import com.baidu.tieba.el0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdProgressButton extends View implements fl0<AdProgressButton> {
+public class AdProgressButton extends View implements el0<AdProgressButton> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -44,7 +44,7 @@ public class AdProgressButton extends View implements fl0<AdProgressButton> {
     public Typeface k;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fl0
+    @Override // com.baidu.tieba.el0
     @NonNull
     public AdProgressButton getRealView() {
         InterceptResult invokeV;
@@ -165,7 +165,7 @@ public class AdProgressButton extends View implements fl0<AdProgressButton> {
         d(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.fl0
+    @Override // com.baidu.tieba.el0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
@@ -249,11 +249,11 @@ public class AdProgressButton extends View implements fl0<AdProgressButton> {
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e31.nad_progress);
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f060868);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060867);
-            int a = n31.c.a(getContext(), 11.0f);
-            int a2 = n31.c.a(getContext(), 12.0f);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d31.nad_progress);
+            int color = getResources().getColor(R.color.nad_progress_download_button_text_color);
+            int color2 = getResources().getColor(R.color.nad_progress_download_button_fg);
+            int a = m31.c.a(getContext(), 11.0f);
+            int a2 = m31.c.a(getContext(), 12.0f);
             this.j = 1;
             this.f = obtainStyledAttributes.getInteger(0, color2);
             this.b = obtainStyledAttributes.getColor(8, color);
@@ -264,7 +264,7 @@ public class AdProgressButton extends View implements fl0<AdProgressButton> {
             this.i = obtainStyledAttributes.getDimensionPixelSize(5, a2);
             obtainStyledAttributes.recycle();
             this.k = Typeface.defaultFromStyle(1);
-            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dfb));
+            setBackgroundDrawable(getResources().getDrawable(R.drawable.nad_feed_download_btn_bg));
             e();
         }
     }
@@ -293,12 +293,12 @@ public class AdProgressButton extends View implements fl0<AdProgressButton> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.fl0
-    public void update(String str, @NonNull mk0 mk0Var) {
+    @Override // com.baidu.tieba.el0
+    public void update(String str, @NonNull lk0 lk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, mk0Var) == null) {
-            if (mk0Var.c == AdDownloadStatus.DOWNLOADING) {
-                setProgress((int) (mk0Var.i * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, lk0Var) == null) {
+            if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
+                setProgress((int) (lk0Var.i * 100.0f));
                 return;
             }
             setProgressNoText(0);

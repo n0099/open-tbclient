@@ -15,19 +15,19 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class dc3 extends c63 {
+/* loaded from: classes4.dex */
+public class dc3 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc3(c53 c53Var) {
-        super(c53Var, "/swanAPI/getStorageInfo");
+    public dc3(b53 b53Var) {
+        super(b53Var, "/swanAPI/getStorageInfoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c53Var};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,26 +41,26 @@ public class dc3 extends c63 {
         }
     }
 
-    @Override // com.baidu.tieba.c63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, f43Var)) == null) {
-            if (f43Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (e43Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
-            ob3 f0 = f43Var.f0();
+            nb3 f0 = e43Var.f0();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f0.g().a()));
                 jSONObject.put("currentSize", f0.e() / 1024);
                 jSONObject.put("limitSize", f0.n() / 1024);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                 return true;
             } catch (JSONException e) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
-                if (c63.b) {
+                if (b63.b) {
                     e.printStackTrace();
                 }
                 return false;

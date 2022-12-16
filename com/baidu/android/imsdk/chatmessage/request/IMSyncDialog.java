@@ -2,13 +2,10 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.sync.DialogRecord;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -89,7 +86,6 @@ public class IMSyncDialog extends Message {
                 jSONObject.put("msgid", this.mMaxMsgid);
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 LogUtils.e(TAG, e.getMessage(), e);
             }
         }
@@ -109,7 +105,7 @@ public class IMSyncDialog extends Message {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         long j2 = jSONObject2.getLong("contacter");
                         int i3 = jSONObject2.getInt("category");
-                        long j3 = jSONObject2.getJSONObject(TableDefine.SessionColumns.COLUMN_LAST_MSG).getLong("msgid");
+                        long j3 = jSONObject2.getJSONObject("last_msg").getLong("msgid");
                         DialogRecord dialogRecord = new DialogRecord();
                         dialogRecord.setCategory(i3);
                         dialogRecord.setContacter(j2);

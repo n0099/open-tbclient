@@ -2,7 +2,6 @@ package com.kwad.components.a;
 
 import android.content.Context;
 import android.net.Uri;
-import android.net.http.Headers;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, com.kwad.components.a.kwai.b> PQ;
@@ -104,7 +103,7 @@ public final class b {
                 hashMap.put("Access-Control-Allow-Origin", bVar.PX.PS);
                 hashMap.put("Access-Control-Allow-Credentials", "true");
                 hashMap.put("Timing-Allow-Origin", bVar.PX.PT);
-                hashMap.put(Headers.CONTENT_TYPE, str);
+                hashMap.put("content-type", str);
                 hashMap.put("Date", bVar.PX.PV);
                 hashMap.put("union-cache ", "1");
                 return new WebResourceResponse(bVar.PU, "", bVar.status, "OK", hashMap, inputStream);

@@ -419,7 +419,7 @@ public class xk extends Handler {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), bArr, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             byte b2 = Byte.MIN_VALUE;
             if (z) {
-                b = (byte) (-128);
+                b = (byte) com.alipay.sdk.encrypt.a.g;
                 i4 = i;
             } else {
                 i4 = i;

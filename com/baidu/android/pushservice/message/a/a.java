@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -93,7 +94,7 @@ public class a extends c {
                     intent.putExtra("msg_id", h);
                     intent.putExtra("message", bArr);
                     intent.putExtra("message_string", str);
-                    intent.putExtra("notify_id", b);
+                    intent.putExtra(Constants.EXTRA_NOTIFY_ID, b);
                     intent.putExtra("widget_badge_info", kVar.c());
                     intent.putExtra("message_id", h);
                     intent.putExtra("baidu_message_type", i);

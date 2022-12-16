@@ -17,9 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "GetGroupfoForRecordHandler";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,7 +63,7 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
             }
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(String.valueOf(j));
-            LogUtils.d("GetGroupfoForRecordHandler", "STAR Recordhandler get groupinfo " + j);
+            LogUtils.d(TAG, "STAR Recordhandler get groupinfo " + j);
             GroupManagerImpl.getInstance(this.mContext).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>(this, callBack, j) { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +137,9 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
                                     GroupInfo groupInfo2 = (GroupInfo) this.val$object.get(0);
                                     groupInfo2.setMarkTop(getShieldAndTopResult.getMarkTop());
                                     groupInfo2.setMarkTopTime(getShieldAndTopResult.getMarkTopTime());
+                                    groupInfo2.setDisturb(getShieldAndTopResult.getDisturbStatus());
                                     GroupInfoDAOImpl.updateGroupMarkTop(this.this$1.this$0.mContext, Utility.getLongByString(groupInfo2.getGroupId(), 0L), getShieldAndTopResult.getMarkTop(), getShieldAndTopResult.getMarkTopTime());
+                                    GroupInfoDAOImpl.updateGroupDoNotDisturb(this.this$1.this$0.mContext, Utility.getLongByString(groupInfo2.getGroupId(), 0L), getShieldAndTopResult.getDisturbStatus());
                                 }
                                 this.this$1.val$callBack.onSuccess(3, 1, this.val$object.get(0));
                             }
@@ -150,7 +155,7 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
         int i3;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) && obj != null && (obj instanceof GroupInfo)) {
-            LogUtils.d("GetGroupfoForRecordHandler", "RECORDSESSION updatechatrecord " + obj.toString());
+            LogUtils.d(TAG, "RECORDSESSION updatechatrecord " + obj.toString());
             GroupInfo groupInfo = (GroupInfo) obj;
             String groupName = groupInfo.getGroupName();
             if (groupInfo.getType() == 2) {
@@ -158,7 +163,13 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
             } else {
                 i3 = i;
             }
-            updateChatRecord(chatObject, groupName, i3, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("disturb", groupInfo.getDisturb());
+            } catch (JSONException unused) {
+                LogUtils.e(TAG, "json put is error !");
+            }
+            updateChatRecord(chatObject, groupName, i3, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "", jSONObject.toString());
         }
     }
 }

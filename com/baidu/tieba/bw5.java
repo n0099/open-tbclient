@@ -1,69 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class bw5 extends BaseCardInfo {
+public class bw5 implements lo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ov5 a;
-    public ov5 b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659401, "Lcom/baidu/tieba/bw5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947659401, "Lcom/baidu/tieba/bw5;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-        d = BdUniqueId.gen();
-    }
 
     public bw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        SdkLiveInfoData sdkLiveInfoData;
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        SdkLiveInfoData.YYExt yYExt;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ov5 ov5Var = this.a;
-            if (ov5Var != null && (sdkLiveInfoData = ov5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
-                return d;
-            }
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lo2
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return c(context);
+            }
+            return b(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, aw5.class, null);
+            if (!callOnMainWithContentProvider.isOk()) {
+                return "";
+            }
+            return callOnMainWithContentProvider.mResult.getString("result", "");
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.api.ILoggerReporter;
-import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -240,7 +239,7 @@ public final class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 if (this.biz != null) {
-                    jSONObject.put(Constants.KEYS.BIZ, this.biz.value);
+                    jSONObject.put("biz", this.biz.value);
                 }
                 if (this.subBiz != null) {
                     jSONObject.put("sub_biz", this.subBiz.value);

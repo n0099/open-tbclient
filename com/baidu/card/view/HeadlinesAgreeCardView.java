@@ -25,11 +25,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az;
-import com.baidu.tieba.pu4;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.qu4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.sx;
-import com.baidu.tieba.tr4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,8 +39,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
+/* loaded from: classes2.dex */
+public class HeadlinesAgreeCardView extends FrameLayout implements sx<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -52,12 +52,12 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public pu4 g;
+    public qu4 g;
     public az h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements TbImageAutoSwitch.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +251,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            qw4.d(this.e).v(R.color.CAM_X0109);
+            rw4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
@@ -259,9 +259,6 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
             this.f.b(this.g);
-            if (threadData.getHasAgree() == 1) {
-                this.f.setButtonContent(getContext().getString(R.string.obfuscated_res_0x7f0f0533));
-            }
         }
     }
 
@@ -282,21 +279,21 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0390, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d8f);
+            LayoutInflater.from(context).inflate(R.layout.headlines_agree_card_view, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.headlines_background);
             this.a = tbImageView;
             tbImageView.setRadiusById(R.string.J_X05);
             this.a.r(15);
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f0808ec);
-            this.b = (HeadlinesAgreeRewardContainer) findViewById(R.id.obfuscated_res_0x7f090d97);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091c7f);
+            this.a.setImageResource(R.drawable.icon_pic_bg_toutiaotie);
+            this.b = (HeadlinesAgreeRewardContainer) findViewById(R.id.headlines_rewards_container);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.right_bottom_icon);
             this.c = tbImageView2;
             tbImageView2.setAutoChangeStyle(true);
             this.c.setDrawCorner(true);
             this.c.setRadiusById(R.string.J_X05);
             this.c.r(8);
-            this.c.setImageResource(R.drawable.obfuscated_res_0x7f0808ea);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) findViewById(R.id.obfuscated_res_0x7f090d8d);
+            this.c.setImageResource(R.drawable.icon_pic_bg_toutiao_choujiang);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) findViewById(R.id.headlines_auto_switch);
             this.d = tbImageAutoSwitch;
             int i = l;
             tbImageAutoSwitch.l(4, i, i, k);
@@ -304,43 +301,43 @@ public class HeadlinesAgreeCardView extends FrameLayout implements sx<tr4> {
             this.d.setCarouselDelayPeriod(2000);
             this.d.setCarouselPeriod(2000);
             this.d.setAdapter(this.j);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d8e);
-            this.f = (HeadlinesItemInfoView) findViewById(R.id.obfuscated_res_0x7f090d95);
+            this.e = (TextView) findViewById(R.id.headlines_auto_switch_text);
+            this.f = (HeadlinesItemInfoView) findViewById(R.id.headlines_item_info);
         }
     }
 
     public void g() {
-        pu4 pu4Var;
+        qu4 qu4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (pu4Var = this.g) != null && !TextUtils.isEmpty(pu4Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (qu4Var = this.g) != null && !TextUtils.isEmpty(qu4Var.a())) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.a(), true)));
         }
     }
 
     public void h() {
-        pu4 pu4Var;
+        qu4 qu4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pu4Var = this.g) != null && !TextUtils.isEmpty(pu4Var.h())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.h(), true)));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (qu4Var = this.g) != null && !TextUtils.isEmpty(qu4Var.i())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.i(), true)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: i */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) && tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getTaskInfoData() != null && tr4Var.getThreadData().getTaskInfoData().e() != null) {
-            pu4 e = tr4Var.getThreadData().getTaskInfoData().e();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, vr4Var) == null) && vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getTaskInfoData() != null && vr4Var.getThreadData().getTaskInfoData().e() != null) {
+            qu4 e = vr4Var.getThreadData().getTaskInfoData().e();
             this.g = e;
             this.b.setData(e);
             this.i.clear();
-            this.i.addAll(this.g.d());
+            this.i.addAll(this.g.e());
             this.d.p();
-            if (!TextUtils.isEmpty(this.g.g())) {
-                this.e.setText(this.g.g());
+            if (!TextUtils.isEmpty(this.g.h())) {
+                this.e.setText(this.g.h());
             }
-            k(tr4Var.getThreadData());
+            k(vr4Var.getThreadData());
             this.f.setOnBannerClickListener(new b(this));
             az azVar = this.h;
             if (azVar != null) {

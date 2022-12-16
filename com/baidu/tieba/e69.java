@@ -1,91 +1,110 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class e69 extends t69<f79> {
+import java.io.File;
+/* loaded from: classes4.dex */
+public class e69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View g;
+    public boolean a;
+    public j69 b;
+    public z59 c;
 
-    @Override // com.baidu.tieba.y69
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public j69 d;
+        public z59 e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "";
+            this.b = true;
+            this.c = 0;
+            this.d = null;
+            this.e = null;
+        }
+
+        public e69 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                e();
+                return new e69(this, null);
+            }
+            return (e69) invokeV.objValue;
+        }
+
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (TextUtils.isEmpty(this.a)) {
+                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+                }
+                if (this.c <= 0) {
+                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+                }
+                if (this.d == null) {
+                    this.d = new j69(this.c);
+                }
+                if (this.e == null) {
+                    this.e = new z59(this.a);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.y69
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e69(@NonNull TbPageContext<?> tbPageContext) {
-        super(tbPageContext, f79.class);
+    public e69(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        String unused = bVar.a;
+        this.a = bVar.b;
+        int unused2 = bVar.c;
+        this.b = bVar.d;
+        this.c = bVar.e;
     }
 
-    @Override // com.baidu.tieba.y69
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            qw4.d(this.g).f(R.color.CAM_X0210);
-        }
-    }
-
-    public void z(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (view2 = this.g) != null) {
-            view2.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            this.g = new View(this.a.getPageActivity());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, yi.g(this.a.getPageActivity(), R.dimen.L_X01));
-            marginLayoutParams.setMargins(yi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, yi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0);
-            this.g.setLayoutParams(marginLayoutParams);
-            return this.g;
-        }
-        return (View) invokeL.objValue;
+    public /* synthetic */ e69(b bVar, a aVar) {
+        this(bVar);
     }
 }

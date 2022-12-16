@@ -1,61 +1,55 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ql3 extends h93 {
+public class ql3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements yi3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ ql3 b;
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948095633, "Lcom/baidu/tieba/ql3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(ql3 ql3Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql3Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948095633, "Lcom/baidu/tieba/ql3;");
-                return;
-            }
+            this.b = ql3Var;
+            this.a = bundle;
         }
-        a = pk1.a;
-        try {
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-        } catch (Exception unused) {
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yi3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b.c(this.a);
+            }
+            return (Bundle) invokeV.objValue;
         }
     }
 
@@ -63,61 +57,52 @@ public class ql3 extends h93 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (mg3.f()) {
-                CookieManager.getInstance().flush();
-                return;
-            }
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-            CookieSyncManager.getInstance().sync();
-        }
-    }
-
-    @Override // com.baidu.tieba.h93, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
+    public Bundle c(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String str2 = "";
-            try {
-                str2 = CookieManager.getInstance().getCookie(str);
-                if (a) {
-                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            pl3 pl3Var = new pl3();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return bundle2;
+                        }
+                        bundle2.putString("result", pl3Var.getCookie(string));
+                        return bundle2;
+                    }
+                    pl3Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                    return bundle2;
                 }
-            } catch (Exception unused) {
+                bundle2.putBoolean("result", pl3Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
             }
-            return str2;
+            bundle2.putBoolean("result", pl3Var.shouldAcceptCookie(string, bundle.getString("param2")));
+            return bundle2;
         }
-        return (String) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (a) {
-                Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
-                Log.d("RealCookieManager", "storeCookie cookies: " + list);
-            }
-            try {
-                for (String str2 : list) {
-                    CookieManager.getInstance().setCookie(str, str2);
-                }
-                a();
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            return (Bundle) vi3.b(new a(this, bundle));
         }
+        return (Bundle) invokeL.objValue;
     }
 }

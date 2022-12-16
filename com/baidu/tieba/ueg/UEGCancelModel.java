@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.tr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,19 +111,19 @@ public class UEGCancelModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        uo8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        uo8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        tr8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        tr8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 
-    public void B(b bVar) {
+    public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void A() {
+    public void H() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             UEGCancelRequestMessage uEGCancelRequestMessage = new UEGCancelRequestMessage();

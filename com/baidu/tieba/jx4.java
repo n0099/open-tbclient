@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class jx4 {
     public static /* synthetic */ Interceptable $ic;
     public static jx4 h;
@@ -23,7 +23,7 @@ public class jx4 {
     public boolean f;
     public boolean g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class jx4 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class jx4 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                fx4.n(this.a);
+                fx4.m(this.a);
                 return false;
             }
             return invokeV.booleanValue;
@@ -180,7 +180,7 @@ public class jx4 {
         if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.c) {
             return;
         }
-        fx4.o(str);
+        fx4.n(str);
         this.e = false;
         this.c = true;
     }

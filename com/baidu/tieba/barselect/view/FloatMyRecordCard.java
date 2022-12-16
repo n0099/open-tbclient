@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a36;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.p26;
-import com.baidu.tieba.q26;
-import com.baidu.tieba.r26;
+import com.baidu.tieba.k36;
+import com.baidu.tieba.l36;
+import com.baidu.tieba.m36;
+import com.baidu.tieba.v36;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public r26 c;
-    public p26 d;
+    public m36 c;
+    public k36 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -142,16 +142,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092479);
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f0924d7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ec);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092505);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d13);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092678);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091604);
+            this.g = (TextView) findViewById(R.id.user_name);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d2e);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0926ec);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091667);
         }
     }
 
@@ -161,18 +161,18 @@ public class FloatMyRecordCard extends LinearLayout {
             this.a = getContext();
             setOrientation(0);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0291, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0295, (ViewGroup) this, true);
             b();
         }
     }
 
     public void d(int i) {
-        p26 p26Var;
+        k36 k36Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (p26Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (k36Var = this.d) == null) {
             return;
         }
-        if (p26Var.i() > 3) {
+        if (k36Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(r26 r26Var) {
-        p26 p26Var;
+    public void setData(m36 m36Var) {
+        k36 k36Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r26Var) == null) {
-            this.c = r26Var;
-            if (r26Var != null && r26Var.a() != null) {
-                q26 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, m36Var) == null) {
+            this.c = m36Var;
+            if (m36Var != null && m36Var.a() != null) {
+                l36 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (p26Var = this.d) != null && this.b == a36.c) {
-                int i = p26Var.i();
+            if (this.c != null && (k36Var = this.d) != null && this.b == v36.c) {
+                int i = k36Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

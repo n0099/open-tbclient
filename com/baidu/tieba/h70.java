@@ -151,8 +151,8 @@ public class h70 implements e70 {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
-            HttpURLConnection a2 = this.b.a(request.url().url());
-            boolean equals = "CronetHttpURLConnection".equals(a2.getClass().getSimpleName());
+            HttpURLConnection openHttpURLConnection = this.b.openHttpURLConnection(request.url().url());
+            boolean equals = "CronetHttpURLConnection".equals(openHttpURLConnection.getClass().getSimpleName());
             if (!equals) {
                 i = 4;
             } else {
@@ -163,31 +163,31 @@ public class h70 implements e70 {
                 networkStatRecord.netEngine = i;
             }
             if (request.getConnectionTimeout() > 0) {
-                a2.setConnectTimeout(request.getConnectionTimeout());
+                openHttpURLConnection.setConnectTimeout(request.getConnectionTimeout());
             } else if (this.c.o() > 0) {
-                a2.setConnectTimeout(this.c.o());
+                openHttpURLConnection.setConnectTimeout(this.c.o());
             }
             if (request.getReadTimeout() > 0) {
-                a2.setReadTimeout(request.getReadTimeout());
+                openHttpURLConnection.setReadTimeout(request.getReadTimeout());
             } else if (this.c.z() > 0) {
-                a2.setReadTimeout(this.c.z());
+                openHttpURLConnection.setReadTimeout(this.c.z());
             }
-            a2.setInstanceFollowRedirects(request.isFollowRedirects());
+            openHttpURLConnection.setInstanceFollowRedirects(request.isFollowRedirects());
             if ("https".equalsIgnoreCase(request.url().scheme()) && !equals) {
                 SSLSocketFactory B = this.c.B();
                 if (B != null) {
-                    ((HttpsURLConnection) a2).setSSLSocketFactory(B);
+                    ((HttpsURLConnection) openHttpURLConnection).setSSLSocketFactory(B);
                 }
                 HostnameVerifier r = this.c.r();
                 if (r != null) {
-                    ((HttpsURLConnection) a2).setHostnameVerifier(r);
+                    ((HttpsURLConnection) openHttpURLConnection).setHostnameVerifier(r);
                 }
             }
             String method = request.method();
-            a2.setRequestMethod(method);
-            a2.setDoInput(true);
+            openHttpURLConnection.setRequestMethod(method);
+            openHttpURLConnection.setDoInput(true);
             boolean permitsRequestBody = HttpMethod.permitsRequestBody(method);
-            a2.setDoOutput(permitsRequestBody);
+            openHttpURLConnection.setDoOutput(permitsRequestBody);
             Headers headers = request.headers();
             if (permitsRequestBody) {
                 long contentLength = request.body().contentLength();
@@ -196,20 +196,20 @@ public class h70 implements e70 {
                     throw new IOException("content length < 0 but transfer-encoding is not set to chunked");
                 }
                 if (i2 < 0 && "chunked".equals(headers.get("Transfer-Encoding"))) {
-                    a2.setChunkedStreamingMode(-1);
+                    openHttpURLConnection.setChunkedStreamingMode(-1);
                 } else {
-                    a2.setFixedLengthStreamingMode((int) contentLength);
+                    openHttpURLConnection.setFixedLengthStreamingMode((int) contentLength);
                 }
             }
             int size = headers.size();
             for (int i3 = 0; i3 < size; i3++) {
-                a2.setRequestProperty(headers.name(i3), headers.value(i3));
+                openHttpURLConnection.setRequestProperty(headers.name(i3), headers.value(i3));
             }
             if (permitsRequestBody) {
-                c(request, a2);
+                c(request, openHttpURLConnection);
             }
-            a2.connect();
-            g70 g70Var = new g70(a2);
+            openHttpURLConnection.connect();
+            g70 g70Var = new g70(openHttpURLConnection);
             this.a = g70Var;
             g70Var.t(i);
             return this.a;

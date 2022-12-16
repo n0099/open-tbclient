@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoBridgeHandler;
 import com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoCallBackFunction;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b implements IOfflineCompoBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

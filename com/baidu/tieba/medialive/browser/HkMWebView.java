@@ -107,7 +107,7 @@ public class HkMWebView extends BaseWebView {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 if (this.b.getPackageManager().resolveActivity(intent, 0) == null) {
-                    yi.Q("您的手机未安装任何浏览器应用，无法完成下载", 0, false);
+                    yi.R("您的手机未安装任何浏览器应用，无法完成下载", 0, false);
                 } else {
                     this.b.startActivity(intent);
                 }
@@ -320,7 +320,7 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    @Override // android.webkit.WebView
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -328,7 +328,7 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    @Override // android.webkit.WebView
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
     public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, map) == null) {

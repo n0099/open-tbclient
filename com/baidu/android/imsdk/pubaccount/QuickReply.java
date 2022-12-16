@@ -573,7 +573,7 @@ public class QuickReply implements Parcelable {
                 JSONObject jSONObject = new JSONObject(str).getJSONObject("custom_menu");
                 quickReply.setType(jSONObject.optInt("type"));
                 quickReply.setVersionId(jSONObject.getLong("version_id"));
-                quickReply.setPaId(jSONObject.getLong("pa_uid"));
+                quickReply.setPaId(jSONObject.getLong(Constants.EXTRA_PAUID_TYPE));
                 quickReply.setStatus(jSONObject.getLong("status"));
                 quickReply.setTimeStamp(jSONObject.getLong("ts"));
                 quickReply.setRefreshTime(jSONObject.getLong("menu_refresh_ts"));

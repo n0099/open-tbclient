@@ -14,9 +14,9 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
     public int a;
     public int b;
 
-    public void C(int i) {
+    public void J(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
@@ -34,34 +34,34 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         }
     }
 
-    public int A() {
+    public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
     }
 
-    public void B(int i) {
+    public int H() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.b = i;
         }
     }
 
-    public void D(int i) {
+    public void K(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.a = i;
         }
     }

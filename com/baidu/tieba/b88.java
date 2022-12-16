@@ -1,59 +1,81 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.layout.FlowLabelLayout;
+import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumAndTopicViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b88 extends BaseCardInfo {
+public class b88 extends kn<b18, VideoPbEnterForumAndTopicViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598951, "Lcom/baidu/tieba/b88;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947598951, "Lcom/baidu/tieba/b88;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public b88() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b88(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.kn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b18 b18Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
+        t(i, view2, viewGroup, b18Var, videoPbEnterForumAndTopicViewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public VideoPbEnterForumAndTopicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.mContext);
+            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.leftMargin = yi.g(this.mContext, R.dimen.M_W_X007);
+            layoutParams.topMargin = yi.g(this.mContext, R.dimen.M_W_X004);
+            layoutParams.rightMargin = yi.g(this.mContext, R.dimen.M_W_X007);
+            layoutParams.bottomMargin = yi.g(this.mContext, R.dimen.M_W_X004);
+            frameLayout.addView(flowLabelLayout, layoutParams);
+            return new VideoPbEnterForumAndTopicViewHolder(this.mContext, frameLayout);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (VideoPbEnterForumAndTopicViewHolder) invokeL.objValue;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, b18 b18Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b18Var, videoPbEnterForumAndTopicViewHolder})) == null) {
+            if (b18Var != null) {
+                videoPbEnterForumAndTopicViewHolder.setData(b18Var.a);
+            }
+            videoPbEnterForumAndTopicViewHolder.a();
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

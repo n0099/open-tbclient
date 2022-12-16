@@ -15,7 +15,7 @@ public final class hl {
     public static final hl a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hl[] f472a;
+    public static final /* synthetic */ hl[] f495a;
     public static final hl b;
     public static final hl c;
     public static final hl d;
@@ -42,7 +42,7 @@ public final class hl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f473a;
+    public final int f496a;
 
     static {
         InterceptResult invokeClinit;
@@ -82,7 +82,7 @@ public final class hl {
         w = new hl("Storage", 22, 23);
         hl hlVar = new hl("AppIsInstalled", 23, 24);
         x = hlVar;
-        f472a = new hl[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hlVar};
+        f495a = new hl[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hlVar};
     }
 
     public hl(String str, int i2, int i3) {
@@ -103,7 +103,7 @@ public final class hl {
                 return;
             }
         }
-        this.f473a = i3;
+        this.f496a = i3;
     }
 
     public static hl a(int i2) {
@@ -175,12 +175,12 @@ public final class hl {
     public static hl[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hl[]) f472a.clone() : (hl[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hl[]) f495a.clone() : (hl[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f473a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f496a : invokeV.intValue;
     }
 }

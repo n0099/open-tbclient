@@ -1,90 +1,41 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes4.dex */
-public final class h76 extends b76 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public PointF c;
-    public RectF d;
+public interface h76 {
 
-    public h76() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new PointF();
-        this.d = new RectF();
+    /* loaded from: classes4.dex */
+    public interface a {
+        void onProgress(long j);
     }
 
-    public final PointF c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public interface b {
+        boolean a(String str);
+
+        boolean b();
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
+    boolean a(QmFilterItem qmFilterItem);
 
-    @Override // com.baidu.tieba.b76, com.baidu.tieba.a8.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.reset();
-            this.b = false;
-            this.c = new PointF();
-            this.d = new RectF();
-        }
-    }
+    boolean b(QmStickerItem qmStickerItem);
 
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
+    boolean c();
 
-    public final h76 update(boolean z, int i, PointF position, RectF rect, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), position, rect, Integer.valueOf(i2)})) == null) {
-            Intrinsics.checkNotNullParameter(position, "position");
-            Intrinsics.checkNotNullParameter(rect, "rect");
-            this.b = z;
-            if (!Intrinsics.areEqual(this.c, position)) {
-                this.c.set(position);
-            }
-            if (!Intrinsics.areEqual(this.d, rect)) {
-                this.d.set(rect);
-            }
-            return this;
-        }
-        return (h76) invokeCommon.objValue;
-    }
+    boolean d();
+
+    c46 e();
+
+    z36 f();
+
+    boolean onDestroy();
+
+    boolean onPause();
+
+    boolean onResume();
+
+    boolean startRecord();
+
+    boolean stopRecord();
 }

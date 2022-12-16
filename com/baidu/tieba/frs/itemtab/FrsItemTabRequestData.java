@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.dj5;
+import com.baidu.tieba.td5;
+import com.baidu.tieba.wj5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,26 +15,26 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabRequestData extends OrmObject implements bd5 {
+public class FrsItemTabRequestData extends OrmObject implements td5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
 
-    @Override // com.baidu.tieba.ad5
-    public HashMap<String, Object> v() {
+    @Override // com.baidu.tieba.sd5
+    public HashMap<String, Object> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ad5
-    public HashMap<String, String> x() {
+    @Override // com.baidu.tieba.sd5
+    public HashMap<String, String> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
         return (HashMap) invokeV.objValue;
@@ -54,17 +54,17 @@ public class FrsItemTabRequestData extends OrmObject implements bd5 {
         }
     }
 
-    @Override // com.baidu.tieba.dd5
-    public Object g(boolean z) {
+    @Override // com.baidu.tieba.vd5
+    public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.item_id = Integer.valueOf(this.itemId);
             builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) yi.i(TbadkCoreApplication.getInst()));
-            dj5.c(builder, true, false, true);
+            wj5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

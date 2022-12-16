@@ -5,12 +5,12 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.tieba.c80;
-import com.baidu.tieba.m80;
-import com.baidu.tieba.q80;
+import com.baidu.tieba.k80;
+import com.baidu.tieba.o80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,7 +135,8 @@ public class AckHandlerThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(Context context, NewAckMessage newAckMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && c80.e && newAckMessage != null) {
+        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && newAckMessage != null) {
+            newAckMessage.buildBody();
             BLCPRequest bLCPRequest = new BLCPRequest();
             bLCPRequest.a = 2L;
             bLCPRequest.b = 95L;
@@ -143,12 +144,19 @@ public class AckHandlerThread extends HandlerThread {
             bLCPRequest.d = System.nanoTime();
             String str = TAG;
             LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.d);
-            m80.c(bLCPRequest, new q80(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            k80.c(bLCPRequest, new o80(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AckHandlerThread this$0;
                 public final /* synthetic */ Context val$context;
                 public final /* synthetic */ NewAckMessage val$msg;
+
+                @Override // com.baidu.tieba.q80
+                public void onResponse(int i, String str2, long j, long j2, long j3, byte[] bArr) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -170,28 +178,29 @@ public class AckHandlerThread extends HandlerThread {
                     this.val$context = context;
                 }
 
-                @Override // com.baidu.tieba.q80
-                public void onResponse(int i, String str2, long j, long j2, long j3, byte[] bArr) {
+                @Override // com.baidu.tieba.o80
+                public void onResponse(int i, String str2, @NonNull o80.a aVar) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) && i == 0) {
+                    if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, aVar) == null) && i == 0) {
                         try {
-                            JSONObject jSONObject = new JSONObject(new String(bArr));
+                            JSONObject jSONObject = new JSONObject(new String(aVar.c));
                             int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
                             String optString = jSONObject.optString("msg", "");
-                            if (j2 != 95) {
-                                return;
-                            }
-                            String str3 = AckHandlerThread.TAG;
-                            LogUtils.d(str3, "retry Ack Response err :" + optInt + ", methodId :" + j2 + ", data :" + bArr.length);
-                            this.val$msg.handleMessageResult(this.val$context, new JSONObject(new String(bArr)), optInt, optString);
-                            if (optInt != 0) {
-                                if (this.this$0.mRetryCount.get() < 3) {
-                                    LogUtils.d(AckHandlerThread.TAG, "ack failed, retry~~");
-                                    this.this$0.mAckHandler.sendMessageDelayed(AckMessage.getSendMessage(1, this.val$msg), 1000L);
+                            if (aVar.a == 95) {
+                                int i2 = this.this$0.mRetryCount.get();
+                                String str3 = AckHandlerThread.TAG;
+                                LogUtils.d(str3, "retry Ack Response err :" + optInt + ", methodId :" + aVar.a + ", data :" + jSONObject + ", retryCount :" + i2);
+                                this.val$msg.handleMessageResult(this.val$context, jSONObject, optInt, optString);
+                                if (optInt != 0) {
+                                    if (i2 < 3) {
+                                        LogUtils.d(AckHandlerThread.TAG, "ack failed, retry~~ ");
+                                        this.this$0.mAckHandler.sendMessageDelayed(AckMessage.getSendMessage(1, this.val$msg), 1000L);
+                                    }
+                                    this.this$0.mRetryCount.incrementAndGet();
+                                    return;
                                 }
-                                this.this$0.mRetryCount.incrementAndGet();
+                                this.this$0.mRetryCount.set(0);
                             }
-                            this.this$0.mRetryCount.set(0);
                         } catch (JSONException e) {
                             LogUtils.e(AckHandlerThread.TAG, "handle sendNewAckToServer response, e :", e);
                         }

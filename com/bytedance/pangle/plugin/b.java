@@ -23,7 +23,6 @@ import com.bytedance.pangle.f.e;
 import com.bytedance.pangle.g;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.f;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import dalvik.system.DexFile;
 import java.io.File;
 import java.io.FileInputStream;
@@ -168,7 +167,7 @@ public final class b {
                     if (a7 > 30 || a7 < 0) {
                         sb.append("cleanDir cost:");
                         sb.append(a7);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                     }
                     try {
                         if (e.a(file.getAbsolutePath(), str4)) {
@@ -176,7 +175,7 @@ public final class b {
                             if (a8 > 30 || a8 < 0) {
                                 sb.append("checkSignature cost:");
                                 sb.append(a8);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             if (GlobalParam.getInstance().checkMatchHostAbi()) {
                                 try {
@@ -193,14 +192,14 @@ public final class b {
                             if (a9 > 30 || a9 < 0) {
                                 sb.append("checkMathHostAbi cost:");
                                 sb.append(a9);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             b(file, str, i);
                             long a10 = a6.a("checkPermissions");
                             if (a10 > 30 || a10 < 0) {
                                 sb.append("checkPermissions cost:");
                                 sb.append(a10);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             }
                             String c = c(file, str, i);
                             long a11 = a6.a("copyApk");
@@ -218,14 +217,14 @@ public final class b {
                                         if (a2 <= 30 || a2 < 0) {
                                             sb.append("modifyRes cost:");
                                             sb.append(a2);
-                                            sb.append(ParamableElem.DIVIDE_PARAM);
+                                            sb.append(";");
                                         }
                                         com.bytedance.pangle.c.b.a(new File(com.bytedance.pangle.c.c.b(str, i)), new File(com.bytedance.pangle.c.c.d(str, i)), str4);
                                         a3 = a6.a("copySo");
                                         if (a3 <= 30 || a3 < 0) {
                                             sb.append("copySo cost:");
                                             sb.append(a3);
-                                            sb.append(ParamableElem.DIVIDE_PARAM);
+                                            sb.append(";");
                                         }
                                         String c2 = com.bytedance.pangle.c.c.c(str, i);
                                         String d = com.bytedance.pangle.c.c.d(str, i);
@@ -299,14 +298,14 @@ public final class b {
                                         if (a4 <= 30 || a4 < 0) {
                                             sb.append("dexOpt cost:");
                                             sb.append(a4);
-                                            sb.append(ParamableElem.DIVIDE_PARAM);
+                                            sb.append(";");
                                         }
                                         f.a(file);
                                         a5 = a6.a("cleanPluginApk");
                                         if (a5 <= 30 || a5 < 0) {
                                             sb.append("cleanPluginApk cost:");
                                             sb.append(a5);
-                                            sb.append(ParamableElem.DIVIDE_PARAM);
+                                            sb.append(";");
                                         }
                                         a(com.bytedance.pangle.b.b.f, b.a.m, str, i, a6.a(), sb.toString(), null);
                                         a6.b("success");
@@ -329,14 +328,14 @@ public final class b {
                                     }
                                     sb.append("dexOpt cost:");
                                     sb.append(a4);
-                                    sb.append(ParamableElem.DIVIDE_PARAM);
+                                    sb.append(";");
                                     f.a(file);
                                     a5 = a6.a("cleanPluginApk");
                                     if (a5 <= 30) {
                                     }
                                     sb.append("cleanPluginApk cost:");
                                     sb.append(a5);
-                                    sb.append(ParamableElem.DIVIDE_PARAM);
+                                    sb.append(";");
                                     a(com.bytedance.pangle.b.b.f, b.a.m, str, i, a6.a(), sb.toString(), null);
                                     a6.b("success");
                                     a.a(1100, 0, str, i, null);
@@ -352,7 +351,7 @@ public final class b {
                                 }
                                 sb.append("copySo cost:");
                                 sb.append(a3);
-                                sb.append(ParamableElem.DIVIDE_PARAM);
+                                sb.append(";");
                             } catch (Exception e5) {
                                 a(com.bytedance.pangle.b.b.f, b.a.r, str, i, -1L, null, e5);
                                 a.a(1100, -7, str, i, e5);
@@ -360,7 +359,7 @@ public final class b {
                             }
                             sb.append("copyApk cost:");
                             sb.append(a11);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                             if (!a(c, str4, i)) {
                             }
                             a2 = a6.a(str2);
@@ -368,7 +367,7 @@ public final class b {
                             }
                             sb.append("modifyRes cost:");
                             sb.append(a2);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                         } else {
                             throw new RuntimeException("安装包签名校验失败[1]");
                         }

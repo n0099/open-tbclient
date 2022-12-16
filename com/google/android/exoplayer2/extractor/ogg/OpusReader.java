@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.extractor.ogg.StreamReader;
 import com.google.android.exoplayer2.util.MimeTypes;
@@ -96,7 +95,7 @@ public final class OpusReader extends StreamReader {
     private void putNativeOrderLong(List<byte[]> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, list, i) == null) {
-            list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i * C.NANOS_PER_SECOND) / 48000).array());
+            list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i * 1000000000) / 48000).array());
         }
     }
 

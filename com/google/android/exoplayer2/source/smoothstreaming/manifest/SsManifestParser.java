@@ -513,16 +513,6 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.format;
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
         public void parseStartTag(XmlPullParser xmlPullParser) throws ParserException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmlPullParser) == null) {
@@ -549,6 +539,16 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                     this.format = Format.createContainerFormat(attributeValue, MimeTypes.APPLICATION_MP4, fourCCToMimeType, null, parseRequiredInt, 0, null);
                 }
             }
+        }
+
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.format;
+            }
+            return invokeV.objValue;
         }
     }
 

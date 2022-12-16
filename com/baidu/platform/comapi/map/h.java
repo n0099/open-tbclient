@@ -478,14 +478,14 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                     }
                     if ((hVar.l & 3) != 0) {
                         int i = 0;
-                        C0129h c0129h = null;
+                        C0143h c0143h = null;
                         if ((hVar.l & 1) != 0) {
                             i = 1;
                         }
                         if ((hVar.l & 2) != 0) {
-                            c0129h = new C0129h();
+                            c0143h = new C0143h();
                         }
-                        return GLDebugHelper.wrap(gl, i, c0129h);
+                        return GLDebugHelper.wrap(gl, i, c0143h);
                     }
                     return gl;
                 }
@@ -1288,12 +1288,12 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
 
     /* renamed from: com.baidu.platform.comapi.map.h$h  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0129h extends Writer {
+    public static class C0143h extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public StringBuilder a;
 
-        public C0129h() {
+        public C0143h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

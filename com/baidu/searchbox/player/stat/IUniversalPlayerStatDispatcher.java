@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatcher {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SimpleStatDispatcher implements IUniversalPlayerStatDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

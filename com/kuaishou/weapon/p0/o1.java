@@ -11,14 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class o1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +87,7 @@ public class o1 {
                             if (readLine == null) {
                                 break;
                             }
-                            String[] split = a(readLine).split(ParamableElem.DIVIDE_PARAM);
+                            String[] split = a(readLine).split(";");
                             if (split != null && split.length != 0) {
                                 d = Double.valueOf(split[0]).doubleValue();
                             }
@@ -128,7 +127,7 @@ public class o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                return str.replace("      ", ParamableElem.DIVIDE_PARAM).replace("     ", ParamableElem.DIVIDE_PARAM).replace("    ", ParamableElem.DIVIDE_PARAM).replace("   ", ParamableElem.DIVIDE_PARAM).replace(GlideException.IndentedAppendable.INDENT, ParamableElem.DIVIDE_PARAM).replace(" ", ParamableElem.DIVIDE_PARAM);
+                return str.replace("      ", ";").replace("     ", ";").replace("    ", ";").replace("   ", ";").replace(GlideException.IndentedAppendable.INDENT, ";").replace(" ", ";");
             } catch (Throwable unused) {
                 return null;
             }
@@ -160,7 +159,7 @@ public class o1 {
                             if (readLine == null) {
                                 break;
                             }
-                            String[] split = a(readLine).split(ParamableElem.DIVIDE_PARAM);
+                            String[] split = a(readLine).split(";");
                             if (split != null && split.length != 0) {
                                 d = Double.valueOf(split[0]).doubleValue();
                             }

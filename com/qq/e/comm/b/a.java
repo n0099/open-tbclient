@@ -38,12 +38,12 @@ public class a {
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0654a implements NetworkCallBack {
+    public class C0671a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
 
-        public C0654a(a aVar, PM pm) {
+        public C0671a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -212,7 +212,7 @@ public class a {
                     JSONObject jSONObject5 = new JSONObject();
                     jSONObject5.put("sdk_init_time", (System.nanoTime() - j) / 1000000);
                     jSONObject4.put("performance", jSONObject5);
-                    jSONObject.put(Constants.KEYS.BIZ, jSONObject4);
+                    jSONObject.put("biz", jSONObject4);
                 } catch (JSONException unused) {
                     jSONObject2 = jSONObject;
                     GDTLogger.d("JSONException while build init req");
@@ -222,7 +222,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0654a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0671a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -234,7 +234,7 @@ public class a {
                 str = "http://sdk.e.qq.com/activate";
             }
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0654a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0671a(this, pm));
         }
     }
 }

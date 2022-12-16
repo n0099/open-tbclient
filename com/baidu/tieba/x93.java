@@ -1,95 +1,42 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.so.SoLoader;
-import com.baidu.swan.apps.so.SoUtils;
-import com.baidu.tieba.na3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Arrays;
-import java.util.Locale;
 /* loaded from: classes6.dex */
-public class x93 implements SoUtils.a {
+public final class x93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255159, "Lcom/baidu/tieba/x93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948255159, "Lcom/baidu/tieba/x93;");
-                return;
-            }
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ln2.e0().c();
         }
-        a = pk1.a;
+        return (String) invokeV.objValue;
     }
 
-    public x93() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
         }
+        return invokeV.booleanValue;
     }
 
-    public final String a(String str) {
-        InterceptResult invokeL;
-        String absolutePath;
-        long length;
+    public static z93 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(mn2.c(), str);
-            if (findSoFilesInLibrary == null) {
-                absolutePath = null;
-            } else {
-                absolutePath = findSoFilesInLibrary.getAbsolutePath();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!ln2.w0().d()) {
+                return ea2.c(false);
             }
-            if (findSoFilesInLibrary == null) {
-                length = 0;
-            } else {
-                length = findSoFilesInLibrary.length();
-            }
-            return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, absolutePath, Long.valueOf(length));
+            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.so.SoUtils.a
-    public void onEvent(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
-        String str3 = Arrays.toString(strArr) + "\n" + qk1.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
-        if (a) {
-            Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
-        }
-        na3.b bVar = new na3.b(10007);
-        bVar.j(str);
-        bVar.i(str3);
-        bVar.h(f43.g0());
-        bVar.m();
+        return (z93) invokeV.objValue;
     }
 }

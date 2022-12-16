@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +52,7 @@ public class o15 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
+        JSONObject optJSONObject = jSONObject.optJSONObject(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
         if (optJSONObject != null) {
             p15 p15Var = new p15();
             this.a = p15Var;

@@ -25,7 +25,7 @@ import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.of1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseUncaughtException";
@@ -103,7 +103,7 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
         this.mProcessLaunchTime = System.currentTimeMillis();
         Context applicationContext = context.getApplicationContext();
         this.mContext = applicationContext != null ? applicationContext : context;
-        this.mProcessName = of1.b();
+        this.mProcessName = nf1.b();
     }
 
     private LogExtra createLogExtra(@NonNull Thread thread) {

@@ -47,7 +47,7 @@ public class DBOperation {
     /* JADX INFO: Access modifiers changed from: private */
     public void closeDbInternal() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
         }
     }
 
@@ -615,11 +615,19 @@ public class DBOperation {
         sOperationId = new AtomicInteger(0);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    public void closeDb() {
+        SQLiteDatabase sQLiteDatabase;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sQLiteDatabase = this.mDb) != null) {
+            sQLiteDatabase.close();
+            this.mDb = null;
+        }
+    }
+
     public SQLiteDatabase openDb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this.mSyncObject) {
                 if (this.mDb == null) {
                     this.mDb = this.mDBConnection.getWritableDatabase();
@@ -628,15 +636,6 @@ public class DBOperation {
             return this.mDb;
         }
         return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    public void closeDb() {
-        SQLiteDatabase sQLiteDatabase;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sQLiteDatabase = this.mDb) != null) {
-            sQLiteDatabase.close();
-            this.mDb = null;
-        }
     }
 
     public DBOperation(Context context, DBConnection dBConnection) {
@@ -798,7 +797,7 @@ public class DBOperation {
         InterceptResult invokeCommon;
         ArrayList<T> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{iResultParse, str, strArr, str2, strArr2, str3, str4, str5, str6})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{iResultParse, str, strArr, str2, strArr2, str3, str4, str5, str6})) == null) {
             String valueOf = String.valueOf(sOperationId.incrementAndGet());
             LogUtils.enter(valueOf);
             if (TextUtils.isEmpty(str)) {
@@ -820,7 +819,7 @@ public class DBOperation {
 
     public void setTag(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) {
             if (this.mKeyObject.containsKey(str)) {
                 this.mKeyObject.remove(str);
             }
@@ -832,7 +831,7 @@ public class DBOperation {
         InterceptResult invokeLLLL;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, str, contentValues, str2, strArr)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, str, contentValues, str2, strArr)) == null) {
             String valueOf = String.valueOf(sOperationId.incrementAndGet());
             LogUtils.enter(valueOf);
             if (contentValues != null && !TextUtils.isEmpty(str)) {

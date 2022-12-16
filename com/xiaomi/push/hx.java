@@ -15,13 +15,13 @@ public final class hx {
     public static final hx a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hx[] f551a;
+    public static final /* synthetic */ hx[] f574a;
     public static final hx b;
     public static final hx c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f552a;
+    public final int f575a;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public final class hx {
         b = new hx("PackageUnregistered", 1, 1);
         hx hxVar = new hx("Init", 2, 2);
         c = hxVar;
-        f551a = new hx[]{a, b, hxVar};
+        f574a = new hx[]{a, b, hxVar};
     }
 
     public hx(String str, int i, int i2) {
@@ -61,7 +61,7 @@ public final class hx {
                 return;
             }
         }
-        this.f552a = i2;
+        this.f575a = i2;
     }
 
     public static hx a(int i) {
@@ -91,12 +91,12 @@ public final class hx {
     public static hx[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hx[]) f551a.clone() : (hx[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hx[]) f574a.clone() : (hx[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f552a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f575a : invokeV.intValue;
     }
 }

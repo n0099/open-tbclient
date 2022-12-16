@@ -18,7 +18,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedOther;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.gc0;
+import com.baidu.tieba.fc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,7 +119,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, liveFeedStatusListener) == null) {
             b g = g(i);
             if (g != null && (weakReference = g.b) != null && weakReference.get() != null) {
-                g.b.get().M2(liveFeedStatusListener);
+                g.b.get().S2(liveFeedStatusListener);
             } else {
                 this.l = liveFeedStatusListener;
             }
@@ -131,7 +131,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048594, this, i, onLoadMoreListener) == null) && (g = g(i)) != null && (weakReference = g.b) != null && weakReference.get() != null) {
-            g.b.get().t1(onLoadMoreListener);
+            g.b.get().A1(onLoadMoreListener);
         }
     }
 
@@ -167,7 +167,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), onRefreshListener}) == null) && (g = g(i)) != null && (weakReference = g.b) != null && weakReference.get() != null) {
-            g.b.get().s3(z, z2, onRefreshListener);
+            g.b.get().y3(z, z2, onRefreshListener);
         }
     }
 
@@ -176,7 +176,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         LiveTabEntity liveTabEntity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!gc0.c(this.f) && str != null) {
+            if (!fc0.c(this.f) && str != null) {
                 for (int i = 0; i < this.f.size(); i++) {
                     b bVar = this.f.get(i);
                     if (bVar != null && (liveTabEntity = bVar.a) != null && str.equals(liveTabEntity.type)) {
@@ -192,10 +192,10 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public void m(String str) {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && !gc0.c(this.f)) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && !fc0.c(this.f)) {
             for (b bVar : this.f) {
                 if (bVar != null && (weakReference = bVar.b) != null && weakReference.get() != null) {
-                    bVar.b.get().i3(str);
+                    bVar.b.get().o3(str);
                 }
             }
         }
@@ -207,7 +207,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048599, this, i) == null) && (list = this.f) != null && i >= 0 && i < list.size() && (bVar = this.f.get(i)) != null && (weakReference = bVar.b) != null && weakReference.get() != null) {
-            bVar.b.get().u1(true);
+            bVar.b.get().B1(true);
         }
     }
 
@@ -215,7 +215,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            b bVar = (b) gc0.b(this.f, i);
+            b bVar = (b) fc0.b(this.f, i);
             if (bVar != null) {
                 return bVar.a;
             }
@@ -258,7 +258,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
             b g = g(i);
             if (g != null && (weakReference = g.b) != null && weakReference.get() != null) {
-                return g.b.get().S2();
+                return g.b.get().Y2();
             }
             return false;
         }
@@ -272,7 +272,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             b g = g(i);
             if (g != null && (weakReference = g.b) != null && weakReference.get() != null) {
-                return g.b.get().f3();
+                return g.b.get().l3();
             }
             return false;
         }
@@ -284,7 +284,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (g = g(i)) != null && (weakReference = g.b) != null && weakReference.get() != null) {
-            g.b.get().o3();
+            g.b.get().u3();
         }
     }
 
@@ -293,7 +293,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (g = g(i)) != null && (weakReference = g.b) != null && weakReference.get() != null) {
-            g.b.get().p3();
+            g.b.get().v3();
         }
     }
 
@@ -302,7 +302,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (g = g(i)) != null && (weakReference = g.b) != null && weakReference.get() != null) {
-            g.b.get().q3();
+            g.b.get().w3();
         }
     }
 
@@ -311,7 +311,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && (g = g(i)) != null && (weakReference = g.b) != null && weakReference.get() != null) {
-            g.b.get().n3();
+            g.b.get().t3();
         }
     }
 
@@ -320,7 +320,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && (g = g(i)) != null && (weakReference = g.b) != null && weakReference.get() != null) {
-            g.b.get().r3();
+            g.b.get().x3();
         }
     }
 
@@ -348,7 +348,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (!gc0.c(this.f)) {
+            if (!fc0.c(this.f)) {
                 this.f.clear();
             }
             notifyDataSetChanged();
@@ -371,16 +371,16 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
                     bundle.putInt("tab_bd_id", this.a);
                     bundle.putParcelable("tab_entity_item", this.f.get(i).a);
                     bundle.putString("scheme_def_tab_type", this.b);
-                    LiveSubTabFragment h3 = LiveSubTabFragment.h3(bundle);
-                    h3.v3(this.k);
-                    h3.A1(this.h);
-                    h3.D1(this.c);
-                    h3.C1(this.d);
-                    h3.B1(this.e);
-                    h3.w3(this.i);
-                    h3.E1(this.j);
-                    h3.M2(this.l);
-                    bVar.b = new WeakReference<>(h3);
+                    LiveSubTabFragment n3 = LiveSubTabFragment.n3(bundle);
+                    n3.B3(this.k);
+                    n3.G1(this.h);
+                    n3.J1(this.c);
+                    n3.I1(this.d);
+                    n3.H1(this.e);
+                    n3.C3(this.i);
+                    n3.K1(this.j);
+                    n3.S2(this.l);
+                    bVar.b = new WeakReference<>(n3);
                 }
                 return bVar.b.get();
             }
@@ -410,10 +410,10 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public void o() {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && !gc0.c(this.f)) {
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && !fc0.c(this.f)) {
             for (b bVar : this.f) {
                 if (bVar != null && (weakReference = bVar.b) != null && weakReference.get() != null) {
-                    bVar.b.get().l3();
+                    bVar.b.get().r3();
                 }
             }
         }
@@ -421,7 +421,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
 
     public void t(List<LiveTabEntity> list, LiveFeedWrapData liveFeedWrapData, LiveFeedConfig liveFeedConfig, LiveFeedReserveWrapData liveFeedReserveWrapData, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(1048602, this, list, liveFeedWrapData, liveFeedConfig, liveFeedReserveWrapData, str) != null) || gc0.c(list)) {
+        if ((interceptable != null && interceptable.invokeLLLLL(1048602, this, list, liveFeedWrapData, liveFeedConfig, liveFeedReserveWrapData, str) != null) || fc0.c(list)) {
             return;
         }
         this.h = str;
@@ -446,8 +446,8 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         b bVar;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i) == null) && !gc0.c(this.f) && (bVar = (b) gc0.b(this.f, i)) != null && (weakReference = bVar.b) != null && weakReference.get() != null) {
-            bVar.b.get().E3(str, str2);
+        if ((interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i) == null) && !fc0.c(this.f) && (bVar = (b) fc0.b(this.f, i)) != null && (weakReference = bVar.b) != null && weakReference.get() != null) {
+            bVar.b.get().K3(str, str2);
         }
     }
 }

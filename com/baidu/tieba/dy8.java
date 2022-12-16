@@ -1,197 +1,90 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.video.editvideo.scale.PivotPoint;
-import com.baidu.tieba.video.editvideo.scale.ScalableType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.PersonalBackdropListActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"ResourceAsColor"})
+/* loaded from: classes4.dex */
 public class dy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ey8 a;
-    public ey8 b;
+    public BackgroundGroupActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public MemberRecommendView e;
+    public BdListView f;
+    public TextView g;
+    public TextView h;
+    public int i;
+    public by8 j;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dy8 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-845881015, "Lcom/baidu/tieba/dy8$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-845881015, "Lcom/baidu/tieba/dy8$a;");
+        public a(dy8 dy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dy8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PivotPoint.values().length];
-            b = iArr;
-            try {
-                iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                b[PivotPoint.CENTER_TOP.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                b[PivotPoint.CENTER.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
-            } catch (NoSuchFieldError unused9) {
-            }
-            int[] iArr2 = new int[ScalableType.values().length];
-            a = iArr2;
-            try {
-                iArr2[ScalableType.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused10) {
-            }
-            try {
-                a[ScalableType.FIT_XY.ordinal()] = 2;
-            } catch (NoSuchFieldError unused11) {
-            }
-            try {
-                a[ScalableType.FIT_CENTER.ordinal()] = 3;
-            } catch (NoSuchFieldError unused12) {
-            }
-            try {
-                a[ScalableType.FIT_START.ordinal()] = 4;
-            } catch (NoSuchFieldError unused13) {
-            }
-            try {
-                a[ScalableType.FIT_END.ordinal()] = 5;
-            } catch (NoSuchFieldError unused14) {
-            }
-            try {
-                a[ScalableType.LEFT_TOP.ordinal()] = 6;
-            } catch (NoSuchFieldError unused15) {
-            }
-            try {
-                a[ScalableType.LEFT_CENTER.ordinal()] = 7;
-            } catch (NoSuchFieldError unused16) {
-            }
-            try {
-                a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
-            } catch (NoSuchFieldError unused17) {
-            }
-            try {
-                a[ScalableType.CENTER_TOP.ordinal()] = 9;
-            } catch (NoSuchFieldError unused18) {
-            }
-            try {
-                a[ScalableType.CENTER.ordinal()] = 10;
-            } catch (NoSuchFieldError unused19) {
-            }
-            try {
-                a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
-            } catch (NoSuchFieldError unused20) {
-            }
-            try {
-                a[ScalableType.RIGHT_TOP.ordinal()] = 12;
-            } catch (NoSuchFieldError unused21) {
-            }
-            try {
-                a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
-            } catch (NoSuchFieldError unused22) {
-            }
-            try {
-                a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
-            } catch (NoSuchFieldError unused23) {
-            }
-            try {
-                a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
-            } catch (NoSuchFieldError unused24) {
-            }
-            try {
-                a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
-            } catch (NoSuchFieldError unused25) {
-            }
-            try {
-                a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
-            } catch (NoSuchFieldError unused26) {
-            }
-            try {
-                a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
-            } catch (NoSuchFieldError unused27) {
-            }
-            try {
-                a[ScalableType.CENTER_CROP.ordinal()] = 19;
-            } catch (NoSuchFieldError unused28) {
-            }
-            try {
-                a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
-            } catch (NoSuchFieldError unused29) {
-            }
-            try {
-                a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
-            } catch (NoSuchFieldError unused30) {
-            }
-            try {
-                a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
-            } catch (NoSuchFieldError unused31) {
-            }
-            try {
-                a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
-            } catch (NoSuchFieldError unused32) {
-            }
-            try {
-                a[ScalableType.START_INSIDE.ordinal()] = 24;
-            } catch (NoSuchFieldError unused33) {
-            }
-            try {
-                a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
-            } catch (NoSuchFieldError unused34) {
-            }
-            try {
-                a[ScalableType.END_INSIDE.ordinal()] = 26;
-            } catch (NoSuchFieldError unused35) {
+            this.a = dy8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TiebaStatic.log("c10283");
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropListActivityConfig(this.a.a.getActivity())));
             }
         }
     }
 
-    public dy8(ey8 ey8Var, ey8 ey8Var2) {
+    public dy8(BackgroundGroupActivity backgroundGroupActivity, ey8 ey8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ey8Var, ey8Var2};
+            Object[] objArr = {backgroundGroupActivity, ey8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -201,226 +94,170 @@ public class dy8 {
                 return;
             }
         }
-        this.a = ey8Var;
-        this.b = ey8Var2;
+        this.i = 0;
+        this.a = backgroundGroupActivity;
+        this.i = yi.g(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012e, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903cc);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0ef2);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092686);
+        this.e = memberRecommendView;
+        memberRecommendView.setFromType(4);
+        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0913c9);
+        TextView textView = new TextView(this.a.getActivity());
+        this.g = textView;
+        textView.setHeight(yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d058b, (ViewGroup) null);
+        this.h = textView2;
+        textView2.setText(R.string.obfuscated_res_0x7f0f0b51);
+        this.h.setOnClickListener(new a(this));
+        this.j = new by8(this.a.getPageContext(), ey8Var);
+        TextView textView3 = new TextView(this.a.getActivity());
+        textView3.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070282)));
+        this.f.x(textView3, 0);
+        this.f.addFooterView(this.h);
+        this.f.setAdapter((ListAdapter) this.j);
     }
 
-    public final Matrix a() {
-        InterceptResult invokeV;
+    public final void g(List<Object> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
-                return l(PivotPoint.CENTER);
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.f.setVisibility(0);
+                this.j.a(list);
+                this.j.notifyDataSetChanged();
+                return;
             }
-            return c();
+            this.f.setVisibility(8);
         }
-        return (Matrix) invokeV.objValue;
     }
 
-    public final Matrix b() {
-        InterceptResult invokeV;
+    public final List<Object> b(List<cy8> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
-                return l(PivotPoint.RIGHT_BOTTOM);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (cy8 cy8Var : list) {
+                arrayList.add(cy8Var.b());
+                List<DressItemData> a2 = cy8Var.a();
+                int size = a2.size();
+                if (size > 3) {
+                    size = 3;
+                }
+                for (int i = 0; i < size; i = i + 2 + 1) {
+                    ArrayList arrayList2 = new ArrayList();
+                    for (int i2 = 0; i2 < 3; i2++) {
+                        int i3 = i + i2;
+                        if (i3 < size) {
+                            arrayList2.add(a2.get(i3));
+                        }
+                    }
+                    arrayList.add(arrayList2);
+                }
             }
-            return d();
+            return arrayList;
         }
-        return (Matrix) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public final Matrix k() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), PivotPoint.LEFT_TOP);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.c.setVisibility(0);
         }
-        return (Matrix) invokeV.objValue;
     }
 
-    public final Matrix n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
-                return l(PivotPoint.LEFT_TOP);
-            }
-            return e();
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final Matrix c() {
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return h(PivotPoint.CENTER);
+            return this.b;
         }
-        return (Matrix) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final Matrix d() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return h(PivotPoint.RIGHT_BOTTOM);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.setVisibility(8);
         }
-        return (Matrix) invokeV.objValue;
     }
 
-    public final Matrix e() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return h(PivotPoint.LEFT_TOP);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setVisibility(0);
         }
-        return (Matrix) invokeV.objValue;
     }
 
-    public final Matrix f() {
-        InterceptResult invokeV;
+    public void f() {
+        by8 by8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return j(1.0f, 1.0f, PivotPoint.LEFT_TOP);
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final Matrix g(PivotPoint pivotPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
-            float b = this.a.b() / this.b.b();
-            float a2 = this.a.a() / this.b.a();
-            float max = Math.max(b, a2);
-            return j(max / b, max / a2, pivotPoint);
-        }
-        return (Matrix) invokeL.objValue;
-    }
-
-    public final Matrix h(PivotPoint pivotPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
-            float b = this.a.b() / this.b.b();
-            float a2 = this.a.a() / this.b.a();
-            float min = Math.min(b, a2);
-            return j(min / b, min / a2, pivotPoint);
-        }
-        return (Matrix) invokeL.objValue;
-    }
-
-    public final Matrix l(PivotPoint pivotPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) {
-            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), pivotPoint);
-        }
-        return (Matrix) invokeL.objValue;
-    }
-
-    public final Matrix i(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            Matrix matrix = new Matrix();
-            matrix.setScale(f, f2, f3, f4);
-            return matrix;
-        }
-        return (Matrix) invokeCommon.objValue;
-    }
-
-    public final Matrix j(float f, float f2, PivotPoint pivotPoint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pivotPoint})) == null) {
-            switch (a.b[pivotPoint.ordinal()]) {
-                case 1:
-                    return i(f, f2, 0.0f, 0.0f);
-                case 2:
-                    return i(f, f2, 0.0f, this.a.a() / 2.0f);
-                case 3:
-                    return i(f, f2, 0.0f, this.a.a());
-                case 4:
-                    return i(f, f2, this.a.b() / 2.0f, 0.0f);
-                case 5:
-                    return i(f, f2, this.a.b() / 2.0f, this.a.a() / 2.0f);
-                case 6:
-                    return i(f, f2, this.a.b() / 2.0f, this.a.a());
-                case 7:
-                    return i(f, f2, this.a.b(), 0.0f);
-                case 8:
-                    return i(f, f2, this.a.b(), this.a.a() / 2.0f);
-                case 9:
-                    return i(f, f2, this.a.b(), this.a.a());
-                default:
-                    return null;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ig5.a(this.a.getPageContext(), this.b);
+            this.a.getLayoutMode().k(this.h);
+            rw4.d(this.h).v(R.color.CAM_X0108);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
             }
+            BdListView bdListView = this.f;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (by8Var = this.j) != null) {
+                by8Var.notifyDataSetChanged();
+            }
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            this.e.d();
         }
-        return (Matrix) invokeCommon.objValue;
     }
 
-    public Matrix m(ScalableType scalableType) {
+    public final boolean h(zy8 zy8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
-            switch (a.a[scalableType.ordinal()]) {
-                case 1:
-                    return k();
-                case 2:
-                    return f();
-                case 3:
-                    return c();
-                case 4:
-                    return e();
-                case 5:
-                    return d();
-                case 6:
-                    return l(PivotPoint.LEFT_TOP);
-                case 7:
-                    return l(PivotPoint.LEFT_CENTER);
-                case 8:
-                    return l(PivotPoint.LEFT_BOTTOM);
-                case 9:
-                    return l(PivotPoint.CENTER_TOP);
-                case 10:
-                    return l(PivotPoint.CENTER);
-                case 11:
-                    return l(PivotPoint.CENTER_BOTTOM);
-                case 12:
-                    return l(PivotPoint.RIGHT_TOP);
-                case 13:
-                    return l(PivotPoint.RIGHT_CENTER);
-                case 14:
-                    return l(PivotPoint.RIGHT_BOTTOM);
-                case 15:
-                    return g(PivotPoint.LEFT_TOP);
-                case 16:
-                    return g(PivotPoint.LEFT_CENTER);
-                case 17:
-                    return g(PivotPoint.LEFT_BOTTOM);
-                case 18:
-                    return g(PivotPoint.CENTER_TOP);
-                case 19:
-                    return g(PivotPoint.CENTER);
-                case 20:
-                    return g(PivotPoint.CENTER_BOTTOM);
-                case 21:
-                    return g(PivotPoint.RIGHT_TOP);
-                case 22:
-                    return g(PivotPoint.RIGHT_CENTER);
-                case 23:
-                    return g(PivotPoint.RIGHT_BOTTOM);
-                case 24:
-                    return n();
-                case 25:
-                    return a();
-                case 26:
-                    return b();
-                default:
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, zy8Var)) == null) {
+            if (zy8Var != null && !StringUtils.isNull(zy8Var.c())) {
+                this.e.setVisibility(0);
+                this.e.e(zy8Var);
+                return true;
             }
+            this.e.setVisibility(8);
+            return false;
         }
-        return (Matrix) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.c.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.i);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public void k(zy8 zy8Var, List<cy8> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, zy8Var, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                c();
+                if (h(zy8Var)) {
+                    this.f.removeHeaderView(this.g);
+                    this.f.addHeaderView(this.g);
+                } else {
+                    this.f.removeHeaderView(this.g);
+                }
+                g(b(list));
+                return;
+            }
+            j();
+        }
     }
 }

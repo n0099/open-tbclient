@@ -1,8 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.utils.BaseUtils;
-import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +21,7 @@ import java.util.Locale;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AppleDataBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -115,7 +113,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, "Georgian");
         language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, "Moldavian");
         language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, "Kirghiz");
-        language.put("55", "Tajiki");
+        language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, "Tajiki");
         language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, "Turkmen");
         language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, "Mongolian");
         language.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, "MongolianCyr");
@@ -153,8 +151,8 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("90", "Kinyarwanda");
         language.put("91", "Rundi");
         language.put("92", "Nyanja");
-        language.put(BaseUtils.METHOD_RECEIVEESSAGE, "Malagasy");
-        language.put(HttpConfig.UBC_HTTP_ID, "Esperanto");
+        language.put("93", "Malagasy");
+        language.put("94", "Esperanto");
         language.put("128", "Welsh");
         language.put("129", "Basque");
         language.put("130", "Catalan");

@@ -57,12 +57,12 @@ public final class DeviceId {
 
         /* renamed from: com.baidu.android.common.util.DeviceId$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0009a implements CuidChangeReceivedCallback {
+        public class C0022a implements CuidChangeReceivedCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0009a(a aVar) {
+            public C0022a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public final class DeviceId {
             if (aVar == null || aVar.w() || TextUtils.isEmpty(this.a.t())) {
                 CuidChangeCallback unused = DeviceId.j = null;
             } else {
-                DeviceId.j.onCuidChanged(this.a.r(), this.a.t(), new C0009a(this));
+                DeviceId.j.onCuidChanged(this.a.r(), this.a.t(), new C0022a(this));
             }
         }
     }

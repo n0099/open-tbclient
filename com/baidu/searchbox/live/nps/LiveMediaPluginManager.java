@@ -41,9 +41,9 @@ import com.baidu.searchbox.live.ubc.FlowInfoHelper;
 import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s91;
+import com.baidu.tieba.r91;
+import com.baidu.tieba.t91;
 import com.baidu.tieba.u91;
-import com.baidu.tieba.v91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -212,7 +212,7 @@ public class LiveMediaPluginManager {
                 dLog("preDownloadMediaBusinessPlugin 预加载媒体二级插件");
                 Log.d(TAG, "preDownloadYYPluginForCreateLive: + com.baidu.live.media.business start Download");
             }
-            NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new s91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
+            NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
@@ -235,7 +235,7 @@ public class LiveMediaPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.s91
+                @Override // com.baidu.tieba.r91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.this$0.isDebug()) {
@@ -245,7 +245,7 @@ public class LiveMediaPluginManager {
                     }
                 }
 
-                @Override // com.baidu.tieba.s91
+                @Override // com.baidu.tieba.r91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && this.this$0.isDebug()) {
@@ -493,19 +493,19 @@ public class LiveMediaPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new s91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
 
-                @Override // com.baidu.tieba.s91
+                @Override // com.baidu.tieba.r91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.s91
+                @Override // com.baidu.tieba.r91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -529,7 +529,7 @@ public class LiveMediaPluginManager {
                     }
                     this.this$0 = this;
                 }
-            }, new u91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
+            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
@@ -552,11 +552,11 @@ public class LiveMediaPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.u91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, v91 v91Var) {
+                @Override // com.baidu.tieba.t91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, v91Var) == null) && v91Var != null) {
-                        v91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
+                        u91Var.onResult(1);
                     }
                 }
             }, 1);
@@ -1538,65 +1538,6 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void sendLog(int i, @NonNull Context context, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048596, this, i, context, str) == null) {
-            dLog("LiveMediaPluginManager sendLog " + i + " " + str);
-            ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
-            if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, true, new PluginLoadCallback(this, i, context, str) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ LiveMediaPluginManager this$0;
-                    public final /* synthetic */ Context val$context;
-                    public final /* synthetic */ int val$logType;
-                    public final /* synthetic */ String val$params;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(i), context, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$logType = i;
-                        this.val$context = context;
-                        this.val$params = str;
-                    }
-
-                    @Override // com.baidu.searchbox.live.nps.LiveMediaPluginManager.PluginLoadCallback
-                    public void onResult(int i2, String str2, Object obj, String str3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, obj, str3}) == null) {
-                            if (i2 == 14) {
-                                try {
-                                    this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
-                                    this.this$0.mLiveNPSPlugin.getLiveMediaEntry().sendLog(this.val$logType, this.val$context, this.val$params);
-                                    return;
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    return;
-                                }
-                            }
-                            this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f09d0, 0);
-                        }
-                    }
-                }, "sendYaLog", context);
-            } else {
-                iLiveNPSPlugin.getLiveMediaEntry().sendLog(i, context, str);
-            }
-        }
-    }
-
     public void startBjhMasterActivityNew(@NonNull Context context, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048601, this, context, str, uri) == null) {
@@ -2007,65 +1948,61 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void setSmallWindowSwitch(boolean z, Activity activity, FloatingService.OnPermissionResultListener onPermissionResultListener, FloatingService.OnPermissionCancelListener onPermissionCancelListener) {
+    public void sendLog(int i, @NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), activity, onPermissionResultListener, onPermissionCancelListener}) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048596, this, i, context, str) == null) {
+            dLog("LiveMediaPluginManager sendLog " + i + " " + str);
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, false, new PluginLoadCallback(this, z, activity, onPermissionResultListener, onPermissionCancelListener) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.19
+                loadNPSPluginImpl(false, true, new PluginLoadCallback(this, i, context, str) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveMediaPluginManager this$0;
-                    public final /* synthetic */ Activity val$activity;
-                    public final /* synthetic */ FloatingService.OnPermissionCancelListener val$cancelListener;
-                    public final /* synthetic */ FloatingService.OnPermissionResultListener val$resultListener;
-                    public final /* synthetic */ boolean val$switchOn;
+                    public final /* synthetic */ Context val$context;
+                    public final /* synthetic */ int val$logType;
+                    public final /* synthetic */ String val$params;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(z), activity, onPermissionResultListener, onPermissionCancelListener};
+                            Object[] objArr = {this, Integer.valueOf(i), context, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.this$0 = this;
-                        this.val$switchOn = z;
-                        this.val$activity = activity;
-                        this.val$resultListener = onPermissionResultListener;
-                        this.val$cancelListener = onPermissionCancelListener;
+                        this.val$logType = i;
+                        this.val$context = context;
+                        this.val$params = str;
                     }
 
                     @Override // com.baidu.searchbox.live.nps.LiveMediaPluginManager.PluginLoadCallback
-                    public void onResult(int i, String str, Object obj, String str2) {
+                    public void onResult(int i2, String str2, Object obj, String str3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, obj, str2}) == null) {
-                            LiveMediaPluginManager liveMediaPluginManager = this.this$0;
-                            liveMediaPluginManager.dLog("LiveMediaPluginManager smallWindowSwitch loadPluginonResult " + i + GlideException.IndentedAppendable.INDENT + str + GlideException.IndentedAppendable.INDENT + obj + GlideException.IndentedAppendable.INDENT + str2);
-                            if (i != 14) {
-                                return;
-                            }
-                            try {
-                                this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
-                                if (this.this$0.mLiveNPSPlugin != null && this.this$0.mLiveNPSPlugin.getLiveMediaEntry() != null && this.this$0.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController() != null) {
-                                    this.this$0.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController().setSmallWindowSwitch(this.val$switchOn, this.val$activity, this.val$resultListener, this.val$cancelListener);
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, obj, str3}) == null) {
+                            if (i2 == 14) {
+                                try {
+                                    this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
+                                    this.this$0.mLiveNPSPlugin.getLiveMediaEntry().sendLog(this.val$logType, this.val$context, this.val$params);
+                                    return;
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    return;
                                 }
-                            } catch (Exception e) {
-                                LiveMediaPluginManager liveMediaPluginManager2 = this.this$0;
-                                liveMediaPluginManager2.dLog("LiveMediaPluginManager smallWindowSwitch loadPluginException " + e.getMessage());
                             }
+                            this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f09d0, 0);
                         }
                     }
-                }, "setSmallWindowSwitch", activity);
-            } else if (iLiveNPSPlugin != null && iLiveNPSPlugin.getLiveMediaEntry() != null && this.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController() != null) {
-                this.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController().setSmallWindowSwitch(z, activity, onPermissionResultListener, onPermissionCancelListener);
+                }, "sendYaLog", context);
+            } else {
+                iLiveNPSPlugin.getLiveMediaEntry().sendLog(i, context, str);
             }
         }
     }
@@ -2132,6 +2069,69 @@ public class LiveMediaPluginManager {
                 }, "startBjhMasterActivity", application);
             } else if (iLiveNPSPlugin.getLiveBjhEntry() != null) {
                 this.mLiveNPSPlugin.getLiveBjhEntry().startLiveMasterActivity(application, str, uri);
+            }
+        }
+    }
+
+    public void setSmallWindowSwitch(boolean z, Activity activity, FloatingService.OnPermissionResultListener onPermissionResultListener, FloatingService.OnPermissionCancelListener onPermissionCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), activity, onPermissionResultListener, onPermissionCancelListener}) == null) {
+            ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
+            if (iLiveNPSPlugin == null) {
+                loadNPSPluginImpl(false, false, new PluginLoadCallback(this, z, activity, onPermissionResultListener, onPermissionCancelListener) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.19
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LiveMediaPluginManager this$0;
+                    public final /* synthetic */ Activity val$activity;
+                    public final /* synthetic */ FloatingService.OnPermissionCancelListener val$cancelListener;
+                    public final /* synthetic */ FloatingService.OnPermissionResultListener val$resultListener;
+                    public final /* synthetic */ boolean val$switchOn;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, Boolean.valueOf(z), activity, onPermissionResultListener, onPermissionCancelListener};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$switchOn = z;
+                        this.val$activity = activity;
+                        this.val$resultListener = onPermissionResultListener;
+                        this.val$cancelListener = onPermissionCancelListener;
+                    }
+
+                    @Override // com.baidu.searchbox.live.nps.LiveMediaPluginManager.PluginLoadCallback
+                    public void onResult(int i, String str, Object obj, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, obj, str2}) == null) {
+                            LiveMediaPluginManager liveMediaPluginManager = this.this$0;
+                            liveMediaPluginManager.dLog("LiveMediaPluginManager smallWindowSwitch loadPluginonResult " + i + GlideException.IndentedAppendable.INDENT + str + GlideException.IndentedAppendable.INDENT + obj + GlideException.IndentedAppendable.INDENT + str2);
+                            if (i != 14) {
+                                return;
+                            }
+                            try {
+                                this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
+                                if (this.this$0.mLiveNPSPlugin != null && this.this$0.mLiveNPSPlugin.getLiveMediaEntry() != null && this.this$0.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController() != null) {
+                                    this.this$0.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController().setSmallWindowSwitch(this.val$switchOn, this.val$activity, this.val$resultListener, this.val$cancelListener);
+                                }
+                            } catch (Exception e) {
+                                LiveMediaPluginManager liveMediaPluginManager2 = this.this$0;
+                                liveMediaPluginManager2.dLog("LiveMediaPluginManager smallWindowSwitch loadPluginException " + e.getMessage());
+                            }
+                        }
+                    }
+                }, "setSmallWindowSwitch", activity);
+            } else if (iLiveNPSPlugin != null && iLiveNPSPlugin.getLiveMediaEntry() != null && this.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController() != null) {
+                this.mLiveNPSPlugin.getLiveMediaEntry().getYYSmallWindowController().setSmallWindowSwitch(z, activity, onPermissionResultListener, onPermissionCancelListener);
             }
         }
     }

@@ -502,9 +502,9 @@ public final class BitmapUtils {
                         i8 = 16;
                     }
                     float f = (i8 - 16) * 1.164f;
-                    float f2 = i11 - 128;
+                    float f2 = i11 + com.alipay.sdk.encrypt.a.g;
                     int round = Math.round((1.596f * f2) + f);
-                    float f3 = i10 - 128;
+                    float f3 = i10 + com.alipay.sdk.encrypt.a.g;
                     int round2 = Math.round((f - (f2 * 0.813f)) - (0.391f * f3));
                     int round3 = Math.round(f + (f3 * 2.018f));
                     if (round < 0) {

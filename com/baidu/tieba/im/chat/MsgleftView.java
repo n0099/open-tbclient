@@ -17,13 +17,14 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.ea7;
+import com.baidu.tieba.cb7;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.qc7;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
+import com.baidu.tieba.pd7;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,19 +34,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class MsgleftView extends ea7 {
+public class MsgleftView extends cb7 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String P = "com.baidu.tieba.im.chat.MsgleftView";
+    public static final String Q = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView G;
-    public TextView H;
-    public ViewGroup I;
-    public UserIconBox J;
-    public ImageView K;
-    public final TouchType L;
-    public TbPageContext<MsglistActivity<?>> M;
-    public ImMessageCenterPojo N;
-    public View.OnLongClickListener O;
+    public HeadImageView H;
+    public TextView I;
+    public ViewGroup J;
+    public UserIconBox K;
+    public ImageView L;
+    public final TouchType M;
+    public TbPageContext<MsglistActivity<?>> N;
+    public ImMessageCenterPojo O;
+    public View.OnLongClickListener P;
 
     static {
         InterceptResult invokeClinit;
@@ -95,15 +96,15 @@ public class MsgleftView extends ea7 {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     this.a = System.currentTimeMillis();
-                    dk5.e();
+                    yk5.e();
                 } else if (motionEvent.getAction() == 1) {
                     if (System.currentTimeMillis() - this.a <= 200) {
                         MsgleftView msgleftView = this.b;
                         msgleftView.b.q(view2, 2, msgleftView.f, 0L);
-                    } else if (this.b.L.get()) {
+                    } else if (this.b.M.get()) {
                         MsgleftView msgleftView2 = this.b;
-                        msgleftView2.c.y(view2, 2, msgleftView2.f, 0L);
-                        this.b.L.set(false);
+                        msgleftView2.c.z(view2, 2, msgleftView2.f, 0L);
+                        this.b.M.set(false);
                     }
                 }
                 return false;
@@ -141,7 +142,7 @@ public class MsgleftView extends ea7 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                this.a.L.set(true);
+                this.a.M.set(true);
                 return true;
             }
             return invokeL.booleanValue;
@@ -150,7 +151,7 @@ public class MsgleftView extends ea7 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05ac);
+        super(tbPageContext, R.layout.msg_msgleft_view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,52 +168,52 @@ public class MsgleftView extends ea7 {
                 return;
             }
         }
-        this.L = new TouchType();
-        this.O = new b(this);
-        this.M = tbPageContext;
-        s();
-        this.K = (ImageView) j(R.id.obfuscated_res_0x7f091045);
-        this.H = (TextView) j(R.id.obfuscated_res_0x7f09215a);
-        this.I = (ViewGroup) j(R.id.obfuscated_res_0x7f09041d);
-        HeadImageView headImageView = (HeadImageView) j(R.id.obfuscated_res_0x7f090f23);
-        this.G = headImageView;
+        this.M = new TouchType();
+        this.P = new b(this);
+        this.N = tbPageContext;
+        t();
+        this.L = (ImageView) g(R.id.iv_live_group_host);
+        this.I = (TextView) g(R.id.tex_msgitem_name);
+        this.J = (ViewGroup) g(R.id.box_msgitem_bubble);
+        HeadImageView headImageView = (HeadImageView) g(R.id.img_msgitem_photo);
+        this.H = headImageView;
         headImageView.setAutoChangeStyle(false);
-        this.G.setDrawerType(1);
-        this.G.setRadius(yi.d(this.M.getContext(), 4.0f));
-        this.G.setPlaceHolder(1);
-        this.J = (UserIconBox) j(R.id.obfuscated_res_0x7f092527);
-        this.G.setLongClickable(true);
-        this.G.setOnLongClickListener(this.O);
-        this.G.setOnTouchListener(new a(this));
+        this.H.setDrawerType(1);
+        this.H.setRadius(yi.d(this.N.getContext(), 4.0f));
+        this.H.setPlaceHolder(1);
+        this.K = (UserIconBox) g(R.id.user_tshow_icon_box);
+        this.H.setLongClickable(true);
+        this.H.setOnLongClickListener(this.P);
+        this.H.setOnTouchListener(new a(this));
         this.n.setIsLeft(true);
         this.o.setIsLeft(true);
     }
 
-    public final void W(ChatMessage chatMessage) {
+    public final void Y(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = qy4.k().q("live_room_chat_page_author_id", "");
-            if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
-                this.K.setVisibility(0);
+            String r = ry4.l().r("live_room_chat_page_author_id", "");
+            if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(r)) {
+                this.L.setVisibility(0);
             } else {
-                this.K.setVisibility(8);
+                this.L.setVisibility(8);
             }
         }
     }
 
-    public void X() {
+    public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.u) {
-                this.H.setVisibility(0);
-                this.J.setVisibility(0);
+            if (this.v) {
+                this.I.setVisibility(0);
+                this.K.setVisibility(0);
                 return;
             }
-            this.H.setVisibility(8);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.I.getLayoutParams();
+            this.I.setVisibility(8);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.J.getLayoutParams();
             marginLayoutParams.topMargin = 0;
-            this.I.setLayoutParams(marginLayoutParams);
-            this.J.setVisibility(8);
+            this.J.setLayoutParams(marginLayoutParams);
+            this.K.setVisibility(8);
         }
     }
 
@@ -220,10 +221,10 @@ public class MsgleftView extends ea7 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void Y(ChatMessage chatMessage) {
+    public final void a0(ChatMessage chatMessage) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) != null) || !this.u) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) != null) || !this.v) {
             return;
         }
         if (chatMessage != null && chatMessage.getUserInfo() != null) {
@@ -235,63 +236,68 @@ public class MsgleftView extends ea7 {
             } else {
                 i = R.drawable.icon_pop_qz_boy;
             }
-            if (!this.u) {
+            if (!this.v) {
                 i = 0;
             }
-            this.H.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
+            this.I.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
         }
         i = 0;
-        if (!this.u) {
+        if (!this.v) {
         }
-        this.H.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
+        this.I.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
     }
 
-    @Override // com.baidu.tieba.ea7
-    public void u() {
+    @Override // com.baidu.tieba.cb7
+    public void v() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.E == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
-        super.u();
+        super.v();
         SkinManager.setBackgroundResource(this.j, R.drawable.selector_msg_text_bubble_other);
         SkinManager.setBackgroundResource(this.m, R.drawable.selector_msg_text_bubble_other);
-        this.r.p(P);
-        this.s.l(P);
-        this.k.f(P);
+        this.r.p(Q);
+        this.s.l(Q);
+        this.k.f(Q);
         this.j.setTextColor(SkinManager.getColor(R.color.msg_chat_friend_text_color));
+        ChatShareChatroomCard chatShareChatroomCard = this.t;
+        if (chatShareChatroomCard != null) {
+            chatShareChatroomCard.e(R.drawable.icon_pic_im_bubble_share_left, true);
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x013f A[Catch: Exception -> 0x01dc, TryCatch #0 {Exception -> 0x01dc, blocks: (B:17:0x00b1, B:19:0x00b7, B:20:0x00d9, B:22:0x00e6, B:25:0x00f1, B:27:0x00f5, B:28:0x0107, B:30:0x010b, B:32:0x0117, B:33:0x011d, B:35:0x012c, B:37:0x013f, B:38:0x0162, B:50:0x01aa, B:52:0x01ae, B:53:0x01b2, B:54:0x01b6, B:55:0x01ba, B:56:0x01c0, B:57:0x01c6, B:58:0x01ca, B:59:0x01d0, B:60:0x01d6, B:34:0x0125), top: B:68:0x00b1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0198  */
-    @Override // com.baidu.tieba.ea7
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0146 A[Catch: Exception -> 0x01f4, TryCatch #0 {Exception -> 0x01f4, blocks: (B:19:0x00b8, B:21:0x00be, B:22:0x00e0, B:24:0x00ed, B:27:0x00f8, B:29:0x00fc, B:30:0x010e, B:32:0x0112, B:34:0x011e, B:35:0x0124, B:37:0x0133, B:39:0x0146, B:40:0x0169, B:42:0x019d, B:43:0x01a2, B:57:0x01be, B:59:0x01c2, B:60:0x01c6, B:61:0x01ca, B:62:0x01ce, B:63:0x01d2, B:64:0x01d8, B:65:0x01de, B:66:0x01e2, B:67:0x01e8, B:68:0x01ee, B:36:0x012c), top: B:76:0x00b8 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x019d A[Catch: Exception -> 0x01f4, TryCatch #0 {Exception -> 0x01f4, blocks: (B:19:0x00b8, B:21:0x00be, B:22:0x00e0, B:24:0x00ed, B:27:0x00f8, B:29:0x00fc, B:30:0x010e, B:32:0x0112, B:34:0x011e, B:35:0x0124, B:37:0x0133, B:39:0x0146, B:40:0x0169, B:42:0x019d, B:43:0x01a2, B:57:0x01be, B:59:0x01c2, B:60:0x01c6, B:61:0x01ca, B:62:0x01ce, B:63:0x01d2, B:64:0x01d8, B:65:0x01de, B:66:0x01e2, B:67:0x01e8, B:68:0x01ee, B:36:0x012c), top: B:76:0x00b8 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x01a8  */
+    @Override // com.baidu.tieba.cb7
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void w(View view2, ChatMessage chatMessage) {
+    public void x(View view2, ChatMessage chatMessage) {
         ArrayList<IconData> arrayList;
         int msgType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, chatMessage) == null) {
-            super.w(view2, chatMessage);
+            super.x(view2, chatMessage);
             String str = null;
             if (chatMessage != null) {
                 arrayList = chatMessage.getUserInfo().getTShowInfoNew();
             } else {
                 arrayList = null;
             }
-            X();
-            UserIconBox userIconBox = this.J;
-            if (userIconBox != null && this.u) {
+            Z();
+            UserIconBox userIconBox = this.K;
+            if (userIconBox != null && this.v) {
                 userIconBox.setVisibility(0);
-                this.J.setAutoChangedStyle(false);
-                Resources resources = this.M.getResources();
-                this.J.h(arrayList, 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302), true);
+                this.K.setAutoChangedStyle(false);
+                Resources resources = this.N.getResources();
+                this.K.h(arrayList, 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302), true);
             }
             if (chatMessage == null) {
-                this.H.setText((CharSequence) null);
+                this.I.setText((CharSequence) null);
                 this.j.setVisibility(0);
                 this.j.setText(null);
-                y(8);
+                z(8);
                 this.q.getImage().setTag(null);
                 this.k.setVisibility(8);
                 this.k.setTag(null);
@@ -300,39 +306,44 @@ public class MsgleftView extends ea7 {
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
                 this.p.setVisibility(8);
-                this.K.setVisibility(8);
+                this.L.setVisibility(8);
                 this.r.setVisibility(8);
                 this.s.setVisibility(8);
+                ChatShareChatroomCard chatShareChatroomCard = this.t;
+                if (chatShareChatroomCard != null) {
+                    chatShareChatroomCard.setVisibility(8);
+                    return;
+                }
                 return;
             }
-            O(chatMessage);
+            Q(chatMessage);
+            a0(chatMessage);
+            this.I.setText("");
             Y(chatMessage);
-            this.H.setText("");
             W(chatMessage);
-            U(chatMessage);
             try {
                 if (chatMessage.getUserInfo() != null) {
-                    this.H.setText(chatMessage.getUserInfo().getName_show());
-                    this.G.setUserId(chatMessage.getUserInfo().getUserId());
+                    this.I.setText(chatMessage.getUserInfo().getName_show());
+                    this.H.setUserId(chatMessage.getUserInfo().getUserId());
                     str = chatMessage.getUserInfo().getAvater();
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
-                    if (this.N == null) {
-                        this.N = qc7.o().i(String.valueOf(chatMessage.getUserId()), 2);
+                    if (this.O == null) {
+                        this.O = pd7.o().i(String.valueOf(chatMessage.getUserId()), 2);
                     }
-                    if (this.N != null && !TextUtils.isEmpty(this.N.getGroup_head())) {
-                        str = this.N.getGroup_head();
+                    if (this.O != null && !TextUtils.isEmpty(this.O.getGroup_head())) {
+                        str = this.O.getGroup_head();
                     }
-                    this.G.K(str, 12, false);
-                    this.G.setContentDescription(chatMessage.getUserInfo().getName_show());
+                    this.H.K(str, 12, false);
+                    this.H.setContentDescription(chatMessage.getUserInfo().getName_show());
                     if (q()) {
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.I.getLayoutParams();
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.J.getLayoutParams();
                         layoutParams.leftMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-                        this.I.setLayoutParams(layoutParams);
-                        this.G.setVisibility(8);
+                        this.J.setLayoutParams(layoutParams);
+                        this.H.setVisibility(8);
                     }
                     this.j.setVisibility(8);
-                    y(8);
+                    z(8);
                     this.k.setVisibility(8);
                     this.l.setVisibility(8);
                     this.m.setVisibility(8);
@@ -341,6 +352,9 @@ public class MsgleftView extends ea7 {
                     this.p.setVisibility(8);
                     this.r.setVisibility(8);
                     this.s.setVisibility(8);
+                    if (this.t != null) {
+                        this.t.setVisibility(8);
+                    }
                     msgType = chatMessage.getMsgType();
                     if (msgType != 1) {
                         if (msgType != 2) {
@@ -349,49 +363,53 @@ public class MsgleftView extends ea7 {
                                     if (msgType != 5) {
                                         if (msgType != 9) {
                                             if (msgType != 30) {
-                                                switch (msgType) {
-                                                    case 32:
-                                                        S(chatMessage);
-                                                        return;
-                                                    case 33:
-                                                        M(chatMessage);
-                                                        return;
-                                                    case 34:
-                                                        N(chatMessage);
-                                                        return;
-                                                    default:
-                                                        return;
+                                                if (msgType != 37) {
+                                                    switch (msgType) {
+                                                        case 32:
+                                                            U(chatMessage);
+                                                            return;
+                                                        case 33:
+                                                            O(chatMessage);
+                                                            return;
+                                                        case 34:
+                                                            P(chatMessage);
+                                                            return;
+                                                        default:
+                                                            return;
+                                                    }
                                                 }
+                                                M(chatMessage);
+                                                return;
                                             }
                                         } else {
-                                            L(view2, chatMessage, P);
+                                            N(view2, chatMessage, Q);
                                             return;
                                         }
                                     } else {
-                                        P(view2, chatMessage, P);
+                                        R(view2, chatMessage, Q);
                                         return;
                                     }
                                 } else {
-                                    K(chatMessage, false);
+                                    L(chatMessage, false);
                                     return;
                                 }
                             } else {
-                                T(chatMessage, P);
+                                V(chatMessage, Q);
                                 return;
                             }
                         } else {
-                            Q(view2, chatMessage, P);
+                            S(view2, chatMessage, Q);
                             return;
                         }
                     }
-                    R(chatMessage, P);
+                    T(chatMessage, Q);
                 }
-                this.G.K(str, 10, false);
-                this.G.setContentDescription(chatMessage.getUserInfo().getName_show());
+                this.H.K(str, 10, false);
+                this.H.setContentDescription(chatMessage.getUserInfo().getName_show());
                 if (q()) {
                 }
                 this.j.setVisibility(8);
-                y(8);
+                z(8);
                 this.k.setVisibility(8);
                 this.l.setVisibility(8);
                 this.m.setVisibility(8);
@@ -400,10 +418,12 @@ public class MsgleftView extends ea7 {
                 this.p.setVisibility(8);
                 this.r.setVisibility(8);
                 this.s.setVisibility(8);
+                if (this.t != null) {
+                }
                 msgType = chatMessage.getMsgType();
                 if (msgType != 1) {
                 }
-                R(chatMessage, P);
+                T(chatMessage, Q);
             } catch (Exception e) {
                 e.printStackTrace();
             }

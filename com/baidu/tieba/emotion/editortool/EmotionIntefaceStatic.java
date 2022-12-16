@@ -12,12 +12,12 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
-import com.baidu.tieba.a75;
-import com.baidu.tieba.qa6;
-import com.baidu.tieba.ra6;
+import com.baidu.tieba.b75;
+import com.baidu.tieba.lb6;
+import com.baidu.tieba.mb6;
+import com.baidu.tieba.pb6;
+import com.baidu.tieba.qb6;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.ua6;
-import com.baidu.tieba.va6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,12 +26,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionIntefaceStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,12 +54,12 @@ public class EmotionIntefaceStatic {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                va6.k().v();
+                qb6.k().v();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,17 +92,17 @@ public class EmotionIntefaceStatic {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 int indexOf = editorTools.getCollectTools().indexOf(5);
                 if (indexOf != -1) {
-                    if (editorTools.s()) {
-                        editorTools.d(new ra6(editorTools.getContext(), indexOf + 1, false));
+                    if (editorTools.t()) {
+                        editorTools.d(new mb6(editorTools.getContext(), indexOf + 1, false));
                     } else {
-                        editorTools.d(new ra6(editorTools.getContext(), indexOf + 1));
+                        editorTools.d(new mb6(editorTools.getContext(), indexOf + 1));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,18 +133,18 @@ public class EmotionIntefaceStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
-                    List<a75> list = (List) customResponsedMessage.getData();
-                    list.add(ua6.e());
-                    for (a75 a75Var : list) {
-                        va6.k().u(a75Var);
+                    List<b75> list = (List) customResponsedMessage.getData();
+                    list.add(pb6.e());
+                    for (b75 b75Var : list) {
+                        qb6.k().u(b75Var);
                     }
                 }
-                va6.k().v();
+                qb6.k().v();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,14 +168,14 @@ public class EmotionIntefaceStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                va6.k().v();
+                qb6.k().v();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public class EmotionIntefaceStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage instanceof RequestStaticEmotionMessage)) {
                     RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-                    return new CustomResponsedMessage<>(customMessage.getCmd(), va6.k().s(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+                    return new CustomResponsedMessage<>(customMessage.getCmd(), qb6.k().s(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
                 }
                 return null;
             }
@@ -209,7 +209,7 @@ public class EmotionIntefaceStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,13 +236,13 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(va6.k().l(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(qb6.k().l(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class g implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -269,7 +269,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(va6.k().n(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(qb6.k().n(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -288,7 +288,7 @@ public class EmotionIntefaceStatic {
                 return;
             }
         }
-        tg.h().o(20, new qa6());
+        tg.h().o(20, new lb6());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");

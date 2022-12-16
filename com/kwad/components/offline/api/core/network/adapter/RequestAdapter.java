@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.network.IOfflineCompoRequest;
 import com.kwad.sdk.core.network.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class RequestAdapter<R extends IOfflineCompoRequest> extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -12,7 +12,7 @@ import com.kwad.components.ad.reward.widget.KsToastView;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class m extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +176,7 @@ public final class m extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f09123f);
+            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f09129e);
             this.qh = ksToastView;
             ksToastView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.presenter.m.2
                 public static /* synthetic */ Interceptable $ic;

@@ -30,6 +30,6 @@ public class NativeEmotionManagerActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(KEY, i);
+        getIntent().putExtra("is_bazhu", i);
     }
 }

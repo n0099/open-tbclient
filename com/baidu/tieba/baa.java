@@ -1,0 +1,65 @@
+package com.baidu.tieba;
+
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
+/* loaded from: classes3.dex */
+public class baa implements mca {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public AbsViewEventHandler b;
+    public c9a c;
+    public dca d;
+
+    @Override // com.baidu.tieba.mca
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public baa(int i, int i2, Activity activity, AbsViewEventHandler absViewEventHandler, c9a c9aVar, dca dcaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, absViewEventHandler, c9aVar, dcaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = activity;
+        this.b = absViewEventHandler;
+        this.c = c9aVar;
+        this.d = dcaVar;
+    }
+
+    @Override // com.baidu.tieba.mca
+    public void a(CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                this.d.a();
+            }
+            RLog.info("PayWayDialogListener", "PaySplitOrderDialog notifyCancelType clickArea:" + cancelType);
+            this.c.d(cancelType, this.b);
+        }
+    }
+}

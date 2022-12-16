@@ -1,23 +1,94 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsRewardVideoAd;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class mv9 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+public class mv9 extends rv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsRewardVideoAd c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ lv9 e;
 
-    static {
-        int[] iArr = new int[ImageView.ScaleType.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
-        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
-        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_START.ordinal()] = 5;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_END.ordinal()] = 6;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+    public mv9(lv9 lv9Var, KsRewardVideoAd ksRewardVideoAd, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lv9Var, ksRewardVideoAd, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = lv9Var;
+        this.c = ksRewardVideoAd;
+        this.d = str;
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onAdClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClicked(this.c, this.b, this.d);
+            this.b = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onPageDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClose(this.c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onRewardVerify() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.e.onRewardedVideo(this.c, this.d);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.d();
+            this.e.onAdError(this.c, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.e.onAdShow(this.c, this.a, this.d);
+            this.a = true;
+        }
     }
 }

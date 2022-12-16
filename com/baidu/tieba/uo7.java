@@ -9,13 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipUpgrade;
+import java.util.List;
+import tbclient.Item;
 /* loaded from: classes6.dex */
 public class uo7 implements xn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Long a;
+    public String b;
+    public String c;
+    public List<String> d;
+    public Double e;
+    public Integer f;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +36,7 @@ public class uo7 implements xn {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public uo7() {
@@ -47,29 +53,80 @@ public class uo7 implements xn {
         }
     }
 
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Double f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (Double) invokeV.objValue;
+    }
+
+    public Integer g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
     @Override // com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return g;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void a(DataRes dataRes) {
-        VipUpgrade vipUpgrade;
+    public List<String> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) && dataRes != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUpgrade.svip;
-            String str2 = vipUpgrade.link;
-            String str3 = vipUpgrade.button;
-            String str4 = vipUpgrade.text;
-            vipUpgrade.pay.intValue();
-            dataRes.upgrade.normal.intValue();
-            VipUpgrade vipUpgrade2 = dataRes.upgrade;
-            String str5 = vipUpgrade2.card_id;
-            String str6 = vipUpgrade2.expire;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void i(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
+            this.a = item.item_id;
+            this.b = item.item_name;
+            Double d = item.icon_size;
+            this.c = item.icon_url;
+            this.d = item.tags;
+            this.e = item.score;
+            this.f = item.star;
         }
     }
 }

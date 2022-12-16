@@ -23,9 +23,7 @@ import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: h */
-    public static final int black_alpha4 = 2131100718;
+    public static final int h = 2131100718;
     public transient /* synthetic */ FieldHolder $fh;
     public float c;
     public Shape d;
@@ -140,9 +138,9 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         Paint paint2 = new Paint();
         this.f = paint2;
         paint2.setAntiAlias(true);
-        this.f.setColor(getResources().getColor(black_alpha4));
+        this.f.setColor(getResources().getColor(h));
         this.f.setStyle(Paint.Style.FILL);
-        this.f.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(black_alpha4));
+        this.f.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(h));
         this.f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
         this.g = new RectF();
     }

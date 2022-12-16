@@ -4,8 +4,8 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d84;
-import com.baidu.tieba.pk1;
+import com.baidu.tieba.c84;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class GameWebViewJavascriptInterface {
                 return;
             }
         }
-        DEBUG = pk1.a;
+        DEBUG = ok1.a;
     }
 
     public GameWebViewJavascriptInterface() {
@@ -59,7 +59,7 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "closeGameWebView");
             }
-            d84 E = d84.E();
+            c84 E = c84.E();
             if (E != null) {
                 E.close();
             }
@@ -73,7 +73,7 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "onGameLoadingFinish");
             }
-            d84 E = d84.E();
+            c84 E = c84.E();
             if (E != null) {
                 E.H();
             }

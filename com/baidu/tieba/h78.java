@@ -1,67 +1,150 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.SpannableStringBuilder;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes4.dex */
-public class h78 extends kn<x78, CardViewHolder<m88>> {
+public class h78 implements d78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public SpannableStringBuilder a;
+    public int b;
+    public String c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h78(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    @Override // com.baidu.tieba.e78
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public h78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.b = 0;
+        this.d = -1;
+        this.a = new SpannableStringBuilder();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<m88> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.d78
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new m88(this.a));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            if ((i > 0 && i < 3) || !StringUtils.isNull(this.c)) {
+                return true;
+            }
+            return false;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x78 x78Var, CardViewHolder<m88> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.d78
+    public CharSequence b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x78Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(x78Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (View) invokeCommon.objValue;
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public h78(Context context, ExcContent excContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, excContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.d = -1;
+        if (excContent == null) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        this.a = spannableStringBuilder;
+        if (excContent != null) {
+            spannableStringBuilder.append((CharSequence) excContent.text);
+        }
+        Integer num = excContent.align;
+        if (num != null) {
+            this.b = num.intValue();
+        }
+        if (!StringUtils.isNull(excContent.color)) {
+            this.c = excContent.color;
+        }
+        Integer num2 = excContent.size;
+        if (num2 != null && num2.intValue() > 0 && context != null && context.getResources() != null) {
+            int identifier = context.getResources().getIdentifier("fontsize" + excContent.size, EMABTest.TYPE_DIMEN, context.getPackageName());
+            if (identifier <= 0) {
+                return;
+            }
+            this.d = context.getResources().getDimensionPixelSize(identifier);
+        }
+    }
+
+    public void c(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) && charSequence != null) {
+            this.a.append(charSequence);
+        }
     }
 }

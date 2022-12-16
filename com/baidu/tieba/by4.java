@@ -81,7 +81,7 @@ public class by4 extends PopupWindow {
             }
         }
         this.g = activity;
-        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d0407, (ViewGroup) null, false);
+        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.keyboard_height_popupwindow, (ViewGroup) null, false);
         this.e = inflate;
         setContentView(inflate);
         GreyUtil.grey(this);

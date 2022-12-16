@@ -1,25 +1,40 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qq2 extends rq2 {
+public class qq2 extends uz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public ArrayList<yq2> z;
+    public xq2 j;
+    public double k;
+    public List<yq2> l;
+    public List<ar2> m;
+    public List<vq2> n;
+    public List<wq2> o;
+    public List<xq2> p;
+    public List<zq2> q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public String y;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qq2() {
+        super("map", "mapId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,56 +42,90 @@ public class qq2 extends rq2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.A = new int[]{0, 0, 0, 0};
+        this.k = 16.0d;
+        this.r = true;
+        this.y = "";
     }
 
-    @Override // com.baidu.tieba.rq2, com.baidu.tieba.vz1, com.baidu.tieba.eu2
+    @Override // com.baidu.tieba.uz1, com.baidu.tieba.du2
     public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray jSONArray;
-        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            String str = "markers";
+            if (jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
+                xq2 xq2Var = new xq2();
+                this.j = xq2Var;
+                xq2Var.a(jSONObject);
+            }
+            if (jSONObject.has("scale")) {
+                this.k = jSONObject.optDouble("scale", 16.0d);
+            }
+            jSONObject.optString("subkey", "");
+            jSONObject.optString("layerStyle", "");
+            this.y = jSONObject.optString("cb");
+            this.r = jSONObject.optBoolean("showLocation", true);
+            this.s = jSONObject.optBoolean("enableZoom", true);
+            this.t = jSONObject.optBoolean("enableScroll", true);
+            this.u = jSONObject.optBoolean("enableRotate", false);
+            this.v = jSONObject.optBoolean("showCompass", false);
+            this.w = jSONObject.optBoolean("enableOverlooking", false);
+            this.x = jSONObject.optBoolean("enable3D", false);
+            try {
+                if (!jSONObject.has("markers")) {
+                    str = "covers";
+                }
+                this.l = h(jSONObject, str, yq2.class);
+                this.n = h(jSONObject, "circles", vq2.class);
+                this.m = h(jSONObject, "polyline", ar2.class);
+                this.o = h(jSONObject, "controls", wq2.class);
+                this.p = h(jSONObject, "includePoints", xq2.class);
+                this.q = h(jSONObject, "polygons", zq2.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        super.a(jSONObject);
-        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
-            int length = jSONArray2.length();
-            this.z = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    yq2 yq2Var = new yq2();
-                    yq2Var.a(jSONObject2);
-                    if (yq2Var.isValid()) {
-                        this.z.add(yq2Var);
+    }
+
+    public final <T extends du2> List<T> h(JSONObject jSONObject, String str, Class<T> cls) throws IllegalAccessException, InstantiationException, JSONException {
+        InterceptResult invokeLLL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, cls)) == null) {
+            if (jSONObject.has(str)) {
+                JSONArray optJSONArray = jSONObject.optJSONArray(str);
+                if (optJSONArray == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray.length();
+                }
+                if (length > 0) {
+                    ArrayList arrayList = new ArrayList(length);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            T newInstance = cls.newInstance();
+                            newInstance.a(optJSONObject);
+                            if (newInstance.isValid()) {
+                                arrayList.add(newInstance);
+                            }
+                        }
                     }
+                    return arrayList;
                 }
             }
+            return null;
         }
-        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
-            int min = Math.min(jSONArray.length(), 4);
-            for (int i2 = 0; i2 < min; i2++) {
-                this.A[i2] = wh3.g(jSONArray.optInt(i2));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vz1, com.baidu.tieba.eu2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        ArrayList<yq2> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (List) invokeLLL.objValue;
     }
 }

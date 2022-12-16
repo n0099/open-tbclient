@@ -1,71 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.webrtc.CalledByNative;
+import org.webrtc.PeerConnection;
+import org.webrtc.RtpTransceiver;
+/* compiled from: PeerConnection.java */
 /* loaded from: classes6.dex */
-public abstract class u2a<E> extends w2a<E> {
+public final /* synthetic */ class u2a {
     public static /* synthetic */ Interceptable $ic;
-    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long consumerIndex;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160485, "Lcom/baidu/tieba/u2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948160485, "Lcom/baidu/tieba/u2a;");
-                return;
-            }
-        }
-        g = p3a.a(u2a.class, "consumerIndex");
-    }
-
-    public final long k() {
-        InterceptResult invokeV;
+    @CalledByNative("Observer")
+    public static void $default$onConnectionChange(PeerConnection.Observer observer, PeerConnection.PeerConnectionState peerConnectionState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.consumerIndex;
-        }
-        return invokeV.longValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u2a(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, observer, peerConnectionState) == null) {
         }
     }
 
-    public final boolean j(long j, long j2) {
-        InterceptResult invokeCommon;
+    @CalledByNative("Observer")
+    public static void $default$onTrack(PeerConnection.Observer observer, RtpTransceiver rtpTransceiver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return p3a.a.c(this, g, j, j2);
+        if (interceptable == null || interceptable.invokeLL(65537, null, observer, rtpTransceiver) == null) {
         }
-        return invokeCommon.booleanValue;
     }
 }

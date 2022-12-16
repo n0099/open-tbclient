@@ -31,7 +31,7 @@ public class SecurityUtil implements com.baidu.pass.a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, str, str2)) == null) {
-            return new a.C0124a().a(bArr, str, str2);
+            return new a.C0138a().a(bArr, str, str2);
         }
         return (byte[]) invokeLLL.objValue;
     }
@@ -40,7 +40,7 @@ public class SecurityUtil implements com.baidu.pass.a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            return new a.C0124a().a(str, str2, str3);
+            return new a.C0138a().a(str, str2, str3);
         }
         return (byte[]) invokeLLL.objValue;
     }

@@ -138,7 +138,7 @@ public class m15 {
             this.g = optJSONObject2.optInt("interval", 300);
         }
         this.h = jSONObject.optInt("video_page_style", 1);
-        qy4.k().w("video_page_style", this.h);
+        ry4.l().x("video_page_style", this.h);
         jSONObject.optInt("ad_download_lib", 0);
         JSONObject optJSONObject3 = jSONObject.optJSONObject("action_control");
         if (optJSONObject3 != null) {
@@ -156,9 +156,9 @@ public class m15 {
         if (optJSONObject4 != null) {
             String optString = optJSONObject4.optString("os_type2_iadex_url");
             this.l = optString;
-            fi5.h(optString);
+            xi5.h(optString);
             return;
         }
-        fi5.h(null);
+        xi5.h(null);
     }
 }

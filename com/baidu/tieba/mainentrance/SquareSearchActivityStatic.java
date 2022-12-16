@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.jl7;
-import com.baidu.tieba.kl7;
-import com.baidu.tieba.kq8;
+import com.baidu.tieba.ho7;
+import com.baidu.tieba.io7;
+import com.baidu.tieba.jt8;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListSocketResMessage;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.wf5;
+import com.baidu.tieba.og5;
+import com.baidu.tieba.tr8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009002, kq8.k());
+                return new CustomResponsedMessage<>(2009002, jt8.k());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -130,7 +130,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009001, kq8.m());
+                return new CustomResponsedMessage<>(2009001, jt8.m());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -225,10 +225,10 @@ public class SquareSearchActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015003, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        uo8.b(2001190, kl7.class);
-        uo8.b(2001191, jl7.class);
+        tr8.b(2001190, io7.class);
+        tr8.b(2001191, ho7.class);
         e();
-        uo8.f(303116, HotForumSocketResponseMessage.class, false);
+        tr8.f(303116, HotForumSocketResponseMessage.class, false);
         f();
         b();
         a();
@@ -237,13 +237,13 @@ public class SquareSearchActivityStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            wf5 wf5Var = new wf5(309438);
-            wf5Var.setResponsedClass(SearchListSocketResMessage.class);
-            wf5Var.g(true);
-            wf5Var.h(false);
-            wf5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            MessageManager.getInstance().registerTask(wf5Var);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, uo8.a("c/s/searchSug", 309438));
+            og5 og5Var = new og5(309438);
+            og5Var.setResponsedClass(SearchListSocketResMessage.class);
+            og5Var.g(true);
+            og5Var.h(false);
+            og5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(og5Var);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, tr8.a("c/s/searchSug", 309438));
             tbHttpMessageTask.setResponsedClass(SearchListHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -298,7 +298,7 @@ public class SquareSearchActivityStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, uo8.a(TbConfig.GET_HOT_FORUM_URL, 303116));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, tr8.a(TbConfig.GET_HOT_FORUM_URL, 303116));
             tbHttpMessageTask.setResponsedClass(HotForumHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

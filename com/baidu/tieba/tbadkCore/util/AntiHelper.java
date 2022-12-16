@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kv4;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.x9;
@@ -42,9 +42,9 @@ public class AntiHelper {
 
     /* loaded from: classes6.dex */
     public interface k {
-        void onNavigationButtonClick(kv4 kv4Var);
+        void onNavigationButtonClick(lv4 lv4Var);
 
-        void onPositiveButtonClick(kv4 kv4Var);
+        void onPositiveButtonClick(lv4 lv4Var);
     }
 
     public static boolean d(TbPageContext<?> tbPageContext, AntiData antiData) {
@@ -141,7 +141,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements kv4.e {
+    public static class a implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,18 +159,18 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                qy4.k().u("anti_vcode_no_longer_tip", true);
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                ry4.l().v("anti_vcode_no_longer_tip", true);
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements kv4.e {
+    public static class b implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -197,22 +197,22 @@ public class AntiHelper {
             this.c = blockPopInfoData;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
                 k kVar = this.a;
                 if (kVar != null) {
-                    kVar.onPositiveButtonClick(kv4Var);
+                    kVar.onPositiveButtonClick(lv4Var);
                 }
-                kv4Var.dismiss();
+                lv4Var.dismiss();
                 sp4.o(this.b, this.c.ahead_url);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements kv4.e {
+    public static class c implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -235,21 +235,21 @@ public class AntiHelper {
             this.a = kVar;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
                 k kVar = this.a;
                 if (kVar != null) {
-                    kVar.onNavigationButtonClick(kv4Var);
+                    kVar.onNavigationButtonClick(lv4Var);
                 }
-                kv4Var.dismiss();
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements kv4.e {
+    public static class d implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -272,18 +272,18 @@ public class AntiHelper {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
                 sp4.o(this.a, AntiHelper.a);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e implements kv4.e {
+    public static class e implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -301,17 +301,17 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class f implements kv4.e {
+    public static class f implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -334,18 +334,18 @@ public class AntiHelper {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
                 sp4.o(this.a, AntiHelper.a);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class g implements kv4.e {
+    public static class g implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -363,17 +363,17 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class h implements kv4.e {
+    public static class h implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -391,17 +391,17 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class i implements kv4.e {
+    public static class i implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -426,18 +426,18 @@ public class AntiHelper {
             this.b = pageType;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.a, this.b)));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class j implements kv4.e {
+    public static class j implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -455,11 +455,11 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
@@ -485,27 +485,27 @@ public class AntiHelper {
         String string2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, context, antiData, operationType, pageType) == null) {
-            kv4 kv4Var = new kv4(x9.a(context).getPageActivity());
+            lv4 lv4Var = new lv4(x9.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
-                String string3 = context.getString(R.string.obfuscated_res_0x7f0f028f);
+                String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
                 if (n(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0296);
+                    string2 = context.getString(R.string.anti_type_forbid_sys);
                 } else if (g(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0295);
+                    string2 = context.getString(R.string.anti_type_forbid_bawu);
                 } else if (h(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0297);
+                    string2 = context.getString(R.string.anti_type_hide);
                 } else {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0294);
+                    string2 = context.getString(R.string.anti_type_exception);
                 }
-                string = MessageFormat.format(string3, string2, context.getString(R.string.obfuscated_res_0x7f0f0291));
+                string = MessageFormat.format(string3, string2, context.getString(R.string.anti_appeal_sign_com_tip));
             } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f028b);
+                string = context.getString(R.string.anti_account_exception_tip);
             }
-            kv4Var.setMessage(string);
-            kv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0299), new d(context));
-            kv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f028a), new e());
+            lv4Var.setMessage(string);
+            lv4Var.setPositiveButton(context.getString(R.string.anti_vcode_pos), new d(context));
+            lv4Var.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new e());
             if (context instanceof Activity) {
-                kv4Var.create(x9.a(context)).show();
+                lv4Var.create(x9.a(context)).show();
             }
         }
     }
@@ -530,11 +530,11 @@ public class AntiHelper {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, threadData)) == null) {
             if (tbPageContext != null && j(threadData)) {
                 if (StringUtils.isNull(threadData.noCommetStr)) {
-                    str = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0676);
+                    str = tbPageContext.getString(R.string.forbiden_comment_text);
                 } else {
                     str = threadData.noCommetStr;
                 }
-                yi.P(tbPageContext.getPageActivity(), str);
+                yi.Q(tbPageContext.getPageActivity(), str);
                 return true;
             }
             return false;
@@ -549,11 +549,11 @@ public class AntiHelper {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, videoItemData)) == null) {
             if (tbPageContext != null && k(videoItemData)) {
                 if (StringUtils.isNull(videoItemData.noCommetStr)) {
-                    str = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0676);
+                    str = tbPageContext.getString(R.string.forbiden_comment_text);
                 } else {
                     str = videoItemData.noCommetStr;
                 }
-                yi.P(tbPageContext.getPageActivity(), str);
+                yi.Q(tbPageContext.getPageActivity(), str);
                 return true;
             }
             return false;
@@ -576,7 +576,7 @@ public class AntiHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, threadData)) == null) {
             if (context != null && o(threadData)) {
-                yi.O(context, R.string.obfuscated_res_0x7f0f0623);
+                yi.P(context, R.string.feed_thread_state_under_review_text);
                 return true;
             }
             return false;
@@ -584,22 +584,22 @@ public class AntiHelper {
         return invokeLL.booleanValue;
     }
 
-    public static kv4 s(Context context, BlockPopInfoData blockPopInfoData) {
+    public static lv4 s(Context context, BlockPopInfoData blockPopInfoData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, context, blockPopInfoData)) == null) {
             return t(context, blockPopInfoData, null);
         }
-        return (kv4) invokeLL.objValue;
+        return (lv4) invokeLL.objValue;
     }
 
-    public static kv4 u(Context context, String str) {
+    public static lv4 u(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, context, str)) == null) {
             return v(context, str, 0);
         }
-        return (kv4) invokeLL.objValue;
+        return (lv4) invokeLL.objValue;
     }
 
     public static boolean f(AntiData antiData) {
@@ -692,7 +692,7 @@ public class AntiHelper {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65550, null, i2, str)) == null) {
             if (i2 == 3250013) {
                 if (xi.isEmpty(str)) {
-                    str = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0289);
+                    str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
                 }
                 BdToast b2 = BdToast.b(TbadkCoreApplication.getInst().getContext(), str);
                 b2.f(BdToast.ToastIcon.FAILURE);
@@ -711,36 +711,36 @@ public class AntiHelper {
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            qy4.k().D("anti_vcode_no_longer_tip");
+            ry4.l().E("anti_vcode_no_longer_tip");
         }
     }
 
     public static void r(Context context, AntiData antiData, PageType pageType) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65555, null, context, antiData, pageType) != null) || qy4.k().h("anti_vcode_no_longer_tip", false)) {
+        if ((interceptable != null && interceptable.invokeLLL(65555, null, context, antiData, pageType) != null) || ry4.l().i("anti_vcode_no_longer_tip", false)) {
             return;
         }
         boolean isHas_chance = antiData.isHas_chance();
-        kv4 kv4Var = new kv4(x9.a(context).getPageActivity());
+        lv4 lv4Var = new lv4(x9.a(context).getPageActivity());
         if (isHas_chance) {
-            i2 = R.string.obfuscated_res_0x7f0f029b;
+            i2 = R.string.anti_vocode_on_chance_tip;
         } else {
-            i2 = R.string.obfuscated_res_0x7f0f029a;
+            i2 = R.string.anti_vcode_tip;
         }
-        kv4Var.setMessage(context.getString(i2));
+        lv4Var.setMessage(context.getString(i2));
         if (!isHas_chance) {
-            kv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0299), new i(context, pageType));
+            lv4Var.setNegativeButton(context.getString(R.string.anti_vcode_pos), new i(context, pageType));
         } else {
-            kv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0440), new j());
+            lv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0446), new j());
         }
-        kv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0298), new a());
+        lv4Var.setPositiveButton(context.getString(R.string.anti_vcode_neg), new a());
         if (context instanceof Activity) {
-            kv4Var.create(x9.a(context)).show();
+            lv4Var.create(x9.a(context)).show();
         }
     }
 
-    public static kv4 t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
+    public static lv4 t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
         InterceptResult invokeLLL;
         String str;
         String str2;
@@ -749,33 +749,33 @@ public class AntiHelper {
             if (blockPopInfoData == null) {
                 return null;
             }
-            kv4 kv4Var = new kv4(x9.a(context).getPageActivity());
+            lv4 lv4Var = new lv4(x9.a(context).getPageActivity());
             if (blockPopInfoData.block_info == null) {
                 blockPopInfoData.block_info = "";
             }
-            kv4Var.setMessage(blockPopInfoData.block_info);
+            lv4Var.setMessage(blockPopInfoData.block_info);
             if (xi.isEmpty(blockPopInfoData.ahead_info)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f0299);
+                str = context.getString(R.string.anti_vcode_pos);
             } else {
                 str = blockPopInfoData.ahead_info;
             }
-            kv4Var.setPositiveButton(str, new b(kVar, context, blockPopInfoData));
+            lv4Var.setPositiveButton(str, new b(kVar, context, blockPopInfoData));
             if (xi.isEmpty(blockPopInfoData.ok_info)) {
-                str2 = context.getString(R.string.obfuscated_res_0x7f0f028a);
+                str2 = context.getString(R.string.anti_account_exception_neg);
             } else {
                 str2 = blockPopInfoData.ok_info;
             }
-            kv4Var.setNegativeButton(str2, new c(kVar));
+            lv4Var.setNegativeButton(str2, new c(kVar));
             if (!(context instanceof Activity)) {
                 return null;
             }
-            kv4Var.create(x9.a(context)).show();
-            return kv4Var;
+            lv4Var.create(x9.a(context)).show();
+            return lv4Var;
         }
-        return (kv4) invokeLLL.objValue;
+        return (lv4) invokeLLL.objValue;
     }
 
-    public static kv4 v(Context context, String str, int i2) {
+    public static lv4 v(Context context, String str, int i2) {
         InterceptResult invokeLLI;
         String str2;
         Interceptable interceptable = $ic;
@@ -793,10 +793,10 @@ public class AntiHelper {
             blockPopInfoData.ahead_url = str2;
             return s(context, blockPopInfoData);
         }
-        return (kv4) invokeLLI.objValue;
+        return (lv4) invokeLLI.objValue;
     }
 
-    public static kv4 w(Context context, String str, int i2, k kVar) {
+    public static lv4 w(Context context, String str, int i2, k kVar) {
         InterceptResult invokeLLIL;
         String str2;
         Interceptable interceptable = $ic;
@@ -814,7 +814,7 @@ public class AntiHelper {
             blockPopInfoData.ahead_url = str2;
             return t(context, blockPopInfoData, kVar);
         }
-        return (kv4) invokeLLIL.objValue;
+        return (lv4) invokeLLIL.objValue;
     }
 
     public static boolean x(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
@@ -847,27 +847,27 @@ public class AntiHelper {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65562, null, context, antiData, operationType) == null) {
-            kv4 kv4Var = new kv4(x9.a(context).getPageActivity());
+            lv4 lv4Var = new lv4(x9.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
-                String string2 = context.getString(R.string.obfuscated_res_0x7f0f028f);
+                String string2 = context.getString(R.string.anti_appeal_sign_base_tip);
                 if (n(antiData)) {
-                    string = context.getString(R.string.obfuscated_res_0x7f0f0296);
+                    string = context.getString(R.string.anti_type_forbid_sys);
                 } else if (g(antiData)) {
-                    string = context.getString(R.string.obfuscated_res_0x7f0f0295);
+                    string = context.getString(R.string.anti_type_forbid_bawu);
                 } else if (h(antiData)) {
-                    string = context.getString(R.string.obfuscated_res_0x7f0f0297);
+                    string = context.getString(R.string.anti_type_hide);
                 } else {
-                    string = context.getString(R.string.obfuscated_res_0x7f0f0294);
+                    string = context.getString(R.string.anti_type_exception);
                 }
-                format = MessageFormat.format(string2, string, context.getString(R.string.obfuscated_res_0x7f0f0290));
+                format = MessageFormat.format(string2, string, context.getString(R.string.anti_appeal_sign_bawu_tip));
             } else {
-                format = MessageFormat.format(context.getString(R.string.obfuscated_res_0x7f0f028e), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
+                format = MessageFormat.format(context.getString(R.string.anti_appeal_com_tip), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
             }
-            kv4Var.setMessage(format);
-            kv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0299), new f(context));
-            kv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f028a), new g());
+            lv4Var.setMessage(format);
+            lv4Var.setPositiveButton(context.getString(R.string.anti_vcode_pos), new f(context));
+            lv4Var.setNegativeButton(context.getString(R.string.anti_account_exception_neg), new g());
             if (context instanceof Activity) {
-                kv4Var.create(x9.a(context)).show();
+                lv4Var.create(x9.a(context)).show();
             }
         }
     }
@@ -877,26 +877,26 @@ public class AntiHelper {
         String string2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65563, null, context, antiData, operationType) == null) {
-            kv4 kv4Var = new kv4(x9.a(context).getPageActivity());
+            lv4 lv4Var = new lv4(x9.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
-                String string3 = context.getString(R.string.obfuscated_res_0x7f0f028f);
+                String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
                 if (n(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0296);
+                    string2 = context.getString(R.string.anti_type_forbid_sys);
                 } else if (g(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0295);
+                    string2 = context.getString(R.string.anti_type_forbid_bawu);
                 } else if (h(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0297);
+                    string2 = context.getString(R.string.anti_type_hide);
                 } else {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0294);
+                    string2 = context.getString(R.string.anti_type_exception);
                 }
-                string = MessageFormat.format(string3, string2, context.getString(R.string.obfuscated_res_0x7f0f0292));
+                string = MessageFormat.format(string3, string2, context.getString(R.string.anti_appeal_sign_no_chance_tip));
             } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f0293);
+                string = context.getString(R.string.anti_no_chance_com_tip);
             }
-            kv4Var.setMessage(string);
-            kv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0440), new h());
+            lv4Var.setMessage(string);
+            lv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0446), new h());
             if (context instanceof Activity) {
-                kv4Var.create(x9.a(context)).show();
+                lv4Var.create(x9.a(context)).show();
             }
         }
     }

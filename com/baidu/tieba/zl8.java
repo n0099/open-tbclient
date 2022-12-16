@@ -1,248 +1,255 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.setting.more.MsgSettingItemView;
+import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
+import com.baidu.tieba.setting.more.TbSettingTextNewDotView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class zl8 implements op4 {
+@SuppressLint({"ResourceAsColor"})
+/* loaded from: classes7.dex */
+public class zl8 extends p9<SystemHelpSettingActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final sl8 a;
-    @NonNull
-    public final tl8 b;
-    @NonNull
-    public final am8 c;
-    public boolean d;
+    public SystemHelpSettingActivity a;
+    public View b;
+    public TbSettingTextTipView c;
+    public TbSettingTextTipView d;
+    public BdSwitchView e;
+    public BdSwitchView f;
+    public TbSettingTextNewDotView g;
+    public MsgSettingItemView h;
+    public TbSettingTextTipView i;
+    public RelativeLayout j;
+    public RelativeLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public NavigationBar p;
+    public BdSwitchView.b q;
 
-    public zl8(@NonNull sl8 sl8Var, @NonNull tl8 tl8Var, @NonNull am8 am8Var) {
+    /* loaded from: classes7.dex */
+    public class a implements BdSwitchView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zl8 a;
+
+        public a(zl8 zl8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zl8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zl8Var;
+        }
+
+        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+        public void e0(View view2, BdSwitchView.SwitchState switchState) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 == this.a.h.getSwitchView()) {
+                if (BdSwitchView.SwitchState.ON == switchState) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ry4 l = ry4.l();
+                l.v("recnbar" + TbadkCoreApplication.getCurrentAccount(), !z);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921347, Boolean.valueOf(z)));
+                this.a.a.y1("recnbar", z ^ true);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zl8(SystemHelpSettingActivity systemHelpSettingActivity) {
+        super(systemHelpSettingActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sl8Var, tl8Var, am8Var};
+            Object[] objArr = {systemHelpSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.a = sl8Var;
-        this.b = tl8Var;
-        this.c = am8Var;
-    }
-
-    @Override // com.baidu.tieba.op4
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i > 0) {
-                SpeedStatsManager.getInstance().setAdLoadResult(i);
-            } else if (i == -1 && !this.d) {
-                SpeedStatsManager.getInstance().setAdLoadResult(i);
-                BaseVM.m(30);
-            } else if (i < -1) {
-                SpeedStatsManager.getInstance().setAdLoadResult(i);
-                BaseVM.m(30);
-            }
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_POLICY_SO_END);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.i = null;
+        this.q = new a(this);
+        this.a = systemHelpSettingActivity;
+        systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d086f);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.p = navigationBar;
+        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13d6));
+        this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09066b);
+        this.c = tbSettingTextTipView;
+        tbSettingTextTipView.c();
+        this.c.setOnClickListener(this.a);
+        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09066c);
+        this.d = tbSettingTextTipView2;
+        tbSettingTextTipView2.c();
+        this.d.setOnClickListener(this.a);
+        this.e = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091063);
+        yi.b(this.a.getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
+        this.e.setOnSwitchStateChangeListener(this.a);
+        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091f2e);
+        yi.b(this.a.getPageContext().getPageActivity(), this.f, 10, 10, 10, 10);
+        this.f.setOnSwitchStateChangeListener(this.a);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0907a4);
+        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920c9);
+        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920cb);
+        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920ca);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091047);
+        this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091048);
+        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c8);
+        if (vq4.h()) {
+            this.i.setVisibility(0);
+        } else {
+            this.i.setVisibility(8);
         }
-    }
-
-    @Override // com.baidu.tieba.op4
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.c.k(true);
-            this.a.getRootView().removeView(this.c.h());
-            this.c.j();
-            this.b.a();
-            cf5.b().k(System.currentTimeMillis() - this.c.g());
-            int l = qy4.k().l("ad_load_fail_count", 0);
-            SpeedStatsManager.getInstance().setAdFailCount(l);
-            qy4.k().w("ad_load_fail_count", l + 1);
-            BaseVM.m(99);
+        this.i.c();
+        this.i.setOnClickListener(this.a);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091835);
+        if (TbadkCoreApplication.isLogin()) {
+            this.d.setVisibility(0);
+        } else {
+            this.d.setVisibility(8);
         }
+        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f092085);
+        this.g = tbSettingTextNewDotView;
+        tbSettingTextNewDotView.setOnClickListener(this.a);
+        this.g.setVisibility(0);
+        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091c30);
+        this.h = msgSettingItemView;
+        msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0f7d);
+        this.h.setOnSwitchStateChangeListener(this.q);
+        ry4 l = ry4.l();
+        r(l.i("recnbar" + TbadkCoreApplication.getCurrentAccount(), false));
     }
 
-    @Override // com.baidu.tieba.op4
-    public void c(String str) {
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a.c();
-            SpeedStatsManager.getInstance().setPlgAdType(str);
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_CALL_SHOW_START_STAMP_KEY);
-            this.c.i();
-        }
-    }
-
-    @Override // com.baidu.tieba.op4
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_CALL_SHOW_END_STAMP_KEY);
-        }
-    }
-
-    @Override // com.baidu.tieba.op4
-    public void e(boolean z, boolean z2, int i, String str, String str2, String str3) {
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, str2, str3}) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            SpeedStatsManager.getInstance().setStatsFlag(-1);
-            if (!this.a.h()) {
-                TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click2"));
-            }
-            this.a.e();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_CLICK);
-            this.a.getActivity().overridePendingTransition(0, 0);
-            int i4 = 2;
-            if (z2) {
-                i2 = 2;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (!z) {
+                this.h.getSwitchView().m();
             } else {
-                i2 = 1;
-            }
-            statisticItem.param("obj_type", i2).param("obj_source", i);
-            if (str2 != null) {
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
-            }
-            if (str3 != null) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str3);
-            }
-            TiebaStatic.log(statisticItem);
-            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK);
-            statisticItem2.param("obj_source", i).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.i());
-            if (!StringUtils.isNull(str)) {
-                statisticItem2.param("nid", str);
-            }
-            if (!StringUtils.isNull(str2)) {
-                statisticItem2.param(TiebaStatic.Params.OBJ_TO, str2);
-            }
-            if (!StringUtils.isNull(str3)) {
-                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str3);
-            }
-            TiebaStatic.log(statisticItem2);
-            StatisticItem statisticItem3 = new StatisticItem("common_click");
-            statisticItem3.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
-            if (z) {
-                if (z2) {
-                    i3 = 4;
-                } else {
-                    i3 = 3;
-                }
-                statisticItem3.param("obj_type", i3);
-            } else {
-                if (!z2) {
-                    i4 = 1;
-                }
-                statisticItem3.param("obj_type", i4);
-            }
-            on8.g().c(this.a.getUniqueId(), statisticItem3);
-        }
-    }
-
-    @Override // com.baidu.tieba.op4
-    public void f(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
-            if ("5".equals(str)) {
-                this.d = true;
-                SpeedStatsManager.getInstance().setPlgLoadResult(z);
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_PROLOGUE_END_STAMP_KEY);
-                if (!z) {
-                    BaseVM.m(99);
-                }
-            } else if ("6".equals(str)) {
-                SpeedStatsManager.getInstance().setBearLoadResult(z);
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY);
+                this.h.getSwitchView().j();
             }
         }
     }
 
-    @Override // com.baidu.tieba.op4
-    public void g(boolean z, boolean z2, int i) {
-        int i2;
-        int i3;
+    public TbSettingTextTipView l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
-            qy4.k().w("ad_load_fail_count", 0);
-            int i4 = 1;
-            this.c.k(true);
-            SpeedStatsManager.getInstance().setAdSource(String.valueOf(i));
-            this.a.b(i);
-            this.c.j();
-            if (z2) {
-                this.a.getRootView().setBackgroundDrawable(null);
-            }
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_SHOW);
-            if (z2) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            TiebaStatic.log(statisticItem.param("obj_type", i2).param("obj_source", i));
-            StatisticItem statisticItem2 = new StatisticItem("common_exp");
-            statisticItem2.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
-            if (z) {
-                if (z2) {
-                    i3 = 4;
-                } else {
-                    i3 = 3;
-                }
-                statisticItem2.param("obj_type", i3);
-            } else {
-                if (z2) {
-                    i4 = 2;
-                }
-                statisticItem2.param("obj_type", i4);
-            }
-            on8.g().d(this.a.getUniqueId(), "bes_ad_id", statisticItem2);
-            on8.g().h(this.a.getUniqueId(), false);
-            if (this.a.h()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a.getActivity()));
-            }
-            cf5.b().m(System.currentTimeMillis());
-            cf5.b().k(System.currentTimeMillis() - this.c.g());
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921688, null));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (TbSettingTextTipView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.op4
-    public void onAdDismiss() {
+    public TbSettingTextTipView m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            this.a.e();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, hashCode()).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
-            if (!this.a.d() && !ue1.r()) {
-                SpeedStatsManager.getInstance().setStatsFlag(-1);
-                if (!this.a.h()) {
-                    TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "dismiss"));
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (TbSettingTextTipView) invokeV.objValue;
+    }
+
+    public TbSettingTextTipView n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (TbSettingTextTipView) invokeV.objValue;
+    }
+
+    public BdSwitchView o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (BdSwitchView) invokeV.objValue;
+    }
+
+    public TbSettingTextNewDotView p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (TbSettingTextNewDotView) invokeV.objValue;
+    }
+
+    public BdSwitchView q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (BdSwitchView) invokeV.objValue;
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            tq4 layoutMode = this.a.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
             }
-            this.b.a();
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(this.b);
+            this.p.onChangeSkinType(getPageContext(), i);
+            this.e.b();
+            this.f.b();
+            this.h.c(this.a.getPageContext(), i);
+            SkinManager.setBackgroundResource(this.c, R.drawable.more_all);
+            rw4.d(this.j).v(R.color.CAM_X0205);
+            rw4.d(this.k).v(R.color.CAM_X0205);
+            rw4.d(this.l).v(R.color.CAM_X0105);
+            rw4.d(this.m).v(R.color.CAM_X0109);
+            rw4.d(this.n).v(R.color.CAM_X0108);
+            rw4.d(this.o).v(R.color.CAM_X0105);
         }
     }
 }

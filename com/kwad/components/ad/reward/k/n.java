@@ -25,7 +25,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.widget.KSRatingBar;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class n extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public final class n extends d implements View.OnClickListener {
     public TextView vQ;
     public ViewStub vk;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,15 +186,15 @@ public final class n extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091148);
-            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09114c);
-            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09114b);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09114f);
-            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09114e);
-            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091149);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09114a);
-            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091147);
-            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091146);
+            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a7);
+            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ab);
+            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911aa);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ae);
+            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ad);
+            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a8);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a9);
+            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a6);
+            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a5);
             this.vM.setOnClickListener(this);
             this.vQ.setOnClickListener(this);
             this.vP.setOnClickListener(this);

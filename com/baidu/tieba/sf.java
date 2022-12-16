@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface sf {
-    void y(View view2, int i, int i2, long j);
+    void z(View view2, int i, int i2, long j);
 }

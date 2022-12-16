@@ -37,7 +37,7 @@ public class PbChosenActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(KEY_TID, j);
-        getIntent().putExtra(KEY_SHARE_URL, str);
+        getIntent().putExtra("share_url", str);
         getIntent().putExtra("from", i);
         getIntent().putExtra(KEY_TAG_CODE, j2);
         getIntent().putExtra("thread_id", j3);

@@ -386,7 +386,7 @@ public class ImageClipActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0507);
+            setContentView(R.layout.layout_sapi_sdk_image_clip);
             this.e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
             this.f = intExtra;
@@ -394,8 +394,8 @@ public class ImageClipActivity extends Activity {
                 this.f = 512;
             }
             this.f *= 1024;
-            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091d18);
-            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091d16);
+            this.h = (ClipBoxView) findViewById(R.id.sapi_clip_box);
+            this.i = (ZoomImageView) findViewById(R.id.sapi_background_picture);
             if (this.e == 1) {
                 ClipBoxView clipBoxView = this.h;
                 clipBoxView.E = ClipBoxView.G;
@@ -406,9 +406,9 @@ public class ImageClipActivity extends Activity {
                 clipBoxView2.E = ClipBoxView.G;
                 clipBoxView2.F = false;
             }
-            setPendingTransition(R.anim.obfuscated_res_0x7f01011d, R.anim.obfuscated_res_0x7f01011c, R.anim.obfuscated_res_0x7f01011b, R.anim.obfuscated_res_0x7f01011e);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09200e);
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f0904b1);
+            setPendingTransition(R.anim.sapi_sdk_slide_right_in, R.anim.sapi_sdk_slide_left_out, R.anim.sapi_sdk_slide_left_in, R.anim.sapi_sdk_slide_right_out);
+            Button button = (Button) findViewById(R.id.sure_clip_btn);
+            Button button2 = (Button) findViewById(R.id.cancel_clip_btn);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());
             } else {

@@ -277,7 +277,7 @@ public class ShareActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0516);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 if (!PassSdkModel.getInstance().checkPassSdkInit()) {
                     Log.e(B, "pass sdk没有初始化");
                     this.u.setResultCode(ShareResult.ERROR_CODE_REASON_SDK_NOT_INIT);

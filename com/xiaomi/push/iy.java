@@ -12,7 +12,7 @@ public class iy {
     public final jf a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final jo f797a;
+    public final jo f820a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public iy() {
@@ -48,7 +48,7 @@ public class iy {
             }
         }
         jo joVar = new jo();
-        this.f797a = joVar;
+        this.f820a = joVar;
         this.a = jhVar.a(joVar);
     }
 
@@ -56,7 +56,7 @@ public class iy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, iuVar, bArr) == null) {
             try {
-                this.f797a.a(bArr);
+                this.f820a.a(bArr);
                 iuVar.a(this.a);
             } finally {
                 this.a.k();

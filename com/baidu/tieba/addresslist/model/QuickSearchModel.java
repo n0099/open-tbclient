@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a45;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
-import com.baidu.tieba.as5;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.z35;
+import com.baidu.tieba.vs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,14 +19,14 @@ import java.util.List;
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public as5 a;
+    public vs5 a;
     public byte[] b;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -36,7 +36,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -61,40 +61,40 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
             }
         }
         this.b = new byte[0];
-        this.a = as5.d();
+        this.a = vs5.d();
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<z35> z(String str) {
+    public List<a45> G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this.b) {
                 ArrayList arrayList = new ArrayList();
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<z35> c = this.a.c();
+                List<a45> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (z35 z35Var : c) {
-                    String e = z35Var.e();
-                    String c2 = z35Var.c();
+                for (a45 a45Var : c) {
+                    String e = a45Var.e();
+                    String c2 = a45Var.c();
                     if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(z35Var);
+                        arrayList.add(a45Var);
                     } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(z35Var);
+                        arrayList.add(a45Var);
                     }
                 }
-                for (z35 z35Var2 : c) {
-                    String e2 = z35Var2.e();
-                    String c3 = z35Var2.c();
-                    if (!arrayList.contains(z35Var2)) {
+                for (a45 a45Var2 : c) {
+                    String e2 = a45Var2.e();
+                    String c3 = a45Var2.c();
+                    if (!arrayList.contains(a45Var2)) {
                         if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(z35Var2);
+                            arrayList.add(a45Var2);
                         } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(z35Var2);
+                            arrayList.add(a45Var2);
                         }
                     }
                 }

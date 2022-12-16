@@ -22,10 +22,10 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.hr8;
-import com.baidu.tieba.ir8;
-import com.baidu.tieba.jr8;
-import com.baidu.tieba.y39;
+import com.baidu.tieba.gu8;
+import com.baidu.tieba.h79;
+import com.baidu.tieba.hu8;
+import com.baidu.tieba.iu8;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -107,10 +107,10 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = hr8.k().q();
-            ir8.a("发帖阻拦状态 = " + q);
+            boolean q = gu8.k().q();
+            hu8.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                yi.P(currentActivity, "正在发布，请稍后");
+                yi.Q(currentActivity, "正在发布，请稍后");
             }
             return q;
         }
@@ -129,7 +129,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jr8.h = new Intent(getIntent());
+            iu8.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -296,7 +296,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (y39.l.equals(str)) {
+            if (h79.l.equals(str)) {
                 setType(11);
             }
             return this;

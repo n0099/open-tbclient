@@ -1,62 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class re8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class re8 extends h46<od8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public TbImageView j;
+    public TextView k;
+    public TextView l;
+    public od8 m;
 
-    public static void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
-        }
-    }
-
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
-        }
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
-        }
-    }
-
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
-        }
-    }
-
-    public static void e(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
-            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
-        }
-    }
-
-    public static Ringtone f() {
+    @Override // com.baidu.tieba.h46
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
-            ringtone.play();
-            return ringtone;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ad : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return (Ringtone) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public re8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View h = h();
+        this.i = h;
+        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090585);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090583);
+        this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090584);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.h46
+    /* renamed from: r */
+    public void i(od8 od8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, od8Var) != null) || od8Var == null) {
+            return;
+        }
+        this.m = od8Var;
+        String str = od8Var.a;
+        if (str != null) {
+            this.j.K(str, 10, false);
+        }
+        this.k.setText(od8Var.b);
+        this.l.setText(od8Var.c);
+    }
+
+    @Override // com.baidu.tieba.h46
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
+        if (this.m.a == null) {
+            SkinManager.setImageResource(this.j, R.drawable.icon_shen_mine);
+        }
     }
 }

@@ -39,7 +39,7 @@ public class PrivacyMarkActivityConfig extends IntentConfig {
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             Intent intent = getIntent();
             intent.putExtra(BAZHU_SHOW_INSIDE, i);
-            intent.putExtra(BAZHU_SHOW_OUTSIDE, i2);
+            intent.putExtra("bazhu_show_outside", i2);
         }
     }
 }

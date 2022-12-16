@@ -2,14 +2,14 @@ package com.baidu.searchbox.util;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.jk8;
+import com.baidu.tieba.cn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduIdentityRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class BaiduIdentityRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return jk8.a();
+            return cn8.a();
         }
         return (IBaiduIdentityContext) invokeV.objValue;
     }

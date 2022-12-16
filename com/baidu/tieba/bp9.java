@@ -1,47 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.baidu.yalog.LoggerManager;
 /* loaded from: classes3.dex */
-public class bp9 extends xo9<TTNativeExpressAd> {
+public class bp9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile LoggerManager.c a;
+    public static cp9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bp9(TTNativeExpressAd tTNativeExpressAd) {
-        super(tTNativeExpressAd);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tTNativeExpressAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652798, "Lcom/baidu/tieba/bp9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947652798, "Lcom/baidu/tieba/bp9;");
                 return;
             }
         }
+        b = new cp9();
     }
 
-    @Override // com.baidu.tieba.xo9
-    public String a() {
+    public static LoggerManager.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.isEmpty()) {
-                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
             }
-            return this.b;
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (LoggerManager.c) invokeV.objValue;
     }
 }

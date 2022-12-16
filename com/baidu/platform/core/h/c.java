@@ -13,7 +13,6 @@ import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,7 +141,7 @@ public class c extends com.baidu.platform.base.d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONObject, suggestionResult)) == null) {
             if (jSONObject != null && jSONObject.length() != 0) {
                 suggestionResult.error = SearchResult.ERRORNO.NO_ERROR;
-                JSONArray optJSONArray = jSONObject.optJSONArray(TiebaStatic.LogFields.RESULT);
+                JSONArray optJSONArray = jSONObject.optJSONArray("result");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
                     ArrayList<SuggestionResult.SuggestionInfo> arrayList = new ArrayList<>();
                     for (int i = 0; i < optJSONArray.length(); i++) {

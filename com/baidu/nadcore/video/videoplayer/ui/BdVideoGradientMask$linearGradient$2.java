@@ -46,7 +46,7 @@ public final class BdVideoGradientMask$linearGradient$2 extends Lambda implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f06081b), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060817), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060819), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f06081a)}, new float[]{0.0f, 0.5f, 0.75f, 1.0f}, Shader.TileMode.CLAMP);
+            return new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_start_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_50percent_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_75percent_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_95percent_color)}, new float[]{0.0f, 0.5f, 0.75f, 1.0f}, Shader.TileMode.CLAMP);
         }
         return (LinearGradient) invokeV.objValue;
     }

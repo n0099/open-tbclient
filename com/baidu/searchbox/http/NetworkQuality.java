@@ -2,6 +2,7 @@ package com.baidu.searchbox.http;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.dns.policy.LocalDnsPolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 public class NetworkQuality {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BAD_NETWORK_QUALITY = 2;
+    public static final boolean DEBUG = false;
     public static final int DEFAULT_NETWORK_QUALITY = 1;
     public static final int GOOD_NETWORK_QUALITY = 1;
     public static final int NET_QUALITY_UPDATE_FROM_NQE = 2;
@@ -150,7 +152,7 @@ public class NetworkQuality {
             }
             List<String> list2 = this.sdtProbeDomains;
             if (list2 == null || list2.isEmpty()) {
-                this.sdtProbeDomains = Arrays.asList("www.baidu.com");
+                this.sdtProbeDomains = Arrays.asList(LocalDnsPolicy.MBD_DOMAIN);
             }
             this.enableSdt = z;
             this.enableNqe = z2;

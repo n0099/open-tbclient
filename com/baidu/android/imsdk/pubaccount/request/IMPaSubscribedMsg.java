@@ -2,10 +2,8 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,11 +62,10 @@ public class IMPaSubscribedMsg extends Message {
                 jSONObject.put("method", 109);
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("uk", this.mUk);
-                jSONObject.put("pa_uid", this.mPaId);
+                jSONObject.put(Constants.EXTRA_PAUID_TYPE, this.mPaId);
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "buildBody:", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -93,26 +90,26 @@ public class IMPaSubscribedMsg extends Message {
         /*
             r8 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.android.imsdk.pubaccount.request.IMPaSubscribedMsg.$ic
-            if (r0 != 0) goto L56
+            if (r0 != 0) goto L44
         L4:
             r0 = 0
             if (r11 != 0) goto L10
             java.lang.String r1 = "is_subscribe"
             boolean r0 = r10.optBoolean(r1)     // Catch: java.lang.Exception -> Le
-            goto L42
+            goto L30
         Le:
             r1 = move-exception
             goto L25
         L10:
             r1 = 1001(0x3e9, float:1.403E-42)
-            if (r1 != r11) goto L42
+            if (r1 != r11) goto L30
             com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager r1 = com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.getInstance(r9)     // Catch: java.lang.Exception -> Le
             long r2 = r8.mPaId     // Catch: java.lang.Exception -> Le
             boolean r11 = r1.isSubscribed(r2)     // Catch: java.lang.Exception -> Le
             java.lang.String r12 = "query from local db"
             r0 = r11
             r11 = 0
-            goto L42
+            goto L30
         L23:
             r1 = move-exception
             r11 = 0
@@ -120,28 +117,22 @@ public class IMPaSubscribedMsg extends Message {
             java.lang.String r2 = com.baidu.android.imsdk.utils.LogUtils.TAG
             java.lang.String r3 = "handleMessageResult:"
             com.baidu.android.imsdk.utils.LogUtils.e(r2, r3, r1)
-            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r2 = new com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder
-            android.content.Context r3 = r8.mContext
-            r2.<init>(r3)
-            java.lang.String r1 = android.util.Log.getStackTraceString(r1)
-            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r1 = r2.exception(r1)
-            r1.build()
             r3 = r11
             r4 = r12
             r7 = 0
-            goto L45
-        L42:
+            goto L33
+        L30:
             r3 = r11
             r4 = r12
             r7 = r0
-        L45:
+        L33:
             super.handleMessageResult(r9, r10, r3, r4)
             com.baidu.android.imsdk.pubaccount.PaManagerImpl r1 = com.baidu.android.imsdk.pubaccount.PaManagerImpl.getInstance(r9)
             java.lang.String r2 = r8.getListenerKey()
             long r5 = r8.mPaId
             r1.onIsSubscribedResult(r2, r3, r4, r5, r7)
             return
-        L56:
+        L44:
             r6 = r0
             r7 = 1048578(0x100002, float:1.469371E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r6.invokeLLIL(r7, r8, r9, r10, r11, r12)

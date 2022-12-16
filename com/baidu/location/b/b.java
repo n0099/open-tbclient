@@ -18,7 +18,6 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.baidu.location.PoiRegion;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -459,7 +458,7 @@ public class b {
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0101b {
+    public static class C0115b {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -575,7 +574,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0101b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0115b.a : (b) invokeV.objValue;
     }
 
     private void a(a aVar) {
@@ -756,7 +755,7 @@ public class b {
             t.a().c();
             e();
             if (this.l) {
-                a(IntentConfig.STOP);
+                a("stop");
                 this.e = 0;
             }
         }

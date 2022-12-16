@@ -13,7 +13,7 @@ import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,16 +64,16 @@ public class LiveLoadMoreView extends LiveBaseItemView {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            String g = vc0.f().g(str);
+            String g = uc0.f().g(str);
             if (TextUtils.isEmpty(g)) {
-                int h = vc0.f().h(str);
+                int h = uc0.f().h(str);
                 if (h != 0) {
                     this.i.setAnimation(h);
                 }
             } else {
                 this.i.setAnimation(g);
             }
-            this.j.setTextColor(vc0.f().a(getContext(), str, "color_1F1F1F"));
+            this.j.setTextColor(uc0.f().a(getContext(), str, "color_1F1F1F"));
         }
     }
 
@@ -161,22 +161,22 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             boolean equals = "recommend".equals(this.c);
-            int i = R.layout.obfuscated_res_0x7f0d054e;
+            int i = R.layout.obfuscated_res_0x7f0d055e;
             if (!equals && !"baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
                 if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d054f;
+                    i = R.layout.obfuscated_res_0x7f0d055f;
                 } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d0550;
+                    i = R.layout.obfuscated_res_0x7f0d0560;
                 } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d0551;
+                    i = R.layout.obfuscated_res_0x7f0d0561;
                 }
             }
             LayoutInflater.from(getContext()).inflate(i, this);
-            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091cbd);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091447);
+            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091d2a);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0914a8);
             this.i = lottieAnimationView;
             lottieAnimationView.loop(true);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091448);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0914a9);
         }
     }
 

@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.IMListener;
@@ -14,7 +13,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.request.MessageExt;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -128,7 +126,7 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
                         str = Constants.URL_HTTP_QA;
                     }
                 } else {
-                    str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
+                    str = Constants.URL_HTTP_RD_8111;
                 }
             }
             return str + "imsapi/1.0/fetchmsg/liveshowhost";
@@ -198,8 +196,8 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00f3  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0118  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00e1  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0106  */
     /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -240,7 +238,6 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
                                 e = e;
                                 i4 = length;
                                 LogUtils.e(TAG, "JSONException", e);
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                 i2 = i4;
                                 arrayList = null;
                                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;

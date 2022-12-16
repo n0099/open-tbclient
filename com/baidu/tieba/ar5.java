@@ -1,118 +1,108 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.PublicKey;
 /* loaded from: classes3.dex */
-public class ar5 implements NadAsyncRequester.b {
+public class ar5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PlaceId a;
-    public String b;
-    public int c;
-    public boolean d;
-    public NadAsyncRequester e;
-    public long f;
-    public final WeakReference<IAdBaseAsyncController.a> g;
 
-    public void c(List<AdvertAppInfo> list) {
+    public static boolean a(String str, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-        }
-    }
-
-    public ar5(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.f = 0L;
-        this.a = placeId;
-        this.b = str;
-        this.g = new WeakReference<>(aVar);
-        this.e = new NadAsyncRequester(this, this.a);
-    }
-
-    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
-    public final void a(boolean z, List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.g.get();
-            if (z && !hj7.e(list)) {
-                f(list);
-                c(list);
-                if (aVar != null) {
-                    aVar.b(list);
-                }
-            } else if (aVar != null) {
-                aVar.b(null);
-            }
-        }
-    }
-
-    public void d(int i, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * of8.a) {
-            return;
-        }
-        this.e.i(map, i);
-        this.f = System.currentTimeMillis();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.h();
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                next.j = this.b;
-                if (lf8.l(next) && this.d) {
-                    it.remove();
-                } else {
-                    int n = next.n();
-                    if (n != 0) {
-                        uh8.h(next, 0, n);
-                        it.remove();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
+            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
+                try {
+                    PublicKey e = gj.e(qi.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+                    if (e == null) {
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
+                        return false;
                     }
+                    byte[] b = b(str);
+                    if (b != null && b.length > 0) {
+                        byte[] b2 = gj.b(e, b);
+                        if (b2 != null && b2.length > 0) {
+                            String trim = new String(b2, "UTF-8").trim();
+                            String b3 = fj.b(new FileInputStream(file));
+                            if (b3 != null) {
+                                b3 = b3.trim();
+                            }
+                            if (!TextUtils.isEmpty(b3) && !TextUtils.isEmpty(trim)) {
+                                if (b3.equalsIgnoreCase(trim)) {
+                                    return true;
+                                }
+                                TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 != serverMD5").param("obj_source", file.getName()));
+                                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
+                                return false;
+                            }
+                            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 or serverMD5 is null").param("obj_source", file.getName()));
+                            return false;
+                        }
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "des is null").param("obj_source", file.getName()));
+                        return false;
+                    }
+                    TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "server_data is null").param("obj_source", file.getName()));
+                    return false;
+                } catch (Exception e2) {
+                    StatisticItem statisticItem = new StatisticItem("c10836");
+                    TiebaStatic.log(statisticItem.param("obj_type", "exception:" + e2.getMessage()).param("obj_source", file.getName()));
+                    BdLog.e("download MD5 RSA ERROR！Exception:" + e2.getMessage() + " ; file:" + file.getName());
+                    return false;
                 }
             }
+            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "checkRSA input args is null"));
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                char[] charArray = str.toCharArray();
+                int length = charArray.length / 2;
+                byte[] bArr = new byte[length];
+                if (charArray.length % 2 != 0) {
+                    return null;
+                }
+                int i = 0;
+                int i2 = 0;
+                while (true) {
+                    int i3 = i + 1;
+                    if (i3 >= charArray.length || i2 >= length) {
+                        break;
+                    }
+                    bArr[i2] = (byte) ((c(charArray[i]) << 4) | c(charArray[i3]));
+                    i2++;
+                    i = i3 + 1;
+                }
+                return bArr;
+            }
+            throw new IllegalArgumentException("binary string is null");
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static int c(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
+            int digit = Character.digit(c, 16);
+            if (digit != -1) {
+                return digit;
+            }
+            throw new RuntimeException("Illegal hexadecimal character " + c);
+        }
+        return invokeCommon.intValue;
     }
 }

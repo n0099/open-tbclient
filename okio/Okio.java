@@ -1,6 +1,7 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,7 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
 import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Okio {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -209,7 +210,7 @@ public final class Okio {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, iOException)) == null) {
-                        SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
+                        SocketTimeoutException socketTimeoutException = new SocketTimeoutException(a.O);
                         if (iOException != null) {
                             socketTimeoutException.initCause(iOException);
                         }

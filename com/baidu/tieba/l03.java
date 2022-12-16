@@ -1,51 +1,71 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class l03 extends m03 {
+/* loaded from: classes5.dex */
+public abstract class l03 implements j03<h03> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.k03
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.k03
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.m03, com.baidu.tieba.k03
+    @Override // com.baidu.tieba.j03
     public abstract /* synthetic */ void onEvent(@NonNull T t);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889018, "Lcom/baidu/tieba/l03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947889018, "Lcom/baidu/tieba/l03;");
+                return;
+            }
+        }
+        b = ok1.a;
+    }
 
     public l03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.j03
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
+            }
+            String str = System.currentTimeMillis() + "" + hashCode();
+            this.a = str;
+            if (b && m03.a(str)) {
+                throw new RuntimeException("illegal observer id");
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

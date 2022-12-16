@@ -87,8 +87,8 @@ public class LoadingView extends LinearLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e5, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dfc);
+            LayoutInflater.from(this.a).inflate(R.layout.layout_sapi_dialog_quick_login_loadingview, this);
+            this.b = (TextView) findViewById(R.id.sapi_tv_loading_tip);
             setOrientation(1);
             setBackgroundColor(-1);
             setGravity(1);

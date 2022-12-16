@@ -606,14 +606,14 @@ public class az4 extends mn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d087e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.tb_pull_view, (ViewGroup) null);
             this.g = inflate;
-            this.h = (LinearLayout) inflate.findViewById(R.id.pull_root);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.g.findViewById(R.id.obfuscated_res_0x7f090712);
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091bad);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.g.findViewById(R.id.continuous_loading_view);
             this.o = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             this.o.setOnClickListener(this.y);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.pull_image);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091ba8);
             this.i = imageView;
             imageView.setOnClickListener(this.y);
             int skinType = TbadkCoreApplication.getInst().getSkinType();

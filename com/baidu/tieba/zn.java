@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface zn<V extends ViewGroup> {
     int getContentViewsCount();
 

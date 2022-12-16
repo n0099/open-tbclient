@@ -1,85 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.df;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.mf8;
+import com.baidu.tieba.qf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class pf8 implements ag8, cg8 {
+public class pf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pf8 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<df<String>> a;
-    public AtomicReference<df<String>> b;
-    public HashMap<String, uf8> c;
-    public int d;
-    public String e;
+    public WeakReference<Activity> a;
+    public SensorManager b;
+    public mf8 c;
+    public Sensor d;
+    public boolean e;
     public boolean f;
-    public boolean g;
+    public qf8 g;
+    public boolean h;
+    public boolean i;
+    public mf8.a j;
+    public qf8.a k;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements mf8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pf8 a;
-
-        /* renamed from: com.baidu.tieba.pf8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0396a implements df.a<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0396a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.df.a
-            /* renamed from: b */
-            public void a(String str, String str2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-                    Iterator it = this.a.a.q(str2).iterator();
-                    while (it.hasNext()) {
-                        uf8 uf8Var = (uf8) it.next();
-                        if (uf8Var != null) {
-                            this.a.a.c.put(uf8Var.a, uf8Var);
-                            this.a.a.f = true;
-                        }
-                    }
-                }
-            }
-        }
 
         public a(pf8 pf8Var) {
             Interceptable interceptable = $ic;
@@ -99,62 +55,47 @@ public class pf8 implements ag8, cg8 {
             this.a = pf8Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            df dfVar;
+        @Override // com.baidu.tieba.mf8.a
+        public void a(int i) {
+            Activity activity;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (dfVar = (df) this.a.a.get()) == null) {
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
                 return;
             }
-            dfVar.f(this.a.e, new C0396a(this));
+            int requestedOrientation = activity.getRequestedOrientation();
+            if (!this.a.h) {
+                if (i > 225 && i < 315) {
+                    if (requestedOrientation == 8) {
+                        activity.setRequestedOrientation(0);
+                    }
+                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
+                    activity.setRequestedOrientation(8);
+                }
+            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
+                if (!this.a.f) {
+                    if (i > 55 && i < 125) {
+                        if (requestedOrientation != 8) {
+                            activity.setRequestedOrientation(8);
+                        }
+                    } else if (requestedOrientation != 0) {
+                        activity.setRequestedOrientation(0);
+                    }
+                }
+                this.a.e = false;
+            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
+                if (!this.a.e && requestedOrientation != 1) {
+                    activity.setRequestedOrientation(1);
+                }
+                this.a.f = false;
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public class b implements qf8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pf8 a;
-
-        /* loaded from: classes5.dex */
-        public class a implements df.a<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.df.a
-            /* renamed from: b */
-            public void a(String str, String str2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-                    try {
-                        this.a.a.d = Integer.parseInt(str2);
-                    } catch (NumberFormatException unused) {
-                        this.a.a.d = 0;
-                    }
-                    this.a.a.g = true;
-                }
-            }
-        }
 
         public b(pf8 pf8Var) {
             Interceptable interceptable = $ic;
@@ -174,88 +115,22 @@ public class pf8 implements ag8, cg8 {
             this.a = pf8Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.qf8.a
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((df) this.a.b.get()).f(this.a.e, new a(this));
+            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
+                return;
             }
+            this.a.h = z;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference<df<String>> a;
-        public final String b;
-        public final Runnable c;
-
-        public c(AtomicReference<df<String>> atomicReference, String str, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {atomicReference, str, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicReference;
-            this.b = str;
-            this.c = runnable;
-            setPriority(4);
-        }
-
-        public /* synthetic */ c(AtomicReference atomicReference, String str, Runnable runnable, a aVar) {
-            this(atomicReference, str, runnable);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                super.onPostExecute(r5);
-                Runnable runnable = this.c;
-                if (runnable != null) {
-                    runnable.run();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-                if (this.a.get() != null) {
-                    return null;
-                }
-                synchronized (c.class) {
-                    if (this.a.get() == null) {
-                        AtomicReference<df<String>> atomicReference = this.a;
-                        jv4.f();
-                        atomicReference.set(jv4.g(this.b));
-                    }
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    public pf8() {
+    public pf8(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -265,212 +140,78 @@ public class pf8 implements ag8, cg8 {
                 return;
             }
         }
-        this.a = new AtomicReference<>(null);
-        this.b = new AtomicReference<>(null);
+        this.e = false;
         this.f = false;
-        this.g = false;
-        this.c = new HashMap<>();
-        this.d = 0;
-        this.e = r();
-    }
-
-    public final boolean v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (!TextUtils.isEmpty(this.e)) {
-                return this.e.equals(str);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ag8
-    public int d(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            return s(str, true, z);
-        }
-        return invokeLZ.intValue;
-    }
-
-    @Override // com.baidu.tieba.ag8
-    public int e(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            return s(str, false, z);
-        }
-        return invokeLZ.intValue;
-    }
-
-    public static pf8 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (h == null) {
-                synchronized (pf8.class) {
-                    if (h == null) {
-                        h = new pf8();
-                    }
-                }
-            }
-            return h;
-        }
-        return (pf8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cg8
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!v(r())) {
-                return 0;
-            }
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.cg8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.g) {
+        this.h = false;
+        this.i = false;
+        this.j = new a(this);
+        this.k = new b(this);
+        if (activity == null) {
             return;
         }
-        b bVar = new b(this);
-        if (this.b.get() == null) {
-            new c(this.b, "hot.splash.count", bVar, null).execute(new Void[0]);
+        this.a = new WeakReference<>(activity);
+        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
+        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+        this.c = new mf8(this.j);
+        if (activity.getClass().getName().contains("SwanAppActivity")) {
+            activity.setRequestedOrientation(1);
         }
     }
 
-    @Override // com.baidu.tieba.ag8
-    public void f() {
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.f) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void j() {
+        Activity activity;
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null && (sensor = this.d) != null) {
+                sensorManager.registerListener(this.c, sensor, 2);
+            }
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference != null && (activity = weakReference.get()) != null) {
+                qf8 qf8Var = new qf8(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
+                this.g = qf8Var;
+                qf8Var.b(this.k);
+                activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
+            }
+        }
+    }
+
+    public void k() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null) {
+                sensorManager.unregisterListener(this.c);
+            }
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference != null && this.g != null && (activity = weakReference.get()) != null) {
+                activity.getContentResolver().unregisterContentObserver(this.g);
+            }
+        }
+    }
+
+    public void l() {
+        WeakReference<Activity> weakReference;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
             return;
         }
-        a aVar = new a(this);
-        if (this.a.get() == null) {
-            new c(this.a, "frs.refresh.count", aVar, null).execute(new Void[0]);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            String r = r();
-            if (!v(r)) {
-                this.c.clear();
-                this.d = 0;
-                this.e = r;
-            }
-        }
-    }
-
-    public final String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cg8
-    public void b() {
-        df<String> dfVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (dfVar = this.b.get()) == null) {
+        if (activity.getRequestedOrientation() == 1) {
+            activity.setRequestedOrientation(0);
+            this.e = true;
             return;
         }
-        p();
-        this.d++;
-        System.out.println("TestTest => mCachedHotSplashCount: " + this.d);
-        dfVar.i(this.e, Integer.toString(this.d), 86400000L);
-    }
-
-    @Override // com.baidu.tieba.ag8
-    public void g(String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i == 1) {
-                u(str, true, z);
-            } else if (i == 2) {
-                u(str, false, z);
-            }
-        }
-    }
-
-    public final int s(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            uf8 uf8Var = this.c.get(str);
-            if (uf8Var != null && v(r())) {
-                return uf8Var.b(z, z2);
-            }
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final ArrayList<uf8> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            ArrayList<uf8> arrayList = new ArrayList<>();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(new uf8(jSONArray.optJSONObject(i)));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void u(String str, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            p();
-            uf8 uf8Var = this.c.get(str);
-            if (uf8Var == null) {
-                uf8Var = new uf8();
-                uf8Var.a = str;
-                this.c.put(str, uf8Var);
-            }
-            uf8Var.a(z, z2);
-            w(this.c);
-        }
-    }
-
-    public final synchronized void w(HashMap<String, uf8> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, hashMap) == null) {
-            synchronized (this) {
-                df<String> dfVar = this.a.get();
-                if (dfVar == null) {
-                    return;
-                }
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, uf8> entry : hashMap.entrySet()) {
-                    JSONObject c2 = entry.getValue().c();
-                    if (c2 != null) {
-                        jSONArray.put(c2);
-                    }
-                }
-                dfVar.i(this.e, jSONArray.toString(), 86400000L);
-            }
-        }
+        activity.setRequestedOrientation(1);
+        this.f = true;
     }
 }

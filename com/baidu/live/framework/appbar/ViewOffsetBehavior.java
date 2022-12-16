@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
-import com.baidu.tieba.nb0;
+import com.baidu.tieba.mb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nb0 a;
+    public mb0 a;
     public int b;
     public int c;
 
@@ -40,9 +40,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nb0 nb0Var = this.a;
-            if (nb0Var != null) {
-                return nb0Var.a();
+            mb0 mb0Var = this.a;
+            if (mb0Var != null) {
+                return mb0Var.a();
             }
             return 0;
         }
@@ -83,9 +83,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            nb0 nb0Var = this.a;
-            if (nb0Var != null) {
-                return nb0Var.d(i);
+            mb0 mb0Var = this.a;
+            if (mb0Var != null) {
+                return mb0Var.d(i);
             }
             this.b = i;
             return false;
@@ -100,7 +100,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i)) == null) {
             F(coordinatorLayout, v, i);
             if (this.a == null) {
-                this.a = new nb0(v);
+                this.a = new mb0(v);
             }
             this.a.b();
             int i2 = this.b;

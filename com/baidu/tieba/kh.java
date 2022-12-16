@@ -6,7 +6,6 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class kh {
     public static /* synthetic */ Interceptable $ic;
     public static kh d;
@@ -23,7 +22,7 @@ public class kh {
     public HashMap<String, c> b;
     public Handler c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +63,7 @@ public class kh {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +178,7 @@ public class kh {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +285,7 @@ public class kh {
         cVar2.e(120000);
         cVar2.f(1500);
         this.b.put("file", cVar2);
-        this.b.put(IMTrackDatabase.DbEnum.TABLE_NAME, cVar2);
+        this.b.put("db", cVar2);
         this.b.put("img", cVar2);
         this.b.put("voice", cVar2);
         this.b.put("error", cVar2);

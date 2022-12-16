@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
@@ -28,14 +29,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class iz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public fz b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,9 +148,9 @@ public class iz {
             List<ez> h = this.b.h(context);
             hz hzVar = null;
             if (h != null) {
-                String str = "files";
+                String str = NetDiskFileMsg.JSON_KEY_FILES;
                 File filesDir = context.getFilesDir();
-                if (!"files".equals(filesDir.getName())) {
+                if (!NetDiskFileMsg.JSON_KEY_FILES.equals(filesDir.getName())) {
                     Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str = filesDir.getName();
                 }

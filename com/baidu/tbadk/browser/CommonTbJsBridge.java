@@ -38,6 +38,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDebugSingleton;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.auth.AliAuthHttpProxy;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
@@ -65,6 +66,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.BdToastHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -88,60 +90,63 @@ import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.c45;
-import com.baidu.tieba.d66;
-import com.baidu.tieba.dq8;
+import com.baidu.tieba.cp5;
+import com.baidu.tieba.ct8;
+import com.baidu.tieba.d45;
 import com.baidu.tieba.easterEgg.EasterEggBridge;
-import com.baidu.tieba.ff8;
-import com.baidu.tieba.fi8;
+import com.baidu.tieba.en4;
 import com.baidu.tieba.fj;
-import com.baidu.tieba.fn4;
+import com.baidu.tieba.fl8;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.gf8;
+import com.baidu.tieba.gl5;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
-import com.baidu.tieba.h65;
-import com.baidu.tieba.hi8;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.i65;
+import com.baidu.tieba.i79;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.lk5;
-import com.baidu.tieba.ly4;
+import com.baidu.tieba.ja6;
+import com.baidu.tieba.kc6;
+import com.baidu.tieba.kr4;
+import com.baidu.tieba.mc5;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import com.baidu.tieba.ni8;
-import com.baidu.tieba.o96;
+import com.baidu.tieba.mj5;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.nn4;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.oj5;
-import com.baidu.tieba.on4;
-import com.baidu.tieba.pb6;
-import com.baidu.tieba.pr4;
-import com.baidu.tieba.q35;
-import com.baidu.tieba.qo8;
+import com.baidu.tieba.pr8;
+import com.baidu.tieba.qj8;
 import com.baidu.tieba.quickWebView.message.WebViewCacheReqMsg;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.r35;
 import com.baidu.tieba.ro;
+import com.baidu.tieba.rr4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.s15;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.tieba.sj5;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.sv4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.ti5;
-import com.baidu.tieba.u55;
-import com.baidu.tieba.ub5;
+import com.baidu.tieba.tv4;
+import com.baidu.tieba.v55;
+import com.baidu.tieba.vf7;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.x45;
 import com.baidu.tieba.xg;
+import com.baidu.tieba.xh8;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.xk8;
 import com.baidu.tieba.xp4;
-import com.baidu.tieba.yg8;
+import com.baidu.tieba.xs8;
+import com.baidu.tieba.y45;
+import com.baidu.tieba.y66;
+import com.baidu.tieba.yh8;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yp8;
-import com.baidu.tieba.z39;
-import com.baidu.tieba.zb7;
-import com.baidu.tieba.zi5;
-import com.baidu.tieba.zp8;
+import com.baidu.tieba.ys8;
+import com.baidu.tieba.zc7;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -168,7 +173,7 @@ import org.json.JSONObject;
 import tbclient.ApkDetail;
 @ro
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements zp8 {
+public class CommonTbJsBridge implements ys8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_POST_WALL = "postFakeTheWall";
     public static final String CHANGE_SKIN_TYPE = "changeSkinType";
@@ -195,7 +200,6 @@ public class CommonTbJsBridge implements zp8 {
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String GET_ZID = "getZid";
     public static final String GO_BACK_FROM_NATIVE = "goBackFromNative";
-    public static final String GO_TO_BAR_DETAIL_PAGE = "jumpBarDetail";
     public static final String GO_TO_GOODS_SHOP = "goToGoodsShop";
     public static final String GO_TO_HOT_TREND = "goToHotTrend";
     public static final String GO_TO_MY_LIVE = "goToMyLive";
@@ -211,7 +215,6 @@ public class CommonTbJsBridge implements zp8 {
     public static final String JUMP_TO_HTML_PAGE = "jumpToHTMLPage";
     public static final String LOAD_THIRD_PARTY_LOGIN = "loadThirdPartyLogin";
     public static final String LOGIN_RESULT_TO_H5 = "loginResultToH5";
-    public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
     public static final String OPEN_VIP_SUCCESS = "openVipSuccess";
     public static final String ORIGINAL_THREAD = "1";
     public static final String PERSON_PAGE_REFRESH = "personPageRefresh";
@@ -225,7 +228,6 @@ public class CommonTbJsBridge implements zp8 {
     public static final String RE_HIDE = "rehide";
     public static final String RE_SHOW = "reshow";
     public static final String SAVE_IMAGE = "saveImage";
-    public static final String SELECT_PHOTO_ALBUM = "selectPhotoAlbum";
     public static final String SET_CLIPPER_INFORMATION = "setClipperInformation";
     public static final String SET_SHARE_INFO = "registerShareDataNew";
     public static final String SHARE = "share";
@@ -240,7 +242,6 @@ public class CommonTbJsBridge implements zp8 {
     public static final String SWITCH_OFFLINE_BUNDLE_STATUS = "switchOfflineBundleStatus";
     public static final String SWITCH_OFFLINE_INTERFACE = "switchOfflineInterface";
     public static final String SWITCH_URL_HOST = "switchUrlHost";
-    public static final String TAG = "CommonTbJsBridge";
     public static final String THREAD_FLOOR = "2";
     public static final String THREAD_MEZZANINE_FLOOR = "3";
     public static final String TOAST_POPUPVIEW = "toastPopupView";
@@ -248,27 +249,21 @@ public class CommonTbJsBridge implements zp8 {
     public static String tempUrl;
     public transient /* synthetic */ FieldHolder $fh;
     public final String SHOW_MORE_FORUM_ICON;
+    public final AliAuthHttpProxy aliHttpProxy;
     @NonNull
     public final JSONObject emptyParams4CallJs;
-    public yp8 jsPromptBridge;
+    public xs8 jsPromptBridge;
     public final Context mContext;
     public int mH5PersonalizedRecSwitch;
     public long mLastLoadUrlTime;
     public PermissionJudgePolicy mPermissionJudgement;
-    public JsPromptResult mResult;
-    public fn4 mShakeController;
+    public en4 mShakeController;
     public WebView mWebView;
     public String shakeCallbackjsMethod;
     public ShareItem shareItem;
 
-    private void hideWebviewLoading(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, this, str) == null) {
-        }
-    }
-
     /* loaded from: classes3.dex */
-    public class a implements fn4.b {
+    public class a implements en4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonTbJsBridge a;
@@ -291,7 +286,7 @@ public class CommonTbJsBridge implements zp8 {
             this.a = commonTbJsBridge;
         }
 
-        @Override // com.baidu.tieba.fn4.b
+        @Override // com.baidu.tieba.en4.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a.shakeCallbackjsMethod)) {
@@ -335,7 +330,7 @@ public class CommonTbJsBridge implements zp8 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.jsPromptBridge != null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put(TiebaStatic.LogFields.RESULT, -1);
+                linkedHashMap.put("result", -1);
                 this.a.jsPromptBridge.h(this.a.mWebView, "saveImageSuccess", linkedHashMap);
             }
         }
@@ -345,14 +340,14 @@ public class CommonTbJsBridge implements zp8 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a.jsPromptBridge != null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put(TiebaStatic.LogFields.RESULT, 0);
+                linkedHashMap.put("result", 0);
                 this.a.jsPromptBridge.h(this.a.mWebView, "saveImageSuccess", linkedHashMap);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements hi8.c {
+    public class c implements zk8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -383,7 +378,7 @@ public class CommonTbJsBridge implements zp8 {
 
         /* JADX WARN: Removed duplicated region for block: B:35:0x007c A[ORIG_RETURN, RETURN] */
         /* JADX WARN: Removed duplicated region for block: B:39:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        @Override // com.baidu.tieba.hi8.c
+        @Override // com.baidu.tieba.zk8.c
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -427,9 +422,9 @@ public class CommonTbJsBridge implements zp8 {
                     return;
                 }
                 for (Class<?> cls2 : cls.getInterfaces()) {
-                    if (cls2.isAssignableFrom(fi8.class)) {
+                    if (cls2.isAssignableFrom(xk8.class)) {
                         try {
-                            ((fi8) cls.newInstance()).dispatch(jSONObject2, this.d.mContext);
+                            ((xk8) cls.newInstance()).dispatch(jSONObject2, this.d.mContext);
                             return;
                         } catch (Exception e4) {
                             e4.printStackTrace();
@@ -442,7 +437,7 @@ public class CommonTbJsBridge implements zp8 {
     }
 
     /* loaded from: classes3.dex */
-    public class d extends oj5<ImMessageCenterPojo> {
+    public class d extends ik5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -466,20 +461,20 @@ public class CommonTbJsBridge implements zp8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oj5
+        @Override // com.baidu.tieba.ik5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return zb7.f().i(this.a);
+                return zc7.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements ti5<ImMessageCenterPojo> {
+    public class e implements mj5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -505,7 +500,7 @@ public class CommonTbJsBridge implements zp8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ti5
+        @Override // com.baidu.tieba.mj5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -597,7 +592,7 @@ public class CommonTbJsBridge implements zp8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            qy4.k().w("key_bawu_task_toast", -1);
+            ry4.l().x("key_bawu_task_toast", -1);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
@@ -610,112 +605,112 @@ public class CommonTbJsBridge implements zp8 {
         return (String) invokeV.objValue;
     }
 
-    public dq8 deleteOfflineBundle() {
+    public ct8 deleteOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             try {
-                ff8.q().i();
-                gf8.a().i(null);
+                xh8.q().i();
+                yh8.a().i(null);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 getClipperInformation() {
+    public ct8 getClipperInformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ct8 ct8Var = new ct8();
             String clipBoardContent = UtilHelper.getClipBoardContent();
             int i = !xi.isEmpty(clipBoardContent) ? 1 : 0;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
                 jSONObject.put("data", clipBoardContent);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 getHdid() {
+    public ct8 getHdid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 getHistoryForumData() {
+    public ct8 getHistoryForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            dq8 dq8Var = new dq8();
-            JSONArray o = pb6.n().o();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            ct8 ct8Var = new ct8();
+            JSONArray o = kc6.n().o();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("historyForumArray", o);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 getZid() {
+    public ct8 getZid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            ct8 ct8Var = new ct8();
             String zid = TbadkCoreApplication.getInst().getZid();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("zid", zid);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 hasNotificationPermission() {
+    public ct8 hasNotificationPermission() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            ct8 ct8Var = new ct8();
             if (Build.VERSION.SDK_INT >= 19) {
                 i = NotificationManagerCompat.from(this.mContext).areNotificationsEnabled();
             } else {
@@ -724,78 +719,96 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 playVibrate() {
+    public ct8 playVibrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            ct8 ct8Var = new ct8();
             boolean g = getShakeController().g();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", g ? 1 : 0);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 setDisableGoBack() {
+    public ct8 setDisableGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+            ct8 ct8Var = new ct8();
             Context context = this.mContext;
             int i = 1;
-            if (context instanceof TbWebViewActivity) {
-                ((TbWebViewActivity) context).isDisableGoBack = true;
+            if (context instanceof TBWebViewActivity) {
+                ((TBWebViewActivity) context).isDisableGoBack = true;
             } else {
                 i = 0;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 updateOfflineBundle() {
+    public ct8 toOneKeyDeletion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
+            ct8 ct8Var = new ct8();
+            kr4.c().h();
             try {
-                ff8.q().i();
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                ct8Var.o(jSONObject.toString());
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            return ct8Var;
+        }
+        return (ct8) invokeV.objValue;
+    }
+
+    public ct8 updateOfflineBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
+            ct8 ct8Var = new ct8();
+            try {
+                xh8.q().i();
                 MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -822,7 +835,7 @@ public class CommonTbJsBridge implements zp8 {
     private String loadThirdPartyLogin(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, str)) == null) {
             if (!xi.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -837,13 +850,13 @@ public class CommonTbJsBridge implements zp8 {
         return (String) invokeL.objValue;
     }
 
-    public dq8 changeSkinTypeInH5(HashMap hashMap) {
+    public ct8 changeSkinTypeInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             if (hashMap == null) {
-                return dq8Var;
+                return ct8Var;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -852,20 +865,20 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public dq8 checkAppInstall(String str) {
+    public ct8 checkAppInstall(String str) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             if (!StringUtils.isNull(str)) {
                 i = UtilHelper.isInstalledPackage(this.mContext, str);
             } else {
@@ -874,22 +887,22 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 checkInstallGameApk(String str) {
+    public ct8 checkInstallGameApk(String str) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             if (!StringUtils.isNull(str)) {
                 if (UtilHelper.isInstalledPackage(this.mContext, str)) {
                     i = 1;
@@ -902,15 +915,15 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                dq8Var.o(jSONObject.toString());
+                ct8Var.o(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 dealClickGoBackToH5(HashMap hashMap) {
+    public ct8 dealClickGoBackToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hashMap)) == null) {
@@ -921,78 +934,78 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(CLICK_GO_BACK_TO_H5, jSONObject);
-            dq8 dq8Var = new dq8();
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8 ct8Var = new ct8();
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 finishTestAnswer(long j) {
+    public ct8 finishTestAnswer(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
             Context context = this.mContext;
             if (context instanceof Activity) {
                 ((Activity) context).finish();
             }
-            dq8Var.o(FINISH_TEST_ANSWER);
-            return dq8Var;
+            ct8Var.o(FINISH_TEST_ANSWER);
+            return ct8Var;
         }
-        return (dq8) invokeJ.objValue;
+        return (ct8) invokeJ.objValue;
     }
 
-    public dq8 getPhotoAlbumResult(HashMap<String, String> hashMap) {
+    public ct8 getPhotoAlbumResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("imageUrl", hashMap.get("url"));
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 orderGameApkResult(HashMap<String, Object> hashMap) {
+    public ct8 orderGameApkResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("id", hashMap.get("id"));
                 jSONObject.put("resultCode", hashMap.get("resultCode"));
                 jSONObject.put("name", hashMap.get("name"));
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 postWriteWallData(HashMap hashMap) {
+    public ct8 postWriteWallData(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
             if (hashMap == null) {
-                return dq8Var;
+                return ct8Var;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -1002,16 +1015,16 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(CHANGE_POST_WALL, jSONObject);
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 reHide(HashMap hashMap) {
+    public ct8 reHide(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, hashMap)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("resultCode", 1);
@@ -1019,17 +1032,17 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(RE_HIDE, jSONObject);
-            dq8 dq8Var = new dq8();
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8 ct8Var = new ct8();
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 reShow(HashMap hashMap) {
+    public ct8 reShow(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, hashMap)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("resultCode", 1);
@@ -1037,52 +1050,52 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(RE_SHOW, jSONObject);
-            dq8 dq8Var = new dq8();
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8 ct8Var = new ct8();
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 setClipperInformation(String str) {
+    public ct8 setClipperInformation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             oi.a(str);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 setSearchHistory(HashMap hashMap) {
+    public ct8 setSearchHistory(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
             try {
-                dq8Var.o(new JSONArray(hashMap.get("data").toString()).toString());
+                ct8Var.o(new JSONArray(hashMap.get("data").toString()).toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 startLoginModule(String str) {
+    public ct8 startLoginModule(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             WebView webView = this.mWebView;
             if (webView == null) {
                 ViewHelper.checkUpIsLogin(this.mContext);
@@ -1093,19 +1106,19 @@ public class CommonTbJsBridge implements zp8 {
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
             jSResultData.setErrorMsg("");
-            dq8Var.o(OrmObject.jsonStrWithObject(jSResultData));
-            return dq8Var;
+            ct8Var.o(OrmObject.jsonStrWithObject(jSResultData));
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 switchOfflineBundleStatus(int i) {
+    public ct8 switchOfflineBundleStatus(int i) {
         InterceptResult invokeI;
         boolean z;
         TriState triState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048660, this, i)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048663, this, i)) == null) {
+            ct8 ct8Var = new ct8();
             if (i == 1) {
                 z = true;
             } else {
@@ -1120,14 +1133,14 @@ public class CommonTbJsBridge implements zp8 {
                 QuickWebViewSwitch.setState(triState);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (dq8) invokeI.objValue;
+        return (ct8) invokeI.objValue;
     }
 
     public CommonTbJsBridge(Context context, WebView webView) {
@@ -1151,12 +1164,13 @@ public class CommonTbJsBridge implements zp8 {
         this.mH5PersonalizedRecSwitch = -1;
         this.mContext = context;
         this.mWebView = webView;
+        this.aliHttpProxy = new AliAuthHttpProxy(webView);
     }
 
     private void shareLoacalImage(String str, int i) {
         Activity currentActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65558, this, str, i) != null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
+        if ((interceptable != null && interceptable.invokeLI(65557, this, str, i) != null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
             return;
         }
         if (this.mPermissionJudgement == null) {
@@ -1172,11 +1186,11 @@ public class CommonTbJsBridge implements zp8 {
         insertGalleryAsyncTask.execute(new String[0]);
     }
 
-    public dq8 finishPage(String str, String str2) {
+    public ct8 finishPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             Context context = this.mContext;
             if (context instanceof Activity) {
                 ((Activity) context).finish();
@@ -1187,16 +1201,16 @@ public class CommonTbJsBridge implements zp8 {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.mContext, "FictionalCharacterDetailsPage", hashMap)));
                 }
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
-    public dq8 handleGoToBarDetail(String str, int i) {
+    public ct8 handleGoToBarDetail(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048611, this, str, i)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048612, this, str, i)) == null) {
+            ct8 ct8Var = new ct8();
             if (!TextUtils.isEmpty(str)) {
                 ForumDetailActivityConfig forumDetailActivityConfig = new ForumDetailActivityConfig(this.mContext, str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE);
                 if (i == 1 || i == 2 || i == 3) {
@@ -1205,16 +1219,16 @@ public class CommonTbJsBridge implements zp8 {
                 forumDetailActivityConfig.setRequestCode(25070);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeLI.objValue;
+        return (ct8) invokeLI.objValue;
     }
 
-    public dq8 jumpLoginActivity(int i, String str) {
+    public ct8 jumpLoginActivity(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048618, this, i, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048619, this, i, str)) == null) {
+            ct8 ct8Var = new ct8();
             JSONObject jSONObject = new JSONObject();
             if (this.mContext == null) {
                 try {
@@ -1222,8 +1236,8 @@ public class CommonTbJsBridge implements zp8 {
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             }
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.mContext, true);
             loginActivityConfig.setThirdPartyLoginForResult(i, str);
@@ -1237,37 +1251,37 @@ public class CommonTbJsBridge implements zp8 {
             } catch (JSONException e3) {
                 BdLog.e(e3);
             }
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeIL.objValue;
+        return (ct8) invokeIL.objValue;
     }
 
-    public dq8 putAppStorage(String str, String str2) {
+    public ct8 putAppStorage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048634, this, str, str2)) == null) {
-            dq8 dq8Var = new dq8();
-            qy4 k = qy4.k();
-            k.y("key_local_app_storage_" + str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048636, this, str, str2)) == null) {
+            ct8 ct8Var = new ct8();
+            ry4 l = ry4.l();
+            l.z("key_local_app_storage_" + str, str2);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
-    public dq8 reportUserTheme(String str, ArrayList<String> arrayList) {
+    public ct8 reportUserTheme(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, str, arrayList)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048640, this, str, arrayList)) == null) {
+            ct8 ct8Var = new ct8();
             ReportThemeActivityConfig reportThemeActivityConfig = new ReportThemeActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), str, arrayList);
             reportThemeActivityConfig.setRequestCode(12018);
             reportThemeActivityConfig.setIntentAction(IntentAction.ActivityForResult);
@@ -1275,21 +1289,21 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
-    public dq8 sendCompleteTaskReqMsg(String str, String str2) {
+    public ct8 sendCompleteTaskReqMsg(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048642, this, str, str2)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, str, str2)) == null) {
+            ct8 ct8Var = new ct8();
             int i = 0;
             try {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
@@ -1307,40 +1321,40 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
-                dq8Var.o(jSONObject2.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject2.toString());
+                return ct8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
-    public dq8 worldCupRaiseSuccess(String str, String str2) {
+    public ct8 worldCupRaiseSuccess(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048667, this, str, str2)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048671, this, str, str2)) == null) {
+            ct8 ct8Var = new ct8();
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                ho5 ho5Var = new ho5();
+                cp5 cp5Var = new cp5();
                 try {
-                    ho5Var.a = URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
+                    cp5Var.a = URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
                 } catch (UnsupportedEncodingException e2) {
-                    ho5Var.a = str;
+                    cp5Var.a = str;
                     e2.printStackTrace();
                 }
                 try {
-                    ho5Var.b = URLDecoder.decode(str2, IMAudioTransRequest.CHARSET);
+                    cp5Var.b = URLDecoder.decode(str2, IMAudioTransRequest.CHARSET);
                 } catch (UnsupportedEncodingException e3) {
-                    ho5Var.b = str2;
+                    cp5Var.b = str2;
                     e3.printStackTrace();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921758, ho5Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921776, cp5Var));
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
     private void dealJump(String str) {
@@ -1368,159 +1382,160 @@ public class CommonTbJsBridge implements zp8 {
 
     private void setShareItem(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, shareItem) == null) {
+        if (interceptable == null || interceptable.invokeL(65556, this, shareItem) == null) {
             this.shareItem = shareItem;
         }
     }
 
     private void showRightShare(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65558, this, str) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921331, str));
         }
     }
 
-    public dq8 dealGoBackFromNative(HashMap hashMap) {
+    public ct8 dealGoBackFromNative(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hashMap)) == null) {
             JSONObject jSONObject = new JSONObject();
             callJsMethod(GO_BACK_FROM_NATIVE, jSONObject);
-            dq8 dq8Var = new dq8();
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8 ct8Var = new ct8();
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
     public void dealSpringFestivalTimer(HashMap hashMap) {
-        yp8 yp8Var;
+        xs8 xs8Var;
         WebView webView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, hashMap) == null) && (yp8Var = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
-            yp8Var.h(webView, "getPageLeaveTime", hashMap);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, hashMap) == null) && (xs8Var = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
+            xs8Var.h(webView, "getPageLeaveTime", hashMap);
         }
     }
 
-    public dq8 disableBack(int i) {
+    public ct8 disableBack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             Context context = this.mContext;
-            if (context instanceof TbWebViewActivity) {
+            if (context instanceof TBWebViewActivity) {
                 if (i == 0) {
-                    ((TbWebViewActivity) context).setSwipeBackEnabled(true);
+                    ((TBWebViewActivity) context).setSwipeBackEnabled(true);
                 } else {
-                    ((TbWebViewActivity) context).setSwipeBackEnabled(false);
+                    ((TBWebViewActivity) context).setSwipeBackEnabled(false);
                 }
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeI.objValue;
+        return (ct8) invokeI.objValue;
     }
 
-    public dq8 openMXDYab(String str) {
+    public ct8 openMXDYab(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, str)) == null) {
-            return new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
+            return new ct8();
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 openVipSuccessInH5(HashMap hashMap) {
+    public ct8 openVipSuccessInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, hashMap)) == null) {
             callJsMethod(OPEN_VIP_SUCCESS, new JSONObject());
-            return new dq8();
+            return new ct8();
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 personlizedSwitchChange(String str) {
+    public ct8 personlizedSwitchChange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
             try {
                 this.mH5PersonalizedRecSwitch = Integer.parseInt(str);
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
             }
-            return new dq8();
+            return new ct8();
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 saveImageSuccess(HashMap<String, Integer> hashMap) {
+    public ct8 saveImageSuccess(HashMap<String, Integer> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
-            if (hashMap != null && hashMap.get(TiebaStatic.LogFields.RESULT).intValue() == -1) {
-                dq8Var.q("图片保存错误");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
+            if (hashMap != null && hashMap.get("result").intValue() == -1) {
+                ct8Var.q("图片保存错误");
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public void setJsPromptBridge(yp8 yp8Var) {
+    public void setJsPromptBridge(xs8 xs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, yp8Var) == null) {
-            this.jsPromptBridge = yp8Var;
+        if (interceptable == null || interceptable.invokeL(1048647, this, xs8Var) == null) {
+            this.jsPromptBridge = xs8Var;
+            this.aliHttpProxy.m(xs8Var);
         }
     }
 
     public void setLastLoadUrlTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048646, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048648, this, j) == null) {
             this.mLastLoadUrlTime = j;
         }
     }
 
-    public dq8 springFestivalTimeToH5(HashMap<String, String> hashMap) {
+    public ct8 springFestivalTimeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048654, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
-            if (hashMap != null && hashMap.get(TiebaStatic.LogFields.RESULT) != null) {
-                dq8Var.o(hashMap.get(TiebaStatic.LogFields.RESULT));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
+            if (hashMap != null && hashMap.get("result") != null) {
+                ct8Var.o(hashMap.get("result"));
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 updateSearchForumInfo(String str) {
+    public ct8 updateSearchForumInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, str)) == null) {
-            ni8.d().f(str);
-            return new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, str)) == null) {
+            fl8.d().f(str);
+            return new ct8();
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 writePostSuccess(HashMap hashMap) {
+    public ct8 writePostSuccess(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048668, this, hashMap)) == null) {
-            return new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048672, this, hashMap)) == null) {
+            return new ct8();
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 handlePortal(String str, String str2, String str3) {
+    public ct8 handlePortal(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048614, this, str, str2, str3)) == null) {
-            dq8 dq8Var = new dq8();
-            hi8.c().b(new c(this, str3, str, str2));
-            return dq8Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048615, this, str, str2, str3)) == null) {
+            ct8 ct8Var = new ct8();
+            zk8.c().b(new c(this, str3, str, str2));
+            return ct8Var;
         }
-        return (dq8) invokeLLL.objValue;
+        return (ct8) invokeLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1537,11 +1552,11 @@ public class CommonTbJsBridge implements zp8 {
         webView.loadUrl("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')");
     }
 
-    public dq8 selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
+    public ct8 selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, str, arrayList)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, str, arrayList)) == null) {
+            ct8 ct8Var = new ct8();
             ArrayList arrayList2 = new ArrayList();
             if (!ListUtils.isEmpty(arrayList)) {
                 for (int i = 0; i < arrayList.size(); i++) {
@@ -1553,31 +1568,31 @@ public class CommonTbJsBridge implements zp8 {
                     arrayList2.add(new ReportPrivateMsgData(jSONObject.optString("msgId"), optString, jSONObject.optString(FileMetaUtil.CREATE_TIME)));
                 }
             }
-            sj5.c(new d(this, str), new e(this, str, arrayList2));
+            mk5.c(new d(this, str), new e(this, str, arrayList2));
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 0);
-                dq8Var.o(jSONObject2.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject2.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public dq8 startApp(String str, String str2) {
+    public ct8 startApp(String str, String str2) {
         InterceptResult invokeLL;
         boolean z;
         Intent launchIntentForPackage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048655, this, str, str2)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048658, this, str, str2)) == null) {
+            ct8 ct8Var = new ct8();
             List<String> a2 = s15.a();
             int i = 0;
             try {
@@ -1598,18 +1613,18 @@ public class CommonTbJsBridge implements zp8 {
                         i = 1;
                     }
                     jSONObject.put("resultCode", i);
-                    dq8Var.o(jSONObject.toString());
-                    return dq8Var;
+                    ct8Var.o(jSONObject.toString());
+                    return ct8Var;
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 if (z) {
                 }
                 jSONObject2.put("resultCode", i);
-                dq8Var.o(jSONObject2.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject2.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
             z = false;
             if (!z) {
@@ -1617,7 +1632,7 @@ public class CommonTbJsBridge implements zp8 {
                 z = true;
             }
         } else {
-            return (dq8) invokeLL.objValue;
+            return (ct8) invokeLL.objValue;
         }
     }
 
@@ -1628,7 +1643,7 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("status", 0);
-                jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10ed));
+                jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
                 if (OpenJsSdkSwitch.isOn()) {
                     jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
                 } else {
@@ -1643,42 +1658,42 @@ public class CommonTbJsBridge implements zp8 {
         return (String) invokeV.objValue;
     }
 
-    public dq8 goToNotificationSetting() {
+    public ct8 goToNotificationSetting() {
         InterceptResult invokeV;
         Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            ct8 ct8Var = new ct8();
             try {
                 currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
             }
             if (currentActivity == null) {
-                return dq8Var;
+                return ct8Var;
             }
             currentActivity.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName())));
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    private fn4 getShakeController() {
+    private en4 getShakeController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
             if (this.mShakeController == null) {
-                this.mShakeController = new fn4(this.mContext, new a(this));
+                this.mShakeController = new en4(this.mContext, new a(this));
             }
             return this.mShakeController;
         }
-        return (fn4) invokeV.objValue;
+        return (en4) invokeV.objValue;
     }
 
     private String refreshPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921052));
             return "";
         }
@@ -1692,56 +1707,68 @@ public class CommonTbJsBridge implements zp8 {
         }
     }
 
-    public dq8 getStartLoadTimeInterval() {
+    public ct8 getAlipayUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.aliHttpProxy.l();
+        }
+        return (ct8) invokeV.objValue;
+    }
+
+    public ct8 getStartLoadTimeInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("loadUrlTime", this.mLastLoadUrlTime);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
     public int getmH5PersonalizedRecSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.mH5PersonalizedRecSwitch;
         }
         return invokeV.intValue;
     }
 
-    public dq8 jumpToHotTrendPage() {
+    public ct8 jumpToHotTrendPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            dq8 dq8Var = new dq8();
-            ly4.g(this.mContext, 16, false);
-            return dq8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            ct8 ct8Var = new ct8();
+            my4.g(this.mContext, 16, false);
+            return ct8Var;
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
     public void onDestroy() {
-        fn4 fn4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048622, this) == null) && (fn4Var = this.mShakeController) != null && fn4Var.d()) {
-            this.mShakeController.c();
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            this.aliHttpProxy.k();
+            en4 en4Var = this.mShakeController;
+            if (en4Var != null && en4Var.d()) {
+                this.mShakeController.c();
+            }
         }
     }
 
     private boolean isLegalSchema(List<String> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, list, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, list, str)) == null) {
             if (!StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
                 for (String str2 : list) {
                     if (str.startsWith(str2)) {
@@ -1757,7 +1784,7 @@ public class CommonTbJsBridge implements zp8 {
     private String jumpToPbPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, str, str2)) == null) {
             PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str, null, str2);
             createNormalCfg.setStartFrom(5);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
@@ -1766,26 +1793,26 @@ public class CommonTbJsBridge implements zp8 {
         return (String) invokeLL.objValue;
     }
 
-    public dq8 jumpForumRulesEditPage(String str, String str2) {
+    public ct8 jumpForumRulesEditPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048618, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 ForumRuleEditActivityConfig forumRuleEditActivityConfig = new ForumRuleEditActivityConfig(this.mContext, str, str2, null, 0, null);
                 forumRuleEditActivityConfig.setRequestCode(25070);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumRuleEditActivityConfig));
             }
-            return new dq8();
+            return new ct8();
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
-    public dq8 jumpToHtmlPage(String str, int i) {
+    public ct8 jumpToHtmlPage(String str, int i) {
         InterceptResult invokeLI;
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048620, this, str, i)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048621, this, str, i)) == null) {
+            ct8 ct8Var = new ct8();
             if (!TextUtils.isEmpty(str) && (context = this.mContext) != null) {
                 sp4.o(context, str);
                 if (i == 1) {
@@ -1795,34 +1822,34 @@ public class CommonTbJsBridge implements zp8 {
                     }
                 }
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeLI.objValue;
+        return (ct8) invokeLI.objValue;
     }
 
-    public dq8 openThirdPartApp(int i, String str) {
+    public ct8 openThirdPartApp(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048625, this, i, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048627, this, i, str)) == null) {
+            ct8 ct8Var = new ct8();
             if (i == 1) {
-                if (qo8.b(this.mContext, "com.tencent.mobileqq")) {
-                    c45.e(8, this.mContext);
+                if (pr8.b(this.mContext, "com.tencent.mobileqq")) {
+                    d45.e(8, this.mContext);
                 } else {
                     Context context = this.mContext;
-                    BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f11a2)).i();
+                    BdToast.b(context, context.getText(R.string.share_qq_not_install)).i();
                 }
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeIL.objValue;
+        return (ct8) invokeIL.objValue;
     }
 
-    public dq8 orderGameApk(String str, String str2) {
+    public ct8 orderGameApk(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048627, this, str, str2)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048629, this, str, str2)) == null) {
+            ct8 ct8Var = new ct8();
             Context context = this.mContext;
             if (context instanceof BdBaseActivity) {
                 ItemCardHelper.v(((BdBaseActivity) context).getUniqueId(), str, str2);
@@ -1830,21 +1857,38 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeLL.objValue;
+        return (ct8) invokeLL.objValue;
     }
 
-    public dq8 updateTailStyle(int i, String str) {
+    public void showGroupShareDialog(ShareItem shareItem, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048653, this, shareItem, i) == null) && shareItem != null && shareItem.J0 != null) {
+            if (i == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            shareItem.K0 = z;
+            shareItem.l0 = true;
+            shareItem.Q = 11;
+            y66.c().l(new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null));
+            vf7.b(shareItem.J0);
+        }
+    }
+
+    public ct8 updateTailStyle(int i, String str) {
         InterceptResult invokeIL;
         SmallTailThemeData smallTailThemeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048666, this, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048670, this, i, str)) == null) {
             if (i == 1) {
                 smallTailThemeData = new SmallTailThemeData();
                 smallTailThemeData.setPropsId(str);
@@ -1852,24 +1896,24 @@ public class CommonTbJsBridge implements zp8 {
                 smallTailThemeData = null;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921748, smallTailThemeData));
-            return new dq8();
+            return new ct8();
         }
-        return (dq8) invokeIL.objValue;
+        return (ct8) invokeIL.objValue;
     }
 
     private String parseSpringFestivalTimer(String str) {
         int i;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 boolean optBoolean = jSONObject.optBoolean("open");
                 String optString = jSONObject.optString(EasterEggBridge.KEY_METHOD_NAME);
-                u55 u55Var = new u55();
-                u55Var.g(optBoolean);
-                u55Var.f(optString);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, u55Var));
+                v55 v55Var = new v55();
+                v55Var.g(optBoolean);
+                v55Var.f(optString);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, v55Var));
                 i = 1;
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -1891,7 +1935,7 @@ public class CommonTbJsBridge implements zp8 {
         int i;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, this, str)) == null) {
             try {
                 this.shakeCallbackjsMethod = new JSONObject(str).optString(EasterEggBridge.KEY_METHOD_NAME);
                 if (!getShakeController().d()) {
@@ -1914,12 +1958,12 @@ public class CommonTbJsBridge implements zp8 {
         return (String) invokeL.objValue;
     }
 
-    public dq8 closeNativeMask(int i) {
+    public ct8 closeNativeMask(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             if (i == 1) {
                 z = true;
             } else {
@@ -1929,45 +1973,45 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
+                ct8Var.o(jSONObject.toString());
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeI.objValue;
+        return (ct8) invokeI.objValue;
     }
 
-    public dq8 getAppStorage(String str) {
+    public ct8 getAppStorage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            dq8 dq8Var = new dq8();
-            qy4 k = qy4.k();
-            String q = k.q("key_local_app_storage_" + str, "");
-            int i = !xi.isEmpty(q) ? 1 : 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            ct8 ct8Var = new ct8();
+            ry4 l = ry4.l();
+            String r = l.r("key_local_app_storage_" + str, "");
+            int i = !xi.isEmpty(r) ? 1 : 0;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                jSONObject.put("data", q);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                jSONObject.put("data", r);
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
+    public ct8 getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 ArrayList<String> arrayList = hashMap.get("tid");
@@ -1977,58 +2021,58 @@ public class CommonTbJsBridge implements zp8 {
                 }
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("threadArray", jSONArray);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 handleGoToMyLive(String str) {
+    public ct8 handleGoToMyLive(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 handleGoToMyPost(String str) {
+    public ct8 handleGoToMyPost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 onUserLoginChanged(HashMap hashMap) {
+    public ct8 onUserLoginChanged(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, hashMap)) == null) {
             if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
                 return null;
             }
@@ -2039,72 +2083,72 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-            dq8 dq8Var = new dq8();
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8 ct8Var = new ct8();
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 playSound(String str) {
+    public ct8 playSound(String str) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             if (BdNetTypeUtil.isNetWorkAvailable()) {
                 getShakeController().i(str);
                 i = 1;
             } else {
                 Context context = this.mContext;
                 if (context != null) {
-                    yi.O(context, R.string.obfuscated_res_0x7f0f0c81);
+                    yi.P(context, R.string.obfuscated_res_0x7f0f0cb8);
                 }
                 i = 0;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 preheatWeb(ArrayList<String> arrayList) {
+    public ct8 preheatWeb(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, arrayList)) == null) {
             if (arrayList != null) {
                 Iterator<String> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    String a2 = lk5.a(it.next());
+                    String a2 = gl5.a(it.next());
                     if (a2 != null) {
-                        lk5.d(this.mContext, a2, null);
+                        gl5.d(this.mContext, a2, null);
                     }
                 }
             }
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
     public void showShareDialog(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048652, this, shareItem) != null) || shareItem == null) {
+        if ((interceptable != null && interceptable.invokeL(1048655, this, shareItem) != null) || shareItem == null) {
             return;
         }
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true);
@@ -2123,7 +2167,7 @@ public class CommonTbJsBridge implements zp8 {
     public String startApp(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, str)) == null) {
             if (!xi.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -2144,10 +2188,10 @@ public class CommonTbJsBridge implements zp8 {
         return (String) invokeL.objValue;
     }
 
-    public dq8 thirdPartyLoginResultToH5(HashMap hashMap) {
+    public ct8 thirdPartyLoginResultToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048663, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048666, this, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
@@ -2160,14 +2204,14 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            dq8 dq8Var = new dq8();
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8 ct8Var = new ct8();
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zp8
+    @Override // com.baidu.tieba.ys8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         boolean z;
@@ -2183,23 +2227,15 @@ public class CommonTbJsBridge implements zp8 {
                     }
                 }
                 if (HIDE_WEBVIEW_LOADING.equals(str2)) {
-                    try {
-                        String optString = new JSONObject(str3).optString("url");
-                        if (!StringUtils.isNull(optString)) {
-                            hideWebviewLoading(optString);
-                        }
-                        jsPromptResult.confirm();
-                        return true;
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
-                    }
+                    jsPromptResult.confirm();
+                    return true;
                 }
                 if (PERSON_PAGE_REFRESH.equals(str2)) {
                     try {
                         jsPromptResult.confirm(refreshPage());
                         return true;
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
                     }
                 }
                 if (FINISH_THIS_PAGE.equals(str2)) {
@@ -2207,8 +2243,8 @@ public class CommonTbJsBridge implements zp8 {
                         JSONObject jSONObject = new JSONObject(str3);
                         jsPromptResult.confirm(finishPage(jSONObject.optString("nextPage"), jSONObject.optString("source")).a());
                         return true;
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                     }
                 }
                 if (PERSON_PAGE_SHARE.equals(str2)) {
@@ -2216,8 +2252,8 @@ public class CommonTbJsBridge implements zp8 {
                         showRightShare(str3);
                         jsPromptResult.confirm();
                         return true;
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
                     }
                 }
                 if (GET_ZID.equals(str2)) {
@@ -2228,17 +2264,17 @@ public class CommonTbJsBridge implements zp8 {
                         JSONObject jSONObject2 = new JSONObject(str3);
                         jsPromptResult.confirm(setShareInfo(jSONObject2.optString("title"), jSONObject2.optString("desc"), jSONObject2.optString("img"), jSONObject2.optString("url"), jSONObject2.optString("topic"), jSONObject2.optString("wbtitle"), jSONObject2.optString("wbcontent"), jSONObject2.optString("isShowMoreForum"), jSONObject2.optInt("shareimg"), jSONObject2.optString("extdata")).a());
                         return true;
-                    } catch (JSONException e7) {
-                        BdLog.e(e7);
+                    } catch (JSONException e6) {
+                        BdLog.e(e6);
                         return true;
                     }
                 } else if ("share".equals(str2)) {
                     try {
                         JSONObject jSONObject3 = new JSONObject(str3);
-                        jsPromptResult.confirm(share(jSONObject3.optInt("channel"), jSONObject3.optInt("shareimg"), jSONObject3.optString("img"), jSONObject3.optString("isShowMoreForum"), jSONObject3.optString("url"), jSONObject3.optString("title"), jSONObject3.optString("desc"), jSONObject3.optString("topic"), jSONObject3.optString("wbtitle"), jSONObject3.optString("wbcontent"), jSONObject3.optInt("weixin_disable"), jSONObject3.optString("extdata"), jSONObject3.optInt("source"), jSONObject3.optString("topicid")).a());
+                        jsPromptResult.confirm(share(jSONObject3.optInt("channel"), jSONObject3.optInt("shareimg"), jSONObject3.optString("img"), jSONObject3.optString("isShowMoreForum"), jSONObject3.optString("url"), jSONObject3.optString("title"), jSONObject3.optString("desc"), jSONObject3.optString("topic"), jSONObject3.optString("wbtitle"), jSONObject3.optString("wbcontent"), jSONObject3.optInt("weixin_disable"), jSONObject3.optString("extdata"), jSONObject3.optInt("source"), jSONObject3.optString("topicid"), jSONObject3.optLong("roomId"), jSONObject3.optInt("filterRooms"), jSONObject3.optInt("roomMemberCount"), jSONObject3.optLong("fid"), jSONObject3.optString("forumName")).a());
                         return true;
-                    } catch (JSONException e8) {
-                        BdLog.e(e8);
+                    } catch (JSONException e7) {
+                        BdLog.e(e7);
                         return true;
                     }
                 } else if (GET_CLIPPER_INFORMATION.equals(str2)) {
@@ -2248,20 +2284,20 @@ public class CommonTbJsBridge implements zp8 {
                     try {
                         try {
                             jsPromptResult.confirm(setClipperInformation(new JSONObject(str3).optString("txt")).a());
-                        } catch (JSONException e9) {
-                            e = e9;
+                        } catch (JSONException e8) {
+                            e = e8;
                             BdLog.e(e);
                             return true;
                         }
-                    } catch (JSONException e10) {
-                        e = e10;
+                    } catch (JSONException e9) {
+                        e = e9;
                     }
                     return true;
                 } else if (CHECK_APP_INSTALL.equals(str2)) {
                     try {
                         jsPromptResult.confirm(checkAppInstall(new JSONObject(str3).optString("pkgName")).a());
-                    } catch (JSONException e11) {
-                        BdLog.e(e11);
+                    } catch (JSONException e10) {
+                        BdLog.e(e10);
                     }
                     return true;
                 } else if (START_APP.equals(str2)) {
@@ -2277,8 +2313,8 @@ public class CommonTbJsBridge implements zp8 {
                 } else if (START_DOWNLOAD_CSS.equals(str2)) {
                     try {
                         jsPromptResult.confirm(startDownloadCss(new JSONObject(str3).optString(TTDownloadField.TT_DOWNLOAD_URL)).a());
-                    } catch (JSONException e12) {
-                        BdLog.e(e12);
+                    } catch (JSONException e11) {
+                        BdLog.e(e11);
                     }
                 } else if (SPRING_FESTIVAL_TIMER.equals(str2)) {
                     jsPromptResult.confirm(parseSpringFestivalTimer(str3));
@@ -2289,36 +2325,36 @@ public class CommonTbJsBridge implements zp8 {
                 } else if (PLAY_SOUND.equals(str2)) {
                     try {
                         jsPromptResult.confirm(playSound(new JSONObject(str3).optString("soundUrl")).a());
-                    } catch (JSONException e13) {
-                        BdLog.e(e13);
+                    } catch (JSONException e12) {
+                        BdLog.e(e12);
                     }
                 } else if (START_ACCELEROMETER.equals(str2)) {
                     jsPromptResult.confirm(startAcceleromter(str3));
                 } else if (DisableSlideBack.equals(str2)) {
                     try {
                         jsPromptResult.confirm(disableBack(new JSONObject(str3).optInt(PackageTable.DISABLE)).a());
-                    } catch (JSONException e14) {
-                        BdLog.e(e14);
+                    } catch (JSONException e13) {
+                        BdLog.e(e13);
                     }
                 } else if (TOAST_POPUPVIEW.equals(str2)) {
                     try {
                         JSONObject jSONObject4 = new JSONObject(str3);
                         jsPromptResult.confirm(showLowerHairHint(jSONObject4.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject4.optInt("ahead_type"), jSONObject4.optString("message"), jSONObject4.optString("btn_text"), jSONObject4.optInt("toast_duration"), jSONObject4.optString("schema"), jSONObject4.optString("token"), jSONObject4.optDouble(NativeConstants.OPACITY), jSONObject4.optString(BigdayActivityConfig.IMG_URL), jSONObject4.optString("url"), jSONObject4.optInt("mission_id"), jSONObject4.optString("btn_color"), jSONObject4.optString("message_color"), jSONObject4.optString("btn_text_color"), jSONObject4.optInt("status"), jSONObject4.optInt(FINISH_THIS_PAGE)).a());
-                    } catch (JSONException e15) {
-                        BdLog.e(e15);
+                    } catch (JSONException e14) {
+                        BdLog.e(e14);
                     }
                 } else if (GAME_PUSH.equals(str2)) {
                     try {
                         JSONObject jSONObject5 = new JSONObject(str3);
                         try {
                             jsPromptResult.confirm(gamePush(jSONObject5.optString("gameId"), jSONObject5.optString("gameName"), jSONObject5.optString("gameTime"), jSONObject5.optString("gameType")).a());
-                        } catch (JSONException e16) {
-                            e = e16;
+                        } catch (JSONException e15) {
+                            e = e15;
                             e.printStackTrace();
                             return true;
                         }
-                    } catch (JSONException e17) {
-                        e = e17;
+                    } catch (JSONException e16) {
+                        e = e16;
                     }
                     return true;
                 } else if (GAME_PUSH_STATUS.equals(str2)) {
@@ -2327,22 +2363,22 @@ public class CommonTbJsBridge implements zp8 {
                 } else if (GO_TO_MY_POST.equals(str2)) {
                     try {
                         jsPromptResult.confirm(handleGoToMyPost(new JSONObject(str3).optString("uid")).a());
-                    } catch (JSONException e18) {
-                        BdLog.e(e18);
+                    } catch (JSONException e17) {
+                        BdLog.e(e17);
                     }
                     return true;
                 } else if (GO_TO_MY_LIVE.equals(str2)) {
                     try {
                         jsPromptResult.confirm(handleGoToMyLive(new JSONObject(str3).optString("uid")).a());
-                    } catch (JSONException e19) {
-                        BdLog.e(e19);
+                    } catch (JSONException e18) {
+                        BdLog.e(e18);
                     }
                     return true;
                 } else if (SAVE_IMAGE.equals(str2)) {
                     try {
                         jsPromptResult.confirm(handleSaveImage(new JSONObject(str3).optString("imgUrl")).a());
-                    } catch (JSONException e20) {
-                        BdLog.e(e20);
+                    } catch (JSONException e19) {
+                        BdLog.e(e19);
                     }
                     return true;
                 } else if (GET_PHOTO_ALBUM.equals(str2)) {
@@ -2360,42 +2396,42 @@ public class CommonTbJsBridge implements zp8 {
                     try {
                         JSONObject jSONObject6 = new JSONObject(str3);
                         jsPromptResult.confirm(sendCompleteTaskReqMsg(jSONObject6.optString("activityId"), jSONObject6.optString("missionId")).a());
-                    } catch (JSONException e21) {
-                        BdLog.e(e21);
+                    } catch (JSONException e20) {
+                        BdLog.e(e20);
                     }
                 } else if (GET_MODAL_DATA.equals(str2)) {
                     try {
                         jsPromptResult.confirm(getGetModalData(new JSONObject(str3).optString("url")).a());
-                    } catch (JSONException e22) {
-                        BdLog.e(e22);
+                    } catch (JSONException e21) {
+                        BdLog.e(e21);
                     }
                 } else if (SHOW_TIP_TOAST.equals(str2)) {
                     try {
                         JSONObject jSONObject7 = new JSONObject(str3);
                         jsPromptResult.confirm(showTipToast(jSONObject7.optString("content"), jSONObject7.optString("linkUrl"), jSONObject7.optString("key"), jSONObject7.optInt("maxTimes"), jSONObject7.optInt(FINISH_THIS_PAGE)).a());
-                    } catch (JSONException e23) {
-                        BdLog.e(e23);
+                    } catch (JSONException e22) {
+                        BdLog.e(e22);
                     }
                 } else if (JUMP_TO_HTML_PAGE.equals(str2)) {
                     try {
                         JSONObject jSONObject8 = new JSONObject(str3);
                         jsPromptResult.confirm(jumpToHtmlPage(jSONObject8.optString("url"), jSONObject8.optInt("finish_this_page", 1)).toString());
-                    } catch (JSONException e24) {
-                        BdLog.e(e24);
+                    } catch (JSONException e23) {
+                        BdLog.e(e23);
                     }
                 } else if (CLOSE_NATIVE_MASK.equals(str2)) {
                     try {
                         z = false;
                         try {
-                            jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt(TiebaStatic.LogFields.RESULT, 0)).a());
+                            jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt("result", 0)).a());
                             return false;
-                        } catch (JSONException e25) {
-                            e = e25;
+                        } catch (JSONException e24) {
+                            e = e24;
                             e.printStackTrace();
                             return z;
                         }
-                    } catch (JSONException e26) {
-                        e = e26;
+                    } catch (JSONException e25) {
+                        e = e25;
                         z = false;
                     }
                 } else if (GO_TO_HOT_TREND.equals(str2)) {
@@ -2405,15 +2441,15 @@ public class CommonTbJsBridge implements zp8 {
                 } else if (GO_TO_PB.equals(str2)) {
                     try {
                         JSONObject jSONObject9 = new JSONObject(str3);
-                        String optString2 = jSONObject9.optString("tid");
-                        String optString3 = jSONObject9.optString("fr");
-                        if (!StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
-                            jumpToPbPage(optString2, optString3);
+                        String optString = jSONObject9.optString("tid");
+                        String optString2 = jSONObject9.optString("fr");
+                        if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
+                            jumpToPbPage(optString, optString2);
                         }
                         jsPromptResult.confirm();
                         return true;
-                    } catch (JSONException e27) {
-                        e27.printStackTrace();
+                    } catch (JSONException e26) {
+                        e26.printStackTrace();
                         return false;
                     }
                 } else if (GET_APIS.equals(str2)) {
@@ -2425,23 +2461,23 @@ public class CommonTbJsBridge implements zp8 {
                 } else if (FINISH_TEST_ANSWER.equals(str2)) {
                     try {
                         jsPromptResult.confirm(finishTestAnswer(new JSONObject(str3).optLong("testId")).a());
-                    } catch (JSONException e28) {
-                        e28.printStackTrace();
+                    } catch (JSONException e27) {
+                        e27.printStackTrace();
                     }
                     return true;
                 } else if (GET_APP_STORAGE.equals(str2)) {
                     try {
                         jsPromptResult.confirm(getAppStorage(new JSONObject(str3).optString("key")).a());
-                    } catch (JSONException e29) {
-                        BdLog.e(e29);
+                    } catch (JSONException e28) {
+                        BdLog.e(e28);
                     }
                     return true;
                 } else if (PUT_APP_STORAGE.equals(str2)) {
                     try {
                         JSONObject jSONObject10 = new JSONObject(str3);
                         jsPromptResult.confirm(putAppStorage(jSONObject10.optString("key"), jSONObject10.optString("data")).a());
-                    } catch (JSONException e30) {
-                        BdLog.e(e30);
+                    } catch (JSONException e29) {
+                        BdLog.e(e29);
                     }
                     return true;
                 } else if (!GET_HISTORY_FORUM_DATA.equals(str2)) {
@@ -2463,11 +2499,11 @@ public class CommonTbJsBridge implements zp8 {
         }
     }
 
-    public dq8 gamePush(String str, String str2, String str3, String str4) {
+    public ct8 gamePush(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, str, str2, str3, str4)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gameId", str);
@@ -2480,20 +2516,20 @@ public class CommonTbJsBridge implements zp8 {
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.isEmpty(jSONObject2)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return dq8Var;
+                return ct8Var;
             }
-            dq8Var.p();
-            return dq8Var;
+            ct8Var.p();
+            return ct8Var;
         }
-        return (dq8) invokeLLLL.objValue;
+        return (ct8) invokeLLLL.objValue;
     }
 
-    public dq8 getDeviceInfo() {
+    public ct8 getDeviceInfo() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            ct8 ct8Var = new ct8();
             StringBuffer stringBuffer = new StringBuffer(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             stringBuffer.append("imei=");
@@ -2559,21 +2595,21 @@ public class CommonTbJsBridge implements zp8 {
                     jSONObject.put(HttpConstants.HTTP_BOARD, str6);
                     jSONObject.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str);
                     jSONObject.put("sign", c2);
-                    dq8Var = dq8Var;
-                    dq8Var.o(jSONObject.toString());
-                    return dq8Var;
+                    ct8Var = ct8Var;
+                    ct8Var.o(jSONObject.toString());
+                    return ct8Var;
                 } catch (JSONException e2) {
                     e = e2;
-                    dq8Var = dq8Var;
+                    ct8Var = ct8Var;
                     BdLog.e(e);
-                    dq8Var.o("");
-                    return dq8Var;
+                    ct8Var.o("");
+                    return ct8Var;
                 }
             } catch (JSONException e3) {
                 e = e3;
             }
         } else {
-            return (dq8) invokeV.objValue;
+            return (ct8) invokeV.objValue;
         }
     }
 
@@ -2587,17 +2623,17 @@ public class CommonTbJsBridge implements zp8 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public dq8 getGetModalData(String str) {
+    public ct8 getGetModalData(String str) {
         InterceptResult invokeL;
         String f2;
         JSONObject newGodDataJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             JSONObject jSONObject = null;
             int i = 0;
             try {
-                f2 = q35.c().f();
+                f2 = r35.c().f();
                 newGodDataJson = TbSingleton.getInstance().getNewGodDataJson();
             } catch (Exception e2) {
                 BdLog.e(e2);
@@ -2610,8 +2646,8 @@ public class CommonTbJsBridge implements zp8 {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
                 jSONObject2.put("user_info", jSONObject);
-                dq8Var.o(jSONObject2.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject2.toString());
+                return ct8Var;
             }
             if (!TextUtils.isEmpty(f2)) {
                 jSONObject = new JSONObject(f2);
@@ -2619,27 +2655,27 @@ public class CommonTbJsBridge implements zp8 {
             JSONObject jSONObject22 = new JSONObject();
             jSONObject22.put("resultCode", i);
             jSONObject22.put("user_info", jSONObject);
-            dq8Var.o(jSONObject22.toString());
-            return dq8Var;
+            ct8Var.o(jSONObject22.toString());
+            return ct8Var;
             i = 1;
             JSONObject jSONObject222 = new JSONObject();
             jSONObject222.put("resultCode", i);
             jSONObject222.put("user_info", jSONObject);
-            dq8Var.o(jSONObject222.toString());
-            return dq8Var;
+            ct8Var.o(jSONObject222.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
+    public ct8 getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, hashMap)) == null) {
             JSONArray jSONArray = null;
             if (hashMap == null) {
                 return null;
             }
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONArray jSONArray2 = new JSONArray();
@@ -2666,56 +2702,89 @@ public class CommonTbJsBridge implements zp8 {
                 }
                 jSONObject.put("resultCode", i);
                 jSONObject.put("imageArray", jSONArray);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 handleSaveImage(String str) {
+    public ct8 handleSaveImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             if (this.mPermissionJudgement == null) {
                 this.mPermissionJudgement = new PermissionJudgePolicy();
             }
             this.mPermissionJudgement.clearRequestPermissionList();
             Context context = this.mContext;
             if (!(context instanceof Activity)) {
-                dq8Var.p();
-                return dq8Var;
+                ct8Var.p();
+                return ct8Var;
             }
             this.mPermissionJudgement.appendRequestPermission((Activity) context, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-                dq8Var.q("权限申请");
-                return dq8Var;
+                ct8Var.q("权限申请");
+                return ct8Var;
             }
             new InsertGalleryAsyncTask((Activity) this.mContext, str, new b(this)).execute(new String[0]);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 refreshTailInH5(HashMap hashMap) {
+    public ct8 notifyAliAuthResult(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
+            int i2 = -1;
+            try {
+                i2 = Integer.parseInt(hashMap.get("status"));
+                ct8Var.x(i2);
+                ct8Var.t(hashMap.get("message"));
+                if (i2 == 0) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("avatar", hashMap.get("avatar"));
+                    jSONObject.put("nick_name", hashMap.get("nick_name"));
+                    jSONObject.put("alipay_user_id", hashMap.get("alipay_user_id"));
+                    ct8Var.o(jSONObject.toString());
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GET_ALI_PAY_USER_INFO);
+            if (i2 == 0) {
+                i = 0;
+            } else {
+                i = 1;
+            }
+            TiebaStatic.log(statisticItem.param("obj_param1", i));
+            return ct8Var;
+        }
+        return (ct8) invokeL.objValue;
+    }
+
+    public ct8 refreshTailInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
             if (hashMap == null) {
-                return dq8Var;
+                return ct8Var;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -2723,22 +2792,22 @@ public class CommonTbJsBridge implements zp8 {
                 jSONObject.put(TailEditActivityConfig.TAIL_COLOR, hashMap.get("tailColor"));
                 jSONObject.put(TailEditActivityConfig.TAIL_CONTENT, hashMap.get("tailContent"));
                 if (this.mContext != null) {
-                    jSONObject.put("font_key_name", this.mContext.getString(R.string.obfuscated_res_0x7f0f13b9));
+                    jSONObject.put("font_key_name", this.mContext.getString(R.string.tail_default_font));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
             callJsMethod(REFRESH_TAIL, jSONObject);
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 shareSuccessNotification(HashMap hashMap) {
+    public ct8 shareSuccessNotification(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, hashMap)) == null) {
             int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
             ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
             JSONObject jSONObject = new JSONObject();
@@ -2757,78 +2826,78 @@ public class CommonTbJsBridge implements zp8 {
                 e2.printStackTrace();
             }
             callJsMethod(SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-            dq8 dq8Var = new dq8();
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8 ct8Var = new ct8();
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 startDownloadCss(String str) {
+    public ct8 startDownloadCss(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             JSONObject jSONObject = new JSONObject();
             if (!xi.isEmpty(str)) {
                 try {
                     if (xi.isEmpty(str)) {
                         jSONObject.put("resultCode", 0);
-                        dq8Var.o(jSONObject.toString());
-                        return dq8Var;
+                        ct8Var.o(jSONObject.toString());
+                        return ct8Var;
                     }
                     String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
                     String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
                     if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
                         jSONObject.put("resultCode", 0);
-                        dq8Var.o(jSONObject.toString());
-                        return dq8Var;
+                        ct8Var.o(jSONObject.toString());
+                        return ct8Var;
                     }
                     DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
                     downloadData.setPath(customLoginCssStoragePath);
-                    h65.k().l(downloadData);
+                    i65.k().l(downloadData);
                     jSONObject.put("resultCode", 1);
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
             }
-            dq8Var.o(jSONObject.toString());
-            return dq8Var;
+            ct8Var.o(jSONObject.toString());
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 switchOfflineInterface(String str) {
+    public ct8 switchOfflineInterface(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, str)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, str)) == null) {
+            ct8 ct8Var = new ct8();
             try {
                 if (StringUtils.isNull(str)) {
                     str = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
                 }
                 tempUrl = str;
-                x45.a().g(true);
+                y45.a().g(true);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, tempUrl + "?cmd=309485");
                 tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 switchUrlHost(ArrayList<JSONObject> arrayList) {
+    public ct8 switchUrlHost(ArrayList<JSONObject> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, arrayList)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, arrayList)) == null) {
+            ct8 ct8Var = new ct8();
             try {
                 xp4 xp4Var = new xp4();
                 xp4Var.a = new LinkedHashMap();
@@ -2846,27 +2915,27 @@ public class CommonTbJsBridge implements zp8 {
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 1);
-                dq8Var.o(jSONObject2.toString());
+                ct8Var.o(jSONObject2.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 getOfflineUserInfo() {
+    public ct8 getOfflineUserInfo() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            ct8 ct8Var = new ct8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("version", TbConfig.getVersion());
                 jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
-                jSONObject.put("hybridVersion", ff8.q().D());
+                jSONObject.put("hybridVersion", xh8.q().D());
                 if (QuickWebViewSwitch.getInOn()) {
                     i = 1;
                 } else {
@@ -2878,20 +2947,20 @@ public class CommonTbJsBridge implements zp8 {
                     jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().b);
                 }
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
+                ct8Var.o(jSONObject.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+    public ct8 getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, hashMap)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, hashMap)) == null) {
+            ct8 ct8Var = new ct8();
             List<ReportPrivateMsgData> list = hashMap.get("private_msg");
             try {
                 JSONArray jSONArray = new JSONArray();
@@ -2910,21 +2979,21 @@ public class CommonTbJsBridge implements zp8 {
                 }
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("msgArray", jSONArray);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeL.objValue;
+        return (ct8) invokeL.objValue;
     }
 
-    public dq8 getSupplementInfo() {
+    public ct8 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            ct8 ct8Var = new ct8();
             StringBuffer stringBuffer = new StringBuffer(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             stringBuffer.append("imei=");
@@ -2958,22 +3027,22 @@ public class CommonTbJsBridge implements zp8 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c2);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                dq8Var.o("");
-                return dq8Var;
+                ct8Var.o("");
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public ct8 goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
+            ct8 ct8Var = new ct8();
             if ("1".equals(str)) {
                 WriteActivityConfig.newInstance(this.mContext).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
             } else if ("2".equals(str)) {
@@ -2986,18 +3055,18 @@ public class CommonTbJsBridge implements zp8 {
                 createSubPbActivityConfig.showOpenEditorTips(str5);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeCommon.objValue;
+        return (ct8) invokeCommon.objValue;
     }
 
-    public dq8 goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
+    public ct8 goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
         InterceptResult invokeCommon;
         String str18;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
+            ct8 ct8Var = new ct8();
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.thread_id = str;
@@ -3026,37 +3095,40 @@ public class CommonTbJsBridge implements zp8 {
             videoItemData.forum_id = str15;
             videoItemData.forum_name = str16;
             arrayList.add(videoItemData);
-            zi5.d(this.mContext, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false, xg.g(str15, 0L));
-            return dq8Var;
+            sj5.d(this.mContext, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false, xg.g(str15, 0L));
+            return ct8Var;
         }
-        return (dq8) invokeCommon.objValue;
+        return (ct8) invokeCommon.objValue;
     }
 
-    public dq8 handleGamePushStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            dq8 dq8Var = new dq8();
-            String q = qy4.k().q("key_match_id_list_football", "");
-            String q2 = qy4.k().q("key_match_id_list_basketball", "");
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + q + PreferencesUtil.RIGHT_MOUNT);
-                jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + q2 + PreferencesUtil.RIGHT_MOUNT);
-                dq8Var.o(jSONObject.toString());
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-            return dq8Var;
-        }
-        return (dq8) invokeV.objValue;
-    }
-
-    public dq8 handleGetPhotoAlbum() {
+    public ct8 handleGamePushStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            dq8 dq8Var = new dq8();
+            ct8 ct8Var = new ct8();
+            String r = ry4.l().r("key_match_id_list_football", "");
+            String r2 = ry4.l().r("key_match_id_list_basketball", "");
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + r + PreferencesUtil.RIGHT_MOUNT);
+                jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + r2 + PreferencesUtil.RIGHT_MOUNT);
+                ct8Var.o(jSONObject.toString());
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            return ct8Var;
+        }
+        return (ct8) invokeV.objValue;
+    }
+
+    public ct8 handleGetPhotoAlbum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            ct8 ct8Var = new ct8();
+            if (TbadkCoreApplication.getInst().getCurrentActivity() == null) {
+                return ct8Var;
+            }
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) TbadkCoreApplication.getInst().getCurrentActivity(), new WriteImagesInfo().toJsonString(), true);
             albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
             albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
@@ -3067,43 +3139,43 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeV.objValue;
+        return (ct8) invokeV.objValue;
     }
 
-    public dq8 jumpToVideo(String str, String str2, String str3) {
+    public ct8 jumpToVideo(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048621, this, str, str2, str3)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048622, this, str, str2, str3)) == null) {
+            ct8 ct8Var = new ct8();
             if (WriteActivityConfig.isAsyncWriting()) {
-                return dq8Var;
+                return ct8Var;
             }
-            int a2 = z39.a();
-            if (z39.c(a2)) {
-                z39.e(this.mContext, a2, 0);
+            int a2 = i79.a();
+            if (i79.c(a2)) {
+                i79.e(this.mContext, a2, 0);
             }
-            if (z39.b()) {
-                z39.h(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+            if (i79.b()) {
+                i79.h(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
             } else {
-                z39.k(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+                i79.k(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeLLL.objValue;
+        return (ct8) invokeLLL.objValue;
     }
 
-    public dq8 selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
+    public ct8 selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048640, this, i, arrayList)) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048642, this, i, arrayList)) == null) {
+            ct8 ct8Var = new ct8();
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.setMaxImagesAllowed(i);
             if (arrayList != null) {
@@ -3132,22 +3204,22 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 0);
-                dq8Var.o(jSONObject2.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject2.toString());
+                return ct8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeIL.objValue;
+        return (ct8) invokeIL.objValue;
     }
 
-    public dq8 setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public ct8 setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048648, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048650, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
+            ct8 ct8Var = new ct8();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("title", str);
@@ -3173,22 +3245,25 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("resultCode", i2);
-                dq8Var.o(jSONObject3.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject3.toString());
+                return ct8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeCommon.objValue;
+        return (ct8) invokeCommon.objValue;
     }
 
-    public dq8 share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10) {
+    public ct8 share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, long j, int i5, int i6, long j2, String str11) {
         InterceptResult invokeCommon;
+        int i7;
         CustomResponsedMessage runTask;
+        boolean z;
+        GroupInfoData groupInfoData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048649, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10})) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048651, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str11})) == null) {
+            ct8 ct8Var = new ct8();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("channel", i);
@@ -3203,11 +3278,15 @@ public class CommonTbJsBridge implements zp8 {
                 jSONObject.put("wbcontent", str8);
                 jSONObject.put("weixin_disable", i3);
                 jSONObject.put("extdata", str9);
+                jSONObject.put("roomId", j);
+                jSONObject.put("filterRooms", i5);
+                jSONObject.put("roomMemberCount", i6);
+                jSONObject.put("fid", j2);
+                jSONObject.put("forumName", str11);
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
             String jSONObject2 = jSONObject.toString();
-            int i5 = 1;
             if (!xi.isEmpty(jSONObject2) && (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject2)) != null) {
                 ShareItem shareItem = (ShareItem) runTask.getData();
                 if (shareItem != null) {
@@ -3217,7 +3296,11 @@ public class CommonTbJsBridge implements zp8 {
                         shareItem.z0 = str10;
                     }
                 }
-                if ("1".equals(str2) && shareItem != null) {
+                if (shareItem != null && (groupInfoData = shareItem.J0) != null && groupInfoData.getGroupId() > 0) {
+                    showGroupShareDialog(shareItem, i5);
+                    ct8Var.o("");
+                    return ct8Var;
+                } else if ("1".equals(str2) && shareItem != null) {
                     shareItem.A = str;
                     shareItem.x = str3;
                     shareItem.v = str4 + " " + str5;
@@ -3227,82 +3310,91 @@ public class CommonTbJsBridge implements zp8 {
                     }
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
-                    d66.c().l(shareDialogConfig);
-                    dq8Var.o("");
-                    return dq8Var;
-                } else if (i == 0) {
-                    if (shareItem != null && !xi.isEmpty(str) && i2 == 1) {
-                        setShareItem(shareItem);
-                        shareLoacalImage(str, i);
-                    }
-                    showShareDialog(shareItem);
-                } else if (shareItem != null && !xi.isEmpty(str) && i2 == 1) {
-                    setShareItem(shareItem);
-                    shareLoacalImage(str, i);
+                    y66.c().l(shareDialogConfig);
+                    ct8Var.o("");
+                    return ct8Var;
                 } else {
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.mContext, i, shareItem, true));
+                    if (i == 0) {
+                        if (shareItem != null && !xi.isEmpty(str) && i2 == 1) {
+                            setShareItem(shareItem);
+                            shareLoacalImage(str, i);
+                        }
+                        showShareDialog(shareItem);
+                    } else {
+                        if (shareItem != null && !xi.isEmpty(str)) {
+                            z = true;
+                            if (i2 == 1) {
+                                setShareItem(shareItem);
+                                shareLoacalImage(str, i);
+                            }
+                        } else {
+                            z = true;
+                        }
+                        MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.mContext, i, shareItem, z));
+                    }
+                    i7 = 1;
                 }
             } else {
-                i5 = 0;
+                i7 = 0;
             }
             try {
                 JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("resultCode", i5);
-                dq8Var.o(jSONObject3.toString());
-                return dq8Var;
+                jSONObject3.put("resultCode", i7);
+                ct8Var.o(jSONObject3.toString());
+                return ct8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeCommon.objValue;
+        return (ct8) invokeCommon.objValue;
     }
 
-    public dq8 showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public ct8 showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048651, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d2), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            dq8 dq8Var = new dq8();
-            on4 on4Var = new on4();
-            on4Var.c = i;
-            on4Var.d = i2;
-            on4Var.e = str;
-            on4Var.f = str2;
-            on4Var.i = i3;
-            on4Var.l = str3;
-            on4Var.n = d2;
-            on4Var.j = str5;
-            on4Var.k = str6;
-            on4Var.b = i4;
-            on4Var.o = str7;
-            on4Var.p = str8;
-            on4Var.q = str9;
-            if (i == on4.y) {
-                sv4.h(TbadkCoreApplication.getInst().getCurrentActivity(), on4Var).j();
-            } else if (i == on4.z) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d2), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            ct8 ct8Var = new ct8();
+            nn4 nn4Var = new nn4();
+            nn4Var.c = i;
+            nn4Var.d = i2;
+            nn4Var.e = str;
+            nn4Var.f = str2;
+            nn4Var.i = i3;
+            nn4Var.l = str3;
+            nn4Var.n = d2;
+            nn4Var.j = str5;
+            nn4Var.k = str6;
+            nn4Var.b = i4;
+            nn4Var.o = str7;
+            nn4Var.p = str8;
+            nn4Var.q = str9;
+            if (i == nn4.y) {
+                tv4.h(TbadkCoreApplication.getInst().getCurrentActivity(), nn4Var).j();
+            } else if (i == nn4.z) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                pr4 pr4Var = new pr4(currentActivity);
+                rr4 rr4Var = new rr4(currentActivity);
                 if (currentActivity != null) {
-                    pr4Var.d(currentActivity, on4Var);
-                    pr4Var.i();
+                    rr4Var.d(currentActivity, nn4Var);
+                    rr4Var.i();
                 }
-            } else if (i == on4.A) {
-                if (i2 == on4.E) {
-                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), on4Var.l) && !xi.isEmpty(on4Var.k)) {
-                        dealJump(on4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+            } else if (i == nn4.A) {
+                if (i2 == nn4.E) {
+                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), nn4Var.l) && !xi.isEmpty(nn4Var.k)) {
+                        dealJump(nn4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                     }
-                } else if (i2 == on4.F && !xi.isEmpty(str6)) {
-                    dealJump(on4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                } else if (i2 == nn4.F && !xi.isEmpty(str6)) {
+                    dealJump(nn4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                 }
-            } else if (i == on4.C) {
+            } else if (i == nn4.C) {
                 if (i6 == 1) {
                     Context context = this.mContext;
                     if (context instanceof Activity) {
                         ((Activity) context).finish();
                     }
                 }
-                ub5.i(new TopToastEvent(i5, str));
-            } else if (i == on4.D) {
+                mc5.i(new TopToastEvent(i5, str));
+            } else if (i == nn4.D) {
                 if (i6 == 1) {
                     Context context2 = this.mContext;
                     if (context2 instanceof Activity) {
@@ -3318,21 +3410,21 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeCommon.objValue;
+        return (ct8) invokeCommon.objValue;
     }
 
-    public dq8 showTipToast(String str, String str2, String str3, int i, int i2) {
+    public ct8 showTipToast(String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048653, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            dq8 dq8Var = new dq8();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048656, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            ct8 ct8Var = new ct8();
             int i3 = 0;
             boolean z = false;
             boolean z2 = false;
@@ -3343,21 +3435,21 @@ public class CommonTbJsBridge implements zp8 {
                     Activity activity = (Activity) context;
                     if (!TextUtils.isEmpty(str3)) {
                         String str4 = "showToast_" + str3;
-                        int l = qy4.k().l(str4, 0);
-                        if (l < i) {
-                            qy4.k().w(str4, l);
+                        int m = ry4.l().m(str4, 0);
+                        if (m < i) {
+                            ry4.l().x(str4, m);
                             Intent intent = activity.getIntent();
                             if (i2 == 1) {
                                 z = true;
                             }
-                            ub5.i(new TipEvent(intent, str, str2, z));
+                            mc5.i(new TipEvent(intent, str, str2, z));
                         }
                     } else {
                         Intent intent2 = activity.getIntent();
                         if (i2 == 1) {
                             z2 = true;
                         }
-                        ub5.i(new TipEvent(intent2, str, str2, z2));
+                        mc5.i(new TipEvent(intent2, str, str2, z2));
                     }
                     if (i2 == 1) {
                         activity.finish();
@@ -3368,22 +3460,22 @@ public class CommonTbJsBridge implements zp8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i3);
-                dq8Var.o(jSONObject.toString());
-                return dq8Var;
+                ct8Var.o(jSONObject.toString());
+                return ct8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return dq8Var;
+                return ct8Var;
             }
         }
-        return (dq8) invokeCommon.objValue;
+        return (ct8) invokeCommon.objValue;
     }
 
-    public dq8 startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11) {
+    public ct8 startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, Integer.valueOf(i), str11})) == null) {
-            dq8 dq8Var = new dq8();
-            o96 o96Var = new o96();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048661, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, Integer.valueOf(i), str11})) == null) {
+            ct8 ct8Var = new ct8();
+            ja6 ja6Var = new ja6();
             ItemData itemData = new ItemData();
             itemData.buttonLink = str;
             itemData.buttonName = ItemCardHelper.b;
@@ -3404,25 +3496,25 @@ public class CommonTbJsBridge implements zp8 {
             builder.pkg_source = 2;
             itemData.itemId = xg.g(str2, 0L);
             itemData.apkDetail = builder.build(true);
-            o96Var.a = itemData;
-            o96Var.b = 3;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921627, o96Var));
+            ja6Var.a = itemData;
+            ja6Var.b = 3;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921627, ja6Var));
             DownloadData downloadData = new DownloadData(str3 + ".v" + str6);
             downloadData.setUrl(str);
             downloadData.setName(str3);
             downloadData.setType(12);
-            boolean s = yg8.l().s(downloadData);
+            boolean s = qj8.l().s(downloadData);
             try {
                 JSONObject jSONObject = new JSONObject();
                 if (!s) {
                     i2 = 2;
                 }
                 jSONObject.put("resultCode", i2);
-                dq8Var.o(jSONObject.toString());
+                ct8Var.o(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            return dq8Var;
+            return ct8Var;
         }
-        return (dq8) invokeCommon.objValue;
+        return (ct8) invokeCommon.objValue;
     }
 }

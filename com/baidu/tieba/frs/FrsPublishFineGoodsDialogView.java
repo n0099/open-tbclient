@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej6;
 import com.baidu.tieba.vw4;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yw4;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -96,19 +96,19 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0347, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b1c);
+            LayoutInflater.from(context).inflate(R.layout.frs_publish_major_fine_goods_dialog, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c0f);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c0e);
-            this.f = (LocalBannerLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090335);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922b8);
+            this.c = (TextView) linearLayout.findViewById(R.id.frs_shop_guide_title);
+            this.d = (TextView) this.a.findViewById(R.id.frs_shop_guide_content);
+            this.f = (LocalBannerLayout) this.a.findViewById(R.id.banner_layout);
+            TextView textView = (TextView) this.a.findViewById(R.id.to_next_tv);
             this.e = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0684);
+            textView.setText(R.string.forum_broadcast_major_history_known);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ej6(String.valueOf((int) R.drawable.pic_good_guide1)));
-            arrayList.add(new ej6(String.valueOf((int) R.drawable.pic_good_guide2)));
-            arrayList.add(new ej6(String.valueOf((int) R.drawable.pic_good_guide3)));
+            arrayList.add(new zj6(String.valueOf((int) R.drawable.pic_good_guide1)));
+            arrayList.add(new zj6(String.valueOf((int) R.drawable.pic_good_guide2)));
+            arrayList.add(new zj6(String.valueOf((int) R.drawable.pic_good_guide3)));
             this.f.setData(arrayList);
             this.f.setOnCoverViewCallback(this.g);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
@@ -123,19 +123,19 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i != 0 && i != 3) {
                 if (i == 1) {
-                    this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0729));
-                    this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0728));
+                    this.c.setText(getResources().getString(R.string.frs_goods_dialog_second_title));
+                    this.d.setText(getResources().getString(R.string.frs_goods_dialog_second_content));
                     return;
                 } else if (i == 2) {
-                    this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f072b));
-                    this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f072a));
+                    this.c.setText(getResources().getString(R.string.frs_goods_dialog_third_title));
+                    this.d.setText(getResources().getString(R.string.frs_goods_dialog_third_content));
                     return;
                 } else {
                     return;
                 }
             }
-            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0727));
-            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0726));
+            this.c.setText(getResources().getString(R.string.frs_goods_dialog_first_title));
+            this.d.setText(getResources().getString(R.string.frs_goods_dialog_first_content));
         }
     }
 

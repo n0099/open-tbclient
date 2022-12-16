@@ -44,7 +44,7 @@ public class h {
                 jSONObject.put(Config.DEVICE_MAC_ID, bw.h(2, context));
                 jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, bw.l(2, context));
                 jSONObject.put("m", android.os.Build.MODEL);
-                jSONObject.put(Config.DEVICE_NAME, bw.a(context, 2));
+                jSONObject.put("dn", bw.a(context, 2));
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(Config.TRACE_FAILED_CNT, 0);
                 jSONObject2.put("send_index", 0);

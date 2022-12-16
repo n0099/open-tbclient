@@ -3,20 +3,23 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.lego.LegoItemHolder;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.oy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wr6 extends hj6<ICardInfo, LegoItemHolder> {
+public class wr6 extends ck6<ls6, ThreadCardViewHolder<ls6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ICardInfo l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wr6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -37,51 +40,44 @@ public class wr6 extends hj6<ICardInfo, LegoItemHolder> {
                 return;
             }
         }
+        this.c = tbPageContext;
+        this.mPageId = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: E */
-    public View getView(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo})) == null) {
-            this.l = iCardInfo;
-            return super.getView(i, view2, viewGroup, iCardInfo);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: F */
-    public LegoItemHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<ls6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            qj7 a = vi7.h().a(this.c, this.l, 1);
-            if (a == null) {
-                return null;
-            }
-            a.c(this.mPageId);
-            return new LegoItemHolder(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            oy.b bVar = new oy.b(this.c.getPageActivity(), true);
+            bVar.n(new es6(this.c.getPageActivity()));
+            bVar.l().b(0);
+            bVar.l().c(0);
+            bVar.l().g(0);
+            bVar.l().f(0);
+            bVar.l().j(0);
+            bVar.l().i(0);
+            ThreadCardViewHolder<ls6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
+            threadCardViewHolder.i(this.mPageId);
+            return threadCardViewHolder;
         }
-        return (LegoItemHolder) invokeL.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj6, com.baidu.tieba.kn
-    /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
+    @Override // com.baidu.tieba.ck6, com.baidu.tieba.kn
+    /* renamed from: F */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ls6 ls6Var, ThreadCardViewHolder<ls6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, iCardInfo, legoItemHolder);
-            View view3 = legoItemHolder.getView();
-            if (view3 != null && iCardInfo != null) {
-                ((qj7) view3).update(iCardInfo);
-            }
-            return view3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ls6Var, threadCardViewHolder})) == null) {
+            threadCardViewHolder.a().r(i);
+            threadCardViewHolder.e(ls6Var);
+            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xz4(13)));
+            return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

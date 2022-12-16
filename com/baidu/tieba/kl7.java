@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.adapter.LegoDelegateAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class kl7 implements CustomMessageTask.CustomRunnable<Object> {
+/* loaded from: classes5.dex */
+public class kl7 implements an7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,31 +28,33 @@ public class kl7 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    @Override // com.baidu.tieba.an7
+    public sm7 a(wm7 wm7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
-                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                jv4.f();
-                df<String> h = jv4.h("tb.searchperson_history", currentAccount);
-                if (requestSearchPersonHistoryWriteMessage.isClear()) {
-                    BdCacheService.k().j(h);
-                } else {
-                    Object data = requestSearchPersonHistoryWriteMessage.getData();
-                    if (data != null && (data instanceof String)) {
-                        h.g((String) data, null);
-                    }
-                }
-                return new ResponseSearchPersonHistoryWriteMessage();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wm7Var)) == null) {
+            return new um7(wm7Var);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (sm7) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.an7
+    public wl7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            return new LegoDelegateAdapter(tbPageContext, bdUniqueId, i);
+        }
+        return (wl7) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.an7
+    public cn7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            return new en7(tbPageContext, bdUniqueId);
+        }
+        return (cn7) invokeLL.objValue;
     }
 }

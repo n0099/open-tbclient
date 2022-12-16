@@ -27,13 +27,13 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b07;
-import com.baidu.tieba.c07;
+import com.baidu.tieba.b17;
 import com.baidu.tieba.homepage.concern.adapter.RecommendBarPageAdapter;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -98,16 +98,16 @@ public class RecommendBarLayout extends LinearLayout implements tx, View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 xn b = this.a.h.b(i);
-                if (b instanceof c07) {
-                    c07 c07Var = (c07) b;
+                if (b instanceof b17) {
+                    b17 b17Var = (b17) b;
                     StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.a.j).param("obj_param1", i);
-                    if (!StringUtils.isNull(c07Var.a)) {
-                        param = param.param("obj_name", c07Var.a);
+                    if (!StringUtils.isNull(b17Var.a)) {
+                        param = param.param("obj_name", b17Var.a);
                     }
                     TiebaStatic.log(param);
-                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", c07Var.a()).param("obj_locate", (int) this.a.j);
-                    if (!StringUtils.isNull(c07Var.a)) {
-                        param2 = param2.param("obj_name", c07Var.a);
+                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", b17Var.a()).param("obj_locate", (int) this.a.j);
+                    if (!StringUtils.isNull(b17Var.a)) {
+                        param2 = param2.param("obj_name", b17Var.a);
                     }
                     TiebaStatic.log(param2);
                 }
@@ -201,13 +201,13 @@ public class RecommendBarLayout extends LinearLayout implements tx, View.OnClick
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0785, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0796, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091bde);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091bdc);
-            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091bdf);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bda);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c4a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c48);
+            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091c4b);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c46);
             this.e.setOffscreenPageLimit(2);
             RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
             this.h = recommendBarPageAdapter;
@@ -231,7 +231,7 @@ public class RecommendBarLayout extends LinearLayout implements tx, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             if (i != this.b) {
-                qw4 d = qw4.d(this.d);
+                rw4 d = rw4.d(this.d);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0105);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -244,37 +244,37 @@ public class RecommendBarLayout extends LinearLayout implements tx, View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091bde) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091c4a) {
             return;
         }
         xn b2 = this.h.b(this.e.getCurrentItem());
-        if (b2 instanceof c07) {
-            c07 c07Var = (c07) b2;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, c07Var.c)));
+        if (b2 instanceof b17) {
+            b17 b17Var = (b17) b2;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, b17Var.c)));
             StatisticItem param = new StatisticItem("c13645").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j);
-            if (!StringUtils.isNull(c07Var.a)) {
-                param = param.param("obj_name", c07Var.a);
+            if (!StringUtils.isNull(b17Var.a)) {
+                param = param.param("obj_name", b17Var.a);
             }
             TiebaStatic.log(param);
         }
     }
 
-    public void setData(b07 b07Var) {
+    public void setData(z07 z07Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, b07Var) == null) {
-            if (b07Var != null && !ListUtils.isEmpty(b07Var.f())) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, z07Var) == null) {
+            if (z07Var != null && !ListUtils.isEmpty(z07Var.f())) {
                 setVisibility(0);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
                 Activity pageActivity = this.i.getPageActivity();
-                if (b07Var.h()) {
+                if (z07Var.g()) {
                     i = R.dimen.tbds660;
                 } else {
                     i = R.dimen.tbds728;
                 }
                 layoutParams.height = yi.g(pageActivity, i);
                 this.e.setCurrentItem(0, true);
-                this.h.d(b07Var);
+                this.h.d(z07Var);
                 TiebaStatic.log(new StatisticItem("c13907").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j));
                 return;
             }

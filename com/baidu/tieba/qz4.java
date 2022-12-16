@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class qz4 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class qz4 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setStroke(g, rn8.a(i, ow4.b(this.w)));
+                gradientDrawable.setStroke(g, qq8.a(i, pw4.b(this.w)));
             }
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f);

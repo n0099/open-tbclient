@@ -3,8 +3,8 @@ package com.baidu.tieba.newinterest.fragment;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.bv7;
-import com.baidu.tieba.iv7;
+import com.baidu.tieba.gy7;
+import com.baidu.tieba.zx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public int a;
     public boolean b;
     public String[] c;
-    public List<bv7> d;
+    public List<zx7> d;
     public View e;
 
     public BaseInterestedForumFragment() {
@@ -38,42 +38,42 @@ public class BaseInterestedForumFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                iv7.c(2, this.a);
+                gy7.c(2, this.a);
             }
         }
     }
 
-    public int q1() {
+    public int x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    public void r1() {
+    public void y1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             hideLoadingView(this.e);
         }
     }
 
-    public void s1(String str) {
+    public void A1(List<zx7> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.d = list;
+        }
+    }
+
+    public void z1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             hideLoadingView(this.e);
             showNetRefreshView(this.e, str, false);
-        }
-    }
-
-    public void t1(List<bv7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.d = list;
         }
     }
 }

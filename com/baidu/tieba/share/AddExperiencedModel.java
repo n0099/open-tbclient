@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY_TIME = 2000;
@@ -34,7 +34,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public Runnable c;
     public HttpMessageListener d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(ContriInfo contriInfo);
     }
@@ -74,7 +74,7 @@ public class AddExperiencedModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class AddExperiencedModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,10 +170,10 @@ public class AddExperiencedModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public static boolean E(String str) {
+    public static boolean L(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (xg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
                 return true;
             }
@@ -182,7 +182,7 @@ public class AddExperiencedModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public void D(String str, String str2) {
+    public void K(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);

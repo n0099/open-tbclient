@@ -1,88 +1,117 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class jy5 extends m36<fy5> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class jy5 {
     public static /* synthetic */ Interceptable $ic;
+    public static jy5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ky5 i;
-    public ky5 j;
+    public List<StatisticItem> a;
 
-    @Override // com.baidu.tieba.m36
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0103 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jy5(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public jy5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = new ky5(g(), z);
-        this.j = new ky5(g(), z);
-        ViewGroup viewGroup = (ViewGroup) k();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.k());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
-        viewGroup.addView(this.j.k());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m36
-    /* renamed from: r */
-    public void l(fy5 fy5Var) {
+    public static jy5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, fy5Var) == null) && fy5Var != null) {
-            this.i.l(fy5Var.a);
-            this.j.l(fy5Var.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (jy5.class) {
+                    if (b == null) {
+                        b = new jy5();
+                    }
+                }
+            }
+            return b;
+        }
+        return (jy5) invokeV.objValue;
+    }
+
+    public void a(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
+        }
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        List<StatisticItem> list = this.a;
+        if (list != null) {
+            list.add(statisticItem);
         }
     }
 
-    public void s(oy5 oy5Var) {
+    public final long c(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, oy5Var) == null) {
-            this.i.y(oy5Var);
-            this.j.y(oy5Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
+            if (threadData != null && threadData.getThreadAlaInfo() != null) {
+                return threadData.getThreadAlaInfo().live_id;
+            }
+            return -1L;
         }
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.m36
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    public StatisticItem d(int i, String str, int i2, String str2, ThreadData threadData) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.m(tbPageContext, i);
-            this.j.m(tbPageContext, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, threadData})) == null) {
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getThreadAlaInfo() != null && !StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
+                str3 = threadData.getThreadAlaInfo().appId;
+            } else {
+                str3 = "";
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", 1);
+            statisticItem.param("obj_id", c(threadData));
+            statisticItem.param("tid", threadData.getId());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+            statisticItem.param("entryid", i2);
+            statisticItem.param("name", str2);
+            statisticItem.param("is_small_follow", i);
+            return statisticItem;
         }
+        return (StatisticItem) invokeCommon.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 }

@@ -74,7 +74,7 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
     public void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
-            View view2 = transitionValues.f1028view;
+            View view2 = transitionValues.f1051view;
             Integer num = (Integer) transitionValues.values.get(Visibility.PROPNAME_VISIBILITY);
             if (num == null) {
                 num = Integer.valueOf(view2.getVisibility());

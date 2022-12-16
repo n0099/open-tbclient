@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.pass.common.SecurityUtil;
@@ -660,7 +661,7 @@ public final class SapiCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + "files" + File.separator + str);
+            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + NetDiskFileMsg.JSON_KEY_FILES + File.separator + str);
         }
         return (String) invokeLL.objValue;
     }

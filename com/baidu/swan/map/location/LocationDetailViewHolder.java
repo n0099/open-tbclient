@@ -7,8 +7,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.q94;
 import com.baidu.tieba.r94;
-import com.baidu.tieba.s94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public TextView b;
     public View c;
     public LocationDetailAdapter d;
-    public s94 e;
-    public r94 f;
+    public r94 e;
+    public q94 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, r94 r94Var) {
+    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, q94 q94Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, locationDetailAdapter, r94Var};
+            Object[] objArr = {view2, locationDetailAdapter, q94Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,15 +45,15 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         }
         a(view2);
         this.d = locationDetailAdapter;
-        this.f = r94Var;
+        this.f = q94Var;
     }
 
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914c7);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff9);
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091e89);
+            this.a = (TextView) view2.findViewById(R.id.main_title);
+            this.b = (TextView) view2.findViewById(R.id.sub_title);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091ef6);
             this.c = findViewById;
             findViewById.setVisibility(8);
             this.itemView.setOnClickListener(this);
@@ -82,40 +82,40 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
             this.d.f();
             this.e.b = true;
             this.d.notifyDataSetChanged();
-            r94 r94Var = this.f;
-            if (r94Var != null) {
-                r94Var.e(this.e);
+            q94 q94Var = this.f;
+            if (q94Var != null) {
+                q94Var.e(this.e);
             }
         }
     }
 
-    public void update(s94 s94Var) {
+    public void update(r94 r94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, s94Var) == null) {
-            update(s94Var, null, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, r94Var) == null) {
+            update(r94Var, null, false);
         }
     }
 
-    public void update(s94 s94Var, String str, boolean z) {
+    public void update(r94 r94Var, String str, boolean z) {
         CharSequence charSequence;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, s94Var, str, z) == null) && s94Var != null) {
-            this.e = s94Var;
+        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, r94Var, str, z) == null) && r94Var != null) {
+            this.e = r94Var;
             TextView textView = this.a;
             if (z) {
-                charSequence = b(s94Var.a.name, str);
+                charSequence = b(r94Var.a.name, str);
             } else {
-                charSequence = s94Var.a.name;
+                charSequence = r94Var.a.name;
             }
             textView.setText(charSequence);
             int i = 0;
             this.b.setVisibility(0);
-            this.b.setText(s94Var.a.address);
-            if (s94Var.c || TextUtils.isEmpty(s94Var.a.address)) {
+            this.b.setText(r94Var.a.address);
+            if (r94Var.c || TextUtils.isEmpty(r94Var.a.address)) {
                 this.b.setVisibility(8);
             }
             View view2 = this.c;
-            if (!s94Var.b) {
+            if (!r94Var.b) {
                 i = 8;
             }
             view2.setVisibility(i);

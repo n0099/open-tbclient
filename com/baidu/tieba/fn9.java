@@ -1,66 +1,107 @@
 package com.baidu.tieba;
 
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class fn9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static float b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, PidLoaderCreator> a;
-    public final Map<Ssp.Pid, PidLoader> b;
 
-    public fn9(Map<String, PidLoaderCreator> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947770040, "Lcom/baidu/tieba/fn9;")) == null) {
+            return;
         }
-        this.b = new HashMap();
-        this.a = map;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947770040, "Lcom/baidu/tieba/fn9;");
+        }
     }
 
-    public PidLoader a(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            synchronized (this.b) {
-                PidLoader pidLoader = this.b.get(pid);
-                if (pidLoader != null) {
-                    return pidLoader;
-                }
-                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
-                if (pidLoaderCreator == null) {
-                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
-                    return null;
-                }
-                PidLoader create = pidLoaderCreator.create(pid);
-                if (create == null) {
-                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
-                    return null;
-                }
-                zs9 zs9Var = new zs9(create);
-                this.b.put(pid, zs9Var);
-                return zs9Var;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            if (!a) {
+                f();
             }
+            return (int) ((f * b) + 0.5f);
         }
-        return (PidLoader) invokeL.objValue;
+        return invokeF.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c();
+        }
+        return invokeV.intValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) pi9.c().getContext().getSystemService("window");
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            int orientation = windowManager.getDefaultDisplay().getOrientation();
+            if (orientation != 1 && orientation != 3) {
+                c = displayMetrics.widthPixels;
+                d = displayMetrics.heightPixels;
+            } else {
+                c = displayMetrics.heightPixels;
+                d = displayMetrics.widthPixels;
+            }
+            b = displayMetrics.density;
+            a = true;
+        }
     }
 }

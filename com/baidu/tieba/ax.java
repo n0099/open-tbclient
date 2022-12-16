@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.ThreadCardView;
-import com.baidu.tieba.tr4;
+import com.baidu.tieba.vr4;
 import com.baidu.tieba.zy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ax<T extends tr4> implements tx, sx<T> {
+public abstract class ax<T extends vr4> implements tx, sx<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public oy a;
     public Context b;
     public Boolean c;
-    public m46<T> d;
+    public h56<T> d;
     public a e;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(tr4 tr4Var);
+        void a(vr4 vr4Var);
     }
 
     public void f(int i) {
@@ -67,13 +67,13 @@ public abstract class ax<T extends tr4> implements tx, sx<T> {
         this.b = context;
     }
 
-    public m46<T> h() {
+    public h56<T> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (m46) invokeV.objValue;
+        return (h56) invokeV.objValue;
     }
 
     public Boolean j() {
@@ -103,7 +103,7 @@ public abstract class ax<T extends tr4> implements tx, sx<T> {
     public void m(int i, zy.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i, bVar) == null) {
-            this.a.m(i, bVar);
+            this.a.n(i, bVar);
         }
     }
 
@@ -122,7 +122,7 @@ public abstract class ax<T extends tr4> implements tx, sx<T> {
         ThreadCardView i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) && (i2 = i(view2, i)) != null) {
-            qw4 d = qw4.d(i2);
+            rw4 d = rw4.d(i2);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
         }
@@ -135,10 +135,10 @@ public abstract class ax<T extends tr4> implements tx, sx<T> {
         }
     }
 
-    public void p(m46<T> m46Var) {
+    public void p(h56<T> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, m46Var) == null) {
-            this.d = m46Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, h56Var) == null) {
+            this.d = h56Var;
         }
     }
 

@@ -6,7 +6,7 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class KsCustomController {
     @KsAdSdkApi
     @Keep

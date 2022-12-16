@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w41;
+import com.baidu.tieba.v41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,26 +74,26 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        p = w41.a(12.0f);
-        q = w41.d(30.0f);
-        r = w41.a(17.0f);
-        s = w41.a(13.0f);
-        t = w41.a(2.0f);
-        w41.a(9.0f);
-        u = w41.b(90.0f);
-        v = w41.b(90.0f);
-        w = w41.a(77.0f);
-        x = w41.a(7.0f);
-        y = w41.a(1.0f);
-        z = w41.a(23.0f);
-        A = w41.a(21.0f);
-        B = w41.a(64.0f);
-        C = w41.a(34.0f);
-        D = w41.a(27.0f);
-        E = w41.a(25.0f);
-        F = w41.a(11.0f);
-        G = w41.a(9.0f);
-        H = w41.a(60.0f);
+        p = v41.a(12.0f);
+        q = v41.d(30.0f);
+        r = v41.a(17.0f);
+        s = v41.a(13.0f);
+        t = v41.a(2.0f);
+        v41.a(9.0f);
+        u = v41.b(90.0f);
+        v = v41.b(90.0f);
+        w = v41.a(77.0f);
+        x = v41.a(7.0f);
+        y = v41.a(1.0f);
+        z = v41.a(23.0f);
+        A = v41.a(21.0f);
+        B = v41.a(64.0f);
+        C = v41.a(34.0f);
+        D = v41.a(27.0f);
+        E = v41.a(25.0f);
+        F = v41.a(11.0f);
+        G = v41.a(9.0f);
+        H = v41.a(60.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -181,7 +181,7 @@ public class BdVideoSeekbarImageView extends View {
             this.d.setTextSize(p);
             this.d.setColor(-7829368);
             this.k = new Rect();
-            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5d);
+            this.j = this.b.getResources().getDrawable(R.drawable.nad_videoplayer_play_seekbar_background);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.b, y);
             this.a = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);

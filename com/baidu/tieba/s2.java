@@ -13,14 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.C;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class s2 extends r2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends GLSurfaceView20 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +184,7 @@ public final class s2 extends r2 {
                         this.d.getExecutedRunnables().get(i).run();
                     }
                 }
-                this.d.getInput().Q0();
+                this.d.getInput().W0();
                 this.l++;
                 this.d.getApplicationListener().render();
             }
@@ -197,7 +196,7 @@ public final class s2 extends r2 {
                 this.d.getApplicationListener().dispose();
                 f1.a.log("AndroidGraphics", "destroyed");
             }
-            if (nanoTime - this.k > C.NANOS_PER_SECOND) {
+            if (nanoTime - this.k > 1000000000) {
                 this.m = 0;
                 this.k = nanoTime;
             }

@@ -2,8 +2,10 @@ package com.baidu.android.imsdk.shield.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.shield.ShieldItem;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,6 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -28,6 +35,9 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
     public long mMarkTopTime;
     public int mShield;
     public long mShieldTime;
+    public String mShieldTypes;
+    public boolean mValidShieldStatus;
+    public List<ShieldItem> shieldItems;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -185,7 +195,7 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
     public int getShield() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mShield;
         }
         return invokeV.intValue;
@@ -194,10 +204,28 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
     public long getShieldTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mShieldTime;
         }
         return invokeV.longValue;
+    }
+
+    public String getShieldTypes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mShieldTypes;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean ismValidShieldStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mValidShieldStatus;
+        }
+        return invokeV.booleanValue;
     }
 
     public GetShieldAndTopResult(Parcel parcel) {
@@ -227,82 +255,126 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         this.mDisturbTime = parcel.readLong();
         this.mGraphicStatus = parcel.readInt();
         this.mCommodityStatus = parcel.readInt();
+        this.mShieldTypes = parcel.readString();
+        this.mValidShieldStatus = parcel.readInt() == 1;
+    }
+
+    public List<ShieldItem> getParsedShieldItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (TextUtils.isEmpty(this.mShieldTypes)) {
+                return arrayList;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(this.mShieldTypes);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        ShieldItem shieldItem = new ShieldItem();
+                        shieldItem.setType(optJSONObject.getInt("sub_business"));
+                        shieldItem.setShield(optJSONObject.getInt("ability"));
+                        shieldItem.setTimestamp(optJSONObject.getLong("timestamp"));
+                        arrayList.add(shieldItem);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public void setChatType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.mChatType = i;
         }
     }
 
     public void setCommodityStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.mCommodityStatus = i;
         }
     }
 
     public void setContacter(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
             this.mContacter = j;
         }
     }
 
     public void setDisturbStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.mDisturbStatus = i;
         }
     }
 
     public void setDisturbTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
             this.mDisturbTime = j;
         }
     }
 
     public void setGraphicStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.mGraphicStatus = i;
         }
     }
 
     public void setMarkTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.mMarkTop = i;
         }
     }
 
     public void setMarkTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             this.mMarkTopTime = j;
         }
     }
 
     public void setShield(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             this.mShield = i;
         }
     }
 
     public void setShieldTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
             this.mShieldTime = j;
+        }
+    }
+
+    public void setShieldTypes(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.mShieldTypes = str;
+        }
+    }
+
+    public void setValidShieldStatus(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.mValidShieldStatus = z;
         }
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048597, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048602, this, parcel, i) == null) {
             parcel.writeInt(this.mErrorCode);
             parcel.writeString(this.mErrorMsg);
             parcel.writeInt(this.mMarkTop);
@@ -315,6 +387,8 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
             parcel.writeLong(this.mDisturbTime);
             parcel.writeInt(this.mGraphicStatus);
             parcel.writeInt(this.mCommodityStatus);
+            parcel.writeString(this.mShieldTypes);
+            parcel.writeInt(this.mValidShieldStatus ? 1 : 0);
         }
     }
 }

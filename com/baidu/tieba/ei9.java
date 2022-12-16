@@ -1,41 +1,41 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
-public class ei9 {
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+/* loaded from: classes4.dex */
+public final class ei9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
+    public static StringBuffer c;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public qi9 b;
-    public b c;
-    public vi9 d;
-    public boolean e;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes4.dex */
+    public static class a extends gi9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-    /* loaded from: classes3.dex */
-    public class b extends Thread {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ei9 a;
-
-        public b(ei9 ei9Var) {
+        public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ei9Var};
+                Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,112 +45,115 @@ public class ei9 {
                     return;
                 }
             }
-            this.a = ei9Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
         }
 
-        public /* synthetic */ b(ei9 ei9Var, a aVar) {
-            this(ei9Var);
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.gi9
+        public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(-19);
-                try {
-                    try {
-                        this.a.b = new qi9(-100);
-                        if (this.a.b.d() != null) {
-                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(qi9.d);
-                            this.a.b.c();
-                            if (this.a.b.e() != 3) {
-                                return;
-                            }
-                            while (!this.a.a) {
-                                allocateDirect.clear();
-                                int a = this.a.b.a(allocateDirect, qi9.d);
-                                if (a > 0) {
-                                    double a2 = xi9.a(allocateDirect, a);
-                                    if (this.a.d != null && a2 > 0.0d) {
-                                        this.a.d.a(a2);
-                                    }
-                                }
-                            }
-                        } else if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    } catch (Exception unused) {
-                        if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    }
-                } finally {
-                    this.a.i();
-                }
+                StringBuffer stringBuffer = new StringBuffer();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+                stringBuffer.append(simpleDateFormat.format(new Date()));
+                stringBuffer.append("\t");
+                stringBuffer.append(this.a);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.b);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.c);
+                ji9.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, ei9.c.toString());
             }
         }
     }
 
-    public ei9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947735444, "Lcom/baidu/tieba/ei9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947735444, "Lcom/baidu/tieba/ei9;");
                 return;
             }
         }
-        this.a = false;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = true;
-            this.a = false;
-            b bVar = new b(this, null);
-            this.c = bVar;
-            bVar.start();
+        c = new StringBuffer();
+        if (dh9.h() != null) {
+            a = !com.baidu.ubs.analytics.d.a.a();
+            b = true;
+            c.append("ABsdkLog-");
+            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            c.append("_");
+            try {
+                c.append(c(zh9.g(dh9.h().getContext()).getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException e) {
+                mi9.d(e);
+            } catch (Exception e2) {
+                mi9.d(e2);
+            }
+            c.append(".log");
         }
     }
 
-    public void d(vi9 vi9Var) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vi9Var) == null) {
-            this.d = vi9Var;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            if (a) {
+                Log.w("BaiDuUbs", str);
+            }
+            d(Config.DEVICE_WIDTH, "BaiDuUbs", str);
         }
     }
 
-    public void e() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = true;
-            this.e = false;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            if (a) {
+                Log.e("BaiDuUbs", str);
+            }
+            d("e", "BaiDuUbs", str);
         }
     }
 
-    public boolean h() {
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder("");
+            if (bArr != null && bArr.length > 0) {
+                for (byte b2 : bArr) {
+                    String hexString = Integer.toHexString(b2 & 255);
+                    if (hexString.length() < 2) {
+                        sb.append(0);
+                    }
+                    sb.append(hexString);
+                }
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) != null) || !b) {
+            return;
+        }
+        fi9.a(new a(str, str2, str3));
+    }
+
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            this.e = false;
-            qi9 qi9Var = this.b;
-            if (qi9Var != null) {
-                qi9Var.b();
-            }
-            if (this.c != null) {
-                this.c = null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

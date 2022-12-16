@@ -227,10 +227,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 if (i == this.slider.getValues().size() - 1) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0ad8);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0b0e);
                 }
                 if (i == 0) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0ad9);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0b0f);
                 }
                 return "";
             }

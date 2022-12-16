@@ -1,78 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class zp6 extends kn<h96, CardViewHolder<r36>> {
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class zp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public r36 b;
-    public String c;
+    public String a;
+    public int b;
+    public int c;
+    public List<xn> d;
+    public boolean e;
+    public int f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zp6(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), h96.b);
+    public zp6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        this.c = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<r36> onCreateViewHolder(ViewGroup viewGroup) {
+    public int a(List<xn> list) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            r36 r36Var = new r36(this.a);
-            this.b = r36Var;
-            r36Var.t(this.c);
-            return new CardViewHolder<>(this.b);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h96 h96Var, CardViewHolder<r36> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h96Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return 0;
             }
-            cardViewHolder.a().l(h96Var);
-            cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.a().k();
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
+            }
+            LinkedList linkedList2 = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                xn xnVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.d.size()) {
+                        xn xnVar2 = this.d.get(i2);
+                        if (xnVar != null && (xnVar instanceof yp6) && xnVar2 != null && (xnVar2 instanceof yp6)) {
+                            ThreadData threadData = ((yp6) xnVar).getThreadData();
+                            ThreadData threadData2 = ((yp6) xnVar2).getThreadData();
+                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, xnVar);
+                }
+            }
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
+            }
+            return linkedList2.size();
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 }

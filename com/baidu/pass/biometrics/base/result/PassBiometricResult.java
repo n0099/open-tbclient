@@ -61,20 +61,20 @@ public class PassBiometricResult {
                 return;
             }
         }
-        RESULT_MSG_SUCCESS = ResUtils.getString(R.string.pass_bio_result_msg_success);
-        ERROR_MSG_NETWORK_UNAVAILABLE = ResUtils.getString(R.string.pass_bio_error_msg_network_unavailable);
-        ERROR_MSG_UNKNOWN = ResUtils.getString(R.string.pass_bio_error_msg_unknown);
-        ERROR_MSG_SSL_PEER_UNVERIFIED = ResUtils.getString(R.string.pass_bio_error_msg_ssl_peer_unverified);
-        ERROR_MSG_USER_CANCEL = ResUtils.getString(R.string.pass_bio_error_msg_user_cancel);
-        ERROR_MSG_PARAM = ResUtils.getString(R.string.pass_bio_error_msg_param);
-        ERROR_MSG_SERVER_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_server_error);
-        ERROR_MSG_SO_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_so_error);
-        ERROR_MSG_DANGEROUS_PROTOCOL_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_dangerous_protocol_error);
-        ERROR_MSG_SYSTEM_VERSION_LOW_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_system_version_low_error);
-        ERROR_MSG_CONFIG_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_config_error);
-        ERROR_MSG_LACK_SO_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_lack_so_error);
-        ERROR_MSG_NOT_IMPORT_VIS_SDK = ResUtils.getString(R.string.pass_bio_error_msg_msg_import_vis_sdk);
-        ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.pass_bio_error_msg_no_login);
+        RESULT_MSG_SUCCESS = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dd3);
+        ERROR_MSG_NETWORK_UNAVAILABLE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc2);
+        ERROR_MSG_UNKNOWN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dca);
+        ERROR_MSG_SSL_PEER_UNVERIFIED = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc8);
+        ERROR_MSG_USER_CANCEL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dcb);
+        ERROR_MSG_PARAM = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc5);
+        ERROR_MSG_SERVER_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc6);
+        ERROR_MSG_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc7);
+        ERROR_MSG_DANGEROUS_PROTOCOL_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dbb);
+        ERROR_MSG_SYSTEM_VERSION_LOW_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc9);
+        ERROR_MSG_CONFIG_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0db9);
+        ERROR_MSG_LACK_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dbe);
+        ERROR_MSG_NOT_IMPORT_VIS_SDK = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc1);
+        ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0dc3);
     }
 
     public PassBiometricResult() {

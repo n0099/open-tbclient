@@ -1,46 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.mutiprocess.DataType;
-import com.baidu.tbadk.mutiprocess.ParcelableEvent;
-import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tbadk.mutiprocess.StickyEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.TbPageContext;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class xb5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public xb5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(Intent intent, nb5 nb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, nb5Var) == null) {
-            if (nb5Var instanceof StickyEvent) {
-                intent.putExtra("value_type", DataType.ORM.ordinal());
-                intent.putExtra("value", (StickyEvent) nb5Var);
-            } else if (nb5Var instanceof ParcelableEvent) {
-                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
-                intent.putExtra("value", (ParcelableEvent) nb5Var);
-            } else if (nb5Var instanceof SerializableEvent) {
-                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
-                intent.putExtra("value", (SerializableEvent) nb5Var);
-            }
-        }
-    }
+public interface xb5 {
+    void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z);
 }

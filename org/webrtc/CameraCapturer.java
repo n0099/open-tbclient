@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.s2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +59,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        jz9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
+        s2a.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
     }
 
     public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3);
@@ -77,7 +77,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        jz9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
+        s2a.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */

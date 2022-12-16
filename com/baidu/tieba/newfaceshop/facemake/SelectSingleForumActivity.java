@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eu7;
+import com.baidu.tieba.cx7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public NavigationBar c;
     public View d;
     public TextView e;
-    public eu7 f;
+    public cx7 f;
     public List<BazhuInfoData.BaInfo> g;
     public View h;
     public View i;
@@ -75,11 +75,11 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 return;
             }
             if (view2.getId() == this.a.a.getId()) {
-                if (this.a.C1() == null) {
+                if (this.a.B1() == null) {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.C1());
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.B1());
                 this.a.setResult(-1, intent);
                 this.a.finish();
             } else if (view2.getId() == this.a.d.getId()) {
@@ -118,10 +118,10 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09237b);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0923ec);
                 if (!checkBox.isChecked()) {
-                    if (this.a.C1() != null && this.a.C1().isChecked) {
-                        this.a.C1().isChecked = false;
+                    if (this.a.B1() != null && this.a.B1().isChecked) {
+                        this.a.B1().isChecked = false;
                     }
                     baInfo.isChecked = true;
                     checkBox.setChecked(!checkBox.isChecked());
@@ -149,7 +149,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         this.l = new b(this);
     }
 
-    public final BazhuInfoData.BaInfo C1() {
+    public final BazhuInfoData.BaInfo B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -163,10 +163,10 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         return (BazhuInfoData.BaInfo) invokeV.objValue;
     }
 
-    public final void D1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f114a);
+            this.a.setText(R.string.obfuscated_res_0x7f0f1182);
         }
     }
 
@@ -192,9 +192,9 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07ca);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091cd4);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092613);
+            setContentView(R.layout.obfuscated_res_0x7f0d07de);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091d41);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = addSystemImageButton;
@@ -203,14 +203,14 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 layoutParams.leftMargin = yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070230);
                 this.d.setLayoutParams(layoutParams);
             }
-            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0574));
+            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f057b));
             this.d.setOnClickListener(this.k);
-            this.i = findViewById(R.id.obfuscated_res_0x7f092600);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09237c);
+            this.i = findViewById(R.id.view_divider);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ed);
             this.a = textView;
             textView.setOnClickListener(this.k);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0912b6);
-            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f092380);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091315);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f0923f1);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
@@ -218,11 +218,11 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 }
             }
             this.b.setOnItemClickListener(this.l);
-            eu7 eu7Var = new eu7(getActivity());
-            this.f = eu7Var;
-            this.b.setAdapter((ListAdapter) eu7Var);
+            cx7 cx7Var = new cx7(getActivity());
+            this.f = cx7Var;
+            this.b.setAdapter((ListAdapter) cx7Var);
             this.f.b(this.g);
-            D1();
+            C1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }

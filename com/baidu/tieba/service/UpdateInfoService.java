@@ -8,15 +8,15 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ik8;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import com.baidu.tieba.qh8;
 import com.baidu.tieba.tf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class UpdateInfoService extends BdBaseService {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements ReportUserInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class UpdateInfoService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-                this.a.mModel.E(600000L);
+                this.a.mModel.L(600000L);
             }
         }
 
@@ -77,12 +77,12 @@ public class UpdateInfoService extends BdBaseService {
                 } else if (i >= 32400) {
                     i = 32400;
                 }
-                this.a.mModel.E(i * 1000);
+                this.a.mModel.L(i * 1000);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements tf.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,12 +112,12 @@ public class UpdateInfoService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                qh8.e().j(String.valueOf(longitude));
-                qh8.e().i(String.valueOf(latitude));
-                qh8.e().k(System.currentTimeMillis());
-                if (this.a.mModel.A() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    this.a.mModel.C(1, longitude, latitude);
-                    this.a.mModel.D();
+                ik8.e().j(String.valueOf(longitude));
+                ik8.e().i(String.valueOf(latitude));
+                ik8.e().k(System.currentTimeMillis());
+                if (this.a.mModel.H() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    this.a.mModel.J(1, longitude, latitude);
+                    this.a.mModel.K();
                 }
             }
         }
@@ -160,9 +160,9 @@ public class UpdateInfoService extends BdBaseService {
             super.onCreate();
             ReportUserInfoModel reportUserInfoModel = new ReportUserInfoModel(null);
             this.mModel = reportUserInfoModel;
-            reportUserInfoModel.B();
-            this.mModel.E(540000L);
-            this.mModel.F(new a(this));
+            reportUserInfoModel.I();
+            this.mModel.L(540000L);
+            this.mModel.M(new a(this));
         }
     }
 
@@ -181,7 +181,7 @@ public class UpdateInfoService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (this.mModel.A()) {
+            if (this.mModel.H()) {
                 findLocationFromLocal();
             }
         }

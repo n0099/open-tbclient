@@ -1,10 +1,8 @@
 package com.baidu.android.imsdk;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MethodInvokeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -93,7 +91,6 @@ public abstract class GetChatObjectInfoForRecordHandler {
                 }
             } catch (Exception e) {
                 LogUtils.e(LogUtils.TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -114,12 +111,12 @@ public abstract class GetChatObjectInfoForRecordHandler {
         return (String) invokeV.objValue;
     }
 
-    public void updateChatRecord(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
+    public void updateChatRecord(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7, String str8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7}) == null) {
-            Object[] objArr = {this.mContext, chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7};
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7, str8}) == null) {
+            Object[] objArr = {this.mContext, chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7, str8};
             Class<?> cls = Integer.TYPE;
-            updateChatRecord("com.baidu.android.imsdk.chatmessage.ChatMsgManager", "createChatSession", new Class[]{Context.class, ChatObject.class, String.class, cls, String.class, cls, String.class, String.class, cls, cls, Long.TYPE, Integer.TYPE, Long.TYPE, String.class, String.class, String.class}, objArr);
+            updateChatRecord("com.baidu.android.imsdk.chatmessage.ChatMsgManager", "createChatSession", new Class[]{Context.class, ChatObject.class, String.class, cls, String.class, cls, String.class, String.class, cls, cls, Long.TYPE, Integer.TYPE, Long.TYPE, String.class, String.class, String.class, String.class}, objArr);
         }
     }
 }

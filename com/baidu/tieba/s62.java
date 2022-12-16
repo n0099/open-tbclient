@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,26 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class s62 implements i62<h62>, q62 {
+/* loaded from: classes6.dex */
+public class s62 implements h62<g62> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
-    public static final int l;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n62 a;
-    public final LinkedList<fe2> b;
-    public final List<k62<h62>> c;
-    public r62 d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public volatile boolean g;
-    public volatile boolean h;
-    public boolean i;
-    public final Object j;
+    public volatile Boolean a;
+    public volatile h62<g62> b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,56 +33,7 @@ public class s62 implements i62<h62>, q62 {
                 return;
             }
         }
-        k = pk1.a;
-        l = 2;
-    }
-
-    @Override // com.baidu.tieba.j62
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.j62
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.j62
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.i62
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.q62
-    public void onReady() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.e = true;
-        }
+        c = ok1.a;
     }
 
     public s62() {
@@ -113,305 +49,163 @@ public class s62 implements i62<h62>, q62 {
                 return;
             }
         }
-        this.b = new LinkedList<>();
-        this.c = new LinkedList();
-        this.a = new n62(l);
-        this.j = new Object();
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.i = false;
-        this.h = false;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.b.isEmpty() || !this.f) {
-            return;
-        }
-        synchronized (this.j) {
-            Iterator<fe2> it = this.b.iterator();
-            while (it.hasNext()) {
-                fe2 next = it.next();
-                if (k) {
-                    Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.a);
-                }
-                za2.U().U0(next);
-            }
-            this.b.clear();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j62
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: n */
-    public r62 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!this.f) {
-                if (k) {
-                    Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + f());
-                    Log.w("SwanAppMasterProvider", Log.getStackTraceString(new RuntimeException("throw by debug")));
-                    return null;
-                }
-                return null;
-            }
-            return this.d;
-        }
-        return (r62) invokeV.objValue;
+        this.a = null;
     }
 
     @Override // com.baidu.tieba.i62
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return l().f();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i62
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return l().g();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i62
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return l().h();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.h62
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return l().i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i62
+    /* renamed from: k */
+    public g62 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return (g62) l().a();
+        }
+        return (g62) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i62
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            l().reset();
+            synchronized (this) {
+                this.a = null;
+                this.b = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h62
     public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
-            if (k) {
-                Log.i("SwanAppMasterProvider", "get a prefetch event - " + cVar);
-            }
-            f12.i(PrefetchEvent.MODULE, "start prefetch master");
-            if (pMSAppInfo == null) {
-                if (k) {
-                    Log.w("SwanAppMasterProvider", "prefetch currentAppInfo is empty");
-                    return;
-                }
-                return;
-            }
-            String str2 = pMSAppInfo.appId;
-            if (TextUtils.isEmpty(str2)) {
-                if (k) {
-                    Log.w("SwanAppMasterProvider", "prefetch appId is empty");
-                }
-            } else if (this.f) {
-                f43 b0 = f43.b0();
-                if (b0 == null) {
-                    return;
-                }
-                if (TextUtils.equals(str2, b0.getAppId())) {
-                    f12.i(PrefetchEvent.MODULE, "prefetch after app start");
-                    this.d.r(str, cVar, pMSAppInfo);
-                    if (k) {
-                        Log.w("SwanAppMasterProvider", "prefetch after app start - " + str2);
-                    }
-                } else if (k) {
-                    Log.w("SwanAppMasterProvider", "can not prefetch after swan app start");
-                }
-            } else if (!this.e) {
-                if (k) {
-                    Log.w("SwanAppMasterProvider", "can not prefetch before default mater ready");
-                }
-            } else {
-                synchronized (this.j) {
-                    if (this.f) {
-                        return;
-                    }
-                    r62 d = this.a.d(str2);
-                    if (d == null) {
-                        d = k(false, this.i);
-                        this.a.f(d);
-                    }
-                    if (d.w(pMSAppInfo, cVar)) {
-                        this.a.c(str2);
-                        d = k(false, this.i);
-                        this.a.f(d);
-                    }
-                    this.a.g(Collections.singletonList(d));
-                    d.r(str, cVar, pMSAppInfo);
-                }
-            }
+            l().b(str, cVar, pMSAppInfo);
         }
     }
 
-    @Override // com.baidu.tieba.j62
-    public void c(k62<h62> k62Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k62Var) != null) || k62Var == null) {
-            return;
-        }
-        synchronized (this.j) {
-            if (this.f) {
-                if (k) {
-                    Log.d("SwanAppMasterProvider", "app already start , call back immediately");
-                }
-                k62Var.a(this.h, this.d);
-                return;
-            }
-            if (!this.c.contains(k62Var)) {
-                this.c.add(k62Var);
-            }
-        }
-    }
-
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.j62<com.baidu.tieba.g62> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.i62
-    public void d(fe2 fe2Var) {
+    public void c(j62<g62> j62Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fe2Var) == null) && fe2Var != null && !this.f) {
-            synchronized (this.j) {
-                this.b.add(fe2Var);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j62Var) == null) {
+            l().c(j62Var);
         }
     }
 
-    @Override // com.baidu.tieba.i62
-    public void j(boolean z, q62 q62Var) {
-        r62 d;
+    @Override // com.baidu.tieba.h62
+    public void d(ee2 ee2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048585, this, z, q62Var) == null) {
-            if (!this.g) {
-                synchronized (this.j) {
-                    if (!this.g) {
-                        this.i = z;
-                        r62 k2 = k(true, z);
-                        k2.c(this);
-                        k2.c(q62Var);
-                        this.a.f(k2);
-                        this.g = true;
-                        return;
-                    }
-                }
-            }
-            if (k) {
-                Log.w("SwanAppMasterProvider", "call prepareDefault repeat");
-            }
-            if (this.f) {
-                d = this.d;
-            } else {
-                d = this.a.d("_default_id_");
-            }
-            if (d != null) {
-                d.c(q62Var);
-            }
-        }
-    }
-
-    public final void o(boolean z, r62 r62Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(1048590, this, z, r62Var) != null) || this.c.size() <= 0) {
-            return;
-        }
-        synchronized (this.j) {
-            for (k62<h62> k62Var : this.c) {
-                k62Var.a(z, r62Var);
-            }
-            this.c.clear();
-        }
-        if (k) {
-            Log.d("SwanAppMasterProvider", "is hit prefetch env - " + z);
-        }
-    }
-
-    public r62 k(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return new r62(z, z2);
-        }
-        return (r62) invokeCommon.objValue;
-    }
-
-    public final void m(boolean z, r62 r62Var, PMSAppInfo pMSAppInfo) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), r62Var, pMSAppInfo}) == null) {
-            this.h = z;
-            this.d = r62Var;
-            r62Var.p(pMSAppInfo);
-            this.f = true;
-            l();
-            if (k) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            this.a.a(Collections.singletonList(r62Var));
-            if (k) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("SwanAppMasterProvider", "clear useless master cost - " + (currentTimeMillis - j) + "ms");
-            }
-            o(z, r62Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, ee2Var) == null) {
+            l().d(ee2Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j62
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: p */
-    public r62 e(PMSAppInfo pMSAppInfo) {
+    @Override // com.baidu.tieba.i62
+    /* renamed from: n */
+    public g62 e(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
-        long j;
-        String str;
-        r62 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pMSAppInfo)) == null) {
-            if (k) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            if (pMSAppInfo == null && k) {
-                Log.e("SwanAppMasterProvider", Log.getStackTraceString(new Exception("currentAppInfo can not be null")));
-            }
-            if (k) {
-                Log.w("SwanAppMasterProvider", "real start a swan app - " + pMSAppInfo);
-            }
-            if (!this.e && k) {
-                throw new RuntimeException("should call startApp after preload finished");
-            }
-            if (pMSAppInfo == null) {
-                str = null;
-            } else {
-                str = pMSAppInfo.appId;
-            }
-            if (this.f) {
-                return this.d;
-            }
-            synchronized (this.j) {
-                if (!this.f) {
-                    boolean z = false;
-                    if (!TextUtils.isEmpty(str) && pMSAppInfo != null) {
-                        d = this.a.d(str);
-                        if (d != null && d.n() && !d.w(pMSAppInfo, null)) {
-                            z = true;
-                        } else {
-                            d = this.a.d("_default_id_");
-                        }
-                        m(z, d, pMSAppInfo);
-                    }
-                    d = this.a.d("_default_id_");
-                    m(z, d, pMSAppInfo);
-                }
-            }
-            if (k) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("SwanAppMasterProvider", "get right master cost - " + (currentTimeMillis - j) + "ms");
-                StringBuilder sb = new StringBuilder();
-                sb.append("final master id - ");
-                sb.append(this.d.i().a());
-                Log.i("SwanAppMasterProvider", sb.toString());
-            }
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, pMSAppInfo)) == null) {
+            return (g62) l().e(pMSAppInfo);
         }
-        return (r62) invokeL.objValue;
+        return (g62) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.j62
-    public void reset() {
+    @Override // com.baidu.tieba.h62
+    public void j(boolean z, p62 p62Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.e = false;
-            this.f = false;
-            this.g = false;
-            this.i = false;
-            this.h = false;
-            this.d = null;
-            this.a.a(null);
-            synchronized (this.j) {
-                this.b.clear();
-                this.c.clear();
-            }
-            l62.c();
-            o62.b().d();
+        if (interceptable == null || interceptable.invokeZL(1048585, this, z, p62Var) == null) {
+            l().j(z, p62Var);
         }
+    }
+
+    public final h62<g62> l() {
+        InterceptResult invokeV;
+        h62<g62> r62Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        if (m()) {
+                            r62Var = new w62();
+                        } else {
+                            r62Var = new r62();
+                        }
+                        this.b = r62Var;
+                        if (c) {
+                            Log.d("SwanAppMasterProviderWrapper", "provider - " + this.b.getClass().getSimpleName());
+                        }
+                    }
+                }
+            }
+            return this.b;
+        }
+        return (h62) invokeV.objValue;
+    }
+
+    public final boolean m() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.a == null) {
+                if (e82.l() > 0 && e82.i()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.a = Boolean.valueOf(z);
+            }
+            if (c) {
+                Log.d("SwanAppMasterProviderWrapper", "loaded swan core version - " + ya2.U().d0());
+                Log.d("SwanAppMasterProviderWrapper", "use multi preload - " + this.a);
+            }
+            return this.a.booleanValue();
+        }
+        return invokeV.booleanValue;
     }
 }

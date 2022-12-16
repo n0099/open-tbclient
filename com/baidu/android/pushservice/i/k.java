@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.i;
 
 import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +49,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, str, str2)) == null) {
             try {
-                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 2)));
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 2)));
                 Signature signature = Signature.getInstance("SHA1WithRSA");
                 signature.initVerify(generatePublic);
                 signature.update(bArr);
@@ -66,7 +65,7 @@ public class k {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             return cipher.doFinal(bArr);

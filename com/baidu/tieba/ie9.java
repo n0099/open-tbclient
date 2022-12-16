@@ -1,37 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.Locale;
 /* loaded from: classes4.dex */
 public final class ie9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ie9 c;
+    public static final Object a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
-    public boolean b;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-        void U();
-
-        void a(Activity activity);
-
-        void b();
-
-        void onActivityDestroyed(Activity activity);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,70 +30,56 @@ public final class ie9 {
                 return;
             }
         }
-        c = new ie9();
+        a = new Object();
     }
 
-    public ie9() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(b(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
             }
-        }
-        this.a = new LinkedHashSet();
-    }
-
-    public static ie9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (ie9) invokeV.objValue;
-    }
-
-    public final Set<a> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                this.a.clear();
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
             }
+            sb.append("; TurboNet/");
+            sb.append("53.0.2785.116");
+            sb.append(')');
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void d(a aVar) {
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this.a) {
-                this.a.add(aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
+                    try {
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException unused) {
+                        throw new IllegalStateException("Cannot determine package version");
+                    }
+                }
+                i = b;
             }
+            return i;
         }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
-            try {
-                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new pe9(this));
-            } catch (Exception unused) {
-                df9.b("registerActivityLifecycleCallbacks encounter exception");
-            }
-            this.b = true;
-        }
+        return invokeL.intValue;
     }
 }

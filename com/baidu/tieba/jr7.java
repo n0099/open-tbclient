@@ -1,12 +1,40 @@
 package com.baidu.tieba;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public interface jr7 {
-    void a(JSONObject jSONObject) throws JSONException;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class jr7 extends yf1<ThirdPartWxRechargeService> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(JSONObject jSONObject) throws JSONException;
+    public jr7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(JSONObject jSONObject) throws JSONException;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public ThirdPartWxRechargeService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new kr7();
+        }
+        return (ThirdPartWxRechargeService) invokeV.objValue;
+    }
 }

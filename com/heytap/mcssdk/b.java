@@ -3,7 +3,7 @@ package com.heytap.mcssdk;
 import android.content.Context;
 import com.heytap.mcssdk.callback.PushCallback;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface b extends c {
     @Deprecated
     void clearNotificationType();

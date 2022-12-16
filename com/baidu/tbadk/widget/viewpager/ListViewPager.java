@@ -64,7 +64,7 @@ public class ListViewPager extends ViewPager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 if (this.a.g != null) {
-                    this.a.g.a0();
+                    this.a.g.Y();
                 }
                 if (Math.abs(f) > Math.abs(f2)) {
                     return true;
@@ -225,7 +225,7 @@ public class ListViewPager extends ViewPager {
                     } else {
                         SwipeBackLayout.c cVar = this.g;
                         if (cVar != null) {
-                            cVar.a0();
+                            cVar.Y();
                         }
                         this.c = motionEvent.getX() - this.a;
                         this.d = motionEvent.getY() - this.b;
@@ -246,7 +246,7 @@ public class ListViewPager extends ViewPager {
                 }
                 SwipeBackLayout.c cVar2 = this.g;
                 if (cVar2 != null) {
-                    cVar2.a0();
+                    cVar2.Y();
                 }
                 this.a = 0.0f;
                 this.b = 0.0f;
@@ -257,7 +257,7 @@ public class ListViewPager extends ViewPager {
             }
             SwipeBackLayout.c cVar3 = this.g;
             if (cVar3 != null) {
-                cVar3.a0();
+                cVar3.Y();
             }
             this.a = motionEvent.getX();
             this.b = motionEvent.getY();

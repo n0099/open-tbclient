@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.kt5;
-import com.baidu.tieba.vs5;
+import com.baidu.tieba.fu5;
+import com.baidu.tieba.qt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,17 +67,17 @@ public class SplashHttpRequest extends HttpMessage {
         }
         if (adInfo != null && context != null) {
             addParam("pid", adInfo.placeId);
-            addParam("ver", kt5.b(context));
+            addParam("ver", fu5.b(context));
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            addParam(SearchJsBridge.COOKIE_MOD, vs5.c());
+            addParam(SearchJsBridge.COOKIE_MOD, qt5.c());
             addParam("ot", 2);
-            addParam("ov", vs5.d());
+            addParam("ov", qt5.d());
             addParam(CommandMessage.SDK_VERSION, "1.1.4");
-            addParam("nt", vs5.b(context).intValue());
+            addParam("nt", qt5.b(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-            addParam(TbConfig.SW_APID, vs5.f(context).intValue());
-            addParam("sh", vs5.e(context).intValue());
-            addParam("imei", vs5.a(context));
+            addParam(TbConfig.SW_APID, qt5.f(context).intValue());
+            addParam("sh", qt5.e(context).intValue());
+            addParam("imei", qt5.a(context));
             addParam("fmt", "json");
             addParam("adw", adInfo.adWidth);
             addParam("adh", adInfo.adHeight);

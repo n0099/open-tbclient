@@ -14,7 +14,7 @@ import java.util.List;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k60 implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class k60 implements CookieJar {
             int i = 0;
             while (i < length) {
                 int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
+                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, (char) com.alipay.sdk.encrypt.a.h);
                 String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
                 if (delimiterOffset2 < delimiterOffset) {
                     str2 = Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset);

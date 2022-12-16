@@ -10,7 +10,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class InflaterSource implements Source {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public final class InflaterSource implements Source {
         }
     }
 
-    public boolean refill() throws IOException {
+    public final boolean refill() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

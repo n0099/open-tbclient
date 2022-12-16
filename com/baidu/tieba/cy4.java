@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.data.ChatRoomEntranceData;
 import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
 import java.util.List;
 import tbclient.AlaLiveInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface cy4 {
+    ChatRoomEntranceData getChatRoomEntranceData();
+
     IconPopData getIconPopData();
 
     LevePopData getLevePopData();
@@ -18,4 +22,8 @@ public interface cy4 {
     List<AlaLiveInfo> getLivePicSecondFloor();
 
     LiveRemindData getLiveRemindData();
+
+    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
+
+    String getUniqueId();
 }

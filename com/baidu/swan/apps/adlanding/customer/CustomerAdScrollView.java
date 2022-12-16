@@ -4,20 +4,20 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cr1;
+import com.baidu.tieba.br1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CustomerAdScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
     public float c;
-    public cr1 d;
+    public br1 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomerAdScrollView(Context context) {
@@ -73,9 +73,9 @@ public class CustomerAdScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onScrollChanged(i, i2, i3, i4);
-            cr1 cr1Var = this.d;
-            if (cr1Var != null) {
-                cr1Var.onScrollChanged(i, i2, i3, i4);
+            br1 br1Var = this.d;
+            if (br1Var != null) {
+                br1Var.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
@@ -94,10 +94,10 @@ public class CustomerAdScrollView extends ScrollView {
         }
     }
 
-    public void setScrollViewListener(cr1 cr1Var) {
+    public void setScrollViewListener(br1 br1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cr1Var) == null) {
-            this.d = cr1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, br1Var) == null) {
+            this.d = br1Var;
         }
     }
 }

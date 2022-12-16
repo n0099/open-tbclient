@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class anim {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ufo_slide_in_from_bottom = 0x7f010146;
@@ -38,7 +38,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class array {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int problem_serial_number = 0x7f030013;
@@ -60,7 +60,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int logo = 0x7f040498;
@@ -97,7 +97,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int bottom_bar_diriver_color = 0x7f06043b;
@@ -113,9 +113,7 @@ public final class R {
         public static final int common_white_alpha_10 = 0x7f060637;
         public static final int common_white_alpha_15 = 0x7f060638;
         public static final int common_white_alpha_50 = 0x7f060639;
-
-        /* renamed from: divider */
-        public static final int obfuscated = 0x7f06072a;
+        public static final int divider = 0x7f06072a;
         public static final int feedback_titlebar_progressbar_bg_color = 0x7f06073b;
         public static final int feedback_titlebar_progressbar_progress_color = 0x7f06073c;
         public static final int network_button_border_color_normal = 0x7f0608b4;
@@ -144,75 +142,75 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bottom_back_button = 0x7f080324;
-        public static final int bottom_back_button_dark = 0x7f080325;
-        public static final int btn_bg_normal = 0x7f080357;
-        public static final int btn_bg_pressed = 0x7f080358;
-        public static final int btn_selector = 0x7f0803fb;
-        public static final int checkbox_textcolor_selector = 0x7f080456;
-        public static final int dialog_btn_bg_normal = 0x7f080494;
-        public static final int dialog_btn_bg_pressed = 0x7f080495;
-        public static final int dialog_btn_selector = 0x7f080496;
-        public static final int dialog_checkbox_bg_normal = 0x7f080497;
-        public static final int dialog_checkbox_bg_pressed = 0x7f080498;
-        public static final int dialog_checkbox_bg_show = 0x7f080499;
-        public static final int dialog_checkbox_selector = 0x7f08049a;
-        public static final int dialog_collect_explain_backgroud = 0x7f08049b;
-        public static final int dialog_edit_bg_selected = 0x7f08049c;
-        public static final int dialog_report_tort_backgroud = 0x7f0804a2;
-        public static final int dialog_report_tort_backgroud_dark = 0x7f0804a3;
-        public static final int feedback_progress_loading = 0x7f080565;
-        public static final int ic_launcher = 0x7f080644;
-        public static final int list_item_divider = 0x7f080d0f;
-        public static final int listview_divider = 0x7f080d15;
-        public static final int network_btn_bg_normal = 0x7f080e78;
-        public static final int network_btn_bg_normal_dark = 0x7f080e79;
-        public static final int network_btn_bg_pressed = 0x7f080e7a;
-        public static final int network_btn_bg_pressed_dark = 0x7f080e7b;
-        public static final int network_btn_selector = 0x7f080e7c;
-        public static final int network_btn_selector_dark = 0x7f080e7d;
-        public static final int network_exception = 0x7f080e7e;
-        public static final int network_exception_dark = 0x7f080e7f;
-        public static final int send_confirm_select = 0x7f081117;
-        public static final int shimmer_black_loading = 0x7f08113e;
-        public static final int shimmer_white_loading = 0x7f08113f;
-        public static final int solved_btn_select = 0x7f081145;
-        public static final int titlebar_back_selector = 0x7f081255;
-        public static final int ufo_back_icon_browser = 0x7f081292;
-        public static final int ufo_bottom_button = 0x7f081293;
-        public static final int ufo_bottom_button_pressed = 0x7f081294;
-        public static final int ufo_close_dialog = 0x7f081295;
-        public static final int ufo_confirm_ok = 0x7f081296;
-        public static final int ufo_confirm_ok_pressed = 0x7f081297;
-        public static final int ufo_date_bg = 0x7f081298;
-        public static final int ufo_delete_bg = 0x7f081299;
-        public static final int ufo_input_edt_bg = 0x7f08129a;
-        public static final int ufo_loading_bg = 0x7f08129b;
-        public static final int ufo_me_send_bg = 0x7f08129c;
-        public static final int ufo_net_loss = 0x7f08129d;
-        public static final int ufo_newmsg_flag = 0x7f08129e;
-        public static final int ufo_reload_btn_defult = 0x7f08129f;
-        public static final int ufo_reload_btn_press = 0x7f0812a0;
-        public static final int ufo_server_send_bg = 0x7f0812a1;
-        public static final int ufo_server_send_bg_type5 = 0x7f0812a2;
-        public static final int ufo_show_reason_normal = 0x7f0812a3;
-        public static final int ufo_show_reason_pressed = 0x7f0812a4;
-        public static final int ufo_titlebar_bkg = 0x7f0812a5;
-        public static final int yt_colorchoose_gray = 0x7f0812fb;
-        public static final int yt_left_arrow = 0x7f0812fc;
-        public static final int yt_screencap_cancel = 0x7f0812fd;
-        public static final int yt_screencap_circle_middle_off = 0x7f0812fe;
-        public static final int yt_screencap_circle_middle_on = 0x7f0812ff;
-        public static final int yt_screencap_circle_small_off = 0x7f081300;
-        public static final int yt_screencap_circle_small_on = 0x7f081301;
-        public static final int yt_screencap_pencil_off = 0x7f081302;
-        public static final int yt_screencap_pencil_on = 0x7f081303;
-        public static final int yt_screencap_rectangle_off = 0x7f081304;
-        public static final int yt_screencap_rectangle_on = 0x7f081305;
-        public static final int yt_screencap_save = 0x7f081306;
+        public static final int bottom_back_button = 0x7f080329;
+        public static final int bottom_back_button_dark = 0x7f08032a;
+        public static final int btn_bg_normal = 0x7f08035c;
+        public static final int btn_bg_pressed = 0x7f08035d;
+        public static final int btn_selector = 0x7f080400;
+        public static final int checkbox_textcolor_selector = 0x7f080461;
+        public static final int dialog_btn_bg_normal = 0x7f08049f;
+        public static final int dialog_btn_bg_pressed = 0x7f0804a0;
+        public static final int dialog_btn_selector = 0x7f0804a1;
+        public static final int dialog_checkbox_bg_normal = 0x7f0804a2;
+        public static final int dialog_checkbox_bg_pressed = 0x7f0804a3;
+        public static final int dialog_checkbox_bg_show = 0x7f0804a4;
+        public static final int dialog_checkbox_selector = 0x7f0804a5;
+        public static final int dialog_collect_explain_backgroud = 0x7f0804a6;
+        public static final int dialog_edit_bg_selected = 0x7f0804a7;
+        public static final int dialog_report_tort_backgroud = 0x7f0804ad;
+        public static final int dialog_report_tort_backgroud_dark = 0x7f0804ae;
+        public static final int feedback_progress_loading = 0x7f080570;
+        public static final int ic_launcher = 0x7f080657;
+        public static final int list_item_divider = 0x7f080d37;
+        public static final int listview_divider = 0x7f080d3d;
+        public static final int network_btn_bg_normal = 0x7f080ea0;
+        public static final int network_btn_bg_normal_dark = 0x7f080ea1;
+        public static final int network_btn_bg_pressed = 0x7f080ea2;
+        public static final int network_btn_bg_pressed_dark = 0x7f080ea3;
+        public static final int network_btn_selector = 0x7f080ea4;
+        public static final int network_btn_selector_dark = 0x7f080ea5;
+        public static final int network_exception = 0x7f080ea6;
+        public static final int network_exception_dark = 0x7f080ea7;
+        public static final int send_confirm_select = 0x7f081141;
+        public static final int shimmer_black_loading = 0x7f081168;
+        public static final int shimmer_white_loading = 0x7f081169;
+        public static final int solved_btn_select = 0x7f08116f;
+        public static final int titlebar_back_selector = 0x7f08127f;
+        public static final int ufo_back_icon_browser = 0x7f0812bc;
+        public static final int ufo_bottom_button = 0x7f0812bd;
+        public static final int ufo_bottom_button_pressed = 0x7f0812be;
+        public static final int ufo_close_dialog = 0x7f0812c0;
+        public static final int ufo_confirm_ok = 0x7f0812c1;
+        public static final int ufo_confirm_ok_pressed = 0x7f0812c2;
+        public static final int ufo_date_bg = 0x7f0812c3;
+        public static final int ufo_delete_bg = 0x7f0812c4;
+        public static final int ufo_input_edt_bg = 0x7f0812c5;
+        public static final int ufo_loading_bg = 0x7f0812c6;
+        public static final int ufo_me_send_bg = 0x7f0812c7;
+        public static final int ufo_net_loss = 0x7f0812c8;
+        public static final int ufo_newmsg_flag = 0x7f0812c9;
+        public static final int ufo_reload_btn_defult = 0x7f0812ca;
+        public static final int ufo_reload_btn_press = 0x7f0812cb;
+        public static final int ufo_server_send_bg = 0x7f0812cc;
+        public static final int ufo_server_send_bg_type5 = 0x7f0812cd;
+        public static final int ufo_show_reason_normal = 0x7f0812ce;
+        public static final int ufo_show_reason_pressed = 0x7f0812cf;
+        public static final int ufo_titlebar_bkg = 0x7f0812d0;
+        public static final int yt_colorchoose_gray = 0x7f081325;
+        public static final int yt_left_arrow = 0x7f081326;
+        public static final int yt_screencap_cancel = 0x7f081327;
+        public static final int yt_screencap_circle_middle_off = 0x7f081328;
+        public static final int yt_screencap_circle_middle_on = 0x7f081329;
+        public static final int yt_screencap_circle_small_off = 0x7f08132a;
+        public static final int yt_screencap_circle_small_on = 0x7f08132b;
+        public static final int yt_screencap_pencil_off = 0x7f08132c;
+        public static final int yt_screencap_pencil_on = 0x7f08132d;
+        public static final int yt_screencap_rectangle_off = 0x7f08132e;
+        public static final int yt_screencap_rectangle_on = 0x7f08132f;
+        public static final int yt_screencap_save = 0x7f081330;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -230,83 +228,71 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int back_button = 0x7f090325;
         public static final int back_layout = 0x7f090328;
-        public static final int bd_shimmer_view = 0x7f090371;
-        public static final int bottom_bar = 0x7f0903f1;
-        public static final int btn_dialog_close = 0x7f09044b;
-        public static final int btn_dialog_refresh = 0x7f09044c;
-        public static final int btn_sumbit_evaluate = 0x7f090473;
-
-        /* renamed from: cb_11 */
-        public static final int obfuscated = 0x7f0905ca;
-
-        /* renamed from: cb_12 */
-        public static final int obfuscated = 0x7f0905cb;
-
-        /* renamed from: cb_21 */
-        public static final int obfuscated = 0x7f0905cc;
-
-        /* renamed from: cb_22 */
-        public static final int obfuscated = 0x7f0905cd;
-
-        /* renamed from: cb_31 */
-        public static final int obfuscated = 0x7f0905ce;
-        public static final int common_progressbar = 0x7f0906b6;
-        public static final int complaint_title = 0x7f0906c7;
-        public static final int container = 0x7f0906eb;
-        public static final int cw_0 = 0x7f090779;
-        public static final int cw_180 = 0x7f09077a;
-        public static final int cw_270 = 0x7f09077b;
-        public static final int cw_90 = 0x7f09077c;
-        public static final int divider_line = 0x7f090826;
-        public static final int et_input = 0x7f090950;
-        public static final int header_transparent = 0x7f090d85;
-        public static final int img_dialog_netloss = 0x7f090f0e;
-        public static final int know_btn = 0x7f091074;
-        public static final int linear = 0x7f09134e;
-        public static final int ll_checkboxs = 0x7f09141f;
-        public static final int ll_checkboxs_1 = 0x7f091420;
-        public static final int ll_checkboxs_2 = 0x7f091421;
-        public static final int ll_checkboxs_3 = 0x7f091422;
-        public static final int ll_mainshow = 0x7f09143c;
-        public static final int navi_back_image = 0x7f091668;
-        public static final int navi_back_layout = 0x7f091669;
-        public static final int navi_back_text = 0x7f09166a;
-        public static final int navi_divider = 0x7f09166e;
-        public static final int navi_extend_btn = 0x7f09166f;
-        public static final int navi_extend_hint = 0x7f091670;
-        public static final int navi_extend_layout = 0x7f091671;
-        public static final int navi_title = 0x7f091683;
-        public static final int network_exception_layout = 0x7f0916b6;
-        public static final int netwrok_tips = 0x7f0916b8;
-        public static final int netwrok_tips_layout = 0x7f0916b9;
-        public static final int nework_image = 0x7f0916e4;
-        public static final int problem_text = 0x7f091af2;
-        public static final int radial = 0x7f091b8f;
-        public static final int reload_btn = 0x7f091c1a;
-        public static final int report_tort_content = 0x7f091c51;
-        public static final int report_tort_layout = 0x7f091c52;
-        public static final int report_tort_title = 0x7f091c53;
-        public static final int restart = 0x7f091c55;
-        public static final int reverse = 0x7f091c5a;
-        public static final int rl_input = 0x7f091cac;
-        public static final int rl_netloss = 0x7f091cb3;
-
-        /* renamed from: rl_root */
-        public static final int obfuscated = 0x7f091cb7;
-        public static final int rl_show = 0x7f091cb8;
-        public static final int rl_title = 0x7f091cba;
-        public static final int root_view = 0x7f091cd4;
-        public static final int titlebar_content = 0x7f09229c;
-        public static final int tv_dialog_netloss = 0x7f0923da;
-        public static final int tv_dialog_title = 0x7f0923db;
-        public static final int tv_show_reason = 0x7f092452;
-        public static final int ufo_content = 0x7f0924ad;
-        public static final int webload_titlebar = 0x7f0926a7;
+        public static final int bd_shimmer_view = 0x7f090373;
+        public static final int bottom_bar = 0x7f0903f2;
+        public static final int btn_dialog_close = 0x7f09044c;
+        public static final int btn_dialog_refresh = 0x7f09044d;
+        public static final int btn_sumbit_evaluate = 0x7f090474;
+        public static final int cb_11 = 0x7f0905cb;
+        public static final int cb_12 = 0x7f0905cc;
+        public static final int cb_21 = 0x7f0905cd;
+        public static final int cb_22 = 0x7f0905ce;
+        public static final int cb_31 = 0x7f0905cf;
+        public static final int common_progressbar = 0x7f0906c8;
+        public static final int complaint_title = 0x7f0906d9;
+        public static final int container = 0x7f0906fd;
+        public static final int cw_0 = 0x7f090791;
+        public static final int cw_180 = 0x7f090792;
+        public static final int cw_270 = 0x7f090793;
+        public static final int cw_90 = 0x7f090794;
+        public static final int divider_line = 0x7f090840;
+        public static final int et_input = 0x7f09096a;
+        public static final int header_transparent = 0x7f090dd5;
+        public static final int img_dialog_netloss = 0x7f090f69;
+        public static final int know_btn = 0x7f0910d6;
+        public static final int linear = 0x7f0913ae;
+        public static final int ll_checkboxs = 0x7f091480;
+        public static final int ll_checkboxs_1 = 0x7f091481;
+        public static final int ll_checkboxs_2 = 0x7f091482;
+        public static final int ll_checkboxs_3 = 0x7f091483;
+        public static final int ll_mainshow = 0x7f09149d;
+        public static final int navi_back_image = 0x7f0916cc;
+        public static final int navi_back_layout = 0x7f0916cd;
+        public static final int navi_back_text = 0x7f0916ce;
+        public static final int navi_divider = 0x7f0916d2;
+        public static final int navi_extend_btn = 0x7f0916d3;
+        public static final int navi_extend_hint = 0x7f0916d4;
+        public static final int navi_extend_layout = 0x7f0916d5;
+        public static final int navi_title = 0x7f0916e7;
+        public static final int network_exception_layout = 0x7f09171a;
+        public static final int netwrok_tips = 0x7f09171c;
+        public static final int netwrok_tips_layout = 0x7f09171d;
+        public static final int nework_image = 0x7f091749;
+        public static final int problem_text = 0x7f091b5d;
+        public static final int radial = 0x7f091bfa;
+        public static final int reload_btn = 0x7f091c85;
+        public static final int report_tort_content = 0x7f091cbc;
+        public static final int report_tort_layout = 0x7f091cbd;
+        public static final int report_tort_title = 0x7f091cbe;
+        public static final int restart = 0x7f091cc0;
+        public static final int reverse = 0x7f091cc5;
+        public static final int rl_input = 0x7f091d19;
+        public static final int rl_netloss = 0x7f091d20;
+        public static final int rl_root = 0x7f091d24;
+        public static final int rl_show = 0x7f091d25;
+        public static final int rl_title = 0x7f091d27;
+        public static final int root_view = 0x7f091d41;
+        public static final int titlebar_content = 0x7f09230d;
+        public static final int tv_dialog_netloss = 0x7f09244d;
+        public static final int tv_dialog_title = 0x7f09244e;
+        public static final int tv_show_reason = 0x7f0924c5;
+        public static final int ufo_content = 0x7f092520;
+        public static final int webload_titlebar = 0x7f09271b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -324,17 +310,17 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int common_titlebar_layout = 0x7f0d01ec;
-        public static final int main_titlebar = 0x7f0d057e;
-        public static final int ufo_collect_explain_dialog = 0x7f0d08c1;
-        public static final int ufo_evaluate_dialog = 0x7f0d08c2;
-        public static final int ufo_problem_type_item = 0x7f0d08c3;
-        public static final int ufo_report_tort_dialog = 0x7f0d08c4;
-        public static final int ufo_show_evaluate_dialog = 0x7f0d08c5;
-        public static final int ufo_webload_layout = 0x7f0d08c6;
+        public static final int common_titlebar_layout = 0x7f0d01ef;
+        public static final int main_titlebar = 0x7f0d058e;
+        public static final int ufo_collect_explain_dialog = 0x7f0d08d7;
+        public static final int ufo_evaluate_dialog = 0x7f0d08d8;
+        public static final int ufo_problem_type_item = 0x7f0d08d9;
+        public static final int ufo_report_tort_dialog = 0x7f0d08da;
+        public static final int ufo_show_evaluate_dialog = 0x7f0d08db;
+        public static final int ufo_webload_layout = 0x7f0d08dc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -352,36 +338,36 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int dialog_complaint_content = 0x7f0f04fb;
-        public static final int dialog_complaint_title = 0x7f0f04fc;
-        public static final int dialog_netloss = 0x7f0f0500;
-        public static final int dialog_refresh = 0x7f0f0503;
-        public static final int dialog_title = 0x7f0f0504;
-        public static final int dialog_tort_btn = 0x7f0f0505;
-        public static final int dialog_tort_content = 0x7f0f0506;
-        public static final int dialog_tort_title = 0x7f0f0507;
-        public static final int feedback_network_tips = 0x7f0f0626;
-        public static final int feedback_start_host_service_fail = 0x7f0f0628;
-        public static final int feedback_title_edit = 0x7f0f0629;
-        public static final int feedback_titlebar_function_text = 0x7f0f062b;
-        public static final int feedback_titlebar_title = 0x7f0f062c;
-        public static final int feedbck_network_reload_button = 0x7f0f062e;
-        public static final int net_error = 0x7f0f0c7e;
-        public static final int robot_reply_text = 0x7f0f1065;
-        public static final int start_screen_shot = 0x7f0f1245;
-        public static final int yt_brush = 0x7f0f1699;
-        public static final int yt_capture_edit = 0x7f0f169a;
-        public static final int yt_clear = 0x7f0f169b;
-        public static final int yt_color = 0x7f0f169c;
-        public static final int yt_rectangle = 0x7f0f169d;
-        public static final int yt_save = 0x7f0f169e;
-        public static final int yt_savecap = 0x7f0f169f;
-        public static final int yt_share = 0x7f0f16a0;
-        public static final int yt_thickness = 0x7f0f16a1;
+        public static final int dialog_complaint_content = 0x7f0f0503;
+        public static final int dialog_complaint_title = 0x7f0f0504;
+        public static final int dialog_netloss = 0x7f0f0508;
+        public static final int dialog_refresh = 0x7f0f050b;
+        public static final int dialog_title = 0x7f0f050c;
+        public static final int dialog_tort_btn = 0x7f0f050d;
+        public static final int dialog_tort_content = 0x7f0f050e;
+        public static final int dialog_tort_title = 0x7f0f050f;
+        public static final int feedback_network_tips = 0x7f0f062d;
+        public static final int feedback_start_host_service_fail = 0x7f0f062f;
+        public static final int feedback_title_edit = 0x7f0f0630;
+        public static final int feedback_titlebar_function_text = 0x7f0f0632;
+        public static final int feedback_titlebar_title = 0x7f0f0633;
+        public static final int feedbck_network_reload_button = 0x7f0f0635;
+        public static final int net_error = 0x7f0f0cb5;
+        public static final int robot_reply_text = 0x7f0f109c;
+        public static final int start_screen_shot = 0x7f0f127e;
+        public static final int yt_brush = 0x7f0f16d5;
+        public static final int yt_capture_edit = 0x7f0f16d6;
+        public static final int yt_clear = 0x7f0f16d7;
+        public static final int yt_color = 0x7f0f16d8;
+        public static final int yt_rectangle = 0x7f0f16d9;
+        public static final int yt_save = 0x7f0f16da;
+        public static final int yt_savecap = 0x7f0f16db;
+        public static final int yt_share = 0x7f0f16dc;
+        public static final int yt_thickness = 0x7f0f16dd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -399,21 +385,13 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: UFOMainTheme */
-        public static final int obfuscated_res_0x7f1002ab = 0x7f1002ab;
-
-        /* renamed from: ufo_dialog_animation */
-        public static final int obfuscated_res_0x7f100422 = 0x7f100422;
-
-        /* renamed from: ufo_dialog_bottom_full */
-        public static final int obfuscated_res_0x7f100423 = 0x7f100423;
-
-        /* renamed from: ufo_dialog_report_tort */
-        public static final int obfuscated_res_0x7f100424 = 0x7f100424;
+        public static final int UFOMainTheme = 0x7f1002ab;
+        public static final int ufo_dialog_animation = 0x7f100422;
+        public static final int ufo_dialog_bottom_full = 0x7f100423;
+        public static final int ufo_dialog_report_tort = 0x7f100424;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {
@@ -431,7 +409,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] UFOShimmerFrameLayout;
@@ -468,7 +446,7 @@ public final class R {
                     return;
                 }
             }
-            UFOShimmerFrameLayout = new int[]{com.baidu.tieba.R.attr.ufo_angle, com.baidu.tieba.R.attr.ufo_auto_start, com.baidu.tieba.R.attr.ufo_base_alpha, com.baidu.tieba.R.attr.ufo_dropoff, com.baidu.tieba.R.attr.ufo_duration, com.baidu.tieba.R.attr.ufo_fixed_height, com.baidu.tieba.R.attr.ufo_fixed_width, com.baidu.tieba.R.attr.ufo_intensity, com.baidu.tieba.R.attr.ufo_relative_height, com.baidu.tieba.R.attr.ufo_relative_width, com.baidu.tieba.R.attr.ufo_repeat_count, com.baidu.tieba.R.attr.ufo_repeat_delay, com.baidu.tieba.R.attr.ufo_repeat_mode, com.baidu.tieba.R.attr.ufo_shape, com.baidu.tieba.R.attr.ufo_tilt};
+            UFOShimmerFrameLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04074a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040750, com.baidu.tieba.R.attr.obfuscated_res_0x7f040751, com.baidu.tieba.R.attr.obfuscated_res_0x7f040752, com.baidu.tieba.R.attr.obfuscated_res_0x7f040753, com.baidu.tieba.R.attr.obfuscated_res_0x7f040754, com.baidu.tieba.R.attr.obfuscated_res_0x7f040755, com.baidu.tieba.R.attr.obfuscated_res_0x7f040756, com.baidu.tieba.R.attr.obfuscated_res_0x7f040757, com.baidu.tieba.R.attr.obfuscated_res_0x7f040758};
             UFOTitleBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040498, com.baidu.tieba.R.attr.obfuscated_res_0x7f040714};
         }
 

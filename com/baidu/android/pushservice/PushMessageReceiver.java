@@ -11,13 +11,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.k;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -496,7 +496,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             while (i < jSONArray.length()) {
                                 JSONObject jSONObject4 = jSONArray.getJSONObject(i);
                                 String string6 = jSONObject4.getString("tag");
-                                if (jSONObject4.getInt(TiebaStatic.LogFields.RESULT) == 0) {
+                                if (jSONObject4.getInt("result") == 0) {
                                     arrayList.add(string6);
                                 } else {
                                     arrayList2.add(string6);
@@ -523,7 +523,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             while (i < jSONArray2.length()) {
                                 JSONObject jSONObject7 = jSONArray2.getJSONObject(i);
                                 String string8 = jSONObject7.getString("tag");
-                                if (jSONObject7.getInt(TiebaStatic.LogFields.RESULT) == 0) {
+                                if (jSONObject7.getInt("result") == 0) {
                                     arrayList3.add(string8);
                                 } else {
                                     arrayList4.add(string8);
@@ -685,7 +685,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 String stringExtra14 = intent.getStringExtra("message_id");
                 int intExtra3 = intent.getIntExtra("baidu_message_type", -1);
                 String stringExtra15 = intent.getStringExtra("app_id");
-                int intExtra4 = intent.getIntExtra("notify_id", 0);
+                int intExtra4 = intent.getIntExtra(Constants.EXTRA_NOTIFY_ID, 0);
                 if (byteArrayExtra3 == null || byteArrayExtra4 == null || TextUtils.isEmpty(stringExtra14) || TextUtils.isEmpty(stringExtra15) || intExtra3 == -1) {
                     sendCallback(context, intent, 2, true);
                     return;
@@ -726,7 +726,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) || this.d.get() == null) {
                                 return;
                             }
-                            this.c.onMessage(this.d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            this.c.onMessage(this.d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt(Constants.EXTRA_NOTIFY_ID));
                             PushMessageReceiver.sendCallback(this.a, this.b, 10, false);
                         }
                     }) { // from class: com.baidu.android.pushservice.PushMessageReceiver.2
@@ -783,7 +783,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("message", a6[0]);
                                 bundle.putString("custom_content", a6[1]);
-                                bundle.putInt("notify_id", this.h);
+                                bundle.putInt(Constants.EXTRA_NOTIFY_ID, this.h);
                                 message.setData(bundle);
                                 this.i.sendMessage(message);
                             }

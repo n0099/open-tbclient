@@ -3,7 +3,6 @@ package com.meizu.cloud.pushsdk.platform.b;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
@@ -87,7 +86,7 @@ public class d extends c<SubAliasStatus> {
         if (this.b != 2) {
             Intent intent = new Intent();
             intent.putExtra("app_id", this.f);
-            intent.putExtra(GameGuideConfigInfo.KEY_APP_KEY, this.g);
+            intent.putExtra("app_key", this.g);
             intent.putExtra("strategy_package_name", this.e.getPackageName());
             intent.putExtra("push_id", this.a);
             intent.putExtra("strategy_type", g());

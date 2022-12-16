@@ -21,7 +21,7 @@ import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a CS;
@@ -29,8 +29,8 @@ public class a {
     public final SQLiteDatabase CR;
 
     /* renamed from: com.kwad.components.core.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0569a extends SQLiteOpenHelper {
+    /* loaded from: classes8.dex */
+    public static class C0586a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static int CU = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class a {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0569a(@Nullable Context context) {
+        public C0586a(@Nullable Context context) {
             super(context, "ksadcache.db", (SQLiteDatabase.CursorFactory) null, CU);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -107,7 +107,7 @@ public class a {
                 return;
             }
         }
-        this.CR = new C0569a(context).getWritableDatabase();
+        this.CR = new C0586a(context).getWritableDatabase();
     }
 
     private <T extends h> void b(List<T> list, String str) {

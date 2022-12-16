@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public View b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class g1 extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,10 +114,10 @@ public class g1 extends Dialog {
             Window window = getWindow();
             window.setGravity(80);
             window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100422);
-            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.ufo_show_evaluate_dialog, null);
+            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d08db, null);
             this.b = inflate;
-            inflate.findViewById(com.baidu.tieba.R.id.btn_dialog_close).setOnClickListener(new a(this));
-            this.b.findViewById(com.baidu.tieba.R.id.header_transparent).setOnClickListener(new b(this));
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09044c).setOnClickListener(new a(this));
+            this.b.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090dd5).setOnClickListener(new b(this));
             window.setContentView(this.b);
             window.setLayout(-1, -2);
         }

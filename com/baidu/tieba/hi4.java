@@ -1,71 +1,64 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Parcelable;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hi4 extends FrameLayout {
+public class hi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hi4(Context context) {
-        super(context);
+    public static int a(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
             }
+            throw new IllegalArgumentException("permission is null");
         }
+        return invokeLL.intValue;
     }
 
-    public static ViewGroup a(View view2) {
-        InterceptResult invokeL;
+    public static final int b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            hi4 hi4Var = new hi4(view2.getContext());
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams != null) {
-                hi4Var.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ji4.a(context, i);
             }
-            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            hi4Var.addView(view2);
-            return hi4Var;
+            return context.getResources().getColor(i);
         }
-        return (ViewGroup) invokeL.objValue;
+        return invokeLI.intValue;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
+    public static final ColorStateList c(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sparseArray) == null) {
-            dispatchThawSelfOnly(sparseArray);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ji4.b(context, i);
+            }
+            return context.getResources().getColorStateList(i);
         }
+        return (ColorStateList) invokeLI.objValue;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
+    public static final Drawable d(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseArray) == null) {
-            dispatchFreezeSelfOnly(sparseArray);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return ii4.a(context, i);
+            }
+            return context.getResources().getDrawable(i);
         }
+        return (Drawable) invokeLI.objValue;
     }
 }

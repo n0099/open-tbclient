@@ -485,7 +485,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     private void setUpView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            setContentView(R.layout.layout_sapi_sdk_dialog_address_selector);
+            setContentView(R.layout.obfuscated_res_0x7f0d0510);
             Window window = getWindow();
             if (window != null) {
                 window.setGravity(80);
@@ -494,15 +494,15 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
                 window.setAttributes(attributes);
                 window.setWindowAnimations(R.style.obfuscated_res_0x7f1003e3);
             }
-            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sapi_sdk_addr_select_tab_layout);
+            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.obfuscated_res_0x7f091dbd);
             this.mTabLayout = slidingTabLayout;
             slidingTabLayout.setOnTabSelectListener(this);
-            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_common_select_btn_text_color));
-            AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.sapi_sdk_vp_address_list);
+            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609e6));
+            AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.obfuscated_res_0x7f091e65);
             this.mViewPager = addrViewPager;
             this.mRealPagerNumber = 1;
             addrViewPager.setRealPagerNumber(1);
-            findViewById(R.id.sapi_sdk_iv_address_dialog_close).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
+            findViewById(R.id.obfuscated_res_0x7f091e01).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddressSelectorDialog this$0;
@@ -535,10 +535,10 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             });
             if (this.mIsDarkMode) {
                 Resources resources = getContext().getResources();
-                findViewById(R.id.sapi_sdk_addr_select_layout).setBackgroundResource(R.drawable.sapi_sdk_dialog_address_selector_dark_bg);
-                ((TextView) findViewById(R.id.sapi_sdk_addr_select_title)).setTextColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_title_text_dark_color));
-                findViewById(R.id.sapi_sdk_addr_select_title_bottom_line).setBackgroundColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_line_dark_color));
-                this.mTabLayout.setIndicatorColor(R.drawable.sapi_sdk_dialog_address_indicator_checked_dark);
+                findViewById(R.id.obfuscated_res_0x7f091dbc).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ba);
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091dbe)).setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a12));
+                findViewById(R.id.obfuscated_res_0x7f091dbf).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a10));
+                this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f0810b2);
             }
         }
     }
@@ -572,12 +572,12 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             this.mViewPager.setAdapter(addrListPagerAdapter);
             this.mTabLayout.setViewPager(this.mViewPager, new String[]{"请选择", "", "", ""});
             if (this.mIsDarkMode) {
-                this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_dark_color));
-                this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_dark_color));
+                this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a12));
+                this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a12));
                 return;
             }
-            this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_color));
-            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_color));
+            this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a11));
+            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a11));
         }
     }
 

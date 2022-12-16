@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tr4;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ForumGoodsEnterLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,15 +108,15 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            this.b = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019a, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090a89);
+            this.b = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
         }
     }
 
-    public final boolean b(tr4 tr4Var) {
+    public final boolean b(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().isVideoThreadType() && tr4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().isVideoThreadType() && vr4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -138,11 +138,11 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         }
     }
 
-    public final boolean c(tr4 tr4Var) {
+    public final boolean c(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getPollData() != null && tr4Var.getThreadData().getPollData().getOptions() != null && tr4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getPollData() != null && vr4Var.getThreadData().getPollData().getOptions() != null && vr4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -150,13 +150,13 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public void setData(tr4 tr4Var) {
+    public void setData(vr4 vr4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
-            ThreadData threadData = tr4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048580, this, vr4Var) == null) {
+            ThreadData threadData = vr4Var.getThreadData();
             int i = 0;
-            if (!c(tr4Var) && !b(tr4Var) && tr4Var.getThreadData() != null && tr4Var.getThreadData().isGoods() && this.d != 3) {
+            if (!c(vr4Var) && !b(vr4Var) && vr4Var.getThreadData() != null && vr4Var.getThreadData().isGoods() && this.d != 3) {
                 this.b.setVisibility(0);
                 this.b.setFrom(2);
                 this.b.a(threadData);

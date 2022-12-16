@@ -2,6 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class zx2 implements by2 {
+/* loaded from: classes7.dex */
+public class zx2 implements ay2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public Set<String> c;
 
     public zx2() {
         Interceptable interceptable = $ic;
@@ -32,20 +30,17 @@ public class zx2 implements by2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = "boxjs.";
-        this.c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
-    @Override // com.baidu.tieba.by2
-    public List<nx2> a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ay2
+    public List<mx2> a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             ArrayList arrayList = new ArrayList();
-            String optString = jSONObject.optString("apiName");
+            String optString = jSONObject.optString(com.alipay.sdk.cons.c.n);
             c("api-name " + optString);
             if (TextUtils.isEmpty(optString)) {
                 return arrayList;
@@ -55,51 +50,39 @@ public class zx2 implements by2 {
             if (optInt <= 0) {
                 return arrayList;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
-            JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
-            if (optJSONArray != null && optJSONArray2 != null) {
-                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
-                if (min <= 0) {
-                    return arrayList;
-                }
-                for (int i = 0; i < min; i++) {
-                    nx2 nx2Var = new nx2();
-                    nx2Var.f(optString);
-                    nx2Var.g(b(nx2Var));
-                    nx2Var.i(optJSONArray.optLong(i));
-                    nx2Var.h(optJSONArray2.optLong(i));
-                    arrayList.add(nx2Var);
-                    if (by2.a) {
-                        c(nx2Var.toString());
-                    }
-                }
+            JSONObject optJSONObject = jSONObject.optJSONObject("caller");
+            if (optJSONObject == null) {
                 return arrayList;
             }
-            c("startTimes or endTimes is empty");
+            b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
+            b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    public final int b(nx2 nx2Var) {
-        InterceptResult invokeL;
+    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<mx2> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nx2Var)) == null) {
-            String a = nx2Var.a();
-            if (TextUtils.isEmpty(a)) {
-                return 0;
+        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) && jSONObject != null && jSONObject.length() > 0) {
+            JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
+            JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
+            if (optJSONArray != null && optJSONArray2 != null) {
+                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+                for (int i2 = 0; i2 < min; i2++) {
+                    mx2 mx2Var = new mx2();
+                    mx2Var.g(i);
+                    mx2Var.f(str);
+                    mx2Var.i(optJSONArray.optLong(i2));
+                    mx2Var.h(optJSONArray2.optLong(i2));
+                    list.add(mx2Var);
+                }
             }
-            if (!a.startsWith(this.b) && !this.c.contains(a)) {
-                return 0;
-            }
-            return 1;
         }
-        return invokeL.intValue;
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && by2.a) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && ay2.a) {
             Log.d("Api-Parser", str);
         }
     }

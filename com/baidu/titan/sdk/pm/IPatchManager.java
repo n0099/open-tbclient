@@ -8,10 +8,10 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.titan.sdk.pm.IPatchInstallObserver;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IPatchManager extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Default implements IPatchManager {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -31,7 +31,7 @@ public interface IPatchManager extends IInterface {
 
     void requestCleanPatches() throws RemoteException;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements IPatchManager {
         public static final String DESCRIPTOR = "com.baidu.titan.sdk.pm.IPatchManager";
         public static final int TRANSACTION_install = 1;
@@ -42,7 +42,7 @@ public interface IPatchManager extends IInterface {
             return this;
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class Proxy implements IPatchManager {
             public static IPatchManager sDefaultImpl;
             public IBinder mRemote;

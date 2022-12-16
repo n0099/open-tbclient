@@ -2,7 +2,7 @@ package com.baidu.ufosdk;
 
 import android.view.View;
 import android.webkit.WebChromeClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface h {
     void a();
 

@@ -1,66 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes3.dex */
 public class bj9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static String b = "";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioPlayData a;
+    public cj9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947647032, "Lcom/baidu/tieba/bj9;")) == null) {
+    public bj9(AudioPlayData audioPlayData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {audioPlayData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = audioPlayData;
+        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947647032, "Lcom/baidu/tieba/bj9;");
-        }
+        this.b = new cj9(audioPlayData.audioPath);
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public cj9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
-            }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return b;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (cj9) invokeV.objValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    public AudioPlayData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i = a;
-            if (i >= 0) {
-                return i;
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            cj9 cj9Var = this.b;
+            return cj9Var != null && cj9Var.i();
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d(cj9 cj9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cj9Var) == null) {
+            this.b = cj9Var;
+        }
     }
 }

@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.UUID;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
@@ -330,7 +331,7 @@ public class g<T> {
                         str = "multipart/form-data; boundary=" + c;
                         httpURLConnection.setRequestProperty("Content-Type", str);
                         httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                        httpURLConnection.setRequestProperty("connection", "keep-alive");
+                        httpURLConnection.setRequestProperty("connection", Http2Codec.KEEP_ALIVE);
                         if (this.f != null) {
                             if (a.b.l.equals(this.f.c)) {
                                 httpURLConnection.setRequestMethod("POST");
@@ -403,7 +404,7 @@ public class g<T> {
                 str = "application/x-www-form-urlencoded";
                 httpURLConnection.setRequestProperty("Content-Type", str);
                 httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                httpURLConnection.setRequestProperty("connection", "keep-alive");
+                httpURLConnection.setRequestProperty("connection", Http2Codec.KEEP_ALIVE);
                 if (this.f != null) {
                 }
             }

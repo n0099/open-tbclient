@@ -1,11 +1,14 @@
 package com.baidu.tbadk.core.leveiconlivepolling;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.dj5;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +20,11 @@ import tbclient.Loop.LoopReqIdl;
 public class PollingReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long chatroomId;
     public String dataType;
+    public String forumName;
+    public String mListMsg;
+    public String uniqueId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PollingReqMessage() {
@@ -65,9 +72,25 @@ public class PollingReqMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.data_type = this.dataType;
+            String str = this.dataType;
+            builder.data_type = str;
+            builder.uniq_id = this.uniqueId;
+            if (!StringUtils.isNull(str) && PollingModel.CHATROOM_FRS.equals(this.dataType)) {
+                builder.chatroom_id = Long.valueOf(this.chatroomId);
+                if (!StringUtils.isNull(this.forumName)) {
+                    builder.forum_name = this.forumName;
+                }
+            }
+            if (!TextUtils.isEmpty(this.dataType) && PollingModel.SUBSCRIBE_GROUP_CHAT_LIST.equals(this.dataType)) {
+                if (!TextUtils.isEmpty(this.mListMsg)) {
+                    builder.chatroom_new_msg = this.mListMsg;
+                }
+                if (!TextUtils.isEmpty(this.uniqueId)) {
+                    builder.uniq_id = this.uniqueId;
+                }
+            }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dj5.a(builder, true);
+                wj5.a(builder, true);
             }
             LoopReqIdl.Builder builder2 = new LoopReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -76,19 +99,74 @@ public class PollingReqMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public String getDataType() {
+    public long getChatroomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.chatroomId;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getDataType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.dataType;
         }
         return (String) invokeV.objValue;
     }
 
+    public String getForumName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.forumName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUniqueId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.uniqueId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void setChatroomId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.chatroomId = j;
+        }
+    }
+
+    public void setDataRoomListMsg(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.mListMsg = str;
+        }
+    }
+
     public void setDataType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.dataType = str;
+        }
+    }
+
+    public void setForumName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.forumName = str;
+        }
+    }
+
+    public void setUniqueId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.uniqueId = str;
         }
     }
 }

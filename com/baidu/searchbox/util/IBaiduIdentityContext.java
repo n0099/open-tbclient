@@ -3,7 +3,7 @@ package com.baidu.searchbox.util;
 import android.content.Context;
 import com.baidu.browser.BrowserType;
 import com.baidu.searchbox.http.cookie.CookieManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IBaiduIdentityContext {
     byte[] encryptByNativeBds(String str, String str2);
 

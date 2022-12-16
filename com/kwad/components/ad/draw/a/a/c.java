@@ -33,7 +33,7 @@ import com.kwad.components.core.webview.jshandler.s;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -501,7 +501,7 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             int i = this.bH;
-            String str = i == -1 ? "timeout" : i != 1 ? "h5error" : AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
+            String str = i == -1 ? com.alipay.sdk.data.a.O : i != 1 ? "h5error" : AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
             com.kwad.sdk.core.e.b.w("DrawPlayWebCard", "show webCard fail, reason: " + str);
         }
     }
@@ -562,8 +562,8 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091089);
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091157);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910eb);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911b6);
         }
     }
 

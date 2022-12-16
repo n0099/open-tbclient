@@ -1,47 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.baidu.yunjiasu.tornadosdk.Pinger;
+/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public class op9 extends xo9<TTSplashAd> {
+public final /* synthetic */ class op9 implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ op9 a = new op9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public op9(TTSplashAd tTSplashAd) {
-        super(tTSplashAd);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tTSplashAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    private /* synthetic */ op9() {
     }
 
-    @Override // com.baidu.tieba.xo9
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler.Callback
+    public final boolean handleMessage(Message message) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.isEmpty()) {
-                this.b = (String) ((TTSplashAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? Pinger.m73pingHandler$lambda0(message) : invokeL.booleanValue;
     }
 }

@@ -3,9 +3,7 @@ package com.baidu.android.imsdk.internal;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -70,7 +68,7 @@ public class MessageFactory {
         return (MessageFactory) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: java.lang.reflect.Method */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: java.lang.reflect.Method */
     /* JADX WARN: Multi-variable type inference failed */
     private Message invokeMethod(Context context, String str, int i, Class<?>[] clsArr, Object[] objArr, Intent intent) {
         InterceptResult invokeCommon;
@@ -97,7 +95,6 @@ public class MessageFactory {
                             Message message3 = message2;
                             message2 = method;
                             message = message3;
-                            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(LogUtils.TAG, "IllegalArgumentException " + cls.getSimpleName() + ":" + message2, e);
                             message2 = message;
                             return message2;

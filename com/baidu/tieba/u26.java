@@ -1,103 +1,131 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class u26 {
     public static /* synthetic */ Interceptable $ic;
-    public static Timer a;
-    public static int b;
-    public static ExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<kn> c;
+    public AlaEnterEffectAdapter d;
+    public AlaEnterEffectCategoryAdapter e;
+    public List<xn> f;
 
-    /* loaded from: classes6.dex */
-    public static class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public a(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.run();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159152, "Lcom/baidu/tieba/u26;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948159152, "Lcom/baidu/tieba/u26;");
+    public u26(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = Executors.newFixedThreadPool(availableProcessors);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    public static void a() {
-        Timer timer;
+    public void d(String str, int i) {
+        List<xn> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (timer = a) != null) {
-            timer.cancel();
-            a = null;
-        }
-    }
-
-    public static Timer b(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) {
-            Timer timer = a;
-            if (timer != null) {
-                return timer;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && !StringUtils.isNull(str) && (list = this.f) != null) {
+            for (xn xnVar : list) {
+                if (xnVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) xnVar;
+                    if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
+                        alaEnterEffectData.downLoadStatus = i;
+                        b();
+                    }
+                }
             }
-            a = new Timer();
-            a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
-            return a;
         }
-        return (Timer) invokeL.objValue;
     }
 
-    public static void c(Runnable runnable) {
+    public void e(String str, boolean z) {
+        List<xn> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            c.execute(runnable);
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (xn xnVar : list) {
+                if (xnVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) xnVar;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.isOwn = z;
+                        b();
+                        return;
+                    }
+                }
+            }
         }
+    }
+
+    public void f(String str, boolean z) {
+        List<xn> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (xn xnVar : list) {
+                if (xnVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) xnVar;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.use_status = z ? 1 : 0;
+                    } else {
+                        alaEnterEffectData.use_status = 0;
+                    }
+                    b();
+                }
+            }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ArrayList();
+            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
+            this.d = alaEnterEffectAdapter;
+            this.c.add(alaEnterEffectAdapter);
+            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
+            this.e = alaEnterEffectCategoryAdapter;
+            this.c.add(alaEnterEffectCategoryAdapter);
+            this.b.a(this.c);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (kn knVar : this.c) {
+                knVar.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void c(List<xn> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b.setData(list);
+        this.f = this.b.getData();
     }
 }

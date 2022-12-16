@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
-import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class tm7 extends zf1<LiveUserSecurityBehaviorService> {
+public class tm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
 
     public tm7() {
         Interceptable interceptable = $ic;
@@ -24,17 +23,5 @@ public final class tm7 extends zf1<LiveUserSecurityBehaviorService> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf1
-    /* renamed from: a */
-    public LiveUserSecurityBehaviorService createService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new LiveUserSecurityBehaviorServiceImpl();
-        }
-        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

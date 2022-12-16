@@ -79,6 +79,7 @@ import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -776,7 +777,7 @@ public class SapiWebView extends WebView {
                                             SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                                 public static /* synthetic */ Interceptable $ic;
                                                 public transient /* synthetic */ FieldHolder $fh;
-                                                public final /* synthetic */ RunnableC01362 this$2;
+                                                public final /* synthetic */ RunnableC01502 this$2;
                                                 public final /* synthetic */ String val$bduss;
                                                 public final /* synthetic */ String val$ptoken;
 
@@ -2997,7 +2998,7 @@ public class SapiWebView extends WebView {
                                 return true;
                             }
                         }
-                        AlertDialog.Builder positiveButton = new AlertDialog.Builder(context).setTitle("JavaScript Message").setMessage(str2).setPositiveButton("ok", new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.sapi2.SapiWebView.3.1
+                        AlertDialog.Builder positiveButton = new AlertDialog.Builder(context).setTitle("JavaScript Message").setMessage(str2).setPositiveButton(DnsModel.MSG_OK, new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.sapi2.SapiWebView.3.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass3 this$1;

@@ -2,15 +2,15 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.fg0;
-import com.baidu.tieba.ij9;
-import com.baidu.tieba.ng0;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.mg0;
+import com.baidu.tieba.rm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TemplateEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,23 +30,23 @@ public class TemplateEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(fg0 fg0Var, int i, float[] fArr) {
+    public int onProcessFrame(eg0 eg0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, fg0Var, i, fArr)) == null) {
-            if (fg0Var == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eg0Var, i, fArr)) == null) {
+            if (eg0Var == null) {
                 return i;
             }
             int i3 = 1;
             while (true) {
-                if (i3 >= ij9.b(fg0Var.l())) {
+                if (i3 >= rm9.b(eg0Var.l())) {
                     i2 = i;
                     break;
                 }
-                MediaTrack mediaTrack = (MediaTrack) ij9.c(fg0Var.l(), i3);
-                if (mediaTrack != null && ng0.m(mediaTrack, "template_effect")) {
-                    i2 = fg0Var.i(mediaTrack, i, null);
+                MediaTrack mediaTrack = (MediaTrack) rm9.c(eg0Var.l(), i3);
+                if (mediaTrack != null && mg0.m(mediaTrack, "template_effect")) {
+                    i2 = eg0Var.i(mediaTrack, i, null);
                     break;
                 }
                 i3++;

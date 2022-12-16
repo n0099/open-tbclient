@@ -3,15 +3,16 @@ package com.baidu.tbadk.abtest.helper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.switchs.BdNetSwitch;
 import com.baidu.tieba.wf;
-import com.baidu.tieba.zf1;
+import com.baidu.tieba.yf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NetExperimentFetcher extends zf1<wf> {
+public class NetExperimentFetcher extends yf1<wf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,12 +47,11 @@ public class NetExperimentFetcher extends zf1<wf> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return UbsABTestHelper.isNetABTest();
+                return BdNetSwitch.getIsOn();
             }
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.wf
         public boolean netBdABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class NetExperimentFetcher extends zf1<wf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.zf1
+    @Override // com.baidu.tieba.yf1
     public wf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

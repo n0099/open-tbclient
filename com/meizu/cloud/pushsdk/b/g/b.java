@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.google.android.exoplayer2.C;
 import com.google.android.material.slider.BasicLabelFormatter;
 import java.io.EOFException;
 import java.io.IOException;
@@ -353,7 +352,7 @@ public final class b implements c, d, Cloneable {
             z = true;
         }
         if (j >= 100000000) {
-            i2 = j < BasicLabelFormatter.TRILLION ? j < 10000000000L ? j < C.NANOS_PER_SECOND ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
+            i2 = j < BasicLabelFormatter.TRILLION ? j < 10000000000L ? j < 1000000000 ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
         } else if (j >= 10000) {
             i2 = j < 1000000 ? j < 100000 ? 5 : 6 : j < 10000000 ? 7 : 8;
         } else if (j >= 100) {

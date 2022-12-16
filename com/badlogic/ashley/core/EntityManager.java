@@ -294,7 +294,7 @@ public class EntityManager {
                             while (true) {
                                 b7<p0> b7Var2 = this.b;
                                 if (b7Var2.b > 0) {
-                                    f(b7Var2.f());
+                                    f(b7Var2.first());
                                 }
                             }
                         } else {
@@ -318,7 +318,7 @@ public class EntityManager {
         if ((interceptable == null || interceptable.invokeL(1048581, this, p0Var) == null) && this.c.remove(p0Var)) {
             p0Var.c = false;
             p0Var.d = true;
-            this.b.j(p0Var, true);
+            this.b.i(p0Var, true);
             this.a.a(p0Var);
             p0Var.d = false;
         }

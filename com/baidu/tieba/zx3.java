@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,20 +13,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class zx3 {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class zx3 extends kr2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public float d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public float i;
-    public String j;
+    public EventTargetImpl d;
+    public wx3 e;
+
+    @Override // com.baidu.tieba.kr2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,39 +45,69 @@ public class zx3 {
                 return;
             }
         }
-        boolean z = pk1.a;
+        f = ok1.a;
     }
 
-    public zx3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zx3(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventTargetImpl, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = true;
-        this.h = 0;
-        this.i = 1.0f;
+        this.d = eventTargetImpl;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kr2
+    public void b(String str, JSONObject jSONObject) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "url : " + this.c + "; AutoPlay : " + this.e + "; Volume :" + this.i + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            wx3 wx3Var = this.e;
+            if (wx3Var != null) {
+                wx3Var.p(optString, jSONObject);
+            }
+            if (!this.d.hasEventListener(optString)) {
+                return;
+            }
+            JSEvent jSEvent = new JSEvent(optString);
+            if (jSONObject != null) {
+                jSEvent.data = jSONObject;
+            }
+            if (f && !"onTimeUpdate".equals(str)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("type = ");
+                sb.append(str);
+                sb.append("  result = ");
+                if (jSONObject != null) {
+                    str2 = jSONObject.toString();
+                } else {
+                    str2 = StringUtil.NULL_STRING;
+                }
+                sb.append(str2);
+                Log.d("AudioCallbackForV8", sb.toString());
+            }
+            this.d.dispatchEvent(jSEvent);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void e(wx3 wx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wx3Var) == null) {
+            this.e = wx3Var;
+        }
     }
 }

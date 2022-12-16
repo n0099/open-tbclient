@@ -235,22 +235,22 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         String a = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), "");
-        a.C0051a c0051a = new a.C0051a();
+        a.C0065a c0065a = new a.C0065a();
         if ("load_webview".equals(a)) {
-            c0051a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0051a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c0051a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c0051a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0051a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().c(c0051a);
+            c0065a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0065a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c0065a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c0065a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0065a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().c(c0065a);
         } else if ("update_webview_js".equals(a)) {
-            c0051a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0051a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.bm().e(c0051a);
+            c0065a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0065a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.bm().e(c0065a);
         } else if ("load_native_webview".equals(a)) {
-            c0051a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0051a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().d(c0051a);
+            c0065a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0065a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().d(c0065a);
         }
     }
 
@@ -324,7 +324,7 @@ public class a implements ARPMessage.MessageHandler {
                 case 1021:
                 case 1023:
                 case 1025:
-                case ARPMessageType.MSG_TYPE_VIDEO_STOP /* 1027 */:
+                case 1027:
                     b(hashMap, i);
                     return;
                 case 1401:

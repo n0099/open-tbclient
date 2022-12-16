@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAFT_JSON_NAME = "new_video_info";
@@ -520,18 +520,6 @@ public class VideoInfo implements Serializable {
         this.mOriginMusicPath = videoInfo.mOriginMusicPath;
     }
 
-    public void parseFromIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048619, this, intent) != null) || intent == null) {
-            return;
-        }
-        this.videoPath = intent.getStringExtra("video");
-        this.thumbPath = intent.getStringExtra("image");
-        this.videoDuration = (int) (intent.getLongExtra("video_l", 8000L) / 1000);
-        this.videoHeight = intent.getIntExtra("video_h", 480);
-        this.videoWidth = intent.getIntExtra("video_w", 480);
-    }
-
     public boolean isAvaliable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -542,6 +530,18 @@ public class VideoInfo implements Serializable {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public void parseFromIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048619, this, intent) != null) || intent == null) {
+            return;
+        }
+        this.videoPath = intent.getStringExtra("video");
+        this.thumbPath = intent.getStringExtra("image");
+        this.videoDuration = (int) (intent.getLongExtra("video_l", 8000L) / 1000);
+        this.videoHeight = intent.getIntExtra("video_h", 480);
+        this.videoWidth = intent.getIntExtra("video_w", 480);
     }
 
     public void setBeautifyListInfo(List<String> list) {

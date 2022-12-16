@@ -3,7 +3,6 @@ package com.baidu.location;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -698,10 +697,7 @@ public final class LocationClientOption {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048613, this, i, i2, i3) == null) {
-            int i4 = TiebaStatic.MAX_COST_VALUE;
-            if (i > 180000) {
-                i4 = i + 1000;
-            }
+            int i4 = i > 180000 ? i + 1000 : 180000;
             if (i4 < 10000) {
                 throw new IllegalArgumentException("Illegal this maxLocInterval : " + i4 + " , maxLocInterval must >= 10000");
             }

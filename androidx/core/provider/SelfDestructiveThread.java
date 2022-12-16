@@ -6,6 +6,7 @@ import android.os.Message;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -335,7 +336,7 @@ public class SelfDestructiveThread {
                         return (T) atomicReference.get();
                     }
                 } while (nanos > 0);
-                throw new InterruptedException("timeout");
+                throw new InterruptedException(a.O);
             } finally {
                 reentrantLock.unlock();
             }

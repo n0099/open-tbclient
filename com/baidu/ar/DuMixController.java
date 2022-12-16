@@ -44,7 +44,6 @@ import com.baidu.ar.record.RecordCallback;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.ar.steploading.IStepLoading;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1507,7 +1506,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             }
             e eVar = this.aR;
             if (eVar != null) {
-                eVar.k(IntentConfig.STOP);
+                eVar.k("stop");
             }
         }
     }

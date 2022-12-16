@@ -18,7 +18,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lkotlin/UByte;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Function1<UByte, Long> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ InetSocketAddress $address;
@@ -55,11 +55,11 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
     public /* bridge */ /* synthetic */ Long invoke(UByte uByte) {
-        return m56invoke7apg3OU(uByte.m765unboximpl());
+        return m57invoke7apg3OU(uByte.m775unboximpl());
     }
 
     /* renamed from: invoke-7apg3OU  reason: not valid java name */
-    public final Long m56invoke7apg3OU(byte b) {
+    public final Long m57invoke7apg3OU(byte b) {
         InterceptResult invokeB;
         long j;
         DatagramSocket datagramSocket;
@@ -78,13 +78,13 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
                 Intrinsics.checkNotNull(datagramSocket2);
                 datagramSocket2.receive(datagramPacket2);
                 j = System.currentTimeMillis() - currentTimeMillis;
-                this.$cache[UByte.m716constructorimpl(this.$buf[0]) & 255] = 1;
+                this.$cache[UByte.m726constructorimpl(this.$buf[0]) & 255] = 1;
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[Probe time] " + ((Object) UByte.m759toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j);
+                logTo.d("*****", "[Probe time] " + ((Object) UByte.m769toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j);
             } catch (Exception unused) {
                 j = -1;
                 LogTo logTo2 = LogTo.INSTANCE;
-                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m759toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
+                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m769toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
             }
             return Long.valueOf(j);
         }

@@ -38,31 +38,32 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.BottomInputLayout;
 import com.baidu.tbadk.widget.KeyboardLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a45;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.f25;
-import com.baidu.tieba.fa7;
-import com.baidu.tieba.i75;
+import com.baidu.tieba.b45;
+import com.baidu.tieba.c75;
+import com.baidu.tieba.db7;
+import com.baidu.tieba.eg7;
+import com.baidu.tieba.g25;
+import com.baidu.tieba.gg7;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.im.widget.PersonalFollowTipLayout;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.l65;
+import com.baidu.tieba.j75;
 import com.baidu.tieba.m65;
-import com.baidu.tieba.nc7;
+import com.baidu.tieba.mj;
+import com.baidu.tieba.n65;
+import com.baidu.tieba.nd7;
 import com.baidu.tieba.oj;
 import com.baidu.tieba.p9;
-import com.baidu.tieba.qw4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.tv4;
-import com.baidu.tieba.u85;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.uv4;
+import com.baidu.tieba.v85;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.w65;
 import com.baidu.tieba.x65;
-import com.baidu.tieba.xe7;
+import com.baidu.tieba.y65;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.ze7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,21 +81,21 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalFollowTipLayout followTipLayout;
-    public m65 mActionListener;
-    public fa7 mAdapter;
+    public n65 mActionListener;
+    public db7 mAdapter;
     public View mBtnGroupInfo;
     public i mCallback;
     public MsglistActivity mContext;
     public final Handler mHandler;
     public View mImgBack;
     public RelativeLayout mInputControl;
-    public i75 mInputTool;
+    public j75 mInputTool;
     public boolean mIsPersonalHeader;
     public ViewGroup mLayBottom;
     public LinearLayout mLayNewMsg;
     public BdTypeListView mLisMsg;
     public FrameLayout mListMain;
-    public tv4 mMsgItemOperation;
+    public uv4 mMsgItemOperation;
     public View mMsgListBgView;
     public View mMsgListBgViewMask;
     public NavigationBar mNavigationBar;
@@ -105,7 +106,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public ProgressBar mPrgLisMsg;
     public ImageView mReceiver;
     public KeyboardLayout mRootView;
-    public w65 mSendTool;
+    public x65 mSendTool;
     public ISendVoiceView mSendVoiceView;
     public TextView mTexGroup;
     public String mTextContent;
@@ -142,7 +143,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public int getOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return 1;
         }
         return invokeV.intValue;
@@ -154,7 +155,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public void onSendEmotion() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
         }
     }
 
@@ -217,7 +218,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     }
 
     /* loaded from: classes4.dex */
-    public class a implements m65 {
+    public class a implements n65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsglistView a;
@@ -240,28 +241,28 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
             this.a = absMsglistView;
         }
 
-        @Override // com.baidu.tieba.m65
-        public void B(l65 l65Var) {
+        @Override // com.baidu.tieba.n65
+        public void A(m65 m65Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, l65Var) != null) || l65Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, m65Var) != null) || m65Var == null) {
                 return;
             }
-            int i = l65Var.a;
+            int i = m65Var.a;
             if (i == 24) {
-                Object obj = l65Var.c;
-                if (obj != null && (obj instanceof f25)) {
-                    f25 f25Var = (f25) obj;
-                    EmotionGroupType type = f25Var.getType();
-                    String d = f25Var.d();
+                Object obj = m65Var.c;
+                if (obj != null && (obj instanceof g25)) {
+                    g25 g25Var = (g25) obj;
+                    EmotionGroupType type = g25Var.getType();
+                    String d = g25Var.d();
                     if (type != EmotionGroupType.LOCAL && d != null) {
-                        this.a.mContext.o1(f25Var);
+                        this.a.mContext.o1(g25Var);
                         this.a.onSendEmotion();
                     }
                 }
             } else if (i == 8) {
                 this.a.mContext.p1();
             } else if (i == 4) {
-                Object obj2 = l65Var.c;
+                Object obj2 = m65Var.c;
                 if (obj2 != null && (obj2 instanceof String)) {
                     this.a.mTextContent = (String) obj2;
                 }
@@ -302,8 +303,6 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
                 super.handleMessage(message);
                 if (message.what == 1) {
                     this.a.mHandler.removeMessages(1);
-                    this.a.closeRecordCancel();
-                    this.a.closeRecordTooShort();
                 }
             }
         }
@@ -349,7 +348,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
                 yi.z(this.a.getActivity(), this.a.getActivity().getCurrentFocus());
                 EditorTools editorTools = this.b.mTool;
                 if (editorTools != null) {
-                    editorTools.q();
+                    editorTools.r();
                 }
             }
         }
@@ -389,7 +388,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
                 yi.z(this.a.getActivity(), this.a.getActivity().getCurrentFocus());
                 EditorTools editorTools = this.b.mTool;
                 if (editorTools != null) {
-                    editorTools.q();
+                    editorTools.r();
                 }
                 this.b.MainOnTouch();
                 return false;
@@ -499,11 +498,11 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         public void onMovedToScrapHeap(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09129c);
+                View findViewById = view2.findViewById(R.id.lay_msgitem_voice);
                 if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
                     ((ChatVoiceView) findViewById).i();
                 }
-                View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f0908e1);
+                View findViewById2 = view2.findViewById(R.id.emotion_msgitem_image);
                 if (findViewById2 != null && (findViewById2 instanceof GifView)) {
                     ((GifView) findViewById2).k0();
                 }
@@ -536,7 +535,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                nc7.a(view2.getContext());
+                nd7.a(view2.getContext());
             }
         }
     }
@@ -592,8 +591,8 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         this.mNeedShowName = true;
         this.mRootView = null;
         this.mContext = msglistActivity;
-        msglistActivity.setContentView(R.layout.obfuscated_res_0x7f0d05ad);
-        this.mRootView = (KeyboardLayout) msglistActivity.findViewById(R.id.obfuscated_res_0x7f0915c4);
+        msglistActivity.setContentView(R.layout.msg_msglist_activity);
+        this.mRootView = (KeyboardLayout) msglistActivity.findViewById(R.id.msg_root_view);
         initHeader(msglistActivity, z);
         initHeaderTip(msglistActivity);
         initMsglist(msglistActivity);
@@ -605,22 +604,22 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public void initPersonalHeader(TalkableActivity talkableActivity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048616, this, talkableActivity, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048614, this, talkableActivity, z) == null) {
             this.mIsPersonalHeader = true;
-            NavigationBar navigationBar = (NavigationBar) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09129e);
+            NavigationBar navigationBar = (NavigationBar) talkableActivity.findViewById(R.id.lay_title_bar);
             this.mNavigationBar = navigationBar;
             this.mNavigationBarBgView = navigationBar.getBarBgView();
             this.mImgBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, talkableActivity);
-            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d074a, (ViewGroup) null);
+            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.personal_chat_lbs_title, (ViewGroup) null);
             this.personalchat_lbs_title = inflate;
-            this.personal_lbs_title_name = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919e6);
-            this.personal_lbs_title_lbsinfo = (TextView) this.personalchat_lbs_title.findViewById(R.id.obfuscated_res_0x7f0919e5);
-            this.personal_lbs_title_time = (TextView) this.personalchat_lbs_title.findViewById(R.id.obfuscated_res_0x7f0919e7);
-            this.mNotNotify = (ImageView) this.personalchat_lbs_title.findViewById(R.id.obfuscated_res_0x7f090f09);
-            this.personal_lbs_shadow = this.personalchat_lbs_title.findViewById(R.id.obfuscated_res_0x7f0919e4);
+            this.personal_lbs_title_name = (TextView) inflate.findViewById(R.id.personal_lbs_title_name);
+            this.personal_lbs_title_lbsinfo = (TextView) this.personalchat_lbs_title.findViewById(R.id.personal_lbs_title_lbsinfo);
+            this.personal_lbs_title_time = (TextView) this.personalchat_lbs_title.findViewById(R.id.personal_lbs_title_time);
+            this.mNotNotify = (ImageView) this.personalchat_lbs_title.findViewById(R.id.img_close_notify);
+            this.personal_lbs_shadow = this.personalchat_lbs_title.findViewById(R.id.personal_lbs_shadow);
             this.mNavigationBar.setTitleView(this.personalchat_lbs_title, null, NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER);
-            this.mReceiver = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05a7, (View.OnClickListener) null);
-            this.mInputControl = (RelativeLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0912ad);
+            this.mReceiver = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.msg_chat_ear_item, (View.OnClickListener) null);
+            this.mInputControl = (RelativeLayout) talkableActivity.findViewById(R.id.layout_bottom_input);
             if (z) {
                 closeNotNotify();
             } else {
@@ -629,26 +628,26 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         }
     }
 
-    public void refreshPersonalHeadFooter(String str, a45 a45Var) {
+    public void refreshPersonalHeadFooter(String str, b45 b45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048636, this, str, a45Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048634, this, str, b45Var) == null) {
             this.personal_lbs_title_name.setText(str);
-            if (a45Var == null) {
+            if (b45Var == null) {
                 return;
             }
-            if (a45Var.b() >= 0 && a45Var.b() <= 1) {
-                if (a45Var.b() == 1) {
+            if (b45Var.b() >= 0 && b45Var.b() <= 1) {
+                if (b45Var.b() == 1) {
                     this.personal_lbs_title_lbsinfo.setVisibility(0);
-                    this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+                    this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(R.string.contact_yinshen));
                     this.personal_lbs_shadow.setVisibility(8);
                     this.personal_lbs_title_time.setVisibility(8);
                     return;
-                } else if (!StringUtils.isNull(a45Var.a()) && a45Var.c() > 0) {
+                } else if (!StringUtils.isNull(b45Var.a()) && b45Var.c() > 0) {
                     this.personal_lbs_title_lbsinfo.setVisibility(0);
                     this.personal_lbs_shadow.setVisibility(0);
                     this.personal_lbs_title_time.setVisibility(0);
-                    this.personal_lbs_title_time.setText(StringHelper.getTimeInterval(a45Var.c()));
-                    this.personal_lbs_title_lbsinfo.setText(a45Var.a());
+                    this.personal_lbs_title_time.setText(StringHelper.getTimeInterval(b45Var.c()));
+                    this.personal_lbs_title_lbsinfo.setText(b45Var.a());
                     return;
                 } else {
                     this.personal_lbs_title_lbsinfo.setVisibility(8);
@@ -664,10 +663,10 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     @Override // com.baidu.tieba.oj
     public void onSendVoice(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048625, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048623, this, str, i2) == null) {
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
             voiceModel.duration = i2;
-            voiceModel.voiceId = str;
+            voiceModel.setVoiceId(str);
             voiceModel.voice_status = 1;
             i iVar = this.mCallback;
             if (iVar != null) {
@@ -676,16 +675,25 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         }
     }
 
+    @Override // com.baidu.tieba.oj
+    public void onStartedRecorder(boolean z, int i2) {
+        ISendVoiceView iSendVoiceView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+            iSendVoiceView.onStartedRecorder(z, mj.b);
+        }
+    }
+
     public void refreshHeaderFooter(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048634, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048632, this, str, z) == null) {
             this.mTexGroup.setText(StringHelper.getFixedText(str, 8, true));
         }
     }
 
     public void updateAdapterProgress(int i2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048653, this, i2, chatMessage) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048651, this, i2, chatMessage) == null) {
             chatMessage.setProgressValue(i2);
             this.mAdapter.i(chatMessage);
         }
@@ -694,8 +702,8 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public final String getContent(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, chatMessage)) == null) {
-            return xe7.f(chatMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, chatMessage)) == null) {
+            return eg7.g(chatMessage);
         }
         return (String) invokeL.objValue;
     }
@@ -703,22 +711,22 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void hideFollowTip(boolean z) {
         PersonalFollowTipLayout personalFollowTipLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && (personalFollowTipLayout = this.followTipLayout) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048602, this, z) == null) && (personalFollowTipLayout = this.followTipLayout) != null) {
             personalFollowTipLayout.c(z);
         }
     }
 
     public void initBottom(TalkableActivity talkableActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, talkableActivity) == null) {
-            this.mLayBottom = (ViewGroup) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091292);
+        if (interceptable == null || interceptable.invokeL(1048606, this, talkableActivity) == null) {
+            this.mLayBottom = (ViewGroup) talkableActivity.findViewById(R.id.lay_bottom_bar);
         }
     }
 
     public void initFollowTip(UserData userData) {
         PersonalFollowTipLayout personalFollowTipLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048609, this, userData) != null) || (personalFollowTipLayout = this.followTipLayout) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048607, this, userData) != null) || (personalFollowTipLayout = this.followTipLayout) == null) {
             return;
         }
         if (userData == null) {
@@ -730,9 +738,9 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public final void initNewMsg(TalkableActivity talkableActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, talkableActivity) == null) {
-            this.mLayNewMsg = (LinearLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091296);
-            this.mTextNewMsg = (TextView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f092181);
+        if (interceptable == null || interceptable.invokeL(1048612, this, talkableActivity) == null) {
+            this.mLayNewMsg = (LinearLayout) talkableActivity.findViewById(R.id.lay_last_msg);
+            this.mTextNewMsg = (TextView) talkableActivity.findViewById(R.id.text_last_msg);
             this.mLayNewMsg.setOnClickListener(talkableActivity);
         }
     }
@@ -741,7 +749,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void onDeletedVoice(String str) {
         i iVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048622, this, str) == null) && (iVar = this.mCallback) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048620, this, str) == null) && (iVar = this.mCallback) != null) {
             iVar.a();
         }
     }
@@ -750,7 +758,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void onShowRecordTime(int i2) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048627, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048625, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.onShowRecordTime(i2);
         }
     }
@@ -759,23 +767,14 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void onShowRecording(int i2) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048628, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048626, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.onShowRecording(i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.oj
-    public void onStartedRecorder(boolean z) {
-        ISendVoiceView iSendVoiceView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048629, this, z) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
-            iSendVoiceView.onStartedRecorder(z);
         }
     }
 
     public void refreshGo2New(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048633, this, msgPageData) != null) || msgPageData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048631, this, msgPageData) != null) || msgPageData == null) {
             return;
         }
         try {
@@ -794,14 +793,14 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public void refreshNormal(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, msgPageData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, msgPageData) == null) {
             doRefresh(msgPageData, -1);
         }
     }
 
     public void refreshPrepage(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, msgPageData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, msgPageData) == null) {
             try {
                 int firstVisiblePosition = this.mLisMsg.getFirstVisiblePosition();
                 if (msgPageData.getIsNewAdd()) {
@@ -818,36 +817,36 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void setRecoding(boolean z) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048643, this, z) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048641, this, z) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.setRecoding(z);
         }
     }
 
     public void setRecordCallback(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, iVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048642, this, iVar) == null) {
             this.mCallback = iVar;
         }
     }
 
     public void setUpdateListener(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, jVar) == null) {
             this.mUpdateListener = jVar;
         }
     }
 
-    public void setVoiceTouchCallback(ze7 ze7Var) {
+    public void setVoiceTouchCallback(gg7 gg7Var) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048647, this, ze7Var) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
-            iSendVoiceView.setTouchCallBack(ze7Var);
+        if ((interceptable == null || interceptable.invokeL(1048645, this, gg7Var) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+            iSendVoiceView.setTouchCallBack(gg7Var);
         }
     }
 
     public final void showNewMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048650, this, chatMessage) != null) || chatMessage == null || xe7.v(chatMessage)) {
+        if ((interceptable != null && interceptable.invokeL(1048648, this, chatMessage) != null) || chatMessage == null || eg7.x(chatMessage)) {
             return;
         }
         String content = getContent(chatMessage);
@@ -868,14 +867,14 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
             }
             EditorTools editorTools = this.mTool;
             if (editorTools != null) {
-                editorTools.A(new l65(6, 3, this.mTextContent));
+                editorTools.B(new m65(6, 3, this.mTextContent));
             }
         }
     }
 
     public void refreshCheckNew(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048632, this, msgPageData) != null) || msgPageData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048630, this, msgPageData) != null) || msgPageData == null) {
             return;
         }
         boolean z = false;
@@ -898,18 +897,18 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public void setDraft(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048641, this, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048639, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             String string = jSONObject.getString(TbEnum.ChatInputStatus.INPUT_DRAFT_KEY);
             if (this.mTool != null) {
-                this.mTool.A(new l65(6, 3, string));
+                this.mTool.B(new m65(6, 3, string));
             }
             this.mTextContent = string;
             if (jSONObject.getString(TbEnum.ChatInputStatus.INPUT_STATUS_KEY).equals(TbEnum.ChatInputStatus.INPUT_STATUS_VOICE) && this.mTool != null) {
-                this.mTool.A(new l65(1, 6, null));
+                this.mTool.B(new m65(1, 6, null));
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -922,7 +921,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
             this.mTextContent = null;
             EditorTools editorTools = this.mTool;
             if (editorTools != null) {
-                editorTools.A(new l65(9, -1, Boolean.TRUE));
+                editorTools.B(new m65(9, -1, Boolean.TRUE));
             }
         }
     }
@@ -968,49 +967,33 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         }
     }
 
-    public void closeRecordCancel() {
-        ISendVoiceView iSendVoiceView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
-            iSendVoiceView.closeRecordCancel();
-        }
-    }
-
-    public void closeRecordTooShort() {
-        ISendVoiceView iSendVoiceView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
-            iSendVoiceView.closeRecordTooShort();
-        }
-    }
-
     public void closeTitleView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.personalchat_lbs_title.setVisibility(8);
         }
     }
 
     public void displayNoNetwork() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.mNetworkView.update(true);
         }
     }
 
-    public fa7 getAdapter() {
+    public db7 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mAdapter;
         }
-        return (fa7) invokeV.objValue;
+        return (db7) invokeV.objValue;
     }
 
     public View getBtnBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.mImgBack;
         }
         return (View) invokeV.objValue;
@@ -1019,7 +1002,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public View getBtnGroupInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.mBtnGroupInfo;
         }
         return (View) invokeV.objValue;
@@ -1028,7 +1011,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public View getBtnSendVoice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null && (iSendVoiceView instanceof View)) {
                 return (View) iSendVoiceView;
@@ -1041,7 +1024,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public LinearLayout getLayNewMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.mLayNewMsg;
         }
         return (LinearLayout) invokeV.objValue;
@@ -1050,7 +1033,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public ViewGroup getLayoutBottom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.mLayBottom;
         }
         return (ViewGroup) invokeV.objValue;
@@ -1059,25 +1042,25 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public FrameLayout getListMain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.mListMain;
         }
         return (FrameLayout) invokeV.objValue;
     }
 
-    public tv4 getMsgItemOperationDialog() {
+    public uv4 getMsgItemOperationDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.mMsgItemOperation;
         }
-        return (tv4) invokeV.objValue;
+        return (uv4) invokeV.objValue;
     }
 
     public BdTypeListView getMsgListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.mLisMsg;
         }
         return (BdTypeListView) invokeV.objValue;
@@ -1086,7 +1069,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public boolean getVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             if (this.mRootView.getChildAt(2).getVisibility() == 0) {
                 return true;
             }
@@ -1099,7 +1082,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         RelativeLayout relativeLayout;
         View findViewById;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && (relativeLayout = this.mInputControl) != null && (findViewById = relativeLayout.findViewById(R.id.obfuscated_res_0x7f090f64)) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (relativeLayout = this.mInputControl) != null && (findViewById = relativeLayout.findViewById(R.id.input_tool_block_view)) != null) {
             this.mInputControl.removeView(findViewById);
         }
     }
@@ -1107,22 +1090,22 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void hideMore() {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (editorTools = this.mTool) != null) {
-            editorTools.q();
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && (editorTools = this.mTool) != null) {
+            editorTools.r();
         }
     }
 
     public void hideNoNetwork() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             this.mNetworkView.update(false);
         }
     }
 
     public final void initOriginContainer() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091791);
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.mRootView.findViewById(R.id.origin_list_container);
             this.originListContainer = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(0.0f);
         }
@@ -1131,12 +1114,12 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public boolean isMoreVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             EditorTools editorTools = this.mTool;
             if (editorTools == null) {
                 return false;
             }
-            return editorTools.u();
+            return editorTools.v();
         }
         return invokeV.booleanValue;
     }
@@ -1145,7 +1128,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null) {
                 return iSendVoiceView.isOnCancle();
@@ -1157,18 +1140,18 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public void onDestory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             Handler handler = this.mHandler;
             if (handler != null) {
                 handler.removeMessages(1);
             }
-            fa7 fa7Var = this.mAdapter;
-            if (fa7Var != null) {
-                fa7Var.k();
+            db7 db7Var = this.mAdapter;
+            if (db7Var != null) {
+                db7Var.k();
             }
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null) {
-                iSendVoiceView.h();
+                iSendVoiceView.j();
             }
         }
     }
@@ -1177,24 +1160,24 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void onStopingRecorder() {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048630, this) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048628, this) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.onStopingRecorder();
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
             this.mAdapter.g();
         }
     }
 
     public void sendmsgCloseSoftkey() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
             EditorTools editorTools = this.mTool;
             if (editorTools != null) {
-                editorTools.q();
+                editorTools.r();
             }
             yi.z(this.mContext.getActivity(), this.mContext.getCurrentFocus());
         }
@@ -1203,14 +1186,14 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void setSelectionFocusDown() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048645, this) == null) && (bdTypeListView = this.mLisMsg) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048643, this) == null) && (bdTypeListView = this.mLisMsg) != null) {
             bdTypeListView.setSelection(130);
         }
     }
 
     public void showReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048652, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
             this.mReceiver.setVisibility(0);
         }
     }
@@ -1229,7 +1212,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public final void doRefresh(MsgPageData msgPageData, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048590, this, msgPageData, i2) != null) || msgPageData == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048588, this, msgPageData, i2) != null) || msgPageData == null) {
             return;
         }
         try {
@@ -1248,7 +1231,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     @Override // com.baidu.tieba.oj
     public void onShowErr(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048626, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048624, this, i2, str) == null) {
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null) {
                 iSendVoiceView.onShowErr(i2, str);
@@ -1269,11 +1252,11 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public void showDiaItemContentOperate(int i2, String[] strArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048648, this, i2, strArr) == null) && strArr != null && strArr.length > 0) {
-            tv4 tv4Var = new tv4(this.mContext.getPageContext());
-            tv4Var.i(null, strArr, this.mContext);
-            this.mMsgItemOperation = tv4Var;
-            tv4Var.f().setTag(Integer.valueOf(i2));
+        if ((interceptable == null || interceptable.invokeIL(1048646, this, i2, strArr) == null) && strArr != null && strArr.length > 0) {
+            uv4 uv4Var = new uv4(this.mContext.getPageContext());
+            uv4Var.i(null, strArr, this.mContext);
+            this.mMsgItemOperation = uv4Var;
+            uv4Var.f().setTag(Integer.valueOf(i2));
             this.mMsgItemOperation.k();
         }
     }
@@ -1299,10 +1282,10 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public final void initHeaderTip(TalkableActivity talkableActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, talkableActivity) == null) {
-            this.viewHeader = (LinearLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09260b);
-            this.mNetworkView = (NoNetworkView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f092615);
-            PersonalFollowTipLayout personalFollowTipLayout = (PersonalFollowTipLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09197c);
+        if (interceptable == null || interceptable.invokeL(1048609, this, talkableActivity) == null) {
+            this.viewHeader = (LinearLayout) talkableActivity.findViewById(R.id.view_header);
+            this.mNetworkView = (NoNetworkView) talkableActivity.findViewById(R.id.view_no_network);
+            PersonalFollowTipLayout personalFollowTipLayout = (PersonalFollowTipLayout) talkableActivity.findViewById(R.id.person_follow_tip_layout);
             this.followTipLayout = personalFollowTipLayout;
             personalFollowTipLayout.f(getPageContext());
         }
@@ -1311,7 +1294,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public final void removeMoreData(MsgPageData msgPageData) {
         int size;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048638, this, msgPageData) == null) && msgPageData != null && msgPageData.getChatMessages() != null && msgPageData.size() != 0 && (size = msgPageData.size()) > 100) {
+        if ((interceptable == null || interceptable.invokeL(1048636, this, msgPageData) == null) && msgPageData != null && msgPageData.getChatMessages() != null && msgPageData.size() != 0 && (size = msgPageData.size()) > 100) {
             int i2 = size - 100;
             for (int i3 = 0; i3 < i2; i3++) {
                 msgPageData.getChatMessages().remove(0);
@@ -1321,16 +1304,16 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public String getDraft() {
         InterceptResult invokeV;
-        x65 x65Var;
+        y65 y65Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             EditorTools editorTools = this.mTool;
             if (editorTools == null) {
                 return "";
             }
-            w65 n = editorTools.n(3);
+            x65 o = editorTools.o(3);
             String str = TbEnum.ChatInputStatus.INPUT_STATUS_TEXT;
-            if (n != null && (x65Var = n.m) != null && (x65Var instanceof View) && ((View) x65Var).getVisibility() != 0) {
+            if (o != null && (y65Var = o.m) != null && (y65Var instanceof View) && ((View) y65Var).getVisibility() != 0) {
                 str = TbEnum.ChatInputStatus.INPUT_STATUS_VOICE;
             }
             HashMap hashMap = new HashMap();
@@ -1344,20 +1327,20 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void showInputControlTouchInterceptView() {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048649, this) == null) && (relativeLayout = this.mInputControl) != null && relativeLayout.findViewById(R.id.obfuscated_res_0x7f090f64) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048647, this) == null) && (relativeLayout = this.mInputControl) != null && relativeLayout.findViewById(R.id.input_tool_block_view) == null) {
             View view2 = new View(this.mInputControl.getContext());
             view2.setOnClickListener(new h(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(6, R.id.obfuscated_res_0x7f090f65);
-            layoutParams.addRule(8, R.id.obfuscated_res_0x7f090f65);
-            view2.setId(R.id.obfuscated_res_0x7f090f64);
+            layoutParams.addRule(6, R.id.input_tool_view);
+            layoutParams.addRule(8, R.id.input_tool_view);
+            view2.setId(R.id.input_tool_block_view);
             this.mInputControl.addView(view2, layoutParams);
         }
     }
 
     public void showNotNotfiy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
             if (!this.mIsPersonalHeader) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTexGroup.getLayoutParams();
                 layoutParams.rightMargin = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
@@ -1372,9 +1355,9 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
 
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048610, this, talkableActivity, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048608, this, talkableActivity, z) == null) {
             this.mIsPersonalHeader = false;
-            NavigationBar navigationBar = (NavigationBar) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09129e);
+            NavigationBar navigationBar = (NavigationBar) talkableActivity.findViewById(R.id.lay_title_bar);
             this.mNavigationBar = navigationBar;
             this.mNavigationBarBgView = navigationBar.getBarBgView();
             this.mImgBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, talkableActivity);
@@ -1386,8 +1369,8 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
             layoutParams.width = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
             layoutParams.height = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
             this.mNotNotify.setLayoutParams(layoutParams);
-            this.mReceiver = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05a7, (View.OnClickListener) null);
-            this.mInputControl = (RelativeLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0912ad);
+            this.mReceiver = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.msg_chat_ear_item, (View.OnClickListener) null);
+            this.mInputControl = (RelativeLayout) talkableActivity.findViewById(R.id.layout_bottom_input);
             if (z) {
                 closeNotNotify();
             } else {
@@ -1399,7 +1382,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     public void initMsgSend(TalkableActivity talkableActivity) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048612, this, talkableActivity) != null) || isFromReport()) {
+        if ((interceptable != null && interceptable.invokeL(1048610, this, talkableActivity) != null) || isFromReport()) {
             return;
         }
         MsglistActivity msglistActivity = this.mContext;
@@ -1417,65 +1400,65 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
         this.mTool.setBarBackgroundColorId(R.color.CAM_X0207);
         this.mTool.setDeskBackgroundColorId(R.color.CAM_X0206);
         this.mTool.setMoreDeskBgColorId(R.color.CAM_X0206);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, w65.class, talkableActivity.getActivity());
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, x65.class, talkableActivity.getActivity());
         if (runTask != null && runTask.getData() != null) {
-            w65 w65Var = (w65) runTask.getData();
-            this.mSendTool = w65Var;
-            x65 x65Var = w65Var.m;
-            if (x65Var != null && (x65Var instanceof ISendVoiceView)) {
-                ISendVoiceView iSendVoiceView = (ISendVoiceView) x65Var;
+            x65 x65Var = (x65) runTask.getData();
+            this.mSendTool = x65Var;
+            y65 y65Var = x65Var.m;
+            if (y65Var != null && (y65Var instanceof ISendVoiceView)) {
+                ISendVoiceView iSendVoiceView = (ISendVoiceView) y65Var;
                 this.mSendVoiceView = iSendVoiceView;
                 if (iSendVoiceView instanceof View) {
                     ((View) iSendVoiceView).setOnTouchListener(this.mContext);
                 }
             }
-            w65 w65Var2 = this.mSendTool;
-            w65Var2.l = 1;
-            this.mTool.d(w65Var2);
+            x65 x65Var2 = this.mSendTool;
+            x65Var2.l = 1;
+            this.mTool.d(x65Var2);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         this.mTool.h(arrayList);
-        w65 n = this.mTool.n(5);
-        if (n != null) {
-            n.f(true);
-            n.e(z);
-            n.d = 0;
+        x65 o = this.mTool.o(5);
+        if (o != null) {
+            o.f(true);
+            o.e(z);
+            o.d = 0;
         }
-        i75 i75Var = new i75(talkableActivity.getActivity(), true, false);
-        this.mInputTool = i75Var;
-        i75Var.h(true);
+        j75 j75Var = new j75(talkableActivity.getActivity(), true, false);
+        this.mInputTool = j75Var;
+        j75Var.h(true);
         this.mTool.d(this.mInputTool);
-        this.mTool.d(new b75(talkableActivity.getActivity()));
-        this.mTool.d(new u85(talkableActivity, z));
+        this.mTool.d(new c75(talkableActivity.getActivity()));
+        this.mTool.d(new v85(talkableActivity, z));
         this.mTool.f();
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -2);
-        this.mTool.setId(R.id.obfuscated_res_0x7f090f65);
+        this.mTool.setId(R.id.input_tool_view);
         this.mInputControl.addView(this.mTool, layoutParams);
         this.mTool.setActionListener(24, this.mActionListener);
         this.mTool.setActionListener(8, this.mActionListener);
         this.mTool.setActionListener(4, this.mActionListener);
         this.mTool.setActionListener(14, this.mActionListener);
         if (TbadkCoreApplication.getInst().isFaceShopNew()) {
-            this.mTool.A(new l65(2, 5, "N"));
+            this.mTool.B(new m65(2, 5, "N"));
         }
-        if (nc7.c()) {
+        if (nd7.c()) {
             showInputControlTouchInterceptView();
         }
     }
 
     public void initMsglist(MsglistActivity msglistActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, msglistActivity) == null) {
-            this.mListMain = (FrameLayout) msglistActivity.findViewById(R.id.obfuscated_res_0x7f0912ce);
-            this.mMsgListBgView = msglistActivity.findViewById(R.id.obfuscated_res_0x7f091361);
-            this.mMsgListBgViewMask = msglistActivity.findViewById(R.id.obfuscated_res_0x7f091362);
-            this.mLisMsg = (BdTypeListView) msglistActivity.findViewById(R.id.obfuscated_res_0x7f091359);
-            this.transparentView = msglistActivity.findViewById(R.id.obfuscated_res_0x7f09237f);
-            ProgressBar progressBar = (ProgressBar) msglistActivity.findViewById(R.id.obfuscated_res_0x7f0915c2);
+        if (interceptable == null || interceptable.invokeL(1048611, this, msglistActivity) == null) {
+            this.mListMain = (FrameLayout) msglistActivity.findViewById(R.id.layout_main);
+            this.mMsgListBgView = msglistActivity.findViewById(R.id.list_msg_bg_view);
+            this.mMsgListBgViewMask = msglistActivity.findViewById(R.id.list_msg_bg_view_mask);
+            this.mLisMsg = (BdTypeListView) msglistActivity.findViewById(R.id.lis_msg);
+            this.transparentView = msglistActivity.findViewById(R.id.transpant_view);
+            ProgressBar progressBar = (ProgressBar) msglistActivity.findViewById(R.id.msg_progress);
             this.mPrgLisMsg = progressBar;
             progressBar.setVisibility(8);
-            this.mAdapter = new fa7(msglistActivity.getPageContext(), this.mLisMsg);
+            this.mAdapter = new db7(msglistActivity.getPageContext(), this.mLisMsg);
             setNeedShowName();
             this.mAdapter.p(this.mNeedShowName);
             this.mAdapter.m(isFromReport());
@@ -1500,15 +1483,15 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
     }
 
     public void onChangeSkinType(int i2) {
-        x65 x65Var;
+        y65 y65Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
             this.mNavigationBar.setBarBackgourndColor(R.color.CAM_X0204);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             SkinManager.setBackgroundColor(this.mListMain, R.color.CAM_X0204);
-            qw4.d(this.mNavigationBarBgView).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            qw4.d(this.mMsgListBgView).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            qw4.d(this.mMsgListBgViewMask).p(new int[]{R.color.msg_navitation_bar_mask_end, R.color.CAM_X0204}, Direction.TOP);
+            rw4.d(this.mNavigationBarBgView).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            rw4.d(this.mMsgListBgView).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            rw4.d(this.mMsgListBgViewMask).p(new int[]{R.color.msg_navitation_bar_mask_end, R.color.CAM_X0204}, Direction.TOP);
             TextView textView = this.personal_lbs_title_name;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
@@ -1525,23 +1508,23 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements o
             if (textView4 != null) {
                 SkinManager.setViewTextColor(textView4, R.color.CAM_X0105, 1);
             }
-            fa7 fa7Var = this.mAdapter;
-            if (fa7Var != null) {
-                fa7Var.j(i2);
+            db7 db7Var = this.mAdapter;
+            if (db7Var != null) {
+                db7Var.j(i2);
             }
             this.mNetworkView.d(getPageContext(), i2);
             EditorTools editorTools = this.mTool;
             if (editorTools != null) {
-                editorTools.w(i2);
+                editorTools.x(i2);
             }
             ImageView imageView = this.mNotNotify;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.drawable.icon_chat_call_not);
             }
             this.mNavigationBar.onBackBtnOnChangeSkin();
-            i75 i75Var = this.mInputTool;
-            if (i75Var != null && (x65Var = i75Var.m) != null && (x65Var instanceof EditText)) {
-                qw4 d2 = qw4.d((EditText) x65Var);
+            j75 j75Var = this.mInputTool;
+            if (j75Var != null && (y65Var = j75Var.m) != null && (y65Var instanceof EditText)) {
+                rw4 d2 = rw4.d((EditText) y65Var);
                 d2.z(R.dimen.T_X06);
                 d2.n(R.string.J_X07);
                 d2.l(R.dimen.L_X01);

@@ -2,7 +2,6 @@ package com.baidu.helios.trusts.zone.verifier;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.c50;
 import com.baidu.tieba.h60;
@@ -909,7 +908,7 @@ public class ZipSignatureSchemeV2Verifier {
                         case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
                         case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                         case 260:
-                            return RSAUtil.ALGORITHM_RSA;
+                            return "RSA";
                         default:
                             throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                     }

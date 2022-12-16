@@ -31,7 +31,7 @@ import okhttp3.internal.tls.BasicTrustRootIndex;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
 import okio.Buffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Platform {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INFO = 4;
@@ -52,7 +52,7 @@ public class Platform {
         }
     }
 
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+    public void configureTlsExtensions(SSLSocket sSLSocket, @Nullable String str, List<Protocol> list) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, sSLSocket, str, list) == null) {
         }
@@ -114,13 +114,60 @@ public class Platform {
         }
     }
 
+    public static Platform findAndroidPlatform() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Platform buildIfSupported = Android10Platform.buildIfSupported();
+            if (buildIfSupported != null) {
+                return buildIfSupported;
+            }
+            Platform buildIfSupported2 = AndroidPlatform.buildIfSupported();
+            if (buildIfSupported2 != null) {
+                return buildIfSupported2;
+            }
+            throw new NullPointerException("No platform found on Android");
+        }
+        return (Platform) invokeV.objValue;
+    }
+
+    public static Platform findPlatform() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (isAndroid()) {
+                return findAndroidPlatform();
+            }
+            return findJvmPlatform();
+        }
+        return (Platform) invokeV.objValue;
+    }
+
     public static Platform get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             return PLATFORM;
         }
         return (Platform) invokeV.objValue;
+    }
+
+    public static boolean isAndroid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return "Dalvik".equals(System.getProperty("java.vm.name"));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return getClass().getSimpleName();
+        }
+        return (String) invokeV.objValue;
     }
 
     public static List<String> alpnProtocolNames(List<Protocol> list) {
@@ -171,25 +218,21 @@ public class Platform {
         return (CertificateChainCleaner) invokeL.objValue;
     }
 
-    public static Platform findPlatform() {
+    public static Platform findJvmPlatform() {
         InterceptResult invokeV;
-        Platform buildIfSupported;
+        ConscryptPlatform buildIfSupported;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Platform buildIfSupported2 = AndroidPlatform.buildIfSupported();
-            if (buildIfSupported2 != null) {
-                return buildIfSupported2;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (isConscryptPreferred() && (buildIfSupported = ConscryptPlatform.buildIfSupported()) != null) {
                 return buildIfSupported;
             }
-            Jdk9Platform buildIfSupported3 = Jdk9Platform.buildIfSupported();
+            Jdk9Platform buildIfSupported2 = Jdk9Platform.buildIfSupported();
+            if (buildIfSupported2 != null) {
+                return buildIfSupported2;
+            }
+            Platform buildIfSupported3 = JdkWithJettyBootPlatform.buildIfSupported();
             if (buildIfSupported3 != null) {
                 return buildIfSupported3;
-            }
-            Platform buildIfSupported4 = JdkWithJettyBootPlatform.buildIfSupported();
-            if (buildIfSupported4 != null) {
-                return buildIfSupported4;
             }
             return new Platform();
         }
@@ -199,7 +242,7 @@ public class Platform {
     public static boolean isConscryptPreferred() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             if ("conscrypt".equals(System.getProperty("okhttp.platform"))) {
                 return true;
             }
@@ -227,11 +270,12 @@ public class Platform {
         return (SSLContext) invokeV.objValue;
     }
 
+    @Nullable
     public static <T> T readFieldOrNull(Object obj, Class<T> cls, String str) {
         InterceptResult invokeLLL;
         Object readFieldOrNull;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, obj, cls, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, obj, cls, str)) == null) {
             for (Class<?> cls2 = obj.getClass(); cls2 != Object.class; cls2 = cls2.getSuperclass()) {
                 try {
                     Field declaredField = cls2.getDeclaredField(str);
@@ -284,10 +328,11 @@ public class Platform {
         return invokeL.objValue;
     }
 
+    @Nullable
     public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, sSLSocketFactory)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, sSLSocketFactory)) == null) {
             try {
                 Object readFieldOrNull = readFieldOrNull(sSLSocketFactory, Class.forName("sun.security.ssl.SSLContextImpl"), "context");
                 if (readFieldOrNull == null) {
@@ -308,7 +353,7 @@ public class Platform {
         }
     }
 
-    public void log(int i, String str, Throwable th) {
+    public void log(int i, String str, @Nullable Throwable th) {
         Level level;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048588, this, i, str, th) == null) {

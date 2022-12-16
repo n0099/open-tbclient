@@ -39,10 +39,19 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.e = true;
     }
 
-    public boolean A() {
+    public String G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.e;
         }
         return invokeV.booleanValue;
@@ -51,7 +60,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
@@ -60,7 +69,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
     public String getLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
@@ -69,19 +78,10 @@ public class TbRichTextLinkImageInfo extends OrmObject {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {

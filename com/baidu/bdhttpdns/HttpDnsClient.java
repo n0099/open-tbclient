@@ -3,6 +3,8 @@ package com.baidu.bdhttpdns;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tieba.cp;
 import com.baidu.tieba.hp;
 import com.baidu.tieba.ip;
@@ -13,8 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
-import com.yy.gslbsdk.db.ResultTB;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -211,7 +211,7 @@ public final class HttpDnsClient {
                     if (BDNetworkStateChangeReceiver.isIPv6Reachable()) {
                         str2 = "dual_stack";
                     } else {
-                        str2 = "ipv4";
+                        str2 = DnsTransmitter.TYPE_VALUE_IPV4;
                     }
                 } else if (!BDNetworkStateChangeReceiver.isIPv6Reachable()) {
                     return null;
@@ -222,7 +222,7 @@ public final class HttpDnsClient {
                         this.e = false;
                         hp.a("Using BGPServerIp(%s)", this.f.c);
                     }
-                    str2 = HttpDnsCacheForHost.JSON_KEY_IPV6;
+                    str2 = "ipv6";
                 }
                 if (requestParamType.equals(RequestParamType.TAG_OF_HOSTS)) {
                     format = String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true&type=%s", b, this.f.k, str, v, Long.valueOf(currentTimeMillis), "1.3", "android", str2);
@@ -579,7 +579,7 @@ public final class HttpDnsClient {
             }
         }
         this.a = "180.76.76.200";
-        this.c = "[240c:4006::6666]";
+        this.c = DnsTransmitter.BGP_IPV6;
         this.e = true;
         this.f = 0L;
         this.i = new Object();
@@ -874,7 +874,7 @@ public final class HttpDnsClient {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, jSONObject, jSONObject2)) == null) {
             if (jSONObject != null) {
                 try {
-                    j = jSONObject.getLong(ResultTB.TTL);
+                    j = jSONObject.getLong("ttl");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                     hp.a("Httpdns request failed, host(%s), response has no ttl, will use defaults ttl(60s)", str);
@@ -884,7 +884,7 @@ public final class HttpDnsClient {
                 j = -1;
             }
             if (jSONObject2 != null) {
-                j2 = jSONObject2.getLong(ResultTB.TTL);
+                j2 = jSONObject2.getLong("ttl");
             } else {
                 j2 = -1;
             }
@@ -937,11 +937,11 @@ public final class HttpDnsClient {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("serverip")) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("serverip");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("ipv4");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray(DnsTransmitter.TYPE_VALUE_IPV4);
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         this.b = optJSONArray.optString(0);
                     }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("ipv6");
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                         this.d = PreferencesUtil.LEFT_MOUNT + optJSONArray2.optString(0) + PreferencesUtil.RIGHT_MOUNT;
                     }
@@ -955,8 +955,8 @@ public final class HttpDnsClient {
                 while (keys.hasNext()) {
                     String next = keys.next();
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next);
-                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject("ipv4");
-                    JSONObject optJSONObject5 = optJSONObject3.optJSONObject(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject(DnsTransmitter.TYPE_VALUE_IPV4);
+                    JSONObject optJSONObject5 = optJSONObject3.optJSONObject("ipv6");
                     long G = G(next, optJSONObject4, optJSONObject5);
                     if (G < 0) {
                         hashMap.put(next, z);
@@ -1050,7 +1050,7 @@ public final class HttpDnsClient {
                             hashMap.put("isSignExpired", Boolean.TRUE);
                         }
                         return hashMap;
-                    } else if (!"ok".equals(optString)) {
+                    } else if (!DnsModel.MSG_OK.equals(optString)) {
                         hp.a("Httpdns request failed for %s(%s), response msg(%s) is not ok", requestParamType.toString(), str2, optString);
                         return hashMap;
                     } else {

@@ -10,7 +10,7 @@ import com.ksad.annotation.invoker.ForInvoker;
 import com.kwad.components.core.offline.init.kwai.g;
 import com.kwad.components.offline.api.OfflineHostProvider;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean EL;

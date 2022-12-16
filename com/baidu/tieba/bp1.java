@@ -1,9 +1,19 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes3.dex */
 public interface bp1 {
-    void a();
+    void a(String str);
 
     void b();
 
-    void c();
+    void c(String str);
+
+    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable bp2 bp2Var);
+
+    void e(String str);
+
+    void f(String str);
 }

@@ -1,127 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.SeekBar;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Timgs;
 /* loaded from: classes4.dex */
-public class gs8 {
+public class gs8 implements vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public SeekBar b;
-    public View c;
+    public String a;
+    public String b;
+    public int c;
     public int d;
-    public ViewTreeObserver.OnGlobalLayoutListener e;
 
-    /* loaded from: classes4.dex */
-    public class a implements SeekBar.OnSeekBarChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(gs8 gs8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gs8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0812c8));
-                cd8 cd8Var = new cd8();
-                cd8Var.a = 2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, cd8Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0812c9));
-                cd8 cd8Var = new cd8();
-                cd8Var.a = 3;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, cd8Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                cd8 cd8Var = new cd8();
-                cd8Var.a = 1;
-                cd8Var.b = i;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, cd8Var));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gs8 a;
-
-        public b(gs8 gs8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gs8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gs8Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
-                if (layoutParams.bottomMargin != this.a.d) {
-                    layoutParams.bottomMargin = this.a.c.getHeight() - yi.g(this.a.a, R.dimen.tbds16);
-                    this.a.b.setLayoutParams(layoutParams);
-                    this.a.d = layoutParams.bottomMargin;
-                }
-            }
-        }
-    }
-
-    public gs8(BaseFragmentActivity baseFragmentActivity, View view2) {
+    public gs8(Timgs timgs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
+            Object[] objArr = {timgs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,27 +32,63 @@ public class gs8 {
                 return;
             }
         }
-        this.d = -1;
-        this.e = new b(this);
-        this.a = baseFragmentActivity;
-        this.c = view2;
-        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f0925b7);
-        this.b = seekBar;
-        seekBar.setOnSeekBarChangeListener(new a(this));
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
+        this.a = null;
+        this.b = null;
+        this.c = 1;
+        this.d = 1;
+        if (timgs == null) {
+            return;
+        }
+        this.a = timgs.img_url;
+        timgs.flag.intValue();
+        this.b = timgs.url;
+        String str = timgs.big_cdn_url;
+        String str2 = timgs.des_main;
+        String str3 = timgs.des_sub;
+        String str4 = timgs.bsize;
+        if (str4 != null) {
+            try {
+                String[] split = str4.split(",");
+                this.c = xg.e(split[0], 1);
+                this.d = xg.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+        if (this.c <= 0) {
+            this.c = 1;
+        }
+        if (this.d <= 0) {
+            this.d = 1;
+        }
     }
 
-    public void f(boolean z) {
-        int i;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            SeekBar seekBar = this.b;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
-            }
-            seekBar.setVisibility(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vw4
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vw4
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

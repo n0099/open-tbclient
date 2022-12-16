@@ -1,32 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes3.dex */
-public abstract class dz3 {
+import java.net.URLEncoder;
+/* loaded from: classes4.dex */
+public class dz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public abstract File a();
-
-    public abstract void b(@NonNull String str, long j);
-
-    public dz3() {
+    public static void a(ly3 ly3Var, JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, ly3Var, jsObject) == null) {
+            ez3 ez3Var = new ez3();
+            lw1 F = lw1.F(jsObject);
+            if (F == null) {
+                F = new lw1();
             }
+            boolean z = false;
+            if (ly3Var == null) {
+                ez3Var.errMsg = "openCustomerServiceConversation:fail";
+                q64.call(F, false, ez3Var);
+                return;
+            }
+            if (o04.c()) {
+                e43 M = e43.M();
+                if (M != null) {
+                    String str = "{\"appKey\":\"" + M.O() + "\"}";
+                    if (SchemeRouter.invoke(ln2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
+                        ez3Var.errMsg = "openCustomerServiceConversation:ok";
+                        z = true;
+                    } else {
+                        ez3Var.errMsg = "openCustomerServiceConversation:fail";
+                    }
+                } else {
+                    ez3Var.errMsg = "openCustomerServiceConversation:fail";
+                }
+            } else {
+                ez3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
+            }
+            q64.call(F, z, ez3Var);
         }
     }
 }

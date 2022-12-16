@@ -31,7 +31,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.facebook.common.util.UriUtil;
-import com.google.android.gms.common.internal.ImagesContract;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONObject;
@@ -481,7 +480,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
                         this.a.onFailure(this.b);
                         return;
                     }
-                    JSONObject optJSONObject = jSONObject.optJSONObject(ImagesContract.LOCAL);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("local");
                     if (optJSONObject != null) {
                         this.b.country = optJSONObject.optString("country");
                         this.b.province = optJSONObject.optString("provice");

@@ -35,7 +35,7 @@ public class ca extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo217a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10053" : (String) invokeV.objValue;
@@ -48,10 +48,10 @@ public class ca extends al.a {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cnVar = this.a.f153a;
+            cnVar = this.a.f176a;
             if (cnVar != null) {
-                cnVar2 = this.a.f153a;
-                context = this.a.f150a;
+                cnVar2 = this.a.f176a;
+                context = this.a.f173a;
                 cnVar2.b(context);
                 this.a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
             }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = -1;

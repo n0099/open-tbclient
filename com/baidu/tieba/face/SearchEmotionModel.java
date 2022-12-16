@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.se6;
+import com.baidu.tieba.nf6;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(String str, se6 se6Var);
+        void a(String str, nf6 nf6Var);
 
         void onFail(int i, String str);
     }
@@ -87,7 +87,7 @@ public class SearchEmotionModel extends BdBaseModel {
                 return;
             }
             if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                yi.P(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                yi.Q(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
             }
             this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
         }
@@ -114,7 +114,7 @@ public class SearchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(String str, int i, int i2, b bVar) {
+    public void H(String str, int i, int i2, b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) && bVar != null && !TextUtils.isEmpty(str)) {
             this.a = bVar;

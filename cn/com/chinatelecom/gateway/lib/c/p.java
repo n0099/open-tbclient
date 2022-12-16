@@ -1,7 +1,6 @@
 package cn.com.chinatelecom.gateway.lib.c;
 
 import cn.com.chinatelecom.gateway.lib.CtAuth;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ public class p {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(TiebaStatic.LogFields.RESULT, i);
+                jSONObject.put("result", i);
                 jSONObject.put("msg", str);
                 return jSONObject.toString();
             } catch (Throwable th) {

@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj9;
+import com.baidu.tieba.mm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NinePatchChunk implements Externalizable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DENSITY = 160;
@@ -301,7 +301,7 @@ public class NinePatchChunk implements Externalizable {
                 }
                 return true;
             } catch (Exception e) {
-                dj9.g(e);
+                mm9.g(e);
                 return true;
             }
         }
@@ -505,7 +505,7 @@ public class NinePatchChunk implements Externalizable {
                 this.padding = parse.padding;
                 this.colors = parse.colors;
             } catch (ChunkNotSerializedException | DivLengthException e) {
-                dj9.g(e);
+                mm9.g(e);
             }
         }
     }

@@ -22,7 +22,7 @@ import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.ai1;
+import com.baidu.tieba.zh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class V8Engine implements JSRuntime {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CONSTRUCTOR_DONE = "v8_constructor_done";
@@ -127,12 +127,12 @@ public class V8Engine implements JSRuntime {
     public long mV8ThreadId;
     public WorkerFactory mWorkerFactoryDelegate;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface JavaScriptExceptionDelegate {
         void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface V8EngineConsole {
         void onDebugConsole(String str);
 
@@ -147,7 +147,7 @@ public class V8Engine implements JSRuntime {
         void onWarnConsole(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface V8StatusListener {
         void onPause();
 
@@ -156,7 +156,7 @@ public class V8Engine implements JSRuntime {
         void onResume();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface WorkerFactory {
         V8Engine onCreateWorker();
     }
@@ -221,7 +221,7 @@ public class V8Engine implements JSRuntime {
     private native long v8EngineInit();
 
     @NotProguard
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MemoryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1018,20 +1018,6 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    public byte[] serialize(JsSerializeValue jsSerializeValue, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048623, this, jsSerializeValue, z)) == null) {
-            if (this.mIsDestroyed.get()) {
-                Log.w(TAG, "serialize fail. please start engine before execute js task");
-                return null;
-            }
-            checkValid(this.mNativeV8Engine, this.mV8ThreadId);
-            return nativeSerialize(this.mNativeV8Engine, jsSerializeValue, z);
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
     public void throwJSException(JSExceptionType jSExceptionType, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048645, this, jSExceptionType, str) == null) {
@@ -1638,6 +1624,20 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public static void setCrashKeyValue(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65615, null, str, str2) == null) {
+            try {
+                if (sSetCrashKeyValueMethod == null) {
+                    sSetCrashKeyValueMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setCrashKeyValue", String.class, String.class);
+                }
+                sSetCrashKeyValueMethod.invoke(null, str, str2);
+            } catch (Throwable th) {
+                Log.e(TAG, th.getMessage());
+            }
+        }
+    }
+
     public static void clearCrashKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
@@ -1738,20 +1738,6 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    public static void setCrashKeyValue(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65615, null, str, str2) == null) {
-            try {
-                if (sSetCrashKeyValueMethod == null) {
-                    sSetCrashKeyValueMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setCrashKeyValue", String.class, String.class);
-                }
-                sSetCrashKeyValueMethod.invoke(null, str, str2);
-            } catch (Throwable th) {
-                Log.e(TAG, th.getMessage());
-            }
-        }
-    }
-
     public JsSerializeValue deserialize(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -1842,6 +1828,20 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public byte[] serialize(JsSerializeValue jsSerializeValue, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048623, this, jsSerializeValue, z)) == null) {
+            if (this.mIsDestroyed.get()) {
+                Log.w(TAG, "serialize fail. please start engine before execute js task");
+                return null;
+            }
+            checkValid(this.mNativeV8Engine, this.mV8ThreadId);
+            return nativeSerialize(this.mNativeV8Engine, jsSerializeValue, z);
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
     public static V8Engine getInstance() {
         InterceptResult invokeV;
         V8Engine v8Engine;
@@ -1909,7 +1909,7 @@ public class V8Engine implements JSRuntime {
                     if (str == null) {
                         str = getBuildInV8BinPath();
                     }
-                    if (str != null && ai1.b(str)) {
+                    if (str != null && zh1.b(str)) {
                         this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
                         AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, str);
                     }

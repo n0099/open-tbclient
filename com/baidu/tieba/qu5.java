@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class qu5 implements vp3 {
+/* loaded from: classes6.dex */
+public class qu5 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public qu5() {
         Interceptable interceptable = $ic;
@@ -33,43 +39,11 @@ public class qu5 implements vp3 {
         }
     }
 
-    @Override // com.baidu.tieba.xp3
-    public void a(c53 c53Var) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, c53Var) == null) && c53Var != null) {
-            c53Var.b(new su5(c53Var));
-            c53Var.b(new lu5(c53Var));
-            c53Var.b(new vl3(c53Var));
-            c53Var.b(new xl3(c53Var));
-            c53Var.b(new zl3(c53Var));
-            c53Var.b(new t63(c53Var));
-            c53Var.b(new u63(c53Var));
-            c53Var.b(new u83(c53Var));
-            c53Var.b(new am3(c53Var));
-            c53Var.b(new xq1(c53Var));
-            c53Var.b(new pu5(c53Var));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new QRCodeScanActivityConfig(getAgent(), true)));
         }
-    }
-
-    @Override // com.baidu.tieba.xp3
-    @Nullable
-    public Map<String, Object> b(@NonNull gs1 gs1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gs1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(gs1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xp3
-    @Nullable
-    public Map<String, Object> c(@NonNull gs1 gs1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gs1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(gs1Var);
-        }
-        return (Map) invokeL.objValue;
     }
 }

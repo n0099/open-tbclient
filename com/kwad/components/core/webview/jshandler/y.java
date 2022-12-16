@@ -14,7 +14,7 @@ import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class y implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class y implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b mJsBridgeContext;
 
     @KsJson
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public final class y implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @KsJson
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

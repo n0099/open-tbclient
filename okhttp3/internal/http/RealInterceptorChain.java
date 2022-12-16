@@ -1,6 +1,7 @@
 package okhttp3.internal.http;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +20,7 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.StreamAllocation;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class RealInterceptorChain implements Interceptor.Chain {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -197,7 +198,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, timeUnit)) == null) {
-            return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration("timeout", i, timeUnit), this.readTimeout, this.writeTimeout);
+            return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration(a.O, i, timeUnit), this.readTimeout, this.writeTimeout);
         }
         return (Interceptor.Chain) invokeIL.objValue;
     }
@@ -207,7 +208,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, timeUnit)) == null) {
-            return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration("timeout", i, timeUnit), this.writeTimeout);
+            return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration(a.O, i, timeUnit), this.writeTimeout);
         }
         return (Interceptor.Chain) invokeIL.objValue;
     }
@@ -217,7 +218,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, timeUnit)) == null) {
-            return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration("timeout", i, timeUnit));
+            return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration(a.O, i, timeUnit));
         }
         return (Interceptor.Chain) invokeIL.objValue;
     }

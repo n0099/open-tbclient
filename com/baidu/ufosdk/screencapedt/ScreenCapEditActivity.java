@@ -51,7 +51,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public static int Q;
@@ -100,7 +100,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     public float y;
     public float z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

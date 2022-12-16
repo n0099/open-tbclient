@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,7 +143,7 @@ public class j extends c {
                         if (!jSONObject.isNull("foreground_show")) {
                             kVar.b(jSONObject.getInt("foreground_show"));
                         }
-                        int i = !jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.i() != com.baidu.android.pushservice.message.a.k.h.b() ? m.i(this.b, kVar.h()) : 0;
+                        int i = !jSONObject.isNull(Constants.EXTRA_NOTIFY_ID) ? jSONObject.getInt(Constants.EXTRA_NOTIFY_ID) : kVar.i() != com.baidu.android.pushservice.message.a.k.h.b() ? m.i(this.b, kVar.h()) : 0;
                         if (!jSONObject.isNull(WebvttCueParser.ENTITY_LESS_THAN)) {
                             com.baidu.android.pushservice.i.i.b(this.b, "last_time", jSONObject.optLong(WebvttCueParser.ENTITY_LESS_THAN));
                         }

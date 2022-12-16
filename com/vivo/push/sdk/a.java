@@ -242,7 +242,7 @@ public final class a extends q {
                         Bundle extras = intent.getExtras();
                         long j = 404000044642424832L;
                         if (extras != null) {
-                            j = extras.getLong("notify_id", 404000044642424832L);
+                            j = extras.getLong(Constants.EXTRA_NOTIFY_ID, 404000044642424832L);
                         }
                         hashMap.put("messageID", String.valueOf(j));
                     }

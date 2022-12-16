@@ -16,17 +16,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g8a;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.l8a;
-import com.baidu.tieba.m8a;
-import com.baidu.tieba.n7a;
-import com.baidu.tieba.r7a;
-import com.baidu.tieba.s4a;
-import com.baidu.tieba.u8a;
-import com.baidu.tieba.v7a;
-import com.baidu.tieba.w5a;
-import com.baidu.tieba.y7a;
+import com.baidu.tieba.aba;
+import com.baidu.tieba.b8a;
+import com.baidu.tieba.dca;
+import com.baidu.tieba.eba;
+import com.baidu.tieba.f9a;
+import com.baidu.tieba.hba;
+import com.baidu.tieba.pba;
+import com.baidu.tieba.uaa;
+import com.baidu.tieba.uba;
+import com.baidu.tieba.vba;
+import com.baidu.tieba.waa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,19 +47,19 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter;
 /* loaded from: classes9.dex */
-public class YYPaySplitOrderView extends LinearLayout implements u8a {
+public class YYPaySplitOrderView extends LinearLayout implements dca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
     public int b;
     public int c;
     public PayUIKitConfig d;
-    public u8a.b e;
-    public u8a.a f;
+    public dca.b e;
+    public dca.a f;
     public View g;
     public ImageView h;
-    public w5a i;
-    public l7a j;
+    public f9a i;
+    public uaa j;
     public RecyclerView k;
     public TextView l;
     public TextView m;
@@ -68,14 +68,14 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
     public List<SplitRecordItem> p;
     public PayFlowType q;
 
-    @Override // com.baidu.tieba.p8a
+    @Override // com.baidu.tieba.yba
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.p8a
+    @Override // com.baidu.tieba.yba
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, windowParams) == null) {
@@ -113,7 +113,7 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, splitRecordItem) == null) {
                 RLog.info("YYPaySplitOrderView", "onLinkItemClick mPayAmount:" + this.a.j + " item:" + splitRecordItem);
-                g8a.a(this.a.a, splitRecordItem.value);
+                pba.a(this.a.a, splitRecordItem.value);
                 if (this.a.j != null) {
                     j = (long) this.a.j.c();
                 } else {
@@ -127,7 +127,7 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
                 String str2 = str;
                 int i = this.a.b;
                 int i2 = this.a.c;
-                r7a.d(i, i2, str2, "", "", "" + j);
+                aba.d(i, i2, str2, "", "", "" + j);
             }
         }
 
@@ -139,7 +139,7 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, splitRecordItem) == null) {
                 RLog.info("YYPaySplitOrderView", "onPayAmoyntItemClick mPayAmount:" + this.a.j + " item:" + splitRecordItem);
                 if (this.a.f != null) {
-                    l7a a = v7a.a((int) (l8a.d(splitRecordItem.value) * 100.0d), this.a.d);
+                    uaa a = eba.a((int) (uba.d(splitRecordItem.value) * 100.0d), this.a.d);
                     a.d(splitRecordItem.id);
                     this.a.f.a(a);
                 }
@@ -156,7 +156,7 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
                 String str2 = str;
                 int i = this.a.b;
                 int i2 = this.a.c;
-                r7a.d(i, i2, str2, "", "", "" + j);
+                aba.d(i, i2, str2, "", "", "" + j);
             }
         }
     }
@@ -207,7 +207,7 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
                 String str2 = str;
                 int i = this.a.b;
                 int i2 = this.a.c;
-                r7a.d(i, i2, str2, "", "", "" + j);
+                aba.d(i, i2, str2, "", "", "" + j);
             }
         }
     }
@@ -294,16 +294,16 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, u8a.b bVar, w5a w5aVar) {
+    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, dca.b bVar, f9a f9aVar) {
         super(activity);
-        l7a l7aVar;
+        uaa uaaVar;
         long j;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, payUIKitConfig, Integer.valueOf(i), Integer.valueOf(i2), bVar, w5aVar};
+            Object[] objArr = {activity, payUIKitConfig, Integer.valueOf(i), Integer.valueOf(i2), bVar, f9aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -320,19 +320,19 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
         this.e = bVar;
         this.b = i;
         this.c = i2;
-        this.i = w5aVar;
+        this.i = f9aVar;
         if (bVar != null) {
-            l7aVar = bVar.a;
+            uaaVar = bVar.a;
         } else {
-            l7aVar = null;
+            uaaVar = null;
         }
-        this.j = l7aVar;
-        u8a.b bVar2 = this.e;
+        this.j = uaaVar;
+        dca.b bVar2 = this.e;
         this.q = bVar2 != null ? bVar2.c : null;
         o(activity);
-        l7a l7aVar2 = this.j;
-        if (l7aVar2 != null) {
-            j = (long) l7aVar2.c();
+        uaa uaaVar2 = this.j;
+        if (uaaVar2 != null) {
+            j = (long) uaaVar2.c();
         } else {
             j = -1;
         }
@@ -343,10 +343,10 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
         }
         String str2 = str;
         RLog.debug("YYPaySplitOrderView", "mPayFlowType:" + this.q + " event:" + str2);
-        r7a.d(this.b, this.c, str2, "", "", "" + j);
+        aba.d(this.b, this.c, str2, "", "", "" + j);
     }
 
-    @Override // com.baidu.tieba.p8a
+    @Override // com.baidu.tieba.yba
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) {
@@ -354,8 +354,8 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
         }
     }
 
-    @Override // com.baidu.tieba.u8a
-    public void setCallback(u8a.a aVar) {
+    @Override // com.baidu.tieba.dca
+    public void setCallback(dca.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
             this.f = aVar;
@@ -363,22 +363,22 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
     }
 
     public final void q(int i, String str) {
-        u8a.a aVar;
+        dca.a aVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) && (aVar = this.f) != null) {
             aVar.onRefreshViewFail(i, str);
         }
     }
 
-    @Override // com.baidu.tieba.u8a
+    @Override // com.baidu.tieba.dca
     public void a() {
         long j;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l7a l7aVar = this.j;
-            if (l7aVar != null) {
-                j = (long) l7aVar.c();
+            uaa uaaVar = this.j;
+            if (uaaVar != null) {
+                j = (long) uaaVar.c();
             } else {
                 j = -1;
             }
@@ -389,7 +389,7 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
             }
             int i = this.b;
             int i2 = this.c;
-            r7a.d(i, i2, str, "", "", "" + j);
+            aba.d(i, i2, str, "", "", "" + j);
             RLog.info("YYPaySplitOrderView", "onBtnCloseClick mPayFlowType:" + this.q + " event:" + str);
         }
     }
@@ -399,13 +399,13 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            u8a.a aVar = this.f;
+            dca.a aVar = this.f;
             if (aVar != null) {
                 aVar.b();
             }
-            l7a l7aVar = this.j;
-            if (l7aVar != null) {
-                j = (long) l7aVar.c();
+            uaa uaaVar = this.j;
+            if (uaaVar != null) {
+                j = (long) uaaVar.c();
             } else {
                 j = -1;
             }
@@ -417,7 +417,7 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
             String str2 = str;
             int i = this.b;
             int i2 = this.c;
-            r7a.d(i, i2, str2, "", "", "" + j);
+            aba.d(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -425,16 +425,16 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             RLog.info("YYPaySplitOrderView", "querySplitOrderConfig mPayAmount:" + this.j);
-            s4a yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
+            b8a yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
             if (yYPayMiddleService == null) {
                 RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error yyPayMiddleService null", new Object[0]);
                 return;
             }
-            l7a l7aVar = this.j;
-            if (l7aVar == null) {
+            uaa uaaVar = this.j;
+            if (uaaVar == null) {
                 RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error mPayAmount null", new Object[0]);
             } else {
-                yYPayMiddleService.d(1, "", (long) l7aVar.c(), new c(this));
+                yYPayMiddleService.d(1, "", (long) uaaVar.c(), new c(this));
             }
         }
     }
@@ -442,11 +442,11 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            y7a.a(this.g, this.h);
+            hba.a(this.g, this.h);
         }
     }
 
-    @Override // com.baidu.tieba.p8a
+    @Override // com.baidu.tieba.yba
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -459,26 +459,26 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            y7a.b(this.g, this.h);
+            hba.b(this.g, this.h);
         }
     }
 
     public final void o(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(activity, m8a.a.a(this.d))).inflate(R.layout.obfuscated_res_0x7f0d06c6, (ViewGroup) this, true);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091ccd);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091047);
-            this.k = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090d23);
+            LayoutInflater.from(new ContextThemeWrapper(activity, vba.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
+            this.g = findViewById(R.id.root_loading);
+            this.h = (ImageView) findViewById(R.id.iv_loading_circle);
+            this.k = (RecyclerView) findViewById(R.id.grid_recharge_split_order);
             PaySplitOrderAdapter paySplitOrderAdapter = new PaySplitOrderAdapter(this.a, this.p, this.d);
             this.o = paySplitOrderAdapter;
             paySplitOrderAdapter.e(new a(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09241c);
             this.l = textView;
             textView.getPaint().setFlags(8);
             this.l.setOnClickListener(new b(this));
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f09246d);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.m = (TextView) findViewById(R.id.tv_total_src_amount);
+            this.n = (TextView) findViewById(R.id.tv_Split_Order_Hint);
             t();
         }
     }
@@ -511,9 +511,9 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, splitOrderConfigResult) == null) {
             if (splitOrderConfigResult != null && (list = splitOrderConfigResult.splitRecordItemList) != null && !list.isEmpty()) {
-                w5a w5aVar = this.i;
-                if (w5aVar != null) {
-                    w5aVar.c(new n7a(splitOrderConfigResult, this.e));
+                f9a f9aVar = this.i;
+                if (f9aVar != null) {
+                    f9aVar.c(new waa(splitOrderConfigResult, this.e));
                 }
                 v(splitOrderConfigResult);
                 return;
@@ -527,24 +527,24 @@ public class YYPaySplitOrderView extends LinearLayout implements u8a {
         if ((interceptable != null && interceptable.invokeL(1048591, this, window) != null) || window == null) {
             return;
         }
-        View findViewById = window.findViewById(R.id.obfuscated_res_0x7f090456);
+        View findViewById = window.findViewById(R.id.btn_left);
         if (findViewById == null) {
             RLog.error("YYPaySplitOrderView", "updateTopLeftBtn error btnLeft null", new Object[0]);
             return;
         }
         findViewById.setOnClickListener(new d(this));
         findViewById.setVisibility(0);
-        findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ee6);
+        findViewById.setBackgroundResource(R.drawable.pay_ui_bottom_left_back_icon);
     }
 
     public final void t() {
-        u8a.b bVar;
-        l7a l7aVar;
+        dca.b bVar;
+        uaa uaaVar;
         boolean z;
         String format;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (bVar = this.e) != null && (l7aVar = bVar.a) != null) {
-            double c2 = l7aVar.c();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (bVar = this.e) != null && (uaaVar = bVar.a) != null) {
+            double c2 = uaaVar.c();
             if (c2 == ((long) c2)) {
                 z = true;
             } else {

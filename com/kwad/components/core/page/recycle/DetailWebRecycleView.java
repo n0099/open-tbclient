@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.m.o;
 import com.kwad.sdk.utils.q;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DetailWebRecycleView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class DetailWebRecycleView extends b {
     public boolean Gy;
     public boolean Gz;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         boolean nW();
     }

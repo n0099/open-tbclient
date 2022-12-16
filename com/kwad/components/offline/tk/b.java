@@ -19,7 +19,7 @@ import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.components.c;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.utils.as;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b implements ITkOfflineCompoInitConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

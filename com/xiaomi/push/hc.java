@@ -40,11 +40,11 @@ public final class hc extends ao.b {
         List list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            obj = hb.f456a;
+            obj = hb.f479a;
             synchronized (obj) {
-                list = hb.f458a;
+                list = hb.f481a;
                 arrayList = new ArrayList(list);
-                list2 = hb.f458a;
+                list2 = hb.f481a;
                 list2.clear();
             }
             hb.b(this.a, arrayList);

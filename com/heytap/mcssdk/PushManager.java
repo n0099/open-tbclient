@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PushManager implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_PACKAGE = "appPackage";

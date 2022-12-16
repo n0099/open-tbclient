@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ok1;
-import com.baidu.tieba.p23;
+import com.baidu.tieba.nk1;
+import com.baidu.tieba.o23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,13 +130,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.c = i;
         Drawable drawable = this.e;
-        if (drawable instanceof p23) {
-            ((p23) drawable).d(i);
+        if (drawable instanceof o23) {
+            ((o23) drawable).d(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof p23) {
-                ((p23) drawable2).d(i);
+            if (drawable2 instanceof o23) {
+                ((o23) drawable2).d(i);
             }
         }
         if (this.b > 0) {
@@ -151,13 +151,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.b = i;
         Drawable drawable = this.e;
-        if (drawable instanceof p23) {
-            ((p23) drawable).e(i);
+        if (drawable instanceof o23) {
+            ((o23) drawable).e(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof p23) {
-                ((p23) drawable2).e(i);
+            if (drawable2 instanceof o23) {
+                ((o23) drawable2).e(i);
             }
         }
         invalidate();
@@ -170,13 +170,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.a = i;
         Drawable drawable = this.e;
-        if (drawable instanceof p23) {
-            ((p23) drawable).f(i);
+        if (drawable instanceof o23) {
+            ((o23) drawable).f(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof p23) {
-                ((p23) drawable2).f(i);
+            if (drawable2 instanceof o23) {
+                ((o23) drawable2).f(i);
             }
         }
     }
@@ -221,7 +221,7 @@ public class SwanAppRoundedImageView extends ImageView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ok1.RoundedImageView, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, nk1.RoundedImageView, i, 0);
         int i4 = obtainStyledAttributes.getInt(0, -1);
         if (i4 >= 0) {
             setScaleType(h[i4]);
@@ -290,7 +290,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
             if (this.d && drawable != null) {
-                this.f = p23.b(drawable, this.g, this.a, this.b, this.c);
+                this.f = o23.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.f = drawable;
             }
@@ -303,11 +303,11 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) {
             if (bitmap != null) {
-                p23 p23Var = new p23(bitmap, this.a, this.b, this.c);
-                this.e = p23Var;
+                o23 o23Var = new o23(bitmap, this.a, this.b, this.c);
+                this.e = o23Var;
                 ImageView.ScaleType scaleType = this.g;
                 if (scaleType != null) {
-                    p23Var.h(scaleType);
+                    o23Var.h(scaleType);
                 }
             } else {
                 this.e = null;
@@ -321,7 +321,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
             if (drawable != null) {
-                this.e = p23.b(drawable, this.g, this.a, this.b, this.c);
+                this.e = o23.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.e = null;
             }
@@ -337,19 +337,19 @@ public class SwanAppRoundedImageView extends ImageView {
         this.d = z;
         if (z) {
             Drawable drawable = this.f;
-            if (drawable instanceof p23) {
-                ((p23) drawable).h(this.g);
-                ((p23) this.f).f(this.a);
-                ((p23) this.f).e(this.b);
-                ((p23) this.f).d(this.c);
+            if (drawable instanceof o23) {
+                ((o23) drawable).h(this.g);
+                ((o23) this.f).f(this.a);
+                ((o23) this.f).e(this.b);
+                ((o23) this.f).d(this.c);
             } else {
                 setBackgroundDrawable(drawable);
             }
         } else {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof p23) {
-                ((p23) drawable2).e(0);
-                ((p23) this.f).f(0.0f);
+            if (drawable2 instanceof o23) {
+                ((o23) drawable2).e(0);
+                ((o23) this.f).f(0.0f);
             }
         }
         invalidate();
@@ -375,12 +375,12 @@ public class SwanAppRoundedImageView extends ImageView {
                     break;
             }
             Drawable drawable = this.e;
-            if ((drawable instanceof p23) && ((p23) drawable).c() != scaleType) {
-                ((p23) this.e).h(scaleType);
+            if ((drawable instanceof o23) && ((o23) drawable).c() != scaleType) {
+                ((o23) this.e).h(scaleType);
             }
             Drawable drawable2 = this.f;
-            if ((drawable2 instanceof p23) && ((p23) drawable2).c() != scaleType) {
-                ((p23) this.f).h(scaleType);
+            if ((drawable2 instanceof o23) && ((o23) drawable2).c() != scaleType) {
+                ((o23) this.f).h(scaleType);
             }
             setWillNotCacheDrawing(true);
             requestLayout();

@@ -15,7 +15,7 @@ import com.kwad.sdk.core.report.f;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0577a(view2.getContext()).L(this.mAdTemplate).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.presenter.platdetail.b.1
+            com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(this.mAdTemplate).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.presenter.platdetail.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;
@@ -119,7 +119,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125f);
+            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0912be);
         }
     }
 

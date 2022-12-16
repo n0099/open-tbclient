@@ -10,8 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j15 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile j15 c;
@@ -87,7 +86,7 @@ public class j15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = "pub_env=" + this.b + ParamableElem.DIVIDE_PARAM;
+            String str = "pub_env=" + this.b + ";";
             if (!this.a) {
                 return "";
             }

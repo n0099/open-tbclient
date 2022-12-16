@@ -37,7 +37,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,12 +86,12 @@ public class a extends Dialog {
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0707a extends WebViewClient {
+    public class C0727a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0707a(a aVar) {
+        public C0727a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,7 +168,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0707a b;
+                    public final /* synthetic */ C0727a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -202,7 +201,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0707a b;
+                    public final /* synthetic */ C0727a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -252,7 +251,7 @@ public class a extends Dialog {
                         this.a.d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ C0707a a;
+                            public final /* synthetic */ C0727a a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -836,7 +835,7 @@ public class a extends Dialog {
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.k.setVerticalScrollBarEnabled(false);
             this.k.setHorizontalScrollBarEnabled(false);
-            this.k.setWebViewClient(new C0707a());
+            this.k.setWebViewClient(new C0727a());
             this.k.setWebChromeClient(new WebChromeClient());
             this.k.clearFormData();
             this.k.clearSslPreferences();
@@ -921,7 +920,7 @@ public class a extends Dialog {
             settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
             settings.setJavaScriptEnabled(true);
             settings.setDatabaseEnabled(true);
-            settings.setDatabasePath(this.l.getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
+            settings.setDatabasePath(this.l.getDir("databases", 0).getPath());
             settings.setDomStorageEnabled(true);
             SLog.v("openSDK_LOG.AuthDialog", "-->mUrl : " + this.a);
             String str = this.a;

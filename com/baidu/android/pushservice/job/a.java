@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static C0044a a;
+    public static C0058a a;
     public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0044a {
+    public static class C0058a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
         public final JobScheduler b;
         public boolean c;
 
-        public C0044a(Context context) {
+        public C0058a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class a {
             synchronized (a.class) {
                 if (a == null && Build.VERSION.SDK_INT >= 21) {
                     try {
-                        a = new C0044a(context);
+                        a = new C0058a(context);
                     } catch (Exception e) {
                         new b.c(context).a(Log.getStackTraceString(e)).a();
                     }

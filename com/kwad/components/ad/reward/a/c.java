@@ -14,7 +14,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends com.kwad.components.ad.reward.presenter.a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
                 return;
             }
             AdInfo bQ = d.bQ(this.mAdTemplate);
-            ViewGroup viewGroup = (ViewGroup) this.nM.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911d2);
+            ViewGroup viewGroup = (ViewGroup) this.nM.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091231);
             if (viewGroup == null) {
                 return;
             }

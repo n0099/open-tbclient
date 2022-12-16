@@ -1,58 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class jh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public double b;
-    public double c;
 
-    public jh8() {
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
     }
 
-    public boolean a() {
+    public static void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+        }
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
+        }
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
+        }
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static jh8 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            jh8 jh8Var = new jh8();
-            jh8Var.a = jSONObject.optString("bottom_picture", "");
-            jSONObject.optInt("cover_shadow_switch", 0);
-            jh8Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            jh8Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
-            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
-            return jh8Var;
-        }
-        return (jh8) invokeL.objValue;
+        return (Ringtone) invokeV.objValue;
     }
 }

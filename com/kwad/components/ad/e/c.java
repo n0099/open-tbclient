@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends AbstractKsNativeAd implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void en();
 
@@ -310,7 +310,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
             if (activity == 0) {
                 activity = view2.getContext();
             }
-            com.kwad.components.core.c.a.a.a(new a.C0577a(Wrapper.wrapContextIfNeed(activity)).L(this.mAdTemplate).b(this.mApkDownloadHelper).af(i).aj(true).ap(z).a(new a.b(this, aVar, view2) { // from class: com.kwad.components.ad.e.c.4
+            com.kwad.components.core.c.a.a.a(new a.C0594a(Wrapper.wrapContextIfNeed(activity)).L(this.mAdTemplate).b(this.mApkDownloadHelper).af(i).aj(true).ap(z).a(new a.b(this, aVar, view2) { // from class: com.kwad.components.ad.e.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c jD;
@@ -467,7 +467,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
                 c(viewGroup);
                 com.kwad.components.core.widget.a aVar = new com.kwad.components.core.widget.a(viewGroup.getContext(), viewGroup);
                 viewGroup.addView(aVar);
-                aVar.setViewCallback(new a.InterfaceC0600a(this) { // from class: com.kwad.components.ad.e.c.5
+                aVar.setViewCallback(new a.InterfaceC0617a(this) { // from class: com.kwad.components.ad.e.c.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ c jD;
@@ -490,7 +490,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
                         this.jD = this;
                     }
 
-                    @Override // com.kwad.components.core.widget.a.InterfaceC0600a
+                    @Override // com.kwad.components.core.widget.a.InterfaceC0617a
                     public final void em() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -782,7 +782,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
             if (context == null) {
                 return null;
             }
-            return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080ca4);
+            return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080ccc);
         }
         return (Bitmap) invokeV.objValue;
     }

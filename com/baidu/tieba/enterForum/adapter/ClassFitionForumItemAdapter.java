@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb6;
-import com.baidu.tieba.jd6;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.ee6;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.wb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ import java.util.List;
 public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bb6> a;
-    public jd6.b b;
+    public List<wb6> a;
+    public ee6.b b;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -89,13 +89,13 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09143b);
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a0c);
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09165e);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09149c);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a77);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0916c2);
         }
     }
 
-    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<bb6> list) {
+    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<wb6> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         this.a = list;
     }
 
-    public void f(jd6.b bVar) {
+    public void f(ee6.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.b = bVar;
@@ -130,7 +130,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         return invokeI.intValue;
     }
 
-    public void update(List<bb6> list) {
+    public void update(List<wb6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a = list;
@@ -150,14 +150,14 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        List<bb6> list;
+        List<wb6> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) && (list = this.a) != null && list.get(i) != null && (viewHolder instanceof b)) {
             b bVar = (b) viewHolder;
-            bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f0809ed);
+            bVar.a.setImageResource(R.drawable.icon_pure_post_speak24);
             bVar.a.setImageDrawable(WebPManager.getMaskDrawable(this.a.get(i).a(), true));
             bVar.b.setText(this.a.get(i).b());
-            qw4 d = qw4.d(bVar.b);
+            rw4 d = rw4.d(bVar.b);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0105);
             bVar.c.setOnClickListener(new a(this, i));
@@ -170,7 +170,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new b(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01de, viewGroup, false));
+            return new b(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e1, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

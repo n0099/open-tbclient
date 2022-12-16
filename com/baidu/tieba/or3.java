@@ -1,55 +1,23 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class or3<ContenT> {
+public class or3 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, or3<ContenT>.a> a;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final ContenT b;
-        public final /* synthetic */ or3 c;
-
-        public a(or3 or3Var, String str, ContenT content) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {or3Var, str, content};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = or3Var;
-            this.a = str;
-            this.b = content;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.a);
-            }
-        }
-    }
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
     public or3() {
         Interceptable interceptable = $ic;
@@ -64,69 +32,145 @@ public class or3<ContenT> {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.e = false;
+        this.f = false;
     }
 
-    public synchronized ContenT a(String str, ContenT content, long j) {
-        InterceptResult invokeCommon;
+    public static or3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                d(str);
-                if (content == null) {
-                    return null;
-                }
-                or3<ContenT>.a aVar = new a(this, str, content);
-                this.a.put(str, aVar);
-                if (j > 0) {
-                    e43.M().postDelayed(aVar, j);
-                }
-                return content;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            or3 or3Var = new or3();
+            or3Var.i(true);
+            or3Var.g(true);
+            or3Var.h(-1);
+            or3Var.f(-1);
+            return or3Var;
+        }
+        return (or3) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.clone();
+        }
+        return invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public or3(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (ContenT) invokeCommon.objValue;
+        this.e = false;
+        this.f = false;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (or3<ContenT>.a aVar : this.a.values()) {
-                    if (aVar != null) {
-                        e43.M().removeCallbacks(aVar);
-                    }
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public ContenT c(String str) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            or3<ContenT>.a aVar = this.a.get(str);
-            if (aVar == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return aVar.b;
+            if (!(obj instanceof or3)) {
+                return false;
+            }
+            or3 or3Var = (or3) obj;
+            if (this.a == or3Var.a && this.b == or3Var.b && this.d == or3Var.d && this.c == or3Var.c && this.g == or3Var.g) {
+                return true;
+            }
+            return false;
         }
-        return (ContenT) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public synchronized ContenT d(String str) {
-        InterceptResult invokeL;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                or3<ContenT>.a remove = this.a.remove(str);
-                if (remove != null) {
-                    e43.M().removeCallbacks(remove);
-                    return remove.b;
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
         }
-        return (ContenT) invokeL.objValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "Position{l=" + this.a + ", t=" + this.b + ", w=" + this.c + ", h=" + this.d + ", WAuto=" + this.e + ", HAuto=" + this.f + ", fixed=" + this.g + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

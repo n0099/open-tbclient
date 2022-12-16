@@ -27,7 +27,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdResultData extends BaseResultData implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdResultData";
@@ -141,7 +141,7 @@ public class AdResultData extends BaseResultData implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public AdResultData m83clone() {
+    public AdResultData m84clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

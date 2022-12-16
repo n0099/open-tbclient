@@ -1,142 +1,116 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.appcompat.app.AlertDialog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class bj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bj5 a;
+        public String a;
+        public int b;
 
-        public a(bj5 bj5Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bj5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = bj5Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ bj5 b;
-
-        public b(bj5 bj5Var, Activity activity) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bj5Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.b = bj5Var;
-            this.a = activity;
+            this.a = str;
+            this.b = i;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public static a a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.a != null) {
-                    this.b.a.dismiss();
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (StringUtils.isNull(str)) {
+                    return null;
                 }
-                if (!StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
-                    sp4.o(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
+                a aVar = new a();
+                if (str.contains("#")) {
+                    String[] split = str.split("#");
+                    if (split.length == 1) {
+                        aVar.a = split[0];
+                    } else if (split.length == 2) {
+                        aVar.a = split[0];
+                        aVar.b = xg.e(split[1], -1);
+                    }
+                } else {
+                    aVar.a = str;
                 }
+                return aVar;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (StringUtils.isNull(this.a)) {
+                    return "";
+                }
+                return this.a + "#" + this.b;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public bj5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static boolean b() {
+    public static String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return qy4.k().h("key_member_auto_ban_renewal_show", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null && alertDialog.isShowing()) {
-                this.a.dismiss();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String r = ry4.l().r("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (StringUtils.isNull(r)) {
+                return new String[0];
             }
-            if (activity == null) {
-                return;
+            String[] split = r.split("\\^");
+            if (split != null && split.length > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (String str : split) {
+                    a a2 = a.a(str);
+                    if (a2 != null && !StringUtils.isNull(a2.a)) {
+                        arrayList.add(a2.a);
+                    }
+                }
+                return (String[]) arrayList.toArray(new String[arrayList.size()]);
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f7f, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0818, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0af7);
-            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f037e);
-            tBAlertBuilder.r(aVar2, aVar);
-            tBAlertBuilder.m(true);
-            tBAlertBuilder.h(false);
-            tBAlertBuilder.l(3);
-            this.a = tBAlertBuilder.w();
-            qy4.k().u("key_member_auto_ban_renewal_show", true);
-            aVar.a(new a(this));
-            aVar2.a(new b(this, activity));
+            return null;
         }
+        return (String[]) invokeV.objValue;
     }
 }

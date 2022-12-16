@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av4;
-import com.baidu.tieba.sq4;
-import com.baidu.tieba.vo8;
+import com.baidu.tieba.bv4;
+import com.baidu.tieba.tq4;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public yu4 k;
-    public av4 l;
+    public zu4 k;
+    public bv4 l;
     public ImageView m;
     public View n;
     public int o;
@@ -114,45 +114,45 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924a2);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924a1);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922e2);
+        this.b = (RelativeLayout) view2.findViewById(R.id.u9_top_code);
+        this.c = (LinearLayout) view2.findViewById(R.id.u9_news_info);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.top_code_img);
         this.d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922de);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922df);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922db);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922e1);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0924a3);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916e6);
+        this.e = (TextView) view2.findViewById(R.id.top_code_detail_summary_text);
+        this.f = (TextView) view2.findViewById(R.id.top_code_detail_surplus_text);
+        this.g = (TextView) view2.findViewById(R.id.top_code_detail_giftworth_text);
+        this.h = (TextView) view2.findViewById(R.id.top_code_getnum_btn);
+        this.i = view2.findViewById(R.id.u9_top_code_divider);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.news_info_img);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e7);
-        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090bc2);
+        this.j = (TextView) view2.findViewById(R.id.news_info_text);
+        this.n = view2.findViewById(R.id.frs_list_item_u9_top_line);
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
         h();
     }
 
-    public void f(vo8 vo8Var) {
+    public void f(ur8 ur8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, vo8Var) != null) || vo8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ur8Var) != null) || ur8Var == null) {
             return;
         }
-        yu4 c = vo8Var.c();
-        av4 f = vo8Var.f();
+        zu4 c = ur8Var.c();
+        bv4 f = ur8Var.f();
         this.k = c;
         this.l = f;
-        if (vo8Var.h()) {
+        if (ur8Var.g()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        yu4 yu4Var = this.k;
-        if (yu4Var == null) {
+        zu4 zu4Var = this.k;
+        if (zu4Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(yu4Var.g())) {
+        } else if (StringUtils.isNull(zu4Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -175,7 +175,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (StringUtils.isNull(this.k.h())) {
                     this.f.setVisibility(8);
                 } else {
-                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14f3) + this.k.h();
+                    String str = this.a.getResources().getString(R.string.u9_shengyu) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.f.setText(spannableString);
@@ -184,7 +184,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (c.d() <= 0) {
                     this.g.setVisibility(8);
                 } else {
-                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14f4) + this.k.d();
+                    String str2 = this.a.getResources().getString(R.string.u9_worth) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.g.setText(spannableString2);
@@ -206,7 +206,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
             SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
             SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-            sq4 layoutMode = this.a.getLayoutMode();
+            tq4 layoutMode = this.a.getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

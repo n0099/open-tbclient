@@ -64,7 +64,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.kuaishou.weapon.p0.h;
 import com.kuaishou.weapon.p0.k1;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -565,7 +564,7 @@ public class SapiUtils implements NoProguard {
                 if (TextUtils.isEmpty(cookie)) {
                     return "";
                 }
-                for (String str3 : cookie.split(ParamableElem.DIVIDE_PARAM)) {
+                for (String str3 : cookie.split(";")) {
                     String trim = str3.trim();
                     if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf("=")) > -1) {
                         String[] strArr = new String[2];
@@ -1718,7 +1717,7 @@ public class SapiUtils implements NoProguard {
             if ("Samsung".equalsIgnoreCase(Build.MANUFACTURER)) {
                 str2 = ",";
             } else {
-                str2 = ParamableElem.DIVIDE_PARAM;
+                str2 = ";";
             }
             if (list != null && !list.isEmpty()) {
                 str3 = TextUtils.join(str2, list);

@@ -3,8 +3,8 @@ package com.baidu.tieba.write.share;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.b89;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.s49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s49 mCheckResponseData;
+    public b89 mCheckResponseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CheckResponse() {
@@ -35,13 +35,13 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public s49 getCheckResponseData() {
+    public b89 getCheckResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mCheckResponseData;
         }
-        return (s49) invokeV.objValue;
+        return (b89) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -53,9 +53,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            s49 s49Var = new s49();
-            this.mCheckResponseData = s49Var;
-            s49Var.a = jSONObject.optString("tbopen_app_key");
+            b89 b89Var = new b89();
+            this.mCheckResponseData = b89Var;
+            b89Var.a = jSONObject.optString("tbopen_app_key");
             this.mCheckResponseData.c = jSONObject.optString("tbopen_app_name");
             this.mCheckResponseData.d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");

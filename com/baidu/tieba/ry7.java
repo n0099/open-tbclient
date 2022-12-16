@@ -1,165 +1,116 @@
 package com.baidu.tieba;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ry7 implements View.OnTouchListener, GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
+import com.google.gson.Gson;
+/* loaded from: classes6.dex */
+public class ry7 extends my7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GestureDetector a;
-    public a b;
-    public View c;
+    public ShareStorage.StorageModel i;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        boolean a(View view2, MotionEvent motionEvent);
+    /* loaded from: classes6.dex */
+    public class a extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ry7 a;
 
-        boolean b(View view2, MotionEvent motionEvent);
-
-        boolean c(View view2, MotionEvent motionEvent);
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            return false;
+        public a(ry7 ry7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ry7Var;
         }
-        return invokeL.booleanValue;
-    }
 
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f11cc), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+            }
         }
-        return invokeCommon.booleanValue;
-    }
 
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
-        }
-    }
-
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
+                this.a.f();
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
+            }
         }
     }
 
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ry7(a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ry7(TbPageContext tbPageContext, ny7 ny7Var) {
+        super(tbPageContext, ny7Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {tbPageContext, ny7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ny7) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = aVar;
-        this.a = new GestureDetector(TbadkCoreApplication.getInst(), this);
     }
 
-    public void a(View view2) {
+    @Override // com.baidu.tieba.my7
+    public void j(oy7 oy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.c = view2;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, oy7Var) != null) || oy7Var == null) {
+            return;
         }
+        this.e = oy7Var;
+        this.i = (ShareStorage.StorageModel) new Gson().fromJson(oy7Var.d, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.my7
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.c(this.c, motionEvent);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f0914d8) {
+                r();
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.a(this.c, motionEvent);
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.i != null) {
+            PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.b(this.c, motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view2, motionEvent)) == null) {
-            this.c = view2;
-            GestureDetector gestureDetector = this.a;
-            if (gestureDetector != null) {
-                return gestureDetector.onTouchEvent(motionEvent);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 }

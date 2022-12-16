@@ -1,409 +1,187 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
 public class kj9 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<AudioPlayData> a;
+    public List<AudioPlayData> b;
+    public sj9 c;
+    public int d;
+    public b e;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(String str);
+    /* loaded from: classes5.dex */
+    public class a extends hl9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ AudioPlayData b;
+        public final /* synthetic */ kj9 c;
 
-        void b();
-
-        void c(String str);
-
-        void d();
-
-        void e(boolean z);
-
-        void f(boolean z);
-
-        void g(int i);
-
-        void h();
-
-        void i();
-
-        void j(String str);
-
-        void k(int i);
-
-        void onRecordEnd();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915151, "Lcom/baidu/tieba/kj9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(kj9 kj9Var, String str, AudioPlayData audioPlayData) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj9Var, str, audioPlayData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947915151, "Lcom/baidu/tieba/kj9;");
+            this.c = kj9Var;
+            this.a = str;
+            this.b = audioPlayData;
+        }
+
+        @Override // com.baidu.tieba.hl9, com.baidu.tieba.gl9
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
                 return;
             }
+            this.c.e.onFailed(str);
         }
-        a = new HashMap<>();
-    }
 
-    public static HashMap a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_clear");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_start");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("sex_type", Integer.valueOf(i));
-            hashMap.put("event_name", "sex_event");
-            hashMap.put("event_data", hashMap2);
-            return hashMap;
-        }
-        return (HashMap) invokeI.objValue;
-    }
-
-    public static HashMap e(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "audio_volume");
-            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
-            return hashMap;
-        }
-        return (HashMap) invokeCommon.objValue;
-    }
-
-    public static HashMap d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (a.get(str) != null) {
-                return a.get(str);
-            }
-            HashMap hashMap = null;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1909077165:
-                    if (str.equals("startRecord")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1848594969:
-                    if (str.equals("pauseRecord")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -815530368:
-                    if (str.equals("resetRecord")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -793791417:
-                    if (str.equals("startOverRecord")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 473974106:
-                    if (str.equals("capture_timer_clear")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 488985455:
-                    if (str.equals("capture_timer_start")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c == 5) {
-                                    hashMap = i();
-                                }
-                            } else {
-                                hashMap = b();
-                            }
-                        } else {
-                            hashMap = a();
-                        }
-                    } else {
-                        hashMap = g();
-                    }
-                } else {
-                    hashMap = f();
+        @Override // com.baidu.tieba.hl9
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) hn9.b(this.a), this.b.volume);
+                if (this.c.b == null) {
+                    this.c.b = new ArrayList();
                 }
+                this.c.b.add(audioPlayData);
+                kj9.c(this.c);
+                this.c.f();
+            }
+        }
+
+        @Override // com.baidu.tieba.hl9, com.baidu.tieba.gl9
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.hl9, com.baidu.tieba.gl9
+        public void onTrackEnd(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onFailed(String str);
+
+        void onSuccess(List<AudioPlayData> list);
+    }
+
+    public kj9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static /* synthetic */ int c(kj9 kj9Var) {
+        int i = kj9Var.d;
+        kj9Var.d = i + 1;
+        return i;
+    }
+
+    public final void f() {
+        AudioPlayData audioPlayData;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (rm9.c(this.a, this.d) == null) {
+                b bVar = this.e;
+                if (bVar != null) {
+                    bVar.onSuccess(this.b);
+                    return;
+                }
+                return;
+            }
+            AudioPlayData audioPlayData2 = this.a.get(this.d);
+            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
+                String str = audioPlayData2.audioPath;
+                int i = audioPlayData2.start;
+                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else if (audioPlayData2.mSpeed == 1.0f) {
+                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
             } else {
-                hashMap = h();
+                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
+                try {
+                    sj9 sj9Var = new sj9(audioPlayData2.audioPath, str2, null);
+                    this.c = sj9Var;
+                    sj9Var.S(new a(this, str2, audioPlayData2));
+                    this.c.D(null);
+                    this.c.G(audioPlayData2.mSpeed);
+                    this.c.B(audioPlayData2.start);
+                    this.c.R(audioPlayData2.end);
+                    this.c.I();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            if (hashMap != null) {
-                a.put(str, hashMap);
-            }
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap f() {
-        InterceptResult invokeV;
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_pause");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
         }
-        return (HashMap) invokeV.objValue;
     }
 
-    public static HashMap g() {
-        InterceptResult invokeV;
+    public void h(List<AudioPlayData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_reset");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
-        return (HashMap) invokeV.objValue;
     }
 
-    public static HashMap h() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start_over");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static void j(HashMap<String, Object> hashMap, a aVar) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !ij9.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
-            String str = (String) obj;
-            char c = 65535;
-            boolean z = true;
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1903331025:
-                    if (str.equals("show_text")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1768834290:
-                    if (str.equals("game_end")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -1584838740:
-                    if (str.equals("filter_adjust_enable")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -1272940549:
-                    if (str.equals("game_is_ready")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -708270859:
-                    if (str.equals("phone_shake")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -672934016:
-                    if (str.equals("case_reset")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -548493597:
-                    if (str.equals("need_volume")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 902635637:
-                    if (str.equals("child_status")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 967087977:
-                    if (str.equals("game_pause")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 969912325:
-                    if (str.equals("game_score")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1000807605:
-                    if (str.equals("game_http")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 1001154298:
-                    if (str.equals("game_time")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1076032614:
-                    if (str.equals("need_face")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (hashMap.get("text_content") instanceof String) {
-                        aVar.c((String) hashMap.get("text_content"));
-                        return;
-                    }
-                    return;
-                case 1:
-                    aVar.d();
-                    return;
-                case 2:
-                case 3:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                        return;
-                    }
-                    return;
-                case 4:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                    }
-                    aVar.onRecordEnd();
-                    return;
-                case 5:
-                    aVar.h();
-                    return;
-                case 6:
-                    aVar.b();
-                    return;
-                case 7:
-                    if (hashMap.get("text_content") instanceof Float) {
-                        try {
-                            i = ((Float) hashMap.get("text_content")).intValue();
-                        } catch (Exception e) {
-                            dj9.g(e);
-                        }
-                        aVar.g(i);
-                        return;
-                    }
-                    return;
-                case '\b':
-                    if (hashMap.get("isDefaultChild") != null) {
-                        String obj2 = hashMap.get("isDefaultChild").toString();
-                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
-                            z = false;
-                        }
-                        aVar.f(z);
-                        return;
-                    }
-                    return;
-                case '\t':
-                    if (hashMap.get("volume_ability") != null) {
-                        if (hj9.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
-                            z = false;
-                        }
-                        aVar.e(z);
-                        return;
-                    }
-                    return;
-                case '\n':
-                    aVar.i();
-                    return;
-                case 11:
-                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
-                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
-                        return;
-                    }
-                    return;
-                case '\f':
-                    if (hashMap.get("set_content") != null) {
-                        aVar.j(hashMap.get("set_content").toString());
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f();
         }
     }
 }

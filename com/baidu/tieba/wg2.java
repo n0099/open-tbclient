@@ -15,7 +15,7 @@ public class wg2 {
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
-    public String savedFilePath;
+    public kg2 stats;
 
     public wg2() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class wg2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.b;
+            return "StatCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

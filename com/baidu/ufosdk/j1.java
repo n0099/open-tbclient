@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.NoUnderlineSpan;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class j1 extends Dialog {
     public Context f;
     public String g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class j1 extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,16 +136,16 @@ public class j1 extends Dialog {
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             getWindow().setGravity(17);
-            setContentView(com.baidu.tieba.R.layout.ufo_report_tort_dialog);
-            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.report_tort_layout);
+            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d08da);
+            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091cbd);
             this.a = linearLayout;
             if (z) {
-                i = com.baidu.tieba.R.drawable.dialog_report_tort_backgroud_dark;
+                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ae;
             } else {
-                i = com.baidu.tieba.R.drawable.dialog_report_tort_backgroud;
+                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ad;
             }
             linearLayout.setBackgroundResource(i);
-            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.report_tort_title);
+            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091cbe);
             this.b = textView;
             int i5 = -13421773;
             if (z) {
@@ -154,9 +154,9 @@ public class j1 extends Dialog {
                 i2 = -13421773;
             }
             textView.setTextColor(i2);
-            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.report_tort_content);
+            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091cbc);
             this.c = textView2;
-            SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.dialog_tort_content));
+            SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f050e));
             spannableString.setSpan(new ForegroundColorSpan(-16776961), 51, 64, 33);
             spannableString.setSpan(new b(this.f, this.g), 51, 64, 33);
             textView2.setText(spannableString);
@@ -173,7 +173,7 @@ public class j1 extends Dialog {
             if (text instanceof Spannable) {
                 ((Spannable) textView4.getText()).setSpan(new NoUnderlineSpan(), 0, text.length(), 17);
             }
-            View findViewById = findViewById(com.baidu.tieba.R.id.divider_line);
+            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090840);
             this.d = findViewById;
             if (z) {
                 i4 = -13619152;
@@ -181,7 +181,7 @@ public class j1 extends Dialog {
                 i4 = BdThumbSeekBarView.BUFFERING_PAINT_COLOR;
             }
             findViewById.setBackgroundColor(i4);
-            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.know_btn);
+            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0910d6);
             this.e = textView5;
             if (z) {
                 i5 = -11711155;

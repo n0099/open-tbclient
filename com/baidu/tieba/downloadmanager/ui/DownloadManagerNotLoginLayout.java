@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadManagerNotLoginLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
     public TextView c;
     public TBSpecificationBtn d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,13 +128,13 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d023c, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0240, (ViewGroup) this, true);
             this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090850);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090851);
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09084f);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09086a);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09086b);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090869);
             oz4 oz4Var = new oz4();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03fb));
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0401));
             this.d.setTextSize(R.dimen.T_X06);
             this.d.setTextHorizontalCenter(true);
             this.d.setConfig(oz4Var);

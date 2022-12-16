@@ -10,14 +10,14 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.browser.TBWebViewActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.NovelWebViewActivityConfig;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.td5;
-import com.baidu.tieba.ud5;
+import com.baidu.tieba.le5;
+import com.baidu.tieba.me5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.yp4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NovelWebViewActivity extends TbWebViewActivity {
+public class NovelWebViewActivity extends TBWebViewActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static String f = "";
     public static String g;
@@ -94,7 +94,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                 if (error == 0) {
                     NovelWebViewActivity novelWebViewActivity = this.a;
                     if (novelWebViewActivity.a) {
-                        novelWebViewActivity.C1();
+                        novelWebViewActivity.B1();
                     }
                 }
             }
@@ -102,7 +102,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends TbWebViewActivity.t {
+    public class b extends TBWebViewActivity.u {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NovelWebViewActivity c;
@@ -119,7 +119,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((TbWebViewActivity) newInitContext.callArgs[0]);
+                    super((TBWebViewActivity) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -132,22 +132,22 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             this(novelWebViewActivity);
         }
 
-        @Override // com.baidu.tbadk.browser.TbWebViewActivity.t, android.webkit.WebViewClient
+        @Override // com.baidu.tbadk.browser.TBWebViewActivity.u, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                String unused = NovelWebViewActivity.g = td5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
+                String unused = NovelWebViewActivity.g = le5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
                 if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
-                    this.c.C1();
+                    this.c.B1();
                 }
                 if (this.c.b) {
                     i = 2;
                 } else {
                     i = 1;
                 }
-                ud5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, i, NovelWebViewActivity.f, this.c.c, this.c.d);
+                me5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, i, NovelWebViewActivity.f, this.c.c, this.c.d);
             }
         }
     }
@@ -170,7 +170,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
         this.e = new a(this, 2921697);
     }
 
-    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.browser.TBWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -179,7 +179,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity
+    @Override // com.baidu.tbadk.browser.TBWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity
     public boolean webViewGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,18 +194,18 @@ public class NovelWebViewActivity extends TbWebViewActivity {
         return invokeV.booleanValue;
     }
 
-    public final void C1() {
+    public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            td5.e(f, new ReadRecordsData(f));
+            le5.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
             bdTopToast.h(true);
-            bdTopToast.g(getPageContext().getString(R.string.obfuscated_res_0x7f0f0d01));
+            bdTopToast.g(getPageContext().getString(R.string.novel_add_mark_tip));
             bdTopToast.i((ViewGroup) getPageContext().getPageActivity().findViewById(16908290));
         }
     }
 
-    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.browser.TBWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         ImageView imageView;
         Interceptable interceptable = $ic;

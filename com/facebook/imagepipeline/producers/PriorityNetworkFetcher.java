@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -462,7 +463,7 @@ public class PriorityNetworkFetcher<FETCH_STATE extends FetchState> implements N
     public void onFetchCompletion(PriorityFetchState<FETCH_STATE> priorityFetchState, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048586, this, priorityFetchState, i) == null) {
-            removeFromQueue(priorityFetchState, "SUCCESS");
+            removeFromQueue(priorityFetchState, c.p);
             this.mDelegate.onFetchCompletion(priorityFetchState.delegatedState, i);
         }
     }

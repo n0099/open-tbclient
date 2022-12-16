@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GraffitiInfo;
+import protobuf.GraffitiInfo;
 /* loaded from: classes4.dex */
 public class GraffitiInfoPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public class GraffitiInfoPojo extends OrmObject {
         }
     }
 
-    public static GraffitiInfoPojo A(GraffitiInfo graffitiInfo) {
+    public static GraffitiInfoPojo G(GraffitiInfo graffitiInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, graffitiInfo)) == null) {
@@ -43,7 +43,7 @@ public class GraffitiInfoPojo extends OrmObject {
         return (GraffitiInfoPojo) invokeL.objValue;
     }
 
-    public static GraffitiInfoPojo z(protobuf.GraffitiInfo graffitiInfo) {
+    public static GraffitiInfoPojo H(tbclient.GraffitiInfo graffitiInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, graffitiInfo)) == null) {

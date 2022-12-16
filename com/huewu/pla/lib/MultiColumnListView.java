@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aq5;
+import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_ListView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiColumnListView extends PLA_ListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_COLUMN_NUMBER = 2;
@@ -35,7 +35,7 @@ public class MultiColumnListView extends PLA_ListView {
     public ParcelableSparseIntArray mItems;
     public PLA_AbsListView.e scroller;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         void a();
     }
@@ -47,7 +47,7 @@ public class MultiColumnListView extends PLA_ListView {
         return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.intValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements PLA_AbsListView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class MultiColumnListView extends PLA_ListView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +224,7 @@ public class MultiColumnListView extends PLA_ListView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -653,7 +653,7 @@ public class MultiColumnListView extends PLA_ListView {
             if (attributeSet == null) {
                 this.mColumnNumber = 2;
             } else {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, aq5.MultiColumnListView);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, vq5.MultiColumnListView);
                 int integer = obtainStyledAttributes.getInteger(3, -1);
                 int integer2 = obtainStyledAttributes.getInteger(0, -1);
                 if (this.mFrameRect.width() > this.mFrameRect.height() && integer != -1) {

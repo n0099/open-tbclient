@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ij5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -194,7 +197,7 @@ public final class DataExt {
                     if (jsonElement.isJsonPrimitive()) {
                         Number asNumber = jsonElement.getAsJsonPrimitive().getAsNumber();
                         if (!b(asNumber.toString()) && (valueOfByType = NumberType.valueOfByType(type)) != null) {
-                            int i = c.a[valueOfByType.ordinal()];
+                            int i = e.a[valueOfByType.ordinal()];
                             if (i != 1) {
                                 if (i != 2) {
                                     if (i != 3) {
@@ -340,7 +343,95 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static class a implements ParameterizedType {
+    public static class a implements ExclusionStrategy {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.google.gson.ExclusionStrategy
+        public boolean shouldSkipClass(Class<?> cls) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.google.gson.ExclusionStrategy
+        public boolean shouldSkipField(FieldAttributes fieldAttributes) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
+                ij5 ij5Var = (ij5) fieldAttributes.getAnnotation(ij5.class);
+                if (ij5Var != null && !ij5Var.deserialize()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements ExclusionStrategy {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.google.gson.ExclusionStrategy
+        public boolean shouldSkipClass(Class<?> cls) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.google.gson.ExclusionStrategy
+        public boolean shouldSkipField(FieldAttributes fieldAttributes) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
+                ij5 ij5Var = (ij5) fieldAttributes.getAnnotation(ij5.class);
+                if (ij5Var != null && !ij5Var.serialize()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Class a;
@@ -356,7 +447,7 @@ public final class DataExt {
             return (Type) invokeV.objValue;
         }
 
-        public a(Class cls) {
+        public c(Class cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -395,7 +486,7 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements ParameterizedType {
+    public static class d implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -410,7 +501,7 @@ public final class DataExt {
             return (Type) invokeV.objValue;
         }
 
-        public b() {
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -445,7 +536,7 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class c {
+    public static /* synthetic */ class e {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -453,13 +544,13 @@ public final class DataExt {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613455, "Lcom/baidu/tbadk/util/DataExt$c;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613517, "Lcom/baidu/tbadk/util/DataExt$e;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(988613455, "Lcom/baidu/tbadk/util/DataExt$c;");
+                    classClinitInterceptable.invokePostClinit(988613517, "Lcom/baidu/tbadk/util/DataExt$e;");
                     return;
                 }
             }
@@ -499,7 +590,7 @@ public final class DataExt {
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         GsonWidget.BadNumberFix.c(gsonBuilder);
-        GSON = gsonBuilder.registerTypeAdapter(GsonWidget.a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).create();
+        GSON = gsonBuilder.registerTypeAdapter(GsonWidget.a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).addSerializationExclusionStrategy(new b()).addDeserializationExclusionStrategy(new a()).create();
     }
 
     public DataExt() {
@@ -531,7 +622,7 @@ public final class DataExt {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, cls)) == null) {
-            return (List) Objects.requireNonNull(GSON.fromJson(str, new a(cls)));
+            return (List) Objects.requireNonNull(GSON.fromJson(str, new c(cls)));
         }
         return (List) invokeLL.objValue;
     }
@@ -558,8 +649,8 @@ public final class DataExt {
                 try {
                     obj = bundle.get(str);
                     wrap = JSONObject.wrap(obj);
-                } catch (JSONException e) {
-                    BdLog.e(e);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
                 }
                 if (wrap == null) {
                     if (obj instanceof Bundle) {
@@ -602,7 +693,7 @@ public final class DataExt {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            return (List) Objects.requireNonNull(GSON.fromJson(str, new b()));
+            return (List) Objects.requireNonNull(GSON.fromJson(str, new d()));
         }
         return (List) invokeL.objValue;
     }

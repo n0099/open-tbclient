@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk.core.webview.a.kwai.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static long qY = 2000;
@@ -305,7 +305,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                         }
                     }
                     if (adTemplate != null) {
-                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0584a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0601a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                     }
                 }
             }));
@@ -367,9 +367,9 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-            SceneImpl m84clone = sceneImpl != null ? sceneImpl.m84clone() : null;
-            if (m84clone != null) {
-                com.kwad.components.ad.reward.e.a(m84clone, this);
+            SceneImpl m85clone = sceneImpl != null ? sceneImpl.m85clone() : null;
+            if (m85clone != null) {
+                com.kwad.components.ad.reward.e.a(m85clone, this);
             }
         }
     }
@@ -530,7 +530,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0911f3);
+            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f091252);
             this.qX = ksRefluxView;
             this.bF = ksRefluxView.getWebView();
             this.qX.setViewListener(this);

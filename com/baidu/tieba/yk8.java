@@ -1,67 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.PerfSampleManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-@Service
-/* loaded from: classes6.dex */
-public class yk8 implements PerfSampleManager.IPerfSampleCallback {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "2301";
-    public static String b = "1";
+import java.util.HashMap;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class yk8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948333155, "Lcom/baidu/tieba/yk8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948333155, "Lcom/baidu/tieba/yk8;");
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static class a implements zk8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ TbPageContext b;
 
-    public yk8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
-    public String getSampleFlag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (uBCManager != null) {
-                if (b.equals(uBCManager.getUploadType(a))) {
-                    return a;
+        public a(String str, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return "";
             }
-            return "";
+            this.a = str;
+            this.b = tbPageContext;
         }
-        return (String) invokeV.objValue;
+
+        /* JADX WARN: Removed duplicated region for block: B:38:0x0080 A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:42:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        @Override // com.baidu.tieba.zk8.c
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(HashMap<String, String> hashMap) {
+            JSONObject jSONObject;
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
+                return;
+            }
+            Class<?> cls = null;
+            try {
+                JSONObject jSONObject2 = new JSONObject(this.a);
+                str = jSONObject2.optString("page");
+                try {
+                    String optString = jSONObject2.optString("refre");
+                    jSONObject = jSONObject2.optJSONObject("pageParams");
+                    if (jSONObject == null) {
+                        try {
+                            jSONObject = new JSONObject();
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (jSONObject == null) {
+                            }
+                        }
+                    }
+                    jSONObject.put("page", str);
+                    jSONObject.put("refre", optString);
+                    jSONObject.put("from", 1);
+                } catch (Exception e2) {
+                    e = e2;
+                    jSONObject = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                jSONObject = null;
+                str = null;
+            }
+            if (jSONObject == null) {
+                try {
+                    cls = Class.forName(hashMap.get(str));
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                if (cls == null) {
+                    return;
+                }
+                for (Class<?> cls2 : cls.getInterfaces()) {
+                    if (cls2.isAssignableFrom(xk8.class)) {
+                        try {
+                            ((xk8) cls.newInstance()).dispatch(jSONObject, this.b.getPageActivity());
+                            return;
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, strArr)) == null) {
+            if (tbPageContext != null && strArr != null && strArr.length != 0) {
+                String str = strArr[0];
+                if (TextUtils.isEmpty(str)) {
+                    return 3;
+                }
+                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith(UrlSchemaHelper.OPEN_GROUPCHAT_SCHEME) && ((str = xi.getUrlDecode(str)) == null || !str.startsWith(UrlSchemaHelper.OPEN_GROUPCHAT_SCHEME))) {
+                    str = null;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        zk8.c().b(new a(Uri.parse(str).getQueryParameter("params"), tbPageContext));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
+            }
+            return 3;
+        }
+        return invokeLL.intValue;
     }
 }

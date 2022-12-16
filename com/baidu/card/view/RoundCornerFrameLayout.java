@@ -21,13 +21,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ow4;
+import com.baidu.tieba.pw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +200,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void setCornerId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = ow4.z(i);
+            this.b = pw4.z(i);
             Bitmap bitmap = this.e;
             if (bitmap != null) {
                 bitmap.recycle();
@@ -214,7 +214,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setWillNotDraw(false);
             this.a = new RectF();
-            this.b = ow4.z(R.string.J_X05);
+            this.b = pw4.z(R.string.J_X05);
             Paint paint = new Paint();
             this.c = paint;
             paint.setStrokeWidth(0.0f);

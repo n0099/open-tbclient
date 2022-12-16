@@ -50,18 +50,18 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0163a extends Callback {
+    /* loaded from: classes3.dex */
+    public static class C0175a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0163a() {
+        public C0175a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -401,7 +401,7 @@ public class a {
                         break;
                     }
                 }
-                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0163a(), new Class[]{Context.class, Intent.class}, context, intent);
+                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0175a(), new Class[]{Context.class, Intent.class}, context, intent);
             } catch (Throwable unused) {
                 int i2 = b.a;
             }

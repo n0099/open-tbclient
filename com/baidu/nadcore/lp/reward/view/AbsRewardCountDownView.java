@@ -10,8 +10,8 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.ho0;
-import com.baidu.tieba.jq0;
+import com.baidu.tieba.go0;
+import com.baidu.tieba.iq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import kotlin.jvm.internal.Intrinsics;
 public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ho0 a;
+    public go0 a;
     public Function0<Unit> b;
     public Runnable c;
 
@@ -79,7 +79,7 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
 
     public abstract void e(String str);
 
-    public abstract void setData(int i, jq0 jq0Var, Function0<Unit> function0);
+    public abstract void setData(int i, iq0 iq0Var, Function0<Unit> function0);
 
     /* loaded from: classes2.dex */
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
@@ -230,10 +230,10 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
     }
 
     public final void c() {
-        ho0 ho0Var;
+        go0 go0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ho0Var = this.a) != null) {
-            ho0Var.h();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (go0Var = this.a) != null) {
+            go0Var.h();
         }
     }
 
@@ -242,18 +242,18 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = null;
             removeCallbacks(this.c);
-            ho0 ho0Var = this.a;
-            if (ho0Var != null) {
-                ho0Var.g();
+            go0 go0Var = this.a;
+            if (go0Var != null) {
+                go0Var.g();
             }
         }
     }
 
     public final void f() {
-        ho0 ho0Var;
+        go0 go0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ho0Var = this.a) != null) {
-            ho0Var.g();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (go0Var = this.a) != null) {
+            go0Var.g();
         }
     }
 
@@ -266,13 +266,13 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
         return (Function0) invokeV.objValue;
     }
 
-    public final ho0 getCountDownTime() {
+    public final go0 getCountDownTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.a;
         }
-        return (ho0) invokeV.objValue;
+        return (go0) invokeV.objValue;
     }
 
     public final Runnable getDelayTimingTask() {
@@ -288,9 +288,9 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ho0 ho0Var = this.a;
-            if (ho0Var != null) {
-                return ho0Var.j();
+            go0 go0Var = this.a;
+            if (go0Var != null) {
+                return go0Var.j();
             }
             return 0L;
         }
@@ -312,10 +312,10 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
         }
     }
 
-    public final void setCountDownTime(ho0 ho0Var) {
+    public final void setCountDownTime(go0 go0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ho0Var) == null) {
-            this.a = ho0Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, go0Var) == null) {
+            this.a = go0Var;
         }
     }
 

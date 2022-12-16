@@ -43,7 +43,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +56,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, document)) == null) ? document : (Document) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class DependentSubstreamMask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

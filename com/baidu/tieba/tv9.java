@@ -1,255 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.iv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.LinkedHashMap;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.kwad.sdk.api.KsAdVideoPlayConfig;
+import com.kwad.sdk.api.KsImage;
+import com.kwad.sdk.api.KsNativeAd;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public final class tv9<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
+public class tv9 extends BaseFunNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<M> a;
-    public final Class<B> b;
-    public final Map<Integer, ov9<M, B>> c;
+    public final Context b;
+    public final KsNativeAd c;
+    public final iv9 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tv9(Class<M> cls, Class<B> cls2, Map<Integer, ov9<M, B>> map) {
-        super(FieldEncoding.LENGTH_DELIMITED, cls);
+    public tv9(Context context, KsNativeAd ksNativeAd, String str, Ssp.Pid pid, iv9 iv9Var) {
+        super(str, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, map};
+            Object[] objArr = {context, ksNativeAd, str, pid, iv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = map;
+        this.b = context;
+        this.c = ksNativeAd;
+        this.d = iv9Var;
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> tv9<M, B> a(Class<M> cls) {
-        InterceptResult invokeL;
-        Field[] declaredFields;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            Class e = e(cls);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (Field field : cls.getDeclaredFields()) {
-                WireField wireField = (WireField) field.getAnnotation(WireField.class);
-                if (wireField != null) {
-                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new ov9(wireField, field, e));
-                }
-            }
-            return new tv9<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
-        }
-        return (tv9) invokeL.objValue;
-    }
-
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            try {
-                return (Class<B>) Class.forName(cls.getName() + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: d */
-    public int encodedSize(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
-            int i = m.cachedSerializedSize;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = 0;
-            for (ov9<M, B> ov9Var : this.c.values()) {
-                Object b = ov9Var.b(m);
-                if (b != null) {
-                    i2 += ov9Var.a().encodedSizeWithTag(ov9Var.c, b);
-                }
-            }
-            int size = i2 + m.unknownFields().size();
-            m.cachedSerializedSize = size;
-            return size;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public M decode(qv9 qv9Var) throws IOException {
-        InterceptResult invokeL;
-        ProtoAdapter<?> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qv9Var)) == null) {
-            B f = f();
-            long c = qv9Var.c();
-            while (true) {
-                int f2 = qv9Var.f();
-                if (f2 != -1) {
-                    ov9<M, B> ov9Var = this.c.get(Integer.valueOf(f2));
-                    if (ov9Var != null) {
-                        try {
-                            if (ov9Var.f()) {
-                                i = ov9Var.a();
-                            } else {
-                                i = ov9Var.i();
-                            }
-                            ov9Var.j(f, i.decode(qv9Var));
-                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
-                        }
-                    } else {
-                        FieldEncoding g = qv9Var.g();
-                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(qv9Var));
-                    }
-                } else {
-                    qv9Var.d(c);
-                    return (M) f.build();
-                }
-            }
-        } else {
-            return (M) invokeL.objValue;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: h */
-    public String toString(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (ov9<M, B> ov9Var : this.c.values()) {
-                Object b = ov9Var.b(m);
-                if (b != null) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(ov9Var.b);
-                    sb.append('=');
-                    if (ov9Var.f) {
-                        b = "██";
-                    }
-                    sb.append(b);
-                }
-            }
-            sb.replace(0, 2, this.a.getSimpleName() + '{');
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public void encode(rv9 rv9Var, M m) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv9Var, m) == null) {
-            for (ov9<M, B> ov9Var : this.c.values()) {
-                Object b = ov9Var.b(m);
-                if (b != null) {
-                    ov9Var.a().encodeWithTag(rv9Var, ov9Var.c, b);
-                }
-            }
-            rv9Var.k(m.unknownFields());
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if ((obj instanceof tv9) && ((tv9) obj).a == this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public B f() {
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.b.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (B) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createKs(this.c) : (ChannelNativeAds) invokeV.objValue;
     }
 
-    public int hashCode() {
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.hashCode();
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getAdDescription() : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: g */
-    public M redact(M m) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            Message.a<M, B> newBuilder = m.newBuilder();
-            for (ov9<M, B> ov9Var : this.c.values()) {
-                if (ov9Var.f && ov9Var.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", ov9Var.b, this.javaType.getName()));
-                }
-                boolean isAssignableFrom = Message.class.isAssignableFrom(ov9Var.i().javaType);
-                if (!ov9Var.f && (!isAssignableFrom || ov9Var.a.isRepeated())) {
-                    if (isAssignableFrom && ov9Var.a.isRepeated()) {
-                        vv9.k((List) ov9Var.e(newBuilder), ov9Var.i());
-                    }
-                } else {
-                    Object e = ov9Var.e(newBuilder);
-                    if (e != null) {
-                        ov9Var.h(newBuilder, ov9Var.a().redact(e));
-                    }
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.getAppIconUrl() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<KsImage> imageList = this.c.getImageList();
+            if (imageList == null) {
+                return null;
             }
-            newBuilder.clearUnknownFields();
-            return newBuilder.build();
+            ArrayList arrayList = new ArrayList();
+            for (KsImage ksImage : imageList) {
+                arrayList.add(ksImage.getImageUrl());
+            }
+            return arrayList;
         }
-        return (M) invokeL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int interactionType = this.c.getInteractionType();
+            return interactionType != 1 ? interactionType != 2 ? FunNativeAd.InteractionType.TYPE_UNKNOW : FunNativeAd.InteractionType.TYPE_BROWSE : FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+        }
+        return (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c.getAppName() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c.getVideoView(this.b, new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build()) : (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            iv9 iv9Var = this.d;
+            KsNativeAd ksNativeAd = this.c;
+            iv9Var.i(ksNativeAd, this.mSid, viewGroup, list, new iv9.b(iv9Var, ksNativeAd), funAdInteractionListener);
+        }
     }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdBitResultData extends AdResultData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3932631606478587475L;

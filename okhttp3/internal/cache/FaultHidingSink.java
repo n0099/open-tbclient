@@ -9,7 +9,7 @@ import java.io.IOException;
 import okio.Buffer;
 import okio.ForwardingSink;
 import okio.Sink;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FaultHidingSink extends ForwardingSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

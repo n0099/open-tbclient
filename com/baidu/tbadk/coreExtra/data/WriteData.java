@@ -273,7 +273,7 @@ public class WriteData extends OrmObject implements Serializable {
                 return true;
             }
             VoiceData.VoiceModel voiceModel = this.mVoiceModel;
-            if ((voiceModel != null && voiceModel.voiceId != null && voiceModel.duration != -1) || this.mWriteVoteData != null || !ListUtils.isEmpty(this.itemDatas)) {
+            if ((voiceModel != null && voiceModel.getVoiceId() != null && this.mVoiceModel.getDuration() != -1) || this.mWriteVoteData != null || !ListUtils.isEmpty(this.itemDatas)) {
                 return true;
             }
             return false;
@@ -1536,10 +1536,10 @@ public class WriteData extends OrmObject implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             SpanGroupManager spanGroupManager = this.mSpanGroupManager;
-            if (spanGroupManager != null && !ListUtils.isEmpty(spanGroupManager.w())) {
+            if (spanGroupManager != null && !ListUtils.isEmpty(spanGroupManager.v())) {
                 StringBuilder sb = new StringBuilder();
                 boolean z = true;
-                for (String str : this.mSpanGroupManager.w()) {
+                for (String str : this.mSpanGroupManager.v()) {
                     if (!z) {
                         sb.append(",");
                     }
@@ -2373,7 +2373,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public String toDraftString() {
         InterceptResult invokeV;
-        String y;
+        String x;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048813, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -2381,12 +2381,12 @@ public class WriteData extends OrmObject implements Serializable {
                 jSONObject.put("mType", this.mType);
                 jSONObject.put("mTitle", this.mTitle);
                 if (this.mSpanGroupManager == null) {
-                    y = this.mContent;
+                    x = this.mContent;
                 } else {
-                    y = this.mSpanGroupManager.y();
+                    x = this.mSpanGroupManager.x();
                 }
-                this.contentString = y;
-                jSONObject.put("mContent", y);
+                this.contentString = x;
+                jSONObject.put("mContent", x);
                 jSONObject.put("mReplyUid", this.mReplyUid);
                 jSONObject.put("mThreadId", this.mThreadId);
                 jSONObject.put("isLocalChannelDynamic", this.isLocalChannelDynamic);

@@ -1,82 +1,49 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.model.CheckRealNameModel;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.share.AddExperiencedModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class k88 extends m36<v78> {
+import java.text.MessageFormat;
+/* loaded from: classes5.dex */
+public class k88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
-    public TextView o;
-    public TextView p;
-    public LinearLayout q;
-    public LinearLayout r;
-    public LinearLayout s;
-    public LinearLayout t;
-    public UserData u;
-    public int v;
-    public int w;
 
-    @Override // com.baidu.tieba.m36
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d070e : invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements CacheModel.c<js7> {
+    /* loaded from: classes5.dex */
+    public static class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k88 a;
+        public final /* synthetic */ PbModel a;
+        public final /* synthetic */ AbsPbActivity b;
+        public final /* synthetic */ View c;
 
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void f(WriteCacheRespMsg<List<js7>> writeCacheRespMsg, WriteCacheMessage<js7> writeCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) {
-            }
-        }
-
-        public a(k88 k88Var) {
+        public a(PbModel pbModel, AbsPbActivity absPbActivity, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k88Var};
+                Object[] objArr = {pbModel, absPbActivity, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,126 +53,211 @@ public class k88 extends m36<v78> {
                     return;
                 }
             }
-            this.a = k88Var;
+            this.a = pbModel;
+            this.b = absPbActivity;
+            this.c = view2;
         }
 
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void h(ReadCacheRespMsg<List<js7>> readCacheRespMsg, ReadCacheMessage<js7> readCacheMessage) {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            PbModel pbModel;
+            View view2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) && readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                this.a.m.setText(Integer.toString(readCacheRespMsg.getData().size()));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && (pbModel = this.a) != null && pbModel.l1() != null && this.a.l1().y0() && !TbSingleton.getInstance().isNotchScreen(this.b) && !TbSingleton.getInstance().isCutoutScreen(this.b) && (view2 = this.c) != null) {
+                view2.setSystemUiVisibility(4);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k88(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public static int a(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
+            if (threadData == null) {
+                return 0;
+            }
+            if (threadData.isVideoWorksInfo()) {
+                return 11;
+            }
+            if (threadData.isBJHArticleThreadType()) {
+                return 10;
+            }
+            if (threadData.isBJHVideoThreadType()) {
+                return 9;
+            }
+            if (threadData.isBJHVideoDynamicThreadType()) {
+                return 8;
+            }
+            if (threadData.isBJHNormalThreadType()) {
+                return 7;
+            }
+            if (threadData.isShareThread) {
+                return 6;
+            }
+            int i = threadData.threadType;
+            if (i == 0) {
+                return 1;
+            }
+            if (i == 40) {
+                return 2;
+            }
+            if (i == 49) {
+                return 3;
+            }
+            if (i == 54) {
+                return 4;
+            }
+            return 5;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(h08 h08Var) {
+        InterceptResult invokeL;
+        ThreadData Q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, h08Var)) == null) {
+            if (h08Var != null && (Q = h08Var.Q()) != null) {
+                if (Q.isRealGod()) {
+                    return 4;
+                }
+                if (Q.getIsLive() == 1) {
+                    return 3;
+                }
+                if (Q.isBJHArticleThreadType()) {
+                    return 5;
+                }
+                if (Q.isBJHVideoThreadType()) {
+                    return 6;
+                }
+                if (Q.isBJHNormalThreadType()) {
+                    return 7;
+                }
+                if (Q.isBJHVideoDynamicThreadType()) {
+                    return 8;
+                }
+                if (!Q.isRealVideoThread()) {
+                    return 1;
+                }
+                return 2;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void c(AbsPbActivity absPbActivity, int i, int i2) {
+        String F1;
+        String str;
+        Uri parse;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65538, null, absPbActivity, i, i2) == null) && absPbActivity != null && absPbActivity.j1() != null) {
+            PbModel j1 = absPbActivity.j1();
+            View rootView = absPbActivity.getRootView();
+            if (!j1.a()) {
                 return;
             }
-        }
-        this.v = 3;
-        this.w = 0;
-        View k = k();
-        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0902e5);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0902e6);
-        this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0921ff);
-        this.l = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09220d);
-        this.m = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090da9);
-        this.n = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090daa);
-        this.o = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090685);
-        this.p = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090686);
-        this.q = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f0902e4);
-        this.r = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f0921cf);
-        this.t = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f090da8);
-        this.s = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f090684);
-    }
-
-    @Override // com.baidu.tieba.m36
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.v != i) {
-            qw4 d = qw4.d(k());
-            d.n(R.string.J_X14);
-            d.m(1);
-            d.f(R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0109);
-            this.v = i;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2 == null) {
-            return;
-        }
-        if (view2.getId() == R.id.obfuscated_res_0x7f0909b0) {
-            if (this.u == null) {
-                return;
+            TiebaStatic.eventStat(absPbActivity, CheckRealNameModel.TYPE_PB_SHARE, "pbclick", 1, new Object[0]);
+            h08 l1 = j1.l1();
+            String title = l1.Q().getTitle();
+            boolean O0 = j1.O0();
+            if (l1.l() != null) {
+                if (l1.l().isLike() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    AddExperiencedModel.L(l1.m());
+                }
             }
-            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), false, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0906cc) {
-            if (this.u == null) {
-                return;
+            ThreadData Q = j1.l1().Q();
+            if (Q.isUgcThreadType()) {
+                F1 = Q.getBaijiahaoData().oriUgcTid;
+                str = "?share=9105&fr=dshare&see_lz=" + (O0 ? 1 : 0) + "&dtype=" + Q.getBaijiahaoData().oriUgcType + "&dvid=" + Q.getBaijiahaoData().oriUgcVid + "&nid=" + Q.getBaijiahaoData().oriUgcNid;
+            } else {
+                F1 = j1.F1();
+                str = "?share=9105&fr=sharewise&see_lz=" + (O0 ? 1 : 0);
             }
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 5));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), true, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser()).updateFollowNum(this.w, this.u.getPortrait())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0902e4) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.b.getPageActivity(), this.u.getLike_bars(), this.u.getUserId(), this.u.getSex())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0921cf) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.b.getPageActivity(), this.u.getUserId(), this.u.getSex(), this.u.getPortrait())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f090684) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 9));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(getContext())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f090da8) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 10));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(getContext())));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m36
-    /* renamed from: s */
-    public void l(v78 v78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v78Var) == null) {
-            this.u = v78Var.e;
-            this.w = v78Var.a;
-            this.i.setText(Integer.toString(v78Var.b));
-            this.k.setText(StringHelper.longNumFormatOver9999wan(v78Var.c));
-            PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(this.b);
-            pbHistoryCacheModel.R(new a(this));
-            pbHistoryCacheModel.O();
-            this.o.setText(Integer.toString(this.u.getFavoriteNum()));
-            this.q.setOnClickListener(this);
-            this.r.setOnClickListener(this);
-            this.t.setOnClickListener(this);
-            this.s.setOnClickListener(this);
-            m(g(), TbadkCoreApplication.getInst().getSkinType());
+            String str2 = TbConfig.HTTPS_PB_PREFIX + F1 + (str + "&share_from=post");
+            String[] O = l1.O();
+            String str3 = O[0];
+            if (!StringUtils.isNull(str3) && str3.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
+                str3 = str3.substring(37);
+            }
+            if (str3 == null) {
+                parse = null;
+            } else {
+                parse = Uri.parse(str3);
+            }
+            String str4 = O[1];
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (i == 1) {
+                i78.u("c10399", l1.m(), l1.S(), currentAccount);
+            }
+            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
+            if (l1.l0() && Q.getAuthor() != null) {
+                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str4) || Q.isBJHVideoDynamicThreadType() || Q.isBJHVideoThreadType()) {
+                    if (TextUtils.isEmpty(title)) {
+                        title = O[1];
+                    }
+                    str4 = MessageFormat.format(string, Q.getAuthor().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
+                }
+            } else if (xi.isEmpty(str4)) {
+                str4 = title;
+            }
+            String cutString = xi.cutString(title, 100);
+            String cutString2 = xi.cutString(str4, 100);
+            ShareItem shareItem = new ShareItem();
+            shareItem.v = cutString;
+            shareItem.w = cutString2;
+            if (l1.l0()) {
+                shareItem.H = cutString2;
+                shareItem.V = -1L;
+            } else if (l1.Q() != null && l1.Q().getThreadVideoInfo() != null && !l1.Q().isUgcThreadType()) {
+                shareItem.V = l1.Q().getThreadVideoInfo().play_count.intValue();
+            }
+            shareItem.x = str2;
+            shareItem.c = true;
+            shareItem.u = j1.F1();
+            shareItem.J = 3;
+            shareItem.I = i2;
+            shareItem.N = j1.getForumId();
+            shareItem.O = j1.F1();
+            shareItem.Q = b(l1);
+            shareItem.R = TbadkCoreApplication.getCurrentAccount();
+            if (parse != null) {
+                shareItem.z = parse;
+            }
+            if (i2 == 2) {
+                shareItem.J = j1.P0();
+            }
+            if (l1.l0()) {
+                shareItem.s0 = false;
+            }
+            shareItem.X = OriginalThreadInfo.ShareInfo.generateShareInfo(Q);
+            if (l1 != null && l1.H() != null && l1.H().size() > 0) {
+                shareItem.a0 = ShareItem.ForwardInfo.generateForwardInfo(Q, 1, l1.H().get(0));
+            } else {
+                shareItem.a0 = ShareItem.ForwardInfo.generateForwardInfo(Q, 1, null);
+            }
+            TbadkCoreApplication.getInst().setShareItem(shareItem);
+            if (Q != null) {
+                shareItem.q0 = Q.getShareImageUrl();
+            }
+            shareItem.K = a(Q);
+            Bundle bundle = new Bundle();
+            bundle.putInt("obj_param1", shareItem.J);
+            bundle.putInt("obj_type", shareItem.Q);
+            bundle.putString("fid", shareItem.N);
+            bundle.putString("tid", shareItem.O);
+            bundle.putString("uid", shareItem.R);
+            shareItem.l(bundle);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) absPbActivity, shareItem, true, true);
+            shareDialogConfig.setOnDismissListener(new a(j1, absPbActivity, rootView));
+            shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
+            y66.c().l(shareDialogConfig);
         }
     }
 }

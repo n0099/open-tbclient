@@ -2,10 +2,10 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.request.NewAckMessage;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
@@ -102,10 +102,10 @@ public class IMAckRequest extends BaseHttpRequest {
         if (interceptable == null || interceptable.invokeL(65537, this, arrayList) == null) {
             LogUtils.d(TAG, "getShortAckMsgs begin~~~");
             new LinkedList();
-            List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
+            List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false);
             if (handleAck != null && handleAck.size() > 0) {
                 Context context = this.mContext;
-                NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), this.mTriggerId, this.mIsReliable);
+                NewAckMessage newAckMessage = new NewAckMessage(context, AccountManager.getUK(context), this.mTriggerId, this.mIsReliable);
                 newAckMessage.addTriples(handleAck);
                 this.mAckList = newAckMessage.getJsonArray();
                 LogUtils.d(TAG, "ack msgs: " + this.mAckList);
@@ -113,6 +113,7 @@ public class IMAckRequest extends BaseHttpRequest {
         }
     }
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest
     public String generateSign(JSONObject jSONObject) throws NoSuchAlgorithmException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

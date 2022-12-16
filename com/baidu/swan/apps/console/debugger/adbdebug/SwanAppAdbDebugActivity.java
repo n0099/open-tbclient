@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh3;
-import com.baidu.tieba.j33;
-import com.baidu.tieba.nj3;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.x33;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.i33;
+import com.baidu.tieba.mj3;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.w33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppAdbDebugActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class SwanAppAdbDebugActivity extends Activity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 return;
             }
         }
-        a = pk1.a;
+        a = ok1.a;
     }
 
     public SwanAppAdbDebugActivity() {
@@ -134,24 +134,24 @@ public class SwanAppAdbDebugActivity extends Activity {
             if (a) {
                 Log.d("SwanAppAdbDebugActivity", "ADB Debug onCreate");
             }
-            if (eh3.a(this)) {
+            if (dh3.a(this)) {
                 return;
             }
             Intent intent = getIntent();
             if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                x33.f(this, R.string.obfuscated_res_0x7f0f0102).G();
+                w33.f(this, R.string.obfuscated_res_0x7f0f0105).G();
                 if (a) {
                     Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
                 }
                 finish();
             }
-            j33.a aVar = new j33.a(this);
-            aVar.V(getString(R.string.obfuscated_res_0x7f0f0100));
-            aVar.x(getString(R.string.obfuscated_res_0x7f0f0101));
-            aVar.n(new nj3());
+            i33.a aVar = new i33.a(this);
+            aVar.V(getString(R.string.obfuscated_res_0x7f0f0103));
+            aVar.x(getString(R.string.obfuscated_res_0x7f0f0104));
+            aVar.n(new mj3());
             aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f011a, new b(this, intent));
-            aVar.B(R.string.obfuscated_res_0x7f0f12f9, new a(this));
+            aVar.O(R.string.obfuscated_res_0x7f0f011d, new b(this, intent));
+            aVar.B(R.string.obfuscated_res_0x7f0f1334, new a(this));
             aVar.X();
         }
     }

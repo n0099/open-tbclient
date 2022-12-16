@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kq4;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.lq4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.s05;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.tieba.yi;
@@ -44,7 +44,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public BdUniqueId c;
     public int d;
     public List<MetaData> e;
-    public kq4<MetaData> f;
+    public lq4<MetaData> f;
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
@@ -83,8 +83,8 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
             }
             this.g = false;
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906cf);
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f0906d9);
+            this.a = (LinearLayout) view2.findViewById(R.id.concern_container);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.concern_user_image);
             this.d = headPendantClickableView;
             headPendantClickableView.getHeadView().setIsRound(true);
             this.d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -92,9 +92,9 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.d.getHeadView().setPlaceHolder(1);
             this.d.getHeadView().setBorderWidth(yi.g(concernRecommendListAdapter.a, R.dimen.tbds1));
             this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906da);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906d8);
-            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f092519);
+            this.b = (TextView) view2.findViewById(R.id.concern_user_name);
+            this.c = (TextView) view2.findViewById(R.id.concern_user_desc);
+            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.user_recommend_like_btn);
             this.f = new s05(concernRecommendListAdapter.b, this.e);
         }
 
@@ -108,7 +108,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
                 this.e.r(i);
-                qw4 d = qw4.d(this.a);
+                rw4 d = rw4.d(this.a);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
             }
@@ -273,10 +273,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         }
     }
 
-    public void l(kq4<MetaData> kq4Var) {
+    public void l(lq4<MetaData> lq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, kq4Var) == null) {
-            this.f = kq4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lq4Var) == null) {
+            this.f = lq4Var;
         }
     }
 
@@ -316,9 +316,9 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         r(metaData, forumViewHolder);
         p(metaData, forumViewHolder);
         q(metaData, forumViewHolder);
-        kq4<MetaData> kq4Var = this.f;
-        if (kq4Var != null) {
-            kq4Var.d(forumViewHolder.itemView, metaData, i, i);
+        lq4<MetaData> lq4Var = this.f;
+        if (lq4Var != null) {
+            lq4Var.d(forumViewHolder.itemView, metaData, i, i);
         }
         forumViewHolder.a(this.d);
     }
@@ -361,7 +361,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01f2, (ViewGroup) null));
+            return new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01f5, (ViewGroup) null));
         }
         return (ForumViewHolder) invokeLI.objValue;
     }

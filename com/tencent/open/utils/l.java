@@ -32,7 +32,6 @@ import com.baidu.pass.main.facesdk.BuildConfig;
 import com.baidu.sapi2.activity.ImageClipActivity;
 import com.baidu.sapi2.result.GetCertStatusResult;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -279,7 +278,7 @@ public class l {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
             Bundle bundle = new Bundle();
             bundle.putString(Constants.PARAM_PLATFORM, "1");
-            bundle.putString(TiebaStatic.LogFields.RESULT, str);
+            bundle.putString("result", str);
             bundle.putString("code", str2);
             bundle.putString("tmcost", str3);
             bundle.putString("rate", str4);
@@ -310,7 +309,7 @@ public class l {
             bundle.putString("act_type", str3);
             bundle.putString("via", str4);
             bundle.putString("app_id", str5);
-            bundle.putString(TiebaStatic.LogFields.RESULT, str6);
+            bundle.putString("result", str6);
             bundle.putString("type", str7);
             bundle.putString(DpStatConstants.KEY_LOGIN_STATUS, str8);
             bundle.putString("need_user_auth", str9);

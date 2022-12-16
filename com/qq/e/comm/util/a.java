@@ -1,7 +1,6 @@
 package com.qq.e.comm.util;
 
 import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ public class a {
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C0656a {
+    public static /* synthetic */ class C0673a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -75,7 +74,7 @@ public class a {
         this.b = z;
     }
 
-    public /* synthetic */ a(C0656a c0656a) {
+    public /* synthetic */ a(C0673a c0673a) {
         this();
     }
 
@@ -90,7 +89,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             try {
-                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
+                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
             } catch (NullPointerException unused) {
                 throw new Exception("公钥数据为空");
             } catch (NoSuchAlgorithmException unused2) {

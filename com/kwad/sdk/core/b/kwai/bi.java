@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.kwad.components.core.webview.jshandler.t;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -14,7 +15,7 @@ public final class bi implements com.kwad.sdk.core.d<t.a> {
         if (jSONObject.opt("adTemplate") == JSONObject.NULL) {
             aVar.Mw = "";
         }
-        aVar.Mx = jSONObject.optInt("area");
+        aVar.Mx = jSONObject.optInt(DnsModel.AREA_KEY);
         com.kwad.sdk.core.webview.a.a.c cVar = new com.kwad.sdk.core.webview.a.a.c();
         aVar.My = cVar;
         cVar.parseJson(jSONObject.optJSONObject("logParam"));
@@ -35,7 +36,7 @@ public final class bi implements com.kwad.sdk.core.d<t.a> {
         }
         int i = aVar.Mx;
         if (i != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "area", i);
+            com.kwad.sdk.utils.r.putValue(jSONObject, DnsModel.AREA_KEY, i);
         }
         com.kwad.sdk.utils.r.a(jSONObject, "logParam", aVar.My);
         return jSONObject;

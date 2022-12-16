@@ -16,17 +16,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.aj;
 import com.baidu.tieba.fx4;
 import com.baidu.tieba.gr4;
-import com.baidu.tieba.ir4;
+import com.baidu.tieba.hr4;
 import com.baidu.tieba.j15;
+import com.baidu.tieba.kc5;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.sb5;
+import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
@@ -130,7 +129,7 @@ public class HttpRequest {
                 b = currentAccountInfo.getBDUSS();
             } else {
                 if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                    b = sb5.b();
+                    b = kc5.b();
                 }
                 return null;
             }
@@ -146,13 +145,13 @@ public class HttpRequest {
                 sb.append(BDUSS);
                 sb.append("=");
                 sb.append(b);
-                sb.append(ParamableElem.DIVIDE_PARAM);
-                String a = ir4.a(currentAccountInfo);
+                sb.append(";");
+                String a = hr4.a(currentAccountInfo);
                 if (!StringUtils.isNull(a)) {
                     sb.append("stoken");
                     sb.append("=");
                     sb.append(a);
-                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    sb.append(";");
                 }
                 return sb.toString();
             }
@@ -169,7 +168,7 @@ public class HttpRequest {
             if (currentAccountInfo != null) {
                 b = currentAccountInfo.getBDUSS();
             } else if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                b = sb5.b();
+                b = kc5.b();
             } else {
                 return;
             }
@@ -182,7 +181,7 @@ public class HttpRequest {
             }
             if (!TextUtils.isEmpty(b) && this.mIsUseCurrentBDUSS) {
                 iNetWorkCore.addPostData(BDUSS, b);
-                String a = ir4.a(currentAccountInfo);
+                String a = hr4.a(currentAccountInfo);
                 if (!StringUtils.isNull(a)) {
                     iNetWorkCore.addPostData("stoken", a);
                 }
@@ -231,7 +230,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData("net_type", String.valueOf(netType));
             String a = j15.b().a();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
-                a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ParamableElem.DIVIDE_PARAM;
+                a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ";";
             }
             if (1 == netType) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -253,7 +252,7 @@ public class HttpRequest {
             lg.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    iNetWorkCore.addPostData(TBS, sb5.f());
+                    iNetWorkCore.addPostData(TBS, kc5.f());
                 } else {
                     iNetWorkCore.addPostData(TBS, TbadkCoreApplication.getInst().getTbs());
                 }
@@ -270,7 +269,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData("model", aj.g());
             iNetWorkCore.addPostData(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (qy4.k().l("android_safe_sdk_open", 0) == 1) {
+            if (ry4.l().m("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
             if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {

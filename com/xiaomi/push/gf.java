@@ -15,7 +15,7 @@ public class gf extends XMPushService.j {
     public final /* synthetic */ gd a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Exception f427a;
+    public final /* synthetic */ Exception f450a;
     public final /* synthetic */ int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,7 +38,7 @@ public class gf extends XMPushService.j {
         }
         this.a = gdVar;
         this.b = i2;
-        this.f427a = exc;
+        this.f450a = exc;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
@@ -46,7 +46,7 @@ public class gf extends XMPushService.j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f427a;
+            return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f450a;
         }
         return (String) invokeV.objValue;
     }
@@ -55,7 +55,7 @@ public class gf extends XMPushService.j {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.b.a(this.b, this.f427a);
+            this.a.b.a(this.b, this.f450a);
         }
     }
 }

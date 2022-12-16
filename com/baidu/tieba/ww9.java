@@ -1,34 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public final class ww9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i >= 12) {
-                return (i - 12) + 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i <= 9) {
-                return (i - 1) + 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
+public interface ww9 {
+    void onBlock(Context context, cx9 cx9Var);
 }

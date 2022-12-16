@@ -1073,36 +1073,6 @@ public class BosClient extends AbstractBceClient {
         return (CompleteMultipartUploadResponse) invokeL.objValue;
     }
 
-    public ListMultipartUploadsResponse listMultipartUploads(ListMultipartUploadsRequest listMultipartUploadsRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, listMultipartUploadsRequest)) == null) {
-            CheckUtils.isNotNull(listMultipartUploadsRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(listMultipartUploadsRequest, HttpMethodName.GET);
-            createRequest.addParameter("uploads", null);
-            String keyMarker = listMultipartUploadsRequest.getKeyMarker();
-            if (keyMarker != null) {
-                createRequest.addParameter("keyMarker", keyMarker);
-            }
-            int maxUploads = listMultipartUploadsRequest.getMaxUploads();
-            if (maxUploads >= 0) {
-                createRequest.addParameter("maxUploads", String.valueOf(maxUploads));
-            }
-            String delimiter = listMultipartUploadsRequest.getDelimiter();
-            if (delimiter != null) {
-                createRequest.addParameter("delimiter", delimiter);
-            }
-            String prefix = listMultipartUploadsRequest.getPrefix();
-            if (prefix != null) {
-                createRequest.addParameter("prefix", prefix);
-            }
-            ListMultipartUploadsResponse listMultipartUploadsResponse = (ListMultipartUploadsResponse) invokeHttpClient(createRequest, ListMultipartUploadsResponse.class);
-            listMultipartUploadsResponse.setBucketName(listMultipartUploadsRequest.getBucketName());
-            return listMultipartUploadsResponse;
-        }
-        return (ListMultipartUploadsResponse) invokeL.objValue;
-    }
-
     public ListObjectsResponse listNextBatchOfObjects(ListObjectsResponse listObjectsResponse) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1432,6 +1402,36 @@ public class BosClient extends AbstractBceClient {
             return (InitiateMultipartUploadResponse) invokeHttpClient(createRequest, InitiateMultipartUploadResponse.class);
         }
         return (InitiateMultipartUploadResponse) invokeL.objValue;
+    }
+
+    public ListMultipartUploadsResponse listMultipartUploads(ListMultipartUploadsRequest listMultipartUploadsRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, listMultipartUploadsRequest)) == null) {
+            CheckUtils.isNotNull(listMultipartUploadsRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(listMultipartUploadsRequest, HttpMethodName.GET);
+            createRequest.addParameter("uploads", null);
+            String keyMarker = listMultipartUploadsRequest.getKeyMarker();
+            if (keyMarker != null) {
+                createRequest.addParameter("keyMarker", keyMarker);
+            }
+            int maxUploads = listMultipartUploadsRequest.getMaxUploads();
+            if (maxUploads >= 0) {
+                createRequest.addParameter("maxUploads", String.valueOf(maxUploads));
+            }
+            String delimiter = listMultipartUploadsRequest.getDelimiter();
+            if (delimiter != null) {
+                createRequest.addParameter("delimiter", delimiter);
+            }
+            String prefix = listMultipartUploadsRequest.getPrefix();
+            if (prefix != null) {
+                createRequest.addParameter("prefix", prefix);
+            }
+            ListMultipartUploadsResponse listMultipartUploadsResponse = (ListMultipartUploadsResponse) invokeHttpClient(createRequest, ListMultipartUploadsResponse.class);
+            listMultipartUploadsResponse.setBucketName(listMultipartUploadsRequest.getBucketName());
+            return listMultipartUploadsResponse;
+        }
+        return (ListMultipartUploadsResponse) invokeL.objValue;
     }
 
     public ListPartsResponse listParts(ListPartsRequest listPartsRequest) {

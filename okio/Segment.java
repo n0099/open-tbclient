@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Segment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHARE_MINIMUM = 1024;
@@ -40,7 +40,7 @@ public final class Segment {
     }
 
     @Nullable
-    public Segment pop() {
+    public final Segment pop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -58,7 +58,7 @@ public final class Segment {
         return (Segment) invokeV.objValue;
     }
 
-    public Segment sharedCopy() {
+    public final Segment sharedCopy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -68,7 +68,7 @@ public final class Segment {
         return (Segment) invokeV.objValue;
     }
 
-    public Segment unsharedCopy() {
+    public final Segment unsharedCopy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -99,7 +99,7 @@ public final class Segment {
         this.owner = z2;
     }
 
-    public void compact() {
+    public final void compact() {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -127,7 +127,7 @@ public final class Segment {
         }
     }
 
-    public Segment push(Segment segment) {
+    public final Segment push(Segment segment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, segment)) == null) {
@@ -140,7 +140,7 @@ public final class Segment {
         return (Segment) invokeL.objValue;
     }
 
-    public Segment split(int i) {
+    public final Segment split(int i) {
         InterceptResult invokeI;
         Segment take;
         Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public final class Segment {
         return (Segment) invokeI.objValue;
     }
 
-    public void writeTo(Segment segment, int i) {
+    public final void writeTo(Segment segment, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, segment, i) == null) {
             if (segment.owner) {

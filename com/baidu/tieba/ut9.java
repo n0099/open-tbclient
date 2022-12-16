@@ -1,164 +1,85 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.util.Log;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.regex.Pattern;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.express2.AdEventListener;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 /* loaded from: classes6.dex */
-public class ut9 {
+public class ut9 extends FunNativeAd2Bridger<NativeExpressADData2, View> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public final /* synthetic */ st9 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948222671, "Lcom/baidu/tieba/ut9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ut9(st9 st9Var, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948222671, "Lcom/baidu/tieba/ut9;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {st9Var, reporterPidLoader};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                return Pattern.matches("cpu[0-9]", file.getName());
-            }
-            return invokeL.booleanValue;
-        }
+        this.c = st9Var;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) mt9.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo.availMem / 1024;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
         }
-        return invokeV.longValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(NativeExpressADData2 nativeExpressADData2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 0) {
-                try {
-                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
-                } catch (Exception e) {
-                    Log.e("PerformanceUtils", "getNumCores exception", e);
-                    a = 1;
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nativeExpressADData2)) == null) {
+            return nativeExpressADData2.getAdView();
         }
-        return invokeV.intValue;
+        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static long c() {
-        InterceptResult invokeV;
-        FileReader fileReader;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == 0) {
-                long j = -1;
-                FileReader fileReader2 = null;
-                try {
-                    try {
-                        try {
-                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-                        } catch (IOException e) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
-                        }
-                    } catch (IOException e2) {
-                        e = e2;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
-                    String readLine = bufferedReader.readLine();
-                    String str = readLine;
-                    if (readLine != null) {
-                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
-                        j = valueOf.intValue();
-                        str = valueOf;
-                    }
-                    bufferedReader.close();
-                    fileReader.close();
-                    fileReader2 = str;
-                } catch (IOException e3) {
-                    e = e3;
-                    fileReader2 = fileReader;
-                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
-                    if (fileReader2 != null) {
-                        fileReader2.close();
-                        fileReader2 = fileReader2;
-                    }
-                    b = j;
-                    return b;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    if (fileReader2 != null) {
-                        try {
-                            fileReader2.close();
-                        } catch (IOException e4) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
-                        }
-                    }
-                    throw th;
-                }
-                b = j;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
+            NativeExpressADData2 nativeExpressADData22 = nativeExpressADData2;
+            this.c.onShowStart(nativeExpressADData22, this.b);
+            this.b = true;
+            ExpressAdListenerWrapper<AdEventListener> expressAdListenerWrapper = this.c.e.get(nativeExpressADData22);
+            if (expressAdListenerWrapper == null) {
+                LogPrinter.e("Can not get correspond listener by gdtNativeExpress2.", new Object[0]);
+            } else {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
             }
-            return b;
+            expressInflater.inflate();
         }
-        return invokeV.longValue;
     }
 }

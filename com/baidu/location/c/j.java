@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -73,7 +72,7 @@ public class j {
     private String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? str != null ? (str.contains("&") || str.contains(ParamableElem.DIVIDE_PARAM)) ? str.replace("&", "_").replace(ParamableElem.DIVIDE_PARAM, "_") : str : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? str != null ? (str.contains("&") || str.contains(";")) ? str.replace("&", "_").replace(";", "_") : str : str : (String) invokeL.objValue;
     }
 
     private int m() {
@@ -658,7 +657,7 @@ public class j {
                         if ((i2 & i) != 0 && this.a.get(i5).BSSID != null) {
                             stringBuffer.append(i4 == 0 ? "&ssid=" : "|");
                             stringBuffer.append(this.a.get(i5).BSSID.replace(":", ""));
-                            stringBuffer.append(ParamableElem.DIVIDE_PARAM);
+                            stringBuffer.append(";");
                             stringBuffer.append(b(this.a.get(i5).SSID));
                             i4++;
                         }

@@ -1,69 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.renderscript.Allocation;
-import android.renderscript.Element;
-import android.renderscript.RenderScript;
-import android.renderscript.ScriptIntrinsicYuvToRGB;
-import android.renderscript.Type;
+import android.media.AudioTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qj9 {
+public class qj9 extends AudioTrack implements pj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RenderScript a;
-    public ScriptIntrinsicYuvToRGB b;
-    public Type.Builder c;
-    public Type.Builder d;
-    public Allocation e;
-    public Allocation f;
 
-    public qj9(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qj9(int i, int i2, int i3, int i4, int i5, int i6) throws IllegalArgumentException {
+        super(i, i2, i3, i4, i5, i6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RenderScript create = RenderScript.create(context);
-        this.a = create;
-        this.b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
     }
 
-    public Bitmap a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    @Override // com.baidu.tieba.pj9
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            if (this.c == null) {
-                RenderScript renderScript = this.a;
-                Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
-                this.c = x;
-                this.e = Allocation.createTyped(this.a, x.create(), 1);
-                RenderScript renderScript2 = this.a;
-                Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i).setY(i2);
-                this.d = y;
-                this.f = Allocation.createTyped(this.a, y.create(), 1);
-            }
-            this.e.copyFrom(bArr);
-            this.b.setInput(this.e);
-            this.b.forEach(this.f);
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            this.f.copyTo(createBitmap);
-            return createBitmap;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getState() == 1) {
+            flush();
+            release();
         }
-        return (Bitmap) invokeLII.objValue;
     }
 }

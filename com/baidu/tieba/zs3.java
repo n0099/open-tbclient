@@ -1,50 +1,33 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import java.io.File;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface zs3 {
-    String a();
+    void a(FrameLayout frameLayout);
 
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    void d(boolean z);
 
-    String c();
+    zs3 e(Context context, @NonNull vr3 vr3Var);
 
-    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull gs3 gs3Var);
+    void g(ts3 ts3Var);
 
-    String e();
+    int getCurrentPosition();
 
-    String f(String str);
+    int getDuration();
 
-    String g();
+    void h(vr3 vr3Var);
 
-    String getAppId();
+    boolean isEnd();
 
-    String getAppKey();
+    boolean isPlaying();
 
-    String getScene();
+    void mute(boolean z);
 
-    String getSdkVersion();
+    void pause();
 
-    int h();
+    void resume();
 
-    String i(String str);
-
-    int j();
-
-    int k();
-
-    Uri l(@NonNull Context context, @NonNull File file);
-
-    String m();
-
-    JSONObject n();
-
-    boolean o(View view2);
+    void stop();
 }

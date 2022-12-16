@@ -60,7 +60,7 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.d();
+            this.a.f();
             SkinManager.setBackgroundShapeDrawable(this.a, yi.g(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
         }
     }

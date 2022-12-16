@@ -161,7 +161,7 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(getJsonContent());
-                this.mPaId = jSONObject.getLong("pa_uid");
+                this.mPaId = jSONObject.getLong(Constants.EXTRA_PAUID_TYPE);
                 this.status = jSONObject.getInt("status");
                 this.updateTime = jSONObject.getInt("update_time");
                 return true;

@@ -1,47 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.ne2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.an2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class sz3 extends re2<a04, b04> {
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class sz3 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile sz3 e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends ne2.a {
+    /* loaded from: classes6.dex */
+    public class a implements an2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ne2.a
-        public int e() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.an2.c
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 1;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
-            return invokeV.intValue;
         }
 
-        public a() {
+        public a(sz3 sz3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sz3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,90 +48,72 @@ public class sz3 extends re2<a04, b04> {
                 }
             }
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948168669, "Lcom/baidu/tieba/sz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948168669, "Lcom/baidu/tieba/sz3;");
-                return;
+        @Override // com.baidu.tieba.an2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0138, 1).show();
             }
         }
-        d = pk1.a;
-    }
 
-    public static sz3 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (sz3.class) {
-                    if (e == null) {
-                        e = new sz3();
-                    }
+        @Override // com.baidu.tieba.an2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File c = tz3.c();
+                File b = tz3.b();
+                if (c.exists() && ik4.U(c.getPath(), b.getPath())) {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0139, 1).show();
+                } else {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0138, 1).show();
                 }
             }
-            return e;
         }
-        return (sz3) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sz3() {
-        super(new a04(), new b04());
+    public sz3(b53 b53Var) {
+        super(b53Var, "/swanAPI/debugGameExtensionCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((rf2) objArr[0], (uf2) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.re2
-    public String b(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return uz3.b().getPath();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (!b63.b) {
+                return false;
             }
-            return null;
+            JSONObject a2 = b63.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0136, 1).show();
+                return false;
+            }
+            String optString = a2.optString("downloadurl");
+            if (TextUtils.isEmpty(optString)) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0137, 1).show();
+                return false;
+            }
+            u04.f(optString, new a(this));
+            return false;
         }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.re2
-    @Nullable
-    public ExtensionCore c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return d();
-            }
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
-            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (d) {
-                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
-                return extensionCore;
-            }
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

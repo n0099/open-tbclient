@@ -1,95 +1,46 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class rr7 {
+/* loaded from: classes6.dex */
+public class rr7 extends x65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948131314, "Lcom/baidu/tieba/rr7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948131314, "Lcom/baidu/tieba/rr7;");
-        }
-    }
-
-    public rr7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rr7(Context context) {
+        super(context, context.getString(R.string.editor_privilege), 12);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = 0L;
-            this.b = 0L;
-            this.c = 0L;
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d = true;
-            this.a = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void d(sc8 sc8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sc8Var) == null) && this.d) {
-            this.d = false;
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j = this.b - this.a;
-            long j2 = elapsedRealtime - this.c;
-            long j3 = j2 + j;
-            if ((BdNetTypeUtil.netType() == 2 || j <= 17500) && sc8Var != null) {
-                sc8Var.a(j, j2, j3);
-            }
-        }
+        this.d = R.drawable.icon_pure_post_bubble24;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.r = R.drawable.icon_pure_pic_vip64;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        CommonTabHost commonTabHost = new CommonTabHost(context);
+        this.m = commonTabHost;
+        commonTabHost.h(new qr7());
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

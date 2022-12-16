@@ -21,7 +21,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RewardActionBarControl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public final class RewardActionBarControl {
     public f rz;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ShowActionBarResult {
         public static final /* synthetic */ ShowActionBarResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -122,7 +122,7 @@ public final class RewardActionBarControl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,26 +176,26 @@ public final class RewardActionBarControl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(boolean z, com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void e(com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         void f(com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface e {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface f {
         boolean g(com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }

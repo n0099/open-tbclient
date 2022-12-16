@@ -16,7 +16,7 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CacheStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class CacheStrategy {
     @Nullable
     public final Request networkRequest;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,9 +163,6 @@ public final class CacheStrategy {
                 CacheControl cacheControl = this.request.cacheControl();
                 if (!cacheControl.noCache() && !hasConditions(this.request)) {
                     CacheControl cacheControl2 = this.cacheResponse.cacheControl();
-                    if (cacheControl2.immutable()) {
-                        return new CacheStrategy(null, this.cacheResponse);
-                    }
                     long cacheResponseAge = cacheResponseAge();
                     long computeFreshnessLifetime = computeFreshnessLifetime();
                     if (cacheControl.maxAgeSeconds() != -1) {

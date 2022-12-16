@@ -1,69 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.card.view.RecommendForumLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class ne6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ne6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public DownloadData b;
+    public TbPageContext<?> a;
+    public RecommendForumLayout b;
+    public View.OnClickListener c;
+    public PullLeftRefreshLayout.f d;
+    public lq4 e;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-
-        void c(String str, String str2);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements g65 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ne6 c;
+        public final /* synthetic */ ne6 a;
 
-        @Override // com.baidu.tieba.g65
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.g65
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a(ne6 ne6Var, b bVar, String str) {
+        public a(ne6 ne6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ne6Var, bVar, str};
+                Object[] objArr = {ne6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,166 +43,146 @@ public class ne6 {
                     return;
                 }
             }
-            this.c = ne6Var;
-            this.a = bVar;
-            this.b = str;
+            this.a = ne6Var;
         }
 
-        @Override // com.baidu.tieba.g65
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a(str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.g65
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(hx8.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    this.a.c(this.b, downloadData.getPath());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.g65
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.b();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                sb6.b(this.a.a, null);
             }
         }
     }
 
-    public ne6() {
+    /* loaded from: classes5.dex */
+    public class b implements PullLeftRefreshLayout.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ne6 a;
+
+        public b(ne6 ne6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ne6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ne6Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sb6.b(this.a.a, null);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements lq4<iu4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ne6 a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lq4
+        /* renamed from: a */
+        public void d(View view2, iu4 iu4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, iu4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        public c(ne6 ne6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ne6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ne6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lq4
+        /* renamed from: b */
+        public void c(View view2, iu4 iu4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, iu4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (iu4Var == null) {
+                    sb6.b(this.a.a, null);
+                    return;
+                }
+                String k = iu4Var.k();
+                if (!xi.isForumName(k)) {
+                    return;
+                }
+                this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+            }
+        }
+    }
+
+    public ne6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static ne6 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (c == null) {
-                synchronized (ne6.class) {
-                    if (c == null) {
-                        c = new ne6();
-                    }
-                }
-            }
-            return c;
-        }
-        return (ne6) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b != null) {
-            h65.k().h(this.b.getUrl(), true);
-        }
-    }
-
-    public void e() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            File file = new File(hx8.a);
-            if (file.exists()) {
-                for (File file2 : file.listFiles()) {
-                    if (file2.isFile()) {
-                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
-                    }
-                }
-            }
-        }
-    }
-
-    public void f(String str, String str2, b bVar) {
-        String nameMd5FromUrl;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
-            return;
-        }
-        DownloadData downloadData = this.b;
-        if (downloadData != null) {
-            if (str2.equals(downloadData.getUrl())) {
                 return;
             }
-            h65.k().h(this.b.getUrl(), true);
         }
-        File file = new File(hx8.a);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        DownloadData downloadData2 = new DownloadData();
-        downloadData2.setType(17);
-        downloadData2.setId(str);
-        downloadData2.setUrl(str2);
-        downloadData2.setPath(hx8.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData2.setCallback(new a(this, bVar, str2));
-        this.b = downloadData2;
-        h65.k().l(downloadData2);
+        this.c = new a(this);
+        this.d = new b(this);
+        this.e = new c(this);
+        this.a = tbPageContext;
+        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
+        this.b = recommendForumLayout;
+        recommendForumLayout.setShowMore(true);
+        this.b.setSquareEntranceAtStart(true);
+        this.b.setTabName(null);
+        this.b.setFrom(0);
+        this.b.setOnClickRightArrowListener(this.c);
+        this.b.setOnRullOkCallbackr(this.d);
+        this.b.setOnItemCoverListener(this.e);
     }
 
-    public String g(String str) {
-        InterceptResult invokeL;
+    public void b(ju4 ju4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
-                e();
-                if (this.a.size() <= 0) {
-                    return null;
-                }
-                return this.a.get(nameMd5FromUrl);
-            }
-            return hashMap.get(nameMd5FromUrl);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ju4Var) == null) {
+            this.b.a(ju4Var);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public RecommendForumLayout c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (RecommendForumLayout) invokeV.objValue;
     }
 }

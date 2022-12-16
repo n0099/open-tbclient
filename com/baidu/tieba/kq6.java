@@ -1,38 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class kq6 extends pa5 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class kq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public r9 a;
+    public BdTypeListView b;
+    public final List<kn> c;
+    public jq6 d;
 
-    @Override // com.baidu.tieba.pa5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public kq6(FrsFragment frsFragment) {
+    public kq6(r9 r9Var, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {r9Var, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,41 +33,45 @@ public class kq6 extends pa5 {
                 return;
             }
         }
-        b().a = frsFragment;
+        this.c = new ArrayList();
+        this.a = r9Var;
+        this.b = bdTypeListView;
+        a();
     }
 
-    @Override // com.baidu.tieba.pa5
-    public qa5 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qa5 qa5Var = new qa5();
-            qa5Var.e = 1;
-            qa5Var.b = R.string.obfuscated_res_0x7f0f03e9;
-            qa5Var.i = qa5.k;
-            return qa5Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jq6 jq6Var = new jq6((TbPageContext) this.a, yp6.b);
+            this.d = jq6Var;
+            this.c.add(jq6Var);
+            this.b.a(this.c);
         }
-        return (qa5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pa5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f0, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof on)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public void g(hk6 hk6Var) {
+    public void c(ho hoVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, hk6Var) != null) || hk6Var == null || !hk6Var.h(1)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hoVar) == null) {
+            for (kn knVar : this.c) {
+                if (knVar != null) {
+                    knVar.setOnAdapterItemClickListener(hoVar);
+                }
+            }
         }
-        hk6Var.a(this);
+    }
+
+    public void d(List<xn> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
+        }
     }
 }

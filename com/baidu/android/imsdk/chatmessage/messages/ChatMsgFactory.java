@@ -85,7 +85,7 @@ public class ChatMsgFactory {
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048576, this, context, i, i2, i3)) == null) {
             if (i != 0 && i != 1) {
                 if (i != 2 && i != 3) {
-                    if (i != 4 && i != 6) {
+                    if (i != 4 && i != 6 && i != 9) {
                         return null;
                     }
                 } else {
@@ -116,6 +116,8 @@ public class ChatMsgFactory {
                                         return new DialogSyncMsg();
                                     case 23:
                                         return new UserSettingPaCmdMsg();
+                                    case 24:
+                                        return new MessageClueUpateMsg();
                                     default:
                                         return null;
                                 }
@@ -167,12 +169,12 @@ public class ChatMsgFactory {
                                                                     return new MultiGraphicTextMsg();
                                                                 default:
                                                                     switch (i) {
-                                                                        case 16:
-                                                                            return new RedPackMsg();
                                                                         case 18:
                                                                             return new HtmlMsg();
                                                                         case 80:
                                                                             return new GalleryMsg();
+                                                                        case 82:
+                                                                            return new AudioTextMsg();
                                                                         case 1001:
                                                                             return new GroupMemberAddMsg();
                                                                         case 1002:
@@ -201,10 +203,38 @@ public class ChatMsgFactory {
                                                                             return new GroupDisbandMsg();
                                                                         case 1014:
                                                                             return new FansInfoUpdateMsg();
+                                                                        case 1015:
+                                                                            return new FansSetAdminMsg();
+                                                                        case 1016:
+                                                                            return new GroupMessageDeleteMsg();
+                                                                        case 1017:
+                                                                            return new FansSetOwnerMsg();
+                                                                        case 1018:
+                                                                            return new FansGroupCancelAdminMsg();
+                                                                        case 1019:
+                                                                            return new GroupBannedMsg();
+                                                                        case 1020:
+                                                                            return new GroupUnbannedMsg();
+                                                                        case 1021:
+                                                                            return new GroupJoinApplyMsg();
+                                                                        case 1022:
+                                                                            return new GroupJoinApplyPassedMsg();
+                                                                        case 1023:
+                                                                            return new GroupJoinApplyRejectedMsg();
+                                                                        case 1024:
+                                                                            return new GroupJoinAuditOpenMsg();
+                                                                        case 1025:
+                                                                            return new GroupJoinAuditCloseMsg();
+                                                                        case 1026:
+                                                                            return new GroupSettingNoticeMsg();
+                                                                        case 1027:
+                                                                            return new GroupClearNoticeMsg();
+                                                                        case 1028:
+                                                                            return new SetGroupWelcomeMsg();
+                                                                        case 1029:
+                                                                            return new SetGroupWelcomeDisplayScopeMsg();
                                                                         case 2001:
                                                                             return new AlertMsg();
-                                                                        case 2010:
-                                                                            return new RedNotifyMsg();
                                                                         case 2012:
                                                                             return new ShieldMsg();
                                                                         case 2014:
@@ -243,6 +273,40 @@ public class ChatMsgFactory {
                                                                                                     return new FansGroupAtMsg();
                                                                                                 case 41:
                                                                                                     return new FansGroupCardMsg();
+                                                                                                case 42:
+                                                                                                    return new AdvisoryBigPicMsg();
+                                                                                                case 43:
+                                                                                                    return new AdvisoryMultiPicMsg();
+                                                                                                case 44:
+                                                                                                    return new AdvisoryVideoAudioMsg();
+                                                                                                case 45:
+                                                                                                    return new AdvisoryServiceEndMsg();
+                                                                                                case 46:
+                                                                                                    return new AdvisoryWaitConfirmMsg();
+                                                                                                case 47:
+                                                                                                    return new AdvisoryCallHistoryMsg();
+                                                                                                case 48:
+                                                                                                    return new GfhCommonMsg();
+                                                                                                case 49:
+                                                                                                    return new GfhPaymentMsg();
+                                                                                                case 50:
+                                                                                                    return new GfhImgTxtMsg();
+                                                                                                case 51:
+                                                                                                    return new LiveCardMsg();
+                                                                                                case 52:
+                                                                                                    return new AdvisoryRecommendServiceMsg();
+                                                                                                case 53:
+                                                                                                    return new AdvisoryExtensionMsg();
+                                                                                                case 54:
+                                                                                                    return new GroupRecommendMsg();
+                                                                                                case 55:
+                                                                                                    return new NetDiskFileMsg();
+                                                                                                case 56:
+                                                                                                    return new AdvisoryQuestionMsg();
+                                                                                                case 57:
+                                                                                                    return new ImportantMsg();
+                                                                                                case 58:
+                                                                                                    return new ClueCardMsg();
                                                                                                 default:
                                                                                                     return null;
                                                                                             }

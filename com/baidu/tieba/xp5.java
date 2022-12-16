@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,14 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class xp5 {
     public static /* synthetic */ Interceptable $ic;
-    public static xp5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public vm0 a;
+    public Object a;
+    public Activity b;
 
-    public xp5() {
+    public xp5(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,31 +29,24 @@ public class xp5 {
                 return;
             }
         }
-        this.a = rm0.b().a();
+        this.a = obj;
     }
 
-    public static xp5 a() {
+    public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (xp5.class) {
-                    if (b == null) {
-                        b = new xp5();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (xp5) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
+    public Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            return this.a.a(str, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeLI.intValue;
+        return (Activity) invokeV.objValue;
     }
 }

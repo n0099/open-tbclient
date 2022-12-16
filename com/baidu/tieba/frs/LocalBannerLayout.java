@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax4;
-import com.baidu.tieba.ej6;
 import com.baidu.tieba.ww4;
 import com.baidu.tieba.xw4;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yw4;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,10 +24,10 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowLocalView<ej6> a;
-    public yw4<ej6> b;
-    public List<ej6> c;
-    public yw4<ej6> d;
+    public CoverFlowLocalView<zj6> a;
+    public yw4<zj6> b;
+    public List<zj6> c;
+    public yw4<zj6> d;
 
     /* loaded from: classes4.dex */
     public class a extends ww4 {
@@ -74,8 +74,8 @@ public class LocalBannerLayout extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 xw4 xw4Var = new xw4();
-                xw4Var.c(R.drawable.obfuscated_res_0x7f0807ff);
-                xw4Var.g(R.drawable.obfuscated_res_0x7f080800);
+                xw4Var.c(R.drawable.icon_mask_goods_select8);
+                xw4Var.g(R.drawable.icon_mask_goods_unselect8);
                 xw4Var.d(81);
                 xw4Var.e(R.dimen.tbds36);
                 xw4Var.h(R.dimen.tbds20);
@@ -98,7 +98,7 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements yw4<ej6> {
+    public class b implements yw4<zj6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -132,10 +132,10 @@ public class LocalBannerLayout extends RelativeLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.yw4
         /* renamed from: c */
-        public void a(int i, ej6 ej6Var) {
+        public void a(int i, zj6 zj6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ej6Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
-                this.a.b.a(i, ej6Var);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, zj6Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
+                this.a.b.a(i, zj6Var);
             }
         }
     }
@@ -205,7 +205,7 @@ public class LocalBannerLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(List<ej6> list) {
+    public void setData(List<zj6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.c = list;
@@ -213,7 +213,7 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    public void setOnCoverViewCallback(yw4<ej6> yw4Var) {
+    public void setOnCoverViewCallback(yw4<zj6> yw4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yw4Var) == null) {
             this.b = yw4Var;

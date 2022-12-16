@@ -2,7 +2,7 @@ package com.kwad.sdk.api;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ApiConst {
     @Keep
     public static final boolean IS_AD_SDK = true;

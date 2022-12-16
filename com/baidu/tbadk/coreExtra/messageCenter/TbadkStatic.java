@@ -4,17 +4,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.gi8;
-import com.baidu.tieba.l35;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.m35;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
+import com.baidu.tieba.q35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +26,7 @@ public class TbadkStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<l35> {
+    public static class a implements CustomMessageTask.CustomRunnable<m35> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,11 +46,11 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<l35> run(CustomMessage<l35> customMessage) {
+        public CustomResponsedMessage<m35> run(CustomMessage<m35> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156675, new p35());
+                return new CustomResponsedMessage<>(2156675, new q35());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -131,36 +128,6 @@ public class TbadkStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class d implements UrlManager.UrlDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return gi8.a(tbPageContext, strArr);
-            }
-            return invokeLL.intValue;
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -184,7 +151,6 @@ public class TbadkStatic {
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
         TbadkCoreApplication.getInst().RegisterIntent(SimpleVideoPlayActivityConfig.class, SimpleVideoPlayActivity.class);
-        UrlManager.getInstance().addListener(new d());
     }
 
     public TbadkStatic() {

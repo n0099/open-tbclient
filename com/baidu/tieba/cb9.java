@@ -1,116 +1,43 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.db9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UploadDataSink;
-import java.io.IOException;
-import java.net.ProtocolException;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public final class cb9 extends hb9 {
+public class cb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int d;
-    public final UploadDataProvider e;
-    public ByteBuffer f;
-    public boolean g;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final da9 b;
+    @NonNull
+    public final EditorTools c;
+    @NonNull
+    public final w89 d;
+    @NonNull
+    public final ob9 e;
+    @NonNull
+    public final sb9 f;
+    @NonNull
+    public final WriteData g;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.hb9
-    public void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends UploadDataProvider {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cb9 a;
-
-        public b(cb9 cb9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cb9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cb9Var;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void c(UploadDataSink uploadDataSink) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                this.a.f.position(0);
-                uploadDataSink.a();
-            }
-        }
-
-        public /* synthetic */ b(cb9 cb9Var, a aVar) {
-            this(cb9Var);
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
-            int position;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.d == -1) {
-                    if (this.a.g) {
-                        position = this.a.f.limit();
-                    } else {
-                        position = this.a.f.position();
-                    }
-                    return position;
-                }
-                return this.a.d;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                int remaining = byteBuffer.remaining();
-                if (remaining < this.a.f.remaining()) {
-                    byteBuffer.put(this.a.f.array(), this.a.f.position(), remaining);
-                    this.a.f.position(this.a.f.position() + remaining);
-                } else {
-                    byteBuffer.put(this.a.f);
-                }
-                uploadDataSink.c(false);
-            }
-        }
-    }
-
-    public cb9(fb9 fb9Var) {
+    public cb9(@NonNull TbPageContext<?> tbPageContext, @NonNull da9 da9Var, @NonNull EditorTools editorTools, @NonNull w89 w89Var, @NonNull ob9 ob9Var, @NonNull sb9 sb9Var, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fb9Var};
+            Object[] objArr = {tbPageContext, da9Var, editorTools, w89Var, ob9Var, sb9Var, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -120,107 +47,180 @@ public final class cb9 extends hb9 {
                 return;
             }
         }
-        this.e = new b(this, null);
-        this.g = false;
-        if (fb9Var != null) {
-            this.d = -1;
-            this.f = ByteBuffer.allocate(16384);
-            return;
-        }
-        throw null;
+        this.a = tbPageContext;
+        this.b = da9Var;
+        this.c = editorTools;
+        this.d = w89Var;
+        this.e = ob9Var;
+        this.f = sb9Var;
+        this.g = writeData;
     }
 
-    public cb9(fb9 fb9Var, long j) {
+    public List<ha9<?>> a(List<db9.a> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fb9Var, Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new b(this, null);
-        this.g = false;
-        if (fb9Var != null) {
-            if (j <= 2147483647L) {
-                if (j >= 0) {
-                    int i3 = (int) j;
-                    this.d = i3;
-                    this.f = ByteBuffer.allocate(i3);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (db9.a aVar : list) {
+                ha9<?> b = b(aVar);
+                if (b != null) {
+                    b.h(aVar.b, this.g);
+                    arrayList.add(b);
                 }
-                throw new IllegalArgumentException("Content length < 0.");
             }
-            throw new IllegalArgumentException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for requests larger than 2GB.");
+            return arrayList;
         }
-        throw new NullPointerException("Argument connection cannot be null.");
+        return (List) invokeL.objValue;
     }
 
-    @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
+    public ha9<?> b(db9.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            c();
-            l(1);
-            this.f.put((byte) i);
-        }
-    }
-
-    @Override // com.baidu.tieba.hb9
-    public UploadDataProvider f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (UploadDataProvider) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hb9
-    public void g() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = true;
-            if (this.f.position() >= this.d) {
-                this.f.flip();
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            if (aVar == null) {
+                return null;
             }
-            throw new ProtocolException("Content received is less than Content-Length");
-        }
-    }
-
-    public final void l(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (this.d != -1 && this.f.position() + i > this.d) {
-                throw new ProtocolException("exceeded content-length limit of " + this.d + " bytes");
-            } else if (!this.g) {
-                if (this.d != -1 || this.f.limit() - this.f.position() > i) {
-                    return;
-                }
-                ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.f.capacity() * 2, this.f.capacity() + i));
-                this.f.flip();
-                allocate.put(this.f);
-                this.f = allocate;
-            } else {
-                throw new IllegalStateException("Cannot write after being connected.");
+            String str = aVar.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 3118:
+                    if (str.equals("c1")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 3119:
+                    if (str.equals("c2")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3120:
+                    if (str.equals("c3")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 3121:
+                    if (str.equals("c4")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3122:
+                    if (str.equals("c5")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case 3123:
+                    if (str.equals("c6")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 3124:
+                    if (str.equals("c7")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3125:
+                    if (str.equals("c8")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case 3126:
+                    if (str.equals("c9")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 96706:
+                            if (str.equals("c10")) {
+                                c = 15;
+                                break;
+                            }
+                            break;
+                        case 96707:
+                            if (str.equals("c11")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 96708:
+                            if (str.equals("c12")) {
+                                c = '\t';
+                                break;
+                            }
+                            break;
+                        case 96709:
+                            if (str.equals("c13")) {
+                                c = '\n';
+                                break;
+                            }
+                            break;
+                        case 96710:
+                            if (str.equals("c14")) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 96711:
+                            if (str.equals("c15")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 96712:
+                            if (str.equals("c16")) {
+                                c = '\b';
+                                break;
+                            }
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return kb9.a(this.a);
+                case 1:
+                    return kb9.b(this.a);
+                case 2:
+                    return kb9.c(this.a, this.b, this.c, this.d, this.e);
+                case 3:
+                    return kb9.e(this.a);
+                case 4:
+                    return kb9.f(this.a);
+                case 5:
+                    return kb9.g(this.a);
+                case 6:
+                    return kb9.h(this.a, this.f);
+                case 7:
+                    return kb9.i(this.a);
+                case '\b':
+                    return kb9.j(this.a);
+                case '\t':
+                    return kb9.k(this.a);
+                case '\n':
+                    return kb9.l(this.a);
+                case 11:
+                    return kb9.m(this.a, this.b, this.c, this.f, this.d, this.e);
+                case '\f':
+                    return kb9.n(this.a, this.b, this.d, this.e);
+                case '\r':
+                    return kb9.o(this.a);
+                case 14:
+                    return kb9.p(this.a);
+                case 15:
+                    return kb9.q(this.a);
+                default:
+                    return null;
             }
         }
-    }
-
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
-            c();
-            l(i2);
-            this.f.put(bArr, i, i2);
-        }
+        return (ha9) invokeL.objValue;
     }
 }

@@ -124,7 +124,7 @@ public class CurrencySwitchModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.isSending) {
-                yi.O(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f15f7);
+                yi.P(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
                 return;
             }
             this.isSending = true;

@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.map.Text;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.pk1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebSocketFrame {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean g;
@@ -37,14 +37,14 @@ public class WebSocketFrame {
     public int e;
     public String f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CloseCode {
         public static final /* synthetic */ CloseCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -139,7 +139,7 @@ public class WebSocketFrame {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class OpCode {
         public static final /* synthetic */ OpCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -251,7 +251,7 @@ public class WebSocketFrame {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends WebSocketFrame {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -356,7 +356,7 @@ public class WebSocketFrame {
                 return;
             }
         }
-        g = pk1.a;
+        g = ok1.a;
         h = Charset.forName("UTF-8");
     }
 

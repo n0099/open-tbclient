@@ -18,18 +18,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.c78;
 import com.baidu.tieba.df;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.pb6;
+import com.baidu.tieba.kc6;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.oa8;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.w78;
+import com.baidu.tieba.rf5;
+import com.baidu.tieba.u98;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_NO_NETWORK = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public w78 a;
+    public oa8 a;
     public d b;
     public boolean c;
     public boolean d;
@@ -52,7 +52,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes5.dex */
     public interface d {
-        void a(w78 w78Var);
+        void a(oa8 oa8Var);
 
         void onFail(int i, String str);
     }
@@ -65,12 +65,12 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
 
         /* renamed from: com.baidu.tieba.personCenter.model.PersonCenterModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0395a implements Runnable {
+        public class RunnableC0408a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0395a(a aVar) {
+            public RunnableC0408a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                     z = false;
                 }
                 if (z) {
-                    ah.a().post(new RunnableC0395a(this));
+                    ah.a().post(new RunnableC0408a(this));
                 }
             }
         }
@@ -180,7 +180,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.c.a.F(true, this.a, this.b);
+                    this.c.a.M(true, this.a, this.b);
                     return false;
                 }
                 return invokeV.booleanValue;
@@ -266,7 +266,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
                 return;
             }
-            this.a.G((PersonChangeData) customResponsedMessage.getData());
+            this.a.N((PersonChangeData) customResponsedMessage.getData());
         }
     }
 
@@ -298,40 +298,40 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         registerListener(this.e);
     }
 
-    public void J(d dVar) {
+    public void Q(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
             this.b = dVar;
         }
     }
 
-    public void K(boolean z) {
+    public void R(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.c = z;
         }
     }
 
-    public w78 D() {
+    public oa8 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (w78) invokeV.objValue;
+        return (oa8) invokeV.objValue;
     }
 
-    public void E() {
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jv4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).f("profile_cache_key", new a(this));
+            kv4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).f("profile_cache_key", new a(this));
         }
     }
 
-    public void I() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = new w78();
+            this.a = new oa8();
         }
     }
 
@@ -352,38 +352,38 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             cancelLoadData();
-            H(TbadkCoreApplication.getCurrentAccountId());
+            O(TbadkCoreApplication.getCurrentAccountId());
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void F(boolean z, ResponsedMessage<?> responsedMessage, long j) {
+    public void M(boolean z, ResponsedMessage<?> responsedMessage, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), responsedMessage, Long.valueOf(j)}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && c78.d().b() > 0) {
-            long f = c78.d().f();
-            long b2 = c78.d().b();
-            long c2 = c78.d().c();
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), responsedMessage, Long.valueOf(j)}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && u98.d().b() > 0) {
+            long f = u98.d().f();
+            long b2 = u98.d().b();
+            long c2 = u98.d().c();
             long j2 = f + b2;
-            long a2 = c78.d().a();
+            long a2 = u98.d().a();
             if (a2 > 0 && j > a2) {
                 j2 = j - a2;
             }
-            new ze5(1008, z, responsedMessage, 0L, b2, c2, false, 0L, 0L, j2).c();
-            c78.d().h(0L);
+            new rf5(1008, z, responsedMessage, 0L, b2, c2, false, 0L, 0L, j2).c();
+            u98.d().h(0L);
         }
     }
 
-    public final void G(PersonChangeData personChangeData) {
-        w78 w78Var;
+    public final void N(PersonChangeData personChangeData) {
+        oa8 oa8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, personChangeData) == null) && personChangeData != null && (w78Var = this.a) != null && w78Var.y() != null && TbadkCoreApplication.getCurrentAccount() != null) {
-            I();
-            H(xg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, personChangeData) == null) && personChangeData != null && (oa8Var = this.a) != null && oa8Var.y() != null && TbadkCoreApplication.getCurrentAccount() != null) {
+            P();
+            O(xg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
     }
 
-    public void H(long j) {
+    public void O(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
@@ -395,7 +395,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
             } else {
                 if (this.d) {
                     this.d = false;
-                    E();
+                    L();
                 }
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
                 profileRequestMessage.set_uid(Long.valueOf(xg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
@@ -414,11 +414,11 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                 }
                 profileRequestMessage.setPage(1);
                 profileRequestMessage.setNeedUsergrowthTask(1);
-                profileRequestMessage.setHistoryForumIds(pb6.n().k());
-                profileRequestMessage.setHistoryForumNames(pb6.n().l());
-                w78 w78Var = new w78();
-                this.a = w78Var;
-                profileRequestMessage.setPersonCenterData(w78Var);
+                profileRequestMessage.setHistoryForumIds(kc6.n().k());
+                profileRequestMessage.setHistoryForumNames(kc6.n().l());
+                oa8 oa8Var = new oa8();
+                this.a = oa8Var;
+                profileRequestMessage.setPersonCenterData(oa8Var);
                 sendMessage(profileRequestMessage);
             }
         }

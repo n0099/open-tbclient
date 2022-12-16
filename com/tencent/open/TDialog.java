@@ -24,7 +24,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -553,7 +552,7 @@ public class TDialog extends b {
             WeakReference<Context> weakReference = this.e;
             if (weakReference != null && weakReference.get() != null) {
                 settings.setDatabaseEnabled(true);
-                settings.setDatabasePath(this.e.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
+                settings.setDatabasePath(this.e.get().getApplicationContext().getDir("databases", 0).getPath());
             }
             settings.setDomStorageEnabled(true);
             this.a.a(new JsListener(), "sdk_js_if");

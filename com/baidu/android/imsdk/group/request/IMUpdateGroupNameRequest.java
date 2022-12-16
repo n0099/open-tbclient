@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -99,18 +98,24 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
             int i;
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = "";
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");
-                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    String optString = jSONObject.optString("tips");
+                    if (!TextUtils.isEmpty(optString)) {
+                        str = optString;
+                    } else {
+                        String optString2 = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                        String str2 = IMUpdateGroupNameRequest.TAG;
+                        LogUtils.d(str2, "resultMsg:" + optString2);
+                        str = optString2;
+                    }
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 if (i == 0) {
                     GroupInfoDAOImpl.modifyGroupName(this.this$0.mContext, this.this$0.mGroupId, this.this$0.mGroupName);
@@ -169,7 +174,6 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
                 sb.append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
             } catch (UnsupportedEncodingException e) {
                 LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
             return sb.toString().getBytes();
         }

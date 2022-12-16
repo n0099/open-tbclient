@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,8 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ja3 implements ia3<JSONObject> {
+/* loaded from: classes5.dex */
+public class ja3 implements ha3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONArray b;
@@ -28,29 +26,27 @@ public class ja3 implements ia3<JSONObject> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new JSONArray();
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = new JSONArray();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
         }
     }
 
-    public JSONObject d() {
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("launchLog", this.b);
+                jSONObject.put("stageError", this.b);
             } catch (JSONException e) {
-                if (ia3.a) {
-                    Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
+                if (ha3.a) {
+                    Log.e("WhiteCollector", Log.getStackTraceString(e));
                 }
             }
             return jSONObject;
@@ -58,34 +54,16 @@ public class ja3 implements ia3<JSONObject> {
         return (JSONObject) invokeV.objValue;
     }
 
-    public void a(String str, String str2) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (ia3.a) {
-                    Log.d("LaunchTraceCollector", "event is empty");
-                    return;
-                }
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
+            if (this.b == null) {
+                this.b = new JSONArray();
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("actionId", str);
-                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("info", str2);
-                b(jSONObject);
-            } catch (JSONException e) {
-                if (ia3.a) {
-                    Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
-                }
-            }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null) {
             this.b.put(jSONObject);
+            if (ha3.a) {
+                Log.d("WhiteCollector", "FEStage: " + jSONObject);
+            }
         }
     }
 }

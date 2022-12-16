@@ -12,7 +12,7 @@ import com.kwad.components.offline.api.IOfflineCompo;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.components.d;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class DefaultOfflineCompo extends d implements IOfflineCompo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

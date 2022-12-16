@@ -3,14 +3,14 @@ package com.baidu.ugc.bean;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pg9;
+import com.baidu.tieba.yj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable<LocalAlbumInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SCORE_BASE = 20;
@@ -114,7 +114,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new pg9().a(list);
+                return new yj9().a(list);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -131,7 +131,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new pg9().a(localAlbumInfo);
+                return new yj9().a(localAlbumInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -206,7 +206,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LocalAlbumInfo m65clone() {
+    public LocalAlbumInfo m66clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -204,7 +204,7 @@ public final class ViewManager {
             for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
                 floatViewListener.onViewCreate(true, this.config.getFloatingView(), this.config.getScaleMode().getSecond(), position);
             }
-            final View findViewById = getMContainer().findViewById(R.id.obfuscated_res_0x7f090a21);
+            final View findViewById = getMContainer().findViewById(R.id.obfuscated_res_0x7f090a3c);
             if (findViewById != null) {
                 findViewById.setOnClickListener(new View.OnClickListener(findViewById, 800L, this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$$inlined$click$1
                     public static /* synthetic */ Interceptable $ic;

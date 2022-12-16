@@ -9,11 +9,10 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ow7;
+import com.baidu.tieba.gz7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,7 +37,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -81,7 +80,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = ow7.a(optJSONObject);
+                this.mActDialogData = gz7.a(optJSONObject);
             }
         }
 
@@ -158,29 +157,9 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public void G(String str, int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.a);
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void registerTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER, TbConfig.SERVER_ADDRESS + TbConfig.URL_SHARE_SUCCESS_TO_REPLY_SERVER);
-            tbHttpMessageTask.setResponsedClass(ShareSuccessReplySeverResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void z(String str, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048579, this, str, i, bVar) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, str, i, bVar) != null) || str == null) {
             return;
         }
         int i2 = 0;
@@ -204,9 +183,29 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
             i2 = 2;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
-        httpMessage.addParam(PbChosenActivityConfig.KEY_SHARE_URL, str);
+        httpMessage.addParam("share_url", str);
         httpMessage.addParam(DI.TB.SHARE_CHANNEL, i2);
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.a);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void registerTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER, TbConfig.SERVER_ADDRESS + TbConfig.URL_SHARE_SUCCESS_TO_REPLY_SERVER);
+            tbHttpMessageTask.setResponsedClass(ShareSuccessReplySeverResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

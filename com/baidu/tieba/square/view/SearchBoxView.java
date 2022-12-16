@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SearchBoxView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class SearchBoxView extends RelativeLayout {
     public View.OnClickListener f;
     public View.OnClickListener g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class SearchBoxView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class SearchBoxView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091e35) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091ea2) {
                 TiebaStatic.eventStat(this.a.a, this.a.b, "click", 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.a.a)));
             }
@@ -129,11 +129,11 @@ public class SearchBoxView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = (Activity) context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0944, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e35);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e34);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d095b, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ea2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea1);
             this.c.setOnClickListener(this.g);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e45);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb2);
             this.e = textView;
             textView.setOnClickListener(this.f);
         }

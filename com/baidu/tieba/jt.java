@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.Closeable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

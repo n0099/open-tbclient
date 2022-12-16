@@ -1,68 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
-/* loaded from: classes5.dex */
+import org.json.JSONArray;
+import org.json.JSONException;
+/* loaded from: classes6.dex */
 public class sf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public tf9 b;
 
-    public sf9(AudioPlayData audioPlayData) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        }
+    }
+
+    public static void a(dg9 dg9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, dg9Var) == null) && dg9Var != null && !dg9Var.y()) {
+            JSONArray n = dg9Var.n();
+            int length = n.length();
+            boolean B = dg9Var.B();
+            for (int i = 0; i < length; i++) {
+                try {
+                    if (B != ye9.o().e(n.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + B + "  content " + dg9Var.u().toString());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
-            return;
-        }
-        this.b = new tf9(audioPlayData.audioPath);
-    }
-
-    public tf9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (tf9) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            tf9 tf9Var = this.b;
-            return tf9Var != null && tf9Var.i();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(tf9 tf9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tf9Var) == null) {
-            this.b = tf9Var;
         }
     }
 }

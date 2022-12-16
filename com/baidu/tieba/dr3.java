@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes3.dex */
-public class dr3 implements ISchemeHeadIoc {
+/* loaded from: classes4.dex */
+public class dr3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile cr3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dr3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
-    public String getSchemeHead() {
+    public static synchronized cr3 a() {
         InterceptResult invokeV;
+        cr3 cr3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return mn2.n().getSchemeHeader();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (dr3.class) {
+                if (a == null) {
+                    a = new cr3();
+                }
+                cr3Var = a;
+            }
+            return cr3Var;
         }
-        return (String) invokeV.objValue;
+        return (cr3) invokeV.objValue;
     }
 }

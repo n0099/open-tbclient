@@ -28,14 +28,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr8;
-import com.baidu.tieba.kv4;
-import com.baidu.tieba.l65;
-import com.baidu.tieba.mb5;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.ec5;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.m65;
 import com.baidu.tieba.oj;
 import com.baidu.tieba.tbadkCore.voice.VoiceButton;
-import com.baidu.tieba.x65;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.y65;
 import com.baidu.tieba.yo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes.dex */
-public class VoiceRecordButton extends ViewGroup implements View.OnClickListener, oj, VoiceManager.i, x65 {
+public class VoiceRecordButton extends ViewGroup implements View.OnClickListener, oj, VoiceManager.i, y65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -65,7 +65,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public TextView P;
     public float Q;
     public float R;
-    public kv4 S;
+    public lv4 S;
     public long T;
     public long U;
     public EditorTools V;
@@ -124,7 +124,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this : (VoiceManager.i) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.y65
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -141,7 +141,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.y65
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
@@ -162,7 +162,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     }
 
     /* loaded from: classes.dex */
-    public class a implements kv4.e {
+    public class a implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceRecordButton a;
@@ -185,28 +185,28 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.a = voiceRecordButton;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements kv4.e {
+    public class b implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr8 a;
+        public final /* synthetic */ cu8 a;
         public final /* synthetic */ VoiceRecordButton b;
 
-        public b(VoiceRecordButton voiceRecordButton, dr8 dr8Var) {
+        public b(VoiceRecordButton voiceRecordButton, cu8 cu8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {voiceRecordButton, dr8Var};
+                Object[] objArr = {voiceRecordButton, cu8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -217,22 +217,22 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                 }
             }
             this.b = voiceRecordButton;
-            this.a = dr8Var;
+            this.a = cu8Var;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             VoiceData.VoiceModel voiceModel;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
                 this.b.t();
                 if (this.b.getVoiceManager() == null || (voiceModel = this.b.d0) == null) {
                     return;
                 }
-                dr8 dr8Var = this.a;
-                if (dr8Var != null) {
-                    dr8Var.b(voiceModel.voiceId);
+                cu8 cu8Var = this.a;
+                if (cu8Var != null) {
+                    cu8Var.b(voiceModel.getVoiceId());
                 }
                 this.b.d0 = null;
             }
@@ -468,8 +468,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.K.setVisibility(4);
             this.j = 0;
             D();
-            K(new l65(10, -1, voiceModel));
-            K(new l65(2, 6, " "));
+            J(new m65(10, -1, voiceModel));
+            J(new m65(2, 6, " "));
         }
     }
 
@@ -548,7 +548,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.i = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
         this.G.setStyle(Paint.Style.STROKE);
         this.G.setStrokeWidth(this.h);
-        this.F = (BitmapDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804b7);
+        this.F = (BitmapDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804c2);
         u(context);
     }
 
@@ -567,12 +567,12 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         return (VoiceRecordButton) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.x65
-    public void K(l65 l65Var) {
+    @Override // com.baidu.tieba.y65
+    public void J(m65 m65Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, l65Var) == null) && (editorTools = this.V) != null) {
-            editorTools.A(l65Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, m65Var) == null) && (editorTools = this.V) != null) {
+            editorTools.B(m65Var);
         }
     }
 
@@ -584,7 +584,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (voiceModel = this.d0) != null && (textView = this.P) != null) {
             int i2 = i / 1000;
             if (this.f0 != i2) {
-                textView.setText(VoiceManager.formatVoiceTime(voiceModel.duration - i2));
+                textView.setText(VoiceManager.formatVoiceTime(voiceModel.getDuration() - i2));
             }
             this.f0 = i2;
         }
@@ -604,8 +604,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             this.d0 = null;
-            K(new l65(11, -1, str));
-            K(new l65(2, 6, null));
+            J(new m65(11, -1, str));
+            J(new m65(2, 6, null));
         }
     }
 
@@ -619,16 +619,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // com.baidu.tieba.oj
-    public void onStartedRecorder(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048606, this, z) == null) && z) {
-            t();
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15d1));
-        }
-    }
-
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.y65
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, editorTools) == null) {
@@ -636,7 +627,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.y65
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
@@ -664,128 +655,33 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         if (interceptable == null || interceptable.invokeLI(1048602, this, str, i) == null) {
             this.K.setVisibility(4);
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
-            voiceModel.duration = i;
+            voiceModel.setDuration(i);
             voiceModel.isLocal = true;
-            voiceModel.voiceId = str;
+            voiceModel.setVoiceId(str);
             voiceModel.voice_status = 1;
             z(voiceModel);
         }
     }
 
-    public void A() {
+    @Override // com.baidu.tieba.n65
+    public void A(m65 m65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t();
-            this.d0 = null;
-            this.j = 0;
-        }
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = 0;
-            this.k = 0;
-            this.Q = 0.0f;
-            this.R = 0.0f;
-            this.b0.removeMessages(1);
-            ((ViewGroup) getParent()).invalidate();
-        }
-    }
-
-    @Override // com.baidu.tieba.x65
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            setVisibility(0);
-        }
-    }
-
-    public dr8 getRecorderManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            VoiceManager voiceManager = getVoiceManager();
-            if (voiceManager != null && voiceManager.getRecorderManager() != null) {
-                return voiceManager.getRecorderManager();
-            }
-            return null;
-        }
-        return (dr8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x65
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.W;
-        }
-        return invokeV.intValue;
-    }
-
-    public VoiceManager getVoiceManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Context context = getContext();
-            if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).s0();
-            }
-            return null;
-        }
-        return (VoiceManager) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceData.VoiceModel getVoiceModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.d0;
-        }
-        return (VoiceData.VoiceModel) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x65
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            super.onDetachedFromWindow();
-            if (getVoiceManager() == null) {
-                return;
-            }
-            getVoiceManager().stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.m65
-    public void B(l65 l65Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l65Var) != null) || l65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, m65Var) != null) || m65Var == null) {
             return;
         }
-        if (l65Var.a == 9) {
-            A();
-            K(new l65(2, 6, null));
+        if (m65Var.a == 9) {
+            B();
+            J(new m65(2, 6, null));
         }
-        if (l65Var.a == 52) {
-            if (l65Var.c instanceof VoiceData.VoiceModel) {
+        if (m65Var.a == 52) {
+            if (m65Var.c instanceof VoiceData.VoiceModel) {
                 D();
-                b((VoiceData.VoiceModel) l65Var.c);
-                this.d0 = (VoiceData.VoiceModel) l65Var.c;
+                b((VoiceData.VoiceModel) m65Var.c);
+                this.d0 = (VoiceData.VoiceModel) m65Var.c;
                 return;
             }
-            A();
-            K(new l65(2, 6, null));
+            B();
+            J(new m65(2, 6, null));
         }
     }
 
@@ -798,10 +694,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f091c55) {
+        if (id == R.id.obfuscated_res_0x7f091cc0) {
             voiceManager.stopPlay();
             C();
-        } else if (id == R.id.obfuscated_res_0x7f091a3f && (voiceModel = this.d0) != null) {
+        } else if (id == R.id.obfuscated_res_0x7f091aaa && (voiceModel = this.d0) != null) {
             if (voiceModel.voice_status.intValue() == 3) {
                 voiceManager.stopPlay();
             } else if (this.d0.voice_status.intValue() == 1) {
@@ -841,22 +737,117 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            t();
+            this.d0 = null;
+            this.j = 0;
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.j = 0;
+            this.k = 0;
+            this.Q = 0.0f;
+            this.R = 0.0f;
+            this.b0.removeMessages(1);
+            ((ViewGroup) getParent()).invalidate();
+        }
+    }
+
+    @Override // com.baidu.tieba.y65
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    public cu8 getRecorderManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            VoiceManager voiceManager = getVoiceManager();
+            if (voiceManager != null && voiceManager.getRecorderManager() != null) {
+                return voiceManager.getRecorderManager();
+            }
+            return null;
+        }
+        return (cu8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y65
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.W;
+        }
+        return invokeV.intValue;
+    }
+
+    public VoiceManager getVoiceManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            Context context = getContext();
+            if (context instanceof VoiceManager.j) {
+                return ((VoiceManager.j) context).r0();
+            }
+            return null;
+        }
+        return (VoiceManager) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceData.VoiceModel getVoiceModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.d0;
+        }
+        return (VoiceData.VoiceModel) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y65
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            super.onDetachedFromWindow();
+            if (getVoiceManager() == null) {
+                return;
+            }
+            getVoiceManager().stopPlay();
+        }
+    }
+
     public final void C() {
         VoiceData.VoiceModel voiceModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dr8 recorderManager = getRecorderManager();
+            cu8 recorderManager = getRecorderManager();
             if (this.S == null) {
-                kv4 kv4Var = new kv4(x9.a(getContext()).getPageActivity());
-                this.S = kv4Var;
-                kv4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f15d6)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f15d5), new b(this, recorderManager)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f0377), new a(this)).create(x9.a(getContext()));
+                lv4 lv4Var = new lv4(x9.a(getContext()).getPageActivity());
+                this.S = lv4Var;
+                lv4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f1612)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f1611), new b(this, recorderManager)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f037c), new a(this)).create(x9.a(getContext()));
             }
             try {
                 this.S.show();
             } catch (Exception unused) {
                 if (getVoiceManager() != null && (voiceModel = this.d0) != null) {
                     if (recorderManager != null) {
-                        recorderManager.b(voiceModel.voiceId);
+                        recorderManager.b(voiceModel.getVoiceId());
                     }
                     this.d0 = null;
                 }
@@ -876,12 +867,12 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.O.setVisibility(0);
             VoiceData.VoiceModel voiceModel = this.d0;
             if (voiceModel != null) {
-                this.P.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
-                this.O.setContentDescription(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a1e), Integer.valueOf(this.d0.duration)));
+                this.P.setText(VoiceManager.formatVoiceTime(voiceModel.getDuration()));
+                this.O.setContentDescription(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a54), Integer.valueOf(this.d0.getDuration())));
                 SkinManager.setImageResource(this.O, R.drawable.but_posts_record_play_selector);
             }
             SkinManager.setViewTextColor(this.L, R.color.CAM_X0108, 1);
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15cf));
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f160a));
         }
     }
 
@@ -920,21 +911,21 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                 if (intValue == 3) {
                     SkinManager.setViewTextColor(this.P, R.color.CAM_X0106, 1);
                     SkinManager.setImageResource(this.O, R.drawable.but_posts_record_stop_selector);
-                    this.O.setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f0daf));
-                    this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15dc));
+                    this.O.setContentDescription(getContext().getString(R.string.pause_load));
+                    this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1618));
                     y();
                     return;
                 }
                 return;
             }
             SkinManager.setViewTextColor(this.P, R.color.CAM_X0106, 1);
-            this.P.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
+            this.P.setText(VoiceManager.formatVoiceTime(voiceModel.getDuration()));
             SkinManager.setImageResource(this.O, R.drawable.but_posts_record_play_selector);
-            this.O.setContentDescription(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a1e), Integer.valueOf(voiceModel.duration)));
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15cf));
-            if (mb5.b().d()) {
-                mb5.b().n(false);
-                mb5.b().l(false);
+            this.O.setContentDescription(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a54), Integer.valueOf(voiceModel.getDuration())));
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f160a));
+            if (ec5.b().d()) {
+                ec5.b().n(false);
+                ec5.b().l(false);
             }
             E();
         }
@@ -1026,7 +1017,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                 } else if (i == 2) {
                     this.K.setVisibility(0);
                     this.K.setText(str);
-                    this.L.setText(R.string.obfuscated_res_0x7f0f15d0);
+                    this.L.setText(R.string.obfuscated_res_0x7f0f160b);
                     postDelayed(new d(this), 2000L);
                 } else if (i == 5) {
                     this.K.setVisibility(0);
@@ -1039,6 +1030,15 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     postDelayed(new f(this), 2000L);
                 }
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.oj
+    public void onStartedRecorder(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && z) {
+            t();
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f160c));
         }
     }
 
@@ -1090,24 +1090,24 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.J.setVisibility(4);
             this.M.setVisibility(4);
             SkinManager.setViewTextColor(this.L, R.color.CAM_X0301, 1);
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15d0));
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f160b));
         }
     }
 
     public final void w(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0798, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ab, (ViewGroup) this, true);
             setClickable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092249);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ba);
             this.K = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101, 1);
-            this.L = (TextView) findViewById(R.id.obfuscated_res_0x7f092258);
-            this.M = (TextView) findViewById(R.id.obfuscated_res_0x7f09225d);
-            this.N = (VoiceButton) findViewById(R.id.obfuscated_res_0x7f09265c);
-            this.J = (TextView) findViewById(R.id.obfuscated_res_0x7f091c55);
-            this.O = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a3f);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091a42);
+            this.L = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c9);
+            this.M = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ce);
+            this.N = (VoiceButton) findViewById(R.id.obfuscated_res_0x7f0926d0);
+            this.J = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc0);
+            this.O = (ImageView) findViewById(R.id.obfuscated_res_0x7f091aaa);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091aad);
             this.P = textView2;
             textView2.setClickable(false);
             this.J.setOnClickListener(this);
@@ -1119,7 +1119,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     public final void y() {
         VoiceData.VoiceModel voiceModel;
-        float f2;
+        float duration;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048617, this) != null) || (voiceModel = this.d0) == null) {
             return;
@@ -1127,11 +1127,11 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.j = 0;
         int i = voiceModel.duration2;
         if (i > 0) {
-            f2 = i / 1000.0f;
+            duration = i / 1000.0f;
         } else {
-            f2 = voiceModel.duration;
+            duration = voiceModel.getDuration();
         }
-        this.Q = 360.0f / f2;
+        this.Q = 360.0f / duration;
         long uptimeMillis = SystemClock.uptimeMillis();
         this.T = uptimeMillis;
         long j = uptimeMillis + 200;

@@ -5,10 +5,12 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,6 +19,7 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,11 +37,12 @@ import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static final String J0;
+    public static final String M0;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String A0;
@@ -59,8 +63,11 @@ public class ShareItem {
     public int I;
     public Uri I0;
     public int J;
+    public GroupInfoData J0;
     public int K;
+    public boolean K0;
     public int L;
+    public int L0;
     public int M;
     public String N;
     public String O;
@@ -243,8 +250,8 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && postData != null && xi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = postData.s().getName_show();
+                    if (i == 1 && postData != null && xi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.r() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = postData.r().getName_show();
                     }
                     if (i == 2 && xi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
@@ -322,7 +329,7 @@ public class ShareItem {
                 return;
             }
         }
-        J0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        M0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -373,6 +380,7 @@ public class ShareItem {
         this.p0 = 0;
         this.s0 = true;
         this.t0 = false;
+        this.K0 = false;
         this.v = null;
         this.w = null;
         this.x = null;
@@ -385,16 +393,18 @@ public class ShareItem {
         this.B = null;
         this.D = null;
         this.C = 0;
+        this.J0 = null;
+        this.K0 = false;
     }
 
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.i0 != null) {
             FileOutputStream fileOutputStream = null;
             try {
                 try {
                     if (FileHelper.checkSD()) {
-                        File file = new File(J0);
+                        File file = new File(M0);
                         if (file.exists()) {
                             file.delete();
                         }
@@ -402,11 +412,11 @@ public class ShareItem {
                         if (parentFile != null && !parentFile.exists()) {
                             parentFile.mkdirs();
                         }
-                        byte[] b = b();
-                        if (b != null) {
+                        byte[] c = c();
+                        if (c != null) {
                             FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                             try {
-                                fileOutputStream2.write(b);
+                                fileOutputStream2.write(c);
                                 fileOutputStream2.close();
                                 this.z = Uri.fromFile(file);
                                 this.i0 = null;
@@ -449,7 +459,50 @@ public class ShareItem {
         }
     }
 
-    public List<Integer> a() {
+    public static ShareItem a(@NonNull JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, jSONObject, z)) == null) {
+            ShareItem shareItem = new ShareItem();
+            String optString = jSONObject.optString("title");
+            String optString2 = jSONObject.optString("desc");
+            String optString3 = jSONObject.optString("img");
+            String optString4 = jSONObject.optString("url");
+            String optString5 = jSONObject.optString("topic");
+            String optString6 = jSONObject.optString("wbtitle");
+            String optString7 = jSONObject.optString("wbcontent");
+            shareItem.v = optString;
+            shareItem.x = optString4;
+            shareItem.w = optString2;
+            if (!TextUtils.isEmpty(optString3)) {
+                shareItem.z = Uri.parse(optString3);
+            }
+            shareItem.S = optString5;
+            shareItem.T = optString6;
+            shareItem.U = optString7;
+            shareItem.h0 = jSONObject.optInt("shareimg");
+            shareItem.p0 = jSONObject.optInt("weixin_disable");
+            String optString8 = jSONObject.optString("extdata");
+            if (!StringUtils.isNull(optString8)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(optString8);
+                    String optString9 = jSONObject2.optString("activityid");
+                    String optString10 = jSONObject2.optString("missionid");
+                    if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put(optString9, optString10);
+                        shareItem.W = jSONObject3.toString();
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+            shareItem.J0 = GroupInfoData.fromJsonH5(jSONObject);
+            return shareItem;
+        }
+        return (ShareItem) invokeLZ.objValue;
+    }
+
+    public List<Integer> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -458,7 +511,7 @@ public class ShareItem {
         return (List) invokeV.objValue;
     }
 
-    public Bitmap c() {
+    public Bitmap d() {
         InterceptResult invokeV;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
@@ -472,7 +525,7 @@ public class ShareItem {
         return (Bitmap) invokeV.objValue;
     }
 
-    public boolean d() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -481,7 +534,7 @@ public class ShareItem {
         return invokeV.booleanValue;
     }
 
-    public Bundle e() {
+    public Bundle f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -490,12 +543,12 @@ public class ShareItem {
         return (Bundle) invokeV.objValue;
     }
 
-    public boolean f() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int i = this.Q;
-            if (i != 7 && i != 8 && i != 5 && i != 6) {
+            if (i != 7 && i != 8 && i != 5 && i != 6 && i != 11) {
                 return false;
             }
             return true;
@@ -503,7 +556,7 @@ public class ShareItem {
         return invokeV.booleanValue;
     }
 
-    public byte[] b() {
+    public byte[] c() {
         InterceptResult invokeV;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
@@ -525,28 +578,28 @@ public class ShareItem {
         return (byte[]) invokeV.objValue;
     }
 
-    public void h(List<Integer> list) {
+    public void i(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.F0 = list;
         }
     }
 
-    public void i(Bitmap bitmap) {
+    public void j(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) {
             this.i0 = new WeakReference<>(bitmap);
         }
     }
 
-    public void j(boolean z) {
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.k0 = z;
         }
     }
 
-    public void k(Bundle bundle) {
+    public void l(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             this.j0 = bundle;

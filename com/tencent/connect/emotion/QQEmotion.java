@@ -21,7 +21,6 @@ import com.tencent.open.log.SLog;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class QQEmotion extends BaseApi {
@@ -56,7 +55,7 @@ public class QQEmotion extends BaseApi {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < arrayList.size(); i++) {
                 sb.append(arrayList.get(i));
-                sb.append(ParamableElem.DIVIDE_PARAM);
+                sb.append(";");
             }
             String sb2 = sb.toString();
             SLog.i("QQEMOTION", "-->getFilePathListJson listStr : " + sb2);

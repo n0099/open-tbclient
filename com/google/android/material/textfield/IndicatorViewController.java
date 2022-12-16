@@ -656,7 +656,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.errorView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0921a7);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f092216);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.errorView.setTextAlignment(5);
             }
@@ -689,7 +689,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.helperTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0921a8);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f092217);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.helperTextView.setTextAlignment(5);
             }

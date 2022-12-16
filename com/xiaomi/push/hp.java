@@ -15,12 +15,12 @@ public final class hp {
     public static final hp a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hp[] f491a;
+    public static final /* synthetic */ hp[] f514a;
     public static final hp b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f492a;
+    public final int f515a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class hp {
         a = new hp("MISC_CONFIG", 0, 1);
         hp hpVar = new hp("PLUGIN_CONFIG", 1, 2);
         b = hpVar;
-        f491a = new hp[]{a, hpVar};
+        f514a = new hp[]{a, hpVar};
     }
 
     public hp(String str, int i, int i2) {
@@ -59,7 +59,7 @@ public final class hp {
                 return;
             }
         }
-        this.f492a = i2;
+        this.f515a = i2;
     }
 
     public static hp a(int i) {
@@ -86,12 +86,12 @@ public final class hp {
     public static hp[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hp[]) f491a.clone() : (hp[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hp[]) f514a.clone() : (hp[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f492a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f515a : invokeV.intValue;
     }
 }

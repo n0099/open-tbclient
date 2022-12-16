@@ -3,42 +3,42 @@ package com.baidu.tieba.myCollection.baseHistory;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.js7;
+import com.baidu.tieba.hv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbHistoryCacheModel extends CacheModel<js7, TbPageContext> {
+public class PbHistoryCacheModel extends CacheModel<hv7, TbPageContext> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int L() {
+    public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tb.pb_history" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.CacheModel
+    public int S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return 2001186;
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int M() {
+    public int T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return 2001187;
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "tb.pb_history" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,11 +62,11 @@ public class PbHistoryCacheModel extends CacheModel<js7, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<js7> K() {
+    public Class<hv7> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return js7.class;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return hv7.class;
         }
         return (Class) invokeV.objValue;
     }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static int NET_SUCCESS;
@@ -25,7 +25,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public ArrayList<OfficialAccountPushInfo> list;
     public List<OfficialList> official_list;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str);
     }
@@ -55,7 +55,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void A() {
+    public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             sendMessage(new OfficialAccountPushRequestMessage());

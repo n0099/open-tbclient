@@ -19,10 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AudioMsg extends RichMediaMsg {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AudioMsg> CREATOR;
+    public static final String TAG = "AudioMsg";
     public transient /* synthetic */ FieldHolder $fh;
-    public final String TAG;
+    public AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra;
     public int mDuration;
     public int mFormat;
 
@@ -30,7 +31,7 @@ public class AudioMsg extends RichMediaMsg {
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "[语音]" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "[语音]" : (String) invokeV.objValue;
     }
 
     static {
@@ -90,24 +91,6 @@ public class AudioMsg extends RichMediaMsg {
         };
     }
 
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mDuration;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mFormat;
-        }
-        return invokeV.intValue;
-    }
-
     public AudioMsg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -121,10 +104,36 @@ public class AudioMsg extends RichMediaMsg {
                 return;
             }
         }
-        this.TAG = VideoMsg.class.getSimpleName();
         this.mFormat = -1;
         this.mDuration = -1;
         setMsgType(2);
+    }
+
+    public AdvisoryMsgBusinessExtra getAdvisoryBusinessExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.advisoryMsgBusinessExtra;
+        }
+        return (AdvisoryMsgBusinessExtra) invokeV.objValue;
+    }
+
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDuration;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFormat;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -145,21 +154,10 @@ public class AudioMsg extends RichMediaMsg {
                 return;
             }
         }
-        this.TAG = VideoMsg.class.getSimpleName();
         this.mFormat = -1;
         this.mDuration = -1;
         this.mFormat = parcel.readInt();
         this.mDuration = parcel.readInt();
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeInt(this.mFormat);
-            parcel.writeInt(this.mDuration);
-        }
     }
 
     public AudioMsg(String str, int i, int i2) {
@@ -168,6 +166,29 @@ public class AudioMsg extends RichMediaMsg {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mFormat = -1;
+        this.mDuration = -1;
+        setMsgType(2);
+        setLocalUrl(str);
+        this.mDuration = i;
+        this.mFormat = i2;
+    }
+
+    public AudioMsg(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -177,19 +198,18 @@ public class AudioMsg extends RichMediaMsg {
                 return;
             }
         }
-        this.TAG = VideoMsg.class.getSimpleName();
         this.mFormat = -1;
         this.mDuration = -1;
-        setMsgType(2);
+        setMsgType(82);
         setLocalUrl(str);
         this.mDuration = i;
         this.mFormat = i2;
     }
 
-    private String getAudioContent(String str, int i, int i2) {
+    public String getAudioContent(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -198,7 +218,7 @@ public class AudioMsg extends RichMediaMsg {
                     jSONObject.put("duration", i2);
                     return jSONObject.toString();
                 } catch (JSONException e) {
-                    LogUtils.e(this.TAG, "getAudioContent Json", e);
+                    LogUtils.e(TAG, "getAudioContent Json", e);
                     return "";
                 }
             }
@@ -207,28 +227,11 @@ public class AudioMsg extends RichMediaMsg {
         return (String) invokeLII.objValue;
     }
 
-    private void transCodeUrl(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, jSONObject) == null) {
-            try {
-                String decode = URLDecoder.decode(this.mRemoteUrl, "UTF-8");
-                LogUtils.d(ChatMsg.TAG, decode);
-                this.mRemoteUrl = decode;
-                jSONObject.put("url", decode);
-                this.mjsonContent = jSONObject.toString();
-            } catch (UnsupportedEncodingException e) {
-                LogUtils.e(this.TAG, "transCodeUrl:", e);
-            } catch (JSONException e2) {
-                LogUtils.e(this.TAG, "transCodeUrl:", e2);
-            }
-        }
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (TextUtils.isEmpty(this.mjsonContent)) {
                 return false;
             }
@@ -240,6 +243,7 @@ public class AudioMsg extends RichMediaMsg {
                 if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
                     transCodeUrl(jSONObject);
                 }
+                this.advisoryMsgBusinessExtra = AdvisoryMsgBusinessExtra.parseAdvisoryExtra(jSONObject.optString("business_ext"));
                 return true;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -251,8 +255,35 @@ public class AudioMsg extends RichMediaMsg {
 
     public void setContent(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, str, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048582, this, str, i, i2) == null) {
             setMsgContent(getAudioContent(str, i, i2));
+        }
+    }
+
+    public void transCodeUrl(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            try {
+                String decode = URLDecoder.decode(this.mRemoteUrl, "UTF-8");
+                LogUtils.d(ChatMsg.TAG, decode);
+                this.mRemoteUrl = decode;
+                jSONObject.put("url", decode);
+                this.mjsonContent = jSONObject.toString();
+            } catch (UnsupportedEncodingException e) {
+                LogUtils.e(TAG, "transCodeUrl:", e);
+            } catch (JSONException e2) {
+                LogUtils.e(TAG, "transCodeUrl:", e2);
+            }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeInt(this.mFormat);
+            parcel.writeInt(this.mDuration);
         }
     }
 }

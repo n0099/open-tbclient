@@ -176,10 +176,10 @@ public class BarManageResultListener extends SimpleMessageListener {
         }
     }
 
-    public static void k(@NonNull a aVar) {
+    public static void d(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
-            SimpleMessageListener.j(2001458, aVar);
+            SimpleMessageListener.c(2001458, aVar);
         }
     }
 }

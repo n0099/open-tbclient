@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pp5;
-import com.baidu.tieba.qt4;
+import com.baidu.tieba.kq5;
+import com.baidu.tieba.rt4;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public pp5 h;
+    public kq5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, qt4 qt4Var);
+        void a(ArrayList<Integer> arrayList, String str, rt4 rt4Var);
 
-        void b(qt4 qt4Var, CompoundButton compoundButton, boolean z);
+        void b(rt4 rt4Var, CompoundButton compoundButton, boolean z);
 
-        void c(qt4 qt4Var);
+        void c(rt4 rt4Var);
     }
 
     public void setACRotateAnimation() {
@@ -87,7 +87,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(x9.a(this.a.getContext()), null)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(x9.a(this.a.getContext()))) {
                 return;
             }
             this.a.o();
@@ -118,7 +118,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f08094e;
+        this.f = R.drawable.icon_pure_card_more22;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();
@@ -128,7 +128,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new pp5(tbPageContext, this);
+            this.h = new kq5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -156,10 +156,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(qt4 qt4Var) {
+    public void setData(rt4 rt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, qt4Var) == null) {
-            this.h.v(qt4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, rt4Var) == null) {
+            this.h.v(rt4Var);
         }
     }
 

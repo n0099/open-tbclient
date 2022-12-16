@@ -1,40 +1,37 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class br7 {
+public class br7 implements LiveCustomSettingService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public br7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return Color.parseColor(b(str));
-            } catch (Exception unused) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeL.intValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService
+    public boolean isFreeTrafficMode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040f) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13b8) + str;
-            }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040f) + str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return v09.c().d();
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

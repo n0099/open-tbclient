@@ -11,6 +11,7 @@ import android.text.style.UnderlineSpan;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -895,7 +896,7 @@ public final class Cea708Decoder extends CeaDecoder {
                 case 133:
                 case 134:
                 case 135:
-                    int i3 = i - 128;
+                    int i3 = i + a.g;
                     if (this.currentWindow != i3) {
                         this.currentWindow = i3;
                         this.currentCueBuilder = this.cueBuilders[i3];

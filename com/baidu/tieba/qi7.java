@@ -1,57 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qi7 implements no4 {
+public class qi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.no4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public int h;
 
-    public qi7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.no4
-    public void b(HashMap<String, String> hashMap, oo4 oo4Var) {
-        String str;
+    public static a a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, oo4Var) == null) && oo4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.a = oo4Var.a;
-            aVar.b = oo4Var.c;
-            aVar.d = true;
-            if (hashMap.get("touid") == null) {
-                str = "";
-            } else {
-                str = hashMap.get("touid");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            aVar.c = str;
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
+            a aVar = new a();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    optJSONObject.optString("title");
+                    aVar.b = optJSONObject.optString("content");
+                    aVar.c = optJSONObject.optString("quote_content");
+                    aVar.d = optJSONObject.optString("fname");
+                    aVar.e = optJSONObject.optString("thread_id");
+                    aVar.f = optJSONObject.optString("post_id");
+                    aVar.h = optJSONObject.optInt("type");
+                    aVar.g = optJSONObject.optString("title");
+                    optJSONObject.optInt("thread_type");
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
+                    if (optJSONObject2 != null) {
+                        optJSONObject2.optString("id");
+                        optJSONObject2.optString("portrait");
+                        optJSONObject2.optInt("gender");
+                    }
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
+                    if (optJSONObject3 != null) {
+                        optJSONObject3.optString("id");
+                        aVar.a = optJSONObject3.optInt("gender");
+                    }
+                }
+                return aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
+        return (a) invokeL.objValue;
     }
 }

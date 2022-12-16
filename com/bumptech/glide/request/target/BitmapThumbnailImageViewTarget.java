@@ -62,7 +62,7 @@ public class BitmapThumbnailImageViewTarget extends ThumbnailImageViewTarget<Bit
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            return new BitmapDrawable(((ImageView) this.f1064view).getResources(), bitmap);
+            return new BitmapDrawable(((ImageView) this.f1089view).getResources(), bitmap);
         }
         return (Drawable) invokeL.objValue;
     }

@@ -15,13 +15,14 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+import okhttp3.internal.WrappedEventListener;
+/* loaded from: classes9.dex */
 public abstract class EventListener {
     public static /* synthetic */ Interceptable $ic;
     public static final EventListener NONE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Factory {
         EventListener create(Call call);
     }
@@ -44,105 +45,123 @@ public abstract class EventListener {
         }
     }
 
+    public void callThreadSwitchEnd(Call call) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, call) == null) {
+        }
+    }
+
+    public void callThreadSwitchInQueue(Call call) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, call) == null) {
+        }
+    }
+
+    public void callThreadSwitchStart(Call call) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, call) == null) {
+        }
+    }
+
     public void connectEnd(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, @Nullable Protocol protocol) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, call, inetSocketAddress, proxy, protocol) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, call, inetSocketAddress, proxy, protocol) == null) {
         }
     }
 
     public void connectFailed(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, @Nullable Protocol protocol, IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, call, inetSocketAddress, proxy, protocol, iOException) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, call, inetSocketAddress, proxy, protocol, iOException) == null) {
         }
     }
 
     public void connectStart(Call call, InetSocketAddress inetSocketAddress, Proxy proxy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, call, inetSocketAddress, proxy) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, call, inetSocketAddress, proxy) == null) {
         }
     }
 
     public void connectionAcquired(Call call, Connection connection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, call, connection) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, call, connection) == null) {
         }
     }
 
     public void connectionReleased(Call call, Connection connection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, call, connection) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, call, connection) == null) {
         }
     }
 
     public void dnsEnd(Call call, String str, List<InetAddress> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, call, str, list) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, call, str, list) == null) {
         }
     }
 
     public void dnsStart(Call call, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, call, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, call, str) == null) {
         }
     }
 
     public void requestBodyEnd(Call call, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, call, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048589, this, call, j) == null) {
         }
     }
 
     public void requestBodyStart(Call call) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, call) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, call) == null) {
         }
     }
 
     public void requestHeadersEnd(Call call, Request request) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, call, request) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, call, request) == null) {
         }
     }
 
     public void requestHeadersStart(Call call) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, call) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, call) == null) {
         }
     }
 
     public void responseBodyEnd(Call call, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, call, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048593, this, call, j) == null) {
         }
     }
 
     public void responseBodyStart(Call call) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, call) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, call) == null) {
         }
     }
 
     public void responseHeadersEnd(Call call, Response response) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, call, response) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048595, this, call, response) == null) {
         }
     }
 
     public void responseHeadersStart(Call call) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, call) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, call) == null) {
         }
     }
 
     public void secureConnectEnd(Call call, @Nullable Handshake handshake) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, call, handshake) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, call, handshake) == null) {
         }
     }
 
     public void secureConnectStart(Call call) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, call) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, call) == null) {
         }
     }
 
@@ -197,7 +216,7 @@ public abstract class EventListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eventListener)) == null) {
-            return new Factory(eventListener) { // from class: okhttp3.EventListener.2
+            return new Factory(eventListener) { // from class: okhttp3.EventListener.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventListener val$listener;
@@ -225,7 +244,48 @@ public abstract class EventListener {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, call)) == null) {
-                        return this.val$listener;
+                        return new WrappedEventListener(this.val$listener);
+                    }
+                    return (EventListener) invokeL2.objValue;
+                }
+            };
+        }
+        return (Factory) invokeL.objValue;
+    }
+
+    public static Factory wrapFactory(Factory factory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, factory)) == null) {
+            return new Factory(factory) { // from class: okhttp3.EventListener.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Factory val$factory;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {factory};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$factory = factory;
+                }
+
+                @Override // okhttp3.EventListener.Factory
+                public EventListener create(Call call) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, call)) == null) {
+                        return new WrappedEventListener(this.val$factory.create(call));
                     }
                     return (EventListener) invokeL2.objValue;
                 }

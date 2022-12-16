@@ -26,7 +26,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iw9;
+import com.baidu.tieba.rz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -208,7 +208,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(iw9.g(false))) {
+                if (str.startsWith(rz9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -251,7 +251,7 @@ public final class AssistActivity extends Activity {
                         e.printStackTrace();
                         return true;
                     }
-                } else if (!str.startsWith(iw9.g(true))) {
+                } else if (!str.startsWith(rz9.g(true))) {
                     return false;
                 } else {
                     try {
@@ -544,7 +544,7 @@ public final class AssistActivity extends Activity {
             this.a.addView(this.d);
             this.a.addView(this.c);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805ed);
+            imageView.setImageResource(R.drawable.ic_back);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(a(5.0f), a(5.0f), 0, 0);

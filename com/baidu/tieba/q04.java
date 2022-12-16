@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class q04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public r04[] changedTouches;
+    public double clientX;
     @V8JavascriptField
-    public long timeStamp;
+    public double clientY;
     @V8JavascriptField
-    public r04[] touches;
+    public int identifier;
 
     public q04() {
         Interceptable interceptable = $ic;
@@ -32,11 +32,36 @@ public class q04 {
         }
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof q04)) {
+                return false;
+            }
+            q04 q04Var = (q04) obj;
+            if (this.identifier != q04Var.identifier || this.clientX != q04Var.clientX || this.clientY != q04Var.clientY) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
         }
         return (String) invokeV.objValue;
     }

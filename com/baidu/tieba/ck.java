@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ck extends ik {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

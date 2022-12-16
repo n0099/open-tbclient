@@ -8,18 +8,18 @@ import com.baidu.turbonet.net.UrlResponseInfo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BidirectionalStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public @interface StreamPriority {
         }
     }
@@ -28,7 +28,7 @@ public abstract class BidirectionalStream {
 
     public abstract void b(ByteBuffer byteBuffer, boolean z);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

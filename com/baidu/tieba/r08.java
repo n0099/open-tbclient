@@ -1,82 +1,67 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class r08 extends g08<s08, PbImageAlaRecommendVH> {
+/* loaded from: classes6.dex */
+public class r08 extends PostData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c1;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public px7 h;
+    @DrawableRes
+    public int W0;
+    public String X0;
+    public int Y0;
+    public int Z0;
+    public int a1;
+    public int b1;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r08(a58 a58Var, BdUniqueId bdUniqueId) {
-        super(a58Var, s08.q);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a58Var, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((a58) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067919, "Lcom/baidu/tieba/r08;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948067919, "Lcom/baidu/tieba/r08;");
                 return;
             }
         }
-        this.g = bdUniqueId;
+        c1 = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: u */
-    public PbImageAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public r08() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06e3, viewGroup, false), this.a.getPageContext(), this.g);
-        }
-        return (PbImageAlaRecommendVH) invokeL.objValue;
-    }
-
-    public void w(px7 px7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, px7Var) == null) {
-            this.h = px7Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.g08, com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (s08) obj, (PbImageAlaRecommendVH) viewHolder);
-        return view2;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, s08 s08Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s08Var, pbImageAlaRecommendVH})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, s08Var, pbImageAlaRecommendVH);
-            if (pbImageAlaRecommendVH != null) {
-                pbImageAlaRecommendVH.c(s08Var);
-                pbImageAlaRecommendVH.h(this.h);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+        this.b1 = 0;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c1;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

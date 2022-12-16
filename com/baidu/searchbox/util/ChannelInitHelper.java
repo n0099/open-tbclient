@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChannelInitHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class ChannelInitHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return qy4.k().q("from_id", null);
+            return ry4.l().r("from_id", null);
         }
         return (String) invokeV.objValue;
     }
@@ -180,6 +180,6 @@ public class ChannelInitHelper {
         if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        qy4.k().y("from_id", str);
+        ry4.l().z("from_id", str);
     }
 }

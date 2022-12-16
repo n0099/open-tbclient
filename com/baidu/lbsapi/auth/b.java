@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -57,7 +56,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String packageName = context.getPackageName();
             String a2 = a(context, packageName);
-            return a2 + ParamableElem.DIVIDE_PARAM + packageName;
+            return a2 + ";" + packageName;
         }
         return (String) invokeL.objValue;
     }
@@ -170,7 +169,7 @@ public class b {
             int length = b.length;
             String[] strArr = new String[length];
             for (int i = 0; i < length; i++) {
-                strArr[i] = b[i] + ParamableElem.DIVIDE_PARAM + packageName;
+                strArr[i] = b[i] + ";" + packageName;
                 if (com.baidu.lbsapi.auth.a.a) {
                     com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
                 }

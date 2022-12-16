@@ -94,7 +94,7 @@ public class g implements f {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) && !this.a) {
             v vVar = new v();
-            v.a aVar2 = new v.a() { // from class: com.baidu.tieba.ss9
+            v.a aVar2 = new v.a() { // from class: com.baidu.tieba.bw9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

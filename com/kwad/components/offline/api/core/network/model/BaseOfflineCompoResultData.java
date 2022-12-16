@@ -11,7 +11,7 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.EmptyResultData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseOfflineCompoResultData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_RESULT_OK = 1;

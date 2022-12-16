@@ -91,7 +91,7 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
             this.o = rz4Var;
             rz4Var.q(R.color.CAM_X0903);
             this.o.g(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
-            this.o.u(R.drawable.obfuscated_res_0x7f08081f, TBSpecificationButtonConfig.IconType.WEBP);
+            this.o.u(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
             this.o.o(TBSpecificationButtonConfig.WebpType.PURE);
             this.o.h(R.color.CAM_X0304);
             setConfig(this.o);

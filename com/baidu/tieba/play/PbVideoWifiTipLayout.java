@@ -56,7 +56,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sp4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f2), TbConfig.URL_BAIDU_SINGKIL);
+                sp4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
                 if (this.a.f != null) {
                     this.a.f.onClick(view2);
                 }
@@ -154,12 +154,12 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0524, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092477);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092476);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09243a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923de);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092428);
+            LinearLayout.inflate(getContext(), R.layout.layout_video_wifi_tip, this);
+            this.a = (TextView) findViewById(R.id.tv_video_duration);
+            this.b = (TextView) findViewById(R.id.tv_video_data);
+            this.c = (TextView) findViewById(R.id.tv_play);
+            this.d = (TextView) findViewById(R.id.tv_divider);
+            TextView textView = (TextView) findViewById(R.id.tv_open_free_data);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }
@@ -187,13 +187,13 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (i > 0) {
-                this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0e41), StringHelper.stringForVideoTime(i * 1000)));
+                this.a.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i * 1000)));
             } else {
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
             }
             if (i2 > 0) {
-                this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0e3d), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+                this.b.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
             } else {
                 this.b.setVisibility(8);
                 this.d.setVisibility(8);

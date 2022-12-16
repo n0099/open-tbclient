@@ -13,7 +13,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
     public AdTemplate mAdTemplate;
     public o.b sp;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends com.kwad.components.ad.reward.presenter.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
         public final int gS() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f0910a4 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f091106 : invokeV.intValue;
         }
 
         @Override // com.kwad.components.ad.reward.presenter.b

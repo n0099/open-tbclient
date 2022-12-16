@@ -29,9 +29,8 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BdUploadHandler implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_MIME_TYPE = "audio/*";
@@ -52,7 +51,7 @@ public class BdUploadHandler implements INoProGuard {
     public ValueCallback<Uri> mUploadMessage;
     public ValueCallback<Uri[]> mUploadMessage1;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +95,7 @@ public class BdUploadHandler implements INoProGuard {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -456,7 +455,7 @@ public class BdUploadHandler implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, valueCallback, str)) == null) {
             this.mUploadMessage = valueCallback;
-            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+            String[] split = str.split(";");
             String str2 = split[0];
             String str3 = "";
             for (String str4 : split) {
@@ -475,7 +474,7 @@ public class BdUploadHandler implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, valueCallback, str, str2)) == null) {
             this.mUploadMessage = valueCallback;
-            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+            String[] split = str.split(";");
             String str3 = split[0];
             String str4 = str2.length() > 0 ? str2 : "";
             if (str2.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {

@@ -1,147 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
+import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+import java.util.Map;
+/* loaded from: classes4.dex */
 public class em6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zl6 a;
-    public String b;
-    public VideoAggregationModel c;
-    public boolean d;
-    public VideoAggregationModel.c e;
 
-    /* loaded from: classes3.dex */
-    public class a implements VideoAggregationModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ em6 a;
-
-        public a(em6 em6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {em6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                HashMap hashMap = new HashMap();
+                int i = 0;
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
+                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
+                        i++;
+                    }
                 }
+                return hashMap;
             }
-            this.a = em6Var;
+            return null;
         }
+        return (Map) invokeL.objValue;
+    }
 
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.a == null) {
-                return;
+    public static String[] b(List<TornadoNodeInfo> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i > 0) {
+                String[] strArr = new String[i];
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
+                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
+                        i2++;
+                    }
+                }
+                return strArr;
             }
-            this.a.a.m();
-            this.a.a.h(str);
-            this.a.a.onLoadFail();
+            return null;
         }
-
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void b(List<cm6> list, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.m();
-            this.a.d = z2;
-            this.a.a.M0(list, z, z2);
-        }
-    }
-
-    public em6(TbPageContext tbPageContext, zl6 zl6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zl6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a aVar = new a(this);
-        this.e = aVar;
-        this.a = zl6Var;
-        this.c = new VideoAggregationModel(tbPageContext, aVar);
-    }
-
-    public void f(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.setFrom(str);
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-            VideoAggregationModel videoAggregationModel = this.c;
-            if (videoAggregationModel != null) {
-                videoAggregationModel.E(str);
-            }
-        }
-    }
-
-    public void h(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.F(str);
-        }
-    }
-
-    public void i(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.G(str);
-        }
-    }
-
-    public void c() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.cancelLoadData();
-        }
-    }
-
-    public void d() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.c) != null && this.d) {
-            videoAggregationModel.loadData();
-        }
-    }
-
-    public void e() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.D();
-        }
+        return (String[]) invokeLI.objValue;
     }
 }

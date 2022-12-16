@@ -21,7 +21,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CopyableThrowable;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u001a1\u0010\u0005\u001a\u0018\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u0002j\u0004\u0018\u0001`\u00042\n\u0010\u0001\u001a\u0006\u0012\u0002\b\u00030\u0000H\u0002¢\u0006\u0004\b\u0005\u0010\u0006\u001a8\u0010\b\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u0002j\u0002`\u00042\u0014\b\u0004\u0010\u0007\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00030\u0002H\u0082\b¢\u0006\u0004\b\b\u0010\t\u001a#\u0010\f\u001a\u0004\u0018\u00018\u0000\"\b\b\u0000\u0010\n*\u00020\u00032\u0006\u0010\u000b\u001a\u00028\u0000H\u0000¢\u0006\u0004\b\f\u0010\r\u001a\"\u0010\u0011\u001a\u00020\u000f*\u0006\u0012\u0002\b\u00030\u000e2\b\b\u0002\u0010\u0010\u001a\u00020\u000fH\u0082\u0010¢\u0006\u0004\b\u0011\u0010\u0012\u001a\u001f\u0010\u0014\u001a\u00020\u000f*\u0006\u0012\u0002\b\u00030\u000e2\u0006\u0010\u0013\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0014\u0010\u0012\"\u0016\u0010\u0016\u001a\u00020\u00158\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017\"<\u0010\u0019\u001a(\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00030\u000e\u0012\u0016\u0012\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u0002j\u0002`\u00040\u00188\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0019\u0010\u001a\"\u0016\u0010\u001b\u001a\u00020\u000f8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001b\u0010\u001c*(\b\u0002\u0010\u001d\"\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u00022\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u0002¨\u0006\u001e"}, d2 = {"Ljava/lang/reflect/Constructor;", "constructor", "Lkotlin/Function1;", "", "Lkotlinx/coroutines/internal/Ctor;", "createConstructor", "(Ljava/lang/reflect/Constructor;)Lkotlin/Function1;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "safeCtor", "(Lkotlin/Function1;)Lkotlin/Function1;", ExifInterface.LONGITUDE_EAST, "exception", "tryCopyException", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", "Ljava/lang/Class;", "", "accumulator", "fieldsCount", "(Ljava/lang/Class;I)I", "defaultValue", "fieldsCountOrDefault", "Ljava/util/concurrent/locks/ReentrantReadWriteLock;", "cacheLock", "Ljava/util/concurrent/locks/ReentrantReadWriteLock;", "Ljava/util/WeakHashMap;", "exceptionCtors", "Ljava/util/WeakHashMap;", "throwableFields", "I", "Ctor", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ExceptionsConstuctorKt {
     public static final int throwableFields = fieldsCountOrDefault(Throwable.class, -1);
     public static final ReentrantReadWriteLock cacheLock = new ReentrantReadWriteLock();
@@ -64,20 +64,20 @@ public final class ExceptionsConstuctorKt {
     }
 
     public static final int fieldsCountOrDefault(Class<?> cls, int i) {
-        Integer m698constructorimpl;
+        Integer m708constructorimpl;
         JvmClassMappingKt.getKotlinClass(cls);
         try {
             Result.Companion companion = Result.Companion;
-            m698constructorimpl = Result.m698constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
+            m708constructorimpl = Result.m708constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
+            m708constructorimpl = Result.m708constructorimpl(ResultKt.createFailure(th));
         }
         Integer valueOf = Integer.valueOf(i);
-        if (Result.m704isFailureimpl(m698constructorimpl)) {
-            m698constructorimpl = valueOf;
+        if (Result.m714isFailureimpl(m708constructorimpl)) {
+            m708constructorimpl = valueOf;
         }
-        return ((Number) m698constructorimpl).intValue();
+        return ((Number) m708constructorimpl).intValue();
     }
 
     public static /* synthetic */ int fieldsCount$default(Class cls, int i, int i2, Object obj) {
@@ -93,7 +93,7 @@ public final class ExceptionsConstuctorKt {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, ARITH, INVOKE] complete} */
     public static final <E extends Throwable> E tryCopyException(E e) {
-        Object m698constructorimpl;
+        Object m708constructorimpl;
         ReentrantReadWriteLock.ReadLock readLock;
         int i;
         ReentrantReadWriteLock.WriteLock writeLock;
@@ -103,13 +103,13 @@ public final class ExceptionsConstuctorKt {
         if (e instanceof CopyableThrowable) {
             try {
                 Result.Companion companion = Result.Companion;
-                m698constructorimpl = Result.m698constructorimpl(((CopyableThrowable) e).createCopy());
+                m708constructorimpl = Result.m708constructorimpl(((CopyableThrowable) e).createCopy());
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
+                m708constructorimpl = Result.m708constructorimpl(ResultKt.createFailure(th));
             }
-            if (!Result.m704isFailureimpl(m698constructorimpl)) {
-                obj = m698constructorimpl;
+            if (!Result.m714isFailureimpl(m708constructorimpl)) {
+                obj = m708constructorimpl;
             }
             return (E) obj;
         }

@@ -1,10 +1,10 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.CreateResultInfo;
 import com.baidu.android.imsdk.group.GroupInfo;
@@ -14,10 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.upload.action.IMTrackManager;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -104,19 +102,23 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             this.this$0 = iMQueryGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:43:0x0186  */
-        /* JADX WARN: Removed duplicated region for block: B:52:0x01f5  */
+        /* JADX WARN: Removed duplicated region for block: B:42:0x015f  */
+        /* JADX WARN: Removed duplicated region for block: B:51:0x01d0  */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
             String str;
+            ArrayList arrayList;
+            String str2;
             int i;
+            GroupInfo groupInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Mytask mytask = this;
-                ArrayList arrayList = new ArrayList();
+                String str3 = "";
+                ArrayList arrayList2 = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(mytask.mJson);
                     int i2 = jSONObject.getInt("error_code");
@@ -130,38 +132,52 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                             String optString2 = jSONObject2.optString("group_name");
                             int optInt = jSONObject2.optInt("group_type");
                             int optInt2 = jSONObject2.optInt("group_num");
-                            long optLong2 = jSONObject2.optLong("create_time");
+                            int optInt3 = jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE);
                             int i4 = i3;
-                            long optLong3 = jSONObject2.optLong("bd_uid");
+                            long optLong2 = jSONObject2.optLong("create_time");
                             int i5 = i2;
-                            String str2 = optString;
-                            long optLong4 = jSONObject2.optLong("uk");
-                            JSONArray jSONArray2 = jSONArray;
-                            int optInt3 = jSONObject2.optInt("status", -1);
-                            String trim = jSONObject2.optString("group_image").trim();
-                            String str3 = IMQueryGroupRequest.TAG;
-                            ArrayList arrayList2 = arrayList;
+                            String str4 = optString;
+                            long optLong3 = jSONObject2.optLong("bd_uid");
+                            str = str3;
+                            ArrayList arrayList3 = arrayList2;
                             try {
-                                StringBuilder sb = new StringBuilder();
+                                long optLong4 = jSONObject2.optLong("uk");
+                                JSONArray jSONArray2 = jSONArray;
+                                int optInt4 = jSONObject2.optInt("status", -1);
+                                String trim = jSONObject2.optString("group_image").trim();
+                                String str5 = IMQueryGroupRequest.TAG;
                                 try {
-                                    sb.append("GETGROUP status=");
-                                    sb.append(optInt3);
-                                    sb.append(" type=");
-                                    sb.append(optInt);
-                                    sb.append("  groupname=");
-                                    sb.append(optString2);
-                                    sb.append(" id=");
-                                    sb.append(optLong);
-                                    LogUtils.d(str3, sb.toString());
-                                    if (optInt3 != 0 && optInt3 != 2 && optInt3 != 1) {
-                                        mytask = this;
-                                        arrayList = arrayList2;
+                                    LogUtils.d(str5, "GETGROUP status=" + optInt4 + " type=" + optInt + "  groupname=" + optString2 + " id=" + optLong);
+                                    try {
+                                        if (optInt4 != 0 && optInt4 != 2 && optInt4 != 1) {
+                                            mytask = this;
+                                            arrayList = arrayList3;
+                                            i3 = i4 + 1;
+                                            arrayList2 = arrayList;
+                                            i2 = i5;
+                                            optString = str4;
+                                            str3 = str;
+                                            jSONArray = jSONArray2;
+                                        }
+                                        arrayList.add(groupInfo);
+                                        if (optInt4 == 1) {
+                                            GroupInfoDAOImpl.setGroupState(mytask.this$0.mContext, String.valueOf(optLong), optInt4);
+                                        }
                                         i3 = i4 + 1;
+                                        arrayList2 = arrayList;
                                         i2 = i5;
-                                        optString = str2;
+                                        optString = str4;
+                                        str3 = str;
                                         jSONArray = jSONArray2;
+                                    } catch (JSONException e) {
+                                        e = e;
+                                        LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
+                                        i = 1010;
+                                        str2 = str;
+                                        if (i == 0) {
+                                        }
                                     }
-                                    GroupInfo groupInfo = new GroupInfo(String.valueOf(optLong));
+                                    groupInfo = new GroupInfo(String.valueOf(optLong));
                                     groupInfo.setGroupName(optString2);
                                     groupInfo.setType(optInt);
                                     groupInfo.setNum(optInt2);
@@ -169,70 +185,62 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                                     groupInfo.setBuid(optLong3);
                                     groupInfo.setUk(optLong4);
                                     groupInfo.setHeadUrl(trim);
-                                    if (optInt3 == 2) {
+                                    groupInfo.setGroupCapacity(optInt3);
+                                    if (optInt4 == 2) {
                                         groupInfo.setBrief(1);
                                     }
                                     mytask = this;
+                                    mytask.this$0.completeUserSettingInfo(groupInfo);
                                     GroupInfoDAOImpl.updateGroupInfo(mytask.this$0.mContext, groupInfo);
                                     ConversationManagerImpl.getInstance(mytask.this$0.mContext).updateConversationName(optString2, 1, String.valueOf(optLong));
-                                    arrayList = arrayList2;
-                                    arrayList.add(groupInfo);
-                                    if (optInt3 == 1) {
-                                        GroupInfoDAOImpl.setGroupState(mytask.this$0.mContext, String.valueOf(optLong), optInt3);
-                                    }
-                                    i3 = i4 + 1;
-                                    i2 = i5;
-                                    optString = str2;
-                                    jSONArray = jSONArray2;
-                                } catch (JSONException e) {
-                                    e = e;
+                                    arrayList = arrayList3;
+                                } catch (JSONException e2) {
+                                    e = e2;
                                     mytask = this;
-                                    arrayList = arrayList2;
+                                    arrayList = arrayList3;
                                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                                     i = 1010;
-                                    new IMTrack.CrashBuilder(mytask.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                                    str2 = str;
                                     if (i == 0) {
                                     }
-                                    mytask.this$0.uploadGroupInfoFailInfo("get_groupinfo_request_onSuccess", "param = " + mytask.this$0.mRequestParam + "  reponse = " + mytask.mJson);
-                                    if (i != 0) {
-                                    }
                                 }
-                            } catch (JSONException e2) {
-                                e = e2;
+                            } catch (JSONException e3) {
+                                e = e3;
                             }
                         }
                     }
+                    str = str3;
+                    arrayList = arrayList2;
                     i = i2;
-                    str = optString;
-                } catch (JSONException e3) {
-                    e = e3;
+                    str2 = optString;
+                } catch (JSONException e4) {
+                    e = e4;
+                    str = str3;
+                    arrayList = arrayList2;
                 }
-                if (i == 0 || arrayList.size() <= 0) {
-                    mytask.this$0.uploadGroupInfoFailInfo("get_groupinfo_request_onSuccess", "param = " + mytask.this$0.mRequestParam + "  reponse = " + mytask.mJson);
-                }
-                if (i != 0) {
+                if (i == 0) {
                     IMListener removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
                     if (mytask.this$0.isCreateGroup) {
                         BIMValueCallBack bIMValueCallBack = (BIMValueCallBack) removeListener;
                         CreateResultInfo createResultInfo = new CreateResultInfo();
                         createResultInfo.groupid = (String) mytask.this$0.mGroupIds.get(0);
                         createResultInfo.memberlist = mytask.this$0.mAddMembers;
-                        String str4 = IMQueryGroupRequest.TAG;
-                        LogUtils.d(str4, "FXF query group info " + ((GroupInfo) arrayList.get(0)).toString());
+                        String str6 = IMQueryGroupRequest.TAG;
+                        LogUtils.d(str6, "FXF query group info " + ((GroupInfo) arrayList.get(0)).toString());
                         if (bIMValueCallBack != null) {
-                            bIMValueCallBack.onResult(0, "successful", createResultInfo);
+                            bIMValueCallBack.onResult(0, str, createResultInfo);
                             return;
                         } else {
                             LogUtils.e(IMQueryGroupRequest.TAG, "query group info fail, listener is null");
                             return;
                         }
-                    } else if (removeListener != null) {
-                        ((BIMValueCallBack) removeListener).onResult(0, "successful", arrayList);
-                        return;
-                    } else {
+                    }
+                    String str7 = str;
+                    if (removeListener != null) {
+                        ((BIMValueCallBack) removeListener).onResult(0, str7, arrayList);
                         return;
                     }
+                    return;
                 }
                 IMListener removeListener2 = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
                 if (removeListener2 != null && (removeListener2 instanceof BIMValueCallBack)) {
@@ -240,10 +248,10 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                         CreateResultInfo createResultInfo2 = new CreateResultInfo();
                         createResultInfo2.groupid = (String) mytask.this$0.mGroupIds.get(0);
                         createResultInfo2.memberlist = mytask.this$0.mAddMembers;
-                        ((BIMValueCallBack) removeListener2).onResult(0, str, createResultInfo2);
+                        ((BIMValueCallBack) removeListener2).onResult(0, str2, createResultInfo2);
                         return;
                     }
-                    ((BIMValueCallBack) removeListener2).onResult(i, str, null);
+                    ((BIMValueCallBack) removeListener2).onResult(i, str2, null);
                 }
             }
         }
@@ -274,12 +282,11 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uploadGroupInfoFailInfo(String str, String str2) {
+    public void completeUserSettingInfo(GroupInfo groupInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, this, str, str2) == null) {
-            String str3 = TAG;
-            LogUtils.d(str3, "exception=" + str + "  ext =" + str2);
-            IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CRASH).setCrash(IMPushPb.Crash.newBuilder().setException(str).setExt(str2).build()).build());
+        if ((interceptable == null || interceptable.invokeL(65546, this, groupInfo) == null) && groupInfo != null && this.isCreateGroup && groupInfo.getType() == 1) {
+            groupInfo.setDisturb(1);
+            GroupInfoDAOImpl.updateGroupDoNotDisturb(this.mContext, Utility.getLongByString(groupInfo.getGroupId(), 0L), 1);
         }
     }
 
@@ -320,7 +327,6 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
             Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-            uploadGroupInfoFailInfo("get_groupinfo_request_onFailure", "param = " + this.mRequestParam + "  reponse = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                 if (this.isCreateGroup) {

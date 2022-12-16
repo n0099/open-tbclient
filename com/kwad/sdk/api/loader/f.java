@@ -7,7 +7,6 @@ import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.core.IKsAdSDK;
@@ -23,10 +22,11 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
+import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public Map<String, String> Sm = new HashMap();
     public IKsAdSDK Sn;
@@ -34,7 +34,7 @@ public final class f {
     public String b;
     public int c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -167,7 +167,7 @@ public final class f {
                     openConnection.setReadTimeout(30000);
                     openConnection.setUseCaches(false);
                     openConnection.setDoInput(true);
-                    a(HTTP.CONN_DIRECTIVE, "keep-alive");
+                    a(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
                     a(BOSTokenRequest.CHARSET, "UTF-8");
                     HttpURLConnection httpURLConnection2 = (HttpURLConnection) openConnection;
                     httpURLConnection2.setRequestMethod("POST");
@@ -200,17 +200,17 @@ public final class f {
                                 jSONObject.put("data", new JSONObject(this.Sn.getRD(optString)));
                             }
                         }
-                        bVar.a = jSONObject.optLong(TiebaStatic.LogFields.RESULT);
+                        bVar.a = jSONObject.optLong("result");
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0604a c0604a = new a.C0604a();
-                        bVar.Sg = c0604a;
+                        a.C0621a c0621a = new a.C0621a();
+                        bVar.Sg = c0621a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0604a.a = optJSONObject.optInt("dynamicType");
-                            c0604a.b = optJSONObject.optString("dynamicUrl");
-                            c0604a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0604a.Se = optJSONObject.optLong("interval");
-                            c0604a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
+                            c0621a.a = optJSONObject.optInt("dynamicType");
+                            c0621a.b = optJSONObject.optString("dynamicUrl");
+                            c0621a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0621a.Se = optJSONObject.optLong("interval");
+                            c0621a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {

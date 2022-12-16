@@ -1,57 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class sm8 extends hm8 {
+/* loaded from: classes6.dex */
+public class sm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tm8 c;
 
-    public sm8() {
+    public static synchronized String a(Context context) {
+        InterceptResult invokeL;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            synchronized (sm8.class) {
+                try {
+                    string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean startActivity(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
+            try {
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public tm8 h() {
-        InterceptResult invokeV;
+    public static boolean startActivity(Context context, Class<?> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, cls)) == null) {
+            try {
+                Intent intent = new Intent(context, cls);
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
         }
-        return (tm8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hm8
-    public void d(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
-            tm8 tm8Var = new tm8();
-            tm8Var.a(optJSONObject);
-            i(tm8Var);
-        }
-    }
-
-    public void i(tm8 tm8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tm8Var) == null) {
-            this.c = tm8Var;
-            g(null);
-        }
+        return invokeLL.booleanValue;
     }
 }

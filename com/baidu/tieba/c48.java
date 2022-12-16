@@ -1,37 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c48 {
+public class c48 implements zb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3) {
+    public c48() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14349");
-            statisticItem.param("tid", str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("post_id", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
+    @Override // com.baidu.tieba.zb5
+    @NonNull
+    public yb5 b(@NonNull TbPageContext tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14348");
-            statisticItem.param("tid", str2);
-            statisticItem.param("uid", str3);
-            statisticItem.param("post_id", str4);
-            statisticItem.param("pid", str4);
-            statisticItem.param("fname", str5);
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
+            return new m28(tbPageContext);
         }
+        return (yb5) invokeL.objValue;
     }
 }

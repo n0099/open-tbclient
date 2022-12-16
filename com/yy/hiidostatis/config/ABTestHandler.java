@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -174,7 +173,7 @@ public final class ABTestHandler {
                 }
                 String string = context.getSharedPreferences(KEY_PREFERENCE_ABTEST, 4).getString(KEY_PREFERENCE_ABTEST, null);
                 if (string != null) {
-                    for (String str : string.split(ParamableElem.DIVIDE_PARAM)) {
+                    for (String str : string.split(";")) {
                         String[] split = str.split("=");
                         if (split.length == 2) {
                             this.map.put(split[0], Integer.valueOf(Integer.parseInt(split[1])));
@@ -266,7 +265,7 @@ public final class ABTestHandler {
                         sb.append(split[split.length - 1]);
                         sb.append("=");
                         sb.append(entry.getValue());
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                     }
                 }
                 sb.setLength(sb.length() - 1);

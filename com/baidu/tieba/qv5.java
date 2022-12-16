@@ -1,90 +1,73 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+/* loaded from: classes6.dex */
 public class qv5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qv5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public BdTypeRecyclerView c;
-    public List<kn> d;
-    public xv5 e;
-    public xv5 f;
-    public wv5 g;
-    public vv5 h;
-    public lx5 i;
-    public uv5 j;
-    public int k;
-    public int l;
-    public String m;
+    public IWXAPI a;
 
-    public qv5(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948105305, "Lcom/baidu/tieba/qv5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948105305, "Lcom/baidu/tieba/qv5;");
+        }
+    }
+
+    public qv5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.m = "0";
-        this.a = tbPageContext;
-        this.b = tbPageContext.getPageActivity();
-        this.c = bdTypeRecyclerView;
-        this.k = i;
-        this.l = i2;
-        this.m = str;
-        a();
     }
 
-    public final void a() {
+    public static qv5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new ArrayList();
-            this.e = new xv5(this.a, this.k, false);
-            this.f = new xv5(this.a, this.k, true);
-            this.g = new wv5(this.a);
-            this.h = new vv5(this.a);
-            this.i = new lx5(this.a, this.l, this.m);
-            this.j = new uv5(this.a);
-            this.d.add(this.e);
-            this.d.add(this.f);
-            this.d.add(this.g);
-            this.d.add(this.h);
-            this.d.add(this.i);
-            this.d.add(this.j);
-            this.c.a(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (qv5.class) {
+                    if (b == null) {
+                        b = new qv5();
+                    }
+                }
+            }
+            return b;
         }
+        return (qv5) invokeV.objValue;
     }
 
-    public void b() {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeRecyclerView = this.c) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<xn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
+            this.a = createWXAPI;
+            createWXAPI.registerApp("wx7088ea0f777314d2");
         }
     }
 }

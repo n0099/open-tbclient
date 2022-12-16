@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class k extends com.kwad.components.ad.e.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class k extends com.kwad.components.ad.e.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091260);
+            this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0912bf);
         }
     }
 }

@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
-import com.baidu.tieba.uk7;
+import com.baidu.tieba.sn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     public AlaShareInBarModel d;
     public final AlaShareInBarModel.b e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements AlaShareInBarModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,13 +88,13 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, uk7 uk7Var) {
+        public void a(int i, String str, sn7 sn7Var) {
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, uk7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, sn7Var) == null) {
                 this.a.closeLoadingDialog();
-                if (i == 0 && uk7Var != null) {
-                    BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1181));
+                if (i == 0 && sn7Var != null) {
+                    BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.share_alert_success));
                     b.f(BdToast.ToastIcon.SUCCESS);
                     b.c(3000);
                     b.i();
@@ -146,8 +146,8 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            y1(bundle);
-            z1();
+            x1(bundle);
+            y1();
         }
     }
 
@@ -159,12 +159,12 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
     }
 
-    public final void y1(Bundle bundle) {
+    public final void x1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             AlaShareInBarModel alaShareInBarModel = new AlaShareInBarModel();
             this.d = alaShareInBarModel;
-            alaShareInBarModel.C(this.e);
+            alaShareInBarModel.J(this.e);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("extra_key_live_id");
@@ -178,11 +178,11 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
     }
 
-    public final void z1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c81);
+                showToast(R.string.obfuscated_res_0x7f0f0cb8);
                 finish();
             } else if ((StringUtils.isNull(this.a) && TextUtils.isEmpty(this.b)) || ListUtils.isEmpty(this.c)) {
                 finish();
@@ -190,7 +190,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                 showLoadingDialog((String) null, new a(this));
                 TransmitForumData transmitForumData = this.c.get(0);
                 if (transmitForumData != null) {
-                    this.d.B(this.a, this.b, String.valueOf(transmitForumData.forumId), "");
+                    this.d.I(this.a, this.b, String.valueOf(transmitForumData.forumId), "");
                 }
             }
         }

@@ -7,7 +7,7 @@ import android.opengl.GLUtils;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.gf9;
+import com.baidu.tieba.pi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class OutputSurfaceWithFilter extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +177,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setup();
-            this.isAr = gf9.c().i();
+            this.isAr = pi9.c().i();
             this.mFullScreenFUDisplay = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         }
     }

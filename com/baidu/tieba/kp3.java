@@ -1,56 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ip3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class kp3 extends ip3.a {
+@Autowired
+/* loaded from: classes5.dex */
+public final class kp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kp3 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920731, "Lcom/baidu/tieba/kp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920731, "Lcom/baidu/tieba/kp3;");
-                return;
-            }
+    @Inject(force = false)
+    public static ir3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new hr3();
         }
-        b = new kp3();
+        return (ir3) invokeV.objValue;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public kp3() {
-        super(r0);
+    @Inject(force = false)
+    public static eq3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ip3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new cq3();
         }
-        ip3 a = jp3.a();
-        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
+        return (eq3) invokeV.objValue;
     }
 }

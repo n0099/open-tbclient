@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "BVideoView";
@@ -433,16 +433,16 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     private void c() {
-        ArrayList<a.C0089a> b;
+        ArrayList<a.C0103a> b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.c == null || (b = this.y.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0089a c0089a = b.get(i);
-            if (c0089a != null && c0089a.a() != null) {
-                this.c.setExternalInfo(c0089a.a(), c0089a.b());
+            a.C0103a c0103a = b.get(i);
+            if (c0103a != null && c0103a.a() != null) {
+                this.c.setExternalInfo(c0103a.a(), c0103a.b());
             }
         }
     }

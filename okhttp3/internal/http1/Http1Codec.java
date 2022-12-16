@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -35,7 +34,7 @@ import okio.Okio;
 import okio.Sink;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Http1Codec implements HttpCodec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_LIMIT = 262144;
@@ -55,13 +54,13 @@ public final class Http1Codec implements HttpCodec {
     public final StreamAllocation streamAllocation;
 
     /* renamed from: okhttp3.internal.http1.Http1Codec$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public abstract class AbstractSource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +144,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class ChunkedSink implements Sink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -230,7 +229,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ChunkedSource extends AbstractSource {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long NO_CHUNK_YET = -1;
@@ -274,7 +273,7 @@ public final class Http1Codec implements HttpCodec {
                 try {
                     this.bytesRemainingInChunk = this.this$0.source.readHexadecimalUnsignedLong();
                     String trim = this.this$0.source.readUtf8LineStrict().trim();
-                    if (this.bytesRemainingInChunk >= 0 && (trim.isEmpty() || trim.startsWith(ParamableElem.DIVIDE_PARAM))) {
+                    if (this.bytesRemainingInChunk >= 0 && (trim.isEmpty() || trim.startsWith(";"))) {
                         if (this.bytesRemainingInChunk == 0) {
                             this.hasMoreChunks = false;
                             HttpHeaders.receiveHeaders(this.this$0.client.cookieJar(), this.url, this.this$0.readHeaders());
@@ -336,7 +335,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class FixedLengthSink implements Sink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -417,7 +416,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class FixedLengthSource extends AbstractSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -494,7 +493,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class UnknownLengthSource extends AbstractSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

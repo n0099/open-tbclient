@@ -5,22 +5,22 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumMemberActivityConfig;
-import com.baidu.tieba.ah6;
-import com.baidu.tieba.bh6;
-import com.baidu.tieba.ch6;
-import com.baidu.tieba.dk6;
-import com.baidu.tieba.ek6;
+import com.baidu.tieba.bi6;
+import com.baidu.tieba.di6;
+import com.baidu.tieba.ei6;
+import com.baidu.tieba.fi6;
+import com.baidu.tieba.fk6;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.gh6;
-import com.baidu.tieba.ih6;
-import com.baidu.tieba.jh6;
-import com.baidu.tieba.kh6;
-import com.baidu.tieba.kj6;
-import com.baidu.tieba.lh6;
-import com.baidu.tieba.mh6;
-import com.baidu.tieba.nh6;
-import com.baidu.tieba.oh6;
-import com.baidu.tieba.zg6;
+import com.baidu.tieba.gi6;
+import com.baidu.tieba.hi6;
+import com.baidu.tieba.ii6;
+import com.baidu.tieba.ji6;
+import com.baidu.tieba.uh6;
+import com.baidu.tieba.vh6;
+import com.baidu.tieba.wh6;
+import com.baidu.tieba.xh6;
+import com.baidu.tieba.yk6;
+import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,12 +64,12 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new jh6(null, kh6.d));
-                absDelegateAdapterList.add(new lh6(null, mh6.c));
-                absDelegateAdapterList.add(new ih6(null, kj6.c));
-                absDelegateAdapterList.add(new zg6(null, ah6.b));
-                absDelegateAdapterList.add(new bh6(null, ch6.g));
-                absDelegateAdapterList.add(new nh6(null, oh6.e));
+                absDelegateAdapterList.add(new ei6(null, fi6.d));
+                absDelegateAdapterList.add(new gi6(null, hi6.c));
+                absDelegateAdapterList.add(new di6(null, fk6.c));
+                absDelegateAdapterList.add(new uh6(null, vh6.b));
+                absDelegateAdapterList.add(new wh6(null, xh6.g));
+                absDelegateAdapterList.add(new ii6(null, ji6.e));
             }
         }
     }
@@ -103,11 +103,11 @@ public class FrsMemberStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof dk6)) {
-                dk6 dk6Var = (dk6) customResponsedMessage.getData();
-                gh6 gh6Var = new gh6();
-                gh6Var.E(dk6Var.a);
-                dk6Var.a(3, gh6Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof yk6)) {
+                yk6 yk6Var = (yk6) customResponsedMessage.getData();
+                bi6 bi6Var = new bi6();
+                bi6Var.E(yk6Var.a);
+                yk6Var.a(3, bi6Var);
             }
         }
     }
@@ -126,7 +126,7 @@ public class FrsMemberStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        ek6.a().c(3);
+        zk6.a().c(3);
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerListener(new b(2003011));
     }

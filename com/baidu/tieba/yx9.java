@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class yx9 implements xx9 {
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes7.dex */
+public final class yx9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final /* synthetic */ AtomicBoolean a;
+    public final /* synthetic */ xx9 b;
 
-    public yx9(String str) {
+    public yx9(xx9 xx9Var, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {xx9Var, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,79 +28,18 @@ public class yx9 implements xx9 {
                 return;
             }
         }
-        if (str != null) {
-            this.a = str;
-            return;
-        }
-        throw new IllegalArgumentException();
+        this.b = xx9Var;
+        this.a = atomicBoolean;
     }
 
-    @Override // com.baidu.tieba.xx9
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            for (String str2 : str.replaceAll(" ", "").split(",")) {
-                if (this.a.equals(str2)) {
-                    return true;
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.getAndSet(true)) {
+            Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
+            xx9 xx9Var = this.b;
+            sx9 sx9Var = xx9Var.c;
+            sx9.n(xx9Var.a, xx9Var.b);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xx9
-    public xx9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new yx9(c());
-        }
-        return (xx9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xx9
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.xx9
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && yx9.class == obj.getClass()) {
-                return this.a.equals(((yx9) obj).a);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -15,6 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -60,7 +61,7 @@ public class ReplyLinearLayout extends LinearLayout {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String[] strArr = (String[]) view2.getTag();
+                PersonPostModel.PostInfoContent postInfoContent = (PersonPostModel.PostInfoContent) view2.getTag();
                 StatisticItem statisticItem = new StatisticItem("c12043");
                 if (this.a.b) {
                     i = 1;
@@ -68,15 +69,15 @@ public class ReplyLinearLayout extends LinearLayout {
                     i = 2;
                 }
                 TiebaStatic.log(statisticItem.param("obj_type", i));
-                if (strArr != null) {
+                if (postInfoContent != null) {
                     Context context = this.a.getContext();
-                    if ("0".equals(strArr[3])) {
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_page");
+                    if (postInfoContent.post_type == 0) {
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(postInfoContent.threadId, postInfoContent.getPostId(), "person_page");
                         createNormalCfg.setStartFrom(4);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
                         return;
                     }
-                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(context).createSubPbActivityConfig(strArr[1], strArr[2], "person_post_reply", false, null, false);
+                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(context).createSubPbActivityConfig(postInfoContent.threadId, postInfoContent.getPostId(), "person_post_reply", false, null, false);
                     createSubPbActivityConfig.setKeyPageStartFrom(4);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                 }
@@ -155,23 +156,23 @@ public class ReplyLinearLayout extends LinearLayout {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0092  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0091  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00a5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void setContent(ArrayList<String[]> arrayList) {
+    public void setContent(List<PersonPostModel.PostInfoContent> list) {
         int i;
-        CharSequence[] charSequenceArr;
+        PersonPostModel.PostInfoContent postInfoContent;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (d == null) {
                 d = new LinearLayout.LayoutParams(-1, -2);
             }
             ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
-            int size = ((arrayList.size() - 1) * 3) + 1;
+            int size = ((list.size() - 1) * 3) + 1;
             int size2 = size - this.a.size();
             for (int i4 = 0; i4 < size2; i4++) {
                 TextView textView = new TextView(getContext());
@@ -190,15 +191,15 @@ public class ReplyLinearLayout extends LinearLayout {
                         } else {
                             i = i5 / 3;
                         }
-                        charSequenceArr = (String[]) arrayList.get(i);
+                        postInfoContent = list.get(i);
                         if (i5 == 0 && (i3 = i5 % 3) != 2) {
                             if (i3 == 0) {
-                                textView2.setText(charSequenceArr[4]);
+                                textView2.setText(postInfoContent.timeStr);
                             }
                         } else {
-                            textView2.setText(charSequenceArr[0]);
+                            textView2.setText(postInfoContent.contentStr);
                         }
-                        textView2.setTag(charSequenceArr);
+                        textView2.setTag(postInfoContent);
                         textView2.setOnClickListener(this.c);
                         b(textView2, i5);
                         if (i5 != 0) {
@@ -224,11 +225,11 @@ public class ReplyLinearLayout extends LinearLayout {
                         textView2.setVisibility(0);
                     }
                     i = 0;
-                    charSequenceArr = (String[]) arrayList.get(i);
+                    postInfoContent = list.get(i);
                     if (i5 == 0) {
                     }
-                    textView2.setText(charSequenceArr[0]);
-                    textView2.setTag(charSequenceArr);
+                    textView2.setText(postInfoContent.contentStr);
+                    textView2.setTag(postInfoContent);
                     textView2.setOnClickListener(this.c);
                     b(textView2, i5);
                     if (i5 != 0) {

@@ -64,12 +64,12 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m159a(Context context) {
+    public static boolean m169a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             Object a2 = bk.a(bk.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
-            Object a3 = bk.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
+            Object a3 = bk.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.p);
             if (a3 == null || !(a3 instanceof Integer)) {
                 com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
                 a = 0;

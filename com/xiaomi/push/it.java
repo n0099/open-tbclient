@@ -14,14 +14,14 @@ public class it {
     public static short a(Context context, Cif cif) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) ? a(context, cif.f633b) : invokeLL.shortValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) ? a(context, cif.f656b) : invokeLL.shortValue;
     }
 
     public static short a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return (short) (h.a(context, str, false).a() + 0 + (ak.b(context) ? 4 : 0) + (ak.a(context) ? 8 : 0) + (com.xiaomi.push.service.ax.m623a(context) ? 16 : 0));
+            return (short) (h.a(context, str, false).a() + 0 + (ak.b(context) ? 4 : 0) + (ak.a(context) ? 8 : 0) + (com.xiaomi.push.service.ax.m633a(context) ? 16 : 0));
         }
         return invokeLL.shortValue;
     }

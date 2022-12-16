@@ -1,104 +1,70 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.face.SearchEmotionModel;
+import com.baidu.tieba.pb.pb.main.PbChildTitleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v28 {
+public class v28 extends y28<g08, PbChildTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public SearchEmotionModel b;
-    public String c;
-    public SearchEmotionModel.b d;
-    public Runnable e;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v28 a;
-
-        public a(v28 v28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v28Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a.c) && this.a.d != null) {
-                if (this.a.b == null) {
-                    this.a.b = new SearchEmotionModel();
-                }
-                this.a.b.A(this.a.c, 0, 30, this.a.d);
-            }
-        }
-    }
-
-    public v28() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v28(s78 s78Var, BdUniqueId bdUniqueId) {
+        super(s78Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s78Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((s78) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.a = new Handler();
     }
 
-    public void e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: u */
+    public PbChildTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SearchEmotionModel searchEmotionModel = this.b;
-            if (searchEmotionModel != null) {
-                searchEmotionModel.cancelLoadData();
-            }
-            this.a.removeCallbacks(this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbChildTitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_child_title, viewGroup, false));
         }
+        return (PbChildTitleViewHolder) invokeL.objValue;
     }
 
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.c = "";
-                return;
-            }
-            this.a.removeCallbacks(this.e);
-            this.a.postDelayed(this.e, 300L);
-            this.c = str;
-        }
+    @Override // com.baidu.tieba.y28, com.baidu.tieba.kn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, (g08) obj, (PbChildTitleViewHolder) viewHolder);
+        return view2;
     }
 
-    public void g(SearchEmotionModel.b bVar) {
+    public View v(int i, View view2, ViewGroup viewGroup, g08 g08Var, PbChildTitleViewHolder pbChildTitleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g08Var, pbChildTitleViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) g08Var, (g08) pbChildTitleViewHolder);
+            pbChildTitleViewHolder.a(g08Var);
+            pbChildTitleViewHolder.c();
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

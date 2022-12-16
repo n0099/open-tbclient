@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RemoteAudioSamplesInterceptor;
-import com.baidu.tieba.kz9;
+import com.baidu.tieba.t2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +91,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                         }
                         MediaEncodeParams mediaEncodeParams2 = mediaEncodeParams;
                         String absolutePath = file.getAbsolutePath();
-                        EglBase.Context eglBaseContext = kz9.a().getEglBaseContext();
+                        EglBase.Context eglBaseContext = t2a.a().getEglBaseContext();
                         if (this.audioInterceptor != null) {
                             z = true;
                         } else {

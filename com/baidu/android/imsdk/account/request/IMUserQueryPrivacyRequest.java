@@ -1,13 +1,11 @@
 package com.baidu.android.imsdk.account.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatuser.request.IMUserBaseHttpRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -103,7 +101,6 @@ public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
             } catch (JSONException e) {
                 LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e);
                 i2 = 1010;
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(i2, str, i3);

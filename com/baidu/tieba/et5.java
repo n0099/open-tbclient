@@ -1,59 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
 /* loaded from: classes4.dex */
-public class et5 extends zf1<ge1> {
+public class et5 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements ge1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(et5 et5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {et5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ge1
-        public boolean a(String str, af1 af1Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, af1Var)) == null) {
-                if (ht5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash SplashHost openUrl: " + str);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str + "&extInfo=" + pe1.a));
-                    return true;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
 
     public et5() {
         Interceptable interceptable = $ic;
@@ -69,15 +28,30 @@ public class et5 extends zf1<ge1> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf1
-    /* renamed from: a */
-    public ge1 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
+            }
+            int cmd = customMessage.getCmd();
+            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
+                a45 a45Var = (a45) customMessage.getData();
+                if (cmd == 2001179) {
+                    d = gt5.f().a(a45Var);
+                } else {
+                    d = gt5.f().d(a45Var.d());
+                }
+                if (!d) {
+                    ry4 l = ry4.l();
+                    l.v("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                }
+            }
+            return null;
         }
-        return (ge1) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

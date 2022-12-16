@@ -1,42 +1,57 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class x76 implements Comparator<u66> {
+public abstract class x76 extends r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final u76 d;
 
-    public x76() {
+    public abstract void j();
+
+    public x76(u76 danmakuContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {danmakuContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
+        this.d = danmakuContext;
+    }
+
+    @Override // com.baidu.tieba.r0
+    @CallSuper
+    public void g(o0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            j();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(u66 o1, u66 o2) {
-        InterceptResult invokeLL;
+    public final u76 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o1, o2)) == null) {
-            Intrinsics.checkNotNullParameter(o1, "o1");
-            Intrinsics.checkNotNullParameter(o2, "o2");
-            return o1.compareTo(o2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return invokeLL.intValue;
+        return (u76) invokeV.objValue;
     }
 }

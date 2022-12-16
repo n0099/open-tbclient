@@ -111,7 +111,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                     str2 = str3;
                 } else {
                     String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    j2 = jSONObject.optLong("pa_uid");
+                    j2 = jSONObject.optLong(Constants.EXTRA_PAUID_TYPE);
                     str2 = jSONObject.optString("pa_avatar");
                     try {
                         str4 = jSONObject.optString("pa_nickname");

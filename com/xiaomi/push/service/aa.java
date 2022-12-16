@@ -18,7 +18,7 @@ public final class aa extends XMPushService.j {
     public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f878a;
+    public final /* synthetic */ XMPushService f901a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa(int i, XMPushService xMPushService, Cif cif) {
@@ -38,7 +38,7 @@ public final class aa extends XMPushService.j {
                 return;
             }
         }
-        this.f878a = xMPushService;
+        this.f901a = xMPushService;
         this.a = cif;
     }
 
@@ -55,16 +55,16 @@ public final class aa extends XMPushService.j {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Map<String, String> map = null;
             try {
-                if (com.xiaomi.push.m.m561a((Context) this.f878a)) {
+                if (com.xiaomi.push.m.m571a((Context) this.f901a)) {
                     try {
-                        map = ag.a((Context) this.f878a, this.a);
+                        map = ag.a((Context) this.f901a, this.a);
                     } catch (Throwable unused) {
                     }
                 }
-                ah.a(this.f878a, y.a(this.f878a, this.a, map));
+                ah.a(this.f901a, y.a(this.f901a, this.a, map));
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
-                this.f878a.a(10, e);
+                this.f901a.a(10, e);
             }
         }
     }

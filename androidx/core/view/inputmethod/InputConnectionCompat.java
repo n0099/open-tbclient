@@ -249,7 +249,7 @@ public final class InputConnectionCompat {
     /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: android.os.ResultReceiver */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v5, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r0v8 */
     public static boolean handlePerformPrivateCommand(@Nullable String str, @NonNull Bundle bundle, @NonNull OnCommitContentListener onCommitContentListener) {

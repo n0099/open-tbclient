@@ -47,8 +47,8 @@ public class ww4 implements uw4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             xw4 xw4Var = new xw4();
-            xw4Var.c(R.drawable.obfuscated_res_0x7f0806a6);
-            xw4Var.g(R.drawable.obfuscated_res_0x7f0806a7);
+            xw4Var.c(R.drawable.icon_banner_n);
+            xw4Var.g(R.drawable.icon_banner_s);
             xw4Var.h(R.dimen.obfuscated_res_0x7f070279);
             xw4Var.d(81);
             xw4Var.e(R.dimen.obfuscated_res_0x7f070279);

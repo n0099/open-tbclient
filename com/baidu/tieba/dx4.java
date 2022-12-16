@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class dx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public class dx4 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-                if (socketMessage != null && socketMessage.getSelf() != null && (socketMessage.getSelf() instanceof NetMessage) && !x45.a().c(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getSelf()).setSocketErrNo(x45.a().b());
+                if (socketMessage != null && socketMessage.getSelf() != null && (socketMessage.getSelf() instanceof NetMessage) && !y45.a().c(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getSelf()).setSocketErrNo(y45.a().b());
                     return null;
                 }
                 return socketMessage;
@@ -59,7 +59,7 @@ public class dx4 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends ob {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class dx4 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
                 if (socketResponsedMessage != null) {
-                    x45.a().e(socketResponsedMessage.getCmd());
+                    y45.a().e(socketResponsedMessage.getCmd());
                 }
                 return socketResponsedMessage;
             }
@@ -106,7 +106,7 @@ public class dx4 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class dx4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                x45.a().d(((Integer) customResponsedMessage.getData()).intValue());
+                y45.a().d(((Integer) customResponsedMessage.getData()).intValue());
             }
         }
     }

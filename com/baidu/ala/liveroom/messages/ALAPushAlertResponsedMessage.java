@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.in;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,7 +104,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return alaPushAlertResIdl;
                     }
-                    l95 k = l95.k();
+                    m95 k = m95.k();
                     in m = k.m(optString4 + 10);
                     if (m != null && m.p() != null) {
                         NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, m.p(), false);
@@ -174,7 +174,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         public void onLoaded(in inVar, String str3, int i2) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, inVar, str3, i2) == null) {
-                                                super.onLoaded((C00071) inVar, str3, i2);
+                                                super.onLoaded((C00201) inVar, str3, i2);
                                                 if (inVar != null && inVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();

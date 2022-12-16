@@ -26,7 +26,7 @@ import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0538a BU;
+    public InterfaceC0555a BU;
     public boolean BV;
     public boolean BW;
     public boolean BX;
@@ -52,12 +52,12 @@ public final class a {
     public long mLastDown;
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0538a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0555a {
         void V(boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void hI();
     }
@@ -96,7 +96,7 @@ public final class a {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091271);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0912d0);
             this.BQ = ksAdWebView;
             ksAdWebView.setBackgroundColor(-1);
             u.b bVar = new u.b();
@@ -138,7 +138,7 @@ public final class a {
                     }
                 }
             });
-            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f0910e0);
+            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09113f);
             this.mBackIcon = imageView;
             imageView.setVisibility(8);
             this.mBackIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.i.a.2
@@ -179,7 +179,7 @@ public final class a {
     public static int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d0415 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d0424 : invokeV.intValue;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -325,10 +325,10 @@ public final class a {
         }
     }
 
-    public final void a(InterfaceC0538a interfaceC0538a) {
+    public final void a(InterfaceC0555a interfaceC0555a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0538a) == null) {
-            this.BU = interfaceC0538a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0555a) == null) {
+            this.BU = interfaceC0555a;
         }
     }
 

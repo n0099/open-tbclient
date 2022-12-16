@@ -30,7 +30,7 @@ public final class a {
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000-\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0011\u0010\u0012J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010¨\u0006\u0013"}, d2 = {"com/baidu/bdtask/ctrl/repo/api/BDPTaskRepo$taskCompletedRequest$2", "Lcom/baidu/tieba/wq;", "", "errmsg", "", "statusCode", "", "onFail", "(Ljava/lang/String;I)V", "Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "parser", "onResponseParsed", "(Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;)V", "Lcom/baidu/bdtask/model/response/TaskResponseData;", "data", "onSucceed", "(Lcom/baidu/bdtask/model/response/TaskResponseData;)V", "<init>", "(Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.ctrl.repo.api.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0075a implements wq {
+    public static final class C0089a implements wq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vq a;
@@ -38,11 +38,11 @@ public final class a {
         @Override // com.baidu.tieba.wq
         public void b(xq xqVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xqVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xqVar) == null) {
             }
         }
 
-        public C0075a(vq vqVar) {
+        public C0089a(vq vqVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,9 +70,9 @@ public final class a {
         }
 
         @Override // com.baidu.tieba.wq
-        public void c(String str, int i) {
+        public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
                 this.a.onError(i, str);
                 DebugTrace.a.c(new BDPTaskRepo$taskCompletedRequest$2$onFail$1(i, str));
             }
@@ -115,7 +115,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), jSONObject, vqVar}) == null) {
             DebugTrace.a.c(new BDPTaskRepo$taskCompletedRequest$1(str, str2, i));
-            a.c(str, str2, i, "", null, jSONObject, new C0075a(vqVar));
+            a.c(str, str2, i, "", null, jSONObject, new C0089a(vqVar));
         }
     }
 }

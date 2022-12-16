@@ -89,7 +89,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     }
 
     @NonNull
-    public final TbSettingTextTipView z1() {
+    public final TbSettingTextTipView y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -123,29 +123,29 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d068f);
+            setContentView(R.layout.obfuscated_res_0x7f0d06a0);
+            v1();
             x1();
-            y1();
         }
     }
 
-    public final void x1() {
+    public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (getIntent() != null) {
                 getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092613);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0ee3));
+            navigationBar.setCenterTextTitle(getString(R.string.plugin_center));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
 
-    public final void y1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e20);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e8d);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
@@ -154,13 +154,13 @@ public class NpsPluginCenterActivity extends BaseActivity {
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
             for (BundleInfo bundleInfo : nl.e().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
-                    TbSettingTextTipView z1 = z1();
-                    z1.setText(bundleInfo.getName());
-                    z1.setTip(String.valueOf(bundleInfo.getVersionCode()));
-                    this.d.add(z1);
-                    linearLayout.addView(z1);
+                    TbSettingTextTipView y1 = y1();
+                    y1.setText(bundleInfo.getName());
+                    y1.setTip(String.valueOf(bundleInfo.getVersionCode()));
+                    this.d.add(y1);
+                    linearLayout.addView(y1);
                     if (TbadkCoreApplication.getInst().isDebugMode()) {
-                        z1.setOnClickListener(new a(this, bundleInfo));
+                        y1.setOnClickListener(new a(this, bundleInfo));
                     }
                 }
             }

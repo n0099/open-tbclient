@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.js4;
+import com.baidu.tieba.ls4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 import tbclient.PollInfo;
 import tbclient.PollOption;
 /* loaded from: classes3.dex */
-public class PollData extends js4 implements Serializable {
+public class PollData extends ls4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int endTime;
@@ -137,7 +137,7 @@ public class PollData extends js4 implements Serializable {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.js4
+    @Override // com.baidu.tieba.ls4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {

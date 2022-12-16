@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a59;
-import com.baidu.tieba.e49;
-import com.baidu.tieba.g49;
-import com.baidu.tieba.qf5;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.i89;
+import com.baidu.tieba.ig5;
+import com.baidu.tieba.j89;
+import com.baidu.tieba.n79;
+import com.baidu.tieba.p79;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.write.util.PhotoType;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.z49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,8 +42,8 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity a;
-    public e49 b;
-    public g49 c;
+    public n79 b;
+    public p79 c;
     public AlbumImagePagerAdapter d;
     public View e;
     public ImageView f;
@@ -86,29 +86,29 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != this.a.h && view2 == this.a.g && this.a.d != null && this.a.b != null && this.a.a != null) {
                 if (this.a.b.p()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f025b);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f025f);
                 } else if (!this.a.d.c(this.a.m)) {
                 } else {
                     ImageFileInfo b = this.a.d.b(this.a.m);
-                    if (b != null && z49.a(b.getFilePath()) == PhotoType.APNG) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cdb);
-                    } else if (a59.a(b)) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0259);
-                    } else if (a59.b(b)) {
-                        this.a.a.showToast(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f025a), Integer.valueOf(qy4.k().l("key_upload_pic_max_width", 0)), Integer.valueOf(qy4.k().l("key_upload_pic_max_height", 0))));
+                    if (b != null && i89.a(b.getFilePath()) == PhotoType.APNG) {
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d12);
+                    } else if (j89.a(b)) {
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f025c);
+                    } else if (j89.b(b)) {
+                        this.a.a.showToast(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f025e), Integer.valueOf(ry4.l().m("key_upload_pic_max_width", 0)), Integer.valueOf(ry4.l().m("key_upload_pic_max_height", 0))));
                     } else {
                         if (this.a.b.n(b)) {
                             if (this.a.c.k(b)) {
                                 AlbumImageBrowseFragment albumImageBrowseFragment = this.a;
-                                albumImageBrowseFragment.H1(albumImageBrowseFragment.g, false);
+                                albumImageBrowseFragment.N1(albumImageBrowseFragment.g, false);
                                 this.a.c.O(b, false);
                             }
                         } else if (this.a.c.d(b)) {
                             AlbumImageBrowseFragment albumImageBrowseFragment2 = this.a;
-                            albumImageBrowseFragment2.H1(albumImageBrowseFragment2.g, true);
+                            albumImageBrowseFragment2.N1(albumImageBrowseFragment2.g, true);
                             this.a.c.O(b, true);
                         }
-                        this.a.C1();
+                        this.a.I1();
                     }
                 }
             }
@@ -165,10 +165,10 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                 boolean z = true;
                 if (this.a.b.n(b)) {
                     AlbumImageBrowseFragment albumImageBrowseFragment = this.a;
-                    albumImageBrowseFragment.H1(albumImageBrowseFragment.g, true);
+                    albumImageBrowseFragment.N1(albumImageBrowseFragment.g, true);
                 } else {
                     AlbumImageBrowseFragment albumImageBrowseFragment2 = this.a;
-                    albumImageBrowseFragment2.H1(albumImageBrowseFragment2.g, false);
+                    albumImageBrowseFragment2.N1(albumImageBrowseFragment2.g, false);
                 }
                 if (this.a.b != null && this.a.b.m() != null) {
                     z = this.a.b.m().isEnableChooseOriginalImg();
@@ -181,7 +181,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                     this.a.j.setVisibility(0);
                 }
                 AlbumImageBrowseFragment albumImageBrowseFragment3 = this.a;
-                albumImageBrowseFragment3.J1(albumImageBrowseFragment3.b.s());
+                albumImageBrowseFragment3.P1(albumImageBrowseFragment3.b.s());
             }
         }
     }
@@ -204,10 +204,10 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         this.o = new b(this);
     }
 
-    public void K1(g49 g49Var) {
+    public void Q1(p79 p79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g49Var) == null) {
-            this.c = g49Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, p79Var) == null) {
+            this.c = p79Var;
         }
     }
 
@@ -223,14 +223,14 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         }
     }
 
-    public final void C1() {
+    public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c.P();
         }
     }
 
-    public View D1() {
+    public View J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -239,7 +239,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         return (View) invokeV.objValue;
     }
 
-    public View E1() {
+    public View K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -248,7 +248,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         return (View) invokeV.objValue;
     }
 
-    public View F1() {
+    public View L1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -265,30 +265,30 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             if (!isShow()) {
                 return;
             }
-            t();
+            u();
         }
     }
 
-    public final void t() {
+    public final void u() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !isHidden()) {
             this.k.setVisibility(8);
             this.l.setVisibility(0);
-            G1();
+            M1();
         }
     }
 
-    public final void G1() {
+    public final void M1() {
         List<ImageFileInfo> i;
         int j;
-        g49 g49Var;
+        p79 p79Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.b == null && (g49Var = this.c) != null) {
-                this.b = g49Var.u();
+            if (this.b == null && (p79Var = this.c) != null) {
+                this.b = p79Var.u();
             }
-            e49 e49Var = this.b;
-            if (e49Var != null && (i = e49Var.i()) != null && (j = this.b.j()) >= 0) {
+            n79 n79Var = this.b;
+            if (n79Var != null && (i = n79Var.i()) != null && (j = this.b.j()) >= 0) {
                 this.m = j;
                 AlbumImagePagerAdapter albumImagePagerAdapter = new AlbumImagePagerAdapter(this.a);
                 this.d = albumImagePagerAdapter;
@@ -298,12 +298,12 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(i, i2);
                     boolean z = true;
                     if (this.b.n(imageFileInfo)) {
-                        H1(this.g, true);
+                        N1(this.g, true);
                     } else {
-                        H1(this.g, false);
+                        N1(this.g, false);
                     }
-                    e49 e49Var2 = this.b;
-                    if (e49Var2 != null && e49Var2.m() != null) {
+                    n79 n79Var2 = this.b;
+                    if (n79Var2 != null && n79Var2.m() != null) {
                         z = this.b.m().isEnableChooseOriginalImg();
                     }
                     if (!z) {
@@ -316,36 +316,36 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                 }
                 this.d.d(i);
                 this.l.setCurrentItem(this.m, false);
-                J1(this.b.s());
+                P1(this.b.s());
             }
         }
     }
 
-    public final void H1(ImageView imageView, boolean z) {
+    public final void N1(ImageView imageView, boolean z) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048581, this, imageView, z) == null) && imageView != null && this.a != null) {
             if (z) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a17, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             } else {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a16, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
             }
             if (this.i != null) {
-                e49 e49Var = this.b;
+                n79 n79Var = this.b;
                 boolean z2 = false;
-                if (e49Var != null) {
-                    i = ListUtils.getCount(e49Var.g());
+                if (n79Var != null) {
+                    i = ListUtils.getCount(n79Var.g());
                 } else {
                     i = 0;
                 }
-                e49 e49Var2 = this.b;
-                if (e49Var2 != null) {
-                    i2 = e49Var2.l();
+                n79 n79Var2 = this.b;
+                if (n79Var2 != null) {
+                    i2 = n79Var2.l();
                 } else {
                     i2 = 1;
                 }
-                this.i.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0905, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
+                this.i.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0938, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
                 TBSpecificationBtn tBSpecificationBtn = this.i;
                 if (i > 0) {
                     z2 = true;
@@ -355,16 +355,16 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         }
     }
 
-    public void I1(ImageFileInfo imageFileInfo, boolean z) {
+    public void O1(ImageFileInfo imageFileInfo, boolean z) {
         AlbumImagePagerAdapter albumImagePagerAdapter;
         ImageFileInfo b2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048582, this, imageFileInfo, z) == null) && imageFileInfo != null && imageFileInfo.getFilePath() != null && (albumImagePagerAdapter = this.d) != null && (b2 = albumImagePagerAdapter.b(this.m)) != null && b2.getFilePath() != null && b2.getFilePath().equals(imageFileInfo.getFilePath())) {
-            H1(this.g, z);
+            N1(this.g, z);
         }
     }
 
-    public void J1(boolean z) {
+    public void P1(boolean z) {
         long j;
         ImageFileInfo b2;
         Interceptable interceptable = $ic;
@@ -375,7 +375,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             } else {
                 j = 0;
             }
-            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d56);
+            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d8d);
             if (z) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(string);
@@ -387,12 +387,12 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                 String sb2 = sb.toString();
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
                 this.j.setText(sb2);
-                this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080985, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.icon_pure_image_ok_select16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
                 return;
             }
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
             this.j.setText(string);
-            this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080986, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.icon_pure_image_ok_selection16, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 
@@ -401,11 +401,11 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            qf5.a(getPageContext(), this.e);
+            ig5.a(getPageContext(), this.e);
             SkinManager.setNavbarIconSrc(this.f, R.drawable.icon_return_bg_s, R.drawable.icon_return_bg, i);
-            e49 e49Var = this.b;
-            if (e49Var != null) {
-                J1(e49Var.s());
+            n79 n79Var = this.b;
+            if (n79Var != null) {
+                P1(n79Var.s());
             }
             AlbumImagePagerAdapter albumImagePagerAdapter = this.d;
             if (albumImagePagerAdapter != null) {
@@ -429,9 +429,9 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                     this.c = ((AlbumActivity) baseFragmentActivity).a;
                 }
             }
-            g49 g49Var = this.c;
-            if (g49Var != null) {
-                this.b = g49Var.u();
+            p79 p79Var = this.c;
+            if (p79Var != null) {
+                this.b = p79Var.u();
             }
         }
     }
@@ -452,19 +452,19 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                     this.c = ((AlbumActivity) baseFragmentActivity).a;
                 }
             }
-            g49 g49Var = this.c;
-            if (g49Var != null) {
-                this.b = g49Var.u();
+            p79 p79Var = this.c;
+            if (p79Var != null) {
+                this.b = p79Var.u();
             }
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0118, (ViewGroup) null);
             this.e = inflate;
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ef9);
-            this.g = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090f06);
-            this.l = (ViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0925eb);
+            this.f = (ImageView) inflate.findViewById(R.id.img_back);
+            this.g = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090f61);
+            this.l = (ViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09265f);
             this.k = this.e.findViewById(R.id.obfuscated_res_0x7f090263);
-            this.j = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09179a);
-            this.h = this.e.findViewById(R.id.obfuscated_res_0x7f0912ac);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f0916f2);
+            this.j = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091803);
+            this.h = this.e.findViewById(R.id.obfuscated_res_0x7f09130b);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091757);
             this.i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             this.i.getStyleConfig().l(yi.g(this.a, R.dimen.tbds25));
@@ -475,8 +475,8 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             this.h.setOnClickListener(this.n);
             this.l.setOnPageChangeListener(this.o);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            e49 e49Var = this.b;
-            if (e49Var != null && e49Var.m() != null) {
+            n79 n79Var = this.b;
+            if (n79Var != null && n79Var.m() != null) {
                 TextView textView = this.j;
                 if (this.b.m().isEnableChooseOriginalImg()) {
                     i2 = 0;

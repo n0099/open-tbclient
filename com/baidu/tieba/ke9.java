@@ -1,64 +1,9 @@
 package com.baidu.tieba;
+/* loaded from: classes5.dex */
+public interface ke9 {
+    void a(long j);
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ie9;
-import com.baidu.tieba.le9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
-public final class ke9 implements ie9.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    void b(Exception exc, long j);
 
-    @Override // com.baidu.tieba.ie9.a
-    public final void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ie9.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public ke9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ie9.a
-    public final void a(Activity activity) {
-        le9 le9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            le9Var = le9.a.a;
-            le9Var.c(new WeakReference<>(activity));
-        }
-    }
-
-    @Override // com.baidu.tieba.ie9.a
-    public final void onActivityDestroyed(Activity activity) {
-        le9 le9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            le9Var = le9.a.a;
-            le9Var.d(activity);
-        }
-    }
+    void onComplete(long j);
 }

@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.on5;
+import com.baidu.tieba.hd9;
+import com.baidu.tieba.jo5;
+import com.baidu.tieba.kg5;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.rn8;
-import com.baidu.tieba.sf5;
+import com.baidu.tieba.qq8;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResMessage;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassSocketResMessage;
-import com.baidu.tieba.y99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     public String s;
     public String t;
     public boolean u;
-    public y99 v;
+    public hd9 v;
     public qb w;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -64,12 +64,12 @@ public class SelectClassDialogActivity extends SuspendedActivity {
 
         /* renamed from: com.baidu.tieba.write.write.work.classdialog.SelectClassDialogActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0467a implements View.OnClickListener {
+        public class View$OnClickListenerC0478a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0467a(a aVar) {
+            public View$OnClickListenerC0478a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             }
             if (responsedMessage.hasError()) {
                 SelectClassDialogActivity selectClassDialogActivity = this.a;
-                selectClassDialogActivity.showNetRefreshView(selectClassDialogActivity.l, null, this.a.getString(R.string.obfuscated_res_0x7f0f0498), null, true, new View$OnClickListenerC0467a(this));
+                selectClassDialogActivity.showNetRefreshView(selectClassDialogActivity.l, null, this.a.getString(R.string.obfuscated_res_0x7f0f049e), null, true, new View$OnClickListenerC0478a(this));
                 this.a.setNetRefreshViewEmotionMarginTop(UtilHelper.getDimenPixelSize(R.dimen.tbds0));
                 return;
             }
@@ -193,7 +193,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921601, this.a.a.v.a(this.a.a.q, this.a.a.r)));
-                    this.a.a.M0();
+                    this.a.a.L0();
                 }
             }
         }
@@ -224,17 +224,17 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             }
             if (this.a.u && this.a.o > 0 && (this.a.o != this.a.q || this.a.p != this.a.r)) {
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getPageContext().getPageActivity());
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f113a);
-                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1139);
-                tBAlertBuilder.m(true);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0440, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-                tBAlertBuilder.g();
-                tBAlertBuilder.h(false);
-                tBAlertBuilder.w();
+                tBAlertBuilder.v(R.string.obfuscated_res_0x7f0f1172);
+                tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f1171);
+                tBAlertBuilder.o(true);
+                tBAlertBuilder.t(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0501, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0446, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                tBAlertBuilder.i();
+                tBAlertBuilder.j(false);
+                tBAlertBuilder.y();
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921601, this.a.v.a(this.a.q, this.a.r)));
-            this.a.M0();
+            this.a.L0();
         }
     }
 
@@ -276,7 +276,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements on5 {
+    public class c implements jo5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectClassDialogActivity a;
@@ -299,7 +299,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             this.a = selectClassDialogActivity;
         }
 
-        @Override // com.baidu.tieba.on5
+        @Override // com.baidu.tieba.jo5
         public void a(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
@@ -309,15 +309,15 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                 String str2 = this.a.v.c().get(i).get(i2);
                 if ((i != 0 || i2 != 0) && (!str.equals(this.a.s) || !str2.equals(this.a.t))) {
                     this.a.n = true;
-                    qw4.d(this.a.k).x(R.color.CAM_X0302);
+                    rw4.d(this.a.k).x(R.color.CAM_X0302);
                 } else {
                     this.a.n = false;
-                    this.a.k.setTextColor(rn8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                    this.a.k.setTextColor(qq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     if (str.equals(this.a.s) && str2.equals(this.a.t)) {
                         this.a.s = "";
                         this.a.t = "";
                         this.a.n = true;
-                        qw4.d(this.a.k).x(R.color.CAM_X0302);
+                        rw4.d(this.a.k).x(R.color.CAM_X0302);
                     }
                 }
                 this.a.q = i;
@@ -356,7 +356,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.M0();
+            this.a.L0();
         }
     }
 
@@ -388,7 +388,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public View.OnClickListener R0() {
+    public View.OnClickListener P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -413,20 +413,20 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public sf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public kg5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, navigationBar)) == null) {
             this.l = linearLayout;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f113b));
-            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0510));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1173));
+            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0518));
             this.k = addTextButton;
             addTextButton.setOnClickListener(new d(this));
             SelectClassDialogView selectClassDialogView = new SelectClassDialogView(linearLayout, this);
             this.m = selectClassDialogView;
             return selectClassDialogView;
         }
-        return (sf5) invokeLL.objValue;
+        return (kg5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -435,9 +435,9 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.n) {
-                qw4.d(this.k).x(R.color.CAM_X0302);
+                rw4.d(this.k).x(R.color.CAM_X0302);
             } else {
-                this.k.setTextColor(rn8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.k.setTextColor(qq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -447,7 +447,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.v = new y99(getUniqueId());
+            this.v = new hd9(getUniqueId());
             this.w.getHttpMessageListener().setSelfListener(true);
             this.w.getSocketMessageListener().setSelfListener(true);
             registerListener(this.w);
@@ -455,7 +455,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                 this.v.e();
                 showLoadingView(this.l, true, UtilHelper.getDimenPixelSize(R.dimen.tbds232));
             } else {
-                showNetRefreshView(this.l, null, getString(R.string.obfuscated_res_0x7f0f0498), null, true, new b(this));
+                showNetRefreshView(this.l, null, getString(R.string.obfuscated_res_0x7f0f049e), null, true, new b(this));
                 setNetRefreshViewEmotionMarginTop(UtilHelper.getDimenPixelSize(R.dimen.tbds0));
             }
             this.s = getIntent().getStringExtra(SelectClassDialogActivityConfig.SELECT_INIT_FIRST_OPTION);

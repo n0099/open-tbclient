@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ry extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout h;
     public BjhArticleLayout i;
-    public tr4 j;
+    public vr4 j;
     public int k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,13 +79,13 @@ public class ry extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(m46<tr4> m46Var) {
+    public void p(h56<vr4> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, m46Var) == null) {
-            super.p(m46Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h56Var) == null) {
+            super.p(h56Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(m46Var);
+                bjhArticleLayout.setSubClickListener(h56Var);
             }
         }
     }
@@ -93,13 +93,13 @@ public class ry extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: x */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tr4Var) == null) {
-            this.j = tr4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vr4Var) == null) {
+            this.j = vr4Var;
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.a(tr4Var);
+                bjhArticleLayout.a(vr4Var);
             }
         }
     }

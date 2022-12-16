@@ -31,7 +31,7 @@ public interface ControllerListener2<INFO> {
         @Nullable
 
         /* renamed from: view  reason: collision with root package name */
-        public Map<String, Object> f1069view;
+        public Map<String, Object> f1094view;
 
         public Extras() {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public interface ControllerListener2<INFO> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "pipe: " + this.pipe + ", view: " + this.f1069view;
+                return "pipe: " + this.pipe + ", view: " + this.f1094view;
             }
             return (String) invokeV.objValue;
         }
@@ -62,7 +62,7 @@ public interface ControllerListener2<INFO> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, map2)) == null) {
                 Extras extras = new Extras();
                 extras.pipe = map;
-                extras.f1069view = map2;
+                extras.f1094view = map2;
                 return extras;
             }
             return (Extras) invokeLL.objValue;

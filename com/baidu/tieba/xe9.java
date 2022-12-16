@@ -1,16 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
 /* loaded from: classes6.dex */
-public abstract class xe9 implements Runnable {
+public class xe9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a();
+    public ef9 a;
+    public HashSet<String> b;
+    public HashSet<String> c;
+    public HashSet<String> d;
+    public HashSet<String> e;
+    public HashSet<String> f;
+    public HashSet<String> g;
+    public HashMap<String, Integer> h;
+    public HashMap<String, String> i;
+    public HashMap<String, df9> j;
+    public HashSet<String> k;
+    public HashSet<String> l;
+    public HashMap<String, Integer> m;
+    public HashMap<String, Integer> n;
+    public HashMap<String, Integer> o;
 
     public xe9() {
         Interceptable interceptable = $ic;
@@ -22,22 +36,23 @@ public abstract class xe9 implements Runnable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                a();
-            } catch (Exception e) {
-                df9.e(e);
-                if (e.getMessage() != null) {
-                    ve9.b(e.getMessage());
-                }
-            }
-        }
+        this.a = new ef9();
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashSet<>();
+        this.g = new HashSet<>();
+        this.h = new HashMap<>();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashSet<>();
+        this.l = new HashSet<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
     }
 }

@@ -36,9 +36,9 @@ import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeServi
 import com.baidu.searchbox.live.nps.util.SchemeParamsParseUtils;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s91;
+import com.baidu.tieba.r91;
+import com.baidu.tieba.t91;
 import com.baidu.tieba.u91;
-import com.baidu.tieba.v91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -389,19 +389,19 @@ public class LiveYYPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65561, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new s91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
 
-                @Override // com.baidu.tieba.s91
+                @Override // com.baidu.tieba.r91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.s91
+                @Override // com.baidu.tieba.r91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -425,7 +425,7 @@ public class LiveYYPluginManager {
                     }
                     this.this$0 = this;
                 }
-            }, new u91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
+            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -448,11 +448,11 @@ public class LiveYYPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.u91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, v91 v91Var) {
+                @Override // com.baidu.tieba.t91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, v91Var) == null) && v91Var != null) {
-                        v91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
+                        u91Var.onResult(1);
                     }
                 }
             }, 1);

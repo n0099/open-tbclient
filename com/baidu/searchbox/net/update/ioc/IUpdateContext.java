@@ -2,7 +2,7 @@ package com.baidu.searchbox.net.update.ioc;
 
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IUpdateContext {
     void doStatistics(int i, JSONObject jSONObject);
 

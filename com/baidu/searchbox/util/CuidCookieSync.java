@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CuidCookieSync {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

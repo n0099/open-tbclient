@@ -32,19 +32,28 @@ public class TbRichTextVoiceInfo extends OrmObject {
         }
     }
 
-    public String A() {
+    public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public Object B() {
+    public Object I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
         return invokeV.objValue;
@@ -53,17 +62,8 @@ public class TbRichTextVoiceInfo extends OrmObject {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return invokeV.intValue;
     }
@@ -114,9 +114,9 @@ public class TbRichTextVoiceInfo extends OrmObject {
         this.c = pbContent.is_sub.intValue();
     }
 
-    public void C(Object obj) {
+    public void J(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             this.d = obj;
         }
     }

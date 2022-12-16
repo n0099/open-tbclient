@@ -29,22 +29,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.kwad.sdk.g.a {
     public static AtomicBoolean SW = new AtomicBoolean(false);
     public static volatile Message SX;
-    public HandlerC0605a SU = new HandlerC0605a((byte) 0);
+    public HandlerC0622a SU = new HandlerC0622a((byte) 0);
     public Messenger SV = new Messenger(this.SU);
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class HandlerC0605a extends Handler {
+    /* loaded from: classes8.dex */
+    public static class HandlerC0622a extends Handler {
         public WeakReference<Service> SZ;
 
-        public HandlerC0605a() {
+        public HandlerC0622a() {
         }
 
-        public /* synthetic */ HandlerC0605a(byte b) {
+        public /* synthetic */ HandlerC0622a(byte b) {
             this();
         }
 

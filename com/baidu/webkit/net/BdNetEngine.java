@@ -9,6 +9,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,6 @@ import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.sdk.Log;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -510,7 +510,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                 stringBuffer.append(entry2.getKey().trim());
                 stringBuffer.append("=");
                 stringBuffer.append(entry2.getValue().trim());
-                stringBuffer.append(ParamableElem.DIVIDE_PARAM);
+                stringBuffer.append(";");
             }
             if (stringBuffer.length() > 0) {
                 stringBuffer.setLength(stringBuffer.length() - 1);
@@ -556,8 +556,8 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
                             try {
-                                if (!TextUtils.isEmpty(str) && (str.equals("180.76.76.112") || str.equals("240c:4006::6666"))) {
-                                    str = "httpsdns.baidu.com";
+                                if (!TextUtils.isEmpty(str) && (str.equals(DnsTransmitter.BGP_IP) || str.equals("240c:4006::6666"))) {
+                                    str = DnsTransmitter.IDC_HOST;
                                 }
                                 X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
                                 return BdNetEngine.verifyAsIpAddress(str) ? BdNetEngine.verifyIpAddress(str, x509Certificate) : BdNetEngine.verifyHostName(str, x509Certificate);

@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.vu8;
-import com.baidu.tieba.xv8;
+import com.baidu.tieba.tr8;
+import com.baidu.tieba.xx8;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +22,13 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public xv8 b;
-    public List<vu8> c;
+    public zy8 b;
+    public List<xx8> c;
     public qb d;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, xv8 xv8Var, List<vu8> list);
+        void a(int i, String str, zy8 zy8Var, List<xx8> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -117,14 +117,14 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         registerListener(this.d);
     }
 
-    public void G(b bVar) {
+    public void N(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public List<vu8> E() {
+    public List<xx8> L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -133,7 +133,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         return (List) invokeV.objValue;
     }
 
-    public void F() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.d);
@@ -154,8 +154,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            uo8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
-            uo8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+            tr8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+            tr8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
         }
     }
 }

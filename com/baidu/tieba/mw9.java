@@ -1,15 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.http.GetRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.comm.constants.Constants;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class mw9 {
+public class mw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final int[] b;
+    public static final rq9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,8 +46,197 @@ public final class mw9 {
                 return;
             }
         }
-        a = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12, 16, 12, 12, 20, 12, 16, 24, 28, 12, 12, 32, 12, 36, 12, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 32, 32, 24, 40, 28, 12, 12, 48, 52, 52, 52, 48, 52, 52, 52, 48, 52, 52, 52, 52, 52, 48, 52, 52, 52, 52, 52, 48, 52, 52, 52, 52, 52, 24, 12, 28, 12, 12, 12, 56, 60, 60, 60, 56, 60, 60, 60, 56, 60, 60, 60, 60, 60, 56, 60, 60, 60, 60, 60, 56, 60, 60, 60, 60, 60, 24, 12, 28, 12, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 
-        40, 40, 40, 40, 40, 40, 40, 40, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 56, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 22, 22, 22, 22, 23, 23, 23, 23, 24, 24, 24, 24, 25, 25, 25, 25, 26, 26, 26, 26, 27, 27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 29, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48, 48, 49, 49, 49, 49, 50, 50, 50, 50, 51, 51, 51, 51, 52, 52, 52, 52, 53, 53, 53, 53, 54, 54, 54, 54, 55, 55, 55, 55, 56, 56, 56, 56, 57, 57, 57, 57, 58, 58, 58, 58, 59, 59, 59, 59, 60, 60, 60, 60, 61, 61, 61, 61, 62, 62, 62, 62, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        b = new int[]{1024, 1536, 1280, 1536, 0, 256, 768, 512};
+        a = new rq9();
+        HandlerThread handlerThread = new HandlerThread("pull_pid_cpm");
+        handlerThread.start();
+        new a(handlerThread.getLooper());
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:53:0x011d  */
+        /* JADX WARN: Removed duplicated region for block: B:61:0x014c  */
+        @Override // android.os.Handler
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void handleMessage(@NonNull Message message) {
+            boolean z;
+            long j;
+            double d;
+            int i;
+            Response perform;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i2 = message.what;
+                long j2 = 0;
+                boolean z2 = false;
+                if (i2 != 100) {
+                    if (i2 == 101) {
+                        rq9 rq9Var = mw9.a;
+                        synchronized (rq9Var) {
+                            LogPrinter.d("new dey", new Object[0]);
+                            double a = jr9.a();
+                            jr9.b.clear().apply();
+                            rq9Var.a.clear();
+                            if (a > 0.0d) {
+                                hr9.d(hr9.m() + a);
+                            }
+                        }
+                        Calendar calendar = Calendar.getInstance();
+                        long timeInMillis = calendar.getTimeInMillis();
+                        calendar.add(6, 1);
+                        calendar.set(11, 0);
+                        calendar.set(12, 0);
+                        calendar.set(13, 0);
+                        long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
+                        if (timeInMillis2 >= 0) {
+                            j2 = timeInMillis2;
+                        }
+                        sendEmptyMessageDelayed(101, j2);
+                        return;
+                    }
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    HostAppInfo.fillReqParams(jSONObject);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        hashMap.put(next, jSONObject.get(next));
+                    }
+                } catch (JSONException unused) {
+                }
+                try {
+                    perform = new GetRequest("https://cd.xdplt.com/v2/pr", new RequestParams(hashMap)).perform();
+                } catch (IOException | JSONException e) {
+                    LogPrinter.d("cpm exception:" + e, new Object[0]);
+                    LogPrinter.e(e);
+                }
+                if (perform != null && perform.getResponseCode() == 200) {
+                    JSONObject jSONObject2 = new JSONObject(perform.getContent());
+                    if (jSONObject2.getInt(Constants.KEYS.RET) == 200) {
+                        jr9.a.edit().putLong("key_cpm_update_date", Calendar.getInstance().getTimeInMillis()).putString("key_ad_cpmcfg", jSONObject2.getJSONObject("data").getJSONArray("cpm").toString()).apply();
+                        z = true;
+                        if (!z) {
+                        }
+                    } else {
+                        z = false;
+                        if (!z) {
+                            int i3 = message.arg1;
+                            LogPrinter.d("ad cpm config pull times = %1s", Integer.valueOf(i3));
+                            if (i3 == 0) {
+                                i = 10;
+                            } else if (i3 <= 2) {
+                                i = i3 * 5 * 60;
+                            } else {
+                                i = 3600;
+                            }
+                            Message obtainMessage = obtainMessage(100);
+                            obtainMessage.arg1 = i3 + 1;
+                            sendMessageDelayed(obtainMessage, i * 1000);
+                            return;
+                        }
+                        rq9 rq9Var2 = mw9.a;
+                        synchronized (rq9Var2) {
+                            rq9Var2.a.clear();
+                            try {
+                                JSONArray jSONArray = new JSONArray(jr9.a.getString("key_ad_cpmcfg", ""));
+                                if (jSONArray.length() >= 1) {
+                                    double m = hr9.m();
+                                    double a2 = jr9.a();
+                                    HashMap hashMap2 = new HashMap();
+                                    boolean z3 = false;
+                                    for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                                        JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
+                                        String string = jSONObject3.getString("aid");
+                                        double d2 = jSONObject3.getDouble("cpm");
+                                        LogPrinter.d("update Cpm:" + string, new Object[0]);
+                                        hashMap2.put(string, Double.valueOf(d2));
+                                        int i5 = jr9.a.getInt(string, 0);
+                                        LogPrinter.d("need adjust aid count:" + i5, new Object[0]);
+                                        if (i5 != 0) {
+                                            a2 -= jr9.b(string);
+                                            m += i5 * d2;
+                                            jr9.b.remove(string).remove(string + "_");
+                                            z3 = true;
+                                        }
+                                    }
+                                    rq9Var2.a.putAll(hashMap2);
+                                    if (z3) {
+                                        LogPrinter.d("update totalPrice&totalPriceByBasePrice", new Object[0]);
+                                        if (a2 < 0.0d) {
+                                            d = 0.0d;
+                                        } else {
+                                            d = a2;
+                                        }
+                                        SharedPreferences.Editor editor = jr9.b;
+                                        editor.putLong("key_price_by_baseprice", Double.doubleToRawLongBits(d));
+                                        editor.apply();
+                                        hr9.d(m);
+                                    }
+                                }
+                            } catch (JSONException unused2) {
+                                rq9Var2.a.clear();
+                            }
+                        }
+                        Calendar calendar2 = Calendar.getInstance();
+                        Random random = new Random();
+                        long timeInMillis3 = calendar2.getTimeInMillis();
+                        int nextInt = random.nextInt(30);
+                        calendar2.set(11, 1);
+                        calendar2.set(12, nextInt);
+                        Calendar calendar3 = Calendar.getInstance();
+                        int i6 = calendar3.get(6);
+                        int i7 = calendar3.get(1);
+                        calendar3.setTimeInMillis(jr9.a.getLong("key_cpm_update_date", 0L));
+                        int i8 = calendar3.get(6);
+                        if (i7 == calendar3.get(1) && i6 == i8) {
+                            z2 = true;
+                        }
+                        if (z2) {
+                            calendar2.add(6, 1);
+                        }
+                        long timeInMillis4 = calendar2.getTimeInMillis() - timeInMillis3;
+                        if (timeInMillis4 < 0) {
+                            j = 0;
+                        } else {
+                            j = timeInMillis4;
+                        }
+                        sendEmptyMessageDelayed(100, j);
+                        return;
+                    }
+                }
+                LogPrinter.d("cpm fail:", new Object[0]);
+                z = false;
+                if (!z) {
+                }
+            }
+        }
     }
 }

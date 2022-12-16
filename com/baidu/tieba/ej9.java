@@ -1,252 +1,325 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-/* loaded from: classes3.dex */
-public class ej9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class ej9 implements gj9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public dj9 a;
+    public b b;
+    public Thread c;
+    public List<gj9> d;
+    public int e;
+    public int f;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (xj9.a(str)) {
-                return null;
-            }
-            byte[] decode = Base64.decode(str, 0);
-            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ej9 a;
 
-    public static Bitmap f(String str) {
-        FileInputStream fileInputStream;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                fileInputStream = new FileInputStream(str);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                fileInputStream = null;
-            }
-            return BitmapFactory.decodeStream(fileInputStream);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static int b(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 > i2 && i7 / i5 > i) {
-                    i5 *= 2;
+        public a(ej9 ej9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ej9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return i5;
+            this.a = ej9Var;
         }
-        return invokeLII.intValue;
-    }
 
-    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(compressFormat, i, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
-
-    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
-            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap e(String str, int i, int i2, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
-            if (!FileUtils.isExists(str)) {
-                return null;
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            options.inSampleSize = b(options, i, i2);
-            options.inJustDecodeBounds = false;
-            Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
-            if (f % 360.0f == 0.0f) {
-                return decodeFile;
-            }
-            if (decodeFile == null) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postRotate(f);
-            Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
-            decodeFile.recycle();
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i > 0 && i2 > 0 && bitmap != null && !bitmap.isRecycled()) {
-                boolean z3 = true;
-                if (bitmap.getWidth() > bitmap.getHeight()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ej9 ej9Var = this.a;
+                if (ej9Var.j(ej9Var.a)) {
+                    if (rm9.e(this.a.d)) {
+                        this.a.m(" start mix chains error:mMixtureChains empty ");
+                        return;
+                    } else {
+                        ((gj9) this.a.d.get(0)).d(this.a.a);
+                        return;
+                    }
                 }
-                if (i <= i2) {
-                    z3 = false;
-                }
-                if (z2 != z3) {
-                    i2 = i;
-                    i = i2;
-                }
-                if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
-                    return i(bitmap, i, i2, z);
-                }
-                return bitmap;
+                ej9 ej9Var2 = this.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append(" start mix chains error:initChainConfig ");
+                sb.append(this.a.a == null);
+                ej9Var2.m(sb.toString());
             }
-            return bitmap;
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onAudioMixtureCancel();
+
+        void onAudioMixtureFail(String str);
+
+        void onAudioMixtureProgress(int i);
+
+        void onAudioMixtureSuccess(cj9 cj9Var);
+    }
+
+    public ej9(dj9 dj9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                Matrix matrix = new Matrix();
-                matrix.postScale(i / width, i2 / height);
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                    bitmap.recycle();
-                }
-                return createBitmap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dj9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (Bitmap) invokeCommon.objValue;
+        this.a = dj9Var;
+        this.d = new ArrayList();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.gj9.a
+    public void a(gj9 gj9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gj9Var) == null) {
+            l();
+        }
+    }
+
+    @Override // com.baidu.tieba.gj9.a
+    public void b(gj9 gj9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gj9Var) == null) {
+            int k = this.e + gj9Var.k();
+            this.e = k;
+            n(k);
+            if (gj9Var == null || !gj9Var.m()) {
+                return;
+            }
+            cj9 k2 = k(gj9Var.n());
+            if (k2 != null) {
+                o(k2);
+            } else {
+                m("onChainFinished result error");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gj9.a
+    public void c(int i, int i2) {
         int i3;
-        int i4;
-        int i5;
-        int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                if (width == 0 || height == 0 || i == 0 || i2 == 0) {
-                    return bitmap;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (i3 = (int) (this.e + (((i * 1.0f) / 100.0f) * i2))) <= this.f) {
+            return;
+        }
+        n(i3);
+        this.f = i3;
+    }
+
+    @Override // com.baidu.tieba.gj9.a
+    public void d(String str, gj9 gj9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, gj9Var) == null) {
+            m(str);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!rm9.e(this.d)) {
+                for (gj9 gj9Var : this.d) {
+                    gj9Var.b();
                 }
-                float f = width;
-                float f2 = height;
-                float f3 = (f * 1.0f) / f2;
-                float f4 = i * 1.0f;
-                float f5 = i2;
-                float f6 = f4 / f5;
-                if (Math.abs(f3 - f6) < 0.01d) {
-                    i4 = width;
-                } else if (f3 > f6) {
-                    i4 = (i * height) / i2;
-                } else {
-                    i3 = (i2 * width) / i;
-                    i4 = width;
-                    if (width <= i4) {
-                        i5 = (width - i4) / 2;
-                    } else {
-                        i5 = 0;
+            }
+            Thread thread = this.c;
+            if (thread != null) {
+                thread.interrupt();
+            }
+        }
+    }
+
+    public final boolean j(dj9 dj9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, dj9Var)) == null) {
+            if (dj9Var == null || rm9.e(dj9Var.c())) {
+                return false;
+            }
+            List<fj9> c = dj9Var.c();
+            cj9 cj9Var = null;
+            boolean z = false;
+            boolean z2 = false;
+            boolean z3 = false;
+            int i = 0;
+            for (int i2 = 0; i2 < c.size(); i2++) {
+                if (lj9.o(c.get(i2).b())) {
+                    z = true;
+                }
+                if (!rm9.e(c.get(i2).a())) {
+                    for (bj9 bj9Var : c.get(i2).a()) {
+                        if (bj9Var != null) {
+                            if (bj9Var.c()) {
+                                if (cj9Var == null) {
+                                    cj9Var = bj9Var.a();
+                                }
+                                if (cj9Var != null) {
+                                    int k = cj9Var.k(bj9Var.a());
+                                    z2 = ((cj9.g & k) == 0 && (cj9.i & k) == 0 && (k & cj9.h) == 0) ? false : true;
+                                }
+                                if (bj9Var.b().mSpeed != 1.0f) {
+                                    z = true;
+                                }
+                                if (MimeTypes.AUDIO_RAW.equals(bj9Var.a().f())) {
+                                    z = true;
+                                }
+                                z3 = true;
+                            }
+                            i++;
+                            if (i > 1) {
+                                z2 = true;
+                            }
+                            if (z2 && z && z3) {
+                                break;
+                            }
+                        }
                     }
-                    if (height <= i3) {
-                        i6 = (height - i3) / 2;
-                    } else {
-                        i6 = 0;
-                    }
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
-                    Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
-                    if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                        bitmap.recycle();
-                    }
-                    return createBitmap;
                 }
-                i3 = height;
-                if (width <= i4) {
+                if (z2 && z && z3) {
+                    break;
                 }
-                if (height <= i3) {
+            }
+            if (z) {
+                ij9 ij9Var = new ij9();
+                ij9Var.c(z2 ? 50 : 90);
+                ij9Var.e(this);
+                this.d.add(ij9Var);
+                hj9 hj9Var = new hj9();
+                hj9Var.c(z2 ? 50 : 10);
+                hj9Var.e(this);
+                this.d.add(hj9Var);
+                ij9Var.f(hj9Var);
+            } else {
+                hj9 hj9Var2 = new hj9();
+                hj9Var2.c(100);
+                hj9Var2.e(this);
+                this.d.add(hj9Var2);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final cj9 k(dj9 dj9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, dj9Var)) == null) {
+            if (dj9Var != null && rm9.b(dj9Var.c()) == 1 && rm9.b(dj9Var.c().get(0).a()) == 1) {
+                bj9 bj9Var = dj9Var.c().get(0).a().get(0);
+                if (bj9Var.b() == null || bj9Var.b().isNeedEdit() || !bj9Var.c()) {
+                    return null;
                 }
-                Matrix matrix2 = new Matrix();
-                matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
-                Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
-                if (z) {
-                    bitmap.recycle();
-                }
-                return createBitmap2;
+                return bj9Var.a();
             }
             return null;
         }
-        return (Bitmap) invokeCommon.objValue;
+        return (cj9) invokeL.objValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
+    public final void l() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return gf9.c().getContext();
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.b) == null) {
+            return;
         }
-        return (Context) invokeV.objValue;
+        bVar.onAudioMixtureCancel();
+    }
+
+    public final void m(String str) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (bVar = this.b) == null) {
+            return;
+        }
+        bVar.onAudioMixtureFail(str);
+    }
+
+    public final void n(int i) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (bVar = this.b) == null) {
+            return;
+        }
+        bVar.onAudioMixtureProgress(i);
+    }
+
+    public final void o(cj9 cj9Var) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, cj9Var) == null) || (bVar = this.b) == null) {
+            return;
+        }
+        bVar.onAudioMixtureProgress(100);
+        this.b.onAudioMixtureSuccess(cj9Var);
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || rm9.e(this.d)) {
+            return;
+        }
+        for (gj9 gj9Var : this.d) {
+            gj9Var.h();
+        }
+    }
+
+    public void q(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.clear();
+            this.e = 0;
+            this.f = 0;
+            cj9 k = k(this.a);
+            if (k != null && k.i()) {
+                o(k);
+                return;
+            }
+            Thread thread = this.c;
+            if (thread != null) {
+                thread.interrupt();
+                this.c = null;
+            }
+            Thread thread2 = new Thread(new a(this));
+            this.c = thread2;
+            thread2.start();
+        }
     }
 }

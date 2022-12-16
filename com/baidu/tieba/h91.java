@@ -1,155 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISharePrefsWrapper;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes4.dex */
-public class h91 implements ISharePrefsWrapper {
+public class h91 {
     public static /* synthetic */ Interceptable $ic;
+    public static h91 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public lf1<IAlertManager> a;
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, set)) == null) {
-            return null;
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putStringSet(String str, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, set) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jf1 b2 = jf1.b();
+            this.a = b2;
+            b2.a(new IAlertManager_AlertManager_Provider());
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778441, "Lcom/baidu/tieba/h91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947778441, "Lcom/baidu/tieba/h91;");
+                return;
+            }
         }
+        b = new h91();
     }
 
     public h91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        b();
     }
 
-    public final SharedPreferences a() {
+    public static h91 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ContextHolder.getApplicationContext().getSharedPreferences("nps_frame", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (SharedPreferences) invokeV.objValue;
+        return (h91) invokeV.objValue;
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            return a().getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) {
-            return a().getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            return a().getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) {
-            return a().getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            return a().getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putBoolean(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            a().edit().putBoolean(str, z).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putFloat(String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f) == null) {
-            a().edit().putFloat(str, f).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putInt(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            a().edit().putInt(str, i).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putLong(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            a().edit().putLong(str, j).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putString(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            a().edit().putString(str, str2).commit();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+            this.a.get().onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
         }
     }
 }

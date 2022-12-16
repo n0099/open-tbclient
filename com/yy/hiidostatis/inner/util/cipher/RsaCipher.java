@@ -1,6 +1,5 @@
 package com.yy.hiidostatis.inner.util.cipher;
 
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -305,7 +304,7 @@ public class RsaCipher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, inputStream) == null) {
             try {
-                this.privateKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(readAllBytes(inputStream)));
+                this.privateKey = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(readAllBytes(inputStream)));
             } catch (Throwable th) {
                 throw new Exception(th);
             }
@@ -316,7 +315,7 @@ public class RsaCipher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, inputStream) == null) {
             try {
-                this.publicKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(readAllBytes(inputStream)));
+                this.publicKey = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(readAllBytes(inputStream)));
             } catch (Throwable th) {
                 throw new Exception(th);
             }

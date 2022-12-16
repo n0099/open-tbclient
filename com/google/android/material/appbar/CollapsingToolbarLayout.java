@@ -710,10 +710,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
-            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092618);
+            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09268c);
             if (viewOffsetHelper == null) {
                 ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092618, viewOffsetHelper2);
+                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09268c, viewOffsetHelper2);
                 return viewOffsetHelper2;
             }
             return viewOffsetHelper;

@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Region;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public class rx1 extends lx1 {
+/* loaded from: classes6.dex */
+public class rx1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lx1
+    @Override // com.baidu.tieba.kx1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
@@ -34,12 +33,11 @@ public class rx1 extends lx1 {
         }
     }
 
-    @Override // com.baidu.tieba.lx1
-    public void a(mx1 mx1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, mx1Var, canvas) == null) {
-            mx1Var.g = true;
-            canvas.clipPath(mx1Var.f, Region.Op.INTERSECT);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) {
+            lx1Var.f.close();
         }
     }
 }

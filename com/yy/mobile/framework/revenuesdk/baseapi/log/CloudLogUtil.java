@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -152,7 +151,7 @@ public class CloudLogUtil {
                                 jSONObject.put("tag", this.val$tag);
                                 jSONObject.put("uid", CloudLogUtil.mUid);
                                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, CloudLogUtil.mAppId);
-                                jSONObject.put(Config.DEVICE_PART, CloudLogUtil.mDevice);
+                                jSONObject.put("device", CloudLogUtil.mDevice);
                                 jSONObject.put("os", CloudLogUtil.mOS);
                                 jSONObject.put("appName", CloudLogUtil.mAppName);
                                 jSONObject.put("clientVer", CloudLogUtil.mClientVer);

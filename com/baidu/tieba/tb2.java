@@ -1,34 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class tb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
 
-    public static nb2 a(ub2 ub2Var, kc2 kc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, ub2Var, kc2Var, v8ThreadDelegatePolicy)) == null) {
-            vb2 a = mn2.B0().a(ub2Var);
-            nb2 a2 = a.a(ub2Var.a(), kc2Var, v8ThreadDelegatePolicy);
-            a2.I0(a.getUserAgent());
-            return a2;
-        }
-        return (nb2) invokeLLL.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static nb2 b(ub2 ub2Var, kc2 kc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, ub2Var, kc2Var, v8ThreadDelegatePolicy)) == null) {
-            nb2 a = a(ub2Var, kc2Var, v8ThreadDelegatePolicy);
-            a.q0();
-            return a;
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public tb2 a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new tb2(null);
         }
-        return (nb2) invokeLLL.objValue;
+
+        public tb2 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (tb2) invokeV.objValue;
+        }
+
+        public b b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a.b = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b c(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.a.a = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+    }
+
+    public tb2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public /* synthetic */ tb2(a aVar) {
+        this();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "V8EngineModel{mType=" + this.a + ", mID='" + this.b + "', mViewMode=" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

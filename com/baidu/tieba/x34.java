@@ -1,174 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
 /* loaded from: classes6.dex */
-public class x34 extends f03 implements c13 {
+public class x34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static final Set<String> h;
-    public static long i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
+    @V8JavascriptField
+    public boolean cancel;
+    @V8JavascriptField
+    public boolean confirm;
 
-    /* loaded from: classes6.dex */
-    public class a implements g0a<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ x34 c;
-
-        public a(x34 x34Var, boolean z, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x34Var, Boolean.valueOf(z), bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = x34Var;
-            this.a = z;
-            this.b = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.g0a
-        public void call(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a) {
-                    if (x34.g) {
-                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + x34.i);
-                    }
-                    g13.k().c(this.c, x34.i);
-                }
-                pc2 d = rc2.c().d();
-                if (d != null) {
-                    List<String> singletonList = Collections.singletonList(this.b.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                    ae2 l = ae2.l();
-                    l.i(6);
-                    d.h(singletonList, true, l.k());
-                }
-                if (x34.g) {
-                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d);
-                }
-                if (!this.a) {
-                    this.c.h();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948249424, "Lcom/baidu/tieba/x34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948249424, "Lcom/baidu/tieba/x34;");
-                return;
-            }
-        }
-        g = pk1.a;
-        h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
-        i = TimeUnit.SECONDS.toMillis(10L);
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("scheme");
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
-            }
-            if (!TextUtils.isEmpty(string)) {
-                SchemeRouter.invoke(AppRuntime.getAppContext(), string);
-            }
-        }
-    }
-
-    public x34() {
+    public x34(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = SwanAppProcessInfo.UNKNOWN.index;
+        this.confirm = z;
+        this.cancel = !z;
     }
 
-    @Override // com.baidu.tieba.c13
-    public void timeout() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "timeout");
-            }
-            h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanGameReloadResult{confirm=" + this.confirm + ", cancel=" + this.cancel + '}';
         }
-    }
-
-    @Override // com.baidu.tieba.c13
-    public void a(String str, e13 e13Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, e13Var) == null) && e13Var.b.index == this.f && h.contains(str)) {
-            g13.k().h(this);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
-            }
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.f03
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-            this.f = i2;
-            boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
-                Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
-            }
-            sz9.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
-        }
+        return (String) invokeV.objValue;
     }
 }

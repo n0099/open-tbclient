@@ -43,11 +43,11 @@ public class OperableVideoErrorView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06a8, this);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c58);
+            LinearLayout.inflate(context, R.layout.operable_video_error, this);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091cc3);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds36);
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f03fd));
+            this.a.setText(getResources().getString(R.string.click_retry));
             this.a.setConfig(new oz4());
         }
     }

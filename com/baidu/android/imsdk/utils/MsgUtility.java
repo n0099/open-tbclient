@@ -1,6 +1,10 @@
 package com.baidu.android.imsdk.utils;
 
+import android.annotation.SuppressLint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.messages.FansGroupAtMsg;
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,25 +31,23 @@ public class MsgUtility {
         }
     }
 
-    public static boolean isNotice(ChatMsg chatMsg) {
+    @SuppressLint({"DefaultLocale"})
+    public static String getMsgUUid(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, chatMsg)) == null) {
-            if (2 == chatMsg.getCategory() || -1 == chatMsg.getMsgType()) {
-                return true;
+            if (chatMsg == null) {
+                return "";
             }
-            if ((chatMsg.getMsgType() >= 1001 && chatMsg.getMsgType() <= 1014) || chatMsg.getMsgType() == 2001 || chatMsg.getMsgType() == 2010 || chatMsg.getMsgType() == 22 || chatMsg.getMsgType() == 36) {
-                return true;
-            }
-            return false;
+            return String.format("send.user.msg.%d.%d", Long.valueOf(chatMsg.getRowId()), Integer.valueOf(chatMsg.getCategory()));
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
     public static JSONArray listToJsonArray(List<Long> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (list != null && list.size() > 0) {
                 for (int i = 0; i < list.size(); i++) {
@@ -55,5 +57,32 @@ public class MsgUtility {
             return jSONArray;
         }
         return (JSONArray) invokeL.objValue;
+    }
+
+    public static boolean isDraftMsg(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
+            if ((!(chatMsg instanceof TextMsg) && !(chatMsg instanceof FansGroupAtMsg)) || chatMsg.getStatus() != 3) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isNotice(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, chatMsg)) == null) {
+            if (2 == chatMsg.getCategory() || -1 == chatMsg.getMsgType()) {
+                return true;
+            }
+            if ((chatMsg.getMsgType() >= 1001 && chatMsg.getMsgType() <= 1027) || chatMsg.getMsgType() == 2001 || chatMsg.getMsgType() == 22 || chatMsg.getMsgType() == 36) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

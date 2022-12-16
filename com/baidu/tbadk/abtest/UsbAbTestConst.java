@@ -36,13 +36,13 @@ public class UsbAbTestConst {
     public static final String KEY_MYPAGE_EXPOSED_REMIND_CARD = "12_28_exposed_remind_ad";
     public static final String KEY_NATIVE_AD_AUTO_PLAY = "12_14_ad_video_a";
     public static final String KEY_NATIVE_AD_NO_INTERACTION_STYLE = "12_18_personalize_frs_style_a";
-    public static final String KEY_NEW_HOME_HOT_TOPIC_TAB = "12_27_index_hot_tab_a";
     public static final String KEY_NEW_INTEREST_TEST_A = "12_21_interest_card_log_a";
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
     public static final String KEY_NO_REQUEST_PRO_PERMISSION = "12_26_no_req_pro_a";
     public static final String KEY_OFFLINE_SIGN_PUSH = "12_27_signpush_a";
     public static final String KEY_ONLINE_PUSH_SHOW_TEST_A = "12_25_andriodpush_a";
     public static final String KEY_PB_FORUM_GUIDE_TEST_A = "12_22_pb_forum_guide_a";
+    public static final String KEY_PB_REPLY_OPTIMIZE = "12.33_pb_reply_optimize_a";
     public static final String KEY_PB_SHARE_PATH_TEST_A = "12_25_zhuanfalujing_a";
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";
     public static final String KEY_PUSH_PERMISSION_BTN_BOTTOM = "12_26_push_btn_bottom_a";

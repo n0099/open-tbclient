@@ -1,95 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes4.dex */
-public class gp7 implements xn {
+public class gp7 extends yf1<AppInfoService> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947801691, "Lcom/baidu/tieba/gp7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947801691, "Lcom/baidu/tieba/gp7;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public gp7(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
+    public gp7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUser.card_id;
-            String str2 = vipUser.total_scores_link;
-            String str3 = vipUser.speed_link;
-            String str4 = vipUser.task_scores_link;
-            vipUser.task_scores.intValue();
-            String str5 = vipUser.name;
-            vipUser.id.longValue();
-            String str6 = vipUser.portrait;
-            String str7 = vipUser.name_show;
-            String str8 = vipUser.vip_link;
-            VipInfo vipInfo = vipUser.vipInfo;
-            if (vipInfo != null) {
-                String str9 = vipInfo.icon_url;
-                vipInfo.s_time.intValue();
-                vipUser.vipInfo.e_time.intValue();
-                vipUser.now_time.intValue();
-                vipUser.vipInfo.v_status.intValue();
-                vipUser.vipInfo.v_level.intValue();
-                vipUser.vipInfo.ext_score.intValue();
-                vipUser.vipInfo.a_score.intValue();
-                vipUser.vipInfo.n_score.intValue();
-            }
-            dataRes.today_get_score.intValue();
-            dataRes.today_unget_score.intValue();
-            vipUpgrade.normal.intValue();
-            vipUpgrade.pay.intValue();
-            AutoPayInfo autoPayInfo = dataRes.autopay_info;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public AppInfoService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new hp7();
         }
+        return (AppInfoService) invokeV.objValue;
     }
 }

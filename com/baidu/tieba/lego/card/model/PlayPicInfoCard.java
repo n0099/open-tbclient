@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dj7;
-import com.baidu.tieba.ej7;
-import com.baidu.tieba.fj7;
-import com.baidu.tieba.ij7;
+import com.baidu.tieba.am7;
+import com.baidu.tieba.bm7;
+import com.baidu.tieba.cm7;
+import com.baidu.tieba.fm7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.yi;
@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard> {
+/* loaded from: classes5.dex */
+public class PlayPicInfoCard extends BaseCardInfo implements am7<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -35,14 +35,14 @@ public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard
     public final double ratio;
     public final int showDot;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public fj7 c;
-        public ej7 d;
+        public cm7 c;
+        public bm7 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                fj7 fj7Var = new fj7();
-                this.c = fj7Var;
-                fj7Var.d = jSONObject.optString("rText");
+                cm7 cm7Var = new cm7();
+                this.c = cm7Var;
+                cm7Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    ej7 ej7Var = new ej7(optJSONObject);
-                    this.d = ej7Var;
-                    if (!ej7Var.k()) {
+                    bm7 bm7Var = new bm7(optJSONObject);
+                    this.d = bm7Var;
+                    if (!bm7Var.k()) {
                         this.d = null;
                     }
                 }
@@ -98,7 +98,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = ij7.b(optJSONObject.optString("descColor", ""));
-                bVar.f = ij7.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = fm7.b(optJSONObject.optString("descColor", ""));
+                bVar.f = fm7.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -248,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements dj7<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dj7
+    @Override // com.baidu.tieba.am7
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

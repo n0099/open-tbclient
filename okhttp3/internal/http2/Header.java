@@ -8,21 +8,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Headers;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Header {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
     public static final ByteString PSEUDO_PREFIX;
     public static final ByteString RESPONSE_STATUS;
+    public static final String RESPONSE_STATUS_UTF8 = ":status";
     public static final ByteString TARGET_AUTHORITY;
+    public static final String TARGET_AUTHORITY_UTF8 = ":authority";
     public static final ByteString TARGET_METHOD;
+    public static final String TARGET_METHOD_UTF8 = ":method";
     public static final ByteString TARGET_PATH;
+    public static final String TARGET_PATH_UTF8 = ":path";
     public static final ByteString TARGET_SCHEME;
+    public static final String TARGET_SCHEME_UTF8 = ":scheme";
     public transient /* synthetic */ FieldHolder $fh;
     public final int hpackSize;
     public final ByteString name;
     public final ByteString value;
+
+    /* loaded from: classes9.dex */
+    public interface Listener {
+        void onHeaders(Headers headers);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,11 +49,11 @@ public final class Header {
             }
         }
         PSEUDO_PREFIX = ByteString.encodeUtf8(":");
-        RESPONSE_STATUS = ByteString.encodeUtf8(":status");
-        TARGET_METHOD = ByteString.encodeUtf8(":method");
-        TARGET_PATH = ByteString.encodeUtf8(":path");
-        TARGET_SCHEME = ByteString.encodeUtf8(":scheme");
-        TARGET_AUTHORITY = ByteString.encodeUtf8(":authority");
+        RESPONSE_STATUS = ByteString.encodeUtf8(RESPONSE_STATUS_UTF8);
+        TARGET_METHOD = ByteString.encodeUtf8(TARGET_METHOD_UTF8);
+        TARGET_PATH = ByteString.encodeUtf8(TARGET_PATH_UTF8);
+        TARGET_SCHEME = ByteString.encodeUtf8(TARGET_SCHEME_UTF8);
+        TARGET_AUTHORITY = ByteString.encodeUtf8(TARGET_AUTHORITY_UTF8);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

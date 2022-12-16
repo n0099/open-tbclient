@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e3 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile e3 b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -37,7 +37,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     public boolean e;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i c1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i b1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceModel)) == null) {
@@ -46,7 +46,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.de5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ve5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.R0();
+                this.a.P0();
             }
         }
     }
@@ -159,10 +159,10 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             super.onPause();
             VoiceManager voiceManager = this.c;
             if (voiceManager != null) {
-                voiceManager.onPause(getPageContext());
+                voiceManager.onPause();
             }
             if (isFinishing()) {
-                R0();
+                P0();
             }
         }
     }
@@ -204,7 +204,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager s0() {
+    public VoiceManager r0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -236,9 +236,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             ReplyMessageFragment replyMessageFragment = this.a;
             if (replyMessageFragment != null && intent != null) {
                 replyMessageFragment.setArguments(intent.getExtras());
-                if (this.a.A1() != null) {
-                    this.a.O1();
-                    this.a.M1();
+                if (this.a.G1() != null) {
+                    this.a.U1();
+                    this.a.S1();
                 }
             }
         }
@@ -254,7 +254,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
     }
 
-    public final void R0() {
+    public final void P0() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e) {
             return;
@@ -287,18 +287,18 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004d);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092613);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1031));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1068));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
             this.a = replyMessageFragment;
             replyMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906eb, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906fd, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
-            VoiceManager s0 = s0();
-            this.c = s0;
-            s0.onCreate(getPageContext());
+            VoiceManager r0 = r0();
+            this.c = r0;
+            r0.onCreate(getPageContext());
             N0();
             O0();
         }

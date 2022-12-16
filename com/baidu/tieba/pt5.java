@@ -1,77 +1,54 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class pt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
 
-    public static String a(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
+    public pt5(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("tiebaclient://");
-            if (num.intValue() > 0) {
-                sb.append("swangame/");
-            } else {
-                sb.append("swan/");
-            }
-            sb.append(str);
-            if (!TextUtils.isEmpty(str2)) {
-                if (!str2.startsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append(str2);
-            } else {
-                sb.append("/");
-            }
-            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
-                sb.append("&");
-            } else {
-                if (!sb.toString().endsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append("?");
-            }
-            sb.append("_baiduboxapp=");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sb.append(URLEncoder.encode(jSONObject.toString()));
-            sb.append("&callback=_bdbox_js_275&upgrade=0");
-            return sb.toString();
         }
-        return (String) invokeLLLL.objValue;
+        this.a = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
     }
 
-    public static final boolean b(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
-        String a;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
-            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
-                return false;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString(SpeedStatsUtils.UBC_VALUE_SPLASH, "");
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putString(SpeedStatsUtils.UBC_VALUE_SPLASH, str);
+            edit.commit();
+        }
     }
 }

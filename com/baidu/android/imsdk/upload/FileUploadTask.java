@@ -3,11 +3,9 @@ package com.baidu.android.imsdk.upload;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -53,6 +51,20 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
             }
         }
         TAG = FileUploadTask.class.getSimpleName();
+    }
+
+    private void notifyFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            try {
+                if (this.mListener != null) {
+                    this.mListener.onFinished(0);
+                }
+            } catch (Exception e) {
+                String str = TAG;
+                LogUtils.e(str, "IOException notifyFinished:" + e);
+            }
+        }
     }
 
     public FileUploadTask(Context context, String str, String str2, String str3, String str4, String str5, IFileUploadListener iFileUploadListener) {
@@ -154,7 +166,6 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
             } catch (Exception e) {
                 String str5 = TAG;
                 LogUtils.e(str5, "IOException:" + e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 return 1008;
             }
         }
@@ -171,7 +182,6 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
             } catch (Exception e) {
                 String str = TAG;
                 LogUtils.e(str, "IOException notifyFailed:" + e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -188,21 +198,6 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
             }
             LogUtils.d(TAG, "upload failure ");
             notifyFailed(num.intValue());
-        }
-    }
-
-    private void notifyFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                if (this.mListener != null) {
-                    this.mListener.onFinished(0);
-                }
-            } catch (Exception e) {
-                String str = TAG;
-                LogUtils.e(str, "IOException notifyFinished:" + e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            }
         }
     }
 

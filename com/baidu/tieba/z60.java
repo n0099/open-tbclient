@@ -22,7 +22,7 @@ import java.util.List;
 import javax.net.SocketFactory;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class z60 implements Cloneable, Call.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class z60 implements Cloneable, Call.Factory {
     public boolean o;
     public String p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -13,7 +13,7 @@ public interface oj {
 
     void onShowRecording(int i);
 
-    void onStartedRecorder(boolean z);
+    void onStartedRecorder(boolean z, int i);
 
     void onStopingRecorder();
 }

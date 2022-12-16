@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ParcelableSparseIntArray extends SparseIntArray implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ParcelableSparseIntArray> CREATOR;
@@ -28,7 +28,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
         return invokeV.intValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<ParcelableSparseIntArray> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

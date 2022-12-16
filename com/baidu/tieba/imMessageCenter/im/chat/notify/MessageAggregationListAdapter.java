@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ta7;
+import com.baidu.tieba.rb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,18 +35,18 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
         }
     }
 
-    public void R(TbPageContext tbPageContext) {
+    public void T(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.f = tbPageContext;
         }
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.ta7
-    public void h(ta7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.rb7
+    public void i(rb7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, imMessageCenterShowItemData) == null) {
-            super.h(aVar, imMessageCenterShowItemData);
+            super.i(aVar, imMessageCenterShowItemData);
             aVar.b.setIsRound(true);
             if (!String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
                 UtilHelper.showHeadImageViewBigVForStranger(aVar.b, imMessageCenterShowItemData);

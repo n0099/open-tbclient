@@ -12,7 +12,7 @@ public class or5 extends AbsDataRecorder {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public or5() {
-        super(AbsDataRecorder.Scene.FRS_HOT);
+        super(AbsDataRecorder.Scene.FRS_NEW);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -983,7 +984,7 @@ public final class SapiOptions implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add("baidu.com");
+            arrayList.add(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
             arrayList.add("hao123.com");
             arrayList.add("nuomi.com");
             arrayList.add("baifubao.com");
@@ -1199,7 +1200,7 @@ public final class SapiOptions implements NoProguard {
             arrayList.add("baiyingfund.com");
             arrayList.add("dxmbaoxian.com");
             arrayList.add("duxiaomanfund.com");
-            arrayList.add("baidu.com");
+            arrayList.add(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
             if (!this.openBdussDomains.isEmpty()) {
                 arrayList.addAll(this.openBdussDomains);
             }

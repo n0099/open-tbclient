@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.c.kwai.b;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public b DG;
-    public b.C0579b DH;
+    public b.C0596b DH;
     public AdTemplate mAdTemplate;
     @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;

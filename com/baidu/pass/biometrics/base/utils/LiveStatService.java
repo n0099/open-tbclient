@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
 import com.baidu.pass.http.HttpResponseHandler;
@@ -55,7 +54,7 @@ public final class LiveStatService {
         a = hashMap;
         hashMap.put("pid", "111");
         a.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
-        a.put(Config.DEVICE_PART, "android");
+        a.put("device", "android");
     }
 
     public LiveStatService() {

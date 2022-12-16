@@ -3,9 +3,9 @@ package com.baidu.tieba.themeCenter.dressCenter;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.tv8;
-import com.baidu.tieba.wv8;
-import com.baidu.tieba.xv8;
+import com.baidu.tieba.vy8;
+import com.baidu.tieba.yy8;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,9 +23,9 @@ import tbclient.GetThemeList.ThemeList;
 public class DressupCenterHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xv8 mRecommand;
-    public List<tv8> mThemeCarouselList;
-    public List<wv8> mThemeList;
+    public zy8 mRecommand;
+    public List<vy8> mThemeCarouselList;
+    public List<yy8> mThemeList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupCenterHttpResponseMessage(int i) {
@@ -66,9 +66,9 @@ public class DressupCenterHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mThemeCarouselList = new ArrayList();
                 for (ThemeCarousel themeCarousel : getThemeListResIdl.data.carousel) {
                     if (themeCarousel != null && (!StringUtils.isNull(themeCarousel.pic_url) || !StringUtils.isNull(themeCarousel.active_url))) {
-                        tv8 tv8Var = new tv8();
-                        tv8Var.a(themeCarousel);
-                        this.mThemeCarouselList.add(tv8Var);
+                        vy8 vy8Var = new vy8();
+                        vy8Var.a(themeCarousel);
+                        this.mThemeCarouselList.add(vy8Var);
                     }
                 }
             }
@@ -76,30 +76,30 @@ public class DressupCenterHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mThemeList = new ArrayList();
                 for (ThemeList themeList : getThemeListResIdl.data.theme_list) {
                     if (themeList != null && !StringUtils.isNull(themeList.name)) {
-                        wv8 wv8Var = new wv8();
-                        wv8Var.d(themeList);
-                        this.mThemeList.add(wv8Var);
+                        yy8 yy8Var = new yy8();
+                        yy8Var.d(themeList);
+                        this.mThemeList.add(yy8Var);
                     }
                 }
             }
             if (getThemeListResIdl.data.recommend != null) {
-                xv8 xv8Var = new xv8();
-                this.mRecommand = xv8Var;
-                xv8Var.d(getThemeListResIdl.data.recommend);
+                zy8 zy8Var = new zy8();
+                this.mRecommand = zy8Var;
+                zy8Var.d(getThemeListResIdl.data.recommend);
             }
         }
     }
 
-    public xv8 getRecommand() {
+    public zy8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (xv8) invokeV.objValue;
+        return (zy8) invokeV.objValue;
     }
 
-    public List<tv8> getThemeCarouselList() {
+    public List<vy8> getThemeCarouselList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -108,7 +108,7 @@ public class DressupCenterHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List<wv8> getThemeList() {
+    public List<yy8> getThemeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -117,21 +117,21 @@ public class DressupCenterHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public void setRecommand(xv8 xv8Var) {
+    public void setRecommand(zy8 zy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xv8Var) == null) {
-            this.mRecommand = xv8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, zy8Var) == null) {
+            this.mRecommand = zy8Var;
         }
     }
 
-    public void setThemeCarouselList(List<tv8> list) {
+    public void setThemeCarouselList(List<vy8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.mThemeCarouselList = list;
         }
     }
 
-    public void setThemeList(List<wv8> list) {
+    public void setThemeList(List<yy8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.mThemeList = list;

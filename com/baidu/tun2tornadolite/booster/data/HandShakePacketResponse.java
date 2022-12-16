@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001:\u0001\u0016B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\u0015\u001a\u00020\nH\u0016R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001a\u0010\t\u001a\u00020\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001c\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014¨\u0006\u0017"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketResponse;", "", "()V", "error_code", "", "getError_code", "()I", "setError_code", "(I)V", GameCodeGetResponseMsg.PARAM_ERROR_MSG, "", "getError_msg", "()Ljava/lang/String;", "setError_msg", "(Ljava/lang/String;)V", "info", "Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketResponse$Info;", "getInfo", "()Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketResponse$Info;", "setInfo", "(Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketResponse$Info;)V", "toString", "Info", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class HandShakePacketResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public final class HandShakePacketResponse {
     public Info info;
 
     @Metadata(d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u000f\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\u0018\u001a\u00020\nH\u0016R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001a\u0010\t\u001a\u00020\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001a\u0010\u000f\u001a\u00020\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\f\"\u0004\b\u0011\u0010\u000eR\u001a\u0010\u0012\u001a\u00020\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\f\"\u0004\b\u0014\u0010\u000eR\u001a\u0010\u0015\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0006\"\u0004\b\u0017\u0010\b¨\u0006\u0019"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketResponse$Info;", "", "()V", "accessid", "", "getAccessid", "()J", "setAccessid", "(J)V", ContentUtil.RESULT_KEY_AK, "", "getAk", "()Ljava/lang/String;", "setAk", "(Ljava/lang/String;)V", "relayip", "getRelayip", "setRelayip", "routecomment", "getRoutecomment", "setRoutecomment", "udp_port", "getUdp_port", "setUdp_port", "toString", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

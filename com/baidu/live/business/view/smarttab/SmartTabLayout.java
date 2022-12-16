@@ -24,12 +24,12 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveFeedConfig;
-import com.baidu.tieba.ea0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.na0;
 import com.baidu.tieba.oa0;
 import com.baidu.tieba.pa0;
-import com.baidu.tieba.qa0;
-import com.baidu.tieba.rc0;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.qc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class SmartTabLayout extends HorizontalScrollView {
     public boolean J;
     public boolean K;
     public float[] L;
-    public final oa0 a;
+    public final na0 a;
     public int b;
     public int c;
     public int d;
@@ -386,8 +386,8 @@ public class SmartTabLayout extends HorizontalScrollView {
     public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            setCustomTextsColorWithoutSelectedPos(vc0.f().a(getContext(), this.I, this.H));
-            setCustomTextsColorSelectedPos(vc0.f().a(getContext(), this.I, this.G));
+            setCustomTextsColorWithoutSelectedPos(uc0.f().a(getContext(), this.I, this.H));
+            setCustomTextsColorSelectedPos(uc0.f().a(getContext(), this.I, this.G));
         }
     }
 
@@ -436,7 +436,7 @@ public class SmartTabLayout extends HorizontalScrollView {
             View w = w(i);
             if (w instanceof TextView) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setSize(ea0.b(getContext(), 50.0f), ea0.b(getContext(), 26.0f));
+                gradientDrawable.setSize(da0.b(getContext(), 50.0f), da0.b(getContext(), 26.0f));
                 gradientDrawable.setCornerRadii(this.L);
                 gradientDrawable.setColors(new int[]{i2, i2});
                 if (this.K) {
@@ -499,15 +499,15 @@ public class SmartTabLayout extends HorizontalScrollView {
         setClipChildren(false);
         setClipToPadding(false);
         setHorizontalScrollBarEnabled(false);
-        ea0.b(getContext(), 40.0f);
+        da0.b(getContext(), 40.0f);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         float f2 = displayMetrics.density;
-        float b2 = ea0.b(context, 7.0f);
+        float b2 = da0.b(context, 7.0f);
         this.L = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
         float applyDimension = TypedValue.applyDimension(2, 17.0f, displayMetrics);
         float applyDimension2 = TypedValue.applyDimension(2, 17.0f, displayMetrics);
-        int b3 = ea0.b(context, 40.0f);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, qa0.LiveFeedPage_live_feed_page_SmartTabLayout, i, 0);
+        int b3 = da0.b(context, 40.0f);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pa0.LiveFeedPage_live_feed_page_SmartTabLayout, i, 0);
         int resourceId = obtainStyledAttributes.getResourceId(8, -1);
         boolean z = obtainStyledAttributes.getBoolean(9, true);
         ColorStateList colorStateList = obtainStyledAttributes.getColorStateList(10);
@@ -544,9 +544,9 @@ public class SmartTabLayout extends HorizontalScrollView {
         if (resourceId2 != -1) {
             setCustomTabView(resourceId2, resourceId3, new LinearLayout.LayoutParams(layoutDimension2, layoutDimension));
         }
-        oa0 oa0Var = new oa0(context, attributeSet);
-        this.a = oa0Var;
-        if (z2 && oa0Var.h()) {
+        na0 na0Var = new na0(context, attributeSet);
+        this.a = na0Var;
+        if (z2 && na0Var.h()) {
             return;
         }
         setFillViewport(!this.a.h());
@@ -757,7 +757,7 @@ public class SmartTabLayout extends HorizontalScrollView {
         if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
             View w = w(i);
             if (w instanceof TextView) {
-                rc0.h((TextView) w, 0, i2);
+                qc0.h((TextView) w, 0, i2);
             }
         }
     }
@@ -795,8 +795,8 @@ public class SmartTabLayout extends HorizontalScrollView {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setBackgroundWithoutSelectedPos(vc0.f().a(getContext(), this.I, "color_F5F5F53"));
-            setBackgroundSelectedPos(vc0.f().a(getContext(), this.I, "color_FF33552"));
+            setBackgroundWithoutSelectedPos(uc0.f().a(getContext(), this.I, "color_F5F5F53"));
+            setBackgroundSelectedPos(uc0.f().a(getContext(), this.I, "color_FF33552"));
         }
     }
 
@@ -808,7 +808,7 @@ public class SmartTabLayout extends HorizontalScrollView {
         for (int i = 0; i < this.a.getChildCount(); i++) {
             View w = w(i);
             if (w instanceof TextView) {
-                rc0.h((TextView) w, 0, this.g);
+                qc0.h((TextView) w, 0, this.g);
             }
         }
     }
@@ -852,7 +852,7 @@ public class SmartTabLayout extends HorizontalScrollView {
                     return;
                 }
                 if (this.F && i2 == 0 && (hVar = this.n) != null) {
-                    hVar.b(a2, ea0.b(getContext(), 16.0f), 0, 0, 0);
+                    hVar.b(a2, da0.b(getContext(), 16.0f), 0, 0, 0);
                 }
                 if (this.q) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a2.getLayoutParams();
@@ -861,11 +861,11 @@ public class SmartTabLayout extends HorizontalScrollView {
                 }
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) a2.getLayoutParams();
                 if (this.K && LiveFeedPageSdk.HOST_LIVE_TAB.equals(this.I)) {
-                    layoutParams2.height = ea0.b(getContext(), 26.0f);
-                    layoutParams2.setMargins(ea0.b(getContext(), 4.0f), ea0.b(getContext(), 10.0f), ea0.b(getContext(), 3.0f), ea0.b(getContext(), 10.0f));
+                    layoutParams2.height = da0.b(getContext(), 26.0f);
+                    layoutParams2.setMargins(da0.b(getContext(), 4.0f), da0.b(getContext(), 10.0f), da0.b(getContext(), 3.0f), da0.b(getContext(), 10.0f));
                 } else {
-                    layoutParams2.height = ea0.b(getContext(), 40.0f);
-                    layoutParams2.setMargins(ea0.b(getContext(), 9.0f), ea0.b(getContext(), 10.0f), ea0.b(getContext(), 9.0f), ea0.b(getContext(), 10.0f));
+                    layoutParams2.height = da0.b(getContext(), 40.0f);
+                    layoutParams2.setMargins(da0.b(getContext(), 9.0f), da0.b(getContext(), 10.0f), da0.b(getContext(), 9.0f), da0.b(getContext(), 10.0f));
                 }
                 a2.setLayoutParams(layoutParams2);
                 b bVar = this.o;
@@ -897,7 +897,7 @@ public class SmartTabLayout extends HorizontalScrollView {
                         }
                     }
                     if (textView != null) {
-                        rc0.h(textView, 0, this.g);
+                        qc0.h(textView, 0, this.g);
                     }
                 }
                 int i4 = this.B;
@@ -934,39 +934,39 @@ public class SmartTabLayout extends HorizontalScrollView {
         int i4;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) && (childCount = this.a.getChildCount()) != 0 && i >= 0 && i < childCount) {
-            boolean n = pa0.n(this);
+            boolean n = oa0.n(this);
             View childAt = this.a.getChildAt(i);
-            int l = (int) ((pa0.l(childAt) + pa0.d(childAt)) * f2);
+            int l = (int) ((oa0.l(childAt) + oa0.d(childAt)) * f2);
             if (this.a.h()) {
                 if (0.0f < f2 && f2 < 1.0f) {
                     View childAt2 = this.a.getChildAt(i + 1);
-                    l = Math.round(f2 * ((pa0.l(childAt) / 2) + pa0.c(childAt) + (pa0.l(childAt2) / 2) + pa0.e(childAt2)));
+                    l = Math.round(f2 * ((oa0.l(childAt) / 2) + oa0.c(childAt) + (oa0.l(childAt2) / 2) + oa0.e(childAt2)));
                 }
                 View childAt3 = this.a.getChildAt(0);
                 if (n) {
-                    int l2 = pa0.l(childAt3) + pa0.c(childAt3);
-                    int l3 = pa0.l(childAt) + pa0.c(childAt);
-                    j = (pa0.a(childAt) - pa0.c(childAt)) - l;
+                    int l2 = oa0.l(childAt3) + oa0.c(childAt3);
+                    int l3 = oa0.l(childAt) + oa0.c(childAt);
+                    j = (oa0.a(childAt) - oa0.c(childAt)) - l;
                     i4 = (l2 - l3) / 2;
                 } else {
-                    int l4 = pa0.l(childAt3) + pa0.e(childAt3);
-                    int l5 = pa0.l(childAt) + pa0.e(childAt);
-                    j = (pa0.j(childAt) - pa0.e(childAt)) + l;
+                    int l4 = oa0.l(childAt3) + oa0.e(childAt3);
+                    int l5 = oa0.l(childAt) + oa0.e(childAt);
+                    j = (oa0.j(childAt) - oa0.e(childAt)) + l;
                     i4 = (l4 - l5) / 2;
                 }
                 scrollTo(j - i4, 0);
             } else if (this.a.i()) {
-                scrollTo(((pa0.j(childAt) - pa0.e(childAt)) - (ea0.e(getContext()) / 2)) + (pa0.l(childAt) / 2) + pa0.c(childAt), 0);
+                scrollTo(((oa0.j(childAt) - oa0.e(childAt)) - (da0.e(getContext()) / 2)) + (oa0.l(childAt) / 2) + oa0.c(childAt), 0);
             } else {
                 if (this.b == -1) {
                     if (0.0f < f2 && f2 < 1.0f) {
                         View childAt4 = this.a.getChildAt(i + 1);
-                        l = Math.round(f2 * ((pa0.l(childAt) / 2) + pa0.c(childAt) + (pa0.l(childAt4) / 2) + pa0.e(childAt4)));
+                        l = Math.round(f2 * ((oa0.l(childAt) / 2) + oa0.c(childAt) + (oa0.l(childAt4) / 2) + oa0.e(childAt4)));
                     }
                     if (n) {
-                        i2 = (((-pa0.m(childAt)) / 2) + (getWidth() / 2)) - pa0.i(this);
+                        i2 = (((-oa0.m(childAt)) / 2) + (getWidth() / 2)) - oa0.i(this);
                     } else {
-                        i2 = ((pa0.m(childAt) / 2) - (getWidth() / 2)) + pa0.i(this);
+                        i2 = ((oa0.m(childAt) / 2) - (getWidth() / 2)) + oa0.i(this);
                     }
                 } else if (n) {
                     if (i > 0 || f2 > 0.0f) {
@@ -979,10 +979,10 @@ public class SmartTabLayout extends HorizontalScrollView {
                     }
                     i2 = 0;
                 }
-                int j2 = pa0.j(childAt);
-                int e2 = pa0.e(childAt);
+                int j2 = oa0.j(childAt);
+                int e2 = oa0.e(childAt);
                 if (n) {
-                    i3 = (((j2 + e2) - l) - getWidth()) + pa0.h(this);
+                    i3 = (((j2 + e2) - l) - getWidth()) + oa0.h(this);
                 } else {
                     i3 = (j2 - e2) + l;
                 }
@@ -1023,12 +1023,12 @@ public class SmartTabLayout extends HorizontalScrollView {
             super.onSizeChanged(i, i2, i3, i4);
             if (this.a.h() && this.a.getChildCount() > 0) {
                 View childAt = this.a.getChildAt(0);
-                oa0 oa0Var = this.a;
-                View childAt2 = oa0Var.getChildAt(oa0Var.getChildCount() - 1);
-                int f2 = ((i - pa0.f(childAt)) / 2) - pa0.e(childAt);
-                int f3 = ((i - pa0.f(childAt2)) / 2) - pa0.c(childAt2);
-                oa0 oa0Var2 = this.a;
-                oa0Var2.setMinimumWidth(oa0Var2.getMeasuredWidth());
+                na0 na0Var = this.a;
+                View childAt2 = na0Var.getChildAt(na0Var.getChildCount() - 1);
+                int f2 = ((i - oa0.f(childAt)) / 2) - oa0.e(childAt);
+                int f3 = ((i - oa0.f(childAt2)) / 2) - oa0.c(childAt2);
+                na0 na0Var2 = this.a;
+                na0Var2.setMinimumWidth(na0Var2.getMeasuredWidth());
                 ViewCompat.setPaddingRelative(this, f2, getPaddingTop(), f3, getPaddingBottom());
                 setClipToPadding(false);
             }
@@ -1043,7 +1043,7 @@ public class SmartTabLayout extends HorizontalScrollView {
             textView.setGravity(17);
             textView.setText(charSequence);
             textView.setTextColor(this.f);
-            rc0.h(textView, 0, this.g);
+            qc0.h(textView, 0, this.g);
             textView.setTypeface(Typeface.DEFAULT);
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             int i = this.d;

@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -15,9 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class ct2 extends ht2 {
+/* loaded from: classes4.dex */
+public class ct2 extends gt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +30,7 @@ public class ct2 extends ht2 {
                 return;
             }
         }
-        boolean z = pk1.a;
+        boolean z = ok1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,43 +53,22 @@ public class ct2 extends ht2 {
         }
     }
 
-    @Override // com.baidu.tieba.ht2
-    public boolean a(xs2 xs2Var, zs2 zs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
+    @Override // com.baidu.tieba.gt2
+    public boolean a(ws2 ws2Var, ys2 ys2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{xs2Var, zs2Var, context, unitedSchemeEntity, callbackHandler, f43Var})) == null) {
-            f12.i("video", "open, video id:" + zs2Var.j + " slave id: " + zs2Var.c);
-            xs2Var.l();
-            d(xs2Var, zs2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ws2Var, ys2Var, context, unitedSchemeEntity, callbackHandler, e43Var})) == null) {
+            e12.i("video", "pause, video id:" + ys2Var.j + " slave id: " + ys2Var.c);
+            d(ws2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ht2
-    public xs2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final void d(ws2 ws2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            dr2 f = er2.f(str, str2, str3);
-            if (f == null) {
-                return new xs2(context, zs2.h(jSONObject, new zs2()));
-            }
-            if (!(f.i() instanceof xs2)) {
-                return null;
-            }
-            return (xs2) f.i();
-        }
-        return (xs2) invokeLLLLL.objValue;
-    }
-
-    public final void d(xs2 xs2Var, zs2 zs2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, xs2Var, zs2Var, unitedSchemeEntity, callbackHandler) == null) {
-            xs2Var.o(zs2Var);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ws2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ws2Var.p();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

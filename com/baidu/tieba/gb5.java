@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.List;
 /* loaded from: classes4.dex */
 public interface gb5 {
-    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
-
-    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    boolean a(int i, long j, @NonNull List<ChatMsg> list);
 }

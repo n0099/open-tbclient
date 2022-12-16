@@ -1,5 +1,4 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface yi0 {
-    String a();
 }

@@ -1,63 +1,80 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.win.opensdk.PBDrawVideo;
+import com.win.opensdk.PBDrawVideoListener;
 /* loaded from: classes5.dex */
-public final class ou9 implements Runnable {
+public class ou9 extends FunNativeAd2Bridger<PBDrawVideo, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ ku9 b;
-    public final /* synthetic */ ju9 c;
+    public final /* synthetic */ nu9 b;
 
-    public ou9(ju9 ju9Var, Activity activity, ku9 ku9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ou9(nu9 nu9Var, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ju9Var, activity, ku9Var};
+            Object[] objArr = {nu9Var, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = ju9Var;
-        this.a = activity;
-        this.b = ku9Var;
+        this.b = nu9Var;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                ju9 ju9Var = this.c;
-                l = ju9.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new pu9(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                ju9 ju9Var2 = this.c;
-                ju9.n(this.a, this.b);
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(PBDrawVideo pBDrawVideo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBDrawVideo)) == null) {
+            return pBDrawVideo.getDrawVideoView();
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
+            nu9 nu9Var = this.b;
+            FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> funNativeAdListenerHelper = nu9Var.e;
+            pid = nu9Var.mPid;
+            funNativeAdListenerHelper.startShow(pBDrawVideo, str, pid, null, funAdInteractionListener);
+            expressInflater.inflate();
         }
     }
 }

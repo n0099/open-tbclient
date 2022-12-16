@@ -4,9 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
-import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.jni.Engine;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -133,18 +131,18 @@ public class k2 {
                         jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, v0Var.b(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW));
                         if (v0Var.b()) {
                             i = 1;
-                            jSONObject.put(BaseUtils.METHOD_RECEIVEESSAGE, 1);
+                            jSONObject.put("93", 1);
                         } else {
                             i = 1;
                         }
                         if (v0Var.a()) {
-                            jSONObject.put(HttpConfig.UBC_HTTP_ID, i);
+                            jSONObject.put("94", i);
                         }
                         jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK, v0Var.b(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK));
                         jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK, v0Var.d(PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK));
                         jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, v0Var.a(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK));
                         jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, v0Var.a(this.a, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, 0));
-                        jSONObject.put("55", v0Var.c("55"));
+                        jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, v0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK));
                         jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, v0Var.d(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW));
                         jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, i3.c());
                         jSONObject.put("78", v0Var.d("78"));

@@ -78,7 +78,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return xi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f067b);
+            return xi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f0683);
         }
         return (String) invokeL.objValue;
     }
@@ -94,13 +94,13 @@ public class ShareFromFrsView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d8, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090be0);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b81);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bce);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bea);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bcf);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090beb);
+            LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
+            this.a = (TextView) findViewById(R.id.frs_name);
+            this.b = (HeadImageView) findViewById(R.id.frs_img);
+            this.d = (TextView) findViewById(R.id.frs_member_num);
+            this.f = (TextView) findViewById(R.id.frs_post_num);
+            this.c = (TextView) findViewById(R.id.frs_member_num_label);
+            this.e = (TextView) findViewById(R.id.frs_post_num_label);
         }
     }
 

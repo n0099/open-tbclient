@@ -50,7 +50,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
             if (view2 == this.c) {
                 finish();
             } else if (view2 == this.e) {
-                x1();
+                v1();
             }
         }
     }
@@ -66,12 +66,12 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
                 this.f = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
                 this.g = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);
             }
-            y1();
+            x1();
             this.a.setClipType(this.f);
         }
     }
 
-    public final void x1() {
+    public final void v1() {
         Bitmap c;
         String str;
         Interceptable interceptable = $ic;
@@ -90,19 +90,19 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         finish();
     }
 
-    public void y1() {
+    public void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090738);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925fe);
+            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090750);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092672);
             this.b = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0eca));
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f01));
             this.d = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f0926cf)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a41));
-            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c8e));
+            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a67));
+            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.next_step));
             this.e = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
             this.c.setOnClickListener(this);

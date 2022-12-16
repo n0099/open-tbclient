@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bx extends ax<tr4> {
+public class bx extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BjhArticleLayout f;
-    public tr4 g;
+    public vr4 g;
     public View.OnClickListener h;
 
     /* loaded from: classes3.dex */
@@ -51,7 +51,7 @@ public class bx extends ax<tr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 bx bxVar = this.a;
-                bxVar.v(bxVar.a.j(), this.a.g);
+                bxVar.v(bxVar.a.k(), this.a.g);
             }
         }
     }
@@ -86,8 +86,8 @@ public class bx extends ax<tr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    x36.a(this.a.g.getThreadData().getId());
-                    x36.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    s46.a(this.a.g.getThreadData().getId());
+                    s46.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -120,22 +120,22 @@ public class bx extends ax<tr4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(m46<tr4> m46Var) {
+    public void p(h56<vr4> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
-            super.p(m46Var);
-            this.f.setSubClickListener(m46Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, h56Var) == null) {
+            super.p(h56Var);
+            this.f.setSubClickListener(h56Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: w */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tr4Var) == null) {
-            this.g = tr4Var;
-            this.f.a(tr4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, vr4Var) == null) {
+            this.g = vr4Var;
+            this.f.a(vr4Var);
         }
     }
 
@@ -170,27 +170,27 @@ public class bx extends ax<tr4> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, xnVar) == null) {
-            tr4 tr4Var = this.g;
-            if ((!(tr4Var instanceof w46) && !(tr4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
+            vr4 vr4Var = this.g;
+            if ((!(vr4Var instanceof r56) && !(vr4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
                 return;
             }
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            if (xnVar instanceof w46) {
-                w46 w46Var = (w46) this.g;
-                w46Var.f = 1;
+            if (xnVar instanceof r56) {
+                r56 r56Var = (r56) this.g;
+                r56Var.f = 1;
                 Context context = view2.getContext();
-                if (w46Var.a.isFromHomPage) {
+                if (r56Var.a.isFromHomPage) {
                     i = 2;
                 } else {
                     i = 1;
                 }
-                ThreadCardUtils.jumpToPB((tr4) w46Var, context, i, false);
-                threadCardViewHolder.a().o(new zy.a(1));
+                ThreadCardUtils.jumpToPB((vr4) r56Var, context, i, false);
+                threadCardViewHolder.a().p(new zy.a(1));
             } else if (xnVar instanceof ThreadData) {
                 ThreadData threadData = (ThreadData) this.g;
                 threadData.objType = 1;
-                ThreadCardUtils.jumpToPB((tr4) threadData, view2.getContext(), 3, false);
-                threadCardViewHolder.a().o(new zy.a(1));
+                ThreadCardUtils.jumpToPB((vr4) threadData, view2.getContext(), 3, false);
+                threadCardViewHolder.a().p(new zy.a(1));
             }
         }
     }

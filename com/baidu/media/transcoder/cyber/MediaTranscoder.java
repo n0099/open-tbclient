@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.ke0;
 import com.baidu.tieba.le0;
 import com.baidu.tieba.me0;
 import com.baidu.tieba.ne0;
-import com.baidu.tieba.oe0;
+import com.baidu.tieba.pe0;
 import com.baidu.tieba.qe0;
 import com.baidu.tieba.re0;
-import com.baidu.tieba.se0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,9 +28,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class MediaTranscoder extends me0 {
+public class MediaTranscoder extends le0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final oe0 f;
+    public static final ne0 f;
     public static volatile boolean g;
     public static volatile boolean h;
     public static volatile boolean i;
@@ -43,7 +43,7 @@ public class MediaTranscoder extends me0 {
     public long mNativeTranscoder;
 
     /* loaded from: classes2.dex */
-    public static class a implements oe0 {
+    public static class a implements ne0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +61,7 @@ public class MediaTranscoder extends me0 {
             }
         }
 
-        @Override // com.baidu.tieba.oe0
+        @Override // com.baidu.tieba.ne0
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -103,28 +103,28 @@ public class MediaTranscoder extends me0 {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 MediaTranscoder mediaTranscoder = this.a;
                 if (mediaTranscoder == null) {
-                    ne0.d("MediaTranscoder", "MediaTranscoder went away with unhandled events.");
+                    me0.d("MediaTranscoder", "MediaTranscoder went away with unhandled events.");
                     return;
                 }
-                ne0.a("MediaTranscoder", "handleMessage() msg.what:" + message.what);
+                me0.a("MediaTranscoder", "handleMessage() msg.what:" + message.what);
                 int i = message.what;
                 if (i != 0) {
                     if (i == 1) {
-                        ne0.c("MediaTranscoder", "MEDIA_PREPARED (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
+                        me0.c("MediaTranscoder", "MEDIA_PREPARED (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.b();
                     } else if (i == 2) {
-                        ne0.c("MediaTranscoder", "MEDIA_TRANSCODER_COMPLETE (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
+                        me0.c("MediaTranscoder", "MEDIA_TRANSCODER_COMPLETE (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.c();
                     } else if (i == 3) {
-                        ne0.c("MediaTranscoder", "MEDIA_TRANSCODER_TERMINAL (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
+                        me0.c("MediaTranscoder", "MEDIA_TRANSCODER_TERMINAL (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.d();
                     } else if (i == 100) {
-                        ne0.c("MediaTranscoder", "MEDIA_ERROR (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
+                        me0.c("MediaTranscoder", "MEDIA_ERROR (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.a(message.arg1, message.arg2);
                     } else if (i != 200) {
-                        ne0.e("MediaTranscoder", "Unknown message type " + message.what);
+                        me0.e("MediaTranscoder", "Unknown message type " + message.what);
                     } else {
-                        ne0.c("MediaTranscoder", "MEDIA_INFO (" + message.arg1 + "," + message.arg2 + message.obj + SmallTailInfo.EMOTION_SUFFIX);
+                        me0.c("MediaTranscoder", "MEDIA_INFO (" + message.arg1 + "," + message.arg2 + message.obj + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.a(message.arg1, message.arg2, message.obj);
                     }
                 }
@@ -158,21 +158,21 @@ public class MediaTranscoder extends me0 {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this((oe0) newInitContext.callArgs[0]);
+                this((ne0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        ne0.c("MediaTranscoder", "Software decoder mode. SDK Version:" + getSDKVersion() + " Core Version:" + getCoreVersion());
+        me0.c("MediaTranscoder", "Software decoder mode. SDK Version:" + getSDKVersion() + " Core Version:" + getCoreVersion());
     }
 
-    public MediaTranscoder(oe0 oe0Var) {
+    public MediaTranscoder(ne0 ne0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oe0Var};
+            Object[] objArr = {ne0Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -186,7 +186,7 @@ public class MediaTranscoder extends me0 {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
         this.e = new ArrayList<>();
-        b(oe0Var);
+        b(ne0Var);
     }
 
     private native String _getNativeVersion();
@@ -205,18 +205,18 @@ public class MediaTranscoder extends me0 {
 
     private native void _stop();
 
-    public static void a(oe0 oe0Var) {
+    public static void a(ne0 ne0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, oe0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, ne0Var) == null) {
             synchronized (MediaTranscoder.class) {
                 if (!g) {
-                    if (oe0Var == null) {
-                        oe0Var = f;
+                    if (ne0Var == null) {
+                        ne0Var = f;
                     }
-                    ne0.c("MediaTranscoder", "loadLibrariesOnce ....");
-                    oe0Var.a("cbffmpeg");
-                    oe0Var.a("sdl");
-                    oe0Var.a("transcoder");
+                    me0.c("MediaTranscoder", "loadLibrariesOnce ....");
+                    ne0Var.a("cbffmpeg");
+                    ne0Var.a("sdl");
+                    ne0Var.a("transcoder");
                     g = true;
                 }
             }
@@ -239,11 +239,11 @@ public class MediaTranscoder extends me0 {
         return invokeLL.booleanValue;
     }
 
-    private void b(oe0 oe0Var) {
+    private void b(ne0 ne0Var) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, this, oe0Var) == null) {
-            a(oe0Var);
+        if (interceptable == null || interceptable.invokeL(65553, this, ne0Var) == null) {
+            a(ne0Var);
             f();
             e();
             Looper myLooper = Looper.myLooper();
@@ -267,13 +267,13 @@ public class MediaTranscoder extends me0 {
         if (interceptable == null || interceptable.invokeV(65555, null) == null) {
             synchronized (MediaTranscoder.class) {
                 if (!i) {
-                    Context a2 = le0.a();
+                    Context a2 = ke0.a();
                     PackageManager packageManager = a2.getPackageManager();
                     String packageName = a2.getPackageName();
                     String str = "0.0";
-                    String e = re0.e(a2);
-                    String c = le0.c();
-                    String c2 = qe0.c(a2);
+                    String e = qe0.e(a2);
+                    String c = ke0.c();
+                    String c2 = pe0.c(a2);
                     if (packageManager != null) {
                         try {
                             str = packageManager.getPackageInfo(packageName, 0).versionName;
@@ -281,7 +281,7 @@ public class MediaTranscoder extends me0 {
                             e2.printStackTrace();
                         }
                     }
-                    nativeStatisticInit(packageName, str, c, c, c2, le0.b(), e, null);
+                    nativeStatisticInit(packageName, str, c, c, c2, ke0.b(), e, null);
                     nativeSetInfo(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
                     nativeSetInfo("model", Build.MODEL);
                     nativeSetInfo(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
@@ -323,7 +323,7 @@ public class MediaTranscoder extends me0 {
     public static void onUploadStatData(Object obj, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65565, null, obj, str, i2) == null) {
-            se0.g().h(str, "sailor_monitor", i2);
+            re0.g().h(str, "sailor_monitor", i2);
         }
     }
 
@@ -337,7 +337,7 @@ public class MediaTranscoder extends me0 {
                 MediaTranscoder mediaTranscoder = (MediaTranscoder) obj;
                 if (mediaTranscoder != null) {
                     if (mediaTranscoder.a != null) {
-                        ne0.a("MediaTranscoder", "postEventFromNative message type:" + i2 + ", arg1:" + i3 + ", arg2:" + i4 + ", obj:" + obj2);
+                        me0.a("MediaTranscoder", "postEventFromNative message type:" + i2 + ", arg1:" + i3 + ", arg2:" + i4 + ", obj:" + obj2);
                         mediaTranscoder.a.sendMessage(mediaTranscoder.a.obtainMessage(i2, i3, i4, obj2));
                         return;
                     }
@@ -345,7 +345,7 @@ public class MediaTranscoder extends me0 {
                 }
                 str = "postEventFromNative weakThiz reference is null";
             }
-            ne0.e("MediaTranscoder", str);
+            me0.e("MediaTranscoder", str);
         }
     }
 
@@ -381,7 +381,7 @@ public class MediaTranscoder extends me0 {
             } catch (Exception unused) {
                 i2 = 0;
             }
-            ne0.c("MediaTranscoder", "getCurrentPosition: " + i2);
+            me0.c("MediaTranscoder", "getCurrentPosition: " + i2);
             return i2;
         }
         return invokeV.intValue;

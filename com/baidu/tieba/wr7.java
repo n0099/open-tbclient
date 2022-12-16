@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
-import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class wr7 extends BaseAdapter {
+public class wr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public boolean b;
-    public boolean c;
+    public String a;
+    public String b;
+    public int c;
 
-    public abstract void a(bu4 bu4Var);
-
-    public abstract boolean d(long j);
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
 
     public wr7() {
         Interceptable interceptable = $ic;
@@ -31,45 +30,55 @@ public abstract class wr7 extends BaseAdapter {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = false;
-        this.c = false;
     }
 
-    public void b() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = false;
-            ArrayList<UserData> arrayList = this.a;
-            if (arrayList != null && arrayList.size() == 0) {
-                this.b = true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    public boolean c() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void e() {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.clear();
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public void f(boolean z) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
         }
     }
 }

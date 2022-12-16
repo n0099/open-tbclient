@@ -2,11 +2,10 @@ package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mt5;
+import com.baidu.tieba.hu5;
+import com.baidu.tieba.ot5;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.ts5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
 import java.io.Serializable;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -97,29 +95,10 @@ public class AdInfo implements Serializable {
         return invokeV.booleanValue;
     }
 
-    public static ArrayList<String> convertStrToList(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(str)) {
-                for (String str2 : str.split(",")) {
-                    try {
-                        arrayList.add(URLDecoder.decode(str2, IMAudioTransRequest.CHARSET));
-                    } catch (Exception e) {
-                        BdLog.e("decode 监测地址失败" + e);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
     public static AdInfo jsonToObject(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             AdInfo adInfo = new AdInfo();
             if (TextUtils.isEmpty(str)) {
                 return adInfo;
@@ -191,7 +170,7 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ts5 b = ts5.b(mt5.f());
+            ot5 b = ot5.b(hu5.f());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zf6;
+import com.baidu.tieba.ug6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class EmotionChangeModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -67,12 +67,12 @@ public class EmotionChangeModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003355 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                zf6 zf6Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof zf6)) {
-                    zf6Var = (zf6) extra;
+                ug6 ug6Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof ug6)) {
+                    ug6Var = (ug6) extra;
                 }
-                if (zf6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
-                    zf6Var.H0(emotionCenterResponseMessage.data);
+                if (ug6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
+                    ug6Var.K0(emotionCenterResponseMessage.data);
                 }
             }
         }
@@ -103,11 +103,20 @@ public class EmotionChangeModel extends BdBaseModel {
         registerListener(this.a);
     }
 
+    public void G(ug6 ug6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ug6Var) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+            httpMessage.setExtra(ug6Var);
+            sendMessage(httpMessage);
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
             return true;
         }
@@ -116,19 +125,10 @@ public class EmotionChangeModel extends BdBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE, TbConfig.SERVER_ADDRESS + "c/e/meme/dice");
             tbHttpMessageTask.setResponsedClass(EmotionCenterResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void z(zf6 zf6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zf6Var) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
-            httpMessage.setExtra(zf6Var);
-            sendMessage(httpMessage);
         }
     }
 }

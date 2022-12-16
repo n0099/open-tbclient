@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.MemeInfo;
+import protobuf.MemeInfo;
 /* loaded from: classes4.dex */
 public class MemeInfoPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -33,30 +33,10 @@ public class MemeInfoPojo extends OrmObject {
         }
     }
 
-    public static MemeInfoPojo A(MemeInfo memeInfo) {
+    public static MemeInfoPojo G(MemeInfo memeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, memeInfo)) == null) {
-            if (memeInfo == null) {
-                return null;
-            }
-            MemeInfoPojo memeInfoPojo = new MemeInfoPojo();
-            memeInfoPojo.picId = memeInfo.pic_id;
-            memeInfoPojo.pckId = memeInfo.pck_id;
-            memeInfoPojo.picUrl = memeInfo.pic_url;
-            memeInfoPojo.thumbnail = memeInfo.thumbnail;
-            memeInfoPojo.width = memeInfo.width;
-            memeInfoPojo.height = memeInfo.height;
-            memeInfoPojo.detailLink = memeInfo.detail_link;
-            return memeInfoPojo;
-        }
-        return (MemeInfoPojo) invokeL.objValue;
-    }
-
-    public static MemeInfoPojo z(protobuf.MemeInfo memeInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, memeInfo)) == null) {
             if (memeInfo == null) {
                 return null;
             }
@@ -68,6 +48,26 @@ public class MemeInfoPojo extends OrmObject {
             memeInfoPojo.width = memeInfo.width;
             memeInfoPojo.height = memeInfo.height;
             memeInfoPojo.detailLink = memeInfo.detailLink;
+            return memeInfoPojo;
+        }
+        return (MemeInfoPojo) invokeL.objValue;
+    }
+
+    public static MemeInfoPojo H(tbclient.MemeInfo memeInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, memeInfo)) == null) {
+            if (memeInfo == null) {
+                return null;
+            }
+            MemeInfoPojo memeInfoPojo = new MemeInfoPojo();
+            memeInfoPojo.picId = memeInfo.pic_id;
+            memeInfoPojo.pckId = memeInfo.pck_id;
+            memeInfoPojo.picUrl = memeInfo.pic_url;
+            memeInfoPojo.thumbnail = memeInfo.thumbnail;
+            memeInfoPojo.width = memeInfo.width;
+            memeInfoPojo.height = memeInfo.height;
+            memeInfoPojo.detailLink = memeInfo.detail_link;
             return memeInfoPojo;
         }
         return (MemeInfoPojo) invokeL.objValue;

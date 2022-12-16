@@ -25,7 +25,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g extends e implements com.kwad.sdk.core.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -280,8 +280,8 @@ public final class g extends e implements com.kwad.sdk.core.h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
-            this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091227);
-            this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09122a);
+            this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091286);
+            this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091289);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
             this.mAdInfo = bQ;
             String str = com.kwad.sdk.core.response.a.a.at(bQ).materialUrl;

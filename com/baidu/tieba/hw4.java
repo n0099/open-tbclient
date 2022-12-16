@@ -1,24 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.dialog.yun.strategy.ExcludeDialogStrategy;
-import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
-import com.baidu.tbadk.core.dialog.yun.strategy.PageDialogStrategy;
-import com.baidu.tbadk.core.dialog.yun.strategy.UniqueDialogStrategy;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.gw4;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,47 +17,44 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class hw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<DialogStrategiesData> c;
+    public static volatile hw4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Map<String, jw4> a;
-    @NonNull
+    @Nullable
+    public Map<String, List<DialogStrategiesData>> a;
     public final Set<String> b;
-    @NonNull
-    public final Set<String> c;
-    @NonNull
-    public final Set<String> d;
-    @NonNull
-    public String e;
-    public boolean f;
-    public final CustomMessageListener g;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public interface c {
+        void a(List<DialogStrategiesData> list);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends ik5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hw4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(hw4 hw4Var, int i) {
-            super(i);
+        public a(hw4 hw4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hw4Var, Integer.valueOf(i)};
+                Object[] objArr = {hw4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,30 +64,32 @@ public class hw4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.ik5
+        /* renamed from: a */
+        public List<DialogStrategiesData> doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
-                String str = (String) customResponsedMessage.getData();
-                this.a.b.remove(str);
-                this.a.c.remove(str);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.i();
             }
+            return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Runnable {
+    public class b implements mj5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ fw4 b;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ hw4 c;
 
-        public b(Context context, fw4 fw4Var) {
+        public b(hw4 hw4Var, c cVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, fw4Var};
+                Object[] objArr = {hw4Var, cVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,238 +99,196 @@ public class hw4 {
                     return;
                 }
             }
-            this.a = context;
-            this.b = fw4Var;
+            this.c = hw4Var;
+            this.a = cVar;
+            this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mj5
+        /* renamed from: a */
+        public void onReturnDataInUI(List<DialogStrategiesData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hw4.o(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements gw4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ hw4 b;
-
-        public c(hw4 hw4Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw4Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = hw4Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.gw4.c
-        public void a(List<DialogStrategiesData> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, list) != null) {
                 return;
             }
-            for (DialogStrategiesData dialogStrategiesData : list) {
-                List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
-                HashMap hashMap = new HashMap();
-                hashMap.put("currentShowingDialogList", this.b.b);
-                hashMap.put("alreadyShownDialogs", this.b.d);
-                hashMap.put("currentPageName", this.b.e);
-                if (TextUtils.isEmpty(dialogStrategiesData.getDialogName()) || !this.b.b.contains(dialogStrategiesData.getDialogName())) {
-                    if (!this.b.i(dialogStrategy)) {
-                        if (dialogStrategy == null) {
-                            dialogStrategy = new ArrayList<>();
-                        }
-                        dialogStrategy.add(DialogStrategiesData.StrategiesConfigData.z());
-                    }
-                    if (dialogStrategy != null) {
-                        for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : dialogStrategy) {
-                            jw4 jw4Var = (jw4) this.b.a.get(strategiesConfigData.getType());
-                            if (jw4Var == null || jw4Var.b(jw4Var.a(dialogStrategiesData, strategiesConfigData.A(), hashMap))) {
-                            }
-                        }
-                    }
-                    this.b.h(this.a, dialogStrategiesData.getDialogName(), dialogStrategiesData.getDialogUrl());
+            this.c.k(list);
+            if (this.a != null) {
+                List<DialogStrategiesData> list2 = (List) this.c.a.get(this.b);
+                c cVar = this.a;
+                if (ListUtils.isEmpty(list2)) {
+                    list2 = hw4.c;
                 }
+                cVar.a(list2);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hw4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-733330524, "Lcom/baidu/tieba/hw4$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-733330524, "Lcom/baidu/tieba/hw4$d;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838116, "Lcom/baidu/tieba/hw4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new hw4(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838116, "Lcom/baidu/tieba/hw4;");
+                return;
+            }
         }
+        c = Collections.emptyList();
     }
 
     public hw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashSet();
-        this.c = new HashSet();
-        this.d = new HashSet();
-        this.e = "";
-        this.f = false;
-        this.g = new a(this, 2921753);
-        this.a.put("FREQUENCE_STRATEGY", new FrequenceDialogStrategy());
-        this.a.put("PAGE_STRATEGY", new PageDialogStrategy());
-        this.a.put("EXCLUDE_STRATEGY", new ExcludeDialogStrategy());
-        this.a.put("UNIQUE_STRATEGY", new UniqueDialogStrategy());
-        MessageManager.getInstance().registerListener(this.g);
+        this.b = new LinkedHashSet();
     }
 
-    public /* synthetic */ hw4(a aVar) {
-        this();
-    }
-
-    public static void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            j().f = z;
-        }
-    }
-
-    public static void m(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            j().b.add(str);
-            j().d.add(str);
-        }
-    }
-
-    public static void n(@NonNull fw4 fw4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, fw4Var) == null) && fw4Var.c()) {
-            j().e = "";
-        }
-    }
-
-    public static void r(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            j().b.remove(str);
-        }
-    }
-
-    public final void q(@NonNull Context context, @NonNull fw4 fw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, fw4Var) == null) {
-            if (fw4Var.c()) {
-                this.e = fw4Var.b();
-            }
-            gw4.f().e(fw4Var.b(), new c(this, context));
-        }
-    }
-
-    public static hw4 j() {
+    public static hw4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return d.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (d == null) {
+                synchronized (hw4.class) {
+                    if (d == null) {
+                        d = new hw4();
+                    }
+                }
+            }
+            return d;
         }
         return (hw4) invokeV.objValue;
     }
 
-    public static boolean k() {
+    public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return !j().c.isEmpty();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return "key_yun_dialog_strategies@" + TbadkCoreApplication.getCurrentAccount();
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void o(@NonNull Context context, @NonNull fw4 fw4Var) {
+    @NonNull
+    public void e(@NonNull String str, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, fw4Var) == null) {
-            if (!yi.E()) {
-                ah.a().post(new b(context, fw4Var));
-            } else if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || LogoActivityConfig.IS_HOT_SPLASH_SHOW || !BdNetTypeUtil.isNetWorkAvailable()) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
+            if (this.a == null) {
+                this.a = new LinkedHashMap();
+            }
+            List<DialogStrategiesData> list = this.a.get(str);
+            if (list == null && this.a.isEmpty()) {
+                mk5.b(new a(this), new b(this, cVar, str));
+            } else if (cVar != null) {
+                if (ListUtils.isEmpty(list)) {
+                    list = c;
+                }
+                cVar.a(list);
+            }
+        }
+    }
+
+    public final void h(Map<String, List<DialogStrategiesData>> map, List<DialogStrategiesData> list, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, list, str) != null) || map == null) {
+            return;
+        }
+        for (DialogStrategiesData dialogStrategiesData : list) {
+            if (map.containsKey(str)) {
+                if (dialogStrategiesData.getDialogTime().contains(str)) {
+                    map.get(str).add(dialogStrategiesData);
+                }
+            } else if (dialogStrategiesData.getDialogTime().contains(str)) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(dialogStrategiesData);
+                map.put(str, arrayList);
+            }
+        }
+    }
+
+    public final List<DialogStrategiesData> i() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            df<String> i = kv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g());
+            if (i != null) {
+                str = i.get(g());
             } else {
-                if (fw4Var.c() && j().f) {
+                str = null;
+            }
+            if (StringUtils.isNull(str)) {
+                return c;
+            }
+            try {
+                return DataExt.toEntityList(new JSONArray(str).toString(), DialogStrategiesData.class);
+            } catch (Exception e) {
+                BdLog.e(e);
+                return c;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j(JSONArray jSONArray) {
+        df<String> i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONArray) != null) || (i = kv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g())) == null) {
+            return;
+        }
+        if (jSONArray != null && jSONArray.length() > 0) {
+            mw4.a.a(jSONArray.toString());
+            try {
+                k(DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class));
+                return;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return;
+            }
+        }
+        i.remove(g());
+        k(Collections.emptyList());
+    }
+
+    public final void k(List<DialogStrategiesData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            try {
+                if (!ListUtils.isEmpty(list)) {
+                    if (this.a == null) {
+                        this.a = new LinkedHashMap();
+                    }
+                    this.a.clear();
+                    for (DialogStrategiesData dialogStrategiesData : list) {
+                        List<String> dialogTime = dialogStrategiesData.getDialogTime();
+                        if (!ListUtils.isEmpty(dialogTime)) {
+                            this.b.addAll(dialogTime);
+                        }
+                    }
+                    for (String str : this.b) {
+                        h(this.a, list, str);
+                    }
                     return;
                 }
-                j().q(context, fw4Var);
-            }
-        }
-    }
-
-    public final void h(@NonNull Context context, @NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, str2) == null) {
-            p(context, str2, str);
-            kw4.a.c(str);
-            this.b.add(str);
-            this.d.add(str);
-            this.c.add(str);
-        }
-    }
-
-    public final boolean i(List<DialogStrategiesData.StrategiesConfigData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : list) {
-                if ("UN_UNIQUE_STRATEGY".equals(strategiesConfigData.getType())) {
-                    return true;
+                if (this.a != null) {
+                    this.a.clear();
                 }
+                this.b.clear();
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void p(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
-            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", str, false, true, true);
-            tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            tbWebViewActivityConfig.setWebDialogName(str2);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
         }
     }
 }

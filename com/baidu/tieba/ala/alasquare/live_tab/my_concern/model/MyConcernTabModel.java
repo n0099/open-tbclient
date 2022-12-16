@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.sw5;
+import com.baidu.tieba.nx5;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +30,7 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public sw5 d;
+    public nx5 d;
     public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
@@ -101,34 +101,31 @@ public class MyConcernTabModel extends BdBaseModel {
                 } else {
                     z = false;
                 }
-                if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (this.a.c == null) {
-                        return;
-                    }
-                    b bVar = this.a.c;
+                if (alaLiveTabMyConcernResponse.getError() == 0 && alaLiveTabMyConcernResponse.isSuccess() && !z) {
+                    nx5 nx5Var = this.a.d;
                     if (this.a.a == 1) {
-                        z3 = true;
+                        z2 = true;
+                    } else {
+                        z2 = false;
                     }
-                    bVar.b(z3);
-                    return;
-                }
-                sw5 sw5Var = this.a.d;
-                if (this.a.a == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sw5Var.e(alaLiveTabMyConcernResponse, z2);
-                if (this.a.c != null) {
+                    nx5Var.e(alaLiveTabMyConcernResponse, z2);
+                    if (this.a.c != null) {
+                        b bVar = this.a.c;
+                        List<xn> h = this.a.d.h();
+                        boolean z4 = alaLiveTabMyConcernResponse.hasMore;
+                        if (this.a.a == 1) {
+                            z3 = true;
+                        }
+                        bVar.a(h, z4, z3);
+                    }
+                    this.a.a = alaLiveTabMyConcernResponse.pn + 1;
+                } else if (this.a.c != null) {
                     b bVar2 = this.a.c;
-                    List<xn> h = this.a.d.h();
-                    boolean z4 = alaLiveTabMyConcernResponse.hasMore;
                     if (this.a.a == 1) {
                         z3 = true;
                     }
-                    bVar2.a(h, z4, z3);
+                    bVar2.b(z3);
                 }
-                this.a.a = alaLiveTabMyConcernResponse.pn + 1;
             }
         }
     }
@@ -151,12 +148,12 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new sw5(this.b);
-        G();
+        this.d = new nx5(this.b);
+        N();
         MessageManager.getInstance().registerListener(this.e);
     }
 
-    public final void D(int i) {
+    public final void K(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
@@ -165,33 +162,33 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public void H(Class<? extends BaseCardInfo> cls) {
+    public void O(Class<? extends BaseCardInfo> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
             this.d.j(cls);
         }
     }
 
-    public void I(b bVar) {
+    public void P(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void E() {
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            D(this.a);
+            K(this.a);
         }
     }
 
-    public void F() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = 1;
             this.d.a();
-            D(1);
+            K(1);
         }
     }
 
@@ -205,7 +202,7 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public final void G() {
+    public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);

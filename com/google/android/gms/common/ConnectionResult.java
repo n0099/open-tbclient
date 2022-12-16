@@ -8,6 +8,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -219,7 +220,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
                         case -1:
                             return RomUtils.UNKNOWN;
                         case 0:
-                            return "SUCCESS";
+                            return c.p;
                         case 1:
                             return "SERVICE_MISSING";
                         case 2:

@@ -9,7 +9,7 @@ import com.baidu.tieba.model.message.ShareReportHttpResponseMessage;
 import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.tr8;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ public class ShareReportModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -35,7 +35,7 @@ public class ShareReportModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -59,25 +59,25 @@ public class ShareReportModel extends BdBaseModel {
                 return;
             }
         }
-        z();
+        G();
     }
 
-    public void A(String str, String str2, int i) {
+    public final void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tr8.h(309480, ShareReportSocketResponseMessage.class, false, false);
+            tr8.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+        }
+    }
+
+    public void H(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i) == null) {
             ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
             shareReportNetMessage.setFid(xg.g(str, 0L));
             shareReportNetMessage.setTid(xg.g(str2, 0L));
             shareReportNetMessage.setFrom(i);
             sendMessage(shareReportNetMessage);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            uo8.h(309480, ShareReportSocketResponseMessage.class, false, false);
-            uo8.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

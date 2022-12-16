@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class wy extends ax<tr4> implements qc8 {
+public abstract class wy extends ax<vr4> implements if8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static int u;
@@ -38,9 +38,9 @@ public abstract class wy extends ax<tr4> implements qc8 {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public tr4 h;
+    public vr4 h;
     public RoundCornerFrameLayout i;
-    public ld8 j;
+    public dg8 j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -51,7 +51,7 @@ public abstract class wy extends ax<tr4> implements qc8 {
     public final View.OnClickListener r;
     public zy.b s;
 
-    public abstract ld8 t();
+    public abstract dg8 t();
 
     public void v() {
         Interceptable interceptable = $ic;
@@ -95,8 +95,8 @@ public abstract class wy extends ax<tr4> implements qc8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                tr4 tr4Var = this.b.h;
-                if (tr4Var != null && tr4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
+                vr4 vr4Var = this.b.h;
+                if (vr4Var != null && vr4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
                     this.a.width = this.b.f.getWidth();
                     this.a.height = (this.b.f.getWidth() / 16) * 9;
                 }
@@ -131,16 +131,16 @@ public abstract class wy extends ax<tr4> implements qc8 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            tr4 tr4Var;
+            vr4 vr4Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (tr4Var = this.a.h) != null && tr4Var.getThreadData() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (vr4Var = this.a.h) != null && vr4Var.getThreadData() != null) {
                 Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.i);
                 wy wyVar = this.a;
                 Context context = wyVar.b;
                 ThreadData threadData = wyVar.h.getThreadData();
                 wy wyVar2 = this.a;
                 String str = wyVar2.k;
-                zi5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, wyVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
+                sj5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, wyVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
             }
         }
     }
@@ -244,26 +244,26 @@ public abstract class wy extends ax<tr4> implements qc8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     wy wyVar = this.a;
-                    x36.l(wyVar.g, wyVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    s46.l(wyVar.g, wyVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    ld8 ld8Var = this.a.j;
-                    if (ld8Var != null) {
-                        ld8Var.onScroll();
+                    dg8 dg8Var = this.a.j;
+                    if (dg8Var != null) {
+                        dg8Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    ld8 ld8Var2 = this.a.j;
-                    if (ld8Var2 != null) {
-                        ld8Var2.onVolumeUp();
+                    dg8 dg8Var2 = this.a.j;
+                    if (dg8Var2 != null) {
+                        dg8Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    ld8 ld8Var3 = this.a.j;
-                    if (ld8Var3 != null) {
-                        return ld8Var3.onBackPress();
+                    dg8 dg8Var3 = this.a.j;
+                    if (dg8Var3 != null) {
+                        return dg8Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -342,18 +342,18 @@ public abstract class wy extends ax<tr4> implements qc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.l = str;
-            ld8 ld8Var = this.j;
-            if (ld8Var != null) {
-                ld8Var.setStageType(str);
+            dg8 dg8Var = this.j;
+            if (dg8Var != null) {
+                dg8Var.setStageType(str);
             }
         }
     }
 
-    public void C(gd8 gd8Var) {
-        ld8 ld8Var;
+    public void C(yf8 yf8Var) {
+        dg8 dg8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gd8Var) == null) && (ld8Var = this.j) != null) {
-            ld8Var.setStatistic(gd8Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yf8Var) == null) && (dg8Var = this.j) != null) {
+            dg8Var.setStatistic(yf8Var);
         }
     }
 
@@ -361,9 +361,9 @@ public abstract class wy extends ax<tr4> implements qc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.k = str;
-            ld8 ld8Var = this.j;
-            if (ld8Var != null) {
-                ld8Var.setFrom(str);
+            dg8 dg8Var = this.j;
+            if (dg8Var != null) {
+                dg8Var.setFrom(str);
             }
         }
     }
@@ -382,7 +382,7 @@ public abstract class wy extends ax<tr4> implements qc8 {
         }
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -392,13 +392,13 @@ public abstract class wy extends ax<tr4> implements qc8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            tr4 tr4Var = this.h;
-            if (tr4Var != null && tr4Var.getThreadData() != null) {
+            vr4 vr4Var = this.h;
+            if (vr4Var != null && vr4Var.getThreadData() != null) {
                 return this.h.getThreadData().getVideoUrl();
             }
             return null;
@@ -406,7 +406,7 @@ public abstract class wy extends ax<tr4> implements qc8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -416,21 +416,21 @@ public abstract class wy extends ax<tr4> implements qc8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ld8 ld8Var = this.j;
-            if (ld8Var == null) {
+            dg8 dg8Var = this.j;
+            if (dg8Var == null) {
                 return false;
             }
-            return ld8Var.isFullScreen();
+            return dg8Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -440,7 +440,7 @@ public abstract class wy extends ax<tr4> implements qc8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,16 +450,16 @@ public abstract class wy extends ax<tr4> implements qc8 {
         return invokeV.booleanValue;
     }
 
-    public ld8 s() {
+    public dg8 s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.j;
         }
-        return (ld8) invokeV.objValue;
+        return (dg8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -470,7 +470,7 @@ public abstract class wy extends ax<tr4> implements qc8 {
         }
     }
 
-    @Override // com.baidu.tieba.qc8
+    @Override // com.baidu.tieba.if8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -487,11 +487,11 @@ public abstract class wy extends ax<tr4> implements qc8 {
                 if (TbadkCoreApplication.getInst().getPersonalizeViewData().k != null && TbadkCoreApplication.getInst().getPersonalizeViewData().k.getParent() == null) {
                     this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().k;
                 } else {
-                    this.f = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01c4, (ViewGroup) null, true);
+                    this.f = LayoutInflater.from(this.b).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
                 }
-                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0925b9);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090af2);
-                ld8 t2 = t();
+                this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
+                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
+                dg8 t2 = t();
                 this.j = t2;
                 t2.setUniqueId(this.m);
                 this.j.setFrom(this.k);
@@ -517,10 +517,10 @@ public abstract class wy extends ax<tr4> implements qc8 {
 
     @Override // com.baidu.tieba.tx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        tr4 tr4Var;
+        vr4 vr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048588, this, tbPageContext, i) == null) && (tr4Var = this.h) != null && tr4Var.getThreadData() != null) {
-            x36.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeLI(1048588, this, tbPageContext, i) == null) && (vr4Var = this.h) != null && vr4Var.getThreadData() != null) {
+            s46.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
         }
@@ -544,11 +544,11 @@ public abstract class wy extends ax<tr4> implements qc8 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, tr4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, vr4Var) == null) {
             int l = yi.l(TbadkCoreApplication.getInst());
             if (l != this.n) {
                 int l2 = yi.l(TbadkCoreApplication.getInst());
@@ -559,9 +559,9 @@ public abstract class wy extends ax<tr4> implements qc8 {
                 x = i / 3;
                 this.n = l;
             }
-            this.h = tr4Var;
-            if (tr4Var != null && tr4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.j.setData(tr4Var.getThreadData());
+            this.h = vr4Var;
+            if (vr4Var != null && vr4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
+                this.j.setData(vr4Var.getThreadData());
                 ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
                 int i2 = layoutParams.width;
                 int i3 = layoutParams.height;

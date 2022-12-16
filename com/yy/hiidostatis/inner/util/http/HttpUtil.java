@@ -2,7 +2,6 @@ package com.yy.hiidostatis.inner.util.http;
 
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,7 +138,7 @@ public class HttpUtil {
                 Field declaredField = httpURLConnection.getClass().getDeclaredField("route");
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(httpURLConnection);
-                Field declaredField2 = obj.getClass().getDeclaredField(IMTrack.AckBuilder.PROXY_TYPE);
+                Field declaredField2 = obj.getClass().getDeclaredField("proxy");
                 declaredField2.setAccessible(true);
                 Field declaredField3 = obj.getClass().getDeclaredField("inetSocketAddress");
                 declaredField3.setAccessible(true);

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FetchLogJob extends IFetchJob {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

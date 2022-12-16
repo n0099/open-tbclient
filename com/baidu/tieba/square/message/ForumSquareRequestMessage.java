@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dj5;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetForumSquare.DataReq;
 import tbclient.GetForumSquare.GetForumSquareReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForumSquareRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_RN = 20;
@@ -51,7 +51,7 @@ public class ForumSquareRequestMessage extends NetMessage {
                 builder.rn = 20;
                 builder.user_id = Long.valueOf(TbadkCoreApplication.getCurrentAccountId());
                 if (z) {
-                    dj5.a(builder, true);
+                    wj5.a(builder, true);
                 }
                 GetForumSquareReqIdl.Builder builder2 = new GetForumSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

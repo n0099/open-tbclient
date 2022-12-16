@@ -1,11 +1,15 @@
 package com.baidu.tbadk.core.leveiconlivepolling;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.ChatRoomEntranceData;
 import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
 import com.baidu.tieba.cy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,12 +30,15 @@ import tbclient.Loop.LoopResIdl;
 public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ChatRoomEntranceData chatEntranceData;
+    public SubscribeGroupUnreadMsgData groupUnreadMsgData;
     public List<AlaLiveInfo> liveFollowSecondFloor;
     public List<AlaLiveInfo> liveIndexSecondFloor;
     public final List<AlaLiveInfo> livePicSecondFloor;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
+    public String uniqueId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PollingHttpResMessage(int i) {
@@ -72,10 +79,17 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
                 if (getError() != 0) {
                     return;
                 }
+                DataRes dataRes = loopResIdl.data;
+                if (dataRes.chatroom_message_tab != null && !TextUtils.isEmpty(dataRes.uniq_id)) {
+                    SubscribeGroupUnreadMsgData subscribeGroupUnreadMsgData = new SubscribeGroupUnreadMsgData();
+                    this.groupUnreadMsgData = subscribeGroupUnreadMsgData;
+                    DataRes dataRes2 = loopResIdl.data;
+                    subscribeGroupUnreadMsgData.parse(dataRes2.chatroom_message_tab, dataRes2.uniq_id);
+                }
             }
-            DataRes dataRes = loopResIdl.data;
-            if (dataRes != null) {
-                LiveRes liveRes = dataRes.live;
+            DataRes dataRes3 = loopResIdl.data;
+            if (dataRes3 != null) {
+                LiveRes liveRes = dataRes3.live;
                 if (liveRes != null) {
                     this.mLiveRemindData.parserProtobuf(liveRes);
                 }
@@ -99,15 +113,31 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
                     this.livePicSecondFloor.clear();
                     this.livePicSecondFloor.addAll(loopResIdl.data.live_pic_second_floor);
                 }
+                if (loopResIdl.data.chatroom_frs != null) {
+                    ChatRoomEntranceData chatRoomEntranceData = new ChatRoomEntranceData();
+                    this.chatEntranceData = chatRoomEntranceData;
+                    chatRoomEntranceData.parserProtobuf(loopResIdl.data.chatroom_frs);
+                }
+                this.uniqueId = loopResIdl.data.uniq_id;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.cy4
+    public ChatRoomEntranceData getChatRoomEntranceData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.chatEntranceData;
+        }
+        return (ChatRoomEntranceData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.cy4
     public IconPopData getIconPopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mIconPopData;
         }
         return (IconPopData) invokeV.objValue;
@@ -117,7 +147,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mLevePopData;
         }
         return (LevePopData) invokeV.objValue;
@@ -127,7 +157,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
     public List<AlaLiveInfo> getLiveFollowSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.liveFollowSecondFloor;
         }
         return (List) invokeV.objValue;
@@ -137,7 +167,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
     public List<AlaLiveInfo> getLiveIndexSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.liveIndexSecondFloor;
         }
         return (List) invokeV.objValue;
@@ -147,7 +177,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
     public List<AlaLiveInfo> getLivePicSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.livePicSecondFloor;
         }
         return (List) invokeV.objValue;
@@ -157,9 +187,29 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements cy4 {
     public LiveRemindData getLiveRemindData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mLiveRemindData;
         }
         return (LiveRemindData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cy4
+    public SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.groupUnreadMsgData;
+        }
+        return (SubscribeGroupUnreadMsgData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cy4
+    public String getUniqueId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.uniqueId;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -9,15 +9,15 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mq1;
-import com.baidu.tieba.wh3;
+import com.baidu.tieba.lq1;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,24 +39,24 @@ public class WebViewContainer extends FrameLayout {
     public float p;
     public int q;
     public int r;
-    public mq1 s;
+    public lq1 s;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,17 +238,17 @@ public class WebViewContainer extends FrameLayout {
         }
     }
 
-    public void setInternalWebView(mq1 mq1Var) {
+    public void setInternalWebView(lq1 lq1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, mq1Var) == null) {
-            this.s = mq1Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, lq1Var) == null) {
+            this.s = lq1Var;
         }
     }
 
     public void setMinFlingVelocity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.m = wh3.g(i);
+            this.m = vh3.g(i);
         }
     }
 

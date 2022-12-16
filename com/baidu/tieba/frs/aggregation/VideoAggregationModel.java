@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cm6;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.xm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,14 +44,14 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface c {
         void a(String str);
 
-        void b(List<cm6> list, boolean z, boolean z2);
+        void b(List<xm6> list, boolean z, boolean z2);
     }
 
     /* loaded from: classes4.dex */
     public static class VideoAggregationResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<cm6> mDataList;
+        public List<xm6> mDataList;
         public boolean mHasMore;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -91,10 +91,10 @@ public class VideoAggregationModel extends BdBaseModel {
                         this.mDataList = new ArrayList();
                         JSONArray jSONArray = new JSONArray(optString);
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            cm6 cm6Var = new cm6();
-                            cm6Var.f(jSONArray.optString(i2));
-                            if (cm6Var.n != null) {
-                                this.mDataList.add(cm6Var);
+                            xm6 xm6Var = new xm6();
+                            xm6Var.f(jSONArray.optString(i2));
+                            if (xm6Var.n != null) {
+                                this.mDataList.add(xm6Var);
                             }
                         }
                     }
@@ -140,17 +140,17 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.a.f = false;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                        List<cm6> list = videoAggregationResponseMessage.mDataList;
+                        List<xm6> list = videoAggregationResponseMessage.mDataList;
                         if (this.a.a == 1) {
                             z = true;
                         }
                         this.a.g.b(list, z, videoAggregationResponseMessage.mHasMore);
                         return;
                     }
-                    VideoAggregationModel.C(this.a);
+                    VideoAggregationModel.J(this.a);
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05d4);
                     }
                     this.a.g.a(errorString);
                     return;
@@ -197,17 +197,17 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.a.f = false;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                        List<cm6> list = videoAggregationResponseMessage.mDataList;
+                        List<xm6> list = videoAggregationResponseMessage.mDataList;
                         if (this.a.a == 1) {
                             z = true;
                         }
                         this.a.g.b(list, z, videoAggregationResponseMessage.mHasMore);
                         return;
                     }
-                    VideoAggregationModel.C(this.a);
+                    VideoAggregationModel.J(this.a);
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05d4);
                     }
                     this.a.g.a(errorString);
                     return;
@@ -247,27 +247,27 @@ public class VideoAggregationModel extends BdBaseModel {
         registerListener(this.i);
     }
 
-    public static /* synthetic */ int C(VideoAggregationModel videoAggregationModel) {
+    public static /* synthetic */ int J(VideoAggregationModel videoAggregationModel) {
         int i = videoAggregationModel.a;
         videoAggregationModel.a = i - 1;
         return i;
     }
 
-    public void E(String str) {
+    public void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void F(String str) {
+    public void M(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.e = str;
         }
     }
 
-    public void G(String str) {
+    public void N(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.d = str;
@@ -281,7 +281,7 @@ public class VideoAggregationModel extends BdBaseModel {
         }
     }
 
-    public void D() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0;

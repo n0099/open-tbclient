@@ -1,36 +1,165 @@
 package com.baidu.tieba;
 
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
-import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class eg6 {
+@Deprecated
+/* loaded from: classes4.dex */
+public class eg6 extends e75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public final List<kn> c;
-    public dg6 d;
-    public fg6 e;
-    public final List<xn> f;
+    public final String e;
 
-    public eg6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(eg6 eg6Var);
+    }
+
+    @Override // com.baidu.tieba.e75
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public in n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return null;
+        }
+        return (in) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.e75
+    public in o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return null;
+        }
+        return (in) invokeL.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends sg<in> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ eg6 b;
+
+        public a(eg6 eg6Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eg6Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = eg6Var;
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sg
+        public void onLoaded(in inVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
+                super.onLoaded((a) inVar, str, i);
+                if (inVar != null) {
+                    this.b.r(inVar);
+                    this.b.s(inVar);
+                    if (this.b.u()) {
+                        this.a.a(this.b);
+                    }
+                }
+            }
+        }
+    }
+
+    public eg6(of6 of6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, forumEmotionModel};
+            Object[] objArr = {of6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,92 +169,67 @@ public class eg6 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        c(forumEmotionModel);
+        this.e = of6Var.getGroupId();
+        t(1);
+        q(4);
     }
 
-    public void a(List<xn> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (this.b != null) {
-            this.f.addAll(list);
-            this.b.setData(this.f);
-        }
-        d();
-    }
-
-    public void f(cg6 cg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cg6Var) == null) {
-            this.d.u(cg6Var);
-            this.e.u(cg6Var);
-        }
-    }
-
-    public int b() {
+    @Override // com.baidu.tieba.e75
+    public in e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.d();
         }
-        return invokeV.intValue;
+        return (in) invokeV.objValue;
     }
 
-    public void d() {
-        BdTypeListView bdTypeListView;
+    @Override // com.baidu.tieba.e75
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
-            this.b.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void c(ForumEmotionModel forumEmotionModel) {
+    @Override // com.baidu.tieba.e75
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
-            dg6 dg6Var = new dg6(this.a, forumEmotionModel.B(), ig6.b);
-            this.d = dg6Var;
-            this.c.add(dg6Var);
-            fg6 fg6Var = new fg6(this.a, forumEmotionModel.B(), gg6.a);
-            this.e = fg6Var;
-            this.c.add(fg6Var);
-            this.b.a(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return EmotionGroupType.SINGLE_FORUM;
         }
+        return (EmotionGroupType) invokeV.objValue;
     }
 
-    public void e(List<xn> list) {
+    public boolean u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!ListUtils.isEmpty(this.f)) {
-            this.f.clear();
-        }
-        BdTypeListView bdTypeListView = this.b;
-        if (bdTypeListView != null) {
-            bdTypeListView.setData(list);
-            this.f.addAll(list);
-        }
-        d();
-    }
-
-    public void g(ForumEmotionPackageData forumEmotionPackageData) {
-        ForumEmotionPackageData forumEmotionPackageData2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, forumEmotionPackageData) != null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f)) {
-            return;
-        }
-        for (xn xnVar : this.f) {
-            if (xnVar != null && (xnVar instanceof ig6) && (forumEmotionPackageData2 = ((ig6) xnVar).a) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
-                forumEmotionPackageData2.download = forumEmotionPackageData.download;
-                forumEmotionPackageData2.share = forumEmotionPackageData.share;
-                d();
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (d() != null) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v(of6 of6Var, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, of6Var, bVar)) == null) {
+            if (!(of6Var instanceof SingleBarEmotionRecommendData)) {
+                return false;
+            }
+            tg.h().m(((SingleBarEmotionRecommendData) of6Var).cover, 10, new a(this, bVar), null);
+            if (!u()) {
+                return false;
+            }
+            bVar.a(this);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

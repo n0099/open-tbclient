@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class jq extends sq {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
@@ -50,7 +50,7 @@ public final class jq extends sq {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

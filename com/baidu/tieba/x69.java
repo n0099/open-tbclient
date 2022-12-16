@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface x69 {
-    void A();
+    void b();
 
-    void c();
+    boolean c();
 
-    void d(String str);
+    void d();
 
-    void finish();
+    void e();
 
-    void setResult(int i);
-
-    void v0(int i, boolean z);
-
-    void x();
+    void play();
 }

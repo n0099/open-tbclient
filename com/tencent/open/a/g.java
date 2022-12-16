@@ -10,7 +10,6 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -1046,7 +1045,7 @@ public class g {
             try {
                 bundle.putString("appid", str);
                 bundle.putString("releaseversion", com.tencent.connect.common.Constants.SDK_VERSION_REPORT);
-                bundle.putString(Config.DEVICE_PART, Build.DEVICE);
+                bundle.putString("device", Build.DEVICE);
                 bundle.putString("qua", com.tencent.connect.common.Constants.SDK_QUA);
                 bundle.putString("key", "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,touin,deviceinfo");
                 for (int i = 0; i < this.c.size(); i++) {

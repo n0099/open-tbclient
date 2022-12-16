@@ -1,47 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
-public final class be9 {
+public class be9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ae9 a;
 
-    public be9() {
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || str == null) {
+                return null;
+            }
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null) {
+                    bundle = applicationInfo.metaData;
+                } else {
+                    bundle = null;
+                }
+                if (bundle == null) {
+                    return null;
+                }
+                return bundle.getString(str);
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-        this.a = new ae9();
-    }
-
-    public final List<com.baidu.ubs.analytics.a.i> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.a();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
-        }
+        return (String) invokeLL.objValue;
     }
 }

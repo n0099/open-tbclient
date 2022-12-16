@@ -21,12 +21,12 @@ public interface c extends IInterface {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0095a implements c {
+        public static class C0109a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0095a(IBinder iBinder) {
+            public C0109a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,7 +193,7 @@ public interface c extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0095a(iBinder) : (c) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0109a(iBinder) : (c) queryLocalInterface;
             }
             return (c) invokeL.objValue;
         }

@@ -1,6 +1,7 @@
 package com.facebook.common.internal;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -276,7 +277,7 @@ public final class Objects {
                         String str2 = valueHolder.name;
                         if (str2 != null) {
                             sb.append(str2);
-                            sb.append('=');
+                            sb.append(a.h);
                         }
                         if (obj != null && obj.getClass().isArray()) {
                             String deepToString = Arrays.deepToString(new Object[]{obj});

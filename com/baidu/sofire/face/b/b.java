@@ -17,7 +17,6 @@ import com.baidu.sofire.utility.WbEncryptUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -38,7 +37,7 @@ import java.util.zip.GZIPOutputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -283,13 +282,13 @@ public class b {
                     try {
                         X509Certificate x509Certificate = (X509Certificate) certificate;
                         sb.append(x509Certificate.toString());
-                        sb.append(ParamableElem.DIVIDE_PARAM);
+                        sb.append(";");
                         byte[] encoded = x509Certificate.getPublicKey().getEncoded();
                         if (encoded != null) {
                             String encodeToString = Base64.encodeToString(encoded, 0);
                             str2 = str2 + c.a(encodeToString.replace("\n", "").replace("\r", ""));
                         }
-                        str2 = str2 + ParamableElem.DIVIDE_PARAM;
+                        str2 = str2 + ";";
                     } catch (Throwable unused) {
                     }
                 }

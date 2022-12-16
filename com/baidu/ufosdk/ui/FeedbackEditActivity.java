@@ -46,7 +46,6 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,7 +79,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FeedbackEditActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -174,8 +173,8 @@ public class FeedbackEditActivity extends Activity {
             this.G = getIntent().getIntExtra("come_from", -1);
             getIntent().getIntExtra("extend_feedback_channel", -1);
             this.L = getIntent().getIntExtra("showProblem", 0) == 1;
-            this.M = getResources().getStringArray(R.array.problem_type_text);
-            this.N = getResources().getStringArray(R.array.problem_serial_number);
+            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
+            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030013);
             if (TextUtils.isEmpty(this.v)) {
                 this.v = "newMessage";
             }
@@ -512,7 +511,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -556,7 +555,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -594,7 +593,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -639,7 +638,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -687,7 +686,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -729,7 +728,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -814,7 +813,7 @@ public class FeedbackEditActivity extends Activity {
                                 if (this.a.C != null) {
                                     JSONObject jSONObject = new JSONObject();
                                     try {
-                                        jSONObject.put(TiebaStatic.LogFields.RESULT, "success");
+                                        jSONObject.put("result", "success");
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -835,7 +834,7 @@ public class FeedbackEditActivity extends Activity {
                     if (this.a.C != null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put(TiebaStatic.LogFields.RESULT, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                            jSONObject2.put("result", com.baidu.pass.biometrics.face.liveness.b.a.g0);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -873,7 +872,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

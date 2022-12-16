@@ -4,13 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.CursorParse;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -140,6 +138,19 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecordDBManager) invokeL.objValue;
     }
 
+    public long add(DialogRecord dialogRecord) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogRecord)) == null) {
+            String str = TAG;
+            LogUtils.i(str, "add DialogRecord : " + dialogRecord);
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(dialogRecord);
+            return addBatch(linkedList);
+        }
+        return invokeL.longValue;
+    }
+
     public List<DialogRecord> getDialogRecord(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -154,21 +165,18 @@ public class DialogRecordDBManager extends DBBase {
         return (List) invokeI.objValue;
     }
 
-    public long add(DialogRecord dialogRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogRecord)) == null) {
-            String str = TAG;
-            LogUtils.i(str, "add DialogRecord : " + dialogRecord);
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(dialogRecord);
-            return addBatch(linkedList);
-        }
-        return invokeL.longValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0161  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0166  */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x011a, code lost:
+        if (r14 != null) goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x011c, code lost:
+        r14.endTransaction();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0139, code lost:
+        if (r14 != null) goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x013c, code lost:
+        return r1;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -191,127 +199,110 @@ public class DialogRecordDBManager extends DBBase {
                 try {
                     sQLiteDatabase = openDatabase();
                     try {
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                sQLiteDatabase = null;
-            } catch (Throwable th2) {
-                th = th2;
-                sQLiteDatabase = null;
-            }
-            if (sQLiteDatabase == null) {
-                LogUtils.e(TAG, "getWritableDb fail!");
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                return -1L;
-            }
-            sQLiteDatabase.beginTransaction();
-            Iterator<DialogRecord> it = list.iterator();
-            Cursor cursor3 = null;
-            while (true) {
-                try {
-                    if (it.hasNext()) {
-                        DialogRecord next = it.next();
-                        String[] strArr = {String.valueOf(next.getCategory()), String.valueOf(next.getContacter())};
-                        Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", strArr, null, null, null);
-                        if (query == null) {
-                            if (query != null) {
-                                query.close();
-                            }
+                        if (sQLiteDatabase == null) {
+                            LogUtils.e(TAG, "getWritableDb fail!");
                             if (sQLiteDatabase != null) {
                                 sQLiteDatabase.endTransaction();
                             }
-                            return j;
+                            return -1L;
                         }
-                        try {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(next.getMaxMsgid()));
-                            contentValues.put("state", Integer.valueOf(next.getState()));
-                            contentValues.put("update_time", Long.valueOf(next.getUpdateTime()));
-                            contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(next.getDialogueMsgid()));
-                            if (query.getCount() > 0) {
-                                contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
-                                j = sQLiteDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
-                            } else {
-                                contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
-                                contentValues.put("category", Integer.valueOf(next.getCategory()));
-                                contentValues.put("contacter", Long.valueOf(next.getContacter()));
-                                j = sQLiteDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);
-                            }
-                            if (query != null) {
-                                query.close();
-                                cursor3 = null;
-                            } else {
-                                cursor3 = query;
-                            }
-                            if (j < 0) {
-                                cursor = cursor3;
-                                j2 = 0;
-                                break;
-                            }
-                            j2 = 0;
-                        } catch (Exception e3) {
-                            e = e3;
-                            cursor2 = query;
+                        sQLiteDatabase.beginTransaction();
+                        Iterator<DialogRecord> it = list.iterator();
+                        Cursor cursor3 = null;
+                        while (true) {
                             try {
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                LogUtils.e(TAG, "deleteCmdMsg:", e);
-                                if (cursor2 != null) {
-                                    cursor2.close();
+                                if (it.hasNext()) {
+                                    DialogRecord next = it.next();
+                                    String[] strArr = {String.valueOf(next.getCategory()), String.valueOf(next.getContacter())};
+                                    Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", strArr, null, null, null);
+                                    if (query == null) {
+                                        if (query != null) {
+                                            query.close();
+                                        }
+                                        if (sQLiteDatabase != null) {
+                                            sQLiteDatabase.endTransaction();
+                                        }
+                                        return j;
+                                    }
+                                    try {
+                                        ContentValues contentValues = new ContentValues();
+                                        contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(next.getMaxMsgid()));
+                                        contentValues.put("state", Integer.valueOf(next.getState()));
+                                        contentValues.put("update_time", Long.valueOf(next.getUpdateTime()));
+                                        contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(next.getDialogueMsgid()));
+                                        if (query.getCount() > 0) {
+                                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
+                                            j = sQLiteDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
+                                        } else {
+                                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
+                                            contentValues.put("category", Integer.valueOf(next.getCategory()));
+                                            contentValues.put("contacter", Long.valueOf(next.getContacter()));
+                                            j = sQLiteDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);
+                                        }
+                                        if (query != null) {
+                                            query.close();
+                                            cursor3 = null;
+                                        } else {
+                                            cursor3 = query;
+                                        }
+                                        if (j < 0) {
+                                            cursor = cursor3;
+                                            j2 = 0;
+                                            break;
+                                        }
+                                        j2 = 0;
+                                    } catch (Exception e) {
+                                        e = e;
+                                        cursor2 = query;
+                                        LogUtils.e(TAG, "deleteCmdMsg:", e);
+                                        if (cursor2 != null) {
+                                            cursor2.close();
+                                        }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        cursor2 = query;
+                                        if (cursor2 != null) {
+                                            cursor2.close();
+                                        }
+                                        if (sQLiteDatabase != null) {
+                                            sQLiteDatabase.endTransaction();
+                                        }
+                                        throw th;
+                                    }
+                                } else {
+                                    cursor = cursor3;
+                                    break;
                                 }
-                                if (sQLiteDatabase != null) {
-                                    sQLiteDatabase.endTransaction();
-                                }
-                                return j;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                if (cursor2 != null) {
-                                    cursor2.close();
-                                }
-                                if (sQLiteDatabase != null) {
-                                    sQLiteDatabase.endTransaction();
-                                }
-                                throw th;
+                            } catch (Exception e2) {
+                                e = e2;
+                                cursor2 = cursor3;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                cursor2 = cursor3;
                             }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            cursor2 = query;
-                            if (cursor2 != null) {
-                            }
-                            if (sQLiteDatabase != null) {
-                            }
-                            throw th;
                         }
-                    } else {
-                        cursor = cursor3;
-                        break;
+                        if (j >= j2) {
+                            sQLiteDatabase.setTransactionSuccessful();
+                        }
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
                     }
-                } catch (Exception e4) {
-                    e = e4;
-                    cursor2 = cursor3;
-                } catch (Throwable th5) {
-                    th = th5;
-                    cursor2 = cursor3;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
+            } catch (Exception e4) {
+                e = e4;
+                sQLiteDatabase = null;
+            } catch (Throwable th4) {
+                th = th4;
+                sQLiteDatabase = null;
             }
-            if (j >= j2) {
-                sQLiteDatabase.setTransactionSuccessful();
-            }
-            if (cursor != null) {
-                cursor.close();
-            }
-            if (sQLiteDatabase != null) {
-                sQLiteDatabase.endTransaction();
-            }
-            return j;
+        } else {
+            return invokeL.longValue;
         }
-        return invokeL.longValue;
     }
 
     public int delete(int i, long j) {
@@ -341,10 +332,10 @@ public class DialogRecordDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003a, code lost:
         if (0 == 0) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x004f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x003d, code lost:
         return r1;
      */
     /*
@@ -371,7 +362,6 @@ public class DialogRecordDBManager extends DBBase {
                         }
                     }
                 } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, "maxMsgid:", e);
                 }
             } finally {
@@ -396,7 +386,7 @@ public class DialogRecordDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x006c A[DONT_GENERATE] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x005a A[DONT_GENERATE] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -423,7 +413,6 @@ public class DialogRecordDBManager extends DBBase {
                         } catch (Exception e) {
                             e = e;
                             i2 = 0;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                             return i2;
                         }
@@ -441,7 +430,6 @@ public class DialogRecordDBManager extends DBBase {
                     } catch (Exception e2) {
                         i2 = i;
                         e = e2;
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                         return i2;
                     }
@@ -458,10 +446,10 @@ public class DialogRecordDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0073, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0061, code lost:
         if (r1 == null) goto L16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0076, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0064, code lost:
         return r0;
      */
     /*
@@ -488,7 +476,6 @@ public class DialogRecordDBManager extends DBBase {
                             }
                         } catch (Exception e) {
                             e = e;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                         }
                     } else {

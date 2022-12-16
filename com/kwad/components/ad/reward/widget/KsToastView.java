@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsToastView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -127,8 +127,8 @@ public class KsToastView extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0444, this);
-            this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f091242);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0453, this);
+            this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a1);
         }
     }
 

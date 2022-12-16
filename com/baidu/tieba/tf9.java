@@ -1,284 +1,201 @@
 package com.baidu.tieba;
 
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.IOException;
 /* loaded from: classes6.dex */
 public class tf9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int g = 2;
-    public static int h = 4;
-    public static int i = 8;
-    public static int j = 16;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public long e;
-    public String f;
 
-    /* loaded from: classes6.dex */
-    public class a implements ng9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean[] a;
-        public final /* synthetic */ tf9 b;
-
-        public a(tf9 tf9Var, boolean[] zArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tf9Var, zArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tf9Var;
-            this.a = zArr;
-        }
-
-        @Override // com.baidu.tieba.ng9
-        public void a(MediaFormat mediaFormat) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaFormat) == null) {
-                this.a[0] = true;
-                this.b.l(mediaFormat);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948179426, "Lcom/baidu/tieba/tf9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948179426, "Lcom/baidu/tieba/tf9;");
-        }
-    }
-
-    public tf9(String str) {
+    public static void a() {
+        ig9 c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = og9.c()) != null) {
+            c.b();
         }
-        this.a = str;
-        j(str);
     }
 
-    public static tf9 b() {
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.getAppContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            tf9 tf9Var = new tf9("");
-            tf9Var.c = 2;
-            tf9Var.f = "audio/mp4a-latm";
-            tf9Var.b = 44100;
-            tf9Var.d = 16;
-            return tf9Var;
-        }
-        return (tf9) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e / 1000 : invokeV.longValue;
-    }
-
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? (obj instanceof tf9) && k((tf9) obj) == 0 : invokeL.booleanValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.d + this.b + this.c;
-            String str = this.f;
-            return i2 + (str != null ? str.hashCode() : 0);
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public boolean i() {
+    public static if9 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.f) || this.b == 0 || this.c == 0 || this.d == 0 || this.e == 0) ? false : true : invokeV.booleanValue;
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            try {
-                if (m(str)) {
-                    boolean[] zArr = {false};
-                    mg9 mg9Var = new mg9(str);
-                    mg9Var.k(new a(this, zArr));
-                    while (!zArr[0]) {
-                        if (mg9Var.c()) {
-                            zArr[0] = true;
-                        }
-                    }
-                    mg9Var.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return og9.e();
         }
+        return (if9) invokeV.objValue;
     }
 
-    public int k(tf9 tf9Var) {
-        InterceptResult invokeL;
+    public static mf9 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, tf9Var)) == null) {
-            if (tf9Var == null) {
-                return 0;
-            }
-            int i2 = tf9Var.d != this.d ? 0 | g : 0;
-            if (tf9Var.b != this.b) {
-                i2 |= h;
-            }
-            if (tf9Var.c != this.c) {
-                i2 |= i;
-            }
-            return !TextUtils.equals(tf9Var.f, this.f) ? i2 | j : i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return og9.f();
         }
-        return invokeL.intValue;
+        return (mf9) invokeV.objValue;
     }
 
-    public final boolean l(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
+    public static boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, mediaFormat)) == null) {
-            try {
-                this.b = mediaFormat.getInteger("sample-rate");
-                this.c = mediaFormat.getInteger("channel-count");
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            boolean z = false;
-            if (FileUtils.isExists(str)) {
-                MediaExtractor mediaExtractor = new MediaExtractor();
-                try {
-                    mediaExtractor.setDataSource(str);
-                    MediaFormat mediaFormat = null;
-                    for (int i2 = 0; i2 < mediaExtractor.getTrackCount(); i2++) {
-                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
-                        if (trackFormat.getString("mime").startsWith("audio/")) {
-                            mediaExtractor.selectTrack(i2);
-                            mediaFormat = trackFormat;
-                            break;
-                        }
-                    }
-                    try {
-                        if (mediaFormat == null) {
-                            return false;
-                        }
-                        this.f = mediaFormat.getString("mime");
-                        this.b = mediaFormat.getInteger("sample-rate");
-                        this.c = mediaFormat.getInteger("channel-count");
-                        this.e = mediaFormat.getLong("durationUs");
-                        if (mediaFormat.containsKey("bit-width")) {
-                            this.d = mediaFormat.getInteger("bit-width");
-                        } else {
-                            this.d = 16;
-                        }
-                        if (mediaFormat.containsKey("aac-profile")) {
-                            if (mediaFormat.getInteger("aac-profile") != 2) {
-                                z = true;
-                            }
-                        }
-                        return z;
-                    } catch (Exception e) {
-                        dj9.e("VideoMuxer", "initAudioProperty error:" + e.getMessage());
-                        return false;
-                    } finally {
-                        mediaExtractor.release();
-                    }
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            hg9 b = og9.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.c(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            ig9 c = og9.c();
+            if (c != null) {
+                return c.a(str);
+            }
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.e(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static void q(int i) {
+        gg9 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = og9.a()) != null) {
+            a.a(i);
+        }
+    }
+
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.getInt(str, i);
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            gg9 a = og9.a();
+            if (a != null) {
+                return a.getLong(str, j);
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static void n(String str, int i) {
+        gg9 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = og9.a()) != null) {
+            a.putInt(str, i);
+        }
+    }
+
+    public static void o(String str, long j) {
+        gg9 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = og9.a()) != null) {
+            a.putLong(str, j);
+        }
+    }
+
+    public static void p(String str, String str2) {
+        gg9 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = og9.a()) != null) {
+            a.putString(str, str2);
+        }
     }
 }

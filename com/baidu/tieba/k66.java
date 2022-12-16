@@ -1,151 +1,135 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tieba.core.edit.TbMediaTrackConfig;
-import com.baidu.tieba.external.filter.TbFilterValue;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Set;
+/* loaded from: classes5.dex */
 public class k66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbMultiMediaData a;
-    public TbFilterValue b;
-    public TbMediaTrackConfig c;
-    public float d;
-    public TbMusicData e;
-    public int f;
-    public int g;
 
-    public k66() {
+    @Nullable
+    public static Intent a(Context context, String str, String str2, boolean z, j66 j66Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), j66Var})) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            int i = 0;
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            while (true) {
+                if (i >= queryIntentActivities.size()) {
+                    break;
+                }
+                String str3 = queryIntentActivities.get(i).activityInfo.packageName;
+                if (TextUtils.equals(str3, str2)) {
+                    intent.setPackage(str3);
+                    break;
+                }
+                i++;
+            }
+            if (z && !TextUtils.isEmpty(str2) && TextUtils.isEmpty(intent.getPackage())) {
+                if (j66Var != null) {
+                    j66Var.onFailed(-104);
+                    return null;
+                }
+                return null;
+            }
+            return intent;
+        }
+        return (Intent) invokeCommon.objValue;
+    }
+
+    public static Intent b(@NonNull Context context, String str, String str2, boolean z, @Nullable j66 j66Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), j66Var})) == null) {
+            if (!d(str) && !e(str)) {
+                return a(context, str, str2, z, j66Var);
+            }
+            return c(context, str, str2, j66Var);
+        }
+        return (Intent) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public static Intent c(Context context, String str, String str2, j66 j66Var) {
+        InterceptResult invokeLLLL;
+        List<ResolveInfo> queryIntentActivities;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, j66Var)) == null) {
+            Intent intent = null;
+            try {
+                Intent parseUri = Intent.parseUri(str, 1);
+                if (parseUri == null) {
+                    if (j66Var != null) {
+                        j66Var.onFailed(-103);
+                    }
+                    return null;
+                }
+                String str3 = parseUri.getPackage();
+                if (str3 != null && !TextUtils.isEmpty(str3)) {
+                    parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    Set<String> categories = parseUri.getCategories();
+                    if (categories == null || categories.isEmpty()) {
+                        parseUri.addCategory("android.intent.category.LAUNCHER");
+                    }
+                    if (parseUri.getComponent() == null && (queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 0)) != null && queryIntentActivities.size() > 0) {
+                        parseUri.setComponent(new ComponentName(str3, queryIntentActivities.iterator().next().activityInfo.name));
+                    }
+                    return parseUri;
+                }
+                return context.getPackageManager().getLaunchIntentForPackage(str2);
+            } catch (URISyntaxException unused) {
+                if (!TextUtils.isEmpty(str2)) {
+                    intent = context.getPackageManager().getLaunchIntentForPackage(str2);
+                }
+                if (intent == null && j66Var != null) {
+                    j66Var.onFailed(-102);
+                }
+                return intent;
             }
         }
+        return (Intent) invokeLLLL.objValue;
     }
 
-    public TbFilterValue a() {
-        InterceptResult invokeV;
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.startsWith("android-app:");
         }
-        return (TbFilterValue) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public TbMediaTrackConfig b() {
-        InterceptResult invokeV;
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (!str.startsWith("intent:") && !str.startsWith("#Intent;")) {
+                return false;
+            }
+            return true;
         }
-        return (TbMediaTrackConfig) invokeV.objValue;
-    }
-
-    public TbMultiMediaData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (TbMultiMediaData) invokeV.objValue;
-    }
-
-    public TbMusicData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (TbMusicData) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public void h(TbFilterValue tbFilterValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tbFilterValue) == null) {
-            this.b = tbFilterValue;
-        }
-    }
-
-    public void i(TbMediaTrackConfig tbMediaTrackConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbMediaTrackConfig) == null) {
-            this.c = tbMediaTrackConfig;
-        }
-    }
-
-    public void j(TbMultiMediaData tbMultiMediaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tbMultiMediaData) == null) {
-            this.a = tbMultiMediaData;
-        }
-    }
-
-    public void k(TbMusicData tbMusicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tbMusicData) == null) {
-            this.e = tbMusicData;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void n(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            this.d = f;
-        }
+        return invokeL.booleanValue;
     }
 }

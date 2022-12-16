@@ -335,17 +335,10 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    public void setPageLifecycleCallback(v9 v9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, v9Var) == null) {
-            this.iPageLifecycleCallback = v9Var;
-        }
-    }
-
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             if (m9.d(this) && m9.a(i)) {
                 return;
             }
@@ -355,15 +348,15 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, bdUniqueId) == null) {
             this.mId = bdUniqueId;
         }
     }
 
     public void showToast(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            yi.P(getApplicationContext(), str);
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            yi.Q(getApplicationContext(), str);
         }
     }
 

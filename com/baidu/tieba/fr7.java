@@ -1,54 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
-import com.baidu.tieba.personExtra.RecommendGodReqMsg;
-import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
+import com.baidu.searchbox.live.interfaces.service.ShareService;
+import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fr7 {
+public class fr7 implements ShareService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public ib8 b;
-    public b c;
-    public int d;
-    public boolean e;
-    public qb f;
+    public ShareService.IOnSocialListener a;
+    public CustomMessageListener b;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(ib8 ib8Var, int i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947773822, "Lcom/baidu/tieba/fr7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947773822, "Lcom/baidu/tieba/fr7;");
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public boolean canShareInLandScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void clean() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public boolean isShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a extends qb {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fr7 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fr7 fr7Var, int i, int i2) {
-            super(i, i2);
+        public a(fr7 fr7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fr7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {fr7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -57,105 +98,98 @@ public class fr7 {
             this.a = fr7Var;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
-                return;
-            }
-            this.a.b = null;
-            if (responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
-                this.a.b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
-            } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
-                this.a.b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
-            }
-            if (this.a.b != null) {
-                fr7 fr7Var = this.a;
-                fr7Var.d = fr7Var.b.a;
-            }
-            int error = responsedMessage.getError();
-            if (error == 0 && this.a.b != null) {
-                if (ListUtils.isEmpty(this.a.b.b)) {
-                    if (this.a.e) {
-                        error = 3;
-                    } else {
-                        error = 2;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+                Integer num = (Integer) customResponsedMessage.getData();
+                if (this.a.a != null) {
+                    if (num.intValue() == 1) {
+                        this.a.a.onComplete("");
+                    } else if (num.intValue() == 2) {
+                        this.a.a.onError("");
+                    } else if (num.intValue() == 3) {
+                        this.a.a.onCancel("");
                     }
+                    this.a.a = null;
                 }
-            } else {
-                error = 1;
-            }
-            if (this.a.c != null) {
-                this.a.c.a(this.a.b, error);
+                MessageManager.getInstance().unRegisterListener(this.a.b);
             }
         }
     }
 
-    public fr7(BdUniqueId bdUniqueId) {
+    public fr7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = 0;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
-        this.f = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f);
+        this.a = null;
+        this.b = new a(this, 2921550);
     }
 
-    public void j(b bVar) {
+    public final void a(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            this.d = i;
-            h(str);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
-            recommendGodReqMsg.portrait = str;
-            if (this.d == 0) {
-                this.e = false;
-            } else {
-                this.e = true;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
+            ShareItem shareItem = new ShareItem();
+            shareItem.v = str;
+            shareItem.w = str2;
+            shareItem.A = str4;
+            shareItem.x = str3;
+            try {
+                JSONObject jSONObject = new JSONObject(str5);
+                String optString = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
+                shareItem.Y = jSONObject.optLong(MixYYFakeShell.ROOM_ID_YY);
+                shareItem.Z = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
+                if (TextUtils.isEmpty(optString)) {
+                    String optString2 = jSONObject.optString("liveId");
+                    String optString3 = jSONObject.optString("userId");
+                    shareItem.u = optString2;
+                    shareItem.x0 = optString3;
+                } else {
+                    if (jSONObject.optInt("yy_show_tieba_entrance", 1) == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        shareItem.D = optString;
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            recommendGodReqMsg.pageNum = this.d + 1;
-            recommendGodReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(recommendGodReqMsg);
+            this.a = iOnSocialListener;
+            MessageManager.getInstance().registerListener(this.b);
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(context, shareItem, 0, 1)));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
+            a(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
+    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, String str6, ShareService.IOnSocialListener iOnSocialListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, iOnSocialListener}) == null) {
+            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
         }
     }
 }

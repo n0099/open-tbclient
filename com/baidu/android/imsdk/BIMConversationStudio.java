@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
@@ -9,7 +8,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.CastServiceFactory;
 import com.baidu.android.imsdk.mcast.IMcastSetListener;
 import com.baidu.android.imsdk.mcast.UnLoginCastService;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -115,29 +113,6 @@ public class BIMConversationStudio extends BIMConversation {
                 iMcastSetListener.onResult(createCastService.startService(this.mCastId, this.mCastUrl, this.mCastType), this.session.getContacter(), -1L);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            }
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMcastSetListener) == null) {
-            if (this.mCastType == 2) {
-                ConversationStudioManImpl.getInstance(this.mContext).endWithCompletion(this.session.getContacter(), iMcastSetListener);
-            } else {
-                UnLoginCastService unLoginCastService = this.mCastService;
-                if (unLoginCastService != null) {
-                    unLoginCastService.stopService(0);
-                }
-                iMcastSetListener.onResult(0, this.session.getContacter(), -1L);
-            }
-            try {
-                unregisterLiveMsgReceiveListener(Long.valueOf(this.mCastId).longValue());
-            } catch (NumberFormatException e) {
-                LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -192,6 +167,27 @@ public class BIMConversationStudio extends BIMConversation {
                 });
             } else {
                 beginOtherCastType(iMcastSetListener);
+            }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMcastSetListener) == null) {
+            if (this.mCastType == 2) {
+                ConversationStudioManImpl.getInstance(this.mContext).endWithCompletion(this.session.getContacter(), iMcastSetListener);
+            } else {
+                UnLoginCastService unLoginCastService = this.mCastService;
+                if (unLoginCastService != null) {
+                    unLoginCastService.stopService(0);
+                }
+                iMcastSetListener.onResult(0, this.session.getContacter(), -1L);
+            }
+            try {
+                unregisterLiveMsgReceiveListener(Long.valueOf(this.mCastId).longValue());
+            } catch (NumberFormatException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
         }
     }

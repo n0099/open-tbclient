@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LegoHttpResponse extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,10 +57,12 @@ public class LegoHttpResponse extends HttpResponsedMessage {
         this.resultData = legoResIdl.data;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
     public DataRes getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.resultData;
         }
         return (DataRes) invokeV.objValue;

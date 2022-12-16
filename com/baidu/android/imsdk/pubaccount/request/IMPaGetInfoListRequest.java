@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.pubaccount.GetPaInfoSliceListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -99,6 +100,19 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         this.sliceListener = getPaInfoSliceListener;
     }
 
+    private void reportPa(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65538, this, str, i, str2) == null) {
+            CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+            debugInfo.curClassName = TAG;
+            debugInfo.extInfo = "getPaInfoList == null, server msg: " + str;
+            if (i != 0) {
+                debugInfo.extInfo += ", getPa error : " + i;
+            }
+            CaseUbc.debugUbc(this.mContext, "all_pa_detail_list", i, str2, debugInfo);
+        }
+    }
+
     @Override // com.baidu.android.imsdk.pubaccount.request.PaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
@@ -164,15 +178,15 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x01a1  */
-    /* JADX WARN: Removed duplicated region for block: B:48:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x01e2  */
+    /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
-        String str;
         int i2;
+        String str;
         GetPaInfoSliceListener getPaInfoSliceListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
@@ -184,70 +198,82 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(str2);
                 i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                if (i2 == 0 && jSONObject.has("response_params")) {
-                    JSONArray jSONArray = jSONObject.getJSONArray("response_params");
-                    ArrayList arrayList2 = new ArrayList();
-                    for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                        try {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                            if (jSONObject2.optInt("pa_type") != 16) {
-                                PaInfo paInfo = new PaInfo();
-                                paInfo.setPaId(jSONObject2.optLong("pa_uid"));
-                                paInfo.setNickName(jSONObject2.optString("pa_nickname"));
-                                paInfo.setUsername(jSONObject2.optString("pa_username"));
-                                paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
-                                paInfo.setDescription(jSONObject2.optString("description"));
-                                paInfo.setDetail(jSONObject2.optString("detail_description"));
-                                paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
-                                paInfo.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
-                                paInfo.setUrl(jSONObject2.optString("pa_url"));
-                                paInfo.setSubcribeTime(jSONObject2.optLong("create_time"));
-                                paInfo.setDisturb(jSONObject2.optInt("do_not_disturb"));
-                                paInfo.setSubtype(jSONObject2.optInt("pa_type"));
-                                paInfo.setClassType(jSONObject2.optInt("pa_classtype", 0));
-                                paInfo.setClasstitle(jSONObject2.optString("pa_classtitle"));
-                                paInfo.setClassAvatar(jSONObject2.optString("pa_classavatar"));
-                                paInfo.setClassshow(jSONObject2.optInt("pa_classshow", 0));
-                                paInfo.setStatus(jSONObject2.optInt("status", 0));
-                                String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
-                                paInfo.setPaExt(optString);
-                                if (!TextUtils.isEmpty(optString)) {
-                                    try {
-                                        paInfo.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                                    } catch (JSONException e) {
-                                        LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
+                if (i2 == 0) {
+                    if (jSONObject.has("response_params")) {
+                        JSONArray jSONArray = jSONObject.getJSONArray("response_params");
+                        ArrayList arrayList2 = new ArrayList();
+                        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                            try {
+                                JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                                if (jSONObject2.optInt(Constants.EXTRA_PA_TYPE) != 16) {
+                                    PaInfo paInfo = new PaInfo();
+                                    paInfo.setPaId(jSONObject2.optLong(Constants.EXTRA_PAUID_TYPE));
+                                    paInfo.setNickName(jSONObject2.optString("pa_nickname"));
+                                    paInfo.setUsername(jSONObject2.optString("pa_username"));
+                                    paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
+                                    paInfo.setDescription(jSONObject2.optString("description"));
+                                    paInfo.setDetail(jSONObject2.optString("detail_description"));
+                                    paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
+                                    paInfo.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
+                                    paInfo.setUrl(jSONObject2.optString("pa_url"));
+                                    paInfo.setSubcribeTime(jSONObject2.optLong("create_time"));
+                                    paInfo.setDisturb(jSONObject2.optInt("do_not_disturb"));
+                                    paInfo.setSubtype(jSONObject2.optInt(Constants.EXTRA_PA_TYPE));
+                                    paInfo.setClassType(jSONObject2.optInt("pa_classtype", 0));
+                                    paInfo.setClasstitle(jSONObject2.optString("pa_classtitle"));
+                                    paInfo.setClassAvatar(jSONObject2.optString("pa_classavatar"));
+                                    paInfo.setClassshow(jSONObject2.optInt("pa_classshow", 0));
+                                    paInfo.setStatus(jSONObject2.optInt("status", 0));
+                                    String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
+                                    paInfo.setPaExt(optString);
+                                    if (!TextUtils.isEmpty(optString)) {
+                                        try {
+                                            JSONObject jSONObject3 = new JSONObject(optString);
+                                            paInfo.setSubsetType(jSONObject3.optInt(Constants.EXTRA_SUB_PA_TYPE, 0));
+                                            paInfo.setShieldMsg(new JSONObject(jSONObject3.optString("pa_attributes")).optInt(TableDefine.PaSubscribeColumns.COLUMN_SHIELD_MSG, 0));
+                                        } catch (JSONException unused) {
+                                            LogUtils.d(TAG, "set patype JSONException");
+                                        }
                                     }
+                                    paInfo.setVipId(jSONObject2.optString("vip"));
+                                    paInfo.setVPortrait(jSONObject2.optString("v_portrait", ""));
+                                    paInfo.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
+                                    paInfo.setIdentity(jSONObject2.optString("identity", ""));
+                                    paInfo.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
+                                    paInfo.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
+                                    paInfo.setBduid(jSONObject2.optLong("bduid"));
+                                    paInfo.setImUk(jSONObject2.optLong("uk"));
+                                    paInfo.setSubscribe(jSONObject2.optInt("relation_follow"));
+                                    PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
+                                    if (queryPaInfo != null) {
+                                        paInfo.setMarkTop(queryPaInfo.getMarkTop());
+                                        paInfo.setMarkTopTime(queryPaInfo.getMarkTopTime());
+                                        paInfo.setShield(queryPaInfo.getShield());
+                                        paInfo.setShieldTime(queryPaInfo.getShieldTime());
+                                    }
+                                    paInfo.setMapType(jSONObject2.optInt("map_type"));
+                                    arrayList2.add(paInfo);
                                 }
-                                paInfo.setVipId(jSONObject2.optString("vip"));
-                                paInfo.setVPortrait(jSONObject2.optString("v_portrait", ""));
-                                paInfo.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
-                                paInfo.setIdentity(jSONObject2.optString("identity", ""));
-                                paInfo.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
-                                paInfo.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
-                                PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
-                                if (queryPaInfo != null) {
-                                    paInfo.setMarkTop(queryPaInfo.getMarkTop());
-                                    paInfo.setMarkTopTime(queryPaInfo.getMarkTopTime());
-                                    paInfo.setShield(queryPaInfo.getShield());
-                                    paInfo.setShieldTime(queryPaInfo.getShieldTime());
+                            } catch (JSONException e) {
+                                e = e;
+                                arrayList = arrayList2;
+                                LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
+                                i2 = 1010;
+                                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                                getPaInfoSliceListener = this.sliceListener;
+                                if (getPaInfoSliceListener == null) {
                                 }
-                                arrayList2.add(paInfo);
-                            }
-                        } catch (JSONException e2) {
-                            e = e2;
-                            arrayList = arrayList2;
-                            LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
-                            i2 = 1010;
-                            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                            getPaInfoSliceListener = this.sliceListener;
-                            if (getPaInfoSliceListener == null) {
                             }
                         }
+                        arrayList = arrayList2;
+                    } else {
+                        reportPa(str2, i2, str);
                     }
-                    arrayList = arrayList2;
+                } else {
+                    reportPa(str2, i2, str);
                 }
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
             }
             getPaInfoSliceListener = this.sliceListener;
             if (getPaInfoSliceListener == null) {

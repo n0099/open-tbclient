@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.authoring.builder;
 
 import com.googlecode.mp4parser.authoring.Track;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface FragmentIntersectionFinder {
     long[] sampleNumbers(Track track);
 }

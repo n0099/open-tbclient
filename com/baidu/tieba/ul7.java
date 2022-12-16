@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ul7 implements xn {
+public abstract class ul7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final SparseIntArray a;
+    public static final SparseArray<BdUniqueId> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+
+    public abstract <T> nm7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
+
+    public abstract ICardInfo b(JSONObject jSONObject, int i) throws CardParseException;
+
+    public abstract void c();
+
+    public abstract String d();
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +42,8 @@ public class ul7 implements xn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        a = new SparseIntArray();
+        b = new SparseArray<>();
     }
 
     public ul7() {
@@ -46,49 +59,6 @@ public class ul7 implements xn {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        c();
     }
 }

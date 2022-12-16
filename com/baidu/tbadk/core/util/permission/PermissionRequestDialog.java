@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kv4;
+import com.baidu.tieba.lv4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends kv4 {
+public class PermissionRequestDialog extends lv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -78,23 +78,23 @@ public class PermissionRequestDialog extends kv4 {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_permission_request, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092437);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092436);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092434);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.tv_permission_request_title);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0402);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092435);
+            textView.setText(R.string.obfuscated_res_0x7f0f0408);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
             this.mContinueView = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f026b);
+            textView2.setText(R.string.alert_yes_button);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
     }
 
-    @Override // com.baidu.tieba.kv4
-    public kv4 create(r9<?> r9Var) {
+    @Override // com.baidu.tieba.lv4
+    public lv4 create(r9<?> r9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -127,16 +127,16 @@ public class PermissionRequestDialog extends kv4 {
                     if (c != 2) {
                         string = null;
                     } else {
-                        str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1059);
-                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f1053);
+                        str2 = r9Var.getString(R.string.request_permission_title_location);
+                        string = r9Var.getString(R.string.request_permission_detail_location);
                     }
                 } else {
-                    str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f105a);
-                    string = r9Var.getString(R.string.obfuscated_res_0x7f0f1054);
+                    str2 = r9Var.getString(R.string.request_permission_title_record_audio);
+                    string = r9Var.getString(R.string.request_permission_detail_record_audio);
                 }
             } else {
-                str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1058);
-                string = r9Var.getString(R.string.obfuscated_res_0x7f0f1052);
+                str2 = r9Var.getString(R.string.request_permission_title_camera);
+                string = r9Var.getString(R.string.request_permission_detail_camera);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -204,7 +204,7 @@ public class PermissionRequestDialog extends kv4 {
             });
             return this;
         }
-        return (kv4) invokeL.objValue;
+        return (lv4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

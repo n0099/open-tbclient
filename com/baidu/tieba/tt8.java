@@ -1,173 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.UserPendantData;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Pendant;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tt8 extends qb {
+public class tt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final ls8 b;
+    public ArrayList<Integer> a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt8(MainTabActivity mainTabActivity, as8 as8Var) {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+    public tt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, as8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
-    }
-
-    public final void a() {
-        ls8 ls8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ls8Var = this.b) != null && ls8Var.a() != null && this.a.A == 1) {
-            this.b.a().d();
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            MainTabActivity mainTabActivity = this.a;
-            if (currentActivity == mainTabActivity && mainTabActivity.B.intValue() != 1) {
-                this.b.a().f();
             }
         }
     }
 
-    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        boolean z;
-        boolean z2;
-        ls8 ls8Var;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
-                this.a.A = profileHttpResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.A == 1 && (ls8Var = this.b) != null && ls8Var.a() != null) {
-                    this.b.a().d();
-                    this.b.a().f();
-                }
-                a();
-                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileHttpResponseMessage.GetUser().theme_tail));
-                d(profileHttpResponseMessage.GetUser().pendant);
-            }
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.L = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.M = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
-    }
-
-    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
-                this.a.A = profileSocketResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.A == 1) {
-                    ls8 ls8Var = this.b;
-                    if (ls8Var != null && ls8Var.a() != null) {
-                        this.b.a().d();
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    this.a = new ArrayList<>();
+                    for (int i = 0; i < length; i++) {
+                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
                     }
-                    a();
                 }
-                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileSocketResponseMessage.GetUser().theme_tail));
-                d(profileSocketResponseMessage.GetUser().pendant);
+                this.b = optJSONObject.optString("upload_id");
+                this.c = optJSONObject.optString("video_url");
             }
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.L = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.M = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
-        }
-    }
-
-    public final void d(Pendant pendant) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pendant) == null) {
-            UserPendantData userPendantData = new UserPendantData();
-            userPendantData.parserProtobuf(pendant);
-            TbSingleton.getInstance().setUserPendantData(userPendantData);
-        }
-    }
-
-    @Override // com.baidu.tieba.qb
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
-            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
-                return;
-            }
-            if (z) {
-                c((ProfileSocketResponseMessage) responsedMessage);
-            }
-            if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                b((ProfileHttpResponseMessage) responsedMessage);
-            }
+        } catch (JSONException unused) {
         }
     }
 }

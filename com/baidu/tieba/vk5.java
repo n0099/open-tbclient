@@ -1,85 +1,55 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rk5;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewGodInfo;
 /* loaded from: classes6.dex */
-public class vk5 implements rk5.j {
+public class vk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public ImageView b;
-    public int c;
-    public ListView d;
 
-    public vk5(ListView listView) {
+    public static String a(NewGodData newGodData) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {listView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
+            if (newGodData != null && newGodData.getType() == 2) {
+                z = true;
+            } else {
+                z = false;
             }
+            return c(z);
         }
-        this.c = -16777216;
-        this.d = listView;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rk5.j
-    public void a(View view2) {
+    public static String b(NewGodInfo newGodInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            ((ImageView) view2).setImageDrawable(null);
-            this.a.recycle();
-            this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
+            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return c(z);
         }
+        return (String) invokeL.objValue;
     }
 
-    public void d(int i) {
+    public static String c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.rk5.j
-    public View b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ListView listView = this.d;
-            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
-            if (childAt == null) {
-                return null;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
             }
-            childAt.setPressed(false);
-            childAt.setDrawingCacheEnabled(true);
-            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
-            childAt.setDrawingCacheEnabled(false);
-            if (this.b == null) {
-                this.b = new ImageView(this.d.getContext());
-            }
-            this.b.setBackgroundColor(this.c);
-            this.b.setPadding(0, 0, 0, 0);
-            this.b.setImageBitmap(this.a);
-            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-            return this.b;
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
         }
-        return (View) invokeI.objValue;
+        return (String) invokeZ.objValue;
     }
 }

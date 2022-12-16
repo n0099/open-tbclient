@@ -980,33 +980,33 @@ public class ParticleEmitter {
     }
 
     public final void a(int i) {
-        b4 f2;
-        float f3;
+        b4 first;
+        float f2;
         float l;
         float l2;
-        float f4;
+        float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             int i2 = a.a[this.v.ordinal()];
             if (i2 != 1 && i2 != 2) {
                 if (i2 != 3) {
-                    f2 = null;
+                    first = null;
                 } else {
-                    f2 = this.u.h();
+                    first = this.u.g();
                 }
             } else {
-                f2 = this.u.f();
+                first = this.u.first();
             }
             d[] dVarArr = this.w;
             d dVar = dVarArr[i];
             if (dVar == null) {
-                dVar = j(f2);
+                dVar = j(first);
                 dVarArr[i] = dVar;
                 dVar.a(this.G, this.H);
             } else {
-                dVar.r(f2);
+                dVar.r(first);
             }
-            float f5 = this.W / this.V;
+            float f4 = this.W / this.V;
             int i3 = this.I;
             if (this.d.j) {
                 e();
@@ -1014,7 +1014,7 @@ public class ParticleEmitter {
             if (this.b.j) {
                 d();
             }
-            int e2 = this.P + ((int) (this.Q * this.d.e(f5)));
+            int e2 = this.P + ((int) (this.Q * this.d.e(f4)));
             dVar.t = e2;
             dVar.u = e2;
             g gVar = this.i;
@@ -1032,15 +1032,15 @@ public class ParticleEmitter {
             }
             int i4 = i3 & 2;
             if (i4 == 0) {
-                f3 = dVar.D + (dVar.E * this.j.e(0.0f));
-                dVar.D = f3;
-                dVar.F = com.badlogic.gdx.math.d.d(f3);
-                dVar.G = com.badlogic.gdx.math.d.p(f3);
+                f2 = dVar.D + (dVar.E * this.j.e(0.0f));
+                dVar.D = f2;
+                dVar.F = com.badlogic.gdx.math.d.d(f2);
+                dVar.G = com.badlogic.gdx.math.d.p(f2);
             } else {
-                f3 = 0.0f;
+                f2 = 0.0f;
             }
-            float n = f2.n();
-            float k = f2.k();
+            float n = first.n();
+            float k = first.k();
             dVar.v = this.f.d() / n;
             dVar.w = this.f.g() / n;
             if (!this.f.f()) {
@@ -1066,7 +1066,7 @@ public class ParticleEmitter {
                 }
                 float e3 = dVar.z + (dVar.A * this.h.e(0.0f));
                 if (this.a0) {
-                    e3 += f3;
+                    e3 += f2;
                 }
                 dVar.w(e3);
             }
@@ -1097,76 +1097,76 @@ public class ParticleEmitter {
             fArr[2] = d2[2];
             dVar.H = this.m.d();
             dVar.I = this.m.g() - dVar.H;
-            float f6 = this.z;
+            float f5 = this.z;
             f fVar = this.o;
             if (fVar.a) {
-                f6 += fVar.d();
+                f5 += fVar.d();
             }
-            float f7 = this.A;
+            float f6 = this.A;
             f fVar2 = this.p;
             if (fVar2.a) {
-                f7 += fVar2.d();
+                f6 += fVar2.d();
             }
             int i5 = a.c[this.s.c.ordinal()];
             if (i5 != 1) {
                 if (i5 != 2) {
                     if (i5 == 3) {
-                        float e4 = this.R + (this.S * this.q.e(f5));
-                        float e5 = this.T + (this.U * this.r.e(f5));
+                        float e4 = this.R + (this.S * this.q.e(f4));
+                        float e5 = this.T + (this.U * this.r.e(f4));
                         if (e4 != 0.0f) {
                             float k2 = com.badlogic.gdx.math.d.k() * e4;
-                            f6 += k2;
-                            f7 += k2 * (e5 / e4);
+                            f5 += k2;
+                            f6 += k2 * (e5 / e4);
                         } else {
-                            f7 += e5 * com.badlogic.gdx.math.d.k();
+                            f6 += e5 * com.badlogic.gdx.math.d.k();
                         }
                     }
                 } else {
-                    float e6 = this.R + (this.S * this.q.e(f5));
-                    float f8 = e6 / 2.0f;
-                    float e7 = (this.T + (this.U * this.r.e(f5))) / 2.0f;
-                    if (f8 != 0.0f && e7 != 0.0f) {
-                        float f9 = f8 / e7;
+                    float e6 = this.R + (this.S * this.q.e(f4));
+                    float f7 = e6 / 2.0f;
+                    float e7 = (this.T + (this.U * this.r.e(f4))) / 2.0f;
+                    if (f7 != 0.0f && e7 != 0.0f) {
+                        float f8 = f7 / e7;
                         h hVar = this.s;
                         if (hVar.d) {
                             int i6 = a.b[hVar.e.ordinal()];
                             if (i6 != 1) {
                                 if (i6 != 2) {
-                                    f4 = com.badlogic.gdx.math.d.l(360.0f);
+                                    f3 = com.badlogic.gdx.math.d.l(360.0f);
                                 } else {
-                                    f4 = com.badlogic.gdx.math.d.l(179.0f);
+                                    f3 = com.badlogic.gdx.math.d.l(179.0f);
                                 }
                             } else {
-                                f4 = -com.badlogic.gdx.math.d.l(179.0f);
+                                f3 = -com.badlogic.gdx.math.d.l(179.0f);
                             }
-                            float d3 = com.badlogic.gdx.math.d.d(f4);
-                            float p = com.badlogic.gdx.math.d.p(f4);
-                            f6 += d3 * f8;
-                            f7 += (f8 * p) / f9;
+                            float d3 = com.badlogic.gdx.math.d.d(f3);
+                            float p = com.badlogic.gdx.math.d.p(f3);
+                            f5 += d3 * f7;
+                            f6 += (f7 * p) / f8;
                             if (i4 == 0) {
-                                dVar.D = f4;
+                                dVar.D = f3;
                                 dVar.F = d3;
                                 dVar.G = p;
                             }
                         } else {
-                            float f10 = f8 * f8;
+                            float f9 = f7 * f7;
                             do {
-                                l = com.badlogic.gdx.math.d.l(e6) - f8;
-                                l2 = com.badlogic.gdx.math.d.l(e6) - f8;
-                            } while ((l * l) + (l2 * l2) > f10);
-                            f6 += l;
-                            f7 += l2 / f9;
+                                l = com.badlogic.gdx.math.d.l(e6) - f7;
+                                l2 = com.badlogic.gdx.math.d.l(e6) - f7;
+                            } while ((l * l) + (l2 * l2) > f9);
+                            f5 += l;
+                            f6 += l2 / f8;
                         }
                     }
                 }
             } else {
-                float e8 = this.R + (this.S * this.q.e(f5));
-                float e9 = this.T + (this.U * this.r.e(f5));
-                f6 += com.badlogic.gdx.math.d.l(e8) - (e8 / 2.0f);
-                f7 += com.badlogic.gdx.math.d.l(e9) - (e9 / 2.0f);
+                float e8 = this.R + (this.S * this.q.e(f4));
+                float e9 = this.T + (this.U * this.r.e(f4));
+                f5 += com.badlogic.gdx.math.d.l(e8) - (e8 / 2.0f);
+                f6 += com.badlogic.gdx.math.d.l(e9) - (e9 / 2.0f);
             }
-            dVar.s(f6 - (n / 2.0f), f7 - (k / 2.0f), n, k);
-            int e10 = (int) (this.N + (this.O * this.b.e(f5)));
+            dVar.s(f5 - (n / 2.0f), f6 - (k / 2.0f), n, k);
+            int e10 = (int) (this.N + (this.O * this.b.e(f4)));
             if (e10 > 0) {
                 int i7 = dVar.u;
                 if (e10 >= i7) {
@@ -1457,7 +1457,7 @@ public class ParticleEmitter {
                     if (i2 != 1) {
                         if (i2 != 2) {
                             if (i2 == 3) {
-                                b4Var = b7Var.h();
+                                b4Var = b7Var.g();
                             }
                         } else {
                             float f2 = 1.0f - (dVar.u / dVar.t);
@@ -1467,7 +1467,7 @@ public class ParticleEmitter {
                             b4Var = b7Var.get(min);
                         }
                     } else {
-                        b4Var = b7Var.f();
+                        b4Var = b7Var.first();
                     }
                     dVar.i(b4Var);
                     dVar.v(b4Var.l(), b4Var.m());

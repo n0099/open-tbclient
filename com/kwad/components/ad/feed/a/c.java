@@ -34,7 +34,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class c extends a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public abstract class c extends a implements View.OnClickListener {
     public d dr;
     public boolean ds;
     public boolean dt;
-    public final a.InterfaceC0588a du;
+    public final a.InterfaceC0605a du;
     public h.a dv;
     public a.b dw;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
@@ -116,7 +116,7 @@ public abstract class c extends a implements View.OnClickListener {
                 }
             }
         };
-        this.du = new a.InterfaceC0588a(this) { // from class: com.kwad.components.ad.feed.a.c.2
+        this.du = new a.InterfaceC0605a(this) { // from class: com.kwad.components.ad.feed.a.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c dx;
@@ -139,7 +139,7 @@ public abstract class c extends a implements View.OnClickListener {
                 this.dx = this;
             }
 
-            @Override // com.kwad.components.core.video.a.InterfaceC0588a
+            @Override // com.kwad.components.core.video.a.InterfaceC0605a
             public final void a(int i3, aa.a aVar) {
                 int i4;
                 Interceptable interceptable2 = $ic;
@@ -160,7 +160,7 @@ public abstract class c extends a implements View.OnClickListener {
                     u.b bVar = new u.b();
                     bVar.gL = aVar;
                     bVar.gJ = i4;
-                    com.kwad.components.core.c.a.a.a(new a.C0577a(com.kwad.sdk.b.kwai.a.x(this.dx.dp)).L(this.dx.mAdTemplate).b(this.dx.mApkDownloadHelper).ae(i5).aj(z).al(true).an(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.feed.a.c.2.1
+                    com.kwad.components.core.c.a.a.a(new a.C0594a(com.kwad.sdk.b.kwai.a.x(this.dx.dp)).L(this.dx.mAdTemplate).b(this.dx.mApkDownloadHelper).ae(i5).aj(z).al(true).an(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.feed.a.c.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass2 dy;
@@ -339,7 +339,7 @@ public abstract class c extends a implements View.OnClickListener {
             }
             i2 = 100;
         }
-        com.kwad.components.core.c.a.a.a(new a.C0577a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(i).an(true).a(new a.b(this, i2) { // from class: com.kwad.components.ad.feed.a.c.5
+        com.kwad.components.core.c.a.a.a(new a.C0594a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(i).an(true).a(new a.b(this, i2) { // from class: com.kwad.components.ad.feed.a.c.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int dl;
@@ -377,11 +377,11 @@ public abstract class c extends a implements View.OnClickListener {
     private void bh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f09107f).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f09107e).setVisibility(8);
-            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ef);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f1);
-            this.dj = findViewById(R.id.obfuscated_res_0x7f0910f2);
+            findViewById(R.id.obfuscated_res_0x7f0910e1).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f0910e0).setVisibility(8);
+            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f09114e);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091150);
+            this.dj = findViewById(R.id.obfuscated_res_0x7f091151);
             this.di.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             this.cE.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
             this.dj.setOnClickListener(this);
@@ -393,15 +393,15 @@ public abstract class c extends a implements View.OnClickListener {
     private void bi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f09107e).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f09107f).setVisibility(8);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091095);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091099);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091091);
+            findViewById(R.id.obfuscated_res_0x7f0910e0).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f0910e1).setVisibility(8);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f7);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f0910fb);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f3);
             this.dh = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.cw, this.cx, textView);
             this.cx.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
-            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c37);
+            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c5f);
             KSImageLoader.loadAppIcon(this.cw, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), this.mAdTemplate, 8);
             this.dh.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             bf();
@@ -574,14 +574,14 @@ public abstract class c extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09107a);
-            RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091248);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0910dc);
+            RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912a7);
             this.dn = ratioFrameLayout;
             ratioFrameLayout.setRatio(0.56f);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107c);
-            this.f4do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091258);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09107d);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091093);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910de);
+            this.f4do = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b7);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910df);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910f5);
         }
     }
 

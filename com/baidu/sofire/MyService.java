@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.DelayTB;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MyService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public static long b;
@@ -37,7 +37,7 @@ public class MyService extends Service {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

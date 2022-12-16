@@ -24,7 +24,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.C;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 @SuppressLint({"SimpleDateFormat", "InlinedApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class p1 {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat a;
@@ -118,7 +117,7 @@ public class p1 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            if (j / C.NANOS_PER_SECOND > 0) {
+            if (j / 1000000000 > 0) {
                 return "" + (((float) (j / 100000000)) / 10.0f) + "G";
             } else if (j / 1000000 > 0) {
                 return "" + (((float) (j / 100000)) / 10.0f) + "M";
@@ -542,7 +541,7 @@ public class p1 {
             RelativeLayout relativeLayout = new RelativeLayout(context);
             RelativeLayout relativeLayout2 = new RelativeLayout(context);
             try {
-                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.ufo_loading_bg);
+                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0812c6);
             } catch (Exception e) {
                 e.printStackTrace();
             }

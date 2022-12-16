@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,7 +48,7 @@ public class ThreadRecommendInfoData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             try {
-                this.forumAvatar = jSONObject.optString(IntentConfig.FORUM_AVATAR);
+                this.forumAvatar = jSONObject.optString("forum_avatar");
                 this.forumName = jSONObject.optString("forum_name");
                 this.showNum = jSONObject.optInt("show_num");
                 this.showType = jSONObject.optString(RecordVideoActivityConfig.SHOW_TYPE);

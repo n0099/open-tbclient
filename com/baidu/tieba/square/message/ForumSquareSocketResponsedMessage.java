@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.km8;
+import com.baidu.tieba.jp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public km8 mForumSquareRespData;
+    public jp8 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareSocketResponsedMessage() {
@@ -36,13 +36,13 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public km8 getData() {
+    public jp8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mForumSquareRespData;
         }
-        return (km8) invokeV.objValue;
+        return (jp8) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -68,9 +68,9 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
             if (getForumSquareResIdl.data == null) {
                 return getForumSquareResIdl;
             }
-            km8 km8Var = new km8();
-            this.mForumSquareRespData = km8Var;
-            km8Var.a(getForumSquareResIdl.data);
+            jp8 jp8Var = new jp8();
+            this.mForumSquareRespData = jp8Var;
+            jp8Var.a(getForumSquareResIdl.data);
             return getForumSquareResIdl;
         }
         return invokeIL.objValue;

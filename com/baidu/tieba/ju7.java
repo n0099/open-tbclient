@@ -1,69 +1,168 @@
 package com.baidu.tieba;
 
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.SingleThreadEmotionHorizontalAdater;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import org.json.JSONArray;
+/* loaded from: classes5.dex */
 public class ju7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SingleThreadEmotionHorizontalAdater a;
-    public BdListView b;
-    public pu7 c;
-    public List<EmotionPackageData> d;
 
-    public void update() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if ((interceptable != null && interceptable.invokeL(65536, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (!file.exists()) {
+            file.mkdirs();
         }
     }
 
-    public ju7(TbPageContext<?> tbPageContext, BdListView bdListView) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdListView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        this.b = bdListView;
-        pu7 pu7Var = new pu7(tbPageContext);
-        this.c = pu7Var;
-        pu7Var.c(TbadkCoreApplication.getInst().getSkinType());
-        this.b.addHeaderView(this.c.b());
-        this.d = new ArrayList();
-        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.d, tbPageContext);
-        this.a = singleThreadEmotionHorizontalAdater;
-        this.b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
+        FileHelper.deleteFileOrDir(new File(lu7.e + lu7.a + str));
     }
 
-    public void update(List<EmotionPackageData> list) {
-        pu7 pu7Var;
+    public static void c(String str, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && (pu7Var = this.c) != null && this.a != null) {
-            pu7Var.update(Integer.valueOf(list.size()));
-            this.d.clear();
-            if (list != null) {
-                this.d.addAll(list);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) && !StringUtils.isNull(str) && jSONArray != null) {
+            try {
+                JSONArray jSONArray2 = new JSONArray(str);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    jSONArray.put(jSONArray2.optJSONObject(i));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            this.a.notifyDataSetChanged();
         }
+    }
+
+    public static JSONArray d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (StringUtils.isNull(str)) {
+                return jSONArray;
+            }
+            File file = new File(str);
+            if (!file.exists()) {
+                return jSONArray;
+            }
+            String e = e(file);
+            String[] split = e.split("\n");
+            if (split.length > 0) {
+                for (String str2 : split) {
+                    c(str2, jSONArray);
+                }
+            } else {
+                c(e, jSONArray);
+            }
+            FileHelper.deleteFile(file);
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public static String e(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            StringBuilder sb = new StringBuilder();
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    sb.append(new String(bArr, 0, read));
+                }
+                wg.c(fileInputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                wg.c(fileInputStream2);
+                return sb.toString();
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                wg.c(fileInputStream2);
+                throw th;
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) {
+            return g(file, str, true);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(File file, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    fileOutputStream = new FileOutputStream(file, z);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                wg.d(fileOutputStream);
+                return true;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                wg.d(fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                wg.d(fileOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

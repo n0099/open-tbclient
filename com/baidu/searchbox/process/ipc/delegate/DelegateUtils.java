@@ -17,8 +17,8 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tieba.sz9;
-import com.baidu.tieba.yz9;
+import com.baidu.tieba.b3a;
+import com.baidu.tieba.h3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DelegateUtils implements DelegateDef {
     public static /* synthetic */ Interceptable $ic;
     public static Handler sMainHandler;
@@ -213,11 +213,11 @@ public final class DelegateUtils implements DelegateDef {
     }
 
     @NonNull
-    public static sz9<DelegateResult> safeCallOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+    public static b3a<DelegateResult> safeCallOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, cls, bundle)) == null) {
-            return sz9.a(new sz9.a<DelegateResult>(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+            return b3a.a(new b3a.a<DelegateResult>(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context val$context;
@@ -245,16 +245,16 @@ public final class DelegateUtils implements DelegateDef {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.sz9.a, com.baidu.tieba.g0a
-                public void call(yz9<? super DelegateResult> yz9Var) {
+                @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
+                public void call(h3a<? super DelegateResult> h3aVar) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, yz9Var) == null) {
-                        yz9Var.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
-                        yz9Var.onCompleted();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, h3aVar) == null) {
+                        h3aVar.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
+                        h3aVar.onCompleted();
                     }
                 }
             });
         }
-        return (sz9) invokeLLL.objValue;
+        return (b3a) invokeLLL.objValue;
     }
 }

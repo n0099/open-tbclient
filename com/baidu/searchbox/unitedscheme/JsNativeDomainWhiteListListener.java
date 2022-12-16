@@ -20,11 +20,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = JsNativeDomainWhiteListListener.JSNATIVE_DOMAIN_WLIST_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -56,7 +57,7 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
         DEBUG = AppConfig.isDebug();
         TAG = JsNativeDomainWhiteListListener.class.getSimpleName();
         domainWhiteList = new ArrayList();
-        localDomainList = new String[]{"baidu.com", "nuomi.com", "hao123.com", "baifubao.com", "dxmpay.com", "duxiaoman.com", "mipcdn.com", "wejianzhan.com"};
+        localDomainList = new String[]{PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE, "nuomi.com", "hao123.com", "baifubao.com", "dxmpay.com", "duxiaoman.com", "mipcdn.com", "wejianzhan.com"};
         whiteListEnable = PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getBoolean(KEY_JSNATIVE_DOMAIN_WHITE_ENABLE, true);
     }
 

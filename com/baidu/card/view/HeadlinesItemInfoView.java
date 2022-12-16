@@ -13,15 +13,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pu4;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.qu4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HeadlinesItemInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,39 +98,39 @@ public class HeadlinesItemInfoView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d94);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.headlines_item_info_view_layout, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.headlines_item_image);
             this.b = tbImageView;
             tbImageView.setRadiusById(R.string.J_X04);
             this.b.r(15);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d91);
-            this.d = (HeadlinesItemCountDownView) findViewById(R.id.obfuscated_res_0x7f090d90);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d96);
+            this.c = (TextView) findViewById(R.id.headlines_first_info);
+            this.d = (HeadlinesItemCountDownView) findViewById(R.id.headlines_count_down_view);
+            this.e = (TextView) findViewById(R.id.headlines_order_button);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void b(pu4 pu4Var) {
+    public void b(qu4 qu4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu4Var) != null) || pu4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qu4Var) != null) || qu4Var == null) {
             return;
         }
-        this.b.K(pu4Var.e(), 10, false);
-        this.c.setText(pu4Var.j());
-        this.e.setText(pu4Var.b());
-        this.d.setData(xg.g(pu4Var.c(), 0L), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0869));
+        this.b.K(qu4Var.f(), 10, false);
+        this.c.setText(qu4Var.l());
+        this.e.setText(qu4Var.b());
+        this.d.setData(xg.g(qu4Var.d(), 0L), qu4Var.c(), qu4Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            qw4 d = qw4.d(this);
+            rw4 d = rw4.d(this);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            qw4.d(this.c).v(R.color.CAM_X0107);
+            rw4.d(this.c).v(R.color.CAM_X0107);
             this.d.i(i);
-            qw4 d2 = qw4.d(this.e);
+            rw4 d2 = rw4.d(this.e);
             d2.v(R.color.CAM_X0304);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);
@@ -139,23 +139,16 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void setButtonContent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.e.setText(str);
-        }
-    }
-
     public void setOnBannerClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.a.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnButtonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
             this.e.setOnClickListener(onClickListener);
         }
     }

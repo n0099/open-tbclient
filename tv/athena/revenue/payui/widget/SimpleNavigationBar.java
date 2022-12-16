@@ -177,11 +177,11 @@ public class SimpleNavigationBar extends FrameLayout {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06c1, (ViewGroup) this, true);
-            this.c = (ImageView) findViewById(R.id.iv_back);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092469);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09244e);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09105b);
+            LayoutInflater.from(context).inflate(R.layout.pay_ui_layout_navigation, (ViewGroup) this, true);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091086);
+            this.a = (TextView) findViewById(R.id.tv_title);
+            this.b = (TextView) findViewById(R.id.tv_right);
+            this.d = (ImageView) findViewById(R.id.iv_right);
             this.c.setOnClickListener(new a(this));
             this.b.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));
@@ -229,7 +229,7 @@ public class SimpleNavigationBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if ("right_icon_set".equals(str)) {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f14);
+                this.d.setImageResource(R.drawable.pay_ui_right_icon_set);
                 this.d.setVisibility(0);
                 return;
             }

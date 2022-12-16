@@ -2,17 +2,17 @@ package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.hl8;
+import com.baidu.tieba.go8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GetForumResponsed extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hl8 listData;
+    public go8 listData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetForumResponsed(int i) {
@@ -40,10 +40,10 @@ public class GetForumResponsed extends JsonHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeIL(1048576, this, i, jSONObject) != null) || getError() != 0 || jSONObject == null) {
             return;
         }
-        hl8 hl8Var = new hl8();
-        this.listData = hl8Var;
+        go8 go8Var = new go8();
+        this.listData = go8Var;
         try {
-            hl8Var.F(jSONObject);
+            go8Var.F(jSONObject);
         } catch (Exception e) {
             this.listData = null;
             BdLog.e(e.getMessage());

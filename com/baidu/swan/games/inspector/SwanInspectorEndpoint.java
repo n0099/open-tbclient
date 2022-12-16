@@ -10,9 +10,9 @@ import com.baidu.searchbox.websocket.WebSocketManager;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nb2;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.t04;
+import com.baidu.tieba.mb2;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.s04;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,13 +38,13 @@ public class SwanInspectorEndpoint {
     public String d;
     public boolean e;
     public boolean f;
-    public t04.a g;
+    public s04.a g;
     public boolean h;
     public Runnable i;
     public ConnectionState j;
     public ConnectionState k;
     public Throwable l;
-    public nb2 m;
+    public mb2 m;
     public int n;
     public WebSocketTask o;
     public int p;
@@ -474,7 +474,7 @@ public class SwanInspectorEndpoint {
                 return;
             }
         }
-        t = pk1.a;
+        t = ok1.a;
         u = new SwanInspectorEndpoint();
     }
 
@@ -519,7 +519,7 @@ public class SwanInspectorEndpoint {
         this.a = UUID.randomUUID().toString();
     }
 
-    public void w(t04.a aVar) {
+    public void w(s04.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.g = aVar;
@@ -563,13 +563,13 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void s(t04 t04Var) {
+    public final void s(s04 s04Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t04Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, s04Var) == null) {
             this.j = ConnectionState.CONNECTING;
-            this.c = t04Var.a();
-            this.f = t04Var.b();
-            this.e = t04Var.d();
+            this.c = s04Var.a();
+            this.f = s04Var.b();
+            this.e = s04Var.d();
             this.d = "ws://" + this.c + "/inspect/inspectorTarget/" + this.a;
             if (t) {
                 Log.i("SwanInspector", "Starting inspector to " + this.d);
@@ -583,18 +583,18 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void r(t04 t04Var, nb2 nb2Var, t04.a aVar, Runnable runnable) {
+    public void r(s04 s04Var, mb2 mb2Var, s04.a aVar, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, t04Var, nb2Var, aVar, runnable) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, s04Var, mb2Var, aVar, runnable) == null) {
             p(false);
             w(aVar);
             try {
-                t(nb2Var);
-                if (t04Var.d()) {
+                t(mb2Var);
+                if (s04Var.d()) {
                     this.i = runnable;
-                    s(t04Var);
+                    s(s04Var);
                 } else {
-                    s(t04Var);
+                    s(s04Var);
                     runnable.run();
                 }
             } catch (Exception e) {
@@ -606,13 +606,13 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void t(nb2 nb2Var) throws Exception {
+    public final void t(mb2 mb2Var) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nb2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, mb2Var) == null) {
             this.k = ConnectionState.CONNECTING;
-            if (this.n != nb2Var.hashCode()) {
-                this.m = nb2Var;
-                this.n = nb2Var.hashCode();
+            if (this.n != mb2Var.hashCode()) {
+                this.m = mb2Var;
+                this.n = mb2Var.hashCode();
                 c cVar = new c(this, null);
                 this.s = cVar;
                 this.r = this.m.r0(cVar);
@@ -632,9 +632,9 @@ public class SwanInspectorEndpoint {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, resources)) == null) {
             StringBuilder sb = new StringBuilder();
             long currentTimeMillis = System.currentTimeMillis();
-            t04.a aVar = this.g;
+            s04.a aVar = this.g;
             if (aVar == null) {
-                aVar = t04.a.c();
+                aVar = s04.a.c();
             }
             sb.append(aVar.a());
             sb.append("\n");
@@ -644,43 +644,43 @@ public class SwanInspectorEndpoint {
             String str = null;
             ConnectionState connectionState = this.j;
             if (connectionState == ConnectionState.OPEN) {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0174);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0177);
             } else if (this.l == null && (connectionState != ConnectionState.CONNECTING || currentTimeMillis - this.q <= 5000)) {
                 if (this.j == ConnectionState.CONNECTING) {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f0172);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f0175);
                 } else {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f0171);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f0174);
                 }
             } else {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0173);
-                str = resources.getString(R.string.obfuscated_res_0x7f0f0170);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0176);
+                str = resources.getString(R.string.obfuscated_res_0x7f0f0173);
             }
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0177));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f017a));
             sb.append(string);
             sb.append("\n");
             if (str != null) {
                 sb.append(str);
                 sb.append("\n");
             }
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0176));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0179));
             sb.append(this.c);
             sb.append("\n");
             if (this.j == ConnectionState.OPEN) {
-                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0179));
+                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f017c));
                 if (this.i != null) {
-                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017b);
+                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017e);
                 } else if (this.h) {
-                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017a);
+                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017d);
                 } else {
-                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017c);
+                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017f);
                 }
                 sb.append(string2);
                 sb.append("\n");
-                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0178));
+                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f017b));
                 if (this.e) {
-                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f017e);
+                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f0181);
                 } else {
-                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f017d);
+                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f0180);
                 }
                 sb.append(string3);
                 sb.append("\n");

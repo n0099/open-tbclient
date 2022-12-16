@@ -53,7 +53,7 @@ public class cg extends cj.e {
             contentValues.put("messageItemId", hnVar.d());
             contentValues.put("messageItem", a);
             contentValues.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bx.a(context).b());
-            contentValues.put("packageName", bx.a(context).m215a());
+            contentValues.put("packageName", bx.a(context).m225a());
             contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
             contentValues.put("uploadTimestamp", (Integer) 0);
             return new cg(str, contentValues, "a job build to insert message to db");

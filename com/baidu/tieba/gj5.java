@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,41 +14,89 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gj5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile gj5 e = null;
-    public static String f = "ad_download_center";
-    public static int g = 3;
-    public static int h = 4;
-    public static String i = "MYPAGE_TAB";
-    public static String j = "POINT_VISIBLE";
-    public static String k = "POINT_GONE";
+    public static /* synthetic */ Interceptable $ic;
+    public static gj5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public SharedPreferences.Editor b;
-    public String c;
-    public boolean d;
+    public c a;
+    public b b;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onResult(boolean z);
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends BdAsyncTask<String, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gj5 a;
+
+        public c(gj5 gj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gj5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                return Boolean.valueOf(this.a.d());
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && this.a.b != null && bool != null) {
+                this.a.b.onResult(bool.booleanValue());
+            }
+        }
+
+        public /* synthetic */ c(gj5 gj5Var, a aVar) {
+            this(gj5Var);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947795863, "Lcom/baidu/tieba/gj5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947795863, "Lcom/baidu/tieba/gj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947795863, "Lcom/baidu/tieba/gj5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947795863, "Lcom/baidu/tieba/gj5;");
-        }
+        c = new gj5();
     }
 
     public gj5() {
@@ -60,268 +104,65 @@ public class gj5 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = false;
-        this.c = TbadkCoreApplication.getCurrentAccount();
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("person_download_apks", 0);
-        this.a = sharedPreferences;
-        this.b = sharedPreferences.edit();
     }
 
-    public static gj5 c() {
+    public static gj5 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (gj5.class) {
-                    if (e == null) {
-                        e = new gj5();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c;
         }
         return (gj5) invokeV.objValue;
     }
 
-    public void b() {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.FALSE));
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+            c cVar = this.a;
+            if (cVar != null) {
+                cVar.cancel();
+            }
+            c cVar2 = new c(this, null);
+            this.a = cVar2;
+            cVar2.setPriority(4);
+            this.a.execute(new String[0]);
         }
     }
 
-    public boolean d() {
+    public final boolean d() {
         InterceptResult invokeV;
+        String str;
+        String[] split;
+        int e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && f()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921744));
-            r(i, false);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.TRUE));
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921741));
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921742));
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        try {
-            if (file.exists()) {
-                file.delete();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] GetFileData = FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+            if (GetFileData != null) {
+                str = new String(GetFileData);
+            } else {
+                str = null;
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (str != null && !str.equals("")) {
-                try {
-                    if (new File(str).exists()) {
-                        return true;
-                    }
-                } catch (Exception unused) {
-                }
+            long j = StringUtils.getyyyyMMddHHTimeForNow();
+            long j2 = 0;
+            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
+                e = 0;
+            } else {
+                e = xg.e(split[0], 0);
+                j2 = xg.g(split[1], j);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (str != null && !"".equals(str)) {
-                try {
-                    if (TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 0) != null) {
-                        return true;
-                    }
-                } catch (PackageManager.NameNotFoundException unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (z) {
-                n(true);
-                b();
-                g();
-                return;
-            }
-            n(false);
-            p();
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0 && e2.containsKey(str)) {
-                e2.remove(str);
-                m(e2);
-            }
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public HashMap<String, String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                JSONArray jSONArray = new JSONArray(this.a.getString(this.c, ""));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    JSONArray names = jSONObject.names();
-                    if (names != null) {
-                        for (int i3 = 0; i3 < names.length(); i3++) {
-                            String string = names.getString(i3);
-                            hashMap.put(string, jSONObject.getString(string));
-                        }
-                    }
-                }
-                return hashMap;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap<String, String> e2 = e();
-            if (e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (TextUtils.isEmpty(entry.getKey()) || TextUtils.isEmpty(entry.getValue())) {
-                        break;
-                    } else if (entry.getKey().equals(i) && entry.getValue().equals(j)) {
-                        return true;
-                    }
-                }
+            if (j2 == j && e > 1) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && str != null && str.length() > 0 && i(str)) {
-            File file = new File(str);
-            try {
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(UtilHelper.getUriFromFile(file, intent, TbadkCoreApplication.getInst()), "application/vnd.android.package-archive");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                TbadkCoreApplication.getInst().startActivity(intent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void m(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException unused) {
-                }
-            }
-            jSONArray.put(jSONObject);
-            this.b.putString(this.c, jSONArray.toString());
-            this.b.commit();
-        }
-    }
-
-    public void r(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (entry != null && e2.containsKey(str)) {
-                        if (z) {
-                            e2.put(str, j);
-                        } else {
-                            e2.put(str, k);
-                        }
-                        m(e2);
-                    }
-                }
-            }
-        }
     }
 }

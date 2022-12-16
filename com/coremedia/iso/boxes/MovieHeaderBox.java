@@ -5,7 +5,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.sapi2.views.logindialog.QuickLoginDialog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,6 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.DateHelper;
 import com.googlecode.mp4parser.util.Matrix;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.nio.ByteBuffer;
 import java.util.Date;
 import org.aspectj.lang.JoinPoint;
@@ -280,7 +278,7 @@ public class MovieHeaderBox extends AbstractFullBox {
         ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setVolume", "com.coremedia.iso.boxes.MovieHeaderBox", ShaderParams.VALUE_TYPE_FLOAT, "volume", "", "void"), Constants.METHOD_MEDIA_NOTIFY);
         ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
         ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "nextTrackId", "", "void"), 234);
-        ajc$tjp_17 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), QuickLoginDialog.HEIGHT_ONEKEY);
+        ajc$tjp_17 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 238);
         ajc$tjp_18 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewTime", "", "void"), 242);
         ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 246);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 71);
@@ -492,7 +490,7 @@ public class MovieHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return "MovieHeaderBox[creationTime=" + getCreationTime() + ParamableElem.DIVIDE_PARAM + "modificationTime=" + getModificationTime() + ParamableElem.DIVIDE_PARAM + "timescale=" + getTimescale() + ParamableElem.DIVIDE_PARAM + "duration=" + getDuration() + ParamableElem.DIVIDE_PARAM + "rate=" + getRate() + ParamableElem.DIVIDE_PARAM + "volume=" + getVolume() + ParamableElem.DIVIDE_PARAM + "matrix=" + this.matrix + ParamableElem.DIVIDE_PARAM + "nextTrackId=" + getNextTrackId() + PreferencesUtil.RIGHT_MOUNT;
+            return "MovieHeaderBox[creationTime=" + getCreationTime() + ";modificationTime=" + getModificationTime() + ";timescale=" + getTimescale() + ";duration=" + getDuration() + ";rate=" + getRate() + ";volume=" + getVolume() + ";matrix=" + this.matrix + ";nextTrackId=" + getNextTrackId() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

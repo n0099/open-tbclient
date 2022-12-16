@@ -22,7 +22,7 @@ public abstract class CollectFragment extends BaseFragment {
 
     public abstract int getType();
 
-    public abstract boolean q1();
+    public abstract boolean x1();
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -59,10 +59,10 @@ public abstract class CollectFragment extends BaseFragment {
                 return;
             }
             CollectFragment collectFragment = this.a;
-            collectFragment.s1(collectFragment.getType());
+            collectFragment.z1(collectFragment.getType());
             CollectFragment collectFragment2 = this.a;
             if (!collectFragment2.a) {
-                collectFragment2.t1(false, collectFragment2.getType());
+                collectFragment2.A1(false, collectFragment2.getType());
             }
         }
     }
@@ -87,7 +87,7 @@ public abstract class CollectFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onStart();
             registerListener(this.b);
         }
@@ -96,27 +96,37 @@ public abstract class CollectFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStop();
             MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 
-    public boolean r1() {
+    public boolean y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public void s1(int i) {
+    public void A1(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("is_edit_state", z);
+            bundle.putInt("fragment_type", i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
+        }
+    }
+
+    public void z1(int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             Bundle bundle = new Bundle();
-            if (!q1() && BdNetTypeUtil.isNetWorkAvailable()) {
+            if (!x1() && BdNetTypeUtil.isNetWorkAvailable()) {
                 z = true;
             } else {
                 z = false;
@@ -125,16 +135,6 @@ public abstract class CollectFragment extends BaseFragment {
             bundle.putBoolean("is_enable_edit", z);
             bundle.putInt("fragment_type", i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
-        }
-    }
-
-    public void t1(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("is_edit_state", z);
-            bundle.putInt("fragment_type", i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
         }
     }
 }

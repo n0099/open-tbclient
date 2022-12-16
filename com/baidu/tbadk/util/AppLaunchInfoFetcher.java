@@ -12,8 +12,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.aj5;
 import com.baidu.tieba.sc;
+import com.baidu.tieba.tj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onFinish(aj5 aj5Var);
+        void onFinish(tj5 tj5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -121,7 +121,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static aj5 b(Context context) {
+    public static tj5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -129,14 +129,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new aj5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new tj5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (aj5) invokeL.objValue;
+        return (tj5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -162,7 +162,7 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static aj5 c() {
+    public static tj5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -175,10 +175,10 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new aj5(Type.ACTIVITY, a2);
+                        return new tj5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new aj5(d2, null);
+                        return new tj5(d2, null);
                     }
                     Object d3 = sc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                     if (d3 instanceof Message) {
@@ -190,27 +190,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (aj5) invokeV.objValue;
+        return (tj5) invokeV.objValue;
     }
 
     public static void e(Context context, List<a> list) {
-        aj5 aj5Var;
+        tj5 tj5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    aj5Var = b(context);
+                    tj5Var = b(context);
                 } else {
-                    aj5Var = null;
+                    tj5Var = null;
                 }
-                if (aj5Var == null) {
-                    aj5Var = c();
+                if (tj5Var == null) {
+                    tj5Var = c();
                 }
-                if (aj5Var == null) {
-                    aj5Var = new aj5(Type.UNKNOWN, null);
+                if (tj5Var == null) {
+                    tj5Var = new tj5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
-                    aVar.onFinish(aj5Var);
+                    aVar.onFinish(tj5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

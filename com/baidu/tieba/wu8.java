@@ -1,173 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.xu8;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class wu8 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+public class wu8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public AvatarPendantActivity a;
-    public List<DressItemData> b;
-    public xu8.a c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948283183, "Lcom/baidu/tieba/wu8;")) == null) {
+            return;
         }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AvatarPendantPerItemView a;
-
-        public b(wu8 wu8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wu8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(wu8 wu8Var, a aVar) {
-            this(wu8Var);
-        }
-    }
-
-    public wu8(AvatarPendantActivity avatarPendantActivity) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {avatarPendantActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948283183, "Lcom/baidu/tieba/wu8;");
+        }
+    }
+
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return false;
             }
-        }
-        this.a = avatarPendantActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public DressItemData getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<DressItemData> list = this.b;
-            if (list != null && list.size() > 0 && this.b.size() > i) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (DressItemData) invokeI.objValue;
-    }
-
-    public final void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            int skinType = TbadkApplication.getInst().getSkinType();
-            if (view2 != null) {
-                sq4 layoutMode = this.a.getLayoutMode();
-                boolean z = true;
-                if (skinType != 1) {
-                    z = false;
-                }
-                layoutMode.l(z);
-                this.a.getLayoutMode().k(view2);
-            }
-        }
-    }
-
-    public void c(xu8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public void d(List<DressItemData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<DressItemData> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
+            String action = intent.getAction();
+            Set<String> categories = intent.getCategories();
+            if (a && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
+                z = true;
             } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d012b, viewGroup, false);
-                bVar = new b(this, null);
-                AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view2.findViewById(R.id.obfuscated_res_0x7f09031e);
-                bVar.a = avatarPendantPerItemView;
-                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.c);
-                view2.setTag(bVar);
+                z = false;
             }
-            DressItemData item = getItem(i);
-            if (item != null) {
-                bVar.a.c(item);
-            }
-            b(view2);
-            return view2;
+            a = false;
+            return z;
         }
-        return (View) invokeILL.objValue;
+        return invokeL.booleanValue;
     }
 }

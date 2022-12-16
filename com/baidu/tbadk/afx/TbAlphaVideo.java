@@ -479,16 +479,16 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d087c, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.tb_afx_layout, (ViewGroup) this, true);
             if (context instanceof BaseFragmentActivity) {
                 ((BaseFragmentActivity) context).startAnimatable(this);
             } else if (context instanceof BaseActivity) {
                 ((BaseActivity) context).startAnimatable(this);
             }
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090796);
-            setDefaultImage(R.drawable.obfuscated_res_0x7f080c12);
+            this.c = (TbImageView) inflate.findViewById(R.id.default_image);
+            setDefaultImage(R.drawable.img_default_100);
             setOnVideoErrorListener(null);
-            AlphaVideo alphaVideo = (AlphaVideo) inflate.findViewById(R.id.obfuscated_res_0x7f090281);
+            AlphaVideo alphaVideo = (AlphaVideo) inflate.findViewById(R.id.alpha_video);
             this.b = alphaVideo;
             alphaVideo.setLooping(true);
         }

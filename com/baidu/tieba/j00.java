@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.math.BigInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j00 {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] a;

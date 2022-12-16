@@ -1,9 +1,9 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
+import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,6 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PropsInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -58,7 +57,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = RevenueServerConst.GetChargeCurrencyConfigResponse;
+        this.cmd = 2021;
         this.confList = new ArrayList();
         this.payWayInfoList = new ArrayList();
         parserResponse(str);
@@ -310,14 +309,14 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("cmd");
                     if (this.cmd == optInt) {
-                        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
+                        this.result = jSONObject.optInt("result");
                         this.uid = jSONObject.optLong("uid");
                         this.seq = jSONObject.optString("seq");
                         this.expend = jSONObject.optString("expand");
                         this.currencyType = jSONObject.optInt("currencyType");
                         this.currencyName = jSONObject.optString("currencyName");
                         this.paysSettingInfo = new PaysSettingInfo();
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("setting"));
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString(a.s));
                         this.paysSettingInfo.customerServiceHotline = jSONObject2.optString("payChargeAmountLimit");
                         this.paysSettingInfo.customerServiceMsg = jSONObject2.optString("customerServiceMsg");
                         this.paysSettingInfo.payChargeAmountLimit = jSONObject2.optInt("payChargeAmountLimit");

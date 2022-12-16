@@ -20,13 +20,13 @@ import java.util.TreeSet;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String[] namesAndValues;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,40 +51,10 @@ public final class Headers {
         public Headers build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return new Headers(this);
             }
             return (Headers) invokeV.objValue;
-        }
-
-        private void checkNameAndValue(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, this, str, str2) == null) {
-                if (str != null) {
-                    if (!str.isEmpty()) {
-                        int length = str.length();
-                        for (int i = 0; i < length; i++) {
-                            char charAt = str.charAt(i);
-                            if (charAt <= ' ' || charAt >= 127) {
-                                throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
-                            }
-                        }
-                        if (str2 != null) {
-                            int length2 = str2.length();
-                            for (int i2 = 0; i2 < length2; i2++) {
-                                char charAt2 = str2.charAt(i2);
-                                if ((charAt2 <= 31 && charAt2 != '\t') || charAt2 >= 127) {
-                                    throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i2), str, str2));
-                                }
-                            }
-                            return;
-                        }
-                        throw new NullPointerException("value for name " + str + " == null");
-                    }
-                    throw new IllegalArgumentException("name is empty");
-                }
-                throw new NullPointerException("name == null");
-            }
         }
 
         public Builder add(String str) {
@@ -103,7 +73,7 @@ public final class Headers {
         public Builder addLenient(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
                 int indexOf = str.indexOf(":", 1);
                 if (indexOf != -1) {
                     return addLenient(str.substring(0, indexOf), str.substring(indexOf + 1));
@@ -119,7 +89,7 @@ public final class Headers {
         public String get(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
                 for (int size = this.namesAndValues.size() - 2; size >= 0; size -= 2) {
                     if (str.equalsIgnoreCase(this.namesAndValues.get(size))) {
                         return this.namesAndValues.get(size + 1);
@@ -133,7 +103,7 @@ public final class Headers {
         public Builder removeAll(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
                 int i = 0;
                 while (i < this.namesAndValues.size()) {
                     if (str.equalsIgnoreCase(this.namesAndValues.get(i))) {
@@ -152,7 +122,8 @@ public final class Headers {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                checkNameAndValue(str, str2);
+                Headers.checkName(str);
+                Headers.checkValue(str2, str);
                 return addLenient(str, str2);
             }
             return (Builder) invokeLL.objValue;
@@ -161,7 +132,7 @@ public final class Headers {
         public Builder addLenient(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
                 this.namesAndValues.add(str);
                 this.namesAndValues.add(str2.trim());
                 return this;
@@ -169,11 +140,22 @@ public final class Headers {
             return (Builder) invokeLL.objValue;
         }
 
+        public Builder addUnsafeNonAscii(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+                Headers.checkName(str);
+                return addLenient(str, str2);
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
         public Builder set(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-                checkNameAndValue(str, str2);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
+                Headers.checkName(str);
+                Headers.checkValue(str2, str);
                 removeAll(str);
                 addLenient(str, str2);
                 return this;
@@ -181,10 +163,36 @@ public final class Headers {
             return (Builder) invokeLL.objValue;
         }
 
+        public Builder add(String str, Date date) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, date)) == null) {
+                if (date != null) {
+                    add(str, HttpDate.format(date));
+                    return this;
+                }
+                throw new NullPointerException("value for name " + str + " == null");
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder set(String str, Date date) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, date)) == null) {
+                if (date != null) {
+                    set(str, HttpDate.format(date));
+                    return this;
+                }
+                throw new NullPointerException("value for name " + str + " == null");
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
         public Builder addAll(Headers headers) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, headers)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, headers)) == null) {
                 int size = headers.size();
                 for (int i = 0; i < size; i++) {
                     addLenient(headers.name(i), headers.value(i));
@@ -308,10 +316,47 @@ public final class Headers {
         return (String) invokeI.objValue;
     }
 
+    public static void checkName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            if (str != null) {
+                if (!str.isEmpty()) {
+                    int length = str.length();
+                    for (int i = 0; i < length; i++) {
+                        char charAt = str.charAt(i);
+                        if (charAt <= ' ' || charAt >= 127) {
+                            throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
+                        }
+                    }
+                    return;
+                }
+                throw new IllegalArgumentException("name is empty");
+            }
+            throw new NullPointerException("name == null");
+        }
+    }
+
+    public static void checkValue(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            if (str != null) {
+                int length = str.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = str.charAt(i);
+                    if ((charAt <= 31 && charAt != '\t') || charAt >= 127) {
+                        throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt), Integer.valueOf(i), str2, str));
+                    }
+                }
+                return;
+            }
+            throw new NullPointerException("value for name " + str2 + " == null");
+        }
+    }
+
     public static String get(String[] strArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, strArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, str)) == null) {
             for (int length = strArr.length - 2; length >= 0; length -= 2) {
                 if (str.equalsIgnoreCase(strArr[length])) {
                     return strArr[length + 1];
@@ -325,7 +370,7 @@ public final class Headers {
     public static Headers of(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
             if (map != null) {
                 String[] strArr = new String[map.size() * 2];
                 int i = 0;
@@ -333,13 +378,11 @@ public final class Headers {
                     if (entry.getKey() != null && entry.getValue() != null) {
                         String trim = entry.getKey().trim();
                         String trim2 = entry.getValue().trim();
-                        if (trim.length() != 0 && trim.indexOf(0) == -1 && trim2.indexOf(0) == -1) {
-                            strArr[i] = trim;
-                            strArr[i + 1] = trim2;
-                            i += 2;
-                        } else {
-                            throw new IllegalArgumentException("Unexpected header: " + trim + ": " + trim2);
-                        }
+                        checkName(trim);
+                        checkValue(trim2, trim);
+                        strArr[i] = trim;
+                        strArr[i + 1] = trim2;
+                        i += 2;
                     } else {
                         throw new IllegalArgumentException("Headers cannot be null");
                     }
@@ -354,7 +397,7 @@ public final class Headers {
     public static Headers of(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, strArr)) == null) {
             if (strArr != null) {
                 if (strArr.length % 2 == 0) {
                     String[] strArr2 = (String[]) strArr.clone();
@@ -368,9 +411,8 @@ public final class Headers {
                     for (int i2 = 0; i2 < strArr2.length; i2 += 2) {
                         String str = strArr2[i2];
                         String str2 = strArr2[i2 + 1];
-                        if (str.length() == 0 || str.indexOf(0) != -1 || str2.indexOf(0) != -1) {
-                            throw new IllegalArgumentException("Unexpected header: " + str + ": " + str2);
-                        }
+                        checkName(str);
+                        checkValue(str2, str);
                     }
                     return new Headers(strArr2);
                 }

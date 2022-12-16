@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -25,8 +25,8 @@ public final class a {
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class EnumC0493a {
+    /* loaded from: classes7.dex */
+    public static final class EnumC0510a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -67,14 +67,14 @@ public final class a {
         b = a + "/baidu/ab/crash/";
         c = a + "/baidu/ab/sdklog/";
         String str = a + "/baidu/ab/sdkupdata/" + b() + "/";
-        d = EnumC0493a.aV;
+        d = EnumC0510a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == EnumC0493a.aV) {
+            if (d == EnumC0510a.aV) {
                 return true;
             }
             return false;

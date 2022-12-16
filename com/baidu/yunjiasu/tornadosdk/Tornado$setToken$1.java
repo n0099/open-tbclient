@@ -1,6 +1,8 @@
 package com.baidu.yunjiasu.tornadosdk;
 
+import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,25 +97,25 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                     Backend backend = Backend.INSTANCE;
                     tornadoSetting = Tornado.setting;
                     if (tornadoSetting == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("setting");
+                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
                         tornadoSetting = null;
                     }
                     String authChannel = tornadoSetting.getAuthChannel();
                     tornadoSetting2 = Tornado.setting;
                     if (tornadoSetting2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("setting");
+                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
                         tornadoSetting2 = null;
                     }
                     String authCUID = tornadoSetting2.getAuthCUID();
                     tornadoSetting3 = Tornado.setting;
                     if (tornadoSetting3 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("setting");
+                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
                         tornadoSetting3 = null;
                     }
                     String authToken = tornadoSetting3.getAuthToken();
                     tornadoSetting4 = Tornado.setting;
                     if (tornadoSetting4 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("setting");
+                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
                         tornadoSetting4 = null;
                     }
                     backend.create(authChannel, "android", authCUID, authToken, tornadoSetting4.getClientVersion(), TornadoRuntime.INSTANCE.getSdkVersion());
@@ -135,7 +137,7 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                     } else {
                         tornadoSetting5 = Tornado.setting;
                         if (tornadoSetting5 == null) {
-                            Intrinsics.throwUninitializedPropertyAccessException("setting");
+                            Intrinsics.throwUninitializedPropertyAccessException(a.s);
                             tornadoSetting5 = null;
                         }
                         Object[] array = sClientConfig.getResult().getNew_sclients().toArray(new String[0]);
@@ -144,12 +146,12 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                             LogTo logTo = LogTo.INSTANCE;
                             tornadoSetting6 = Tornado.setting;
                             if (tornadoSetting6 == null) {
-                                Intrinsics.throwUninitializedPropertyAccessException("setting");
+                                Intrinsics.throwUninitializedPropertyAccessException(a.s);
                             } else {
                                 tornadoSetting7 = tornadoSetting6;
                             }
                             logTo.d("*****", Intrinsics.stringPlus("nodes:", ArraysKt___ArraysKt.toList(tornadoSetting7.getSClientList())));
-                            tornadoTokenCallback.onResult(true, "ok");
+                            tornadoTokenCallback.onResult(true, DnsModel.MSG_OK);
                         } else {
                             throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
                         }

@@ -28,22 +28,22 @@ public class ReadRecordsData extends OrmObject {
         }
     }
 
-    public boolean A() {
+    public String G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 
     public ReadRecordsData(String str) {
@@ -62,9 +62,9 @@ public class ReadRecordsData extends OrmObject {
         }
     }
 
-    public void B(boolean z) {
+    public void I(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.b = z;
         }
     }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tv7;
+import com.baidu.tieba.ly7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,7 +91,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onReq(BaseReq baseReq) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, baseReq) == null) && baseReq.getType() == 4 && (baseReq instanceof ShowMessageFromWX.Req)) {
-            x1((ShowMessageFromWX.Req) baseReq);
+            v1((ShowMessageFromWX.Req) baseReq);
         }
     }
 
@@ -102,11 +102,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d0518);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091d1d);
+            setContentView(R.layout.layout_sapi_webview_login);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.sapi_login_navi);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a90));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0ac6));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -120,7 +120,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
     }
 
-    public final void x1(ShowMessageFromWX.Req req) {
+    public final void v1(ShowMessageFromWX.Req req) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, req) == null) {
             String str = req.message.messageExt;
@@ -191,10 +191,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        tv7 tv7Var = new tv7();
-        tv7Var.a = this;
-        tv7Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, tv7Var);
+        ly7 ly7Var = new ly7();
+        ly7Var.a = this;
+        ly7Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, ly7Var);
         closeActivity();
     }
 }

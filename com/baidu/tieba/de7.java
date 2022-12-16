@@ -1,84 +1,72 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryMessage;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-/* loaded from: classes3.dex */
-public abstract class de7 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
+import java.util.List;
+/* loaded from: classes4.dex */
+public class de7 extends ob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qb7 a;
-    public int b;
 
-    public de7(qb7 qb7Var, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public de7() {
+        super(202009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qb7Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = qb7Var;
-        this.b = i;
     }
 
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
-        }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lb
+    /* renamed from: c */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof LoadHistoryMessage) && this.a != null) {
-                LoadHistoryMessage.a data = customMessage.getData();
-                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
-                LinkedList<ChatMessage> h = this.a.h(xg.g(data.d, 0L), data.a, data.b, data.c);
-                if (h == null) {
-                    return a(this.b);
-                }
-                LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-                if (data.a == null) {
-                    aVar.c = true;
-                } else {
-                    aVar.c = false;
-                }
-                aVar.a = data.d;
-                aVar.b = h;
-                try {
-                    loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadHistoryResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (!(socketResponsedMessage instanceof PushResponseMessage)) {
+                return null;
             }
-            return a(this.b);
+            if (socketResponsedMessage.getError() == 110000) {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+            }
+            PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
+            if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
+                CustomMessage customMessage = new CustomMessage(2012100);
+                customMessage.setData(pushResponseMessage.getNotificationData());
+                MessageManager.getInstance().sendMessage(customMessage);
+                return null;
+            }
+            List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
+            if (groupMsg != null && groupMsg.size() > 0) {
+                for (GroupMsgData groupMsgData : groupMsg) {
+                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+                    }
+                }
+            }
+            return socketResponsedMessage;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

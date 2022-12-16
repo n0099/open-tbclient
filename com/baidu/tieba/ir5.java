@@ -1,148 +1,235 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.IBinder;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ir5 {
+public class ir5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseActivity a;
+    public boolean b;
+    public List<AccountData> c;
+    public View.OnClickListener d;
 
     /* loaded from: classes4.dex */
-    public static class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ Activity b;
+    }
 
-        public a(AlertDialog alertDialog, Activity activity) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+        public TextView d;
+
+        public b(ir5 ir5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog, activity};
+                Object[] objArr = {ir5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = alertDialog;
-            this.b = activity;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ir5.a(this.a, this.b);
-            }
+        public /* synthetic */ b(ir5 ir5Var, a aVar) {
+            this(ir5Var);
         }
     }
 
-    public static final boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public ir5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            dialog.dismiss();
-            return true;
         }
-        return invokeLL.booleanValue;
+        this.a = baseActivity;
+        this.c = null;
+        this.b = false;
+        this.d = onClickListener;
     }
 
-    public static final boolean b(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<AccountData> list = this.c;
+            if (list != null) {
+                i = list.size();
+            } else {
+                i = 0;
+            }
+            return i + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(List<AccountData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.c = list;
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            List<AccountData> list = this.c;
+            if (list != null && i >= 0 && i < list.size()) {
+                return this.c.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (getItemId(i) >= 0) {
+                return 0;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            try {
                 try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
-                            return true;
+                    if (view2 == null) {
+                        if (getItemViewType(i) == 0) {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090051);
+                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090071);
+                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907b9);
+                            bVar.d = textView;
+                            rw4.d(textView).v(R.color.CAM_X0105);
+                            bVar.d.setOnClickListener(this.d);
+                            view2.setTag(bVar);
+                            rw4.d(bVar.a).v(R.color.CAM_X0105);
+                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
+                        } else {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09012c);
+                            view2.setTag(bVar);
+                            rw4.d(bVar.b).v(R.color.CAM_X0302);
                         }
-                        return false;
+                    } else {
+                        bVar = (b) view2.getTag();
                     }
-                    return false;
+                    if (getItemViewType(i) == 0) {
+                        AccountData accountData = (AccountData) getItem(i);
+                        bVar.c.setVisibility(8);
+                        bVar.d.setVisibility(8);
+                        bVar.d.setTag(accountData);
+                        if (accountData != null) {
+                            bVar.a.setText(accountData.getAccountNameShow());
+                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
+                                bVar.c.setVisibility(0);
+                            }
+                            if (this.b) {
+                                bVar.d.setVisibility(0);
+                            }
+                        }
+                    }
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
+                    BdLog.detailException(e);
                 }
+                return view2;
+            } finally {
+                rw4.d(view2).f(R.color.CAM_X0205);
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean c(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Dialog d(@NonNull hr5 hr5Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, hr5Var, view2, activity, onDismissListener, onShowListener)) == null) {
-            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100107).create();
-            GreyUtil.grey(create);
-            create.setCanceledOnTouchOutside(true);
-            create.setOnDismissListener(onDismissListener);
-            create.setOnShowListener(onShowListener);
-            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
-            downloadRectifyView.a(hr5Var);
-            downloadRectifyView.setDownloadView(view2);
-            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
-            c(create, activity);
-            Window window = create.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setContentView(downloadRectifyView);
-            }
-            return create;
-        }
-        return (Dialog) invokeLLLLL.objValue;
+        return (View) invokeILL.objValue;
     }
 }

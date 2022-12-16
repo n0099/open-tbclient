@@ -1,325 +1,289 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xf9;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vf9 implements xf9.a {
+public class vf9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile vf9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public uf9 a;
-    public b b;
-    public Thread c;
-    public List<xf9> d;
-    public int e;
-    public int f;
+    public boolean a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf9 a;
-
-        public a(vf9 vf9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948239008, "Lcom/baidu/tieba/vf9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = vf9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vf9 vf9Var = this.a;
-                if (vf9Var.j(vf9Var.a)) {
-                    if (ij9.e(this.a.d)) {
-                        this.a.m(" start mix chains error:mMixtureChains empty ");
-                        return;
-                    } else {
-                        ((xf9) this.a.d.get(0)).d(this.a.a);
-                        return;
-                    }
-                }
-                vf9 vf9Var2 = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(" start mix chains error:initChainConfig ");
-                sb.append(this.a.a == null);
-                vf9Var2.m(sb.toString());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948239008, "Lcom/baidu/tieba/vf9;");
+                return;
             }
         }
+        b = tf9.m();
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onAudioMixtureCancel();
-
-        void onAudioMixtureFail(String str);
-
-        void onAudioMixtureProgress(int i);
-
-        void onAudioMixtureSuccess(tf9 tf9Var);
-    }
-
-    public vf9(uf9 uf9Var) {
+    public vf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uf9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = uf9Var;
-        this.d = new ArrayList();
+        this.a = nf1.g();
     }
 
-    @Override // com.baidu.tieba.xf9.a
-    public void a(xf9 xf9Var) {
+    public static vf9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xf9Var) == null) {
-            l();
-        }
-    }
-
-    @Override // com.baidu.tieba.xf9.a
-    public void b(xf9 xf9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xf9Var) == null) {
-            int k = this.e + xf9Var.k();
-            this.e = k;
-            n(k);
-            if (xf9Var == null || !xf9Var.m()) {
-                return;
-            }
-            tf9 k2 = k(xf9Var.n());
-            if (k2 != null) {
-                o(k2);
-            } else {
-                m("onChainFinished result error");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xf9.a
-    public void c(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (i3 = (int) (this.e + (((i * 1.0f) / 100.0f) * i2))) <= this.f) {
-            return;
-        }
-        n(i3);
-        this.f = i3;
-    }
-
-    @Override // com.baidu.tieba.xf9.a
-    public void d(String str, xf9 xf9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, xf9Var) == null) {
-            m(str);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!ij9.e(this.d)) {
-                for (xf9 xf9Var : this.d) {
-                    xf9Var.b();
-                }
-            }
-            Thread thread = this.c;
-            if (thread != null) {
-                thread.interrupt();
-            }
-        }
-    }
-
-    public final boolean j(uf9 uf9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uf9Var)) == null) {
-            if (uf9Var == null || ij9.e(uf9Var.c())) {
-                return false;
-            }
-            List<wf9> c = uf9Var.c();
-            tf9 tf9Var = null;
-            boolean z = false;
-            boolean z2 = false;
-            boolean z3 = false;
-            int i = 0;
-            for (int i2 = 0; i2 < c.size(); i2++) {
-                if (cg9.o(c.get(i2).b())) {
-                    z = true;
-                }
-                if (!ij9.e(c.get(i2).a())) {
-                    for (sf9 sf9Var : c.get(i2).a()) {
-                        if (sf9Var != null) {
-                            if (sf9Var.c()) {
-                                if (tf9Var == null) {
-                                    tf9Var = sf9Var.a();
-                                }
-                                if (tf9Var != null) {
-                                    int k = tf9Var.k(sf9Var.a());
-                                    z2 = ((tf9.g & k) == 0 && (tf9.i & k) == 0 && (k & tf9.h) == 0) ? false : true;
-                                }
-                                if (sf9Var.b().mSpeed != 1.0f) {
-                                    z = true;
-                                }
-                                if (MimeTypes.AUDIO_RAW.equals(sf9Var.a().f())) {
-                                    z = true;
-                                }
-                                z3 = true;
-                            }
-                            i++;
-                            if (i > 1) {
-                                z2 = true;
-                            }
-                            if (z2 && z && z3) {
-                                break;
-                            }
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (vf9.class) {
+                    if (c == null) {
+                        c = new vf9();
                     }
                 }
-                if (z2 && z && z3) {
-                    break;
+            }
+            return c;
+        }
+        return (vf9) invokeV.objValue;
+    }
+
+    public void b(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, str, i, str2) != null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("dbOverNum", i);
+            jSONObject.put("tableName", str2);
+            c("logDiscard", "database", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void l(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str2);
+                jSONObject.put("size", str3);
+                c("logSize", str, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void c(String str, String str2, JSONObject jSONObject) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (b) {
+                if (jSONObject != null) {
+                    str3 = jSONObject.toString();
+                } else {
+                    str3 = "";
                 }
+                Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + str3);
+            }
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject2.put("type", str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject2.put("value", str2);
+                }
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                uBCManager.onEvent("1876", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) != null) || !this.a || TextUtils.isEmpty(str) || i == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("fileNum", i);
+            c("logDiscard", "fileNum", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void e(String str, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(1048579, this, str, i, i2, i3) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (i == 0 && i2 == 0 && i3 == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            if (i != 0) {
+                jSONObject.put("flowExpired", i);
+            }
+            if (i2 != 0) {
+                jSONObject.put("eventExpired", i2);
+            }
+            if (i3 != 0) {
+                jSONObject.put("flowInterrupt", i3);
+            }
+            c("logDiscard", "timeExpired", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            c("logDiscard", "realLog", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exception", str);
+            c("sqlError", null, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exception", str);
+            c("sendFail", "bodyError", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || !this.a) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("errno", i);
+            c("sendFail", "backend", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void g(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+                jSONObject.put("size", str2);
+                jSONObject.put("logId", str3);
+                c("logSize", "single", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !this.a) {
+            return;
+        }
+        if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("msg", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject.put("exception", str2);
+            }
+            c("sendFail", "requestError", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void m(boolean z, long j) {
+        int q;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (z) {
+                q = ye9.o().r();
+            } else {
+                q = ye9.o().q();
             }
             if (z) {
-                zf9 zf9Var = new zf9();
-                zf9Var.c(z2 ? 50 : 90);
-                zf9Var.e(this);
-                this.d.add(zf9Var);
-                yf9 yf9Var = new yf9();
-                yf9Var.c(z2 ? 50 : 10);
-                yf9Var.e(this);
-                this.d.add(yf9Var);
-                zf9Var.f(yf9Var);
+                str = "uploadReal";
             } else {
-                yf9 yf9Var2 = new yf9();
-                yf9Var2.c(100);
-                yf9Var2.e(this);
-                this.d.add(yf9Var2);
+                str = "uploadNonReal";
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final tf9 k(uf9 uf9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uf9Var)) == null) {
-            if (uf9Var != null && ij9.b(uf9Var.c()) == 1 && ij9.b(uf9Var.c().get(0).a()) == 1) {
-                sf9 sf9Var = uf9Var.c().get(0).a().get(0);
-                if (sf9Var.b() == null || sf9Var.b().isNeedEdit() || !sf9Var.c()) {
-                    return null;
-                }
-                return sf9Var.a();
+            if (j > q) {
+                l(str, String.valueOf(q), String.valueOf(j));
             }
-            return null;
-        }
-        return (tf9) invokeL.objValue;
-    }
-
-    public final void l() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.onAudioMixtureCancel();
-    }
-
-    public final void m(String str) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.onAudioMixtureFail(str);
-    }
-
-    public final void n(int i) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.onAudioMixtureProgress(i);
-    }
-
-    public final void o(tf9 tf9Var) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, tf9Var) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.onAudioMixtureProgress(100);
-        this.b.onAudioMixtureSuccess(tf9Var);
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || ij9.e(this.d)) {
-            return;
-        }
-        for (xf9 xf9Var : this.d) {
-            xf9Var.h();
-        }
-    }
-
-    public void q(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d.clear();
-            this.e = 0;
-            this.f = 0;
-            tf9 k = k(this.a);
-            if (k != null && k.i()) {
-                o(k);
-                return;
-            }
-            Thread thread = this.c;
-            if (thread != null) {
-                thread.interrupt();
-                this.c = null;
-            }
-            Thread thread2 = new Thread(new a(this));
-            this.c = thread2;
-            thread2.start();
         }
     }
 }

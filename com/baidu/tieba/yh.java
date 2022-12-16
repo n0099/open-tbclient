@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class yh {
     public static /* synthetic */ Interceptable $ic;
     public static yh f;
@@ -62,7 +62,7 @@ public class yh {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class yh {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class yh {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +208,7 @@ public class yh {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +257,7 @@ public class yh {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,7 +303,7 @@ public class yh {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -804,7 +804,7 @@ public class yh {
                     for (int i = 0; i < size; i++) {
                         sb.append("&rec");
                         sb.append(i);
-                        sb.append('=');
+                        sb.append(com.alipay.sdk.encrypt.a.h);
                         try {
                             sb.append(URLEncoder.encode(arrayList.get(i), IMAudioTransRequest.CHARSET));
                         } catch (UnsupportedEncodingException e2) {

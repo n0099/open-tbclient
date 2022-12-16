@@ -9,8 +9,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static void a(Closeable closeable) {
         if (closeable != null) {
@@ -51,7 +52,7 @@ public final class i {
                 httpURLConnection3.setReadTimeout(120000);
                 httpURLConnection3.setUseCaches(false);
                 httpURLConnection3.setDoInput(true);
-                httpURLConnection3.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                httpURLConnection3.setRequestProperty(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
                 httpURLConnection3.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                 try {
                     BufferedInputStream bufferedInputStream3 = new BufferedInputStream(httpURLConnection3.getInputStream());

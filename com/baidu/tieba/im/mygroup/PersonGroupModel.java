@@ -28,7 +28,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -38,7 +38,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -92,19 +92,10 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
         this.friendUid = j;
     }
 
-    public void A(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            RequestUserPermissionMessage z = z(j);
-            this.a = z;
-            super.sendMessage(z);
-        }
-    }
-
-    public final RequestUserPermissionMessage z(long j) {
+    public final RequestUserPermissionMessage G(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
             requestUserPermissionMessage.setForumId(j);
             return requestUserPermissionMessage;
@@ -112,10 +103,19 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
         return (RequestUserPermissionMessage) invokeJ.objValue;
     }
 
+    public void H(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            RequestUserPermissionMessage G = G(j);
+            this.a = G;
+            super.sendMessage(G);
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.cancelMessage();
             this.a = null;
         }
@@ -123,7 +123,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void update() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.friendUid == 0) {
                 if (this.b) {
                     super.sendMessage(new GroupsByUidMessage(this.mImageWidth, this.mImageHeight));

@@ -11,7 +11,6 @@ import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -212,7 +211,7 @@ public class c extends k {
             if (str != null && !"".equals(str)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str);
-                    JSONObject optJSONObject = jSONObject2.optJSONObject(TiebaStatic.LogFields.RESULT);
+                    JSONObject optJSONObject = jSONObject2.optJSONObject("result");
                     if (optJSONObject == null) {
                         return false;
                     }

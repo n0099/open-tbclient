@@ -178,50 +178,95 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, "IMGetOneShieldAndTopRequest onSuccess :" + str2);
+            String str3 = "";
+            boolean z = false;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 i2 = jSONObject.optInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 JSONArray optJSONArray = jSONObject.optJSONArray("contacter");
+                JSONArray jSONArray = new JSONArray();
                 if (optJSONArray != null) {
+                    boolean z2 = false;
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
-                        int optInt = jSONObject2.optInt("sub_business");
-                        if (optInt == 2) {
-                            this.mMarkTop = jSONObject2.optInt("ability");
-                            this.mMarkTopTime = jSONObject2.optLong("timestamp");
-                        } else if (optInt == 1) {
-                            this.mShield = jSONObject2.optInt("ability");
-                            this.mShieldTime = jSONObject2.optLong("timestamp");
-                        } else if (optInt == 3) {
-                            this.mDisturb = jSONObject2.optInt("ability");
-                            this.mDisturbTime = jSONObject2.optLong("timestamp");
-                        } else if (optInt == 4) {
-                            this.mGraphicStatus = jSONObject2.optInt("ability", 1);
-                        } else if (optInt == 5) {
-                            this.mCommodityStatus = jSONObject2.optInt("ability", 1);
+                        try {
+                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
+                            int optInt = jSONObject2.optInt("sub_business");
+                            if (optInt == 2) {
+                                this.mMarkTop = jSONObject2.optInt("ability");
+                                this.mMarkTopTime = jSONObject2.optLong("timestamp");
+                            } else if (optInt == 1) {
+                                this.mShield = jSONObject2.optInt("ability");
+                                this.mShieldTime = jSONObject2.optLong("timestamp");
+                                jSONArray.put(jSONObject2);
+                                z2 = false;
+                            } else if (optInt == 3) {
+                                this.mDisturb = jSONObject2.optInt("ability");
+                                this.mDisturbTime = jSONObject2.optLong("timestamp");
+                            } else if (optInt == 4) {
+                                this.mGraphicStatus = jSONObject2.optInt("ability", 1);
+                            } else if (optInt == 5) {
+                                this.mCommodityStatus = jSONObject2.optInt("ability", 1);
+                            } else if (optInt == 6) {
+                                try {
+                                    this.mShield = jSONObject2.optInt("ability");
+                                    this.mShieldTime = jSONObject2.optLong("timestamp");
+                                    jSONArray.put(jSONObject2);
+                                    z2 = true;
+                                } catch (JSONException e) {
+                                    e = e;
+                                    z = true;
+                                    LogUtils.e(TAG, "JSONException", e);
+                                    i2 = 1010;
+                                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                                    GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
+                                    getShieldAndTopResult.setErrorCode(i2);
+                                    getShieldAndTopResult.setErrorMsg(str);
+                                    getShieldAndTopResult.setContacter(this.mContacter);
+                                    getShieldAndTopResult.setMarkTop(this.mMarkTop);
+                                    getShieldAndTopResult.setMarkTopTime(this.mMarkTopTime);
+                                    getShieldAndTopResult.setValidShieldStatus(z);
+                                    getShieldAndTopResult.setShield(this.mShield);
+                                    getShieldAndTopResult.setShieldTime(this.mShieldTime);
+                                    getShieldAndTopResult.setDisturbStatus(this.mDisturb);
+                                    getShieldAndTopResult.setDisturbTime(this.mDisturbTime);
+                                    getShieldAndTopResult.setGraphicStatus(this.mGraphicStatus);
+                                    getShieldAndTopResult.setCommodityStatus(this.mCommodityStatus);
+                                    getShieldAndTopResult.setChatType(this.mChatType);
+                                    getShieldAndTopResult.setShieldTypes(str3);
+                                    ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
+                                }
+                            } else if (optInt == 7 || optInt == 8 || optInt == 9) {
+                                jSONArray.put(jSONObject2);
+                            }
+                        } catch (JSONException e2) {
+                            e = e2;
+                            z = z2;
                         }
                     }
+                    z = z2;
                 }
-            } catch (JSONException e) {
-                LogUtils.e(TAG, "JSONException", e);
-                i2 = 1010;
-                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                str3 = jSONArray.toString();
+                LogUtils.d(TAG, "屏蔽类型列表 :" + str3);
+            } catch (JSONException e3) {
+                e = e3;
             }
-            GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
-            getShieldAndTopResult.setErrorCode(i2);
-            getShieldAndTopResult.setErrorMsg(str);
-            getShieldAndTopResult.setContacter(this.mContacter);
-            getShieldAndTopResult.setMarkTop(this.mMarkTop);
-            getShieldAndTopResult.setMarkTopTime(this.mMarkTopTime);
-            getShieldAndTopResult.setShield(this.mShield);
-            getShieldAndTopResult.setShieldTime(this.mShieldTime);
-            getShieldAndTopResult.setDisturbStatus(this.mDisturb);
-            getShieldAndTopResult.setDisturbTime(this.mDisturbTime);
-            getShieldAndTopResult.setGraphicStatus(this.mGraphicStatus);
-            getShieldAndTopResult.setCommodityStatus(this.mCommodityStatus);
-            getShieldAndTopResult.setChatType(this.mChatType);
-            ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
+            GetShieldAndTopResult getShieldAndTopResult2 = new GetShieldAndTopResult();
+            getShieldAndTopResult2.setErrorCode(i2);
+            getShieldAndTopResult2.setErrorMsg(str);
+            getShieldAndTopResult2.setContacter(this.mContacter);
+            getShieldAndTopResult2.setMarkTop(this.mMarkTop);
+            getShieldAndTopResult2.setMarkTopTime(this.mMarkTopTime);
+            getShieldAndTopResult2.setValidShieldStatus(z);
+            getShieldAndTopResult2.setShield(this.mShield);
+            getShieldAndTopResult2.setShieldTime(this.mShieldTime);
+            getShieldAndTopResult2.setDisturbStatus(this.mDisturb);
+            getShieldAndTopResult2.setDisturbTime(this.mDisturbTime);
+            getShieldAndTopResult2.setGraphicStatus(this.mGraphicStatus);
+            getShieldAndTopResult2.setCommodityStatus(this.mCommodityStatus);
+            getShieldAndTopResult2.setChatType(this.mChatType);
+            getShieldAndTopResult2.setShieldTypes(str3);
+            ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult2, this.mKey);
         }
     }
 }

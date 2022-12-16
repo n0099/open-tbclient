@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.tr4;
+import com.baidu.tieba.vr4;
 import com.baidu.tieba.zy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class oy<T extends tr4> implements tx, lq5 {
+public class oy<T extends vr4> implements tx, gr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public sx<T> a;
@@ -50,7 +50,7 @@ public class oy<T extends tr4> implements tx, lq5 {
     public int p;
     public zy.a q;
 
-    @Override // com.baidu.tieba.lq5
+    @Override // com.baidu.tieba.gr5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -100,12 +100,12 @@ public class oy<T extends tr4> implements tx, lq5 {
                     }
                     this.a.q.d(Boolean.FALSE);
                     oy oyVar = this.a;
-                    oyVar.o(oyVar.q);
+                    oyVar.p(oyVar.q);
                     return false;
                 }
                 this.a.q.d(Boolean.TRUE);
                 oy oyVar2 = this.a;
-                oyVar2.o(oyVar2.q);
+                oyVar2.p(oyVar2.q);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -168,7 +168,7 @@ public class oy<T extends tr4> implements tx, lq5 {
             py pyVar = new py();
             this.g = pyVar;
             if (!z) {
-                pyVar.i(0);
+                pyVar.j(0);
             }
             this.c = new ArrayList();
         }
@@ -294,9 +294,9 @@ public class oy<T extends tr4> implements tx, lq5 {
         }
     }
 
-    public void n(cx cxVar) {
+    public void o(cx cxVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, cxVar) == null) && cxVar != null && cxVar.b() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, cxVar) == null) && cxVar != null && cxVar.b() != null) {
             this.k.remove(cxVar);
             if (cxVar.b().getParent() != null) {
                 ((ViewGroup) cxVar.b().getParent()).removeView(cxVar.b());
@@ -306,25 +306,25 @@ public class oy<T extends tr4> implements tx, lq5 {
         }
     }
 
-    public void p(m46<T> m46Var) {
+    public void q(h56<T> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, m46Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, h56Var) == null) {
             ax<T> axVar = this.g;
             if (axVar != null) {
-                axVar.p(m46Var);
+                axVar.p(h56Var);
             }
             ax<T> axVar2 = this.h;
             if (axVar2 != null) {
-                axVar2.p(m46Var);
+                axVar2.p(h56Var);
             }
             for (hx hxVar : this.i) {
                 if (hxVar != null) {
-                    hxVar.p(m46Var);
+                    hxVar.p(h56Var);
                 }
             }
             ax<T> axVar3 = this.j;
             if (axVar3 != null) {
-                axVar3.p(m46Var);
+                axVar3.p(h56Var);
             }
         }
     }
@@ -394,17 +394,17 @@ public class oy<T extends tr4> implements tx, lq5 {
         this.q = new zy.a(7);
         this.b = bVar.f;
         if (bVar.l().a()) {
-            inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0899, (ViewGroup) null);
+            inflate = LayoutInflater.from(this.b).inflate(R.layout.thread_card_layout, (ViewGroup) null);
             FrameLayout frameLayout = new FrameLayout(this.b);
             this.c = frameLayout;
             frameLayout.addView(inflate);
         } else {
-            inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0899, viewGroup, false);
+            inflate = LayoutInflater.from(this.b).inflate(R.layout.thread_card_layout, viewGroup, false);
         }
-        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f0921dd);
+        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.thread_card_root);
         this.d = threadCardView;
-        this.e = (RelativeLayout) threadCardView.findViewById(R.id.obfuscated_res_0x7f090514);
-        LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0903cb);
+        this.e = (RelativeLayout) threadCardView.findViewById(R.id.card_decor_layer);
+        LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.body_root);
         this.f = linearLayout;
         linearLayout.setClipToPadding(false);
         this.g = bVar.a;
@@ -415,18 +415,18 @@ public class oy<T extends tr4> implements tx, lq5 {
         this.m = bVar.g;
         this.d.setParent(viewGroup);
         this.d.setITypeListView(cdo);
-        k();
+        l();
         int g = this.m.a() ? yi.g(this.b, R.dimen.M_W_X004) : 0;
         if (supportType == BaseCardInfo.SupportType.TOP) {
             if (this.d.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.d.getLayoutParams();
-                marginLayoutParams.setMargins(marginLayoutParams.leftMargin + g, marginLayoutParams.topMargin + this.m.i, marginLayoutParams.rightMargin + g, marginLayoutParams.bottomMargin);
+                marginLayoutParams.setMargins(marginLayoutParams.leftMargin + g, marginLayoutParams.topMargin + this.m.j, marginLayoutParams.rightMargin + g, marginLayoutParams.bottomMargin);
                 this.d.postInvalidate();
             }
         } else if (supportType == BaseCardInfo.SupportType.FULL) {
             if (this.d.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.d.getLayoutParams();
-                marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin + g, marginLayoutParams2.topMargin + UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), marginLayoutParams2.rightMargin + g, marginLayoutParams2.bottomMargin);
+                marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin + g, marginLayoutParams2.topMargin + this.m.e, marginLayoutParams2.rightMargin + g, marginLayoutParams2.bottomMargin);
                 this.d.postInvalidate();
             }
         } else if (g != 0 && (this.d.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
@@ -449,33 +449,33 @@ public class oy<T extends tr4> implements tx, lq5 {
         this(bVar);
     }
 
-    public void m(int i, zy.b bVar) {
+    public void n(int i, zy.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, bVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, bVar) == null) {
             this.o.a(i, bVar);
         }
     }
 
-    public boolean o(zy.a aVar) {
+    public boolean p(zy.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, aVar)) == null) {
             return this.o.b(aVar);
         }
         return invokeL.booleanValue;
     }
 
-    public void q(int i) {
+    public void r(int i) {
         ThreadCardView threadCardView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && (threadCardView = this.d) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && (threadCardView = this.d) != null) {
             threadCardView.setPosition(i);
         }
     }
 
-    public void r(int i) {
+    public void s(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.p = i;
         }
     }
@@ -483,7 +483,7 @@ public class oy<T extends tr4> implements tx, lq5 {
     public void c(cx cxVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cxVar) == null) && cxVar != null && cxVar.b() != null) {
-            n(cxVar);
+            o(cxVar);
             cxVar.b().setVisibility(0);
             if (cxVar.d() == null) {
                 this.e.addView(cxVar.b(), cxVar.c());
@@ -504,7 +504,7 @@ public class oy<T extends tr4> implements tx, lq5 {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(yi.g(this.b, R.dimen.obfuscated_res_0x7f070260), yi.g(this.b, R.dimen.obfuscated_res_0x7f0702d2));
             layoutParams.addRule(11);
             layoutParams.addRule(10);
-            layoutParams.rightMargin = -this.m.g;
+            layoutParams.rightMargin = -this.m.h;
             cxVar.i(layoutParams);
             cxVar.h(-1);
             this.k.add(cxVar);
@@ -538,28 +538,37 @@ public class oy<T extends tr4> implements tx, lq5 {
         return (Context) invokeV.objValue;
     }
 
-    public List<hx> h() {
+    public T h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.n;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public List<hx> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.i;
         }
         return (List) invokeV.objValue;
     }
 
-    public int i() {
+    public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.p;
         }
         return invokeV.intValue;
     }
 
-    public View j() {
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             FrameLayout frameLayout = this.c;
             if (frameLayout != null) {
                 return frameLayout;
@@ -569,14 +578,14 @@ public class oy<T extends tr4> implements tx, lq5 {
         return (View) invokeV.objValue;
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.m == null) {
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.m == null) {
             return;
         }
         if (this.f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             py pyVar = this.m;
-            ((ViewGroup.MarginLayoutParams) this.f.getLayoutParams()).setMargins(pyVar.f, pyVar.d, pyVar.g, pyVar.e);
+            ((ViewGroup.MarginLayoutParams) this.f.getLayoutParams()).setMargins(pyVar.g, pyVar.d, pyVar.h, pyVar.f);
             this.f.postInvalidate();
         }
         if (this.m.a) {
@@ -595,8 +604,8 @@ public class oy<T extends tr4> implements tx, lq5 {
             layoutParams.topMargin = this.m.b;
             if (this.h.j().booleanValue()) {
                 py pyVar2 = this.m;
-                layoutParams.leftMargin = -pyVar2.f;
-                layoutParams.rightMargin = -pyVar2.g;
+                layoutParams.leftMargin = -pyVar2.g;
+                layoutParams.rightMargin = -pyVar2.h;
             }
             this.f.addView(this.h.k(), layoutParams);
             this.h.l();
@@ -611,8 +620,8 @@ public class oy<T extends tr4> implements tx, lq5 {
                     layoutParams2.bottomMargin = hxVar.s();
                     if (hxVar.j().booleanValue()) {
                         py pyVar3 = this.m;
-                        layoutParams2.leftMargin = -pyVar3.f;
-                        layoutParams2.rightMargin = -pyVar3.g;
+                        layoutParams2.leftMargin = -pyVar3.g;
+                        layoutParams2.rightMargin = -pyVar3.h;
                     }
                     this.f.addView(hxVar.k(), layoutParams2);
                     hxVar.l();
@@ -643,21 +652,21 @@ public class oy<T extends tr4> implements tx, lq5 {
         }
     }
 
-    public void l(T t) {
+    public void m(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
             this.n = t;
             if (t.isHighLight()) {
-                this.m.h = R.color.CAM_X0313;
+                this.m.i = R.color.CAM_X0313;
             } else {
-                this.m.h = R.color.CAM_X0205;
+                this.m.i = R.color.CAM_X0205;
             }
             if (this.g != null) {
-                this.d.setTag(R.id.obfuscated_res_0x7f092658, null);
+                this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.a(t);
                 ax<T> axVar = this.g;
-                if (axVar instanceof o39) {
-                    this.d.setTag(R.id.obfuscated_res_0x7f092658, axVar);
+                if (axVar instanceof x69) {
+                    this.d.setTag(R.id.virtual_image_user_head, axVar);
                 }
             }
             ax<T> axVar2 = this.h;
@@ -696,16 +705,16 @@ public class oy<T extends tr4> implements tx, lq5 {
         if (interceptable == null || interceptable.invokeLI(1048591, this, tbPageContext, i) == null) {
             T t3 = this.n;
             if (t3 != null && !t3.isSupportNone()) {
-                SkinManager.setBackgroundResource(this.d, this.m.h);
+                SkinManager.setBackgroundResource(this.d, this.m.i);
             }
             ax<T> axVar = this.g;
             if (axVar != null) {
                 axVar.onChangeSkinType(tbPageContext, i);
                 if (this.j == null && ((t2 = this.n) == null || !t2.isSupportContent())) {
-                    qw4 d = qw4.d(this.d);
+                    rw4 d = rw4.d(this.d);
                     d.m(1);
                     d.n(R.string.J_X06);
-                    d.f(this.m.h);
+                    d.f(this.m.i);
                 }
             }
             ax<T> axVar2 = this.h;
@@ -721,16 +730,16 @@ public class oy<T extends tr4> implements tx, lq5 {
             if (axVar3 != null) {
                 axVar3.onChangeSkinType(tbPageContext, i);
                 if (this.g == null && ((t = this.n) == null || !t.isSupportContent())) {
-                    qw4 d2 = qw4.d(this.d);
+                    rw4 d2 = rw4.d(this.d);
                     d2.m(2);
                     d2.n(R.string.J_X06);
-                    d2.f(this.m.h);
+                    d2.f(this.m.i);
                 }
             }
             if (this.g != null && this.j != null) {
-                qw4 d3 = qw4.d(this.d);
+                rw4 d3 = rw4.d(this.d);
                 d3.n(R.string.J_X06);
-                d3.i(this.m.h, R.color.CAM_X0206);
+                d3.i(this.m.i, R.color.CAM_X0206);
             }
             FrameLayout frameLayout = this.c;
             if (frameLayout != null) {

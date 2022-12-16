@@ -1,62 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.PerfSampleManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromotCommentList;
+import com.baidu.ubc.UBCManager;
+@Service
 /* loaded from: classes6.dex */
-public class xn8 {
-    public static /* synthetic */ Interceptable $ic;
+public class xn8 implements PerfSampleManager.IPerfSampleCallback {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "2301";
+    public static String b = "1";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948306247, "Lcom/baidu/tieba/xn8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948306247, "Lcom/baidu/tieba/xn8;");
+        }
+    }
 
     public xn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String a() {
+    @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
+    public String getSampleFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (uBCManager != null) {
+                if (b.equals(uBCManager.getUploadType(a))) {
+                    return a;
+                }
+                return "";
+            }
+            return "";
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(BusinessPromotCommentList businessPromotCommentList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromotCommentList) != null) || businessPromotCommentList == null) {
-            return;
-        }
-        this.a = businessPromotCommentList.title;
-        String str = businessPromotCommentList.username;
-        businessPromotCommentList.uid.longValue();
-        this.b = businessPromotCommentList.is_lz.intValue();
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.CustomCheckBox;
 import com.baidu.ufosdk.ui.FeedbackReportActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

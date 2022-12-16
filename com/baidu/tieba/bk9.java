@@ -1,147 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
 /* loaded from: classes3.dex */
 public class bk9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static bk9 d;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public File b;
+    public CharSequence c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947647993, "Lcom/baidu/tieba/bk9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947647993, "Lcom/baidu/tieba/bk9;");
-        }
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public class a implements jk9 {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ak9 a;
+        public String a;
+        public File b;
+        public CharSequence c;
+        public CharSequence d;
 
-        public a(bk9 bk9Var, ak9 ak9Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bk9Var, ak9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ak9Var;
         }
 
-        @Override // com.baidu.tieba.jk9
-        public void a(kk9 kk9Var) {
-            zj9 zj9Var;
-            boolean z;
+        public bk9 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kk9Var) == null) {
-                if (bk9.c) {
-                    String str = bk9.b;
-                    Log.d(str, "异步回调 结果:" + kk9Var);
-                    String str2 = bk9.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    if (this.a != null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d(str2, sb.toString());
-                }
-                ak9 ak9Var = this.a;
-                if (ak9Var != null) {
-                    if (kk9Var == null) {
-                        zj9Var = null;
-                    } else {
-                        zj9Var = new zj9(kk9Var.c(), kk9Var.isSupport(), kk9Var.getOAID(), kk9Var.getAAID(), kk9Var.getVAID(), kk9Var.getStatusCode());
-                    }
-                    ak9Var.a(0, zj9Var);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new bk9(this.a, this.b, this.c, this.d, null);
             }
+            return (bk9) invokeV.objValue;
+        }
+
+        public b b(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+                this.b = file;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b c(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
+                this.c = charSequence;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
-    public bk9(Context context) {
+    public bk9(String str, File file, CharSequence charSequence, CharSequence charSequence2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, file, charSequence, charSequence2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = str;
+        this.b = file;
+        this.c = charSequence;
     }
 
-    public static bk9 c(Context context) {
-        InterceptResult invokeL;
+    public /* synthetic */ bk9(String str, File file, CharSequence charSequence, CharSequence charSequence2, a aVar) {
+        this(str, file, charSequence, charSequence2);
+    }
+
+    public File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (bk9.class) {
-                    if (d == null) {
-                        d = new bk9(context);
-                        dk9.c(context);
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public CharSequence b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                this.c = FileUtils.getFileFullName(c());
             }
-            return d;
+            return this.c;
         }
-        return (bk9) invokeL.objValue;
+        return (CharSequence) invokeV.objValue;
     }
 
-    public void e(ak9 ak9Var) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ak9Var) == null) {
-            ck9 ck9Var = new ck9();
-            ck9Var.b(1);
-            ck9Var.a(false);
-            d(ck9Var, ak9Var, Looper.getMainLooper());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-    }
-
-    public void d(ck9 ck9Var, ak9 ak9Var, Looper looper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, ck9Var, ak9Var, looper) == null) {
-            hk9.o().i(this.a, looper, new a(this, ak9Var));
-        }
+        return (String) invokeV.objValue;
     }
 }

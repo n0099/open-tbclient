@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
-import com.baidu.tbadk.core.dialog.WriteTipBubbleController;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.share.CheckRequest;
+import com.baidu.tieba.write.share.CheckResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,123 +22,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final EditorTools b;
-    @Nullable
-    public WriteTipBubbleController c;
-    public final CustomMessageListener d;
-    public final WriteTipBubbleController.b e;
+    public BdUniqueId a;
+    public z79 b;
+    public HttpMessageListener c;
 
     /* loaded from: classes3.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a89 a;
-
-        /* loaded from: classes3.dex */
-        public class a extends oj5<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.oj5
-            public String doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return UtilHelper.getClipBoardContent();
-                }
-                return (String) invokeV.objValue;
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class b implements ti5<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public b(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ti5
-            /* renamed from: a */
-            public void onReturnDataInUI(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
-                    return;
-                }
-                this.a.a.h(str);
-            }
-        }
-
-        public c(a89 a89Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a89Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a89Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a != null) {
-                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                    sj5.b(new a(this), new b(this));
-                    return;
-                }
-                this.a.h(UtilHelper.getClipBoardContent());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a89 a;
@@ -171,94 +55,27 @@ public class a89 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.a.e();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements WriteTipBubbleController.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a89 a;
-
-        public b(a89 a89Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a89Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a89Var;
-        }
-
-        @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
-        public void a(View view2, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, str) != null) || this.a.c == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof CheckResponse)) {
                 return;
             }
-            TiebaStatic.log("c13802");
-            this.a.c.c();
-            UtilHelper.clearClipBoard();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.a.getPageActivity(), 25049, str, false, null)));
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ a89 b;
-
-        public d(a89 a89Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a89Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            b89 checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
+            if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11e4));
             }
-            this.b = a89Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View s = this.b.b.a.s(31);
-                WriteTipBubbleController writeTipBubbleController = this.b.c;
-                writeTipBubbleController.d(s, this.b.a.getString(R.string.obfuscated_res_0x7f0f064e) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
+            if (this.a.b != null) {
+                this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
 
-    public a89(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
+    public a89(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, editorTools};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -268,47 +85,58 @@ public class a89 {
                 return;
             }
         }
-        this.d = new a(this, 2001011);
-        this.e = new b(this);
-        this.a = tbPageContext;
-        this.b = editorTools;
+        this.c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+        this.a = bdUniqueId;
+        b();
     }
 
-    public void e() {
+    public void e(z79 z79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, z79Var) == null) {
+            this.b = z79Var;
+        }
+    }
+
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.post(new c(this));
+            MessageManager messageManager = MessageManager.getInstance();
+            messageManager.registerTask(c());
+            this.c.setTag(this.a);
+            messageManager.registerListener(this.c);
         }
     }
 
-    public void f() {
-        WriteTipBubbleController writeTipBubbleController;
+    public final HttpMessageTask c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (writeTipBubbleController = this.c) != null) {
-            writeTipBubbleController.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setRetry(3);
+            tbHttpMessageTask.setResponsedClass(CheckResponse.class);
+            return tbHttpMessageTask;
         }
+        return (HttpMessageTask) invokeV.objValue;
     }
 
-    public void g() {
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.registerListener(this.d);
-        }
-    }
-
-    public final void h(String str) {
-        View findViewById;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !xi.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
-            int i = 0;
-            TbPageContext<?> tbPageContext = this.a;
-            if (tbPageContext != null && tbPageContext.getPageActivity() != null && (findViewById = this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092654)) != null && findViewById.getVisibility() == 0) {
-                i = 5000;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            if (StringUtils.isNull(str)) {
+                z79 z79Var = this.b;
+                if (z79Var != null) {
+                    z79Var.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03cb));
+                    return;
+                }
+                return;
             }
-            if (this.c == null) {
-                this.c = new WriteTipBubbleController(this.a, this.e);
-            }
-            ah.a().postDelayed(new d(this, str), i);
+            MessageManager.getInstance().removeHttpMessage(this.a);
+            CheckRequest checkRequest = new CheckRequest();
+            checkRequest.setTag(this.a);
+            checkRequest.setAppkey(str);
+            checkRequest.setAppletsKey(str2);
+            MessageManager.getInstance().sendMessage(checkRequest);
         }
     }
 }

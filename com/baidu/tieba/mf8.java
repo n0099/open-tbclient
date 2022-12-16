@@ -1,92 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.App;
-import tbclient.GoodsInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mf8 {
+public class mf8 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    @NonNull
-    public static String a(@NonNull App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            String str = "";
-            if (list == null) {
-                return "";
-            }
-            for (GoodsInfo goodsInfo : list) {
-                if (goodsInfo != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject != null) {
-                            str = optJSONObject.optString("id");
-                        }
-                        return str;
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(int i);
     }
 
-    public static int b(@NonNull App app) {
-        InterceptResult invokeL;
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            if (list == null) {
-                return -1;
-            }
-            Iterator<GoodsInfo> it = list.iterator();
-            while (it.hasNext()) {
-                GoodsInfo next = it.next();
-                if (next != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject == null) {
-                            return -1;
-                        }
-                        return xg.e(optJSONObject.optString("pos"), -1);
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return -1;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
         }
-        return invokeL.intValue;
     }
 
-    public static void c(@NonNull App.Builder builder, int i) {
+    public mf8(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65538, null, builder, i) != null) || builder.goods_info == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
-            GoodsInfo goodsInfo = (GoodsInfo) hj7.d(builder.goods_info, i2);
-            if (goodsInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
-                    if (optJSONObject != null) {
-                        optJSONObject.put("pos", String.valueOf(xg.e(optJSONObject.optString("pos"), 0) + i));
-                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
-                        builder2.lego_card = jSONObject.toString();
-                        builder.goods_info.set(i2, builder2.build(false));
-                    }
-                } catch (JSONException unused) {
+        this.a = aVar;
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        float[] fArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent != null && (fArr = sensorEvent.values) != null && fArr.length >= 3) {
+            float f = -fArr[0];
+            float f2 = -fArr[1];
+            float f3 = -fArr[2];
+            if ((f * f) + (f2 * f2) >= f3 * f3) {
+                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
+                if (round >= 360) {
+                    round -= 360;
+                }
+                if (round < 0) {
+                    round += 360;
+                }
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.a(round);
                 }
             }
         }

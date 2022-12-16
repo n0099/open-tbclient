@@ -3,6 +3,7 @@ package androidx.collection;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -749,7 +750,7 @@ public class SimpleArrayMap<K, V> {
                 } else {
                     sb.append("(this Map)");
                 }
-                sb.append('=');
+                sb.append(a.h);
                 V valueAt = valueAt(i);
                 if (valueAt != this) {
                     sb.append(valueAt);

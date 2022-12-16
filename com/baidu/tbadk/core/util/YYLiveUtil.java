@@ -190,7 +190,7 @@ public class YYLiveUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (!TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021d).equals(str) && !TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021e).equals(str)) {
+            if (!TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt).equals(str) && !TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt_yy).equals(str)) {
                 return false;
             }
             return true;

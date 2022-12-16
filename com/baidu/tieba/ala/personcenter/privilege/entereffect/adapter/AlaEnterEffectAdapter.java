@@ -148,20 +148,20 @@ public class AlaEnterEffectAdapter extends kn<AlaEnterEffectData, ViewHolder> {
             if (alaEnterEffectData.isUsing()) {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f06079f, 1, this.b);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d6, this.b);
-                viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f021c));
+                viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f021f));
                 viewHolder.a.setAlpha(1.0f);
             } else if (alaEnterEffectData.isOwn) {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.CAM_X0302, 1, this.b);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d4, this.b);
-                viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0215));
+                viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0218));
                 viewHolder.a.setAlpha(1.0f);
             } else {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.CAM_X0109, 1, this.b);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d3, this.b);
-                viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0214));
+                viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0217));
                 viewHolder.a.setAlpha(0.7f);
             }
-            viewHolder.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0223, StringHelper.formatDayTime((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
+            viewHolder.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0226, StringHelper.formatDayTime((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
             int i2 = alaEnterEffectData.downLoadStatus;
             if (i2 == 100) {
                 viewHolder.e.setVisibility(0);
@@ -177,7 +177,7 @@ public class AlaEnterEffectAdapter extends kn<AlaEnterEffectData, ViewHolder> {
             SkinManager.setViewTextColor(viewHolder.i, R.color.CAM_X0109, 1, this.b);
             if (2 == alaEnterEffectData.categoryType) {
                 SkinManager.setViewTextColor(viewHolder.i, R.color.CAM_X0305, 1, this.b);
-                viewHolder.i.setText(this.a.getString(R.string.obfuscated_res_0x7f0f021a, AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price), alaEnterEffectData.time));
+                viewHolder.i.setText(this.a.getString(R.string.obfuscated_res_0x7f0f021d, AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price), alaEnterEffectData.time));
                 Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon();
                 int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
                 moneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uj5;
+import com.baidu.tieba.pk5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -123,8 +123,8 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09267a);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f0c);
+            this.a = (EditText) view2.findViewById(R.id.vote_item);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f67);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);
         }
@@ -270,9 +270,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09266d);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09266f);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09266e);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926e1);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926e3);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0926e2);
         }
     }
 
@@ -337,10 +337,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (uj5.d(replace) > 28) {
-                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1657), 14));
+            if (pk5.d(replace) > 28) {
+                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1693), 14));
             }
-            String l = uj5.l(replace, 28);
+            String l = pk5.l(replace, 28);
             if (!l.equals(editable.toString())) {
                 this.a.a.setText(l);
                 this.a.a.setSelection(l.length());
@@ -425,12 +425,12 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             eVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             eVar.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
             eVar.a.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.b, R.drawable.obfuscated_res_0x7f0805f9, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.b, R.drawable.obfuscated_res_0x7f08060c, SvgManager.SvgResourceStateType.NORMAL);
         } else if (viewHolder instanceof d) {
             d dVar = (d) viewHolder;
             SkinManager.setViewTextColor(dVar.a, (int) R.color.CAM_X0302);
             dVar.c.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.b, R.drawable.obfuscated_res_0x7f08061a, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.b, R.drawable.obfuscated_res_0x7f08062d, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -458,7 +458,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             if (viewHolder instanceof e) {
                 e eVar = (e) viewHolder;
                 String text = this.b.get(i).getText();
-                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1652), Integer.valueOf(i + 1)));
+                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f168e), Integer.valueOf(i + 1)));
                 eVar.a.setGravity(19);
                 if (i < this.b.size() - 1) {
                     eVar.a.setImeOptions(5);
@@ -484,7 +484,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             } else if (viewHolder instanceof d) {
                 d dVar = (d) viewHolder;
-                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1629), Integer.valueOf(20 - this.b.size())));
+                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1665), Integer.valueOf(20 - this.b.size())));
                 dVar.c.setOnClickListener(new c(this));
             }
             g(viewHolder);
@@ -498,9 +498,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i == 1) {
-                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0916, viewGroup, false));
+                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d092d, viewGroup, false));
             }
-            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0913, viewGroup, false));
+            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d092a, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

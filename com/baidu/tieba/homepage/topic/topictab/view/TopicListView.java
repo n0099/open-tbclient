@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.az4;
 import com.baidu.tieba.bz4;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.ja5;
 import com.baidu.tieba.ka5;
-import com.baidu.tieba.q77;
-import com.baidu.tieba.r77;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.o87;
+import com.baidu.tieba.p87;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,17 +35,17 @@ public class TopicListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public q77 c;
+    public o87 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public r77 f;
+    public p87 f;
     public bz4 g;
-    public ja5 h;
-    public ka5 i;
+    public ka5 h;
+    public la5 i;
     public ScrollFragmentTabHost j;
     public PbListView k;
     public RecyclerView.OnScrollListener l;
-    public ScrollFragmentTabHost.v m;
+    public ScrollFragmentTabHost.s m;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -100,9 +100,9 @@ public class TopicListView extends FrameLayout {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            r77 r77Var = this.f;
-            if (r77Var != null) {
-                r77Var.c(bdUniqueId);
+            p87 p87Var = this.f;
+            if (p87Var != null) {
+                p87Var.c(bdUniqueId);
             }
             bz4 bz4Var = this.g;
             if (bz4Var != null) {
@@ -111,10 +111,10 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void setPresenter(q77 q77Var) {
+    public void setPresenter(o87 o87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, q77Var) == null) {
-            this.c = q77Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, o87Var) == null) {
+            this.c = o87Var;
         }
     }
 
@@ -144,19 +144,19 @@ public class TopicListView extends FrameLayout {
     }
 
     public void d() {
-        ja5 ja5Var;
+        ka5 ka5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ja5Var = this.h) != null) {
-            ja5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ka5Var = this.h) != null) {
+            ka5Var.dettachView(this);
             this.h = null;
         }
     }
 
     public void e() {
-        ka5 ka5Var;
+        la5 la5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ka5Var = this.i) != null) {
-            ka5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (la5Var = this.i) != null) {
+            la5Var.dettachView(this);
             this.i = null;
         }
     }
@@ -173,9 +173,9 @@ public class TopicListView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ja5 ja5Var = this.h;
-            if (ja5Var != null) {
-                return ja5Var.isViewAttached();
+            ka5 ka5Var = this.h;
+            if (ka5Var != null) {
+                return ka5Var.isViewAttached();
             }
             return false;
         }
@@ -186,9 +186,9 @@ public class TopicListView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ka5 ka5Var = this.i;
-            if (ka5Var != null) {
-                return ka5Var.isViewAttached();
+            la5 la5Var = this.i;
+            if (la5Var != null) {
+                return la5Var.isViewAttached();
             }
             return false;
         }
@@ -200,9 +200,9 @@ public class TopicListView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e.setSelection(0);
             o();
-            ScrollFragmentTabHost.v vVar = this.m;
-            if (vVar != null) {
-                vVar.c();
+            ScrollFragmentTabHost.s sVar = this.m;
+            if (sVar != null) {
+                sVar.c();
             }
         }
     }
@@ -259,22 +259,22 @@ public class TopicListView extends FrameLayout {
         if (bz4Var != null) {
             bz4Var.H(skinType);
         }
-        ja5 ja5Var = this.h;
-        if (ja5Var != null) {
-            ja5Var.onChangeSkinType();
-        }
-        ka5 ka5Var = this.i;
+        ka5 ka5Var = this.h;
         if (ka5Var != null) {
             ka5Var.onChangeSkinType();
         }
-        r77 r77Var = this.f;
-        if (r77Var != null) {
-            r77Var.a();
+        la5 la5Var = this.i;
+        if (la5Var != null) {
+            la5Var.onChangeSkinType();
+        }
+        p87 p87Var = this.f;
+        if (p87Var != null) {
+            p87Var.a();
         }
         PbListView pbListView = this.k;
         if (pbListView != null) {
-            pbListView.d(skinType);
-            this.k.q(R.color.CAM_X0205);
+            pbListView.e(skinType);
+            this.k.r(R.color.CAM_X0205);
         }
     }
 
@@ -282,10 +282,10 @@ public class TopicListView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.e.setNextPage(this.k);
-            this.k.f();
-            this.k.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.k.u(yi.g(this.b.getPageActivity(), R.dimen.tbds150));
-            this.k.E(getResources().getString(R.string.obfuscated_res_0x7f0f0fd4));
+            this.k.g();
+            this.k.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.k.v(yi.g(this.b.getPageActivity(), R.dimen.tbds150));
+            this.k.F(getResources().getString(R.string.really_great));
         }
     }
 
@@ -295,10 +295,10 @@ public class TopicListView extends FrameLayout {
             return;
         }
         if (this.h == null) {
-            this.h = new ja5(getContext());
+            this.h = new ka5(getContext());
             int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - yi.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
             this.h.i();
-            this.h.s(height);
+            this.h.t(height);
             this.h.onChangeSkinType();
         }
         this.h.attachView(this, z);
@@ -310,7 +310,7 @@ public class TopicListView extends FrameLayout {
             return;
         }
         if (this.i == null) {
-            this.i = new ka5(getContext(), new a(this));
+            this.i = new la5(getContext(), new a(this));
         }
         this.i.attachView(this, z);
         this.i.p();

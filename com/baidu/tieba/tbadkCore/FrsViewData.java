@@ -22,33 +22,33 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.UserPendantData;
-import com.baidu.tieba.bo8;
-import com.baidu.tieba.bp5;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.eo8;
-import com.baidu.tieba.f56;
-import com.baidu.tieba.fo8;
-import com.baidu.tieba.fx6;
-import com.baidu.tieba.go8;
-import com.baidu.tieba.jp5;
-import com.baidu.tieba.mo8;
-import com.baidu.tieba.px6;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.rt4;
+import com.baidu.tieba.a66;
+import com.baidu.tieba.ar8;
+import com.baidu.tieba.cr8;
+import com.baidu.tieba.cy6;
+import com.baidu.tieba.dr8;
+import com.baidu.tieba.eq5;
+import com.baidu.tieba.er8;
+import com.baidu.tieba.fr8;
+import com.baidu.tieba.lr8;
+import com.baidu.tieba.my6;
+import com.baidu.tieba.nd5;
+import com.baidu.tieba.pk6;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.sj6;
+import com.baidu.tieba.st4;
+import com.baidu.tieba.tj6;
+import com.baidu.tieba.tq8;
 import com.baidu.tieba.uj6;
-import com.baidu.tieba.un8;
-import com.baidu.tieba.ut4;
-import com.baidu.tieba.vc5;
-import com.baidu.tieba.vn8;
+import com.baidu.tieba.uq8;
+import com.baidu.tieba.vt4;
+import com.baidu.tieba.wp5;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.xi6;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.xu4;
-import com.baidu.tieba.yi6;
-import com.baidu.tieba.yn8;
-import com.baidu.tieba.zi6;
-import com.baidu.tieba.zn8;
+import com.baidu.tieba.xq8;
+import com.baidu.tieba.yq8;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,13 +65,13 @@ import tbclient.FrsTabInfo;
 import tbclient.SmartApp;
 import tbclient.User;
 /* loaded from: classes6.dex */
-public class FrsViewData extends bo8 implements vc5, Serializable {
+public class FrsViewData extends ar8 implements nd5, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumActiveInfo forumActiveInfo;
     public int frsCurrentTabId;
     public BdUniqueId frsFragmentTag;
-    public fx6 funAdController;
+    public cy6 funAdController;
     public boolean isBrandForum;
     public boolean isFrsVideoAutoPlay;
     public boolean isLoadMore;
@@ -144,7 +144,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bo8
+    @Override // com.baidu.tieba.ar8
     public List<RecmForumInfo> getRecm_forum_list() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -215,14 +215,14 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
     public void removeAlaInsertLiveData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            removeTopSameClassDataFromList(un8.class, getThreadList());
+            removeTopSameClassDataFromList(tq8.class, getThreadList());
         }
     }
 
     public void removeAlaStageLiveDat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            removeTopSameClassDataFromList(vn8.class, getThreadList());
+            removeTopSameClassDataFromList(uq8.class, getThreadList());
         }
     }
 
@@ -244,27 +244,27 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         return invokeII.intValue;
     }
 
-    public void addRecommendAppToThreadList(bp5 bp5Var, ArrayList<xn> arrayList) {
+    public void addRecommendAppToThreadList(wp5 wp5Var, ArrayList<xn> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bp5Var, arrayList) == null) {
-            addRecommendAppToThreadList(bp5Var, false, arrayList, null, false);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wp5Var, arrayList) == null) {
+            addRecommendAppToThreadList(wp5Var, false, arrayList, null, false);
         }
     }
 
     private List<xn> getHeadLineDataInThreadList() {
         InterceptResult invokeV;
-        ut4 ut4Var;
+        vt4 vt4Var;
         ArrayList<xn> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             ArrayList arrayList2 = new ArrayList();
             ArrayList<xn> arrayList3 = this.threadList;
-            if (arrayList3 != null && arrayList3.size() > 0 && (ut4Var = this.page) != null && ut4Var.a() == 1 && (arrayList = this.threadList) != null && arrayList.size() > 0) {
+            if (arrayList3 != null && arrayList3.size() > 0 && (vt4Var = this.page) != null && vt4Var.a() == 1 && (arrayList = this.threadList) != null && arrayList.size() > 0) {
                 int size = this.threadList.size();
                 for (int i = 0; i < size; i++) {
                     xn xnVar = this.threadList.get(i);
-                    if (xnVar instanceof xu4) {
-                        if (((xu4) xnVar).t.isHeadLinePost) {
+                    if (xnVar instanceof yu4) {
+                        if (((yu4) xnVar).t.isHeadLinePost) {
                             arrayList2.add(xnVar);
                         }
                     } else if ((xnVar instanceof ThreadData) && ((ThreadData) xnVar).isHeadLinePost) {
@@ -287,8 +287,8 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         int i = 0;
         for (int i2 = 0; i2 < this.threadList.size(); i2++) {
             xn xnVar = this.threadList.get(i2);
-            if (xnVar instanceof xu4) {
-                ThreadData threadData = ((xu4) xnVar).t;
+            if (xnVar instanceof yu4) {
+                ThreadData threadData = ((yu4) xnVar).t;
                 if (threadData == null || (!threadData.isTop() && threadData.getIsLive() != 1)) {
                     break;
                 }
@@ -296,25 +296,25 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             }
         }
         if (this.threadList.size() - i > 7 && (feedForumList = this.forum.getBannerListData().getFeedForumList()) != null && feedForumList.size() > 0) {
-            zn8 zn8Var = new zn8();
-            zn8Var.f(this.forum.getId());
-            zn8Var.c(feedForumList);
-            this.threadList.add(i + 6, zn8Var);
+            yq8 yq8Var = new yq8();
+            yq8Var.f(this.forum.getId());
+            yq8Var.c(feedForumList);
+            this.threadList.add(i + 6, yq8Var);
         }
     }
 
     public boolean addHotTopicDataToThreadList() {
         InterceptResult invokeV;
         ForumData forumData;
-        f56 recomTopicData;
+        a66 recomTopicData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.threadList != null && (forumData = this.forum) != null && forumData.getBannerListData() != null) {
                 int i = 0;
                 for (int i2 = 0; i2 < this.threadList.size(); i2++) {
                     xn xnVar = this.threadList.get(i2);
-                    if (xnVar instanceof xu4) {
-                        ThreadData threadData = ((xu4) xnVar).t;
+                    if (xnVar instanceof yu4) {
+                        ThreadData threadData = ((yu4) xnVar).t;
                         if (threadData == null || (!threadData.isTop() && threadData.getIsLive() != 1)) {
                             break;
                         }
@@ -337,7 +337,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         xn xnVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && getForum() != null && this.threadList != null && (top_notice_data = getForum().getTop_notice_data()) != null && top_notice_data.getTitle() != null) {
-            while (!this.threadList.isEmpty() && (xnVar = this.threadList.get(0)) != null && (xnVar instanceof xu4) && ((ThreadData) xnVar).getIs_top() == 2) {
+            while (!this.threadList.isEmpty() && (xnVar = this.threadList.get(0)) != null && (xnVar instanceof yu4) && ((ThreadData) xnVar).getIs_top() == 2) {
                 this.threadList.remove(0);
             }
             ThreadData threadData = new ThreadData();
@@ -345,9 +345,9 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             threadData.setTid(top_notice_data.getTitle_link());
             threadData.setIs_top(2);
             threadData.parser_title();
-            xu4 xu4Var = new xu4();
-            xu4Var.t = threadData;
-            this.threadList.add(0, xu4Var);
+            yu4 yu4Var = new yu4();
+            yu4Var.t = threadData;
+            this.threadList.add(0, yu4Var);
         }
     }
 
@@ -382,10 +382,10 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         return invokeI.intValue;
     }
 
-    public void addRecommendAppToThreadList(bp5 bp5Var) {
+    public void addRecommendAppToThreadList(wp5 wp5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bp5Var) == null) {
-            addRecommendAppToThreadList(bp5Var, false, this.threadList, null, false);
+        if (interceptable == null || interceptable.invokeL(1048583, this, wp5Var) == null) {
+            addRecommendAppToThreadList(wp5Var, false, this.threadList, null, false);
         }
     }
 
@@ -403,10 +403,10 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         }
     }
 
-    public void setFunAdController(fx6 fx6Var) {
+    public void setFunAdController(cy6 cy6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, fx6Var) == null) {
-            this.funAdController = fx6Var;
+        if (interceptable == null || interceptable.invokeL(1048617, this, cy6Var) == null) {
+            this.funAdController = cy6Var;
         }
     }
 
@@ -469,11 +469,11 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
     }
 
     public void addStageLiveDataToThreadList() {
-        vn8 frsStageLiveData;
+        uq8 frsStageLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsStageLiveData = getFrsStageLiveData()) != null) {
             ArrayList<xn> threadList = getThreadList();
-            removeTopSameClassDataFromList(vn8.class, threadList);
+            removeTopSameClassDataFromList(uq8.class, threadList);
             if (!ListUtils.isEmpty(frsStageLiveData.a)) {
                 threadList.add(getAlaLiveThreadCardInsertPos(1, threadList.size()), frsStageLiveData);
             }
@@ -489,7 +489,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
                     break;
                 }
                 xn next = it.next();
-                if (next != null && next.getType() == go8.c) {
+                if (next != null && next.getType() == fr8.c) {
                     this.threadList.remove(next);
                     break;
                 }
@@ -530,8 +530,8 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         int i = 0;
         for (int i2 = 0; i2 < this.threadList.size(); i2++) {
             xn xnVar = this.threadList.get(i2);
-            if (xnVar instanceof xu4) {
-                ThreadData threadData = ((xu4) xnVar).t;
+            if (xnVar instanceof yu4) {
+                ThreadData threadData = ((yu4) xnVar).t;
                 if (threadData == null || (!threadData.isTop() && threadData.getIsLive() != 1)) {
                     break;
                 }
@@ -541,20 +541,20 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         if ((getGameRankListData().a() + i) - 1 >= this.threadList.size()) {
             return;
         }
-        String q = qy4.k().q("game_rank_list_info", "");
-        if (!StringUtils.isNull(q) && q.split(",").length == 2) {
-            if (UtilHelper.getDayBetweenTime(xg.g(q.split(",")[0], 0L), System.currentTimeMillis()) < xg.e(q.split(",")[1], 0)) {
+        String r = ry4.l().r("game_rank_list_info", "");
+        if (!StringUtils.isNull(r) && r.split(",").length == 2) {
+            if (UtilHelper.getDayBetweenTime(xg.g(r.split(",")[0], 0L), System.currentTimeMillis()) < xg.e(r.split(",")[1], 0)) {
                 z2 = false;
                 if (z2) {
-                    int l = qy4.k().l("game_rank_list_show_times", 0);
+                    int m = ry4.l().m("game_rank_list_show_times", 0);
                     if (!z) {
-                        l++;
+                        m++;
                     }
-                    qy4.k().w("game_rank_list_show_times", l);
-                    if (l > 3) {
-                        qy4 k = qy4.k();
-                        k.y("game_rank_list_info", System.currentTimeMillis() + ",1");
-                        qy4.k().w("game_rank_list_show_times", 0);
+                    ry4.l().x("game_rank_list_show_times", m);
+                    if (m > 3) {
+                        ry4 l = ry4.l();
+                        l.z("game_rank_list_info", System.currentTimeMillis() + ",1");
+                        ry4.l().x("game_rank_list_show_times", 0);
                         if (!z3) {
                             return;
                         }
@@ -576,11 +576,11 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
     }
 
     public void addInsertLiveDataToThreadList() {
-        un8 frsInsertLiveData;
+        tq8 frsInsertLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsInsertLiveData = getFrsInsertLiveData()) != null) {
             ArrayList<xn> threadList = getThreadList();
-            removeTopSameClassDataFromList(un8.class, threadList);
+            removeTopSameClassDataFromList(tq8.class, threadList);
             threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.b, threadList.size()), frsInsertLiveData);
         }
     }
@@ -600,7 +600,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         int a;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && getUserRecommend() != null) {
-            uj6 userRecommend = getUserRecommend();
+            pk6 userRecommend = getUserRecommend();
             if (ListUtils.getCount(userRecommend.c()) < 3 || (a = userRecommend.a()) <= 0) {
                 return;
             }
@@ -642,7 +642,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         FrsTabInfo frsTabInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            do8 entelechyTabInfo = getEntelechyTabInfo();
+            cr8 entelechyTabInfo = getEntelechyTabInfo();
             if (entelechyTabInfo == null || (list = entelechyTabInfo.a) == null || list.size() <= 0 || (frsTabInfo = list.get(0)) == null || frsTabInfo.tab_id.intValue() != 1) {
                 return false;
             }
@@ -657,7 +657,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             Iterator<xn> it = this.threadList.iterator();
             while (it.hasNext()) {
                 xn next = it.next();
-                if (next != null && next.getType() == px6.e) {
+                if (next != null && next.getType() == my6.e) {
                     it.remove();
                 }
             }
@@ -672,7 +672,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         boolean z = false;
         Iterator<xn> it = this.threadList.iterator();
         while (it.hasNext()) {
-            if (it.next() instanceof uj6) {
+            if (it.next() instanceof pk6) {
                 if (z) {
                     it.remove();
                 } else {
@@ -682,23 +682,23 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         }
     }
 
-    public void addMyNewThread(rt4 rt4Var) {
+    public void addMyNewThread(st4 st4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, rt4Var) == null) && rt4Var != null && !StringUtils.isNull(rt4Var.getId()) && this.threadList != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, st4Var) == null) && st4Var != null && !StringUtils.isNull(st4Var.getId()) && this.threadList != null) {
             int topThreadSize = getTopThreadSize();
             ArrayList<xn> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
                 int size = threadList.size();
                 for (int i = 0; i < size; i++) {
                     xn xnVar = threadList.get(i);
-                    if ((xnVar instanceof xu4) && rt4Var.getId().equals(((xu4) xnVar).t.getId()) && rt4Var.getType() != ThreadData.TYPE_FAKE_VIDEO) {
+                    if ((xnVar instanceof yu4) && st4Var.getId().equals(((yu4) xnVar).t.getId()) && st4Var.getType() != ThreadData.TYPE_FAKE_VIDEO) {
                         return;
                     }
                 }
             }
-            rt4Var.isFromBrandForum = this.isBrandForum;
+            st4Var.isFromBrandForum = this.isBrandForum;
             this.postThreadCount++;
-            this.threadList.add(topThreadSize, rt4Var);
+            this.threadList.add(topThreadSize, st4Var);
         }
     }
 
@@ -712,21 +712,21 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             Iterator<xn> it = this.threadList.iterator();
             while (it.hasNext()) {
                 xn next = it.next();
-                if (next != null && (next instanceof xu4)) {
-                    xu4 xu4Var = (xu4) next;
-                    if (xu4Var.t.getAuthor() != null && currentAccount.equals(xu4Var.t.getAuthor().getUserId()) && xu4Var.t.getAuthor().getPendantData() != null) {
-                        xu4Var.t.getAuthor().getPendantData().setPropsId(userPendantData.getPropsId());
-                        xu4Var.t.getAuthor().getPendantData().setImgUrl(userPendantData.getImgUrl());
+                if (next != null && (next instanceof yu4)) {
+                    yu4 yu4Var = (yu4) next;
+                    if (yu4Var.t.getAuthor() != null && currentAccount.equals(yu4Var.t.getAuthor().getUserId()) && yu4Var.t.getAuthor().getPendantData() != null) {
+                        yu4Var.t.getAuthor().getPendantData().setPropsId(userPendantData.getPropsId());
+                        yu4Var.t.getAuthor().getPendantData().setImgUrl(userPendantData.getImgUrl());
                     }
                 }
             }
         }
     }
 
-    public void addRecommendAppToThreadList(bp5 bp5Var, boolean z, ArrayList<xn> arrayList, ArrayList<xn> arrayList2, boolean z2) {
+    public void addRecommendAppToThreadList(wp5 wp5Var, boolean z, ArrayList<xn> arrayList, ArrayList<xn> arrayList2, boolean z2) {
         BannerListData bannerListData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{bp5Var, Boolean.valueOf(z), arrayList, arrayList2, Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{wp5Var, Boolean.valueOf(z), arrayList, arrayList2, Boolean.valueOf(z2)}) == null) {
             if (!this.isLoadMore) {
                 ForumData forumData = this.forum;
                 if (forumData == null) {
@@ -738,7 +738,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             }
             this.isLoadMore = false;
             if (bannerListData != null && bannerListData.getAllAdvertList() != null && arrayList != null && arrayList.size() > 0) {
-                jp5 jp5Var = new jp5(bp5Var, 2);
+                eq5 eq5Var = new eq5(wp5Var, 2);
                 ArrayList arrayList3 = new ArrayList();
                 Iterator<AdvertAppInfo> it = bannerListData.getAllAdvertList().iterator();
                 while (it.hasNext()) {
@@ -747,38 +747,38 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
                     next.setSortType(getSortType());
                     arrayList3.add(next);
                 }
-                jp5Var.s(arrayList3);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, jp5Var));
-                jp5 jp5Var2 = new jp5(bp5Var, 3);
-                jp5Var2.z(z);
-                jp5Var2.G(arrayList);
-                jp5Var2.D(arrayList2);
-                jp5Var2.y(z2);
-                jp5Var2.t(getPage().a());
+                eq5Var.s(arrayList3);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, eq5Var));
+                eq5 eq5Var2 = new eq5(wp5Var, 3);
+                eq5Var2.z(z);
+                eq5Var2.G(arrayList);
+                eq5Var2.D(arrayList2);
+                eq5Var2.y(z2);
+                eq5Var2.t(getPage().a());
                 int i = this.frsCurrentTabId;
                 if (i == 1) {
-                    jp5Var2.x("frs_hot_tab");
+                    eq5Var2.x("frs_hot_tab");
                 } else if (i == 503) {
-                    jp5Var2.x("frs_new_tab");
+                    eq5Var2.x("frs_new_tab");
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, jp5Var2));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, eq5Var2));
             }
         }
     }
 
     public void checkLiveStageInThreadList() {
         ArrayList<xn> arrayList;
-        ut4 ut4Var;
+        vt4 vt4Var;
         ArrayList<xn> arrayList2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (arrayList = this.threadList) != null && arrayList.size() > 0 && (ut4Var = this.page) != null && ut4Var.a() == 1 && (arrayList2 = this.threadList) != null && arrayList2.size() > 0) {
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (arrayList = this.threadList) != null && arrayList.size() > 0 && (vt4Var = this.page) != null && vt4Var.a() == 1 && (arrayList2 = this.threadList) != null && arrayList2.size() > 0) {
             int i = -1;
             int size = this.threadList.size();
             for (int i2 = 0; i2 < size; i2++) {
                 xn xnVar = this.threadList.get(i2);
-                if (xnVar instanceof xu4) {
-                    xu4 xu4Var = (xu4) xnVar;
-                    if (xu4Var.t.getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && xu4Var.t.getThreadAlaInfo() != null && xu4Var.t.getThreadAlaInfo().user_info != null && xu4Var.t.getThreadAlaInfo().user_info.is_official == 2 && xu4Var.t.getThreadAlaInfo().liveStageForceTop) {
+                if (xnVar instanceof yu4) {
+                    yu4 yu4Var = (yu4) xnVar;
+                    if (yu4Var.t.getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && yu4Var.t.getThreadAlaInfo() != null && yu4Var.t.getThreadAlaInfo().user_info != null && yu4Var.t.getThreadAlaInfo().user_info.is_official == 2 && yu4Var.t.getThreadAlaInfo().liveStageForceTop) {
                         i = i2;
                         break;
                     }
@@ -797,8 +797,8 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             if (i < 0) {
                 for (int i3 = 0; i3 < size; i3++) {
                     xn xnVar2 = this.threadList.get(i3);
-                    if (xnVar2 instanceof xu4) {
-                        if (((xu4) xnVar2).t.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
+                    if (xnVar2 instanceof yu4) {
+                        if (((yu4) xnVar2).t.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
                             i = i3;
                             break;
                         }
@@ -824,12 +824,12 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         }
     }
 
-    public void filterEnterList(List<yn8> list) {
+    public void filterEnterList(List<xq8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, list) == null) && list != null && list.size() != 0) {
-            Iterator<yn8> it = list.iterator();
+            Iterator<xq8> it = list.iterator();
             while (it.hasNext()) {
-                yn8 next = it.next();
+                xq8 next = it.next();
                 if (next == null) {
                     it.remove();
                 } else if (StringUtils.isNull(next.h()) || StringUtils.isNull(next.f())) {
@@ -843,7 +843,7 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
 
     public List<xn> getShowTopThreadList() {
         InterceptResult invokeV;
-        List<yn8> list;
+        List<xq8> list;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
@@ -867,12 +867,12 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             }
             ForumData forum = getForum();
             if (forum != null && getForum().getIsShowRule() && this.forumRule != null && (getUserData().getIs_manager() == 1 || this.forumRule.has_forum_rule.intValue() == 1)) {
-                arrayList.add(new fo8(forum, this.forumRule));
+                arrayList.add(new er8(forum, this.forumRule));
             }
             if (forum != null && !xi.isEmpty(forum.getRiskTipNotice())) {
-                arrayList.add(new eo8(forum, false));
+                arrayList.add(new dr8(forum, false));
             } else if (forum != null && !ListUtils.isEmpty(forum.getTipInfos())) {
-                arrayList.add(new eo8(forum, true));
+                arrayList.add(new dr8(forum, true));
             }
             int i3 = 3 - i;
             int size = arrayList.size();
@@ -881,10 +881,10 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
                 boolean z = false;
                 for (int i4 = 0; i4 < ListUtils.getCount(topThreadList) && arrayList.size() < size + i3; i4++) {
                     xn xnVar = (xn) ListUtils.getItem(topThreadList, i4);
-                    if (xnVar instanceof xu4) {
-                        xu4 xu4Var = (xu4) xnVar;
-                        arrayList.add(xu4Var.t);
-                        if (xu4Var.t.getIsMemberTop() != 1 || z) {
+                    if (xnVar instanceof yu4) {
+                        yu4 yu4Var = (yu4) xnVar;
+                        arrayList.add(yu4Var.t);
+                        if (yu4Var.t.getIsMemberTop() != 1 || z) {
                             if (getForum() != null && getForum().isShowAllTopThread == 0 && arrayList.size() >= 1) {
                                 break;
                             }
@@ -930,10 +930,10 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
             Iterator<xn> it = arrayList.iterator();
             while (it.hasNext()) {
                 xn next = it.next();
-                if (next != null && (next instanceof xu4)) {
-                    xu4 xu4Var = (xu4) next;
-                    if (TextUtils.equals(str, xu4Var.t.getId())) {
-                        return xu4Var.t;
+                if (next != null && (next instanceof yu4)) {
+                    yu4 yu4Var = (yu4) next;
+                    if (TextUtils.equals(str, yu4Var.t.getId())) {
+                        return yu4Var.t;
                     }
                 }
             }
@@ -951,133 +951,133 @@ public class FrsViewData extends bo8 implements vc5, Serializable {
         Iterator<xn> it = arrayList.iterator();
         while (it.hasNext()) {
             xn next = it.next();
-            if (next != null && (next instanceof xu4) && TextUtils.equals(str, ((xu4) next).t.getId())) {
+            if (next != null && (next instanceof yu4) && TextUtils.equals(str, ((yu4) next).t.getId())) {
                 it.remove();
             }
         }
     }
 
-    public void updateLikeData(mo8 mo8Var) {
+    public void updateLikeData(lr8 lr8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048620, this, mo8Var) != null) || mo8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048620, this, lr8Var) != null) || lr8Var == null) {
             return;
         }
-        this.forum.setCurScore(mo8Var.c());
-        this.forum.setLevelupScore(mo8Var.i());
-        this.forum.setLike(mo8Var.m());
-        this.forum.setUser_level(mo8Var.l());
-        this.forum.setLevelName(mo8Var.h());
+        this.forum.setCurScore(lr8Var.c());
+        this.forum.setLevelupScore(lr8Var.i());
+        this.forum.setLike(lr8Var.m());
+        this.forum.setUser_level(lr8Var.l());
+        this.forum.setLevelName(lr8Var.h());
     }
 
-    public boolean receiveData(bo8 bo8Var) {
+    public boolean receiveData(ar8 ar8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, bo8Var)) == null) {
-            if (bo8Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, ar8Var)) == null) {
+            if (ar8Var == null) {
                 return false;
             }
-            this.isFromCache = bo8Var.isFromCache;
-            setBaWuNoticeNum(bo8Var.getBaWuNoticeNum());
-            setSortType(bo8Var.getSortType());
-            setAnti(bo8Var.getAnti());
-            setChatGroup(bo8Var.getChatGroup());
-            setFortuneBag(bo8Var.isFortuneBag());
-            setFortuneDesc(bo8Var.getFortuneDesc());
-            setForum(bo8Var.getForum());
-            setGameName(bo8Var.getGameName());
-            setGameUrl(bo8Var.getGameUrl());
-            setGconAccount(bo8Var.getGconAccount());
-            setHasGame(bo8Var.isHasGame());
-            setIsNewUrl(bo8Var.getIsNewUrl());
-            setPhotoLivePos(bo8Var.getPhotoLivePos());
-            setPage(bo8Var.getPage());
-            setStar(bo8Var.getStar());
-            setStarEnter(bo8Var.getStarEnter());
-            setThreadList(bo8Var.threadList);
-            setThreadListIds(bo8Var.getThreadListIds());
-            setUserData(bo8Var.getUserData());
-            setUserMap(bo8Var.getUserMap());
-            setActivityHeadData(bo8Var.getActivityHeadData());
-            setFrsDefaultTabId(bo8Var.getFrsDefaultTabId());
-            this.defaultShowTab = bo8Var.defaultShowTab;
-            setCategoryInfos(bo8Var.getCategoryInfos());
-            setBawuCenterUrl(bo8Var.getBawuCenterUrl());
-            setCardVideoInfo(bo8Var.getCardVideoInfo());
-            setHeadSdkData(bo8Var.getHeadSdkData());
-            setSchoolRecommendPos(bo8Var.getSchoolRecommendPos());
-            setSchoolRecommendInfo(bo8Var.getSchoolRecommendUserInfo());
-            setEntelechyTabInfo(bo8Var.getEntelechyTabInfo());
-            setAlaLiveCount(bo8Var.getAlaLiveCount());
-            setCarrierEnterData(bo8Var.getCarrierEnterData());
-            setForumState(bo8Var.getForumState());
-            setAccessFlag(bo8Var.getAccessFlag());
-            this.needLog = bo8Var.needLog;
-            this.recommendBookData = bo8Var.recommendBookData;
-            this.presentInfoData = bo8Var.presentInfoData;
-            setBookInfo(bo8Var.getBookInfo());
-            setMangaReadRecordChapterId(bo8Var.getMangaReadRecordChapterId());
-            setHeadlineImgInfoData(bo8Var.getHeadlineImgInfoData());
-            setCardShipinPos(bo8Var.getCardShipinPos());
-            setCardShipinNew(bo8Var.getCardShipinNew());
-            this.enterFrsDialogInfo = bo8Var.enterFrsDialogInfo;
-            setGameRankListData(bo8Var.getGameRankListData());
-            setAgreeBanner(bo8Var.getAgreeBanner());
-            setLiveNotify(bo8Var.getLiveNotify());
-            setGameTabInfo(bo8Var.getGameTabInfo());
-            setGameDefaultTabId(bo8Var.getGameDefaultTabId());
-            setForumHeadIcon(bo8Var.getForumHeadIcon());
-            setUserRecommend(bo8Var.getUserRecommend());
-            setFrsVideoActivityData(bo8Var.getFrsVideoActivityData());
-            this.mNewChapterInfo = bo8Var.mNewChapterInfo;
-            setFrsInsertLiveData(bo8Var.getFrsInsertLiveData());
-            this.recm_forum_list = bo8Var.getRecm_forum_list();
-            setFrsStageLiveData(bo8Var.getFrsStageLiveData());
-            this.forumArIno = bo8Var.forumArIno;
-            this.starRank = bo8Var.starRank;
-            this.postTopic = bo8Var.postTopic;
-            this.mWindowToast = bo8Var.mWindowToast;
-            this.activityConfig = bo8Var.activityConfig;
-            setIsShowRedTip(bo8Var.isShowRedTip());
-            this.isBrandForum = bo8Var.isBrandForum;
-            this.brandAdData = bo8Var.brandAdData;
-            this.oriForumInfoList = bo8Var.oriForumInfoList;
-            this.bottomMenuList = bo8Var.bottomMenuList;
-            this.adMixFloor = bo8Var.adMixFloor;
-            this.adShowSelect = bo8Var.adShowSelect;
-            this.adSampleMapKey = bo8Var.adSampleMapKey;
-            yi6.f().n(getAnti());
-            yi6.f().q(bo8Var.getForum().getId());
-            yi6.f().r(bo8Var.getForum().getName());
-            xi6.h().q(bo8Var.getForum().getId());
-            if (bo8Var.getEntelechyTabInfo() != null) {
-                xi6.h().r(bo8Var.getEntelechyTabInfo().a);
+            this.isFromCache = ar8Var.isFromCache;
+            setBaWuNoticeNum(ar8Var.getBaWuNoticeNum());
+            setSortType(ar8Var.getSortType());
+            setAnti(ar8Var.getAnti());
+            setChatGroup(ar8Var.getChatGroup());
+            setFortuneBag(ar8Var.isFortuneBag());
+            setFortuneDesc(ar8Var.getFortuneDesc());
+            setForum(ar8Var.getForum());
+            setGameName(ar8Var.getGameName());
+            setGameUrl(ar8Var.getGameUrl());
+            setGconAccount(ar8Var.getGconAccount());
+            setHasGame(ar8Var.isHasGame());
+            setIsNewUrl(ar8Var.getIsNewUrl());
+            setPhotoLivePos(ar8Var.getPhotoLivePos());
+            setPage(ar8Var.getPage());
+            setStar(ar8Var.getStar());
+            setStarEnter(ar8Var.getStarEnter());
+            setThreadList(ar8Var.threadList);
+            setThreadListIds(ar8Var.getThreadListIds());
+            setUserData(ar8Var.getUserData());
+            setUserMap(ar8Var.getUserMap());
+            setActivityHeadData(ar8Var.getActivityHeadData());
+            setFrsDefaultTabId(ar8Var.getFrsDefaultTabId());
+            this.defaultShowTab = ar8Var.defaultShowTab;
+            setCategoryInfos(ar8Var.getCategoryInfos());
+            setBawuCenterUrl(ar8Var.getBawuCenterUrl());
+            setCardVideoInfo(ar8Var.getCardVideoInfo());
+            setHeadSdkData(ar8Var.getHeadSdkData());
+            setSchoolRecommendPos(ar8Var.getSchoolRecommendPos());
+            setSchoolRecommendInfo(ar8Var.getSchoolRecommendUserInfo());
+            setEntelechyTabInfo(ar8Var.getEntelechyTabInfo());
+            setAlaLiveCount(ar8Var.getAlaLiveCount());
+            setCarrierEnterData(ar8Var.getCarrierEnterData());
+            setForumState(ar8Var.getForumState());
+            setAccessFlag(ar8Var.getAccessFlag());
+            this.needLog = ar8Var.needLog;
+            this.recommendBookData = ar8Var.recommendBookData;
+            this.presentInfoData = ar8Var.presentInfoData;
+            setBookInfo(ar8Var.getBookInfo());
+            setMangaReadRecordChapterId(ar8Var.getMangaReadRecordChapterId());
+            setHeadlineImgInfoData(ar8Var.getHeadlineImgInfoData());
+            setCardShipinPos(ar8Var.getCardShipinPos());
+            setCardShipinNew(ar8Var.getCardShipinNew());
+            this.enterFrsDialogInfo = ar8Var.enterFrsDialogInfo;
+            setGameRankListData(ar8Var.getGameRankListData());
+            setAgreeBanner(ar8Var.getAgreeBanner());
+            setLiveNotify(ar8Var.getLiveNotify());
+            setGameTabInfo(ar8Var.getGameTabInfo());
+            setGameDefaultTabId(ar8Var.getGameDefaultTabId());
+            setForumHeadIcon(ar8Var.getForumHeadIcon());
+            setUserRecommend(ar8Var.getUserRecommend());
+            setFrsVideoActivityData(ar8Var.getFrsVideoActivityData());
+            this.mNewChapterInfo = ar8Var.mNewChapterInfo;
+            setFrsInsertLiveData(ar8Var.getFrsInsertLiveData());
+            this.recm_forum_list = ar8Var.getRecm_forum_list();
+            setFrsStageLiveData(ar8Var.getFrsStageLiveData());
+            this.forumArIno = ar8Var.forumArIno;
+            this.starRank = ar8Var.starRank;
+            this.postTopic = ar8Var.postTopic;
+            this.mWindowToast = ar8Var.mWindowToast;
+            this.activityConfig = ar8Var.activityConfig;
+            setIsShowRedTip(ar8Var.isShowRedTip());
+            this.isBrandForum = ar8Var.isBrandForum;
+            this.brandAdData = ar8Var.brandAdData;
+            this.oriForumInfoList = ar8Var.oriForumInfoList;
+            this.bottomMenuList = ar8Var.bottomMenuList;
+            this.adMixFloor = ar8Var.adMixFloor;
+            this.adShowSelect = ar8Var.adShowSelect;
+            this.adSampleMapKey = ar8Var.adSampleMapKey;
+            tj6.f().n(getAnti());
+            tj6.f().q(ar8Var.getForum().getId());
+            tj6.f().r(ar8Var.getForum().getName());
+            sj6.h().q(ar8Var.getForum().getId());
+            if (ar8Var.getEntelechyTabInfo() != null) {
+                sj6.h().r(ar8Var.getEntelechyTabInfo().a);
             }
-            if (bo8Var.getUserData() != null) {
-                zi6.c().e(bo8Var.getUserData().bawuThrones);
+            if (ar8Var.getUserData() != null) {
+                uj6.c().e(ar8Var.getUserData().bawuThrones);
             }
-            setPrivateForumTotalInfo(bo8Var.getPrivateForumTotalInfo());
-            setPrivateForumPopInfoData(bo8Var.getPrivateForumPopInfo());
+            setPrivateForumTotalInfo(ar8Var.getPrivateForumTotalInfo());
+            setPrivateForumPopInfoData(ar8Var.getPrivateForumPopInfo());
             this.isFrsVideoAutoPlay = TbadkCoreApplication.getInst().canAutoPlaySwitch();
-            this.smartAppAvatar = bo8Var.smartAppAvatar;
-            this.smartApp = bo8Var.smartApp;
-            this.nebulaHotThreads = bo8Var.nebulaHotThreads;
-            this.forumActiveInfo = bo8Var.forumActiveInfo;
-            this.userList = bo8Var.userList;
-            setBusinessPromot(bo8Var.getBusinessPromot());
-            this.serviceAreaData = bo8Var.serviceAreaData;
-            setHotUserRankData(bo8Var.getHotUserRankData());
-            this.itemInfo = bo8Var.itemInfo;
-            this.toLoadHorseData = bo8Var.toLoadHorseData;
-            this.forumRule = bo8Var.forumRule;
-            this.mSignActivityInfo = bo8Var.mSignActivityInfo;
-            this.showAdsense = bo8Var.showAdsense;
-            setVoiceRoomConfig(bo8Var.getVoiceRoomConfig());
-            setVoiceRoomData(bo8Var.getVoiceRoomData());
-            this.serviceAreaFlutterData = bo8Var.serviceAreaFlutterData;
-            this.liveFuseForumDataList = bo8Var.liveFuseForumDataList;
-            this.frsGameRankInfoData = bo8Var.frsGameRankInfoData;
-            this.forumTagInfo = bo8Var.forumTagInfo;
-            this.firstCategory = bo8Var.firstCategory;
+            this.smartAppAvatar = ar8Var.smartAppAvatar;
+            this.smartApp = ar8Var.smartApp;
+            this.nebulaHotThreads = ar8Var.nebulaHotThreads;
+            this.forumActiveInfo = ar8Var.forumActiveInfo;
+            this.userList = ar8Var.userList;
+            setBusinessPromot(ar8Var.getBusinessPromot());
+            this.serviceAreaData = ar8Var.serviceAreaData;
+            setHotUserRankData(ar8Var.getHotUserRankData());
+            this.itemInfo = ar8Var.itemInfo;
+            this.toLoadHorseData = ar8Var.toLoadHorseData;
+            this.forumRule = ar8Var.forumRule;
+            this.mSignActivityInfo = ar8Var.mSignActivityInfo;
+            this.showAdsense = ar8Var.showAdsense;
+            setVoiceRoomConfig(ar8Var.getVoiceRoomConfig());
+            setVoiceRoomData(ar8Var.getVoiceRoomData());
+            this.serviceAreaFlutterData = ar8Var.serviceAreaFlutterData;
+            this.liveFuseForumDataList = ar8Var.liveFuseForumDataList;
+            this.frsGameRankInfoData = ar8Var.frsGameRankInfoData;
+            this.forumTagInfo = ar8Var.forumTagInfo;
+            this.firstCategory = ar8Var.firstCategory;
             return true;
         }
         return invokeL.booleanValue;

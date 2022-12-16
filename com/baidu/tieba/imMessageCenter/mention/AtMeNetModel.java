@@ -4,35 +4,35 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.vf7;
-import com.baidu.tieba.wf7;
+import com.baidu.tieba.si7;
+import com.baidu.tieba.td5;
+import com.baidu.tieba.ti7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class AtMeNetModel extends NetModel<vf7, wf7, AtMessageFragment> {
+public class AtMeNetModel extends NetModel<si7, ti7, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int M() {
+    public int T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CmdConfigHttp.REPLYME_HTTP_CMD : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String P() {
+    public String W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c/u/feed/atme" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int Q() {
+    public int X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -42,19 +42,19 @@ public class AtMeNetModel extends NetModel<vf7, wf7, AtMessageFragment> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtMeNetModel(TbPageContext tbPageContext, vf7 vf7Var) {
-        super(tbPageContext, vf7Var, NetModel.NetModelType.TYPE_NETWORK);
+    public AtMeNetModel(TbPageContext tbPageContext, si7 si7Var) {
+        super(tbPageContext, si7Var, NetModel.NetModelType.TYPE_NETWORK);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vf7Var};
+            Object[] objArr = {tbPageContext, si7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (bd5) objArr2[1], (NetModel.NetModelType) objArr2[2]);
+                super((TbPageContext) objArr2[0], (td5) objArr2[1], (NetModel.NetModelType) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,11 +63,11 @@ public class AtMeNetModel extends NetModel<vf7, wf7, AtMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<wf7> getResponseDataClass() {
+    public Class<ti7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return wf7.class;
+            return ti7.class;
         }
         return (Class) invokeV.objValue;
     }

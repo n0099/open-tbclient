@@ -10,8 +10,8 @@ import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.g65;
 import com.baidu.tieba.h65;
+import com.baidu.tieba.i65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public class ResourceDownloader {
                 downloadData.setUrl(str2);
                 downloadData.setCheck(str6);
                 downloadData.setType(19);
-                downloadData.setCallback(new g65(z, str4, str5 + str3) { // from class: com.baidu.ala.downloader.ResourceDownloader.2
+                downloadData.setCallback(new h65(z, str4, str5 + str3) { // from class: com.baidu.ala.downloader.ResourceDownloader.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$fileMd5ListKey;
@@ -160,7 +160,7 @@ public class ResourceDownloader {
                         this.val$fileMd5ListKey = r8;
                     }
 
-                    @Override // com.baidu.tieba.g65
+                    @Override // com.baidu.tieba.h65
                     public void onFileDownloadFailed(DownloadData downloadData2, int i, String str7) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null && interceptable2.invokeLIL(1048576, this, downloadData2, i, str7) != null) {
@@ -171,7 +171,7 @@ public class ResourceDownloader {
                         BdLog.e("failed to donwload dynamic zip" + str7);
                     }
 
-                    @Override // com.baidu.tieba.g65
+                    @Override // com.baidu.tieba.h65
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData2) == null) {
@@ -252,7 +252,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // com.baidu.tieba.g65
+                    @Override // com.baidu.tieba.h65
                     public boolean onFileDownloaded(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -263,7 +263,7 @@ public class ResourceDownloader {
                         return invokeL.booleanValue;
                     }
 
-                    @Override // com.baidu.tieba.g65
+                    @Override // com.baidu.tieba.h65
                     public void onFileUpdateProgress(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadData2) == null) {
@@ -271,7 +271,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // com.baidu.tieba.g65
+                    @Override // com.baidu.tieba.h65
                     public boolean onPreDownload(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -334,7 +334,7 @@ public class ResourceDownloader {
                             ResourceDownloader.addDownloadingResId(this.val$resId);
                             DownloaderHelper.cleanDir(new File(this.val$targetResDir));
                             this.val$downloadData.setPath(this.val$targetResPath);
-                            h65.k().l(this.val$downloadData);
+                            i65.k().l(this.val$downloadData);
                             return Boolean.TRUE;
                         }
                         return (Boolean) invokeL.objValue;

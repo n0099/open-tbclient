@@ -113,7 +113,6 @@ public class nn {
         int id = BdUniqueId.gen().getId();
         cVar.b = id;
         cVar.a = id;
-        view2.setTag("FOOTER");
         if (i >= 0 && i <= this.b.size()) {
             this.b.add(i, cVar);
         } else {
@@ -133,7 +132,6 @@ public class nn {
         int id = BdUniqueId.gen().getId();
         cVar.b = id;
         cVar.a = id;
-        view2.setTag("HEADER");
         if (i >= 0 && i <= this.a.size()) {
             this.a.add(i, cVar);
         } else {
@@ -146,7 +144,7 @@ public class nn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0aa6));
             int d = yi.d(context, 15.0f);
             textView.setPadding(d, d, d, d);
             textView.setHeight(0);

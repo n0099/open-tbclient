@@ -1,47 +1,213 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import android.text.SpannableStringBuilder;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ExcPbPage.ExcContent;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class o48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c79 a;
+    public c79 b;
+    public EditText c;
+    public EditText d;
+    public PostWriteCallBackData e;
 
-    public static final l48 a(TbPageContext<?> tbPageContext, ExcContent excContent) {
-        InterceptResult invokeLL;
-        Long l;
+    public o48() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (l.longValue() == 2) {
-                return new j48(excContent);
-            }
-            if (excContent.type.longValue() == 0) {
-                return new p48(tbPageContext.getPageActivity(), excContent);
-            }
-            if (excContent.type.longValue() != 1) {
-                return null;
-            }
-            return new k48(tbPageContext, excContent);
         }
-        return (l48) invokeLL.objValue;
+        c79 c79Var = new c79();
+        this.a = c79Var;
+        c79Var.j(R.color.CAM_X0101);
+        this.a.h(R.color.cp_cont_h_alpha85);
+        c79 c79Var2 = new c79();
+        this.b = c79Var2;
+        c79Var2.j(R.color.CAM_X0101);
+        this.b.h(R.color.cp_cont_h_alpha85);
     }
 
-    public static final m48 b(ExcContent excContent) {
-        InterceptResult invokeL;
-        Long l;
+    public void a(boolean z) {
+        EditText editText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
-                return null;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (editText = this.c) != null && editText.getText() != null) {
+            int selectionEnd = this.c.getSelectionEnd();
+            SpannableStringBuilder f = this.a.f(this.c.getText());
+            if (f != null) {
+                boolean z2 = true;
+                this.a.l(true);
+                this.c.setText(f);
+                if (z && this.a.b() >= 0) {
+                    this.c.requestFocus();
+                    this.c.setSelection(this.a.b());
+                } else {
+                    this.c.setSelection(selectionEnd);
+                }
+                c79 c79Var = this.a;
+                if (c79Var.b() < 0) {
+                    z2 = false;
+                }
+                c79Var.k(z2);
             }
-            return new n48(excContent);
         }
-        return (m48) invokeL.objValue;
+    }
+
+    public void b(boolean z) {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (editText = this.d) != null && editText.getText() != null) {
+            int selectionEnd = this.d.getSelectionEnd();
+            SpannableStringBuilder f = this.b.f(this.d.getText());
+            if (f != null) {
+                boolean z2 = true;
+                this.b.l(true);
+                this.d.setText(f);
+                if (z && this.b.b() >= 0) {
+                    this.d.requestFocus();
+                    this.d.setSelection(this.b.b());
+                } else {
+                    this.d.setSelection(selectionEnd);
+                }
+                c79 c79Var = this.b;
+                if (c79Var.b() < 0) {
+                    z2 = false;
+                }
+                c79Var.k(z2);
+            }
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.n(null);
+            this.a.i(null);
+            this.a.k(false);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.n(null);
+            this.b.i(null);
+            this.b.k(false);
+        }
+    }
+
+    public c79 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (c79) invokeV.objValue;
+    }
+
+    public EditText f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public c79 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (c79) invokeV.objValue;
+    }
+
+    public PostWriteCallBackData h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (PostWriteCallBackData) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.g();
+            this.b.g();
+            if (this.a.d()) {
+                a(false);
+            }
+            if (this.b.d()) {
+                b(false);
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.c = null;
+            this.d = null;
+        }
+    }
+
+    public void k(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.a.i(postWriteCallBackData.getSensitiveWords());
+        this.a.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.a.a())) {
+            return;
+        }
+        a(true);
+        this.e = postWriteCallBackData;
+    }
+
+    public void l(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.b.i(postWriteCallBackData.getSensitiveWords());
+        this.b.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.b.a())) {
+            return;
+        }
+        b(true);
+    }
+
+    public void m(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
+            this.c = editText;
+        }
+    }
+
+    public void n(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
+            this.d = editText;
+        }
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.searchbox.dns.util;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.dns.a.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -20,9 +20,9 @@ public class DnsUtil {
     public static final String TAG = "SMART_HTTP_DNS";
     public static String httpDnsDebugAddress;
     public static String httpDnsDebugExtraQueryParams;
-    public static boolean iPv6Perfer;
-    public static boolean iPv6TestEnable;
+    public static boolean idcIPv6Perfer;
     public static int stackType;
+    public static boolean useExpire;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,15 +54,6 @@ public class DnsUtil {
         }
     }
 
-    public static boolean isIPv6TestArea() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a.e().isIPv6TestArea();
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:18:0x001e  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x0046  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x004a  */
@@ -75,13 +66,13 @@ public class DnsUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             try {
-                z = DnsChecker.isIPv4Reachable();
+                z = DnsChecker.isIPv4ReachableNow();
             } catch (Throwable th) {
                 th = th;
                 z = false;
             }
             try {
-                z2 = DnsChecker.isIPv6Reachable();
+                z2 = DnsChecker.isIPv6ReachableNow();
             } catch (Throwable th2) {
                 th = th2;
                 if (DEBUG) {
@@ -110,10 +101,10 @@ public class DnsUtil {
         }
     }
 
-    public static List<InetAddress> parseInetAddressList(List<String> list) {
+    public static List<InetAddress> parseInetAddressList(List<String> list) throws UnknownHostException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             if (list != null && list.size() > 0) {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (String str : list) {
@@ -129,7 +120,7 @@ public class DnsUtil {
     public static List<String> parseRawAddressList(List<InetAddress> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list != null && list.size() > 0) {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (InetAddress inetAddress : list) {

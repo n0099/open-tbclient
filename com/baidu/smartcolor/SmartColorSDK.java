@@ -6,7 +6,7 @@ import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.smartcolor.utils.Tri;
-import com.baidu.tieba.bi1;
+import com.baidu.tieba.ai1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmartColorSDK {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SmartColorSDK a;
@@ -121,17 +121,17 @@ public class SmartColorSDK {
         return (byte[]) invokeLLI.objValue;
     }
 
-    public String e(bi1 bi1Var, Bitmap bitmap) {
+    public String e(ai1 ai1Var, Bitmap bitmap) {
         InterceptResult invokeLL;
         Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bi1Var, bitmap)) == null) {
-            if (bitmap == null || bi1Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ai1Var, bitmap)) == null) {
+            if (bitmap == null || ai1Var == null) {
                 return null;
             }
-            if (bi1Var.h()) {
-                int s = bi1Var.s();
-                int p = bi1Var.p();
+            if (ai1Var.h()) {
+                int s = ai1Var.s();
+                int p = ai1Var.p();
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
                 if (width == 0 || height == 0) {
@@ -166,17 +166,17 @@ public class SmartColorSDK {
             if (b == null) {
                 return null;
             }
-            return f(bi1Var, b, b.length);
+            return f(ai1Var, b, b.length);
         }
         return (String) invokeLL.objValue;
     }
 
-    public final String f(bi1 bi1Var, byte[] bArr, int i) {
+    public final String f(ai1 ai1Var, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bi1Var, bArr, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, ai1Var, bArr, i)) == null) {
             if (bArr != null && bArr.length > 0) {
-                return getNativeSmartColor(bArr, i, bi1Var.j(), bi1Var.k(), bi1Var.o(), bi1Var.v(), bi1Var.l(), c(bi1Var.m()), c(bi1Var.n()), c(bi1Var.i()), c(bi1Var.g()), bi1Var.t(), bi1Var.q(), bi1Var.u(), bi1Var.r());
+                return getNativeSmartColor(bArr, i, ai1Var.j(), ai1Var.k(), ai1Var.o(), ai1Var.v(), ai1Var.l(), c(ai1Var.m()), c(ai1Var.n()), c(ai1Var.i()), c(ai1Var.g()), ai1Var.t(), ai1Var.q(), ai1Var.u(), ai1Var.r());
             }
             return null;
         }

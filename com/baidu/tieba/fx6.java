@@ -1,199 +1,146 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ad.AbsDataRecorder;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.AdMixFloor;
 import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class fx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public fx6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
+
+        public a(ImageView imageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Drawable maskDrawable;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
+                ImageView imageView = this.a;
+                if (((Boolean) view2.getTag()).booleanValue()) {
+                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
+                } else {
+                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
+                }
+                imageView.setImageDrawable(maskDrawable);
             }
         }
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return UbsABTestHelper.isFrsFunAdSdkTest();
+    /* loaded from: classes4.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ FrsTabInfo b;
+        public final /* synthetic */ FrsTabInfo c;
+
+        public b(ImageView imageView, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageView, frsTabInfo, frsTabInfo2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageView;
+            this.b = frsTabInfo;
+            this.c = frsTabInfo2;
         }
-        return invokeV.booleanValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ry4.l().v("key_frs_move_area_tip", !((Boolean) this.a.getTag()).booleanValue());
+                sj6.h().m(this.b.tab_id.intValue(), this.c.tab_id.intValue());
+            }
+        }
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
-        boolean z;
+    public static void a(TbPageContext tbPageContext, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
+        String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z = true;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, frsTabInfo, frsTabInfo2) == null) && frsTabInfo != null && frsTabInfo2 != null && tbPageContext != null && tbPageContext.getPageActivity() != null) {
+            Activity pageActivity = tbPageContext.getPageActivity();
+            LinearLayout linearLayout = new LinearLayout(pageActivity);
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(16);
+            linearLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), 0);
+            ImageView imageView = new ImageView(pageActivity);
+            imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null));
+            linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
+            TextView textView = new TextView(pageActivity);
+            textView.setText(R.string.no_tip_again);
+            textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
+            rw4 d = rw4.d(textView);
+            d.z(R.dimen.T_X07);
+            d.v(R.color.CAM_X0108);
+            d.A(R.string.F_X01);
+            linearLayout.addView(textView);
+            imageView.setTag(Boolean.FALSE);
+            imageView.setOnClickListener(new a(imageView));
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(tbPageContext.getPageActivity());
+            tBAlertBuilder.v(R.string.obfuscated_res_0x7f0f0757);
+            if (frsTabInfo.is_general_tab.intValue() != 0 && frsTabInfo.tab_type.intValue() != 100) {
+                String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0755);
+                String str = frsTabInfo.tab_name;
+                format = String.format(string, str, frsTabInfo2.tab_name, str);
             } else {
-                z = false;
+                String string2 = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0756);
+                String str2 = frsTabInfo.tab_name;
+                String str3 = frsTabInfo2.tab_name;
+                format = String.format(string2, str2, str3, str2, str3);
             }
-            if (!z) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static fx6 a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (z && d()) {
-                return new fx6();
-            }
-            return null;
-        }
-        return (fx6) invokeZ.objValue;
-    }
-
-    public static boolean e(FrsTabInfo frsTabInfo, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i)) == null) {
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return false;
-            }
-            if (frsTabInfo != null && 505 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) {
-                return false;
-            }
-            if ((frsTabInfo == null || 502 != frsTabInfo.tab_id.intValue() || 91 != frsTabInfo.tab_type.intValue()) && i != 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public void b(List<xn> list, boolean z, String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
-            int h = yw6.m().h();
-            if (z) {
-                i = yw6.m().i() - 1;
-                for (xn xnVar : list) {
-                    if (xnVar instanceof ThreadData) {
-                        if (((ThreadData) xnVar).getIs_top() != 1) {
-                            break;
-                        }
-                        i++;
-                    }
-                }
-            } else {
-                i = this.a;
-            }
-            this.a = c(i, h, list, str);
-        }
-    }
-
-    public final int c(int i, int i2, List<xn> list, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, str})) == null) {
-            int i3 = 0;
-            if (list != null && list.size() != 0) {
-                if (i > list.size() - 1) {
-                    return 0;
-                }
-                int i4 = 0;
-                int i5 = 0;
-                while (true) {
-                    if (i4 >= list.size()) {
-                        break;
-                    }
-                    ThreadData threadData = new ThreadData();
-                    kp8 kp8Var = new kp8();
-                    kp8Var.n(true);
-                    threadData.funAdData = kp8Var;
-                    kp8Var.m(str);
-                    list.add(i, threadData);
-                    if (i5 == 0) {
-                        i5 = i + 1;
-                    }
-                    i = i + i2 + 1;
-                    if (i > list.size() - 1) {
-                        i3 = (i - (list.size() - 1)) - 1;
-                        break;
-                    }
-                    i4++;
-                }
-                if (i5 > 0 && mr5.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                    mr5.i().n(list, i5, 2);
-                }
-            }
-            return i3;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public void g(List<xn> list, List<AdMixFloor> list2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, list2, Boolean.valueOf(z), str}) == null) {
-            if (((AdMixFloor) ListUtils.getItem(list2, 0)) == null) {
-                return;
-            }
-            int i = 0;
-            for (int i2 = 0; z && i2 < list.size(); i2++) {
-                xn xnVar = list.get(i2);
-                if (xnVar instanceof ThreadData) {
-                    if (((ThreadData) xnVar).getIs_top() != 1) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            int i3 = 0;
-            for (int i4 = 0; i4 < list2.size(); i4++) {
-                AdMixFloor adMixFloor = list2.get(i4);
-                if (adMixFloor.ad_type.intValue() != 1) {
-                    ThreadData threadData = new ThreadData();
-                    kp8 kp8Var = new kp8();
-                    kp8Var.n(true);
-                    threadData.funAdData = kp8Var;
-                    kp8Var.m(str);
-                    ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
-                    if (i3 == 0) {
-                        i3 = adMixFloor.floor_num.intValue() + i;
-                    }
-                }
-            }
-            if (i3 > 0 && mr5.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                mr5.i().n(list, i3, 2);
-            }
+            tBAlertBuilder.q(format);
+            tBAlertBuilder.n(3);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.k(linearLayout);
+            tBAlertBuilder.t(new TBAlertConfig.a((int) R.string.next_time, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0754, TBAlertConfig.OperateBtnStyle.MAIN, new b(imageView, frsTabInfo, frsTabInfo2)));
+            tBAlertBuilder.i();
+            tBAlertBuilder.y();
         }
     }
 }

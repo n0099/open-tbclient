@@ -21,19 +21,19 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr4;
+import com.baidu.tieba.dr4;
 import com.baidu.tieba.in;
-import com.baidu.tieba.l95;
 import com.baidu.tieba.lc;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.mg;
 import com.baidu.tieba.pc;
 import com.baidu.tieba.qg;
+import com.baidu.tieba.qj5;
 import com.baidu.tieba.rg;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.xi5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,7 +99,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return cr4.c().g();
+            return dr4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -208,7 +208,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public in m41decodeToResource(byte[] bArr, Object... objArr) {
+    public in m42decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
@@ -290,7 +290,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            in m = l95.k().m(str);
+            in m = m95.k().m(str);
             if (z) {
                 if (m != null) {
                     z2 = true;
@@ -369,8 +369,8 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            xi5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = xi5.d(urlbyClientServerAddr);
+            qj5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = qj5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -397,7 +397,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                         webClient2 = webClient3;
                     }
                     try {
-                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080c13, new TypedValue());
+                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
                         byte[] d2 = mg.d(openRawResource);
                         Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d2, rect);
                         WebClient webClient4 = webClient2;
@@ -472,10 +472,10 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            l95.k().i(TbConfig.getPbImageSize() + bArr3.length);
+            m95.k().i(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i8 = 1;
-                p = m41decodeToResource(bArr3, rect).p();
+                p = m42decodeToResource(bArr3, rect).p();
                 i7 = i9;
             } else {
                 i7 = i9;
@@ -483,14 +483,14 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 p = decodeToResourceWithWH(bArr3, i7, i6).p();
             }
             if (z && p == null) {
-                xi5.b(str4);
+                qj5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
                     if (getProcType() == 19) {
                         Object[] objArr2 = new Object[i8];
                         objArr2[0] = rect;
-                        p = m41decodeToResource(downloadImageBytes2, objArr2).p();
+                        p = m42decodeToResource(downloadImageBytes2, objArr2).p();
                     } else {
                         p = decodeToResourceWithWH(downloadImageBytes2, i7, i6).p();
                     }
@@ -586,7 +586,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                l95.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                m95.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -603,7 +603,7 @@ public abstract class AbstractImageLoaderProc implements ug<in> {
                 long currentTimeMillis = System.currentTimeMillis();
                 inVar.A(i);
                 inVar.z(i2);
-                l95.k().d(str, inVar);
+                m95.k().d(str, inVar);
                 qg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }

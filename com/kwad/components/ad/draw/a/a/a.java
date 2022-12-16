@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public b bA;
     public boolean bB;
-    public InterfaceC0528a bz;
+    public InterfaceC0545a bz;
     public AdTemplate mAdTemplate;
 
     /* renamed from: com.kwad.components.ad.draw.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0528a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0545a {
         void ax();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         boolean ay();
     }
@@ -50,10 +50,10 @@ public final class a {
     }
 
     @MainThread
-    public final void a(InterfaceC0528a interfaceC0528a) {
+    public final void a(InterfaceC0545a interfaceC0545a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0528a) == null) {
-            this.bz = interfaceC0528a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0545a) == null) {
+            this.bz = interfaceC0545a;
         }
     }
 
@@ -66,7 +66,7 @@ public final class a {
     }
 
     public final void aw() {
-        InterfaceC0528a interfaceC0528a;
+        InterfaceC0545a interfaceC0545a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.bB) {
             return;
@@ -76,8 +76,8 @@ public final class a {
             return;
         }
         b bVar = this.bA;
-        if ((bVar == null || !bVar.ay()) && (interfaceC0528a = this.bz) != null) {
-            interfaceC0528a.ax();
+        if ((bVar == null || !bVar.ay()) && (interfaceC0545a = this.bz) != null) {
+            interfaceC0545a.ax();
         }
     }
 }

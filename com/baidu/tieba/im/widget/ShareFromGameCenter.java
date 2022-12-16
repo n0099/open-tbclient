@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lq8;
+import com.baidu.tieba.kt8;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -86,23 +86,23 @@ public class ShareFromGameCenter extends LinearLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d9, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.share_from_game_center_pic_and_word, this);
             setOrientation(1);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ede);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ca0);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f5e);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ca5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c87);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090c8e);
+            this.f = (LinearLayout) findViewById(R.id.share_info_layout);
+            this.h = (LinearLayout) findViewById(R.id.game_share_content);
+            this.g = (LinearLayout) findViewById(R.id.small_tail);
+            this.a = (TextView) findViewById(R.id.game_title);
+            this.b = (TextView) findViewById(R.id.game_desc);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.game_img);
             this.c = headImageView;
             headImageView.setDefaultResource(R.drawable.pic_avatar_ba_140);
             this.c.setAutoChangeStyle(false);
-            this.d = (Button) findViewById(R.id.obfuscated_res_0x7f09002f);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092110);
+            this.d = (Button) findViewById(R.id.accept_invite_button);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.tail_icon);
             this.e = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
+            tbImageView.setDefaultResource(R.drawable.tb_launcher_icon);
             this.e.setAutoChangeStyle(false);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09210f);
+            this.i = (TextView) findViewById(R.id.tail_game_from);
         }
     }
 
@@ -147,10 +147,10 @@ public class ShareFromGameCenter extends LinearLayout {
                 this.g.setVisibility(8);
             }
             this.i.setText(this.j.getShareSource());
-            this.e.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
+            this.e.setDefaultResource(R.drawable.tb_launcher_icon);
             this.e.setAutoChangeStyle(false);
             this.e.K(this.j.getShareSourceIcon(), 10, false);
-            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", lq8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
+            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", kt8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
         }
     }
 

@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ku6;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.fv6;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -70,7 +70,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             this.a = threadData;
             if (threadData != null) {
-                String string = getResources().getString(R.string.obfuscated_res_0x7f0f072c);
+                String string = getResources().getString(R.string.frs_goods_tip_content);
                 if (StringUtils.isNull(string)) {
                     setVisibility(8);
                     return;
@@ -142,11 +142,11 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.b = context;
             setOnClickListener(this);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0198, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090aad);
+            TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
             this.e = textView;
-            qw4 d = qw4.d(textView);
+            rw4 d = rw4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);
@@ -167,7 +167,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.h = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
         SkinManager.setViewTextColorWithClickState(this.e, color);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08097a, color, WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_good12, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
             this.f.setBounds(0, 0, yi.g(this.b, R.dimen.T_X09), yi.g(this.b, R.dimen.T_X09));
@@ -194,9 +194,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            ku6 ku6Var = new ku6();
-            ku6Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, ku6Var));
+            fv6 fv6Var = new fv6();
+            fv6Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, fv6Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

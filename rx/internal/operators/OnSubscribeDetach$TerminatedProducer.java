@@ -1,6 +1,6 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.uz9;
+import com.baidu.tieba.d3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class OnSubscribeDetach$TerminatedProducer implements uz9 {
+public final class OnSubscribeDetach$TerminatedProducer implements d3a {
     public static final /* synthetic */ OnSubscribeDetach$TerminatedProducer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final OnSubscribeDetach$TerminatedProducer INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.uz9
+    @Override // com.baidu.tieba.d3a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

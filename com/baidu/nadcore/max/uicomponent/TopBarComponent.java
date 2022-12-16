@@ -9,11 +9,10 @@ import com.baidu.nadcore.component.AbsComponentPlugin;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.account.AccountRestoreActivity;
+import com.baidu.tieba.to0;
 import com.baidu.tieba.uo0;
 import com.baidu.tieba.vo0;
-import com.baidu.tieba.wo0;
-import com.baidu.tieba.xh0;
+import com.baidu.tieba.wh0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,7 +27,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
     public FrameLayout d;
     public AdImageView e;
 
-    public final void o(ViewGroup viewGroup) {
+    public final void h(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
         }
@@ -62,13 +61,13 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                wo0 wo0Var = (wo0) this.a.j().p(wo0.class);
-                if (wo0Var != null) {
+                vo0 vo0Var = (vo0) this.a.b().j(vo0.class);
+                if (vo0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    wo0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
+                    vo0Var.a(str, "exit");
                 }
-                this.a.h().finish();
+                this.a.a().finish();
             }
         }
     }
@@ -105,8 +104,8 @@ public final class TopBarComponent extends AbsComponentPlugin {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.p(this.b);
-            this.a.o(this.b);
+            this.a.j(this.b);
+            this.a.h(this.b);
         }
     }
 
@@ -127,17 +126,17 @@ public final class TopBarComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onRelease();
-            xh0.e(this.d);
+            wh0.e(this.d);
             this.d = null;
-            xh0.e(this.e);
+            wh0.e(this.e);
             this.e = null;
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void g(ViewGroup parent) {
+    public void C(ViewGroup parent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parent) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
@@ -145,26 +144,26 @@ public final class TopBarComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void p(ViewGroup viewGroup) {
+    public final void j(ViewGroup viewGroup) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, viewGroup) != null) || this.d != null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) != null) || this.d != null) {
             return;
         }
-        uo0 a2 = vo0.a();
+        to0 a2 = uo0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
         a2.b();
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0611, viewGroup, true);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_max_top, viewGroup, true);
         Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…e(layoutId, parent, true)");
         AdImageView adImageView = null;
         if (inflate != null) {
-            frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091509);
+            frameLayout = (FrameLayout) inflate.findViewById(R.id.max_top_bar);
         } else {
             frameLayout = null;
         }
         this.d = frameLayout;
         if (inflate != null) {
-            adImageView = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09150a);
+            adImageView = (AdImageView) inflate.findViewById(R.id.max_top_close);
         }
         this.e = adImageView;
         if (adImageView != null) {

@@ -1,5 +1,6 @@
 package com.win.opensdk;
 
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -48,12 +49,12 @@ public class PBError {
         PID_INVALID = new PBError(2005, "PID INVALID");
         PID_TYPE_ERROR = new PBError(2006, "PID ERROR");
         SERVER_ERROR = new PBError(2007, "NET ERROR");
-        UNKNOWN = new PBError(2030, "UNKNOWN ERROR");
-        NO_NETWORK = new PBError(2030, "No network available");
-        NO_LOAD = new PBError(2031, "No Load");
-        NO_RESUOURCE = new PBError(2031, "No Resources");
-        LOAD_TIME_OUT = new PBError(2031, "Load Time Out");
-        LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
+        UNKNOWN = new PBError(IMConstants.IM_MSG_TYPE_COLLEGE_ADVISORY_WAIT, "UNKNOWN ERROR");
+        NO_NETWORK = new PBError(IMConstants.IM_MSG_TYPE_COLLEGE_ADVISORY_WAIT, "No network available");
+        NO_LOAD = new PBError(IMConstants.IM_MSG_TYPE_ADVISORY_NEGATIVE_RECOMMEND, "No Load");
+        NO_RESUOURCE = new PBError(IMConstants.IM_MSG_TYPE_ADVISORY_NEGATIVE_RECOMMEND, "No Resources");
+        LOAD_TIME_OUT = new PBError(IMConstants.IM_MSG_TYPE_ADVISORY_NEGATIVE_RECOMMEND, "Load Time Out");
+        LOAD_TYPE_ERROR = new PBError(IMConstants.IM_MSG_TYPE_ADVISORY_NEGATIVE_RECOMMEND, "Load Type error");
     }
 
     public PBError(int i, String str) {

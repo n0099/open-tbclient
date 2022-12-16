@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SkipView extends LinearLayout implements com.kwad.components.ad.splashscreen.widget.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +35,14 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
     public Context mContext;
     public boolean pX;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void kb();
 
         void kc();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -460,11 +460,11 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0473, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0482, this);
             this.mContext = context;
-            this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f09121e);
-            this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f09121f);
-            this.Bo = findViewById(R.id.obfuscated_res_0x7f09121d);
+            this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f09127d);
+            this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f09127e);
+            this.Bo = findViewById(R.id.obfuscated_res_0x7f09127c);
             setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

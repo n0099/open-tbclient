@@ -1,6 +1,7 @@
 package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -28,7 +29,7 @@ import kotlin.text.Typography;
 import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -56,7 +57,7 @@ public final class HttpUrl {
     public final String url;
     public final String username;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";
@@ -917,8 +918,13 @@ public final class HttpUrl {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.scheme);
-                sb.append("://");
+                String str = this.scheme;
+                if (str != null) {
+                    sb.append(str);
+                    sb.append("://");
+                } else {
+                    sb.append("//");
+                }
                 if (!this.encodedUsername.isEmpty() || !this.encodedPassword.isEmpty()) {
                     sb.append(this.encodedUsername);
                     if (!this.encodedPassword.isEmpty()) {
@@ -927,17 +933,23 @@ public final class HttpUrl {
                     }
                     sb.append('@');
                 }
-                if (this.host.indexOf(58) != -1) {
-                    sb.append('[');
-                    sb.append(this.host);
-                    sb.append(']');
-                } else {
-                    sb.append(this.host);
+                String str2 = this.host;
+                if (str2 != null) {
+                    if (str2.indexOf(58) != -1) {
+                        sb.append('[');
+                        sb.append(this.host);
+                        sb.append(']');
+                    } else {
+                        sb.append(this.host);
+                    }
                 }
-                int effectivePort = effectivePort();
-                if (effectivePort != HttpUrl.defaultPort(this.scheme)) {
-                    sb.append(':');
-                    sb.append(effectivePort);
+                if (this.port != -1 || this.scheme != null) {
+                    int effectivePort = effectivePort();
+                    String str3 = this.scheme;
+                    if (str3 == null || effectivePort != HttpUrl.defaultPort(str3)) {
+                        sb.append(':');
+                        sb.append(effectivePort);
+                    }
                 }
                 HttpUrl.pathSegmentsToString(sb, this.encodedPathSegments);
                 if (this.encodedQueryNamesAndValues != null) {
@@ -1306,7 +1318,7 @@ public final class HttpUrl {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append('=');
+                    sb.append(a.h);
                     sb.append(str2);
                 }
             }

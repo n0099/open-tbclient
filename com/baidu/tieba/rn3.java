@@ -1,189 +1,88 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.swan.bdtls.Certificate;
-import com.baidu.swan.bdtls.DH;
-import com.baidu.swan.bdtls.RSA;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ApplicationData;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Extension;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.ByteString;
 import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class rn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static nn3 a(qn3 qn3Var, byte[] bArr) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static nn3 a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, qn3Var, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
             nn3 nn3Var = null;
-            if (qn3Var == null || bArr == null || bArr.length == 0) {
+            if (bArr == null) {
                 return null;
             }
-            try {
-                if (bArr[0] != 2) {
-                    return null;
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                nn3Var = new nn3();
+                wrap.get();
+                wrap.get();
+                nn3Var.r(wrap.get());
+                nn3Var.p(wrap.get());
+                int i = wrap.getShort();
+                nn3Var.q(i);
+                int i2 = wrap.getInt();
+                nn3Var.k(i2);
+                nn3Var.l(wrap.getLong());
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                nn3Var.o(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    nn3Var.j(bArr3);
                 }
-                nn3 nn3Var2 = new nn3();
-                try {
-                    Bdtls$ServerHello parseFrom = Bdtls$ServerHello.parseFrom(Arrays.copyOfRange(bArr, 1, bArr.length));
-                    if (parseFrom == null) {
-                        return null;
-                    }
-                    nn3Var2.a(parseFrom);
-                    List<Bdtls$Extension> extensionsList = parseFrom.getExtensionsList();
-                    if (extensionsList == null) {
-                        return null;
-                    }
-                    for (Bdtls$Extension bdtls$Extension : extensionsList) {
-                        int type = bdtls$Extension.getType();
-                        byte[] byteArray = bdtls$Extension.getData().toByteArray();
-                        if (type == 0) {
-                            byte[] decrypt = RSA.decrypt(byteArray);
-                            int a = fn3.a(decrypt);
-                            byte[] dHSecretKey = DH.getDHSecretKey(a, qn3Var.d().intValue(), qn3Var.f().intValue());
-                            qn3Var.l(dHSecretKey);
-                            qn3Var.p(Integer.valueOf(a));
-                            if (bn3.a) {
-                                Log.d("BDTLS", "GroupId=" + qn3Var.d());
-                                Log.d("BDTLS", "client dh pubkey secret=" + qn3Var.f());
-                                Log.d("BDTLS", "client dh pubkey=" + qn3Var.e());
-                                Log.d("BDTLS", "server dh pubkey=" + a);
-                                Log.d("BDTLS", "server dh raw pubkey=" + fn3.d(decrypt));
-                                Log.d("BDTLS", "aeskey=" + fn3.d(dHSecretKey));
-                            }
-                        }
-                    }
-                    if (parseFrom.getSKR() == null) {
-                        return null;
-                    }
-                    Bdtls$ApplicationData.b newBuilder = Bdtls$ApplicationData.newBuilder();
-                    newBuilder.v(parseFrom.getSKR());
-                    Bdtls$ApplicationData build = newBuilder.build();
-                    qn3Var.t(build.toByteArray());
-                    if (qn3Var.c() == null) {
-                        return null;
-                    }
-                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
-                    if (bn3.a) {
-                        Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
-                        Log.d("BDTLS", "expireTime=" + currentTimeMillis);
-                    }
-                    qn3Var.r(currentTimeMillis);
-                    if (parseFrom.getCipherSuite() != null) {
-                        qn3Var.q(parseFrom.getCipherSuite().toByteArray());
-                    }
-                    if (dy2.c()) {
-                        new mn3().edit().putString("secretKey", Arrays.toString(qn3Var.c())).putString("sessionTicket", String.valueOf(build)).putLong("expireTime", currentTimeMillis).apply();
-                        return nn3Var2;
-                    }
-                    return nn3Var2;
-                } catch (Exception e) {
-                    e = e;
-                    nn3Var = nn3Var2;
-                    if (bn3.a) {
-                        e.printStackTrace();
-                        Log.d("BDTLS", "exception=" + e.getMessage());
-                    }
-                    return nn3Var;
-                }
-            } catch (Exception e2) {
-                e = e2;
             }
-        } else {
-            return (nn3) invokeLL.objValue;
+            return nn3Var;
         }
+        return (nn3) invokeL.objValue;
     }
 
-    public static byte[] b(qn3 qn3Var, nn3 nn3Var) {
-        InterceptResult invokeLL;
-        byte[] encrypt;
+    public static byte[] b(nn3 nn3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, qn3Var, nn3Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nn3Var)) == null) {
             if (nn3Var == null) {
                 return null;
             }
-            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-            byte[] bArr = new byte[32];
-            new Random().nextBytes(bArr);
-            Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder();
-            newBuilder.w(currentTimeMillis);
-            newBuilder.x(ByteString.copyFrom(bArr));
-            Bdtls$Random build = newBuilder.build();
-            int dHGroupId = DH.getDHGroupId();
-            int dHSecret = DH.getDHSecret();
-            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
-            qn3Var.m(Integer.valueOf(dHGroupId));
-            qn3Var.o(Integer.valueOf(dHSecret));
-            qn3Var.n(Integer.valueOf(dHPublicKey));
-            byte[] g = fn3.g(dHPublicKey);
-            if (g == null || (encrypt = RSA.encrypt(g)) == null) {
-                return null;
-            }
-            byte[] bytes = lk4.a(Certificate.getSignature(mn2.c()), "", false).getBytes(StandardCharsets.UTF_8);
-            LinkedList linkedList = new LinkedList();
-            Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
-            newBuilder2.w(0);
-            newBuilder2.v(ByteString.copyFrom(encrypt));
-            linkedList.offer(newBuilder2.build());
-            Bdtls$Extension.b newBuilder3 = Bdtls$Extension.newBuilder();
-            newBuilder3.w(1);
-            newBuilder3.v(ByteString.copyFrom(new byte[]{0}));
-            linkedList.offer(newBuilder3.build());
-            Bdtls$Extension.b newBuilder4 = Bdtls$Extension.newBuilder();
-            newBuilder4.w(2);
-            newBuilder4.v(ByteString.copyFrom(fn3.g(dHGroupId)));
-            linkedList.offer(newBuilder4.build());
-            Bdtls$Extension.b newBuilder5 = Bdtls$Extension.newBuilder();
-            newBuilder5.w(3);
-            newBuilder5.v(ByteString.copyFrom(bytes));
-            linkedList.offer(newBuilder5.build());
-            if (dy2.c()) {
-                if (ao3.getContext() != null) {
-                    Bdtls$Extension.b newBuilder6 = Bdtls$Extension.newBuilder();
-                    newBuilder6.w(4);
-                    newBuilder6.v(ByteString.copyFrom(ao3.getContext().b().getBytes()));
-                    linkedList.offer(newBuilder6.build());
-                }
-                if (ao3.getContext() != null) {
-                    Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
-                    newBuilder7.w(5);
-                    newBuilder7.v(ByteString.copyFrom(gk4.f().getBytes()));
-                    linkedList.offer(newBuilder7.build());
+            ByteBuffer allocate = ByteBuffer.allocate(nn3Var.h() + 20 + nn3Var.b());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (nn3Var.e() != null && nn3Var.e().length == 2) {
+                allocate.put(nn3Var.e()[0]);
+                allocate.put(nn3Var.e()[1]);
+                allocate.put(nn3Var.i());
+                allocate.put(nn3Var.g());
+                if (nn3Var.f() != null && nn3Var.f().length != 0) {
+                    int length = nn3Var.f().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (nn3Var.a() != null && nn3Var.a().length != 0) {
+                        allocate.putInt(nn3Var.a().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    allocate.putLong(nn3Var.c());
+                    if (nn3Var.f() != null) {
+                        allocate.put(nn3Var.f());
+                    }
+                    if (nn3Var.a() != null) {
+                        allocate.put(nn3Var.a());
+                    }
+                    return allocate.array();
                 }
             }
-            if (bn3.a) {
-                Log.d("BDTLS", "groupId encode=" + dHGroupId);
-                Log.d("BDTLS", "secretC encode=" + dHSecret);
-                Log.d("BDTLS", "pubKey encode=" + dHPublicKey);
-                Log.d("BDTLS", "signature encode=" + new String(bytes));
-            }
-            Bdtls$ClientHello.b newBuilder8 = Bdtls$ClientHello.newBuilder();
-            Iterator it = linkedList.iterator();
-            while (it.hasNext()) {
-                newBuilder8.n((Bdtls$Extension) it.next());
-            }
-            newBuilder8.C(build);
-            newBuilder8.m(ByteString.copyFrom(cn3.c));
-            byte[] byteArray = newBuilder8.build().toByteArray();
-            ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
-            allocate.put((byte) 1);
-            allocate.put(byteArray);
-            return allocate.array();
+            return null;
         }
-        return (byte[]) invokeLL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

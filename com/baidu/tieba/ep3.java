@@ -1,57 +1,49 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class ep3 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "HUAWEI");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741985, "Lcom/baidu/tieba/ep3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            String upperCase = Build.BRAND.toUpperCase();
-            if (!TextUtils.equals("HUAWEI", upperCase) && !TextUtils.equals("HONOR", upperCase)) {
-                String upperCase2 = Build.MANUFACTURER.toUpperCase();
-                if (!upperCase2.contains("HUAWEI") && !upperCase2.contains("HONOR")) {
-                    return false;
-                }
-                a = "HUAWEI";
-                return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947741985, "Lcom/baidu/tieba/ep3;");
+                return;
             }
-            a = "HUAWEI";
-            return true;
         }
-        return invokeV.booleanValue;
+        try {
+            a = i84.i(i84.b("android.os.SystemProperties", true), "get", String.class);
+        } catch (Throwable unused) {
+        }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "OPPO");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Method method = a;
+            if (method != null) {
+                try {
+                    return (String) method.invoke(null, str);
+                } catch (Throwable unused) {
+                }
             }
-            if (TextUtils.equals("OPPO", Build.BRAND.toUpperCase())) {
-                a = "OPPO";
-                return true;
-            } else if (Build.MANUFACTURER.toUpperCase().contains("OPPO")) {
-                a = "OPPO";
-                return true;
-            } else {
-                return false;
-            }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

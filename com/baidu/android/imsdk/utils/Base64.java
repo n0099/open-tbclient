@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintStream;
 /* loaded from: classes.dex */
 public class Base64 {
     public static /* synthetic */ Interceptable $ic;
@@ -116,12 +115,10 @@ public class Base64 {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e) {
-                    PrintStream printStream = System.err;
-                    printStream.println("Error while decoding BASE64: " + e.toString());
+                } catch (IOException unused) {
                 }
                 return byteArray;
-            } catch (IOException unused) {
+            } catch (IOException unused2) {
                 throw new RuntimeException();
             }
         }

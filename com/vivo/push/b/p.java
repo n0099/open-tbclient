@@ -98,7 +98,7 @@ public final class p extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             aVar.a("package_name", this.a);
-            aVar.a("notify_id", this.d);
+            aVar.a(Constants.EXTRA_NOTIFY_ID, this.d);
             aVar.a("notification_v1", com.vivo.push.util.q.b(this.e));
             aVar.a("open_pkg_name", this.b);
             aVar.a("open_pkg_name_encode", this.c);
@@ -110,7 +110,7 @@ public final class p extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.a = aVar.a("package_name");
-            this.d = aVar.b("notify_id", -1L);
+            this.d = aVar.b(Constants.EXTRA_NOTIFY_ID, -1L);
             this.b = aVar.a("open_pkg_name");
             this.c = aVar.b("open_pkg_name_encode");
             String a = aVar.a("notification_v1");

@@ -1,123 +1,122 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wl5 implements ImageAssetDelegate {
+public class wl5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
+    public final Activity a;
+    public zs8 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948274441, "Lcom/baidu/tieba/wl5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948274441, "Lcom/baidu/tieba/wl5;");
-                return;
-            }
-        }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    }
-
-    public wl5() {
+    public wl5(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
+        this.a = activity;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void b(zs8 zs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zs8Var) == null) {
+            this.b = zs8Var;
         }
     }
 
-    public void d(String str) {
+    public final void a(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !xi.isEmpty(str) && !xi.isEmpty(str2)) {
+            webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
         }
     }
 
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (xi.isEmpty(this.a)) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            if (ch.e(this.a)) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            in inVar = (in) tg.h().n(str, 36, new Object[0]);
-            if (inVar == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
-                }
-                inVar = this.b.getBitmapFromFile(str, 0, 0);
-            }
-            if (inVar != null && inVar.p() != null) {
-                Bitmap p = inVar.p();
-                try {
-                    if (p.getConfig() != null) {
-                        return p.copy(p.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
-                }
-            }
-            tg.h().m(str, 36, null, null);
-            return null;
+            return true;
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            if (ch.e(this.a)) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            if (ch.e(this.a)) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        zs8 zs8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!p25.a(str) && str2.startsWith("tiebaapp")) {
+                ct8 ct8Var = new ct8();
+                ct8Var.v(gt8.b(str2));
+                ct8Var.x(301);
+                a(webView, ct8Var.c(), ct8Var.d());
+            }
+            if (p25.a(str) && (zs8Var = this.b) != null && zs8Var.onJsPrompt(str2, jsPromptResult)) {
+                return true;
+            }
+            jsPromptResult.cancel();
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

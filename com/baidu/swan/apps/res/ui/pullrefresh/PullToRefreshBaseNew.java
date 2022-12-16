@@ -11,8 +11,8 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.r23;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public boolean t;
     public float u;
     public boolean v;
-    public r23<T> w;
+    public q23<T> w;
 
     /* loaded from: classes3.dex */
     public interface e<V extends View> {
@@ -385,7 +385,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                 return;
             }
         }
-        x = pk1.a;
+        x = ok1.a;
     }
 
     private int getScrollYValue() {
@@ -429,13 +429,13 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return (LoadingLayout) invokeV.objValue;
     }
 
-    public r23<T> getRefreshableFactory() {
+    public q23<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.w;
         }
-        return (r23) invokeV.objValue;
+        return (q23) invokeV.objValue;
     }
 
     public T getRefreshableView() {

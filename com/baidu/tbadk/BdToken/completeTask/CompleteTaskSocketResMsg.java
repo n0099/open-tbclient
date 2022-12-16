@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.completeTask;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.on4;
+import com.baidu.tieba.nn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.Error;
 public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public on4 mData;
+    public nn4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompleteTaskSocketResMsg() {
@@ -37,13 +37,13 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public on4 getData() {
+    public nn4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (on4) invokeV.objValue;
+        return (nn4) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -60,31 +60,31 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
                     setErrorString(completeTaskResIdl.error.usermsg);
                 }
                 if (completeTaskResIdl.data != null) {
-                    on4 on4Var = new on4();
-                    this.mData = on4Var;
-                    on4Var.c = completeTaskResIdl.data.show_type.intValue();
+                    nn4 nn4Var = new nn4();
+                    this.mData = nn4Var;
+                    nn4Var.c = completeTaskResIdl.data.show_type.intValue();
                     this.mData.d = completeTaskResIdl.data.ahead_type.intValue();
-                    on4 on4Var2 = this.mData;
+                    nn4 nn4Var2 = this.mData;
                     DataRes dataRes = completeTaskResIdl.data;
-                    on4Var2.e = dataRes.message;
-                    on4Var2.f = dataRes.btn_text;
-                    on4Var2.g = dataRes.btn_confirm;
-                    on4Var2.h = dataRes.btn_cancel;
-                    on4Var2.i = dataRes.toast_duration.intValue();
-                    on4 on4Var3 = this.mData;
+                    nn4Var2.e = dataRes.message;
+                    nn4Var2.f = dataRes.btn_text;
+                    nn4Var2.g = dataRes.btn_confirm;
+                    nn4Var2.h = dataRes.btn_cancel;
+                    nn4Var2.i = dataRes.toast_duration.intValue();
+                    nn4 nn4Var3 = this.mData;
                     DataRes dataRes2 = completeTaskResIdl.data;
-                    on4Var3.j = dataRes2.img_url;
-                    on4Var3.k = dataRes2.url;
-                    on4Var3.l = dataRes2.schema;
-                    on4Var3.m = dataRes2.token;
-                    on4Var3.a = dataRes2.activity_id.intValue();
+                    nn4Var3.j = dataRes2.img_url;
+                    nn4Var3.k = dataRes2.url;
+                    nn4Var3.l = dataRes2.schema;
+                    nn4Var3.m = dataRes2.token;
+                    nn4Var3.a = dataRes2.activity_id.intValue();
                     this.mData.b = completeTaskResIdl.data.mission_id.intValue();
-                    on4 on4Var4 = this.mData;
+                    nn4 nn4Var4 = this.mData;
                     DataRes dataRes3 = completeTaskResIdl.data;
-                    on4Var4.o = dataRes3.btn_color;
-                    on4Var4.p = dataRes3.message_color;
-                    on4Var4.q = dataRes3.btn_text_color;
-                    on4Var4.r = dataRes3.interface_type.intValue();
+                    nn4Var4.o = dataRes3.btn_color;
+                    nn4Var4.p = dataRes3.message_color;
+                    nn4Var4.q = dataRes3.btn_text_color;
+                    nn4Var4.r = dataRes3.interface_type.intValue();
                     this.mData.n = completeTaskResIdl.data.opacity.doubleValue();
                     this.mData.x = completeTaskResIdl.data.is_not_complete.intValue();
                 }

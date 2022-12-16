@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AdTagTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] b;
@@ -43,7 +43,7 @@ public class AdTagTextView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class VerticalImageSpan extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +184,7 @@ public class AdTagTextView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f0907b9);
+            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.desc_tv);
         }
     }
 

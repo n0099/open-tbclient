@@ -689,9 +689,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         if (interceptable == null || interceptable.invokeL(1048596, this, context) == null) {
             this.g = context;
             this.h = new LightEmotionAdapter(context);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0530, (ViewGroup) this, true);
-            this.b = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091333);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091365);
+            LayoutInflater.from(context).inflate(R.layout.light_inter_layout, (ViewGroup) this, true);
+            this.b = (BdRecyclerView) findViewById(R.id.light_list_view);
+            this.e = (ImageView) findViewById(R.id.list_view_bobble);
             this.i = new TbImageView(context);
             yi.g(this.g, R.dimen.tbds104);
             yi.g(this.g, R.dimen.tbds208);
@@ -702,7 +702,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             new Matrix();
             this.j = new RelativeLayout(this.g);
             this.j.setLayoutParams(new RelativeLayout.LayoutParams(-2, -1));
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080901);
+            SkinManager.setImageResource(this.i, R.drawable.icon_pic_qinghudong_home_normal);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yi.g(this.g, R.dimen.tbds104), yi.g(this.g, R.dimen.tbds104));
             layoutParams.topMargin = yi.g(this.g, R.dimen.tbds23);
             layoutParams.gravity = 81;

@@ -30,6 +30,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tieba.ca;
 import com.baidu.tieba.ga;
 import com.baidu.tieba.ha;
@@ -48,6 +49,7 @@ import com.baidu.tieba.va;
 import com.baidu.tieba.vb;
 import com.baidu.tieba.vh;
 import com.baidu.tieba.wb;
+import com.baidu.tieba.wf;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -975,21 +977,22 @@ public class MessageManager {
             if (netMessage == null) {
                 return false;
             }
+            boolean netABTest = ((wf) ServiceManager.getService(wf.a)).netABTest();
             if (netMessage.getNetType() == NetMessage.NetType.SOCKET) {
                 return sendMessage(netMessage.getSocketMessage());
             }
-            if (netMessage.getNetType() == NetMessage.NetType.HTTP) {
+            if (netMessage.getNetType() != NetMessage.NetType.HTTP && !netABTest) {
+                boolean u = getSocketClient().u();
+                if (!u) {
+                    netMessage.setSocketErrNo(1);
+                }
+                if (u && sendMessage(netMessage.getSocketMessage())) {
+                    va.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
+                    return true;
+                }
+                va.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
                 return sendMessage(netMessage.getHttpMessage());
             }
-            boolean u = getSocketClient().u();
-            if (!u) {
-                netMessage.setSocketErrNo(1);
-            }
-            if (u && sendMessage(netMessage.getSocketMessage())) {
-                va.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
-                return true;
-            }
-            va.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
             return sendMessage(netMessage.getHttpMessage());
         }
         return invokeL.booleanValue;

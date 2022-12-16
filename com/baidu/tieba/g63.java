@@ -13,21 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g63 extends c63 {
+public class g63 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g63(c53 c53Var) {
-        super(c53Var, "/swanAPI/setBackgroundColor");
+    public g63(b53 b53Var) {
+        super(b53Var, "/swanAPI/setBackgroundTextStyle");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c53Var};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,42 +40,33 @@ public class g63 extends c63 {
         }
     }
 
-    @Override // com.baidu.tieba.c63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, f43Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                f12.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "paramsJson is null");
+                e12.c("setBackgroundTextStyle", "paramsJson is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            if (c63.b) {
-                Log.d(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, optParamsAsJo.toString());
+            if (b63.b) {
+                Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
             }
-            o32 V = sp2.U().V();
+            n32 V = rp2.U().V();
             if (V == null) {
-                f12.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "manager is null");
+                e12.c("setBackgroundTextStyle", "manager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            String optString = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-            if (TextUtils.isEmpty(optString) && (!TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorTop")) || !TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorBottom")))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101);
+            String optString = optParamsAsJo.optString("textStyle");
+            if (TextUtils.isEmpty(optString)) {
+                e12.c("setBackgroundTextStyle", "text style is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            }
-            n32 o = V.o();
-            if (o == null) {
-                f12.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "slave container is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (TextUtils.equals("7", o.N1().l())) {
-                f12.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "this page is from showModalPage api");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
-                return false;
-            } else if (!o.L2(o.x3(), SwanAppConfigData.t(optString), true)) {
-                f12.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "set window background fail");
+            } else if (!V.o().o3().s(SwanAppConfigData.t(optString))) {
+                e12.c("setBackgroundTextStyle", "set window background fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {

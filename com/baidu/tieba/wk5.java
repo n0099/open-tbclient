@@ -1,157 +1,112 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.media.AudioManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public abstract class wk5<T> extends xk5 {
+public class wk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public List<T> c;
-    public Context d;
-    public LayoutInflater e;
-    public jq4<T> f;
 
-    public abstract void f(yk5 yk5Var, T t, int i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948273480, "Lcom/baidu/tieba/wk5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948273480, "Lcom/baidu/tieba/wk5;");
+        }
+    }
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public int b;
-        public final /* synthetic */ wk5 c;
-
-        public a(wk5 wk5Var, T t, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wk5Var, t, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 3 && i != 4) {
+                if (i != 5) {
+                    int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+                    if ((autoPlaySwitch == 3 || !BdNetTypeUtil.isWifiNet()) && (autoPlaySwitch != 2 || !BdNetTypeUtil.isMobileNet())) {
+                        return false;
+                    }
+                } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !BdNetTypeUtil.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
+                    return false;
                 }
+                return true;
             }
-            this.c = wk5Var;
-            this.a = t;
-            this.b = i;
+            return BdNetTypeUtil.isWifiNet();
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            jq4<T> jq4Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (jq4Var = this.c.f) != null) {
-                T t = this.a;
-                int i = this.b;
-                jq4Var.c(view2, t, i, i);
-            }
-        }
+        return invokeI.booleanValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public wk5(Context context, int i) {
-        this(context, null, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public wk5(Context context, List<T> list, int i) {
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = context;
-        if (list == null) {
-            arrayList = new ArrayList();
-        } else {
-            arrayList = new ArrayList(list);
-        }
-        this.c = arrayList;
-        this.b = i;
-        this.e = LayoutInflater.from(this.d);
-    }
-
-    @Override // com.baidu.tieba.xk5
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.xk5
-    public View b(int i, ViewGroup viewGroup) {
+    public static boolean b(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
-            View inflate = this.e.inflate(this.b, viewGroup, false);
-            yk5 yk5Var = new yk5(inflate);
-            T t = this.c.get(i);
-            f(yk5Var, t, i);
-            yk5Var.c(new a(this, t, i));
-            return inflate;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
+            return a(i);
         }
-        return (View) invokeIL.objValue;
+        return invokeIL.booleanValue;
     }
 
-    public void g(List<T> list) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if ((BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2)) {
+                return true;
             }
-            this.c = list;
-            c();
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void h(jq4<T> jq4Var) {
+    public static boolean e(WeakReference<Context> weakReference, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jq4Var) == null) {
-            this.f = jq4Var;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, weakReference, z)) == null) {
+            if (weakReference == null || weakReference.get() == null) {
+                return false;
+            }
+            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+            if (z) {
+                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
+                    return false;
+                }
+            } else if (audioManager.abandonAudioFocus(null) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static void f(WeakReference<Context> weakReference) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, weakReference) == null) && weakReference != null && weakReference.get() != null) {
+            a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
         }
     }
 }

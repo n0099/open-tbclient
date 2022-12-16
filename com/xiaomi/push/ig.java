@@ -20,11 +20,11 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
     public static final jc a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jk f635a;
+    public static final jk f658a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hu> f636a;
+    public List<hu> f659a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f635a = new jk("XmPushActionCustomConfig");
+        f658a = new jk("XmPushActionCustomConfig");
         a = new jc("", (byte) 15, (short) 1);
     }
 
@@ -66,11 +66,11 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, igVar)) == null) {
             if (ig.class.equals(igVar.getClass())) {
-                int compareTo = Boolean.valueOf(m475a()).compareTo(Boolean.valueOf(igVar.m475a()));
+                int compareTo = Boolean.valueOf(m485a()).compareTo(Boolean.valueOf(igVar.m485a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m475a() || (a2 = iv.a(this.f636a, igVar.f636a)) == 0) {
+                if (!m485a() || (a2 = iv.a(this.f659a, igVar.f659a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -83,13 +83,13 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
     public List<hu> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f636a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f659a : (List) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m474a() {
+    public void m484a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f636a == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f659a == null) {
             throw new jg("Required field 'customConfigs' was not present! Struct: " + toString());
         }
     }
@@ -100,22 +100,22 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jfVar) != null) {
             return;
         }
-        jfVar.m549a();
+        jfVar.m559a();
         while (true) {
-            jc m545a = jfVar.m545a();
-            byte b = m545a.a;
+            jc m555a = jfVar.m555a();
+            byte b = m555a.a;
             if (b == 0) {
                 jfVar.f();
-                m474a();
+                m484a();
                 return;
             }
-            if (m545a.f810a == 1 && b == 15) {
-                jd m546a = jfVar.m546a();
-                this.f636a = new ArrayList(m546a.f811a);
-                for (int i = 0; i < m546a.f811a; i++) {
+            if (m555a.f833a == 1 && b == 15) {
+                jd m556a = jfVar.m556a();
+                this.f659a = new ArrayList(m556a.f834a);
+                for (int i = 0; i < m556a.f834a; i++) {
                     hu huVar = new hu();
                     huVar.a(jfVar);
-                    this.f636a.add(huVar);
+                    this.f659a.add(huVar);
                 }
                 jfVar.i();
             } else {
@@ -126,24 +126,24 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m475a() {
+    public boolean m485a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f636a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f659a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m476a(ig igVar) {
+    public boolean m486a(ig igVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, igVar)) == null) {
             if (igVar == null) {
                 return false;
             }
-            boolean m475a = m475a();
-            boolean m475a2 = igVar.m475a();
-            if (m475a || m475a2) {
-                return m475a && m475a2 && this.f636a.equals(igVar.f636a);
+            boolean m485a = m485a();
+            boolean m485a2 = igVar.m485a();
+            if (m485a || m485a2) {
+                return m485a && m485a2 && this.f659a.equals(igVar.f659a);
             }
             return true;
         }
@@ -154,19 +154,19 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
     public void b(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jfVar) == null) {
-            m474a();
-            jfVar.a(f635a);
-            if (this.f636a != null) {
+            m484a();
+            jfVar.a(f658a);
+            if (this.f659a != null) {
                 jfVar.a(a);
-                jfVar.a(new jd((byte) 12, this.f636a.size()));
-                for (hu huVar : this.f636a) {
+                jfVar.a(new jd((byte) 12, this.f659a.size()));
+                for (hu huVar : this.f659a) {
                     huVar.b(jfVar);
                 }
                 jfVar.e();
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m553a();
+            jfVar.m563a();
         }
     }
 
@@ -175,7 +175,7 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
             if (obj != null && (obj instanceof ig)) {
-                return m476a((ig) obj);
+                return m486a((ig) obj);
             }
             return false;
         }
@@ -197,7 +197,7 @@ public class ig implements iu<ig, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionCustomConfig(");
             sb.append("customConfigs:");
-            List<hu> list = this.f636a;
+            List<hu> list = this.f659a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

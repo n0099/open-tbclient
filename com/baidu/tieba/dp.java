@@ -2,12 +2,12 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -15,18 +15,18 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class dp {
     public static /* synthetic */ Interceptable $ic;
     public static volatile dp a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,8 +63,8 @@ public final class dp {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Map d = this.c.d(this.a);
                 if (d != null) {
-                    arrayList2 = (ArrayList) d.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
-                    arrayList = (ArrayList) d.get("ipv4");
+                    arrayList2 = (ArrayList) d.get("ipv6");
+                    arrayList = (ArrayList) d.get(DnsTransmitter.TYPE_VALUE_IPV4);
                 } else {
                     arrayList = null;
                     arrayList2 = null;
@@ -139,8 +139,8 @@ public final class dp {
                             }
                         }
                     }
-                    hashMap.put("ipv4", arrayList);
-                    hashMap.put(HttpDnsCacheForHost.JSON_KEY_IPV6, arrayList2);
+                    hashMap.put(DnsTransmitter.TYPE_VALUE_IPV4, arrayList);
+                    hashMap.put("ipv6", arrayList2);
                     if (arrayList.isEmpty() && arrayList2.isEmpty()) {
                         hp.a("Dns resolve failed, host(%s), get no valid resolve result", str);
                         return null;
@@ -167,8 +167,8 @@ public final class dp {
             Map<String, ArrayList> d = d(str);
             ArrayList arrayList2 = null;
             if (d != null) {
-                arrayList2 = d.get("ipv4");
-                arrayList = d.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                arrayList2 = d.get(DnsTransmitter.TYPE_VALUE_IPV4);
+                arrayList = d.get("ipv6");
             } else {
                 arrayList = null;
             }

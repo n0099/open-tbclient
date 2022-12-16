@@ -18,7 +18,7 @@ import io.reactivex.internal.observers.DeferredScalarDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AsyncSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final AsyncDisposable[] EMPTY;
@@ -28,7 +28,7 @@ public final class AsyncSubject<T> extends Subject<T> {
     public final AtomicReference<AsyncDisposable<T>[]> subscribers;
     public T value;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AsyncDisposable<T> extends DeferredScalarDisposable<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5629876084736248016L;

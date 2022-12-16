@@ -2,6 +2,7 @@ package com.baidu.pass.biometrics.base.http.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.base.utils.Crypto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +101,7 @@ public class HttpUtils {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append(name);
-                    sb.append('=');
+                    sb.append(a.h);
                     sb.append(value);
                     if (i != arrayList.size() - 1) {
                         sb.append('&');

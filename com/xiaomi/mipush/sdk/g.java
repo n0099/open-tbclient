@@ -42,12 +42,12 @@ public class g extends ba.a {
         Context context2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.a.f79a;
+            context = this.a.f102a;
             boolean a = ba.a(context).a(ho.ao.a(), true);
-            z = this.a.f82a;
+            z = this.a.f105a;
             if (z != a) {
-                this.a.f82a = a;
-                context2 = this.a.f79a;
+                this.a.f105a = a;
+                context2 = this.a.f102a;
                 i.b(context2);
             }
         }

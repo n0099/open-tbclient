@@ -50,8 +50,8 @@ public class CommonUserLikeButton extends TextView implements r05 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
         this.c = false;
         this.f = false;
         f();
@@ -93,8 +93,8 @@ public class CommonUserLikeButton extends TextView implements r05 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
         this.c = false;
         this.f = false;
         f();
@@ -119,8 +119,8 @@ public class CommonUserLikeButton extends TextView implements r05 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
         this.c = false;
         this.f = false;
         f();

@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sp7;
-import com.baidu.tieba.vp7;
+import com.baidu.tieba.qs7;
+import com.baidu.tieba.ts7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ public class MemberPayFragment extends BaseFragment {
     public int f;
     public int g;
     public String h;
-    public sp7 i;
-    public vp7 j;
+    public qs7 i;
+    public ts7 j;
     public View k;
 
     public MemberPayFragment() {
@@ -69,28 +69,28 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            sp7 sp7Var = this.i;
-            if (sp7Var != null) {
-                sp7Var.r(i);
+            qs7 qs7Var = this.i;
+            if (qs7Var != null) {
+                qs7Var.r(i);
             }
         }
     }
 
-    public void q1(Boolean bool) {
-        sp7 sp7Var;
+    public void x1(Boolean bool) {
+        qs7 qs7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, bool) == null) && (sp7Var = this.i) != null) {
-            sp7Var.s(bool.booleanValue());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bool) == null) && (qs7Var = this.i) != null) {
+            qs7Var.s(bool.booleanValue());
         }
     }
 
-    public void r1(vp7 vp7Var) {
+    public void y1(ts7 ts7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vp7Var) == null) {
-            this.j = vp7Var;
-            sp7 sp7Var = this.i;
-            if (sp7Var != null) {
-                sp7Var.u(vp7Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, ts7Var) == null) {
+            this.j = ts7Var;
+            qs7 qs7Var = this.i;
+            if (qs7Var != null) {
+                qs7Var.u(ts7Var);
             }
         }
     }
@@ -119,10 +119,10 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d058f, viewGroup, false);
-            sp7 sp7Var = new sp7(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
-            this.i = sp7Var;
-            sp7Var.u(this.j);
+            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05a0, viewGroup, false);
+            qs7 qs7Var = new qs7(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
+            this.i = qs7Var;
+            qs7Var.u(this.j);
             return this.k;
         }
         return (View) invokeLLL.objValue;

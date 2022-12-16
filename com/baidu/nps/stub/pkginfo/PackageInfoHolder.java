@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.pm.PackageInfo;
 import com.baidu.nps.stub.context.ContextHolderImpl;
 import com.baidu.nps.utils.Constant;
-import com.baidu.tieba.la1;
-import com.baidu.tieba.na1;
+import com.baidu.tieba.ka1;
+import com.baidu.tieba.ma1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class PackageInfoHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
             Application applicationContext = ContextHolderImpl.getApplicationContext();
-            return na1.a(la1.d(applicationContext, str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), i);
+            return ma1.a(ka1.d(applicationContext, str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), i);
         }
         return (PackageInfo) invokeLI.objValue;
     }

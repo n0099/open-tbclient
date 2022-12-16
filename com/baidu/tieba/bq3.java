@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.listener.RequestListener;
 @Service
 /* loaded from: classes3.dex */
-public class bq3 implements r82 {
+public class bq3 implements ip1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,13 +26,11 @@ public class bq3 implements r82 {
         }
     }
 
-    @Override // com.baidu.tieba.r82
-    public RequestListener a(s82 s82Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ip1
+    public void a(String str, fu2 fu2Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s82Var)) == null) {
-            return new aq3(s82Var);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, fu2Var, context) == null) {
+            nw2.e().a(str, fu2Var, context);
         }
-        return (RequestListener) invokeL.objValue;
     }
 }

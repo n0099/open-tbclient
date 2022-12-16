@@ -1,114 +1,66 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tieba.ty8;
-import com.baidu.tieba.video.meida.MultiAudioMixer;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.coremedia.iso.boxes.Container;
-import com.facebook.imageutils.JfifUtil;
-import com.googlecode.mp4parser.FileDataSourceImpl;
-import com.googlecode.mp4parser.authoring.Movie;
-import com.googlecode.mp4parser.authoring.Track;
-import com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder;
-import com.googlecode.mp4parser.authoring.container.mp4.MovieCreator;
-import com.googlecode.mp4parser.authoring.tracks.AACTrackImpl;
-import com.googlecode.mp4parser.authoring.tracks.AppendTrack;
-import com.googlecode.mp4parser.authoring.tracks.CroppedTrack;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileChannel;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class uy8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uy8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public PersonalCardDetailActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public NoNetworkView e;
+    public TbImageView f;
+    public TextView g;
+    public TbImageView h;
+    public TextView i;
+    public TextView j;
+    public HeadImageView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public TbImageView p;
+    public UserIconBox q;
+    public View r;
+    public View s;
+    public ux8 t;
+    public View.OnClickListener u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
 
-    /* loaded from: classes6.dex */
-    public class a implements MultiAudioMixer.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public FileOutputStream a;
-        public final /* synthetic */ String b;
-
-        public a(uy8 uy8Var, String str) throws FileNotFoundException {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uy8Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = str;
-            this.a = new FileOutputStream(this.b);
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void onMixComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.close();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void onMixError(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.close();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void onMixing(byte[] bArr) throws IOException {
-            FileOutputStream fileOutputStream;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) && (fileOutputStream = this.a) != null) {
-                fileOutputStream.write(bArr);
-            }
-        }
-    }
-
-    public uy8() {
+    public uy8(PersonalCardDetailActivity personalCardDetailActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personalCardDetailActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -118,460 +70,273 @@ public class uy8 {
                 return;
             }
         }
-        ty8.g();
+        this.v = 0;
+        this.w = 0;
+        this.x = 0;
+        this.y = 0;
+        this.a = personalCardDetailActivity;
+        View inflate = LayoutInflater.from(personalCardDetailActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0759, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
+        this.v = yi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
+        this.w = yi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070230);
+        this.x = yi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+        this.y = yi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201);
+        this.u = onClickListener;
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0ef5);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+        this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a4c);
+        this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a4b);
+        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a4b);
+        this.c = this.b.findViewById(R.id.content_view);
+        this.s = this.b.findViewById(R.id.obfuscated_res_0x7f09235a);
+        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09056b);
+        this.f = tbImageView;
+        tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
+        this.f.setDefaultResource(R.drawable.transparent_bg);
+        this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09257e);
+        HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092567);
+        this.k = headImageView;
+        headImageView.setIsRound(true);
+        this.k.setDrawBorder(false);
+        this.q = (UserIconBox) this.b.findViewById(R.id.obfuscated_res_0x7f0905af);
+        this.p = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09259f);
+        this.r = this.b.findViewById(R.id.obfuscated_res_0x7f090855);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09057e);
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090516);
+        this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0905ae);
+        TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0905b1);
+        this.h = tbImageView2;
+        tbImageView2.setDefaultResource(R.drawable.transparent_bg);
+        this.h.setDefaultBgResource(R.drawable.transparent_bg);
+        this.j.setOnClickListener(this.u);
     }
 
-    public static uy8 e() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tq4 layoutMode = this.a.getLayoutMode();
+            boolean z = true;
+            if (TbadkApplication.getInst().getSkinType() != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(this.b);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            NoNetworkView noNetworkView = this.e;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            if (this.a.getLayoutMode() != null) {
+                this.a.getLayoutMode().k(this.n);
+                rw4.d(this.n).v(R.color.CAM_X0108);
+            }
+            if (this.a.getLayoutMode() != null) {
+                this.a.getLayoutMode().k(this.m);
+                rw4.d(this.m).v(R.color.CAM_X0108);
+            }
+            if (this.a.getLayoutMode() != null) {
+                this.a.getLayoutMode().k(this.o);
+                rw4.d(this.o).v(R.color.CAM_X0108);
+            }
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.setVisibility(0);
+            this.s.setVisibility(0);
+            this.f.setVisibility(0);
+            this.r.setVisibility(0);
+            this.g.setVisibility(0);
+            this.i.setVisibility(0);
+            this.h.setVisibility(0);
+            this.j.setVisibility(0);
+            this.a.hideNetRefreshView(this.b);
+        }
+    }
+
+    public final void e() {
+        ux8 ux8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (ux8Var = this.t) == null) {
+            return;
+        }
+        this.g.setText(ux8Var.j());
+        this.i.setText(this.t.d());
+        this.h.K(this.t.i(), 10, false);
+    }
+
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (uy8.class) {
-                    if (a == null) {
-                        a = new uy8();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (uy8) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final void a(long j, long j2, List<Track> list, List<Track> list2) throws Exception {
+    public View d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list, list2}) == null) {
-            Movie movie = new Movie();
-            long j3 = 0;
-            while (j > j3) {
-                long j4 = j - j3;
-                if (j4 >= j2) {
-                    movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
-                    j3 += j2;
-                } else {
-                    double d = j4 / 1000;
-                    double d2 = 0.0d;
-                    boolean z = false;
-                    for (Track track : list) {
-                        if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
-                            if (!z) {
-                                d2 = d(track, d2, false);
-                                d = d(track, d, true);
-                                z = true;
-                            } else {
-                                throw new RuntimeException("The startTime has already been corrected by another track with SyncSample. Not Supported.");
-                            }
-                        }
-                    }
-                    for (Track track2 : list) {
-                        long j5 = -1;
-                        long j6 = -1;
-                        int i = 0;
-                        long j7 = 0;
-                        double d3 = -1.0d;
-                        double d4 = 0.0d;
-                        while (i < track2.getSampleDurations().length) {
-                            long j8 = j3;
-                            long j9 = track2.getSampleDurations()[i];
-                            int i2 = (d4 > d3 ? 1 : (d4 == d3 ? 0 : -1));
-                            if (i2 > 0 && d4 <= d2) {
-                                j5 = j7;
-                            }
-                            if (i2 > 0 && d4 <= d) {
-                                j6 = j7;
-                            }
-                            j7++;
-                            i++;
-                            d3 = d4;
-                            d2 = d2;
-                            d4 = (j9 / track2.getTrackMetaData().getTimescale()) + d4;
-                            j3 = j8;
-                        }
-                        movie.addTrack(new CroppedTrack(track2, j5, j6));
-                        d2 = d2;
-                    }
-                    j3 += j4;
-                }
-            }
-            for (Track track3 : movie.getTracks()) {
-                if (track3.getHandler().equals("soun")) {
-                    list2.add(track3);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
         }
+        return (View) invokeV.objValue;
     }
 
-    public final long b(String str, List<Track> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list)) == null) {
-            try {
-                long j = 0;
-                for (Track track : MovieCreator.build(str).getTracks()) {
-                    if (track.getHandler().equals("soun")) {
-                        list.add(track);
-                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
-                    }
-                }
-                return j;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public final ry8 c(String str, List<Track> list, List<Track> list2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, list2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new ry8(-1L, 1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08df));
-            }
-            if (!new File(str).exists()) {
-                return new ry8(-1L, 2, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0634));
-            }
-            long j = 0;
-            try {
-                for (Track track : MovieCreator.build(str).getTracks()) {
-                    if (list2 != null && track.getHandler().equals("soun")) {
-                        list2.add(track);
-                    }
-                    if (track.getHandler().equals("vide")) {
-                        list.add(track);
-                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
-                    }
-                }
-                return new ry8(j, 0, "");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new ry8(-1L, 3, ir7.a(e));
-            }
-        }
-        return (ry8) invokeLLL.objValue;
-    }
-
-    public vy8 i(List<String> list, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        LinkedList linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048583, this, list, str, z)) == null) {
-            if (list != null && !TextUtils.isEmpty(str)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File file = new File(str);
-                file.mkdirs();
-                if (file.exists()) {
-                    file.delete();
-                }
-                LinkedList linkedList2 = new LinkedList();
-                LinkedList linkedList3 = new LinkedList();
-                for (int i = 0; i < list.size(); i++) {
-                    try {
-                        String str2 = list.get(i);
-                        if (z) {
-                            linkedList = linkedList3;
-                        } else {
-                            linkedList = null;
-                        }
-                        ry8 c = c(str2, linkedList2, linkedList);
-                        if (c.a != -1) {
-                            long j = c.a;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return new vy8(11, ir7.a(e));
-                    }
-                }
-                j(str, linkedList2, linkedList3);
-                BdLog.e("mixingVideoByVideo videoList length = " + list.size() + " cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                return new vy8(0, "");
-            }
-            return new vy8(10, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08df));
-        }
-        return (vy8) invokeLLZ.objValue;
-    }
-
-    public final double d(Track track, double d, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{track, Double.valueOf(d), Boolean.valueOf(z)})) == null) {
-            int length = track.getSyncSamples().length;
-            double[] dArr = new double[length];
-            int i = 0;
-            double d2 = 0.0d;
-            long j = 0;
-            double d3 = 0.0d;
-            for (int i2 = 0; i2 < track.getSampleDurations().length; i2++) {
-                long j2 = track.getSampleDurations()[i2];
-                j++;
-                if (Arrays.binarySearch(track.getSyncSamples(), j) >= 0) {
-                    dArr[Arrays.binarySearch(track.getSyncSamples(), j)] = d3;
-                }
-                d3 += j2 / track.getTrackMetaData().getTimescale();
-            }
-            while (i < length) {
-                double d4 = dArr[i];
-                if (d4 > d) {
-                    if (z) {
-                        return d4;
-                    }
-                    return d2;
-                }
-                i++;
-                d2 = d4;
-            }
-            return dArr[length - 1];
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public final void j(String str, List<Track> list, List<Track> list2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, list2) == null) {
-            Movie movie = new Movie();
-            if (list2 != null && list2.size() > 0) {
-                movie.addTrack(new AppendTrack((Track[]) list2.toArray(new Track[list2.size()])));
-            }
-            if (list != null && list.size() > 0) {
-                movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
-            }
-            Container build = new DefaultMp4Builder().build(movie);
-            FileChannel channel = new RandomAccessFile(String.format(str, new Object[0]), "rw").getChannel();
-            build.writeContainer(channel);
-            channel.close();
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    public boolean f(String str, String str2, String... strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, strArr)) == null) {
-            ?? r2 = 0;
-            if (strArr != null) {
-                int i = 2;
-                if (strArr.length >= 2) {
-                    String str3 = str2 + "temp_" + System.currentTimeMillis();
-                    File[] fileArr = new File[strArr.length];
-                    try {
-                        ty8.a d = ty8.d(strArr[0]);
-                        if (d == null) {
-                            return false;
-                        }
-                        ty8.a aVar = new ty8.a();
-                        char c = 1;
-                        int i2 = 0;
-                        boolean z = true;
-                        while (i2 < strArr.length) {
-                            if (i2 != 0) {
-                                aVar = ty8.d(strArr[i2]);
-                                if (aVar == null) {
-                                    return r2;
-                                }
-                                ty8.a[] aVarArr = new ty8.a[i];
-                                aVarArr[r2] = d;
-                                aVarArr[c] = aVar;
-                                z = ty8.h(aVarArr);
-                            }
-                            String str4 = str2 + "temp_" + i2 + "_" + System.currentTimeMillis();
-                            if (new oy8(strArr[i2]).a(str4, z, d, aVar) != null) {
-                                if (!z && i2 != 0 && aVar.c()) {
-                                    String str5 = str2 + "resample_" + System.currentTimeMillis();
-                                    long currentTimeMillis = System.currentTimeMillis();
-                                    boolean i3 = ty8.i(str4, str5, aVar.a, d.a);
-                                    BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                                    if (i3) {
-                                        str4 = str5;
-                                    }
-                                }
-                                fileArr[i2] = new File(str4);
-                            }
-                            i2++;
-                            r2 = 0;
-                            i = 2;
-                            c = 1;
-                        }
-                        MultiAudioMixer a2 = MultiAudioMixer.a();
-                        try {
-                            a2.d(new a(this, str3));
-                            a2.b(fileArr);
-                            qy8 a3 = qy8.a(str3);
-                            a3.d(d.a);
-                            a3.c(d.b);
-                            a3.b(str);
-                            return true;
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            return false;
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public vy8 g(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void f() {
+        String str;
+        String str2;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File file = new File(str2);
-                file.mkdirs();
-                if (file.exists()) {
-                    file.delete();
-                }
-                LinkedList linkedList = new LinkedList();
-                try {
-                    ry8 c = c(str, linkedList, null);
-                    if (c.a == -1) {
-                        if (c.b == 1) {
-                            i = 218;
-                        } else if (c.b == 2) {
-                            i = 219;
-                        } else {
-                            i = PassFaceRecogManager.k;
-                        }
-                        return new vy8(i, c.c);
-                    }
-                    BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
-                    j(str2, linkedList, null);
-                    return new vy8(0, "");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return new vy8(221, ir7.a(e));
-                } finally {
-                    BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-            }
-            return new vy8(217, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08df));
-        }
-        return (vy8) invokeLL.objValue;
-    }
-
-    public vy8 h(String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        LinkedList linkedList;
-        int i;
-        vy8 vy8Var;
-        StringBuilder sb;
         int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                String str5 = hx8.f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
-                new File(str5).mkdirs();
-                File file = new File(str3);
-                file.mkdirs();
-                if (file.exists()) {
-                    file.delete();
-                }
-                LinkedList linkedList2 = new LinkedList();
-                LinkedList linkedList3 = new LinkedList();
-                LinkedList linkedList4 = new LinkedList();
-                LinkedList linkedList5 = new LinkedList();
-                try {
-                    ry8 c = c(str, linkedList2, linkedList3);
-                    long j = c.a;
-                    if (j == -1) {
-                        if (c.b == 1) {
-                            i2 = 210;
-                        } else if (c.b == 2) {
-                            i2 = 211;
-                        } else {
-                            i2 = 212;
-                        }
-                        vy8Var = new vy8(i2, c.c);
-                        FileHelper.deleteFileOrDir(new File(str5));
-                        sb = new StringBuilder();
-                    } else {
-                        long b = b(str2, linkedList4);
-                        if (b == -1) {
-                            if (c.b == 1) {
-                                i = 213;
-                            } else if (c.b == 2) {
-                                i = 214;
-                            } else {
-                                i = 215;
-                            }
-                            vy8Var = new vy8(i, c.c);
-                            FileHelper.deleteFileOrDir(new File(str5));
-                            sb = new StringBuilder();
-                        } else {
-                            try {
-                                a(j, b, linkedList4, linkedList5);
-                                if (z && linkedList3.size() > 0 && Build.VERSION.SDK_INT >= 16) {
-                                    String str6 = str5 + "temp_" + System.currentTimeMillis();
-                                    j(str6, null, linkedList5);
-                                    String str7 = str5 + "temp_" + System.currentTimeMillis();
-                                    linkedList = linkedList3;
-                                    j(str7, null, linkedList);
-                                    String str8 = str5 + "temp_" + System.currentTimeMillis() + ".acc";
-                                    if (f(str8, str5, str6, str7)) {
-                                        AACTrackImpl aACTrackImpl = new AACTrackImpl(new FileDataSourceImpl(str8));
-                                        linkedList5.clear();
-                                        linkedList5.add(aACTrackImpl);
-                                    }
-                                    BdLog.e("mixingVideoByAudio mixing cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                                } else {
-                                    linkedList = linkedList3;
-                                }
-                                BdLog.e("mixingVideoByAudio audioTracks = " + linkedList.size() + " musicTracks = " + linkedList5.size() + " videoTracks = " + linkedList2.size());
-                                j(str3, linkedList2, linkedList5);
-                                vy8 vy8Var2 = new vy8(0, "");
-                                FileHelper.deleteFileOrDir(new File(str5));
-                                BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                                return vy8Var2;
-                            } catch (Exception e) {
-                                e = e;
-                                str4 = "mixingVideoByAudio cost = ";
-                                try {
-                                    e.printStackTrace();
-                                    vy8 vy8Var3 = new vy8(JfifUtil.MARKER_SOI, ir7.a(e));
-                                    FileHelper.deleteFileOrDir(new File(str5));
-                                    BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                    return vy8Var3;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    FileHelper.deleteFileOrDir(new File(str5));
-                                    BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                str4 = "mixingVideoByAudio cost = ";
-                                FileHelper.deleteFileOrDir(new File(str5));
-                                BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                throw th;
-                            }
-                        }
-                    }
-                    sb.append("mixingVideoByAudio cost = ");
-                    sb.append(System.currentTimeMillis() - currentTimeMillis);
-                    BdLog.e(sb.toString());
-                    return vy8Var;
-                } catch (Exception e2) {
-                    e = e2;
-                    str4 = "mixingVideoByAudio cost = ";
-                } catch (Throwable th3) {
-                    th = th3;
-                    str4 = "mixingVideoByAudio cost = ";
-                }
-            } else {
-                return new vy8(209, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08df));
-            }
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.t == null) {
+            return;
+        }
+        if (!TbadkCoreApplication.isLogin()) {
+            this.q.setVisibility(8);
+            this.p.setVisibility(8);
+            this.l.setPadding(this.x, 0, 0, 0);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0308, 1);
+            this.l.setText(R.string.obfuscated_res_0x7f0f04b3);
         } else {
-            return (vy8) invokeCommon.objValue;
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            String str3 = null;
+            if (currentAccountInfo != null) {
+                String portrait = currentAccountInfo.getPortrait();
+                str = currentAccountInfo.getAccountNameShow();
+                String memberIconUrl = currentAccountInfo.getMemberIconUrl();
+                i = currentAccountInfo.getMemberType();
+                str2 = portrait;
+                str3 = memberIconUrl;
+            } else {
+                str = null;
+                str2 = null;
+                i = 0;
+            }
+            if (i > 0) {
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0308, 1);
+            } else {
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0108, 1);
+            }
+            if (StringUtils.isNull(str3)) {
+                this.p.setVisibility(8);
+                this.l.setPadding(this.x, 0, 0, 0);
+                this.l.setText(str);
+            } else {
+                this.p.setVisibility(0);
+                this.p.K(str3, 10, false);
+                this.l.setPadding(this.v, 0, 0, 0);
+                this.l.setText(str);
+            }
+            this.q.setVisibility(0);
+            if (currentAccountInfo != null && currentAccountInfo.getUserIcons() != null) {
+                i2 = currentAccountInfo.getUserIcons().size();
+            } else {
+                i2 = 0;
+            }
+            if (i2 >= 8 || (i3 = i2 - 1) >= 4) {
+                i4 = 4;
+            } else {
+                i4 = i3;
+            }
+            if (currentAccountInfo != null) {
+                UserIconBox userIconBox = this.q;
+                List<IconData> userIcons = currentAccountInfo.getUserIcons();
+                int i5 = this.y;
+                userIconBox.h(userIcons, i4, i5, i5, this.w, true);
+            }
+            this.k.K(str2, 12, false);
+        }
+        this.f.K(this.t.e(), 10, false);
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.setVisibility(8);
+            this.f.setVisibility(8);
+            this.r.setVisibility(8);
+            this.s.setVisibility(8);
+            this.g.setVisibility(8);
+            this.i.setVisibility(8);
+            this.h.setVisibility(8);
+            this.j.setVisibility(8);
+            this.a.showNetRefreshView(this.b, this.a.getPageContext().getResources().getString(R.string.no_data_text), true);
+        }
+    }
+
+    public void h(int i, ux8 ux8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, ux8Var) == null) {
+            if (ux8Var == null) {
+                g();
+            } else if (i != 0) {
+            } else {
+                this.t = ux8Var;
+                b();
+                f();
+                e();
+                i(ux8Var);
+            }
+        }
+    }
+
+    public void i(ux8 ux8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ux8Var) != null) || ux8Var == null) {
+            return;
+        }
+        this.t = ux8Var;
+        if (ux8Var == null) {
+            this.j.setVisibility(8);
+            return;
+        }
+        int f = ux8Var.f();
+        this.j.setVisibility(0);
+        if (this.t.g() == 1) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f0517);
+        } else if (this.t.c() == 1) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
+            this.j.setText(R.string.use_immediately);
+        } else if (f == 0) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f1574);
+        } else if (f == 100) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_blue);
+            if (this.t.h() == 0) {
+                this.j.setText(R.string.obfuscated_res_0x7f0f008d);
+            } else {
+                this.j.setText(R.string.use_immediately);
+            }
+        } else if (f == 101) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f0310);
+        } else if (f > 1) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
+            this.j.setText(String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0316), Integer.valueOf(f)));
+        } else {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f0313);
         }
     }
 }

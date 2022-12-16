@@ -29,14 +29,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr4;
+import com.baidu.tieba.dr4;
+import com.baidu.tieba.h56;
 import com.baidu.tieba.in;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.m46;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.sx;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.tr4;
-import com.baidu.tieba.vu4;
+import com.baidu.tieba.vr4;
+import com.baidu.tieba.wu4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,14 +44,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
+/* loaded from: classes2.dex */
+public class InterviewLiveLayout extends FrameLayout implements sx<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public m46<tr4> c;
-    public tr4 d;
+    public h56<vr4> c;
+    public vr4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -63,7 +63,7 @@ public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
     public View.OnClickListener m;
     public TbImageView.h n;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ListUtils.getCount(this.a.i) > 0) {
                 if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                    yi.O(this.a.getContext(), R.string.obfuscated_res_0x7f0f0ef0);
+                    yi.P(this.a.getContext(), R.string.plugin_image_viewer_install_error_tips);
                     return;
                 }
                 String str = (String) this.a.i.get(0);
@@ -140,7 +140,7 @@ public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b implements TbImageView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
                 } else {
                     i = 14;
                 }
-                in m = l95.k().m(tg.h().g(tbImageView.getUrl(), i));
+                in m = m95.k().m(tg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
                 if (m != null) {
                     i3 = m.r();
@@ -305,25 +305,25 @@ public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
         }
     }
 
-    public void setSubClickListener(m46<tr4> m46Var) {
+    public void setSubClickListener(h56<vr4> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, m46Var) == null) {
-            this.c = m46Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, h56Var) == null) {
+            this.c = h56Var;
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ed, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.interview_live_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f18);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.img_interview_live);
             this.e = tbImageView;
             tbImageView.r(15);
             this.e.setPlaceHolder(3);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fa1);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa2);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090fa0);
+            this.f = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
+            this.g = (ImageView) findViewById(R.id.interview_live_tip_img);
+            this.h = (TextView) findViewById(R.id.interview_live_tip);
             l(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -331,14 +331,14 @@ public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: k */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr4Var) == null) {
-            this.d = tr4Var;
-            if (tr4Var != null && this.e != null) {
-                ThreadData threadData = tr4Var.getThreadData();
-                vu4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr4Var) == null) {
+            this.d = vr4Var;
+            if (vr4Var != null && this.e != null) {
+                ThreadData threadData = vr4Var.getThreadData();
+                wu4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -346,7 +346,7 @@ public class InterviewLiveLayout extends FrameLayout implements sx<tr4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.g();
-                if (cr4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
+                if (dr4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
                     this.i.clear();
                     this.i.add(taskInfoData.k());
                     setVisibility(0);

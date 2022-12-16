@@ -155,7 +155,7 @@ public class ChatClipImageItemView extends GifView implements hl.a {
                 this.i1 = new el();
             }
             this.d.n = true;
-            this.i1.v(this);
+            this.i1.t(this);
             hl hlVar = this.i1;
             this.e = hlVar;
             hlVar.r(this.d);
@@ -198,13 +198,12 @@ public class ChatClipImageItemView extends GifView implements hl.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onWindowVisibilityChanged(i);
-            if (i != 0) {
-                this.i1.u();
-            } else if (!this.k1) {
-                this.i1.t();
-                invalidate();
-            } else {
-                this.k1 = false;
+            if (i == 0) {
+                if (!this.k1) {
+                    invalidate();
+                } else {
+                    this.k1 = false;
+                }
             }
         }
     }
@@ -213,13 +212,6 @@ public class ChatClipImageItemView extends GifView implements hl.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.h1 = z;
-        }
-    }
-
-    public void setOnDrawCallback(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.l1 = aVar;
         }
     }
 
@@ -246,7 +238,7 @@ public class ChatClipImageItemView extends GifView implements hl.a {
             if (!z2 && !z) {
                 z3 = false;
             }
-            hlVar.w(z3);
+            hlVar.u(z3);
             return bdImage;
         }
         return (in) invokeV.objValue;
@@ -257,7 +249,7 @@ public class ChatClipImageItemView extends GifView implements hl.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.i1.w(false);
+            this.i1.u(false);
             return super.getDefaultBdImage();
         }
         return (in) invokeV.objValue;
@@ -268,7 +260,6 @@ public class ChatClipImageItemView extends GifView implements hl.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStartTemporaryDetach();
-            this.i1.u();
         }
     }
 

@@ -1,50 +1,61 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public final class qw9 {
+import java.util.HashMap;
+/* loaded from: classes6.dex */
+public class qw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public static long b;
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public int[] c;
 
-    public qw9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+        public long c;
+        public long d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            new HashMap();
+            new HashMap();
         }
     }
 
-    public static void a(qw9 qw9Var, kw9 kw9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, qw9Var, kw9Var) == null) {
-            int length = qw9Var.c.length;
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                qw9Var.c[i2] = i;
-                nw9.n(qw9Var.a, qw9Var.b, i, kw9Var);
-                i += 1080;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948106390, "Lcom/baidu/tieba/qw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948106390, "Lcom/baidu/tieba/qw9;");
+                return;
             }
         }
-    }
-
-    public static void b(qw9 qw9Var, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, qw9Var, i, i2) == null) {
-            qw9Var.a = i;
-            qw9Var.b = new int[i2 * 1080];
-            qw9Var.c = new int[i2];
-        }
+        a = new a();
     }
 }

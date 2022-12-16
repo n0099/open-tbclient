@@ -26,19 +26,19 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public CustomMessageListener F;
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public int J1() {
+    public int P1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 2;
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public void T1() {
+    public void Z1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
@@ -179,40 +179,30 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment L1() {
+    public Fragment R1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return new VideoAttentionPageFragment(this.g, new a(this), 0, 2);
         }
         return (Fragment) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment M1() {
+    public Fragment S1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return new VideoVerticalPageFragment(this.g, new b(this), 1, 1);
         }
         return (Fragment) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.LazyBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onCreate(bundle);
-            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_TAB);
-            registerListener(this.F);
-        }
-    }
-
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.LazyBaseFragment
-    public void t1(View view2, Bundle bundle) {
+    public void A1(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, bundle) == null) {
-            super.t1(view2, bundle);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, bundle) == null) {
+            super.A1(view2, bundle);
             if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
                 VideoChannelHeaderLayout videoChannelHeaderLayout = this.i;
                 if (videoChannelHeaderLayout != null) {
@@ -227,6 +217,16 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                     alaLiveTipView.setVisibility(8);
                 }
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.LazyBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_TAB);
+            registerListener(this.F);
         }
     }
 }

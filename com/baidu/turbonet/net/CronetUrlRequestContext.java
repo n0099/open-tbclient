@@ -9,7 +9,7 @@ import android.os.Process;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.va9;
+import com.baidu.tieba.ee9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
 import javax.annotation.concurrent.GuardedBy;
 @UsedByReflection
 @JNINamespace
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CronetUrlRequestContext extends TurbonetEngine {
     public static /* synthetic */ Interceptable $ic;
     public static long p;
@@ -55,9 +55,9 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public ProxyConfig l;
     public TurbonetEngine.TCPNetworkQualityStatus m;
     @GuardedBy("mDataTrafficMonitorLock")
-    public final va9<DataTrafficListener> n;
+    public final ee9<DataTrafficListener> n;
     @GuardedBy("mNetworkQualityLock")
-    public final va9<NetworkQualityListener> o;
+    public final ee9<NetworkQualityListener> o;
 
     public static native void nativeApplyBaiduConfigDictionary(long j, String str);
 
@@ -145,7 +145,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     private native void nativeUploadNetLog(long j, String str);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class AppThreadState {
         public static final /* synthetic */ AppThreadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -212,7 +212,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class ResolveResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -331,7 +331,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -366,7 +366,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -543,8 +543,8 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         this.l = ProxyConfig.b;
         TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.UNKNOWN;
         this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
-        this.n = new va9<>();
-        this.o = new va9<>();
+        this.n = new ee9<>();
+        this.o = new ee9<>();
         this.g = builder.f();
         try {
             this.e = (PowerManager) builder.getContext().getSystemService("power");

@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
 import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
-import com.baidu.tieba.sa5;
+import com.baidu.tieba.ta5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InitAdCardViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,21 +70,21 @@ public class InitAdCardViewTask extends LaunchTask {
             try {
                 AdCardSinglePicView adCardSinglePicView = new AdCardSinglePicView(tbPageContext);
                 adCardSinglePicView.X();
-                sa5.e().a(1101, adCardSinglePicView);
+                ta5.e().a(1101, adCardSinglePicView);
             } catch (Exception e) {
                 BdLog.e(e);
             }
             try {
                 AdCardMultiPicView adCardMultiPicView = new AdCardMultiPicView(tbPageContext);
                 adCardMultiPicView.X();
-                sa5.e().a(1102, adCardMultiPicView);
+                ta5.e().a(1102, adCardMultiPicView);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
             try {
                 AdCardVideoView adCardVideoView = new AdCardVideoView(tbPageContext, 2);
                 adCardVideoView.X();
-                sa5.e().a(PackageInfo.CODE_HOST_VERSION, adCardVideoView);
+                ta5.e().a(PackageInfo.CODE_HOST_VERSION, adCardVideoView);
             } catch (Exception e3) {
                 BdLog.e(e3);
             }

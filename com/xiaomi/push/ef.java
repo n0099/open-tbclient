@@ -14,14 +14,14 @@ public final class ef {
     public static final ef a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ef[] f310a;
+    public static final /* synthetic */ ef[] f333a;
     public static final ef b;
     public static final ef c;
     public static final ef d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f311a;
+    public String f334a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class ef {
         c = new ef("SERVICE_COMPONENT", 2, "service_component");
         ef efVar = new ef("PROVIDER", 3, "provider");
         d = efVar;
-        f310a = new ef[]{a, b, c, efVar};
+        f333a = new ef[]{a, b, c, efVar};
     }
 
     public ef(String str, int i, String str2) {
@@ -62,7 +62,7 @@ public final class ef {
                 return;
             }
         }
-        this.f311a = str2;
+        this.f334a = str2;
     }
 
     public static ef valueOf(String str) {
@@ -74,6 +74,6 @@ public final class ef {
     public static ef[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ef[]) f310a.clone() : (ef[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ef[]) f333a.clone() : (ef[]) invokeV.objValue;
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.bi5;
-import com.baidu.tieba.dj5;
-import com.baidu.tieba.ex6;
+import com.baidu.tieba.by6;
+import com.baidu.tieba.td5;
+import com.baidu.tieba.ti5;
+import com.baidu.tieba.wj5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes4.dex */
-public class FrsCommonTabRequestData extends OrmObject implements bd5 {
+public class FrsCommonTabRequestData extends OrmObject implements td5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -33,21 +33,21 @@ public class FrsCommonTabRequestData extends OrmObject implements bd5 {
     public String tabName;
     public int tabType;
 
-    @Override // com.baidu.tieba.ad5
-    public HashMap<String, Object> v() {
+    @Override // com.baidu.tieba.sd5
+    public HashMap<String, Object> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ad5
-    public HashMap<String, String> x() {
+    @Override // com.baidu.tieba.sd5
+    public HashMap<String, String> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
         return (HashMap) invokeV.objValue;
@@ -73,11 +73,11 @@ public class FrsCommonTabRequestData extends OrmObject implements bd5 {
         this.sortType = 0;
     }
 
-    @Override // com.baidu.tieba.dd5
-    public Object g(boolean z) {
+    @Override // com.baidu.tieba.vd5
+    public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.tab_id = Integer.valueOf(this.tabId);
             builder.tab_type = Integer.valueOf(this.tabType);
@@ -88,11 +88,11 @@ public class FrsCommonTabRequestData extends OrmObject implements bd5 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = ex6.e().d("frs_feed");
+            String d = by6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = bi5.g(d, bi5.f());
-            builder.ad_bear_sid_price = Double.valueOf(bi5.i());
-            builder.has_ad_bear = Integer.valueOf(bi5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = ti5.g(d, ti5.f());
+            builder.ad_bear_sid_price = Double.valueOf(ti5.i());
+            builder.has_ad_bear = Integer.valueOf(ti5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
@@ -102,7 +102,7 @@ public class FrsCommonTabRequestData extends OrmObject implements bd5 {
             builder.scr_dip = Integer.valueOf((int) yi.i(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            dj5.c(builder, true, false, true);
+            wj5.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

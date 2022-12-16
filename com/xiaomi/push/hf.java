@@ -59,14 +59,14 @@ public class hf {
                 a(context, hhVar, a);
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m89a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m99a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         }
     }
 
     public static void a(Context context, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, hnVar) == null) {
-            if (hnVar.f481a) {
+            if (hnVar.f504a) {
                 hnVar.a("push_sdk_channel");
             }
             if (TextUtils.isEmpty(hnVar.d())) {

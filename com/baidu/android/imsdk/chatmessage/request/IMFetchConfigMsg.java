@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
@@ -10,7 +9,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -118,7 +116,6 @@ public class IMFetchConfigMsg extends Message {
                         }
                     } catch (Exception e) {
                         LogUtils.e(IMFetchConfigMsg.TAG, "Exception ", e);
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     }
                 }
             }
@@ -188,7 +185,6 @@ public class IMFetchConfigMsg extends Message {
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

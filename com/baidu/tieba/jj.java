@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class jj {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -19,7 +19,7 @@ public class jj {
     public static Handler e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class jj {
                     if (i != 1) {
                         if (i != 6) {
                             if (jj.d != null) {
-                                jj.d.error(message.what, qj.a(R.string.voice_err_play));
+                                jj.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f1606));
                             }
                         } else {
                             if (jj.d != null) {
@@ -57,7 +57,7 @@ public class jj {
                             return true;
                         }
                     } else if (jj.d != null) {
-                        jj.d.error(message.what, qj.a(R.string.voice_err_no_file));
+                        jj.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f1604));
                     }
                 } else if (jj.d != null) {
                     jj.d.c(jj.c, message.arg1);

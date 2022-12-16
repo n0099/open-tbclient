@@ -2,13 +2,12 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,8 +24,9 @@ public class IMMarkMsgReadedMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMarkMsgReadedMsg";
     public transient /* synthetic */ FieldHolder $fh;
-    public long mCategory;
+    public int mCategory;
     public long mClientMaxMsgid;
+    public long mClientMinMsgid;
     public Context mContext;
     public boolean mIsZHida;
     public long mMsgId;
@@ -49,51 +49,74 @@ public class IMMarkMsgReadedMsg extends Message {
         }
     }
 
-    public IMMarkMsgReadedMsg(Context context, long j, long j2, long j3, long j4, boolean z) {
+    public IMMarkMsgReadedMsg(Context context, int i, long j, long j2, long j3, long j4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mReSendCount = 0;
+        this.mClientMinMsgid = -1L;
         this.mClientMaxMsgid = -1L;
         initCommonParameter(context);
         setNeedReplay(true);
         setType(67);
-        this.mCategory = j;
-        this.mTo = j2;
-        this.mMsgId = j3;
+        this.mCategory = i;
+        this.mTo = j;
+        this.mMsgId = j2;
         this.mContext = context;
+        this.mClientMinMsgid = j3;
         this.mClientMaxMsgid = j4;
         this.mPriority = 14;
         this.mIsZHida = z;
     }
 
+    private void deleteCmdMsg() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            DBManager.getInstance(this.mContext).deleteCmdMsg(getUUID());
+        }
+    }
+
+    private void updateCmdMsgSendStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            DBManager.getInstance(this.mContext).updateCmdMsgSendStatus(getUUID(), 1);
+        }
+    }
+
     public static IMMarkMsgReadedMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
+        IMMarkMsgReadedMsg iMMarkMsgReadedMsg;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
             if (intent.hasExtra("contacter") && intent.hasExtra("category")) {
                 long longExtra = intent.getLongExtra("contacter", -1L);
-                long intExtra = intent.getIntExtra("category", -1);
+                int intExtra = intent.getIntExtra("category", -1);
                 long longExtra2 = intent.getLongExtra("msgid", -1L);
-                long longExtra3 = intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
+                long longExtra3 = intent.getLongExtra(Constants.EXTRA_BEGIN_MSGID, -1L);
+                long longExtra4 = intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
                 boolean booleanExtra = intent.getBooleanExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
+                String stringExtra = intent.getStringExtra(Constants.EXTRA_LISTENER_ID);
                 if (-1 != longExtra && -1 != intExtra) {
-                    IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, intExtra, longExtra, longExtra2, longExtra3, booleanExtra);
+                    IMMarkMsgReadedMsg iMMarkMsgReadedMsg2 = new IMMarkMsgReadedMsg(context, intExtra, longExtra, longExtra2, longExtra3, longExtra4, booleanExtra);
                     if (IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
+                        iMMarkMsgReadedMsg = iMMarkMsgReadedMsg2;
                         iMMarkMsgReadedMsg.setPaid(intent.getLongExtra(Constants.EXTRA_PA_ID, -1L));
+                    } else {
+                        iMMarkMsgReadedMsg = iMMarkMsgReadedMsg2;
                     }
                     Message.saveCmdMessage(context, iMMarkMsgReadedMsg, null, iMMarkMsgReadedMsg.getPriority());
+                    iMMarkMsgReadedMsg.setListenerKey(stringExtra);
                     return iMMarkMsgReadedMsg;
                 }
                 return null;
@@ -107,21 +130,22 @@ public class IMMarkMsgReadedMsg extends Message {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
             JSONObject jSONObject = new JSONObject(str2);
-            long optLong = jSONObject.optLong("category");
-            long optLong2 = jSONObject.optLong("to");
-            long optLong3 = jSONObject.optLong("msgid");
+            int optInt = jSONObject.optInt("category");
+            long optLong = jSONObject.optLong("to");
+            long optLong2 = jSONObject.optLong("msgid");
+            long optLong3 = jSONObject.optLong(Constants.EXTRA_BEGIN_MSGID, -1L);
             long optLong4 = jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
             if (jSONObject.optInt("tpl") == Constants.getTplZhida(context)) {
                 z = true;
             } else {
                 z = false;
             }
-            IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, optLong, optLong2, optLong3, optLong4, z);
+            IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, optInt, optLong, optLong2, optLong3, optLong4, z);
             iMMarkMsgReadedMsg.setUUID(str);
             if (IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
-                iMMarkMsgReadedMsg.setPaid(jSONObject.getLong("pa_uid"));
+                iMMarkMsgReadedMsg.setPaid(jSONObject.getLong(Constants.EXTRA_PAUID_TYPE));
             }
             return iMMarkMsgReadedMsg;
         }
@@ -146,11 +170,14 @@ public class IMMarkMsgReadedMsg extends Message {
                 if (this.mClientMaxMsgid > 0) {
                     jSONObject.put(Constants.EXTRA_CLIENT_MAX_MSGID, this.mClientMaxMsgid);
                 }
+                if (this.mClientMinMsgid > 0) {
+                    jSONObject.put(Constants.EXTRA_BEGIN_MSGID, this.mClientMinMsgid);
+                }
                 if (this.mIsZHida) {
                     jSONObject.put("tpl", Constants.getTplZhida(this.mContext));
                 }
                 if (IMConfigInternal.getInstance().getIMConfig(this.mContext).isNeedPaid()) {
-                    jSONObject.put("pa_uid", this.mPaid);
+                    jSONObject.put(Constants.EXTRA_PAUID_TYPE, this.mPaid);
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("rpc_retry_time", this.mReSendCount);
@@ -158,7 +185,6 @@ public class IMMarkMsgReadedMsg extends Message {
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -168,14 +194,14 @@ public class IMMarkMsgReadedMsg extends Message {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             if (i == 0) {
-                DBManager.getInstance(context).deleteCmdMsg(getUUID());
+                deleteCmdMsg();
                 setNeedReSend(false);
             } else {
                 if (i != 1004 && i != 1001 && i != 4001) {
                     int i2 = this.mReSendCount;
                     if (i2 >= 3) {
                         setNeedReSend(false);
-                        DBManager.getInstance(context).deleteCmdMsg(getUUID());
+                        deleteCmdMsg();
                     } else {
                         this.mReSendCount = i2 + 1;
                         setNeedReSend(true);
@@ -184,7 +210,7 @@ public class IMMarkMsgReadedMsg extends Message {
                     setNeedReSend(false);
                     LoginManager.getInstance(context).triggleLogoutListener(i, str);
                 }
-                DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
+                updateCmdMsgSendStatus();
             }
             super.handleMessageResult(context, jSONObject, i, str);
         }

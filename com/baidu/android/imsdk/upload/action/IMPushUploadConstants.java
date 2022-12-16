@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.upload.action;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,8 +15,8 @@ public class IMPushUploadConstants {
     public static final String BIM_LOG_ID = "log-id";
     public static final int ERROR_CODE = -1;
     public static final String ONLINE_URL = "https://pimlog.baidu.com/LogService/PushIMLog";
+    public static final String RD_URL = "http://10.227.21.143:8900/LogService/PushIMLog";
     public static final String TAG = "BIMUploadUbc";
-    public static final String TEST_URL = "http://bjhw-ps-superpage131.bjhw.baidu.com:8900/LogService/PushIMLog";
     public static final int VERSION = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,10 +55,10 @@ public class IMPushUploadConstants {
         }
     }
 
-    public static String md5(Context context, String str) {
-        InterceptResult invokeLL;
+    public static String md5(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
                 StringBuilder sb = new StringBuilder();
@@ -77,16 +76,16 @@ public class IMPushUploadConstants {
                 return "";
             }
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static String sign(Context context, String str, long j) {
-        InterceptResult invokeCommon;
+    public static String sign(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
-            return md5(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            return md5(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
         }
-        return (String) invokeCommon.objValue;
+        return (String) invokeLJ.objValue;
     }
 }

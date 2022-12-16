@@ -98,38 +98,24 @@ public class FragmentTabSwellingView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
-            c();
             d();
+            b();
+            c();
             setLayerType(1, null);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = new Path();
-            this.c = new Path();
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i != 1 && i != 4) {
-                this.a.setColor(SkinManager.getColor(R.color.CAM_X0205));
-                this.d.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
-            } else {
-                this.a.setColor(SkinManager.getColor(R.color.CAM_X0206_1));
-                this.d.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
-            }
-            invalidate();
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = new Path();
+            this.c = new Path();
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
             this.a = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0205));
@@ -145,9 +131,9 @@ public class FragmentTabSwellingView extends View {
         }
     }
 
-    public final void e() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.e = yi.g(getContext().getApplicationContext(), R.dimen.tbds137);
             this.f = yi.g(getContext().getApplicationContext(), R.dimen.tbds204);
             this.g = yi.g(getContext().getApplicationContext(), R.dimen.tbds23);
@@ -161,7 +147,7 @@ public class FragmentTabSwellingView extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
             if (getWidth() > yi.l(getContext())) {
                 return;

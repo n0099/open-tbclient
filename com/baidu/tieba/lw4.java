@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class lw4 {
     public static /* synthetic */ Interceptable $ic;
     public static final lw4 a;
+    @JvmField
+    public static final ry4 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,6 +32,9 @@ public final class lw4 {
             }
         }
         a = new lw4();
+        ry4 a2 = jw4.a();
+        Intrinsics.checkNotNullExpressionValue(a2, "getKvCache()");
+        b = a2;
     }
 
     public lw4() {
@@ -48,33 +51,31 @@ public final class lw4 {
         }
     }
 
-    public final void a(String json) {
-        boolean z;
-        List entityList;
+    public final String a(String dialogName) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            String g = gw4.g();
-            df<String> i = jv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g);
-            if (i != null) {
-                String str = i.get(g);
-                if (str != null) {
-                    if (str.length() > 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        str = null;
-                    }
-                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
-                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
-                        Intrinsics.checkNotNullExpressionValue(entityList2, "toEntityList(json, Dialo…rategiesData::class.java)");
-                        mw4.b(entityList, entityList2);
-                    }
-                }
-                i.a(g, json);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            return ((Object) ry4.p("KEY_FREQUENCE_DIALOG_STRATEGY_COUNTER")) + '_' + dialogName;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void b(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            b.x(a(dialogName), 0);
+        }
+    }
+
+    public final void c(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String a2 = a(dialogName);
+            ry4 ry4Var = b;
+            ry4Var.x(a2, ry4Var.m(a2, 0) + 1);
         }
     }
 }

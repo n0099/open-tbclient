@@ -38,8 +38,8 @@ public class JfifUtil {
                 case 194:
                 case DownloadConstants.STATUS_WAITING_FOR_NETWORK /* 195 */:
                 case Constants.METHOD_IM_DELIVER_CONFIG_MSG /* 197 */:
-                case 198:
-                case 199:
+                case Constants.METHOD_IM_FETCH_BUSINESS_SESSION_MSG /* 198 */:
+                case Constants.METHOD_IM_DEL_BUSINESS_SESSION_MSG /* 199 */:
                 case 201:
                 case 202:
                 case 203:

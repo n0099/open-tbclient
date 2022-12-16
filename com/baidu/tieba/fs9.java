@@ -1,84 +1,131 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.model.csj.CSJDrawVideoNativeView;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsSplashScreenAd;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fs9 extends js9 {
+public class fs9 extends yr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsSplashScreenAd c;
-    public final /* synthetic */ es9 d;
 
-    public fs9(es9 es9Var, KsSplashScreenAd ksSplashScreenAd) {
+    /* loaded from: classes4.dex */
+    public class a implements TTAdNative.DrawFeedAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fs9 a;
+
+        public a(fs9 fs9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fs9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fs9Var;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener
+        public void onDrawFeedAdLoad(List<TTDrawFeedAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTDrawFeedAd tTDrawFeedAd : list) {
+                    arrayList.add(new ls9(tTDrawFeedAd));
+                }
+                this.a.onAdLoaded((List) arrayList);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                LogPrinter.e("CSJDrawNative onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fs9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {es9Var, ksSplashScreenAd};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = es9Var;
-        this.c = ksSplashScreenAd;
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdClicked() {
+    @Override // com.baidu.tieba.yr9
+    public void h(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
+            this.e.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
+    @Override // com.baidu.tieba.yr9, com.fun.ad.sdk.internal.api.BasePidLoader
+    public /* bridge */ /* synthetic */ boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        l(activity, viewGroup, str, (ls9) obj);
+        return true;
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowError(int i, String str) {
+    @Override // com.baidu.tieba.yr9
+    public boolean l(Activity activity, ViewGroup viewGroup, String str, ls9 ls9Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
-            this.d.onAdError(this.c, i, str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, ls9Var)) == null) {
+            onShowStart(ls9Var);
+            CSJDrawVideoNativeView cSJDrawVideoNativeView = (CSJDrawVideoNativeView) LayoutInflater.from(activity).inflate(R.layout.fun_csj_ad_draw_video_native, viewGroup, false);
+            viewGroup.removeAllViews();
+            viewGroup.addView(cSJDrawVideoNativeView);
+            cSJDrawVideoNativeView.a((TTNativeAd) ls9Var.a);
+            f(activity, ls9Var, viewGroup, cSJDrawVideoNativeView, new is9(this, ls9Var));
+            return true;
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

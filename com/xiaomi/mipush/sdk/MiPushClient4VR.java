@@ -33,8 +33,8 @@ public class MiPushClient4VR {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
             ii iiVar = new ii();
-            iiVar.c(ht.O.f506a);
-            iiVar.b(b.m131a(context).m132a());
+            iiVar.c(ht.O.f529a);
+            iiVar.b(b.m141a(context).m142a());
             iiVar.d(context.getPackageName());
             iiVar.a("data", str);
             iiVar.a(bd.a());

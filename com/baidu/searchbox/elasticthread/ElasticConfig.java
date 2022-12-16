@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.app.statistic.b;
 import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -294,7 +295,7 @@ public final class ElasticConfig {
             if (optJSONObject3 != null) {
                 QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(Config.TRACE_VISIT_FIRST, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(TypeAdapters.AnonymousClass27.SECOND, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT);
-                double optDouble = optJSONObject3.optDouble("third", QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
+                double optDouble = optJSONObject3.optDouble(b.o, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT = optDouble;
                 ELASTIC_QUEUE_BLOCK_WEIGHT = new double[]{QUEUE_CONFIG_IMMEDIATE_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT, optDouble};
             }

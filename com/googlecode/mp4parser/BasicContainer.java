@@ -14,7 +14,6 @@ import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
 import com.googlecode.mp4parser.util.LazyList;
 import com.googlecode.mp4parser.util.Logger;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BasicContainer implements Container, Iterator<Box> {
     public static /* synthetic */ Interceptable $ic;
     public static final Box EOF;
@@ -307,7 +306,7 @@ public class BasicContainer implements Container, Iterator<Box> {
             sb.append(PreferencesUtil.LEFT_MOUNT);
             for (int i = 0; i < this.boxes.size(); i++) {
                 if (i > 0) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    sb.append(";");
                 }
                 sb.append(this.boxes.get(i).toString());
             }

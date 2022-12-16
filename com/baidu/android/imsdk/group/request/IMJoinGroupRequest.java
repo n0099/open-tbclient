@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
@@ -96,25 +95,47 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
             this.this$0 = iMJoinGroupRequest;
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:19:0x007c  */
+        /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public void run() {
             int i;
             String str;
+            IMListener removeListener;
+            JSONObject jSONObject;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str2 = "";
                 try {
-                    JSONObject jSONObject = new JSONObject(this.mJson);
+                    jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");
-                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    if (!jSONObject.has("tips")) {
+                        str = "";
+                    } else {
+                        str = jSONObject.optString("tips");
+                        String str3 = IMJoinGroupRequest.TAG;
+                        LogUtils.d(str3, "tips:" + str);
+                    }
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
-                IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
-                if (removeListener instanceof BIMValueCallBack) {
-                    ((BIMValueCallBack) removeListener).onResult(i, str, this.this$0.mGroupId);
+                if (TextUtils.isEmpty(str)) {
+                    str2 = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    String str4 = IMJoinGroupRequest.TAG;
+                    LogUtils.d(str4, "resultMsg:" + str2);
+                    str = str2;
+                    removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
+                    if (!(removeListener instanceof BIMValueCallBack)) {
+                    }
+                } else {
+                    removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
+                    if (!(removeListener instanceof BIMValueCallBack)) {
+                        ((BIMValueCallBack) removeListener).onResult(i, str, this.this$0.mGroupId);
+                    }
                 }
             }
         }
@@ -142,6 +163,19 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
         this.mGroupId = str2;
         this.mChannel = i;
         this.mWhy = str3;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mIsFansGroup) {
+                return getFansGroupRequestParam().getBytes();
+            }
+            return getNormalGroupRequestParam().getBytes();
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     private String getFansGroupRequestParam() throws NoSuchAlgorithmException {
@@ -210,19 +244,6 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mIsFansGroup) {
-                return getFansGroupRequestParam().getBytes();
-            }
-            return getNormalGroupRequestParam().getBytes();
-        }
-        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

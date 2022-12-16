@@ -57,8 +57,8 @@ public class fx4 {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            h(TbadkCoreApplication.getInst());
-            i();
+            g(TbadkCoreApplication.getInst());
+            h();
             int i = 1;
             if (g >= 1) {
                 i = 2;
@@ -67,29 +67,19 @@ public class fx4 {
         }
     }
 
-    public static int f() {
-        InterceptResult invokeV;
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            i();
-            return g;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && g < 0) {
-            g = qy4.k().l("app_restart_times", 0);
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && g < 0) {
+            g = ry4.l().m("app_restart_times", 0);
         }
     }
 
-    public static void w() {
+    public static void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
             e = c;
             f = d;
-            r();
+            q();
         }
     }
 
@@ -100,7 +90,7 @@ public class fx4 {
             if (g < 0) {
                 g = context.getSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS, 0).getInt("app_restart_times", 0);
             }
-            h(context);
+            g(context);
             if (g < 1) {
                 i = 1;
             } else {
@@ -110,10 +100,10 @@ public class fx4 {
         }
     }
 
-    public static void k(long j) {
+    public static void j(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65547, null, j) == null) {
-            i();
+        if (interceptable == null || interceptable.invokeJ(65546, null, j) == null) {
+            h();
             int i = 2;
             StatisticItem addParam = new StatisticItem("c14429").addParam("obj_type", 2);
             if (g < 1) {
@@ -162,7 +152,7 @@ public class fx4 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String str = "";
             if (f == 99) {
-                String c2 = sb5.c();
+                String c2 = kc5.c();
                 if (xi.isEmpty(c2)) {
                     return "";
                 }
@@ -176,10 +166,10 @@ public class fx4 {
         return (String) invokeV.objValue;
     }
 
-    public static void j() {
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            i();
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            h();
             StatisticItem statisticItem = new StatisticItem("c14484");
             int i = 1;
             if (g >= 1) {
@@ -189,10 +179,10 @@ public class fx4 {
         }
     }
 
-    public static void m() {
+    public static void l() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
             StatisticItem addParam = new StatisticItem("c14579").addParam("obj_type", jx4.a().b());
             if (jx4.a().d()) {
                 i = 1;
@@ -203,23 +193,23 @@ public class fx4 {
         }
     }
 
-    public static void p() {
+    public static void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            i();
-            h(TbadkCoreApplication.getInst());
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            h();
+            g(TbadkCoreApplication.getInst());
             SharedPreferences.Editor edit = a.edit();
-            q("c14429", edit);
-            q("c14483", edit);
-            q("c14482", edit);
+            p("c14429", edit);
+            p("c14483", edit);
+            p("c14482", edit);
             a = null;
         }
     }
 
-    public static String g(Intent intent) {
+    public static String f(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
             String dataString = intent.getDataString();
             if (dataString != null && dataString.startsWith("custom")) {
                 StringBuilder sb = new StringBuilder();
@@ -240,30 +230,30 @@ public class fx4 {
         return (String) invokeL.objValue;
     }
 
-    public static void u(Activity activity) {
+    public static void t(Activity activity) {
         ActivityManager activityManager;
         ActivityManager.AppTask appTask;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65557, null, activity) == null) && activity != null && activity.getClass() != null && Build.VERSION.SDK_INT >= 23 && (activityManager = (ActivityManager) activity.getSystemService("activity")) != null && (appTask = (ActivityManager.AppTask) ListUtils.getItem(activityManager.getAppTasks(), 0)) != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && activity.getClass().getName().equals(appTask.getTaskInfo().baseActivity.getClassName())) {
-            String g2 = g(appTask.getTaskInfo().baseIntent);
-            s(g2, xi.isEmpty(g2));
-            w();
+        if ((interceptable == null || interceptable.invokeL(65556, null, activity) == null) && activity != null && activity.getClass() != null && Build.VERSION.SDK_INT >= 23 && (activityManager = (ActivityManager) activity.getSystemService("activity")) != null && (appTask = (ActivityManager.AppTask) ListUtils.getItem(activityManager.getAppTasks(), 0)) != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && activity.getClass().getName().equals(appTask.getTaskInfo().baseActivity.getClassName())) {
+            String f2 = f(appTask.getTaskInfo().baseIntent);
+            r(f2, xi.isEmpty(f2));
+            v();
         }
     }
 
-    public static void h(Context context) {
+    public static void g(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, context) == null) && a == null) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, context) == null) && a == null) {
             a = context.getSharedPreferences("growth_funnel_sp", 0);
         }
     }
 
-    public static void l(String str, boolean z) {
+    public static void k(String str, boolean z) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65548, null, str, z) == null) {
-            i();
+        if (interceptable == null || interceptable.invokeLZ(65547, null, str, z) == null) {
+            h();
             StatisticItem statisticItem = new StatisticItem("c14430");
             int i3 = 2;
             if (z) {
@@ -285,9 +275,9 @@ public class fx4 {
         }
     }
 
-    public static void t(AppLaunchInfoFetcher.Type type, Intent intent) {
+    public static void s(AppLaunchInfoFetcher.Type type, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65556, null, type, intent) != null) || f < 99) {
+        if ((interceptable != null && interceptable.invokeLL(65555, null, type, intent) != null) || f < 99) {
             return;
         }
         if (type == AppLaunchInfoFetcher.Type.BROADCAST) {
@@ -299,21 +289,21 @@ public class fx4 {
         } else if (type == AppLaunchInfoFetcher.Type.ACTIVITY) {
             if (intent != null) {
                 String dataString = intent.getDataString();
-                s(dataString, xi.isEmpty(dataString));
+                r(dataString, xi.isEmpty(dataString));
             } else {
-                v("intent=null", 100);
+                u("intent=null", 100);
             }
         } else {
             d = 101;
             c = "START_TYPE_FOR_UNKNOWN";
         }
-        w();
+        v();
     }
 
-    public static void n(String str) {
+    public static void m(String str) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             StatisticItem addParam = new StatisticItem("c14579").addParam("obj_locate", str).addParam("obj_type", jx4.a().b());
             if (jx4.a().d()) {
                 i = 1;
@@ -328,10 +318,10 @@ public class fx4 {
         }
     }
 
-    public static void o(String str) {
+    public static void n(String str) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
             StatisticItem addParam = new StatisticItem("c14579").addParam("obj_locate", str).addParam("obj_type", jx4.a().b());
             if (jx4.a().d()) {
                 i = 1;
@@ -346,10 +336,10 @@ public class fx4 {
         }
     }
 
-    public static void q(String str, SharedPreferences.Editor editor) {
+    public static void p(String str, SharedPreferences.Editor editor) {
         Set<String> stringSet;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65553, null, str, editor) != null) || (stringSet = a.getStringSet(str, null)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65552, null, str, editor) != null) || (stringSet = a.getStringSet(str, null)) == null) {
             return;
         }
         for (String str2 : stringSet) {
@@ -365,9 +355,9 @@ public class fx4 {
         editor.remove(str).apply();
     }
 
-    public static void r() {
+    public static void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("start_type", f + "");
             hashMap.put("start_scheme", e());
@@ -378,23 +368,23 @@ public class fx4 {
         }
     }
 
-    public static void s(String str, boolean z) {
+    public static void r(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65555, null, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65554, null, str, z) == null) {
             c = str;
             d = z ? 1 : 0;
         }
     }
 
     @Deprecated
-    public static void v(String str, int i) {
+    public static void u(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65558, null, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65557, null, str, i) == null) {
             int i2 = f;
             if (i2 == 99 || i2 == 100) {
                 d = i;
                 c = str;
-                w();
+                v();
             }
         }
     }

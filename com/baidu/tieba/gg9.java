@@ -1,9 +1,29 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import android.content.Context;
 /* loaded from: classes4.dex */
 public interface gg9 {
-    void close() throws IOException;
+    void a(int i);
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    String b(boolean z);
+
+    String c(String str);
+
+    int d();
+
+    String e(String str);
+
+    Context getAppContext();
+
+    int getInt(String str, int i);
+
+    long getLong(String str, long j);
+
+    boolean isDebug();
+
+    void putInt(String str, int i);
+
+    void putLong(String str, long j);
+
+    void putString(String str, String str2);
 }

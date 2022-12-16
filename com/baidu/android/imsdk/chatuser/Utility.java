@@ -1,8 +1,6 @@
 package com.baidu.android.imsdk.chatuser;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic;
@@ -47,82 +44,10 @@ public class Utility {
         }
     }
 
-    public static ChatUser contructChatUser(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            long optLong = jSONObject.optLong("to_user");
-            long optLong2 = jSONObject.optLong("baidu_uid");
-            String optString = jSONObject.optString("user_name");
-            String optString2 = jSONObject.optString("sex");
-            String optString3 = jSONObject.optString("tinyurl");
-            String optString4 = jSONObject.optString("headurl");
-            String optString5 = jSONObject.optString("phone");
-            String optString6 = jSONObject.optString("userdetail");
-            int optInt = jSONObject.optInt("account_type");
-            ChatUser chatUser = new ChatUser(optLong, optLong2, optString, optString4);
-            chatUser.setUserDetail(optString6);
-            chatUser.setTinyUrl(optString3);
-            if (!TextUtils.isEmpty(optString2) && TextUtils.isDigitsOnly(optString2)) {
-                try {
-                    chatUser.setSex(Integer.valueOf(optString2).intValue());
-                } catch (Exception e) {
-                    LogUtils.e("Utility", "contructChatUser sex:", e);
-                }
-            }
-            if (!TextUtils.isEmpty(optString5) && TextUtils.isDigitsOnly(optString5)) {
-                try {
-                    chatUser.setPhone(Long.valueOf(optString5).longValue());
-                } catch (Exception e2) {
-                    LogUtils.e("Utility", "contructChatUser phone:", e2);
-                }
-            }
-            chatUser.setAccountType(optInt);
-            return chatUser;
-        }
-        return (ChatUser) invokeL.objValue;
-    }
-
-    public static ChatUser contructChatUserFormUid(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            long optLong = jSONObject.optLong("uk");
-            long optLong2 = jSONObject.optLong("baidu_uid");
-            String optString = jSONObject.optString("user_name");
-            String optString2 = jSONObject.optString("sex");
-            String optString3 = jSONObject.optString("tinyurl");
-            String optString4 = jSONObject.optString("headurl");
-            String optString5 = jSONObject.optString("phone");
-            String optString6 = jSONObject.optString("userdetail");
-            int optInt = jSONObject.optInt("account_type");
-            ChatUser chatUser = new ChatUser(optLong, optLong2, optString, optString4);
-            chatUser.setUserDetail(optString6);
-            chatUser.setTinyUrl(optString3);
-            if (!TextUtils.isEmpty(optString2) && TextUtils.isDigitsOnly(optString2)) {
-                try {
-                    chatUser.setSex(Integer.valueOf(optString2).intValue());
-                } catch (Exception e) {
-                    LogUtils.e("Utility", "contructChatUserFormUid sex:", e);
-                }
-            }
-            if (!TextUtils.isEmpty(optString5) && TextUtils.isDigitsOnly(optString5)) {
-                try {
-                    chatUser.setPhone(Long.valueOf(optString5).longValue());
-                } catch (Exception e2) {
-                    LogUtils.e("Utility", "contructChatUserFormUid phone:", e2);
-                }
-            }
-            chatUser.setAccountType(optInt);
-            return chatUser;
-        }
-        return (ChatUser) invokeL.objValue;
-    }
-
     public static String createAnonyMousUserName(IpInfo ipInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ipInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ipInfo)) == null) {
             if (ipInfo == null) {
                 return "未知地区客户";
             }
@@ -150,7 +75,7 @@ public class Utility {
     public static boolean isZhiXiaShi(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             for (String str2 : ZXS_LIST) {
                 if (str2.startsWith(str)) {
                     return true;

@@ -1,104 +1,75 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class ed1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = null;
-    public static String b = null;
-    public static int c = 0;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947730391, "Lcom/baidu/tieba/ed1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947730391, "Lcom/baidu/tieba/ed1;");
-        }
-    }
-
-    public static String a(String str) {
+    public static Bundle a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !d) {
-            return;
-        }
-        Log.d("CashierSdk", str);
-    }
-
-    public static void d(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(objArr));
-    }
-
-    public static void e(StackTraceElement[] stackTraceElementArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
-            a = stackTraceElementArr[1].getFileName();
-            b = stackTraceElementArr[1].getMethodName();
-            c = stackTraceElementArr[1].getLineNumber();
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !d) {
-            return;
-        }
-        Log.i("CashierSdk", str);
-    }
-
-    public static void c(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, str, th) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(str), th);
-    }
-
-    public static String f(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
-            if (objArr == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            for (String str : map.keySet()) {
+                bundle.putString(str, map.get(str));
             }
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static JSONObject b(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            for (String str : map.keySet()) {
+                jSONObject.put(str, map.get(str));
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static Map<String, String> d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            Map<String, String> c = c();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        c.put(next, jSONObject.optString(next));
+                    }
                 }
             }
-            return a(sb.toString());
+            return c;
         }
-        return (String) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static <K, V> Map<K, V> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return new ArrayMap();
+            }
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 }

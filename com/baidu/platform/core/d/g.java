@@ -16,6 +16,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.platform.base.SearchType;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +163,7 @@ public class g extends com.baidu.platform.base.d {
                             poiInfo.setAddress(jSONObject2.optString("address"));
                             poiInfo.setProvince(jSONObject2.optString("province"));
                             poiInfo.setCity(jSONObject2.optString("city"));
-                            poiInfo.setArea(jSONObject2.optString("area"));
+                            poiInfo.setArea(jSONObject2.optString(DnsModel.AREA_KEY));
                             poiInfo.setStreetId(jSONObject2.optString("street_id"));
                             poiInfo.setUid(jSONObject2.optString("uid"));
                             poiInfo.setPhoneNum(jSONObject2.optString("telephone"));

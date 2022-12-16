@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface to5<T> {
-    void a();
+    int a();
 
-    void b(String str);
-
-    void c(T t);
-
-    String getTitle();
-
-    void onDestroy();
+    T getItem(int i);
 }

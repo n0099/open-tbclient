@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.internal;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -89,23 +90,6 @@ public class ListenerManager {
         return (String) invokeL.objValue;
     }
 
-    public synchronized IMListener getListener(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                if (str == null) {
-                    return null;
-                }
-                if (!this.mMap.containsKey(str)) {
-                    return null;
-                }
-                return this.mMap.get(str);
-            }
-        }
-        return (IMListener) invokeL.objValue;
-    }
-
     public synchronized IMListener removeListener(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -136,5 +120,22 @@ public class ListenerManager {
             }
         }
         return invokeLL.booleanValue;
+    }
+
+    public synchronized IMListener getListener(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                if (!this.mMap.containsKey(str)) {
+                    return null;
+                }
+                return this.mMap.get(str);
+            }
+        }
+        return (IMListener) invokeL.objValue;
     }
 }

@@ -1,121 +1,82 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.util.io.AssetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class pg3 {
+public final class pg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                ik4.d(context.getAssets().open(str, 0));
+                return true;
+            } catch (IOException unused) {
+                ik4.d(null);
+                return false;
+            } catch (Throwable th) {
+                ik4.d(null);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
 
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            r0 = null;
+            String str2 = null;
+            try {
+                inputStream = context.getAssets().open(str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                ik4.d(inputStream2);
+                throw th;
+            }
+            if (inputStream == null) {
+                ik4.d(inputStream);
+                return null;
+            }
+            try {
+                try {
+                    str2 = lk4.b(inputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    if (ok1.a) {
+                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
+                    }
+                    ik4.d(inputStream);
+                    return str2;
                 }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
+                ik4.d(inputStream);
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream2 = inputStream;
+                ik4.d(inputStream2);
+                throw th;
             }
         }
-    }
-
-    public static void a(o32 o32Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, o32Var, context) == null) {
-            b(o32Var, context, 2);
-        }
-    }
-
-    public static void b(o32 o32Var, Context context, int i) {
-        View V;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, o32Var, context, i) == null) && o32Var != null && o32Var.k() >= i) {
-            l32 j = o32Var.j(o32Var.k() - i);
-            l32 m = o32Var.m();
-            if (m != null && m.D0) {
-                return;
-            }
-            float o = wh3.o(context) >> 2;
-            if (j != null && (V = j.V()) != null) {
-                ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
-            }
-        }
-    }
-
-    public static void c(o32 o32Var, Context context) {
-        View V;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, o32Var, context) == null) && o32Var != null && o32Var.k() >= 2) {
-            l32 j = o32Var.j(o32Var.k() - 2);
-            float o = wh3.o(context) >> 2;
-            if (j != null && (V = j.V()) != null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, 0.0f, -o);
-                ofFloat.setDuration(300L).start();
-                ofFloat.addListener(new a(V));
-            }
-        }
-    }
-
-    public static void d(@NonNull di4 di4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLII(65539, null, di4Var, str, i, i2) != null) || di4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
-                }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
-            }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c != 1 && c != 2) {
-                di4Var.i(i, i2);
-                return;
-            }
-            return;
-        }
-        o32 V = sp2.U().V();
-        l32 j = V.j(V.k() - 1);
-        if (j != null && j.D0) {
-            return;
-        }
-        di4Var.i(i, i2);
+        return (String) invokeLL.objValue;
     }
 }

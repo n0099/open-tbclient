@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,8 +33,10 @@ public class VoiceData {
         public int duration2;
         public int elapse;
         public String from;
+        public boolean isGroupChat;
         public boolean isLocal;
         public String voiceId;
+        public String voiceUrl;
         public Integer voice_status;
 
         public VoiceModel() {
@@ -49,24 +52,61 @@ public class VoiceData {
                     return;
                 }
             }
+            this.isGroupChat = false;
             this.isLocal = false;
             this.elapse = 0;
             this.curr_time = 0;
             this.voice_status = 1;
         }
 
-        public String getId() {
+        public int getCurr_time() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.curr_time;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getDuration() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.duration;
+            }
+            return invokeV.intValue;
+        }
+
+        public String getId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return getVoiceId();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getVoiceId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return this.voiceId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getVoiceUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.voiceUrl;
             }
             return (String) invokeV.objValue;
         }
 
         public void init() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 this.voice_status = 1;
                 this.elapse = 0;
                 this.isLocal = false;
@@ -79,33 +119,61 @@ public class VoiceData {
                 return;
             }
             this.from = voiceModel.from;
-            this.voiceId = voiceModel.voiceId;
+            setVoiceId(voiceModel.getVoiceId());
             this.isLocal = voiceModel.isLocal;
-            this.duration = voiceModel.duration;
+            setDuration(voiceModel.getDuration());
             this.duration2 = voiceModel.duration2;
             this.elapse = voiceModel.elapse;
-            this.curr_time = voiceModel.curr_time;
+            setCurr_time(voiceModel.getCurr_time());
             this.voice_status = voiceModel.voice_status;
         }
 
         public void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             init();
-            this.duration = jSONObject.optInt("during_time") / 1000;
-            this.voiceId = jSONObject.optString("voice_md5");
+            setDuration(jSONObject.optInt("during_time") / 1000);
+            setVoiceId(jSONObject.optString("voice_md5"));
         }
 
         public void parserProtobuf(Voice voice) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, voice) != null) || voice == null) {
+            if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, voice) != null) || voice == null) {
                 return;
             }
             init();
-            this.duration = voice.during_time.intValue() / 1000;
-            this.voiceId = voice.voice_md5;
+            setDuration(voice.during_time.intValue() / 1000);
+            setVoiceId(voice.voice_md5);
+        }
+
+        public void setCurr_time(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.curr_time = i;
+            }
+        }
+
+        public void setDuration(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                this.duration = i;
+            }
+        }
+
+        public void setVoiceId(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+                this.voiceId = str;
+            }
+        }
+
+        public void setVoiceUrl(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+                this.voiceUrl = str;
+            }
         }
     }
 

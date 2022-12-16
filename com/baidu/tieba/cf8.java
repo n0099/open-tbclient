@@ -1,116 +1,98 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.RGBLuminanceSource;
-import com.google.zxing.common.GlobalHistogramBinarizer;
-import com.google.zxing.common.HybridBinarizer;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.Map;
-/* loaded from: classes3.dex */
-public class cf8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class cf8 extends h46<vd8> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public TbImageView j;
+    public TextView k;
+    public ImageView l;
+    public vd8 m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947672948, "Lcom/baidu/tieba/cf8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947672948, "Lcom/baidu/tieba/cf8;");
+    @Override // com.baidu.tieba.h46
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d074f : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cf8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new EnumMap(DecodeHintType.class);
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(BarcodeFormat.QR_CODE);
-        arrayList.add(BarcodeFormat.AZTEC);
-        arrayList.add(BarcodeFormat.DATA_MATRIX);
-        arrayList.add(BarcodeFormat.PDF_417);
-        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        a.put(DecodeHintType.CHARACTER_SET, IMAudioTransRequest.CHARSET);
+        View h = h();
+        this.i = h;
+        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091ade);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091add);
+        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091adf);
+        this.i.setOnClickListener(this);
     }
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h46
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                int i = 1;
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(str, options);
-                int i2 = options.outHeight / 800;
-                if (i2 > 0) {
-                    i = i2;
-                }
-                options.inSampleSize = i;
-                options.inJustDecodeBounds = false;
-                return BitmapFactory.decodeFile(str, options);
-            } catch (Exception unused) {
-                return null;
-            }
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
         }
-        return (Bitmap) invokeL.objValue;
+        this.a = i;
+        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+        SkinManager.setImageResource(this.l, R.drawable.icon_play_video, i);
     }
 
-    public static String b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        RGBLuminanceSource rGBLuminanceSource;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
-            try {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int[] iArr = new int[width * height];
-                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
-            } catch (Exception e) {
-                e = e;
-                rGBLuminanceSource = null;
-            }
-            try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                if (rGBLuminanceSource != null) {
-                    try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                        return null;
-                    }
-                }
-                return null;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
+            MessageManager messageManager = MessageManager.getInstance();
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
+            vd8 vd8Var = this.m;
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(vd8Var.c, vd8Var.d, "person_page")));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.h46
+    /* renamed from: r */
+    public void i(vd8 vd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return b(a(str));
+        if ((interceptable != null && interceptable.invokeL(1048580, this, vd8Var) != null) || vd8Var == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        this.m = vd8Var;
+        this.j.K(vd8Var.a, 10, false);
+        this.k.setText(vd8Var.b);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 }

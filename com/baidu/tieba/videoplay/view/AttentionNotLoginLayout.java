@@ -141,7 +141,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
                         oz4 oz4Var = new oz4();
                         TBSpecificationBtn tBSpecificationBtn = this.c;
                         if (tBSpecificationBtn != null) {
-                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f03f5));
+                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f03fb));
                         }
                         TBSpecificationBtn tBSpecificationBtn2 = this.c;
                         if (tBSpecificationBtn2 != null) {

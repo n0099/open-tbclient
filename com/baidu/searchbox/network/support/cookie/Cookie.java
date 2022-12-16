@@ -2,6 +2,7 @@ package com.baidu.searchbox.network.support.cookie;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.searchbox.network.outback.core.Headers;
@@ -26,7 +27,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Cookie {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DAY_OF_MONTH_PATTERN;
@@ -44,7 +45,7 @@ public final class Cookie {
     public final boolean secure;
     public final String value;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,7 +271,7 @@ public final class Cookie {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.name);
-            sb.append('=');
+            sb.append(a.h);
             sb.append(this.value);
             if (this.persistent) {
                 if (this.expiresAt == Long.MIN_VALUE) {
@@ -382,9 +383,9 @@ public final class Cookie {
         return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00f1  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00f3  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0117  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00f2  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00f4  */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0118  */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -403,8 +404,8 @@ public final class Cookie {
             int length = str.length();
             char c = WebvttCueParser.CHAR_SEMI_COLON;
             int delimiterOffset = Util.delimiterOffset(str, 0, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-            char c2 = '=';
-            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, '=');
+            char c2 = a.h;
+            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.h);
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
             }
@@ -454,12 +455,12 @@ public final class Cookie {
                     }
                     i = delimiterOffset3 + 1;
                     c = WebvttCueParser.CHAR_SEMI_COLON;
-                    c2 = '=';
+                    c2 = a.h;
                 }
                 z4 = true;
                 i = delimiterOffset3 + 1;
                 c = WebvttCueParser.CHAR_SEMI_COLON;
-                c2 = '=';
+                c2 = a.h;
             }
             long j6 = Long.MIN_VALUE;
             if (j4 != Long.MIN_VALUE) {

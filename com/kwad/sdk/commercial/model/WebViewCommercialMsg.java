@@ -7,7 +7,6 @@ import com.kwad.sdk.core.response.kwai.a;
 import com.kwad.sdk.utils.r;
 import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import com.kwai.adclient.kscommerciallogger.model.SubBusinessType;
-import com.qq.e.comm.constants.Constants;
 import java.io.Serializable;
 import org.json.JSONObject;
 @KsJson
@@ -37,9 +36,9 @@ public class WebViewCommercialMsg extends a implements b, Serializable {
                 this.subBiz = SubBusinessType.OTHER;
             }
         }
-        if (jSONObject.has(Constants.KEYS.BIZ)) {
+        if (jSONObject.has("biz")) {
             try {
-                this.biz = BusinessType.valueOf(jSONObject.optString(Constants.KEYS.BIZ));
+                this.biz = BusinessType.valueOf(jSONObject.optString("biz"));
             } catch (Exception unused2) {
                 this.biz = BusinessType.OTHER;
             }
@@ -56,7 +55,7 @@ public class WebViewCommercialMsg extends a implements b, Serializable {
     @Override // com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        r.putValue(jSONObject, Constants.KEYS.BIZ, this.biz.value);
+        r.putValue(jSONObject, "biz", this.biz.value);
         r.putValue(jSONObject, "subBiz", this.subBiz.value);
         r.putValue(jSONObject, "type", this.type.getValue());
     }

@@ -1,6 +1,7 @@
 package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +25,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Cookie {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DAY_OF_MONTH_PATTERN;
@@ -42,18 +43,21 @@ public final class Cookie {
     public final boolean secure;
     public final String value;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public String domain;
         public long expiresAt;
         public boolean hostOnly;
         public boolean httpOnly;
+        @Nullable
         public String name;
         public String path;
         public boolean persistent;
         public boolean secure;
+        @Nullable
         public String value;
 
         public Builder() {
@@ -291,7 +295,7 @@ public final class Cookie {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.name);
-            sb.append('=');
+            sb.append(a.h);
             sb.append(this.value);
             if (this.persistent) {
                 if (this.expiresAt == Long.MIN_VALUE) {
@@ -400,8 +404,8 @@ public final class Cookie {
             int length = str.length();
             char c = WebvttCueParser.CHAR_SEMI_COLON;
             int delimiterOffset = Util.delimiterOffset(str, 0, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-            char c2 = '=';
-            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, '=');
+            char c2 = a.h;
+            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.h);
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
             }
@@ -451,12 +455,12 @@ public final class Cookie {
                     }
                     i = delimiterOffset3 + 1;
                     c = WebvttCueParser.CHAR_SEMI_COLON;
-                    c2 = '=';
+                    c2 = a.h;
                 }
                 z4 = true;
                 i = delimiterOffset3 + 1;
                 c = WebvttCueParser.CHAR_SEMI_COLON;
-                c2 = '=';
+                c2 = a.h;
             }
             long j6 = Long.MIN_VALUE;
             if (j4 != Long.MIN_VALUE) {

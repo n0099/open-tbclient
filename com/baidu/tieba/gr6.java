@@ -2,83 +2,125 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.oy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gr6 extends hj6<sr6, ThreadCardViewHolder<sr6>> {
+public class gr6 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public r9 a;
+    public zs8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gr6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    public gr6(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId2;
+        this.a = r9Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: E */
-    public ThreadCardViewHolder<sr6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(zs8 zs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            oy.b bVar = new oy.b(this.c.getPageActivity(), true);
-            bVar.n(new lr6(this.c.getPageActivity()));
-            bVar.l().b(0);
-            bVar.l().c(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            bVar.l().h(0);
-            ThreadCardViewHolder<sr6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
-            threadCardViewHolder.i(this.mPageId);
-            return threadCardViewHolder;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zs8Var) == null) {
+            this.b = zs8Var;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj6, com.baidu.tieba.kn
-    /* renamed from: F */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sr6 sr6Var, ThreadCardViewHolder<sr6> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sr6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(sr6Var);
-            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xz4(9)));
-            return threadCardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            r9 r9Var = this.a;
+            if (r9Var != null && ch.f(r9Var)) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            r9 r9Var = this.a;
+            if (r9Var != null && ch.f(r9Var)) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            r9 r9Var = this.a;
+            if (r9Var != null && ch.f(r9Var)) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        r9 r9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            zs8 zs8Var = this.b;
+            if ((zs8Var != null && zs8Var.onJsPrompt(str2, jsPromptResult)) || (r9Var = this.a) == null || !ch.f(r9Var)) {
+                return true;
+            }
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

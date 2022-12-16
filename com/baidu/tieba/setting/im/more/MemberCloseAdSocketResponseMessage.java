@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.CloseAd.CloseAdResIdl;
 import tbclient.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage 
             if (closeAdResIdl.data != null) {
                 CloseAdData closeAdData = new CloseAdData();
                 this.mData = closeAdData;
-                closeAdData.B(closeAdResIdl.data.vip_close_ad);
+                closeAdData.I(closeAdResIdl.data.vip_close_ad);
             }
             return closeAdResIdl;
         }

@@ -1,111 +1,29 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class i17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public String b;
+    public int c;
 
-    public static void a(View view2, Object obj, int i, String str) {
+    public i17() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, view2, obj, i, str) == null) {
-            if (obj instanceof z17) {
-                z17 z17Var = (z17) obj;
-                if (z17Var.e) {
-                    StatisticItem statisticItem = new StatisticItem("c13736");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem.eventStat();
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13735");
-                statisticItem2.param("obj_locate", str);
-                statisticItem2.param("topic_id", z17Var.a);
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem2.eventStat();
-            } else if (obj instanceof b27) {
-                ThreadData threadData = ((b27) obj).f;
-                StatisticItem statisticItem3 = new StatisticItem("c13738");
-                statisticItem3.param("obj_type", str);
-                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (threadData != null) {
-                    statisticItem3.param("tid", threadData.getTid());
-                    statisticItem3.param("fid", threadData.getFid());
-                }
-                statisticItem3.eventStat();
-            } else if (obj instanceof tr4) {
-                d(view2);
-                if (!c(view2)) {
-                    return;
-                }
-                ThreadData threadData2 = ((tr4) obj).getThreadData();
-                StatisticItem statisticItem4 = new StatisticItem("c13738");
-                statisticItem4.param("obj_type", str);
-                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (threadData2 != null) {
-                    statisticItem4.param("tid", threadData2.getTid());
-                    statisticItem4.param("fid", threadData2.getFid());
-                }
-                statisticItem4.eventStat();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static void b(View view2, Object obj, String str) {
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, obj, str) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13825");
-            statisticItem.param("obj_type", str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (obj instanceof b27) {
-                threadData = ((b27) obj).f;
-            } else if (obj instanceof tr4) {
-                threadData = ((tr4) obj).getThreadData();
-            } else {
-                threadData = null;
-            }
-            if (threadData != null) {
-                statisticItem.param("tid", threadData.getTid());
-                statisticItem.param("fid", threadData.getFid());
-            }
-            statisticItem.eventStat();
-        }
-    }
-
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            int id = view2.getId();
-            if (id != R.id.obfuscated_res_0x7f0921dd && id != R.id.obfuscated_res_0x7f0921f1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(View view2) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, view2) != null) || !(view2 instanceof TbImageView)) {
-            return;
-        }
-        StatisticItem addParam = new StatisticItem("c14675").addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (UbsABTestHelper.isImgClickToPb()) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        addParam.addParam(TiebaStatic.Params.OBJ_TO, i).eventStat();
     }
 }

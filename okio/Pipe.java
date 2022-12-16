@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Pipe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class Pipe {
     public final Source source;
     public boolean sourceClosed;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class PipeSink implements Sink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public final class Pipe {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class PipeSource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +212,7 @@ public final class Pipe {
         throw new IllegalArgumentException("maxBufferSize < 1: " + j);
     }
 
-    public Sink sink() {
+    public final Sink sink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -221,7 +221,7 @@ public final class Pipe {
         return (Sink) invokeV.objValue;
     }
 
-    public Source source() {
+    public final Source source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

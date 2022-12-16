@@ -94,7 +94,7 @@ public class EmotionDetailModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void B(long j, int i) {
+    public void I(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
             if (j < 0 && i < 0) {

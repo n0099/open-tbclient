@@ -89,7 +89,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes6.dex */
     public interface e {
-        og<TbImageView> S();
+        og<TbImageView> U();
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
@@ -456,7 +456,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         paint.setDither(true);
         this.x.setFilterBitmap(true);
         Resources resources = getResources();
-        String str = resources.getString(R.string.obfuscated_res_0x7f0f0734) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0735);
+        String str = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
         this.y = str;
         this.z = ((str.length() + 2) * yi.d(this.e, 10.0f)) / 2;
         this.A = yi.d(this.e, 10.0f);
@@ -464,7 +464,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.B = paint2;
         paint2.setColor(-1);
         this.B.setTextSize(resources.getDimension(R.dimen.obfuscated_res_0x7f0701d5));
-        Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f0802b3);
+        Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.bg_look_photo_1);
         this.C = cashBitmap;
         if (cashBitmap != null) {
             this.D = new Rect(0, 0, this.C.getWidth(), this.C.getHeight());
@@ -629,7 +629,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             Bitmap bitmap = this.C;
             if (bitmap == null || bitmap.isRecycled()) {
-                Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f0802b3);
+                Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.bg_look_photo_1);
                 this.C = cashBitmap;
                 if (cashBitmap != null) {
                     this.D = new Rect(0, 0, this.C.getWidth(), this.C.getHeight());
@@ -709,7 +709,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if ((interceptable != null && interceptable.invokeLLI(1048589, this, tbImageView, mediaData, i) != null) || tbImageView == null) {
             return;
         }
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08127e);
+        tbImageView.setDefaultResource(R.drawable.transparent_bg);
         String picUrl = mediaData.getPicUrl();
         if (mediaData.getType() == 5) {
             picUrl = null;
@@ -738,9 +738,9 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             this.l = i;
             this.u = r9Var;
             Resources resources = getResources();
-            this.y = resources.getString(R.string.obfuscated_res_0x7f0f0734) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0735);
+            this.y = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
             if (this.r == null && (r9Var.getOrignalPage() instanceof e)) {
-                this.r = ((e) r9Var.getOrignalPage()).S();
+                this.r = ((e) r9Var.getOrignalPage()).U();
             }
             if (this.r == null) {
                 return;
@@ -761,7 +761,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     while (i5 < i4) {
                         TbImageView b2 = this.r.b();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(r9Var.getString(R.string.obfuscated_res_0x7f0f0550));
+                        sb.append(r9Var.getString(R.string.editor_image));
                         i5++;
                         sb.append(i5);
                         b2.setContentDescription(sb.toString());

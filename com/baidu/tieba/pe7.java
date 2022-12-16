@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
-import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pe7 implements CustomMessageTask.CustomRunnable<Object> {
+public class pe7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pe7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     public pe7() {
         Interceptable interceptable = $ic;
@@ -29,18 +27,35 @@ public class pe7 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public static pe7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchGroupsLocalMessage)) {
-                jv4.f();
-                jv4.b("tb.im_group_search_history");
-                return new ResponseSearchGroupLocalMessage(2001206);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (pe7.class) {
+                    if (b == null) {
+                        b = new pe7();
+                    }
+                }
             }
-            return null;
+            return b;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (pe7) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
+        }
     }
 }

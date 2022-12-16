@@ -19,7 +19,6 @@ import com.baidu.webkit.internal.blink.WebKitVersionBlink;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.kuaishou.weapon.p0.h;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -133,7 +132,7 @@ public final class CommonUtils implements INoProGuard {
             if (TextUtils.isEmpty(cookie)) {
                 return null;
             }
-            String[] split = cookie.split(ParamableElem.DIVIDE_PARAM);
+            String[] split = cookie.split(";");
             int length = split.length;
             for (int i = 0; i != length; i++) {
                 String[] split2 = split[i].trim().split("=");

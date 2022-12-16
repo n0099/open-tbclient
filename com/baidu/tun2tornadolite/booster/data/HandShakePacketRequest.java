@@ -3,7 +3,6 @@ package com.baidu.tun2tornadolite.booster.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001:\u0002\u000f\u0010B\u0005¢\u0006\u0002\u0010\u0002R\u001c\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000e¨\u0006\u0011"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest;", "", "()V", "gameinfo", "Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$GameInfo;", "getGameinfo", "()Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$GameInfo;", "setGameinfo", "(Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$GameInfo;)V", TableDefine.DB_TABLE_USERINFO, "Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$UserInfo;", "getUserinfo", "()Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$UserInfo;", "setUserinfo", "(Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$UserInfo;)V", "GameInfo", "UserInfo", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class HandShakePacketRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +19,7 @@ public final class HandShakePacketRequest {
     public UserInfo userinfo;
 
     @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001a\u0010\t\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u0006\"\u0004\b\u000b\u0010\bR\u001a\u0010\f\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u0006\"\u0004\b\u000e\u0010\b¨\u0006\u000f"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$GameInfo;", "", "()V", "game_id", "", "getGame_id", "()Ljava/lang/String;", "setGame_id", "(Ljava/lang/String;)V", "package_name", "getPackage_name", "setPackage_name", "region", "getRegion", "setRegion", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class GameInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,8 +97,8 @@ public final class HandShakePacketRequest {
         }
     }
 
-    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u001a\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001a\u0010\t\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u0006\"\u0004\b\u000b\u0010\bR\u001a\u0010\f\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u0006\"\u0004\b\u000e\u0010\bR\u001a\u0010\u000f\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0006\"\u0004\b\u0011\u0010\bR\u001a\u0010\u0012\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0006\"\u0004\b\u0014\u0010\bR\u001a\u0010\u0015\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0006\"\u0004\b\u0017\u0010\bR\u001a\u0010\u0018\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u0006\"\u0004\b\u001a\u0010\bR\u001a\u0010\u001b\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u0006\"\u0004\b\u001d\u0010\b¨\u0006\u001e"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$UserInfo;", "", "()V", "bduss", "", "getBduss", "()Ljava/lang/String;", "setBduss", "(Ljava/lang/String;)V", "channel", "getChannel", "setChannel", "client_ver", "getClient_ver", "setClient_ver", "cuid", "getCuid", "setCuid", Config.DEVICE_PART, "getDevice", "setDevice", "sys_ver", "getSys_ver", "setSys_ver", "token", "getToken", "setToken", "yjsid", "getYjsid", "setYjsid", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes6.dex */
+    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u001a\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001a\u0010\t\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u0006\"\u0004\b\u000b\u0010\bR\u001a\u0010\f\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u0006\"\u0004\b\u000e\u0010\bR\u001a\u0010\u000f\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0006\"\u0004\b\u0011\u0010\bR\u001a\u0010\u0012\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0006\"\u0004\b\u0014\u0010\bR\u001a\u0010\u0015\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0006\"\u0004\b\u0017\u0010\bR\u001a\u0010\u0018\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u0006\"\u0004\b\u001a\u0010\bR\u001a\u0010\u001b\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u0006\"\u0004\b\u001d\u0010\b¨\u0006\u001e"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/HandShakePacketRequest$UserInfo;", "", "()V", "bduss", "", "getBduss", "()Ljava/lang/String;", "setBduss", "(Ljava/lang/String;)V", "channel", "getChannel", "setChannel", "client_ver", "getClient_ver", "setClient_ver", "cuid", "getCuid", "setCuid", "device", "getDevice", "setDevice", "sys_ver", "getSys_ver", "setSys_ver", "token", "getToken", "setToken", "yjsid", "getYjsid", "setYjsid", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    /* loaded from: classes7.dex */
     public static final class UserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

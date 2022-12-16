@@ -1,6 +1,8 @@
 package com.baidu.down.utils;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -91,7 +93,7 @@ public final class HttpUrlHelper {
                         return;
                     }
                 }
-                SUCCESS = new ParseResult("SUCCESS", 0);
+                SUCCESS = new ParseResult(c.p, 0);
                 MISSING_SCHEME = new ParseResult("MISSING_SCHEME", 1);
                 UNSUPPORTED_SCHEME = new ParseResult("UNSUPPORTED_SCHEME", 2);
                 INVALID_PORT = new ParseResult("INVALID_PORT", 3);
@@ -1511,7 +1513,7 @@ public final class HttpUrlHelper {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append('=');
+                    sb.append(a.h);
                     sb.append(str2);
                 }
             }

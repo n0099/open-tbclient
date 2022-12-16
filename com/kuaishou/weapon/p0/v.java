@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class v implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int k = 1;
@@ -51,7 +50,7 @@ public class v implements Runnable {
     public List<Integer> i;
     public Map<Integer, a> j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +255,7 @@ public class v implements Runnable {
                 nVar.a(WeaponHI.cookieData);
                 nVar.b(WeaponHI.encryENV);
                 JSONObject jSONObject2 = new JSONObject(a2.a(nVar));
-                int optInt = jSONObject2.optInt(TiebaStatic.LogFields.RESULT, 0);
+                int optInt = jSONObject2.optInt("result", 0);
                 if (optInt != 1) {
                     if (optInt == -7) {
                         p3.a(this.a).a(p3.c, 1, false);

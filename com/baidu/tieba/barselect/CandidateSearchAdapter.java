@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m26;
+import com.baidu.tieba.h36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.List;
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m26> a;
+    public List<h36> a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            return new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08fd, (ViewGroup) null));
+            return new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0913, (ViewGroup) null));
         }
         return (CandidateSearchItemHolder) invokeLI.objValue;
     }
 
-    public void setData(List<m26> list) {
+    public void setData(List<h36> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.clear();

@@ -3,8 +3,8 @@ package com.baidu.tieba.forumMember.member;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.fh6;
-import com.baidu.tieba.mo8;
+import com.baidu.tieba.ai6;
+import com.baidu.tieba.lr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public mo8 mUserInfo;
+    public lr8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberHttpResponseMessage(int i) {
@@ -65,8 +65,8 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
             forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
         }
         if (forumMemberRequestMessage != null) {
-            fh6 fh6Var = new fh6();
-            fh6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+            ai6 ai6Var = new ai6();
+            ai6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
         }
     }
 
@@ -90,9 +90,9 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
                 DataRes dataRes = getMemberInfoResIdl.data;
                 if (dataRes != null) {
                     if (dataRes.forum_member_info != null) {
-                        mo8 mo8Var = new mo8();
-                        this.mUserInfo = mo8Var;
-                        mo8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        lr8 lr8Var = new lr8();
+                        this.mUserInfo = lr8Var;
+                        lr8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.t(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.y(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -157,13 +157,13 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
         return (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public mo8 getUserInfo() {
+    public lr8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mUserInfo;
         }
-        return (mo8) invokeV.objValue;
+        return (lr8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

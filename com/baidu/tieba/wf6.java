@@ -1,58 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class wf6 implements xn {
+public class wf6 implements h65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EmotionPackageData a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268706, "Lcom/baidu/tieba/wf6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948268706, "Lcom/baidu/tieba/wf6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
 
     public wf6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h65
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && i != 3) {
+            try {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h65
+    public void onFileDownloadSucceed(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            try {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h65
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        xf6.f().i(downloadData);
+    }
+
+    @Override // com.baidu.tieba.h65
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(downloadData.getPath());
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                int g = qf6.c().g(downloadData.getId(), fileInputStream);
+                EmotionGroupData n = yf6.o().n(downloadData.getId());
+                if (n == null) {
+                    if (g == 0) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e2) {
+                            BdLog.detailException(e2);
+                        }
+                        return false;
+                    }
+                    n = new EmotionGroupData();
+                    n.setBytesLength((int) downloadData.getSize());
+                    n.setBytesReceived((int) downloadData.getLength());
+                    n.setDownloadUrl(downloadData.getUrl());
+                    n.setGroupId(downloadData.getId());
+                    n.setEmotionsCount(g);
+                    n.setHeight(downloadData.getHeight());
+                    n.setWidth(downloadData.getWidth());
+                    n.setDownloadTime(System.currentTimeMillis());
+                    n.setGroupDesc(downloadData.getDescription());
+                    n.setGroupName(downloadData.getName());
+                    n.setStatus(1);
+                    yf6.o().g(n);
+                }
+                yf6.o().h(downloadData.getStatusMsg(), n);
+                downloadData.setStatusMsg(null);
+                try {
+                    fileInputStream.close();
+                } catch (IOException e3) {
+                    BdLog.detailException(e3);
+                }
+                return true;
+            } catch (Exception e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                BdLog.detailException(e);
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e5) {
+                        BdLog.detailException(e5);
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e6) {
+                        BdLog.detailException(e6);
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.h65
+    public boolean onPreDownload(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            EmotionGroupData n = yf6.o().n(downloadData.getId());
+            if (n != null && rf6.d(downloadData.getId())) {
+                yf6.o().h(downloadData.getStatusMsg(), n);
+                downloadData.setStatusMsg(null);
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

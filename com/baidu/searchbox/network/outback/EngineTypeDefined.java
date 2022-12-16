@@ -1,5 +1,5 @@
 package com.baidu.searchbox.network.outback;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface EngineTypeDefined {
     @Deprecated
     public static final int APACH_HTTP_TYPE = 0;

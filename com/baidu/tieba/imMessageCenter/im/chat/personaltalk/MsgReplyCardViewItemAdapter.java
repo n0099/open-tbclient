@@ -94,9 +94,9 @@ public class MsgReplyCardViewItemAdapter extends MsgCommonItemAdapter<MsgReplyCa
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgReplyCardView a2 = msgViewHolder.a();
-            a2.b0(this.a, chatMessage, viewGroup);
-            a2.D(this.b);
-            a2.F(i);
+            a2.d0(this.a, chatMessage, viewGroup);
+            a2.E(this.b);
+            a2.G(i);
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
             return view2;

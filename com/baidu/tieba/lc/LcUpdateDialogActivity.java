@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     public PermissionJudgePolicy o;
     public BroadcastReceiver p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,33 +81,34 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.l = (Download) intent.getSerializableExtra("download");
-                if (this.this$0.l != null && this.this$0.l.mSourceKey != null && this.this$0.l.mSourceKey.contains(this.this$0.getApplicationContext().getPackageName())) {
-                    LcUpdateDialogActivity lcUpdateDialogActivity = this.this$0;
-                    lcUpdateDialogActivity.m = lcUpdateDialogActivity.l.mId;
-                    if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
-                        int intExtra = intent.getIntExtra("progress", 0);
-                        this.this$0.j.setVisibility(0);
-                        this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a03), String.valueOf(intExtra)));
-                    } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
-                        LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
-                        TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));
-                        TbadkCoreApplication.setClientId(String.valueOf(this.this$0.m));
-                        if (DownloadState.FINISH == this.this$0.l.getState()) {
-                            String str = this.this$0.l.mSavedPath + "/" + this.this$0.l.mFileName;
-                            this.this$0.finish();
-                        } else if (DownloadState.DOWNLOADING != this.this$0.l.getState() && DownloadState.PAUSE != this.this$0.l.getState() && DownloadState.CANCEL == this.this$0.l.getState()) {
-                            Toast.makeText(this.this$0.getApplicationContext(), this.this$0.l.mFileName + ": 已删除", 1).show();
-                        }
-                    } else if (DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS.equals(intent.getAction())) {
-                        if (DownloadState.MEAGESTART != this.this$0.l.getState()) {
-                            DownloadState downloadState = DownloadState.MEAGEEND;
-                            this.this$0.l.getState();
-                        }
-                    } else if ("com.baidu.clientupdate.RSA.STATUS_FAIL".equals(intent.getAction())) {
-                        Toast.makeText(this.this$0.getApplicationContext(), "安装包存在被劫持风险，已删除", 1).show();
+            if (interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) {
+                return;
+            }
+            this.this$0.l = (Download) intent.getSerializableExtra("download");
+            if (this.this$0.l != null && this.this$0.l.mSourceKey != null && this.this$0.l.mSourceKey.contains(this.this$0.getApplicationContext().getPackageName())) {
+                LcUpdateDialogActivity lcUpdateDialogActivity = this.this$0;
+                lcUpdateDialogActivity.m = lcUpdateDialogActivity.l.mId;
+                if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
+                    int intExtra = intent.getIntExtra("progress", 0);
+                    this.this$0.j.setVisibility(0);
+                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.lc_app_downloading), String.valueOf(intExtra)));
+                } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
+                    LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
+                    TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));
+                    TbadkCoreApplication.setClientId(String.valueOf(this.this$0.m));
+                    if (DownloadState.FINISH == this.this$0.l.getState()) {
+                        String str = this.this$0.l.mSavedPath + "/" + this.this$0.l.mFileName;
+                        this.this$0.finish();
+                    } else if (DownloadState.DOWNLOADING != this.this$0.l.getState() && DownloadState.PAUSE != this.this$0.l.getState() && DownloadState.CANCEL == this.this$0.l.getState()) {
+                        Toast.makeText(this.this$0.getApplicationContext(), this.this$0.l.mFileName + ": 已删除", 1).show();
                     }
+                } else if (DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS.equals(intent.getAction())) {
+                    if (DownloadState.MEAGESTART != this.this$0.l.getState()) {
+                        DownloadState downloadState = DownloadState.MEAGEEND;
+                        this.this$0.l.getState();
+                    }
+                } else if ("com.baidu.clientupdate.RSA.STATUS_FAIL".equals(intent.getAction())) {
+                    Toast.makeText(this.this$0.getApplicationContext(), "安装包存在被劫持风险，已删除", 1).show();
                 }
             }
         }
@@ -133,7 +134,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
 
     private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE);
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE);
@@ -178,7 +179,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             if (view2 == this.g) {
                 finish();
             } else if (view2 == this.i && update()) {
-                showToast(R.string.obfuscated_res_0x7f0f0516);
+                showToast(R.string.download_begin_tip);
                 finish();
             }
         }
@@ -190,9 +191,9 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0040);
-            C1(bundle);
-            D1();
+            setContentView(R.layout.activity_lc_update_layout);
+            B1(bundle);
+            C1();
             registerReceiver();
         }
     }
@@ -215,7 +216,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     private boolean update() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (!FileHelper.checkSD()) {
                 showToast(FileHelper.getSdErrorString());
                 return false;
@@ -238,18 +239,18 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         return invokeV.booleanValue;
     }
 
-    public final void D1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912f0);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912e8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ef);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ed);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0912ec);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ea);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0912e9);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0912eb);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ee);
+            this.b = (LinearLayout) findViewById(R.id.lc_update_trans_bg);
+            this.c = (LinearLayout) findViewById(R.id.lc_update_bg);
+            this.d = (TextView) findViewById(R.id.lc_update_title);
+            this.e = (TextView) findViewById(R.id.lc_update_desc);
+            this.f = findViewById(R.id.lc_update_content_divider);
+            this.g = (TextView) findViewById(R.id.lc_update_cancel);
+            this.h = findViewById(R.id.lc_update_button_divider);
+            this.i = (TextView) findViewById(R.id.lc_update_confirm);
+            this.j = (TextView) findViewById(R.id.lc_update_progress);
             this.b.setBackgroundColor(Color.parseColor("#A8000000"));
             ClientUpdateInfo clientUpdateInfo = this.k;
             if (clientUpdateInfo != null) {
@@ -260,7 +261,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final void C1(Bundle bundle) {
+    public final void B1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {

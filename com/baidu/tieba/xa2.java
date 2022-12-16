@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +11,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
 /* loaded from: classes6.dex */
 public final class xa2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final boolean c;
+    public static final boolean a;
+    public static LruCache<String, Object> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xa2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-295641214, "Lcom/baidu/tieba/xa2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-295641214, "Lcom/baidu/tieba/xa2$b;");
+                    return;
+                }
+            }
+            a = new xa2(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,9 +60,7 @@ public final class xa2 {
                 return;
             }
         }
-        b = pk1.a;
-        mn2.g0().getSwitch("swan_slave_ready", false);
-        c = false;
+        a = ok1.a;
     }
 
     public xa2() {
@@ -45,42 +73,57 @@ public final class xa2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        b = new LruCache<>(10);
     }
 
-    public static boolean b() {
+    public static xa2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
-            }
-            return c;
+            return b.a;
         }
-        return invokeV.booleanValue;
+        return (xa2) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
-        }
-        return (String) invokeV.objValue;
+    public /* synthetic */ xa2(a aVar) {
+        this();
     }
 
-    public static ge2 a(xa2 xa2Var) {
-        InterceptResult invokeL;
+    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xa2Var)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + xa2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return config;
+                }
+                CONFIG config2 = (CONFIG) b.get(str);
+                if (config2 == null) {
+                    return config;
+                }
+                if (a) {
+                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
+                }
+                return config2;
             }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put("slaveId", xa2Var.a);
-            return new ge2("SlaveReady", treeMap);
         }
-        return (ge2) invokeL.objValue;
+        return (CONFIG) invokeLL.objValue;
+    }
+
+    public synchronized <CONFIG> void c(String str, CONFIG config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && config != null) {
+                    if (a) {
+                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
+                    }
+                    b.put(str, config);
+                }
+            }
+        }
     }
 }

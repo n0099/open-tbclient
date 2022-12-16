@@ -1,73 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.model.VideoHolyCardModel;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.k35;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class mx8 {
+public class mx8 extends bw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static mx8 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoHolyCardModel a;
-    public boolean b;
-    public boolean c;
-    public VideoHolyCardModel.c d;
+    public final MainTabActivity c;
+    public LiveRemindRecommendData d;
+    public Map<String, Object> e;
+    public k35 f;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a implements k35.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mx8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mx8 mx8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mx8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mx8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !BdNetTypeUtil.isMobileNet()) {
-                return;
-            }
-            this.a.b();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements VideoHolyCardModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mx8 a;
-
-        public b(mx8 mx8Var) {
+        public a(mx8 mx8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,86 +47,100 @@ public class mx8 {
             this.a = mx8Var;
         }
 
-        @Override // com.baidu.tieba.model.VideoHolyCardModel.c
-        public void onResult(boolean z) {
+        @Override // com.baidu.tieba.k35.h
+        public void dismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
-            this.a.b = z;
         }
     }
 
-    public mx8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mx8(MainTabActivity mainTabActivity, zu8 zu8Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, zu8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new b(this);
-        e();
-        if (PermissionUtil.isAgreePrivacyPolicy()) {
-            b();
-        }
+        this.c = mainTabActivity;
     }
 
-    public static mx8 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (mx8.class) {
-                    if (e == null) {
-                        e = new mx8();
-                    }
-                }
-            }
-            return e;
-        }
-        return (mx8) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.bw4
     public void b() {
+        k35 k35Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == null) {
-                VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
-                this.a = videoHolyCardModel;
-                videoHolyCardModel.E(this.d);
-            }
-            this.a.C();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (k35Var = this.f) != null) {
+            k35Var.t();
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
+    @Override // com.baidu.tieba.bw4
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2000994));
+            this.f = l35.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
+            fy4.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
         }
     }
 
-    public void f(Context context) {
+    @Override // com.baidu.tieba.bw4
+    public void d(bw4.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.b || this.c) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (iw4.l()) {
+                aVar.a(false);
+                return;
+            }
+            LiveRemindRecommendData c = ey4.a().c(0);
+            this.d = c;
+            if (c != null && fy4.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+                this.e = new HashMap();
+                int i = 3;
+                if (this.d.getRemindType() != 1) {
+                    if (this.d.getRemindType() == 2) {
+                        i = 4;
+                    } else if (this.d.getRemindType() == 3) {
+                        i = 2;
+                    } else {
+                        i = 0;
+                    }
+                }
+                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
+                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
+                this.e.put("view_top_params_user_name", this.d.getUserName());
+                this.e.put("view_top_params_key_desc", this.d.getDesc());
+                this.e.put("view_top_params_room_id", this.d.getRoomId());
+                this.e.put("view_top_params_btn_text", this.d.getBtnText());
+                this.e.put("view_top_params_key_title", this.d.getTitle());
+                this.e.put("view_top_params_key_nid", this.d.getFeedId());
+                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
+                this.e.put("view_top_params_key_type", Integer.valueOf(i));
+                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
+                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !l45.d()) {
+                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !l45.d()) {
+                        aVar.a(true);
+                        return;
+                    } else {
+                        aVar.a(false);
+                        return;
+                    }
+                }
+                aVar.a(false);
+                return;
+            }
+            aVar.a(false);
         }
-        yi.O(context, R.string.obfuscated_res_0x7f0f06f3);
-        this.c = true;
     }
 }

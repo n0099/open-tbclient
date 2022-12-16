@@ -1,49 +1,130 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class q56 {
+public class q56 extends BaseCardInfo implements c66, jt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Uri a;
+    public AdvertAppInfo a;
     public String b;
-    public Bundle c;
+    public int c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948042871, "Lcom/baidu/tieba/q56;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948042871, "Lcom/baidu/tieba/q56;");
+    @Override // com.baidu.tieba.c66
+    public void A(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
     }
 
-    public q56(String str) {
+    @Override // com.baidu.tieba.c66
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.c66
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public q56() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = "";
+        this.c = 0;
+        this.d = false;
+        this.a = null;
+        this.position = -1;
+    }
+
+    public AdvertAppInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (AdvertAppInfo) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jt4
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.c66
+    public int getPosition() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a;
+            if (advertAppInfo != null) {
+                str = advertAppInfo.f;
+            } else {
+                str = "-1";
+            }
+            return xg.e(str, -1);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.jt4
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.jt4
+    public AdvertAppInfo u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (AdvertAppInfo) invokeV.objValue;
+    }
+
+    public q56(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {advertAppInfo};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,135 +134,55 @@ public class q56 {
                 return;
             }
         }
-        g(str);
+        this.b = "";
+        this.c = 0;
+        this.d = false;
+        this.a = advertAppInfo;
+        this.position = advertAppInfo.position;
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Bundle a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new Bundle();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a;
+            if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.w) {
+                return AdvertAppInfo.y;
             }
-            return this.c;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Uri d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Bundle bundle = this.c;
-            if (bundle != null) {
-                return bundle.getString(str, str2);
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                this.a.getScheme();
-                this.a.getHost();
-                String path = this.a.getPath();
-                this.b = path;
-                if (!TextUtils.isEmpty(path) && this.b.endsWith("/")) {
-                    this.b = this.b.substring(0, this.b.length() - 1);
-                }
-                Set<String> queryParameterNames = this.a.getQueryParameterNames();
-                if (queryParameterNames == null || queryParameterNames.isEmpty()) {
-                    return true;
-                }
-                if (this.c == null) {
-                    this.c = new Bundle();
-                }
-                for (String str : queryParameterNames) {
-                    String queryParameter = this.a.getQueryParameter(str);
-                    this.c.putString(str, queryParameter);
-                    if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(queryParameter);
-                            Iterator<String> keys = jSONObject.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                this.c.putString(next, jSONObject.optString(next, ""));
+            AdvertAppInfo advertAppInfo2 = this.a;
+            if (advertAppInfo2 != null && (iLegoAdvert = advertAppInfo2.h) != null) {
+                BdUniqueId bdUniqueId = AdvertAppInfo.z;
+                int goodsStyle = iLegoAdvert.getGoodsStyle();
+                if (goodsStyle != 2) {
+                    if (goodsStyle != 14) {
+                        if (goodsStyle != 6) {
+                            if (goodsStyle != 7) {
+                                if (goodsStyle != 8) {
+                                    return bdUniqueId;
+                                }
                             }
-                        } catch (Exception e) {
-                            if (BdLog.isDebugMode()) {
-                                BdLog.e("builder parseUri e = " + e.toString());
-                            }
+                        } else {
+                            return AdvertAppInfo.B;
                         }
                     }
+                    return AdvertAppInfo.C;
                 }
-                return true;
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder parseUri te = " + th.toString());
-                }
-                return false;
+                return AdvertAppInfo.A;
             }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public q56 f(Uri uri) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jt4
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            this.a = uri;
-            if (uri != null) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.i("builder uri = " + uri);
-                }
-                e();
-            } else if (BdLog.isDebugMode()) {
-                BdLog.i("builder uri = null");
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.position = i;
+            this.a.position = i;
+            this.d = true;
         }
-        return (q56) invokeL.objValue;
-    }
-
-    public q56 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Uri uri = null;
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    uri = Uri.parse(str);
-                }
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder uri e = " + th.toString());
-                }
-            }
-            f(uri);
-            return this;
-        }
-        return (q56) invokeL.objValue;
     }
 }

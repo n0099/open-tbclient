@@ -19,14 +19,14 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static int lF = 12;
     public static int lG = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void C(String str);
 
@@ -66,11 +66,11 @@ public final class e {
     public static void a(int i, int i2, @NonNull SceneImpl sceneImpl, int i3, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sceneImpl, Integer.valueOf(i3), aVar}) == null) {
-            SceneImpl m84clone = sceneImpl.m84clone();
+            SceneImpl m85clone = sceneImpl.m85clone();
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            m84clone.setAdStyle(i);
-            m84clone.setAdNum(i2);
-            a(new com.kwad.components.core.k.kwai.b(m84clone), null, false, true, new com.kwad.components.core.k.f(aVar, i3, elapsedRealtime) { // from class: com.kwad.components.ad.reward.e.1
+            m85clone.setAdStyle(i);
+            m85clone.setAdNum(i2);
+            a(new com.kwad.components.core.k.kwai.b(m85clone), null, false, true, new com.kwad.components.core.k.f(aVar, i3, elapsedRealtime) { // from class: com.kwad.components.ad.reward.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long fu;

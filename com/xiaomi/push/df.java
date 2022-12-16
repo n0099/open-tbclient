@@ -25,10 +25,10 @@ public class df {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f207a;
+    public Context f230a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ConcurrentLinkedQueue<b> f208a;
+    public final ConcurrentLinkedQueue<b> f231a;
 
     /* loaded from: classes8.dex */
     public class a extends b {
@@ -124,20 +124,20 @@ public class df {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ df f209a;
+        public final /* synthetic */ df f232a;
 
         /* renamed from: a  reason: collision with other field name */
-        public File f210a;
+        public File f233a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f211a;
+        public String f234a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f212a;
+        public boolean f235a;
         public String b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f213b;
+        public boolean f236b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(df dfVar, String str, String str2, File file, boolean z) {
@@ -157,11 +157,11 @@ public class df {
                     return;
                 }
             }
-            this.f209a = dfVar;
-            this.f211a = str;
+            this.f232a = dfVar;
+            this.f234a = str;
             this.b = str2;
-            this.f210a = file;
-            this.f213b = z;
+            this.f233a = file;
+            this.f236b = z;
         }
 
         private boolean c() {
@@ -170,7 +170,7 @@ public class df {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
                 int i2 = 0;
-                SharedPreferences sharedPreferences = this.f209a.f207a.getSharedPreferences("log.timestamp", 0);
+                SharedPreferences sharedPreferences = this.f232a.f230a.getSharedPreferences("log.timestamp", 0);
                 String string = sharedPreferences.getString("log.requst", "");
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
@@ -204,7 +204,7 @@ public class df {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bj.e(this.f209a.f207a) || (this.f213b && bj.b(this.f209a.f207a)) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bj.e(this.f232a.f230a) || (this.f236b && bj.b(this.f232a.f230a)) : invokeV.booleanValue;
         }
 
         @Override // com.xiaomi.push.df.b, com.xiaomi.push.ao.b
@@ -214,12 +214,12 @@ public class df {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bv.m648a());
+                        hashMap.put("uid", com.xiaomi.push.service.bv.m658a());
                         hashMap.put("token", this.b);
-                        hashMap.put("net", bj.m194a(this.f209a.f207a));
-                        bj.a(this.f211a, hashMap, this.f210a, "file");
+                        hashMap.put("net", bj.m204a(this.f232a.f230a));
+                        bj.a(this.f234a, hashMap, this.f233a, "file");
                     }
-                    this.f212a = true;
+                    this.f235a = true;
                 } catch (IOException unused) {
                 }
             }
@@ -227,20 +227,20 @@ public class df {
 
         @Override // com.xiaomi.push.ao.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo265c() {
+        public void mo275c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (!this.f212a) {
+                if (!this.f235a) {
                     int i = this.a + 1;
                     this.a = i;
                     if (i < 3) {
-                        this.f209a.f208a.add(this);
+                        this.f232a.f231a.add(this);
                     }
                 }
-                if (this.f212a || this.a >= 3) {
-                    this.f210a.delete();
+                if (this.f235a || this.a >= 3) {
+                    this.f233a.delete();
                 }
-                this.f209a.a((1 << this.a) * 1000);
+                this.f232a.a((1 << this.a) * 1000);
             }
         }
     }
@@ -276,8 +276,8 @@ public class df {
             }
         }
         ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-        this.f208a = concurrentLinkedQueue;
-        this.f207a = context;
+        this.f231a = concurrentLinkedQueue;
+        this.f230a = context;
         concurrentLinkedQueue.add(new a(this));
         b(0L);
     }
@@ -293,7 +293,7 @@ public class df {
                     }
                 }
             }
-            a.f207a = context;
+            a.f230a = context;
             return a;
         }
         return (df) invokeL.objValue;
@@ -303,7 +303,7 @@ public class df {
     public void a(long j) {
         b peek;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f208a.peek()) != null && peek.a()) {
+        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f231a.peek()) != null && peek.a()) {
             b(j);
         }
     }
@@ -311,11 +311,11 @@ public class df {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m162a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m172a()) {
             return;
         }
         try {
-            File file = new File(this.f207a.getExternalFilesDir(null) + "/.logcache");
+            File file = new File(this.f230a.getExternalFilesDir(null) + "/.logcache");
             if (file.exists() && file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     file2.delete();
@@ -327,7 +327,7 @@ public class df {
 
     private void b(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f208a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f231a.isEmpty()) {
             return;
         }
         gz.a(new dh(this), j);
@@ -336,14 +336,14 @@ public class df {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            while (!this.f208a.isEmpty()) {
-                b peek = this.f208a.peek();
+            while (!this.f231a.isEmpty()) {
+                b peek = this.f231a.peek();
                 if (peek != null) {
-                    if (!peek.b() && this.f208a.size() <= 6) {
+                    if (!peek.b() && this.f231a.size() <= 6) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                    this.f208a.remove(peek);
+                    this.f231a.remove(peek);
                 }
             }
         }
@@ -360,7 +360,7 @@ public class df {
     public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, date, date2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.f208a.add(new dg(this, i, date, date2, str, str2, z));
+            this.f231a.add(new dg(this, i, date, date2, str, str2, z));
             b(0L);
         }
     }

@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
+import com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gr7 {
+public class gr7 extends yf1<ThirdPartAccountService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,44 +27,15 @@ public class gr7 {
         }
     }
 
-    public void a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public ThirdPartAccountService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ThirdPartyAccountServiceImpl();
         }
-    }
-
-    public void b(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("config");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH)) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        String optString = jSONObject2.optString("name");
-                        Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                        if (LoginPassV6Switch.KEY.equals(optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            h15.a();
-                        }
-                        if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            h15.a();
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (ThirdPartAccountService) invokeV.objValue;
     }
 }

@@ -14,7 +14,7 @@ import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Response implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public final class Response implements Closeable {
     public final NetworkStatRecord statRecord;
     public final long tcpTime;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

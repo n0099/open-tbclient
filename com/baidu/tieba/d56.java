@@ -1,141 +1,168 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
+import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
-/* loaded from: classes3.dex */
-public class d56 extends b56 {
+/* loaded from: classes4.dex */
+public class d56 extends h46<ThreadData> implements gr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String N0;
-    public List<String> O0;
-    public String P0;
-    public String Q0;
-    public long R0;
+    public final View i;
+    public TbPageContext<?> j;
+    public HeadImageView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public ThreadData o;
+    public b56 p;
+    public FrsBaseVideoView q;
 
-    public d56(ThreadData threadData) {
+    @Override // com.baidu.tieba.gr5
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.h46
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.frs_hottopic_video_card : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d56(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (threadData == null) {
+        View h = h();
+        h.setOnClickListener(this);
+        this.j = tbPageContext;
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.topic_icon);
+        this.k = headImageView;
+        headImageView.setIsRound(true);
+        this.k.setDefaultResource(R.drawable.pic_head_topic);
+        this.l = (TextView) h.findViewById(R.id.card_topic_name);
+        this.n = (TextView) h.findViewById(R.id.card_thread_title);
+        this.m = (TextView) h.findViewById(R.id.card_reply_time);
+        this.i = h.findViewById(R.id.card_divider_line);
+        FrsBaseVideoView frsBaseVideoView = (FrsBaseVideoView) h.findViewById(R.id.base_video_view);
+        this.q = frsBaseVideoView;
+        frsBaseVideoView.setClickListener(this);
+    }
+
+    @Override // com.baidu.tieba.h46
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.k.invalidate();
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(h(), R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            FrsBaseVideoView frsBaseVideoView = this.q;
+            if (frsBaseVideoView != null) {
+                frsBaseVideoView.h(i);
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || this.o == null) {
             return;
         }
-        this.a = threadData;
-        String str = threadData.tid;
-        threadData.getTitle();
-        VoiceRoom voiceRoomData = threadData.getVoiceRoomData();
-        if (voiceRoomData != null) {
-            this.N0 = voiceRoomData.room_name;
-            this.O0 = e0(voiceRoomData);
-            this.P0 = String.valueOf(voiceRoomData.talker_num);
-            this.Q0 = String.valueOf(voiceRoomData.joined_num);
-            this.R0 = voiceRoomData.room_id.longValue();
+        if (e() != null) {
+            e().b(view2, this.o, this.p);
         }
+        s46.a(this.o.getTid());
+        s46.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+        r();
     }
 
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
+    public final void r() {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
-            if (threadData != null && threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0 && !StringUtils.isNull(threadData.getVoiceRoomData().room_name)) {
-                return true;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (threadData = this.o) != null && threadData.getAuthor() != null && this.o.getAuthor().getName_show() != null) {
+            String name_show = this.o.getAuthor().getName_show();
+            if (NewWebHotTopicPageSwitch.isOn()) {
+                yj5.e(this.j, null, name_show);
+                return;
             }
-            return false;
+            HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
+            HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
+            createNormalConfig.setExtra(this.o.getFid(), this.o.getFirstClassName(), this.o.getSecondClassName(), xg.g(this.o.getTid(), 0L));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
         }
-        return invokeL.booleanValue;
     }
 
-    public final List<String> e0(VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.h46
+    /* renamed from: s */
+    public void i(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (User user : voiceRoom.talker) {
-                if (user != null) {
-                    arrayList.add(user.portrait);
+        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
+            if (threadData == null) {
+                if (h() != null) {
+                    h().setVisibility(8);
+                    return;
                 }
+                return;
             }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public String Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.Q0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.O0;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.R0;
-        }
-        return invokeV.longValue;
-    }
-
-    public String c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.N0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.P0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b56, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.B) {
-                return b56.F0;
+            this.o = threadData;
+            if (h() != null) {
+                h().setVisibility(0);
+                h().setOnClickListener(this);
             }
-            return ThreadData.TYPE_CONTENT_VOICE_ROOM;
+            FrsBaseVideoView frsBaseVideoView = this.q;
+            if (frsBaseVideoView != null) {
+                frsBaseVideoView.g(this.o, threadData.getHotTopicInfo());
+            }
+            if (threadData.getAuthor() != null) {
+                this.l.setText(threadData.getAuthor().getName_show());
+            }
+            this.m.setText(StringHelper.getFormatTime(threadData.getLast_time_int() * 1000));
+            String str = threadData.getTopicUserName() + "：";
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.append((CharSequence) threadData.parseTitleOrAbstractForFrsNew(false, true));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
+            this.n.setText(spannableStringBuilder);
+            s46.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            j(this.j, TbadkCoreApplication.getInst().getSkinType());
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

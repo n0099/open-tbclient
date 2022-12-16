@@ -1,137 +1,249 @@
 package com.baidu.tieba;
 
+import android.text.SpannableString;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pbextra.praise.PraiseListActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class e68 extends BaseAdapter implements AbsListView.OnScrollListener {
+import tbclient.ThreadInfo;
+/* loaded from: classes4.dex */
+public class e68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PraiseListActivity a;
-    public List<c68> b;
-    public volatile boolean c;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
+    /* loaded from: classes4.dex */
+    public static class a extends tn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o56 i;
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i, i2, i3) == null) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, String str, o56 o56Var) {
+            super(i, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, o56Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = o56Var;
         }
-    }
 
-    public e68(PraiseListActivity praiseListActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {praiseListActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                StatisticItem statisticItem = null;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(view2.getContext(), d(), null)));
+                o56 o56Var = this.i;
+                if (o56Var instanceof w56) {
+                    statisticItem = ((w56) o56Var).S();
+                } else if (o56Var instanceof x56) {
+                    statisticItem = ((x56) o56Var).Q(null);
+                }
+                TiebaStatic.log(statisticItem);
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = praiseListActivity;
     }
 
-    public final View a(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        String b;
+    public static void a(List<ThreadInfo> list, List<xn> list2, String str, int i) {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-            d68 b2 = d68.b(this.a.getPageContext().getPageActivity(), view2);
-            c68 item = getItem(i);
-            if (StringUtils.isNull(item.b())) {
-                b = item.d();
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, list, list2, str, i) == null) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                ThreadInfo threadInfo = list.get(i3);
+                if (threadInfo != null) {
+                    ThreadData threadData2 = new ThreadData();
+                    threadData2.floorNum = i3 + 1;
+                    threadData2.parserProtobuf(threadInfo);
+                    if (threadData2.getForumData() != null && !TextUtils.isEmpty(str)) {
+                        threadData2.getForumData().i = str;
+                    }
+                    if ((w56.W(threadData2) || x56.R(threadData2)) && threadData2.getType() != ThreadData.TYPE_SHARE_THREAD) {
+                        w56 d = d(threadData2, i);
+                        if (d != null && (threadData = d.a) != null && threadData.getForumData() != null && !StringUtils.isNull(threadData.getForumData().b)) {
+                            d.g = threadData2.getTid();
+                            d.position = i2;
+                            f(d);
+                            list2.add(d);
+                        }
+                        int[] imageWidthAndHeight = threadData2.getImageWidthAndHeight();
+                        o56 c = c(threadData2, i);
+                        if (c != null) {
+                            c.g = threadData2.getTid();
+                            c.position = i2;
+                            if (c instanceof w56) {
+                                if (threadData2.picCount() == 1) {
+                                    h(c);
+                                    c.j = imageWidthAndHeight[0];
+                                    c.k = imageWidthAndHeight[1];
+                                } else if (threadData2.picCount() >= 2) {
+                                    g(c);
+                                } else {
+                                    i(c);
+                                }
+                            } else if (c instanceof x56) {
+                                j(c);
+                            }
+                        }
+                        if (c != null && c.isValid()) {
+                            c.a.insertItemToTitleOrAbstractText();
+                            if (!threadData2.isUgcThreadType() && threadData2.getAuthor() != null) {
+                                String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), threadData2.getAuthor().getName_show());
+                                SpannableString spannableString = new SpannableString(format);
+                                spannableString.setSpan(new a(16, threadData2.getAuthor().getUserId(), c), 0, format.length() - 1, 33);
+                                c.a.insertUsernameIntoTitleOrAbstract(spannableString);
+                            }
+                            list2.add(c);
+                        }
+                        w56 d2 = d(threadData2, i);
+                        if (d2 != null) {
+                            d2.g = threadData2.getTid();
+                            d2.position = i2;
+                            e(d2);
+                        }
+                        if (d2 != null && d2.isValid()) {
+                            list2.add(d2);
+                        }
+                    }
+                    i2++;
+                }
+            }
+        }
+    }
+
+    public static List<xn> b(List<ThreadInfo> list, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, list, str, i)) == null) {
+            LinkedList linkedList = new LinkedList();
+            a(list, linkedList, str, i);
+            return linkedList;
+        }
+        return (List) invokeLLI.objValue;
+    }
+
+    public static o56 c(ThreadData threadData, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, threadData, i)) == null) {
+            if (threadData == null) {
+                return null;
+            }
+            if (w56.W(threadData)) {
+                w56 w56Var = new w56();
+                threadData.isLinkThread();
+                threadData.isSmartAppThreadType();
+                if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
+                    threadData.isGodThread();
+                }
+                w56Var.a = threadData;
+                w56Var.C = i;
+                return w56Var;
+            } else if (!x56.R(threadData)) {
+                return null;
             } else {
-                b = item.b();
+                x56 x56Var = new x56(threadData);
+                x56Var.C = i;
+                return x56Var;
             }
-            b2.c(b, item.a(), item.e(), this.c);
-            this.a.changSkinType(b2.a());
-            return b2.a();
         }
-        return (View) invokeILL.objValue;
+        return (o56) invokeLI.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public c68 getItem(int i) {
-        InterceptResult invokeI;
+    public static w56 d(ThreadData threadData, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<c68> list = this.b;
-            if (list != null) {
-                return list.get(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, threadData, i)) == null) {
+            w56 w56Var = new w56();
+            w56Var.a = threadData;
+            threadData.isLinkThread();
+            if (!threadData.isLinkThread()) {
+                threadData.isGodThread();
             }
-            return null;
+            w56Var.C = i;
+            return w56Var;
         }
-        return (c68) invokeI.objValue;
+        return (w56) invokeLI.objValue;
     }
 
-    public void c(List<c68> list) {
+    public static void e(o56 o56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<c68> list = this.b;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, o56Var) == null) {
+            if (o56Var instanceof w56) {
+                ((w56) o56Var).A = true;
+            } else if (o56Var instanceof x56) {
+                ((x56) o56Var).A = true;
+            } else if (o56Var instanceof v56) {
+                ((v56) o56Var).A = true;
             }
-            return list.size();
+            o56Var.setSupportType(BaseCardInfo.SupportType.BOTTOM);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public static void f(o56 o56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            return a(i, view2, viewGroup);
+        if (interceptable == null || interceptable.invokeL(65541, null, o56Var) == null) {
+            o56Var.n = true;
+            o56Var.setSupportType(BaseCardInfo.SupportType.TOP);
         }
-        return (View) invokeILL.objValue;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public static void g(o56 o56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i) == null) {
-            if (i == 0) {
-                this.c = false;
-                notifyDataSetChanged();
-                return;
-            }
-            this.c = true;
+        if (interceptable == null || interceptable.invokeL(65542, null, o56Var) == null) {
+            ((w56) o56Var).q = true;
+            o56Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void h(o56 o56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, o56Var) == null) {
+            ((w56) o56Var).p = true;
+            o56Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void i(o56 o56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, o56Var) == null) {
+            ((w56) o56Var).r = true;
+            o56Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void j(o56 o56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, o56Var) == null) {
+            ((x56) o56Var).s = true;
+            o56Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
         }
     }
 }

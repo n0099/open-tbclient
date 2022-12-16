@@ -3,41 +3,24 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes6.dex */
-public final class we2 {
+public class we2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File b = b();
-            if (b.exists()) {
-                jk4.j(b);
-            }
-        }
-    }
-
-    public static File b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(xo2.d().get(0).a, "/aiapps_debug_extension_core/");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return sc3.a().getBoolean("SP-DebugPerformanceTest", false);
         }
-        return (File) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static File c() {
-        InterceptResult invokeV;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File b = b();
-            if (!b.exists()) {
-                b.mkdirs();
-            }
-            return new File(b, "debugExtensionCore.zip");
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            sc3.a().putBoolean("SP-DebugPerformanceTest", z);
         }
-        return (File) invokeV.objValue;
     }
 }

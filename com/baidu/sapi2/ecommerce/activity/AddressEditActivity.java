@@ -60,7 +60,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.SoftKeyBoardListener;
 import com.baidu.sapi2.utils.ToastUtil;
 import com.baidu.sapi2.views.ViewUtility;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -692,11 +691,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.addrTagGroup.clearCheck();
             this.checkedCustomTagTv.setText(this.editTagEt.getText().toString().trim());
             if (this.isDarkMode) {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_checked_text_dark_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_dark_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060960));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081076);
             } else {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_checked_text_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06095f));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081075);
             }
             this.customTagLine.setVisibility(0);
             setTopRightBtnEnableStatus();
@@ -851,11 +850,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void setDarkModelIcon() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65623, this) == null) && this.isDarkMode) {
-            this.nameInput.getImg().setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.imgOcrIcon.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.ivAddrCopyToggle.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
+            this.nameInput.getImg().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060985));
+            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060985));
+            this.imgOcrIcon.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060985));
+            this.ivAddrCopyToggle.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060985));
+            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060985));
         }
     }
 
@@ -1106,13 +1105,13 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, radioGroup, i) == null) {
                         if (!this.this$0.isClickConfirmCustomTag) {
-                            if (R.id.sapi_sdk_addr_tag_home_rb == i) {
+                            if (R.id.obfuscated_res_0x7f091dc5 == i) {
                                 this.this$0.unCheckedCustomTag();
                                 return;
-                            } else if (R.id.sapi_sdk_addr_tag_company_rb == i) {
+                            } else if (R.id.obfuscated_res_0x7f091dc3 == i) {
                                 this.this$0.unCheckedCustomTag();
                                 return;
-                            } else if (R.id.sapi_sdk_addr_tag_school_rb == i) {
+                            } else if (R.id.obfuscated_res_0x7f091dc9 == i) {
                                 this.this$0.unCheckedCustomTag();
                                 return;
                             } else {
@@ -1255,11 +1254,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65630, this) == null) {
             this.isCheckedCustomTag = false;
             if (this.isDarkMode) {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_no_checked_text_dark_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060964));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
             } else {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_no_checked_text_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_common_grey_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060963));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a3);
             }
             this.customTagLine.setVisibility(8);
             setTopRightBtnEnableStatus();
@@ -1290,11 +1289,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     str = this.editTagEt.getText().toString().trim();
                 } else {
                     int checkedRadioButtonId = this.addrTagGroup.getCheckedRadioButtonId();
-                    if (checkedRadioButtonId == R.id.sapi_sdk_addr_tag_home_rb) {
+                    if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091dc5) {
                         str = AddressField.VALUE_HOME_TAG;
-                    } else if (checkedRadioButtonId == R.id.sapi_sdk_addr_tag_company_rb) {
+                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091dc3) {
                         str = AddressField.VALUE_COMPANY_TAG;
-                    } else if (checkedRadioButtonId == R.id.sapi_sdk_addr_tag_school_rb) {
+                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091dc9) {
                         str = AddressField.VALUE_SCHOOL_TAG;
                     } else {
                         str = "";
@@ -1321,11 +1320,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void closeAddrCopyLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65602, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.sapi_sdk_black_down_arrow);
+            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f081093);
             if (this.isDarkMode) {
-                this.copyFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
             } else {
-                this.copyFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_bg);
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081078);
             }
             this.addrCopyLayout.setVisibility(8);
         }
@@ -1336,9 +1335,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65603, this) == null) {
             this.isSetDefaultAddr = false;
             if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_dark_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108f);
             } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108d);
             }
             this.defaultTagClose.setVisibility(0);
             this.defaultTagOpen.setVisibility(8);
@@ -1361,11 +1360,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void openAddrCopyLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65609, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.sapi_sdk_black_up_arrow);
+            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f081094);
             if (this.isDarkMode) {
-                this.copyFormView.setBackgroundResource(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color);
+                this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f060972);
             } else {
-                this.copyFormView.setBackgroundResource(R.color.sapi_sdk_addr_edit_input_layout_bg_color);
+                this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f060971);
             }
             this.addrCopyLayout.setVisibility(0);
         }
@@ -1378,7 +1377,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             intent.putExtra("key_from_type", this.isCreateAddress);
             intent.putExtra(MapLocationAddrActivity.KEY_BDSTOKEN_FROM_ADDR_EDIT, ((AddressEditPresenter) this.presenter).getBdSTokenFromAddrList());
             startActivityForResult(intent, 10001);
-            overridePendingTransition(R.anim.sapi_sdk_anim_activity_push_bottom_in, R.anim.sapi_sdk_anim_activity_stay);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f010111, R.anim.obfuscated_res_0x7f010113);
         }
     }
 
@@ -1387,9 +1386,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65611, this) == null) {
             this.isSetDefaultAddr = true;
             if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_dark_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081076);
             } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081075);
             }
             this.defaultTagClose.setVisibility(8);
             this.defaultTagOpen.setVisibility(0);
@@ -1606,7 +1605,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             }
             super.finish();
             if (!this.isOpenEdit) {
-                overridePendingTransition(0, R.anim.sapi_sdk_anim_activity_push_bottom_out);
+                overridePendingTransition(0, R.anim.obfuscated_res_0x7f010112);
             }
         }
     }
@@ -1644,15 +1643,15 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65605, this, z) == null) {
             if (z) {
-                viewStub = (ViewStub) findViewById(R.id.sapi_sdk_addr_default_tag_dark_view_stub);
+                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091d9a);
             } else {
-                viewStub = (ViewStub) findViewById(R.id.sapi_sdk_addr_default_tag_view_stub);
+                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091d9c);
             }
             View inflate = viewStub.inflate();
-            this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.sapi_sdk_addr_tag_group);
-            this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.sapi_sdk_addr_tag_home_rb);
-            this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.sapi_sdk_addr_tag_company_rb);
-            this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.sapi_sdk_addr_tag_school_rb);
+            this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091dc4);
+            this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091dc5);
+            this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091dc3);
+            this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091dc9);
         }
     }
 
@@ -1701,57 +1700,57 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65607, this) == null) {
-            this.rootView = findViewById(R.id.sapi_sdk_addr_edit_layout);
-            this.titleBarView = (TitleBarView) findViewById(R.id.sapi_sdk_edit_addres_title);
-            this.addrContentSv = (ScrollView) findViewById(R.id.sapi_sdk_addr_content_sv);
-            InputFormView inputFormView = (InputFormView) findViewById(R.id.sapi_sdk_addr_name_input);
+            this.rootView = findViewById(R.id.obfuscated_res_0x7f091da4);
+            this.titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091de9);
+            this.addrContentSv = (ScrollView) findViewById(R.id.obfuscated_res_0x7f091d92);
+            InputFormView inputFormView = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091db4);
             this.nameInput = inputFormView;
             this.nameInputEt = inputFormView.getEditText();
             this.nameInput.setDarkMode(this.isDarkMode);
-            InputFormView inputFormView2 = (InputFormView) findViewById(R.id.sapi_sdk_addr_mobile_input);
+            InputFormView inputFormView2 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091db3);
             this.mobileInput = inputFormView2;
             this.mobileInputEt = inputFormView2.getEditText();
             this.mobileInput.setDarkMode(this.isDarkMode);
-            this.regionLayout = findViewById(R.id.sapi_sdk_addr_region_layout);
-            this.selectRegionIv = (ImageView) findViewById(R.id.sapi_sdk_select_region_iv);
-            this.tvRegion = (TextView) findViewById(R.id.sapi_sdk_add_addr_region);
-            InputFormView inputFormView3 = (InputFormView) findViewById(R.id.sapi_sdk_addr_detail_input);
+            this.regionLayout = findViewById(R.id.obfuscated_res_0x7f091dbb);
+            this.selectRegionIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e3a);
+            this.tvRegion = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8f);
+            InputFormView inputFormView3 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091da2);
             this.detailInput = inputFormView3;
             this.detailAddrEt = inputFormView3.getEditText();
             this.detailInput.setDarkMode(this.isDarkMode);
-            this.ivAddrCopyToggle = (ImageView) findViewById(R.id.sapi_sdk_addr_copy_toggle);
-            this.copyFormView = (TextFormView) findViewById(R.id.sapi_sdk_addr_copy_text_form);
-            this.addrCopyLayout = findViewById(R.id.sapi_sdk_copy_addr_layout);
-            this.textOcrEt = (EditText) findViewById(R.id.sapi_sdk_addr_ocr_text);
-            this.cleanLongTextBtn = (TextView) findViewById(R.id.sapi_sdk_clean_copy_text);
-            this.useLongTextBtn = (TextView) findViewById(R.id.sapi_sdk_use_copy_text);
-            this.voiceOcrBtn = findViewById(R.id.sapi_sdk_voice_ocr_btn);
-            this.imgOcrBtn = findViewById(R.id.sapi_sdk_img_ocr_view);
-            this.imgOcrIcon = (ImageView) findViewById(R.id.sapi_sdk_img_ocr_icon);
-            ImageView imageView = (ImageView) findViewById(R.id.sapi_sdk_add_tag_btn);
+            this.ivAddrCopyToggle = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d97);
+            this.copyFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091d96);
+            this.addrCopyLayout = findViewById(R.id.obfuscated_res_0x7f091de3);
+            this.textOcrEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.cleanLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091dda);
+            this.useLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e61);
+            this.voiceOcrBtn = findViewById(R.id.obfuscated_res_0x7f091e64);
+            this.imgOcrBtn = findViewById(R.id.obfuscated_res_0x7f091dfa);
+            this.imgOcrIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d90);
             this.addTagBtn = imageView;
             if (this.isDarkMode) {
-                i = R.drawable.sapi_sdk_addr_add_tag_dark_ic;
+                i = R.drawable.obfuscated_res_0x7f08106d;
             } else {
-                i = R.drawable.sapi_sdk_addr_add_tag;
+                i = R.drawable.obfuscated_res_0x7f08106c;
             }
             imageView.setImageResource(i);
-            this.editTagLayout = findViewById(R.id.sapi_sdk_edit_tag_layout);
-            LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.sapi_sdk_tag_edit_et);
+            this.editTagLayout = findViewById(R.id.obfuscated_res_0x7f091dea);
+            LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.obfuscated_res_0x7f091e45);
             this.editTagEt = lengthLimitEditText;
             lengthLimitEditText.setLengthLimit(5);
-            this.editTagConfirmBtn = (TextView) findViewById(R.id.sapi_sdk_tag_edit_confirm_btn);
-            this.customTagLayout = findViewById(R.id.sapi_sdk_custom_tag_layout);
-            this.checkedCustomTagTv = (TextView) findViewById(R.id.sapi_sdk_custom_tag_tv);
-            this.customTagLine = findViewById(R.id.sapi_sdk_custom_tag_line);
-            this.updateCustomTagBtn = (ImageView) findViewById(R.id.sapi_sdk_custom_tag_update_btn);
-            this.isDefaultToggle = findViewById(R.id.sapi_sdk_addr_default_toggle);
-            this.defaultTagClose = findViewById(R.id.sapi_sdk_addr_default_tag_close);
-            this.defaultTagOpen = findViewById(R.id.sapi_sdk_addr_default_tag_open);
-            this.suggestAddrLayout = findViewById(R.id.sapi_sdk_suggest_addr_layout);
-            this.suggestAddrListView = (ListView) findViewById(R.id.sapi_sdk_suggest_addr_list);
-            this.delAddrBtn = (TextView) findViewById(R.id.sapi_sdk_addr_del_addr_btn);
-            this.mapAddrCheckValidTv = (TextView) findViewById(R.id.sapi_sdk_addr_check_valid_tips);
+            this.editTagConfirmBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e44);
+            this.customTagLayout = findViewById(R.id.obfuscated_res_0x7f091de4);
+            this.checkedCustomTagTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091de6);
+            this.customTagLine = findViewById(R.id.obfuscated_res_0x7f091de5);
+            this.updateCustomTagBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de7);
+            this.isDefaultToggle = findViewById(R.id.obfuscated_res_0x7f091d9d);
+            this.defaultTagClose = findViewById(R.id.obfuscated_res_0x7f091d99);
+            this.defaultTagOpen = findViewById(R.id.obfuscated_res_0x7f091d9b);
+            this.suggestAddrLayout = findViewById(R.id.obfuscated_res_0x7f091e3d);
+            this.suggestAddrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f091e3e);
+            this.delAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9f);
+            this.mapAddrCheckValidTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091d91);
             initDefaultTagLayout(this.isDarkMode);
             this.titleBarView.setLeft(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, this);
             this.titleBarView.setRight("保存", this);
@@ -1767,56 +1766,56 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.editTagConfirmBtn.setOnClickListener(this);
             this.updateCustomTagBtn.setOnClickListener(this);
             if (this.isDarkMode) {
-                this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.sapi_sdk_add_addr_list_header_dark_bg);
-                this.mapAddrCheckValidTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_list_user_hint_text_dark_color));
-                this.rootView.setBackgroundColor(getResources().getColor(R.color.sapi_sek_title_bar_bg_end_dark_color));
+                this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105f);
+                this.mapAddrCheckValidTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bb));
+                this.rootView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a41));
                 this.titleBarView.setDarkMode();
-                this.nameInput.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_top_round_dark_bg);
-                this.mobileInput.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color));
-                this.regionLayout.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color));
-                this.tvRegion.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                this.tvRegion.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
-                findViewById(R.id.sapi_sdk_common_bottom_line).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
-                this.detailInput.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
-                TextFormView textFormView = (TextFormView) findViewById(R.id.sapi_sdk_addr_ocr_edit_layout);
+                this.nameInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107b);
+                this.mobileInput.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060972));
+                this.regionLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060972));
+                this.tvRegion.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
+                this.tvRegion.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060970));
+                findViewById(R.id.obfuscated_res_0x7f091ddd).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06096e));
+                this.detailInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
+                TextFormView textFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091db6);
                 textFormView.setDarkMode();
-                textFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_top_round_dark_bg);
-                this.imgOcrBtn.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
-                ((TextView) findViewById(R.id.sapi_sdk_img_ocr_tv)).setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_ocr_btn_text_dark_color));
-                this.addrCopyLayout.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
-                findViewById(R.id.sapi_sdk_addr_copy_layout).setBackgroundResource(R.drawable.sapi_sdk_addr_copy_dark_bg);
-                this.textOcrEt.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
-                this.textOcrEt.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                this.cleanLongTextBtn.setBackgroundResource(R.drawable.sapi_sdk_clean_addr_txt_btn_dark_bg);
-                this.cleanLongTextBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_clean_copy_text_btn_text_dark_color));
-                this.useLongTextBtn.setBackgroundResource(R.drawable.sapi_sdk_add_address_btn_dark_bg);
-                this.useLongTextBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_use_copy_text_btn_text_dark_color));
-                TextFormView textFormView2 = (TextFormView) findViewById(R.id.sapi_sdk_addr_edit_tag_layout);
-                textFormView2.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_top_round_dark_bg);
+                textFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107b);
+                this.imgOcrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091df9)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060976));
+                this.addrCopyLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
+                findViewById(R.id.obfuscated_res_0x7f091d95).setBackgroundResource(R.drawable.obfuscated_res_0x7f081071);
+                this.textOcrEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060970));
+                this.textOcrEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
+                this.cleanLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
+                this.cleanLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06095e));
+                this.useLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                this.useLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060984));
+                TextFormView textFormView2 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091da5);
+                textFormView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107b);
                 textFormView2.setDarkMode();
-                findViewById(R.id.sapi_sdk_custom_tag_wrap_layout).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color));
-                this.addTagBtn.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_dark_bg);
-                this.editTagEt.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
-                this.editTagEt.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                this.editTagEt.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
-                this.editTagConfirmBtn.setBackgroundResource(R.drawable.sapi_sdk_addr_confirm_tag_dark_bg);
-                this.editTagConfirmBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_tag_checked_text_dark_color));
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_no_checked_text_dark_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
-                this.customTagLine.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_tag_vertical_line_bg_dark_color));
-                this.updateCustomTagBtn.setBackgroundResource(R.drawable.sapi_sdk_edit_custom_tag_btn_dark_bg);
-                findViewById(R.id.sapi_sdk_addr_edit_bottom_line).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
-                TextFormView textFormView3 = (TextFormView) findViewById(R.id.sapi_sdk_set_default_layout);
-                textFormView3.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
+                findViewById(R.id.obfuscated_res_0x7f091de8).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060972));
+                this.addTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108f);
+                this.editTagEt.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
+                this.editTagEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
+                this.editTagEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060970));
+                this.editTagConfirmBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08106f);
+                this.editTagConfirmBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06097c));
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060964));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
+                this.customTagLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060982));
+                this.updateCustomTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c3);
+                findViewById(R.id.obfuscated_res_0x7f091da3).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06096e));
+                TextFormView textFormView3 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e3b);
+                textFormView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
                 textFormView3.setDarkMode();
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_default_btn_dark_bg);
-                this.defaultTagClose.setBackgroundResource(R.drawable.sapi_sdk_common_white_circle_dark);
-                this.defaultTagOpen.setBackgroundResource(R.drawable.sapi_sdk_common_white_circle_dark);
-                this.delAddrBtn.setBackgroundResource(R.drawable.sapi_sdk_common_white_dark_bg);
-                this.delAddrBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_del_addr_text_dark_color));
-                this.copyFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081073);
+                this.defaultTagClose.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ae);
+                this.defaultTagOpen.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ae);
+                this.delAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810af);
+                this.delAddrBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06096c));
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
                 this.copyFormView.setDarkMode();
-                this.suggestAddrLayout.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_suggest_list_layout_bg_dark_color));
+                this.suggestAddrLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060978));
             }
             this.checkedCustomTagTv.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.2
                 public static /* synthetic */ Interceptable $ic;
@@ -2108,9 +2107,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.usePastedAddrDialog = build;
             build.show();
             this.isClipBoardAddrDialogShowed = true;
-            hashMap.put(TiebaStatic.LogFields.RESULT, "0");
+            hashMap.put("result", "0");
         } else {
-            hashMap.put(TiebaStatic.LogFields.RESULT, "1");
+            hashMap.put("result", "1");
         }
         AddressStatUtil.statAddressOption(StatKey.CLIPBOARD_TXT_ANALYSE, hashMap);
     }
@@ -2137,7 +2136,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeL(65631, this, addressSelectedBean) == null) {
             String regionDetailStr = getRegionDetailStr(this.selectedRegion);
             if (!TextUtils.isEmpty(regionDetailStr) && !TextUtils.equals(regionDetailStr, getRegionDetailStr(addressSelectedBean))) {
-                ToastUtil.show(R.drawable.sapi_sdk_region_location_icon, "已切换所在地区");
+                ToastUtil.show(R.drawable.obfuscated_res_0x7f0810fb, "已切换所在地区");
             }
             this.selectedRegion = addressSelectedBean;
             this.tvRegion.setText(getRegionDetailStr(addressSelectedBean));
@@ -2201,12 +2200,12 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             if (i != 2001 && i != 2002) {
                 if (i != 3001) {
                     if (i != 3003 && !TextUtils.isEmpty(str)) {
-                        ToastUtil.show(R.drawable.sapi_sdk_common_error_ic, str);
+                        ToastUtil.show(R.drawable.obfuscated_res_0x7f0810a0, str);
                         return;
                     }
                     return;
                 }
-                ToastUtil.show(R.drawable.sapi_sdk_common_error_ic, "图片识别失败");
+                ToastUtil.show(R.drawable.obfuscated_res_0x7f0810a0, "图片识别失败");
             }
         }
     }
@@ -2292,7 +2291,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             }
             BaseOptionActivity.lastClickTime = currentTimeMillis;
             int id = view2.getId();
-            if (R.id.sapi_sdk_addr_default_toggle == id) {
+            if (R.id.obfuscated_res_0x7f091d9d == id) {
                 if (this.isSetDefaultAddr) {
                     AddressStatUtil.statAddressOption(StatKey.EDITADDR_CANCEL_DEFAULT);
                     closeDefaultAddr();
@@ -2300,28 +2299,28 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SET_DEFAULT);
                 openDefaultAddr();
-            } else if (R.id.sapi_sdk_add_tag_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091d90 == id) {
                 this.addTagBtn.setVisibility(8);
                 this.customTagLayout.setVisibility(8);
                 this.editTagLayout.setVisibility(0);
-            } else if (R.id.sapi_sdk_tag_edit_confirm_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091e44 == id) {
                 this.isClickConfirmCustomTag = true;
                 checkedCustomTag();
                 this.editTagLayout.setVisibility(8);
                 this.customTagLayout.setVisibility(0);
-            } else if (R.id.sapi_sdk_custom_tag_update_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091de7 == id) {
                 this.customTagLayout.setVisibility(8);
                 this.editTagLayout.setVisibility(0);
-            } else if (R.id.sapi_sdk_clean_copy_text == id) {
+            } else if (R.id.obfuscated_res_0x7f091dda == id) {
                 this.textOcrEt.setText("");
-            } else if (R.id.sapi_sdk_use_copy_text == id) {
+            } else if (R.id.obfuscated_res_0x7f091e61 == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SPLIT_CLICK);
                 String trim = this.textOcrEt.getText().toString().trim();
                 if (TextUtils.isEmpty(trim)) {
                     return;
                 }
                 ((AddressEditPresenter) this.presenter).recogniseTextOcrAddressResult(trim, 3002);
-            } else if (R.id.sapi_sdk_add_addr_region == id) {
+            } else if (R.id.obfuscated_res_0x7f091d8f == id) {
                 if (this.isKeyBoardShowing) {
                     this.isShowRegionSelectDialog = true;
                     InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
@@ -2332,7 +2331,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     return;
                 }
                 showRegionSelectorDialog();
-            } else if (R.id.sapi_sdk_img_ocr_view == id) {
+            } else if (R.id.obfuscated_res_0x7f091dfa == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_CLICK);
                 if (this.isKeyBoardShowing) {
                     this.isShowImgOcrDialog = true;
@@ -2344,23 +2343,23 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     return;
                 }
                 showImgOcrOptionDialog();
-            } else if (R.id.sapi_sdk_titlebar_left_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091e49 == id) {
                 if (this.isOpenEdit) {
                     endProcess();
                 }
                 finish();
-            } else if (R.id.sapi_sdk_titlebar_right_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091e4a == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SAVEBTN_CLICK);
                 checkUserInputAndSubmit();
-            } else if (R.id.sapi_sdk_addr_copy_text_form == id) {
+            } else if (R.id.obfuscated_res_0x7f091d96 == id) {
                 if (this.addrCopyLayout.getVisibility() == 0) {
                     closeAddrCopyLayout();
                 } else {
                     openAddrCopyLayout();
                 }
-            } else if (R.id.sapi_sdk_addr_del_addr_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091d9f == id) {
                 showDelNoticeDialog();
-            } else if (R.id.sapi_sdk_select_region_iv == id) {
+            } else if (R.id.obfuscated_res_0x7f091e3a == id) {
                 if (this.isCreateAddress) {
                     str = "0";
                 } else {
@@ -2386,8 +2385,8 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.layout_sapi_sdk_address_edit_activity);
-            ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sek_title_bar_bg_start_color));
+            setContentView(R.layout.obfuscated_res_0x7f0d0502);
+            ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060a42));
             initView();
             addAddress4ElementUpdateListener();
             setInputBeyondLengthLimitListener();

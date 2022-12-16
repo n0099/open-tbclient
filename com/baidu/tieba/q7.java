@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
@@ -87,7 +86,7 @@ public class q7 implements d7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new byte[]{StrictLineReader.CR, 0, 15, 0, 0, 7, 3, Constants.GZIP_CAST_TYPE, 1, Constants.GZIP_CAST_TYPE, 17, 0, 20, 0, 0, 5, 1, 1, 1, 0, 0, 0, Constants.GZIP_CAST_TYPE, StrictLineReader.CR, 15, 0, 7, 3, 1, 1, 1, 1, 23, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, StrictLineReader.CR, 0, 15, 0, 0, 7, 9, 3, 1, 1, 1, 1, 26, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 1, 0, 0};
+            return new byte[]{13, 0, 15, 0, 0, 7, 3, Constants.GZIP_CAST_TYPE, 1, Constants.GZIP_CAST_TYPE, 17, 0, 20, 0, 0, 5, 1, 1, 1, 0, 0, 0, Constants.GZIP_CAST_TYPE, 13, 15, 0, 7, 3, 1, 1, 1, 1, 23, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 13, 0, 15, 0, 0, 7, 9, 3, 1, 1, 1, 1, 26, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 1, 0, 0};
         }
         return (byte[]) invokeV.objValue;
     }
@@ -96,7 +95,7 @@ public class q7 implements d7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new byte[]{Base64.INTERNAL_PADDING, 1, 3, 0, 4, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 1, 6, 5, StrictLineReader.CR, 17, 22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 7, 8, 9, 7, 8, 9, 7, 10, 20, 21, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, 17, 19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Constants.GZIP_CAST_TYPE, 12, 19, 14, 16, 15, 14, 12, 18, 17, Constants.GZIP_CAST_TYPE, 9, 5, 24, 23, 27, 31, 34, 25, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 25, 26, 31, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 26, 33, 28, 30, 29, 28, 26, 32, 31, 25, 23, 2, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 2};
+            return new byte[]{Base64.INTERNAL_PADDING, 1, 3, 0, 4, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 1, 6, 5, 13, 17, 22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 7, 8, 9, 7, 8, 9, 7, 10, 20, 21, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, 17, 19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Constants.GZIP_CAST_TYPE, 12, 19, 14, 16, 15, 14, 12, 18, 17, Constants.GZIP_CAST_TYPE, 9, 5, 24, 23, 27, 31, 34, 25, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 25, 26, 31, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 26, 33, 28, 30, 29, 28, 26, 32, 31, 25, 23, 2, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 2};
         }
         return (byte[]) invokeV.objValue;
     }
@@ -176,7 +175,7 @@ public class q7 implements d7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new byte[]{1, 1, 2, 3, 4, 3, 5, 3, 6, 1, 0, 7, 7, 3, 8, 3, 9, 9, 3, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 3, 15, Constants.GZIP_CAST_TYPE, 10, 16, 16, 17, 18, 16, 3, 19, 19, 20, 21, 19, 3, 22, 22, 3, 21, 21, 24, 3, 25, 3, 26, 3, 27, 21, 23, 28, 29, 29, 28, 30, 31, 32, 3, 33, 34, 34, 33, StrictLineReader.CR, Base64.INTERNAL_PADDING, 15, 3, 34, 34, 12, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 3, 15, 34, 10, 16, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 12, 3, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 3, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 10, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 3, 40, 40, 3, StrictLineReader.CR, StrictLineReader.CR, 12, 3, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 3, 15, StrictLineReader.CR, 10, ExifInterface.START_CODE, ExifInterface.START_CODE, 3, 43, 43, 3, 28, 3, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 3, 45, 45, 3, 47, 47, 48, 49, 50, 3, 51, 52, 53, 47, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 55, 55, 54, 56, 57, 58, 3, 59, 60, 60, 59, 49, BaseNCodec.PAD_DEFAULT, 52, 3, 60, 60, 48, 62, 63, 3, 51, 52, 53, 60, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 3, 62, 62, 48, 3, 64, 3, 51, 3, 53, 62, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 65, 65, 3, 66, 66, 3, 49, 49, 48, 3, 67, 3, 51, 52, 53, 49, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 68, 68, 3, 69, 69, 3, 70, 70, 3, 8, 8, 71, 8, 3, 72, 72, 73, 72, 3, 3, 3, 0};
+            return new byte[]{1, 1, 2, 3, 4, 3, 5, 3, 6, 1, 0, 7, 7, 3, 8, 3, 9, 9, 3, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, 13, 14, 3, 15, Constants.GZIP_CAST_TYPE, 10, 16, 16, 17, 18, 16, 3, 19, 19, 20, 21, 19, 3, 22, 22, 3, 21, 21, 24, 3, 25, 3, 26, 3, 27, 21, 23, 28, 29, 29, 28, 30, 31, 32, 3, 33, 34, 34, 33, 13, Base64.INTERNAL_PADDING, 15, 3, 34, 34, 12, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 3, 15, 34, 10, 16, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 12, 3, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 3, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 10, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 3, 40, 40, 3, 13, 13, 12, 3, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 3, 15, 13, 10, ExifInterface.START_CODE, ExifInterface.START_CODE, 3, 43, 43, 3, 28, 3, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 3, 45, 45, 3, 47, 47, 48, 49, 50, 3, 51, 52, 53, 47, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 55, 55, 54, 56, 57, 58, 3, 59, 60, 60, 59, 49, BaseNCodec.PAD_DEFAULT, 52, 3, 60, 60, 48, 62, 63, 3, 51, 52, 53, 60, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 3, 62, 62, 48, 3, 64, 3, 51, 3, 53, 62, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 65, 65, 3, 66, 66, 3, 49, 49, 48, 3, 67, 3, 51, 52, 53, 49, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 68, 68, 3, 69, 69, 3, 70, 70, 3, 8, 8, 71, 8, 3, 72, 72, 73, 72, 3, 3, 3, 0};
         }
         return (byte[]) invokeV.objValue;
     }
@@ -313,8 +312,8 @@ public class q7 implements d7 {
     /* JADX WARN: Removed duplicated region for block: B:387:0x0345 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:425:0x01a5 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00e1 A[Catch: RuntimeException -> 0x045a, TRY_LEAVE, TryCatch #6 {RuntimeException -> 0x045a, blocks: (B:262:0x0393, B:264:0x0399, B:268:0x03ab, B:275:0x03bc, B:281:0x03d1, B:286:0x03dc, B:21:0x0044, B:23:0x0052, B:25:0x005d, B:34:0x008f, B:36:0x0095, B:38:0x009d, B:39:0x00a0, B:41:0x00b6, B:42:0x00bb, B:44:0x00c5, B:45:0x00cc, B:46:0x00d3, B:48:0x00e1, B:139:0x01d0, B:161:0x0207, B:162:0x020f, B:164:0x0213, B:166:0x021b, B:168:0x0221, B:169:0x022d, B:170:0x0235, B:172:0x0240, B:174:0x0244, B:176:0x024c, B:178:0x0252, B:180:0x0260, B:185:0x0274, B:187:0x027a, B:191:0x028b, B:198:0x029c, B:204:0x02af, B:209:0x02bc, B:26:0x0062, B:28:0x0076, B:29:0x007b, B:31:0x0083, B:32:0x0088), top: B:368:0x0044 }] */
-    /* JADX WARN: Type inference failed for: r0v40, types: [java.lang.Object, int[]] */
-    /* JADX WARN: Type inference failed for: r0v50, types: [java.lang.Object, int[]] */
+    /* JADX WARN: Type inference failed for: r0v40, types: [int[], java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v50, types: [int[], java.lang.Object] */
     /* JADX WARN: Type inference failed for: r13v16, types: [int] */
     /* JADX WARN: Type inference failed for: r13v17 */
     /* JADX WARN: Type inference failed for: r13v50, types: [int] */

@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Http2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] BINARY;

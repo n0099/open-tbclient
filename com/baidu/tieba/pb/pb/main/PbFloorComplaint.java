@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,12 +52,12 @@ public class PbFloorComplaint extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06fb, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c1e);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c8a);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091c1f);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091c48);
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a46);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d070c, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c89);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf5);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091c8a);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091cb3);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a61);
         }
     }
 
@@ -115,30 +115,30 @@ public class PbFloorComplaint extends RelativeLayout {
             }
             int i = this.f;
             if (i == 1) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f1032);
-                qw4.d(this.c).v(R.color.CAM_X0301);
+                this.c.setText(R.string.reply_has_been_folded);
+                rw4.d(this.c).v(R.color.CAM_X0301);
             } else if (i == 2) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0660);
-                qw4.d(this.c).v(R.color.CAM_X0105);
+                this.c.setText(R.string.folded_and_complaint);
+                rw4.d(this.c).v(R.color.CAM_X0105);
             } else if (i == 3) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0661);
-                qw4.d(this.c).v(R.color.CAM_X0301);
+                this.c.setText(R.string.folded_and_not_complain);
+                rw4.d(this.c).v(R.color.CAM_X0301);
             } else {
-                this.c.setText(R.string.obfuscated_res_0x7f0f1032);
-                qw4.d(this.c).v(R.color.CAM_X0301);
+                this.c.setText(R.string.reply_has_been_folded);
+                rw4.d(this.c).v(R.color.CAM_X0301);
             }
             int i2 = this.g;
             if (i2 != 1 && i2 != 3) {
                 if (i2 == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08093e, R.color.CAM_X0105, null);
+                    WebPManager.setPureDrawable(this.a, R.drawable.icon_pure_await12, R.color.CAM_X0105, null);
                 } else {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a6d, R.color.CAM_X0301, null);
+                    WebPManager.setPureDrawable(this.a, R.drawable.icon_pure_warning, R.color.CAM_X0301, null);
                 }
             } else {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a6d, R.color.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.a, R.drawable.icon_pure_warning, R.color.CAM_X0301, null);
             }
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0304, null);
-            qw4 d = qw4.d(this.d);
+            WebPManager.setPureDrawable(this.b, R.drawable.icon_pure_arrow14_right_n, R.color.CAM_X0304, null);
+            rw4 d = rw4.d(this.d);
             d.v(R.color.CAM_X0107);
             d.z(R.dimen.T_X09);
         }

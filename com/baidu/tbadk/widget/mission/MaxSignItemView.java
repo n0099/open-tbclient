@@ -114,17 +114,17 @@ public class MaxSignItemView extends FrameLayout {
                     return;
                 }
             }
-            this.a = R.drawable.obfuscated_res_0x7f08065a;
-            this.b = R.drawable.obfuscated_res_0x7f08065b;
-            this.c = R.drawable.obfuscated_res_0x7f080659;
-            this.d = R.drawable.obfuscated_res_0x7f08065c;
-            this.e = R.drawable.obfuscated_res_0x7f080659;
+            this.a = R.drawable.ic_pic_mask_task_complete_svg;
+            this.b = R.drawable.ic_pic_mask_task_select_svg;
+            this.c = R.drawable.ic_pic_mask_task_comingsoon_svg;
+            this.d = R.drawable.ic_pic_mask_task_uncomplete_svg;
+            this.e = R.drawable.ic_pic_mask_task_comingsoon_svg;
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdf);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09100c);
-            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091e8e);
+            this.g = (ImageView) view2.findViewById(R.id.item_icon);
+            this.h = (TextView) this.f.findViewById(R.id.item_text);
+            CircleView circleView = (CircleView) this.f.findViewById(R.id.select_circle);
             this.i = circleView;
             circleView.setVisibility(4);
             int i3 = activeCenterStatusData.is_today_mission;
@@ -249,7 +249,7 @@ public class MaxSignItemView extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activeCenterStatusData)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0588, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.max_sing_dialog_item_view, (ViewGroup) null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.weight = 1.0f;
             this.a.addView(inflate, layoutParams);
@@ -263,9 +263,9 @@ public class MaxSignItemView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0587, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f2a);
-            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f09134d);
+            LayoutInflater.from(getContext()).inflate(R.layout.max_sign_dialog_cus_view, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.sign_item_container);
+            this.b = (LineView) findViewById(R.id.line_view);
             this.e = yi.g(getContext(), R.dimen.tbds3);
             this.f = yi.g(getContext(), R.dimen.tbds0);
         }

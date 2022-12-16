@@ -1,7 +1,6 @@
 package com.baidu.webkit.internal.daemon;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -181,7 +180,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
     public static void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            Log.d(LOG_TAG, IntentConfig.STOP);
+            Log.d(LOG_TAG, "stop");
             try {
                 synchronized (ZeusThreadPoolUtil.class) {
                     if (mExecutor != null) {

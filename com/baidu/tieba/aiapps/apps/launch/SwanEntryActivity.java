@@ -5,13 +5,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.eh3;
-import com.baidu.tieba.iq3;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.hq3;
+import com.baidu.tieba.lu5;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.qt5;
+import com.baidu.tieba.n9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,10 +103,15 @@ public class SwanEntryActivity extends Activity {
         }
         if (!PermissionUtil.isAgreePrivacyPolicy()) {
             SwanAppAbTestStatic.a = uri;
-            return;
+        } else if (!n9.g().i("MainTabActivity")) {
+            LogoActivityConfig logoActivityConfig = new LogoActivityConfig(this, intent);
+            intent.setData(Uri.parse(uri));
+            logoActivityConfig.getIntent().putExtra(LogoActivityConfig.IS_DEAL_INTENT, true);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, logoActivityConfig));
+        } else {
+            lu5.a();
+            hq3.a(uri);
         }
-        qt5.a();
-        iq3.a(uri);
     }
 
     @Override // android.app.Activity
@@ -111,7 +120,7 @@ public class SwanEntryActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             m9.b(this);
             super.onCreate(bundle);
-            if (eh3.a(this)) {
+            if (dh3.a(this)) {
                 return;
             }
             a();

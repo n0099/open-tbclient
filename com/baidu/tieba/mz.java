@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import kotlin.jvm.internal.ByteCompanionObject;
 import org.apache.commons.codec.binary4util.BaseNCodec;
@@ -54,7 +53,7 @@ public final class mz {
     public static byte[] g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, ExifInterface.MARKER_SOF1, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, ExifInterface.MARKER_APP1, 102, 90, 4, StrictLineReader.CR, 91, 22, 84, 30, -86, 4, -106, ExifInterface.MARKER_SOF2, 49, 108, BaseNCodec.PAD_DEFAULT, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, ExifInterface.MARKER_SOF1, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, ExifInterface.MARKER_APP1, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, ExifInterface.MARKER_SOF2, 49, 108, BaseNCodec.PAD_DEFAULT, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
     }
 
     public static byte[] h() {

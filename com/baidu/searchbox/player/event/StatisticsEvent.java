@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatisticsEvent extends VideoEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_ADD_PLAY_SPEED_RECORD = "monitor_add_play_speed_record";

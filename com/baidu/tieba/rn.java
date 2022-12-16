@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class rn<V extends TypeAdapter.ViewHolder> extends kn<qn, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class rn<V extends TypeAdapter.ViewHolder> extends kn<qn, V> {
             if (this.mType == this.a.getBottomId()) {
                 return this.a.onFillBottomViewHolder(i, view2, viewGroup, qnVar.c(), v);
             }
-            return this.a.onFillViewHolder(i, view2, viewGroup, qnVar.c(), v);
+            return this.a.onFillViewHolder(i, view2, viewGroup, (ViewGroup) qnVar.c(), (xn) v);
         }
         return (View) invokeCommon.objValue;
     }

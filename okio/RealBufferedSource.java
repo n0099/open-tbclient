@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class RealBufferedSource implements BufferedSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -729,22 +729,19 @@ public final class RealBufferedSource implements BufferedSource {
     @Override // okio.BufferedSource
     public int select(Options options) throws IOException {
         InterceptResult invokeL;
-        Buffer buffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, options)) == null) {
             if (!this.closed) {
                 do {
-                    int selectPrefix = this.buffer.selectPrefix(options);
+                    int selectPrefix = this.buffer.selectPrefix(options, true);
                     if (selectPrefix == -1) {
                         return -1;
                     }
-                    long size = options.byteStrings[selectPrefix].size();
-                    buffer = this.buffer;
-                    if (size <= buffer.size) {
-                        buffer.skip(size);
+                    if (selectPrefix != -2) {
+                        this.buffer.skip(options.byteStrings[selectPrefix].size());
                         return selectPrefix;
                     }
-                } while (this.source.read(buffer, PlaybackStateCompat.ACTION_PLAY_FROM_URI) != -1);
+                } while (this.source.read(this.buffer, PlaybackStateCompat.ACTION_PLAY_FROM_URI) != -1);
                 return -1;
             }
             throw new IllegalStateException("closed");

@@ -1,64 +1,87 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.bigday.GetBigdayInfoHttpResMessage;
+import com.baidu.tbadk.core.bigday.GetBigdayInfoReqMessage;
+import com.baidu.tbadk.core.bigday.GetBigdayInfoSocketResMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.switchs.BigdaySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.GetBigday.BigdayInfo;
+import tbclient.GetBigday.GetBigdayResIdl;
 /* loaded from: classes5.dex */
-public class pr4 extends PopupWindow {
+public class pr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static pr4 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView a;
-    public TextView b;
-    public TextView c;
-    public Button d;
-    public on4 e;
-    public int f;
-    public int g;
-    public RelativeLayout h;
-    public CustomMessageListener i;
+    public or4 a;
+    public or4 b;
+    public SparseArray<Long> c;
+    public ArrayList<or4> d;
+    public BdUniqueId e;
+    public boolean f;
+    public qb g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071639, "Lcom/baidu/tieba/pr4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948071639, "Lcom/baidu/tieba/pr4;");
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pr4 a;
 
-        public a(pr4 pr4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pr4 pr4Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pr4Var};
+                Object[] objArr = {pr4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -67,27 +90,24 @@ public class pr4 extends PopupWindow {
             this.a = pr4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.e == null) {
-                return;
-            }
-            if (this.a.e.d == on4.E) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.e.l) && !xi.isEmpty(this.a.e.k)) {
-                    pr4 pr4Var = this.a;
-                    pr4Var.e(pr4Var.e.k);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && !responsedMessage.hasError()) {
+                this.a.f = true;
+                ArrayList<or4> arrayList = null;
+                if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
+                    arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
+                } else if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
+                    arrayList = ((GetBigdayInfoHttpResMessage) responsedMessage).bigdayInfos;
                 }
-            } else if (this.a.e.d == on4.F && !xi.isEmpty(this.a.e.k)) {
-                pr4 pr4Var2 = this.a;
-                pr4Var2.e(pr4Var2.e.k);
+                this.a.m(arrayList);
             }
-            this.a.dismiss();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public class b extends BdAsyncTask<Void, Void, ArrayList<or4>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pr4 a;
@@ -110,220 +130,297 @@ public class pr4 extends PopupWindow {
             this.a = pr4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ArrayList<or4> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+                super.onPostExecute(arrayList);
+                if (arrayList == null) {
+                    return;
+                }
+                this.a.l(arrayList);
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ArrayList<or4> doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            byte[] bArr;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                ArrayList<or4> arrayList = new ArrayList<>();
+                kv4.f();
+                df<byte[]> d = kv4.d("tb.bigday_datas");
+                if (d != null && (bArr = d.get("tb.bigday_datas")) != null) {
+                    try {
+                        GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
+                        if (getBigdayResIdl.data != null) {
+                            for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
+                                if (bigdayInfo != null) {
+                                    or4 or4Var = new or4();
+                                    or4Var.b(bigdayInfo);
+                                    if (or4Var.a()) {
+                                        arrayList.add(or4Var);
+                                    }
+                                }
+                            }
+                            return arrayList;
+                        }
+                        return arrayList;
+                    } catch (Exception unused) {
+                        return null;
+                    }
+                }
+                return arrayList;
+            }
+            return (ArrayList) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements PopupWindow.OnDismissListener {
+    public static class c extends DiskFileOperate implements ic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr4 a;
+        public ArrayList<String> a;
 
-        public c(pr4 pr4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(String str, String str2, DiskFileOperate.Action action, ArrayList<or4> arrayList) {
+            super(str, str2, action);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pr4Var};
+                Object[] objArr = {str, str2, action, arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = pr4Var;
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().unRegisterListener(this.a.i);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(pr4 pr4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pr4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            this.a = new ArrayList<>();
+            Iterator<or4> it = arrayList.iterator();
+            while (it.hasNext()) {
+                or4 next = it.next();
+                if (next != null) {
+                    String g = tg.h().g(next.a, 41);
+                    if (!StringUtils.isNULL(g)) {
+                        String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(g);
+                        if (!StringUtils.isNULL(nameMd5FromUrl)) {
+                            this.a.add(nameMd5FromUrl);
+                        }
+                    }
                 }
             }
-            this.a = pr4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.ic
+        public boolean compare(File file) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.dismiss();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (file != null && !StringUtils.isNULL(file.getName())) {
+                    return !this.a.contains(file.getName());
+                }
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pr4(Context context) {
-        super(context);
+    public pr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = new d(this, 2921420);
-        g(context);
-        MessageManager.getInstance().registerListener(this.i);
+        this.f = false;
+        this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
+        tr8.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
+        tr8.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        MessageManager.getInstance().registerListener(this.g);
+        this.c = new SparseArray<>();
     }
 
-    public final void e(String str) {
-        TbPageContext<?> f;
+    public static pr4 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !xi.isEmpty(str) && (f = f(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            UrlManager.getInstance().dealOneLink(f, new String[]{str});
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (h == null) {
+                h = new pr4();
+            }
+            return h;
+        }
+        return (pr4) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.g);
         }
     }
 
-    public final TbPageContext f(Activity activity) {
-        InterceptResult invokeL;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            if (activity instanceof BaseActivity) {
-                return ((BaseActivity) activity).getPageContext();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            new b(this).execute(new Void[0]);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f = false;
+            GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
+            getBigdayInfoReqMessage.setTag(this.e);
+            MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
+        }
+    }
+
+    public final void d(ArrayList<or4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            ListUtils.addAll(arrayList2, 0, arrayList);
+            ListUtils.add(arrayList2, this.a);
+            ListUtils.add(arrayList2, this.b);
+            c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES, arrayList2);
+            cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            cVar.setSdCard(false);
+            cVar.setSavedCache(true);
+            lc.f().a(cVar);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || ListUtils.isEmpty(this.d)) {
+            return;
+        }
+        Iterator<or4> it = this.d.iterator();
+        while (it.hasNext()) {
+            or4 next = it.next();
+            if (!BigdayImageLoaderProc.isImageFileExist(next.a)) {
+                tg.h().m(next.a, 41, null, this.e);
             }
-            if (activity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) activity).getPageContext();
+        }
+    }
+
+    public final or4 g(List<or4> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, list, i)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (or4 or4Var : list) {
+                    if (or4Var.a() && or4Var.e == i) {
+                        long currentTimeMillis = System.currentTimeMillis() / 1000;
+                        long j = or4Var.f;
+                        if (j > currentTimeMillis) {
+                            this.c.put(i, Long.valueOf(j));
+                            return null;
+                        } else if (or4Var.g >= currentTimeMillis) {
+                            return or4Var;
+                        }
+                    }
+                }
+                return null;
             }
             return null;
         }
-        return (TbPageContext) invokeL.objValue;
+        return (or4) invokeLI.objValue;
     }
 
-    public void d(Context context, on4 on4Var) {
+    public or4 h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, on4Var) != null) || on4Var == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (i == 1) {
+                if (this.a == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
+                    this.a = g(this.d, 1);
+                }
+                or4 or4Var = this.a;
+                if (or4Var != null && (currentTimeMillis < or4Var.f || currentTimeMillis > or4Var.g)) {
+                    this.a = g(this.d, 1);
+                }
+                or4 or4Var2 = this.a;
+                if (or4Var2 != null && BigdayImageLoaderProc.isImageFileExist(or4Var2.a)) {
+                    return this.a;
+                }
+            } else if (i == 3) {
+                if (this.b == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
+                    this.a = g(this.d, 3);
+                }
+                or4 or4Var3 = this.b;
+                if (or4Var3 != null && (currentTimeMillis < or4Var3.f || currentTimeMillis > or4Var3.g)) {
+                    this.b = g(this.d, 3);
+                }
+                or4 or4Var4 = this.b;
+                if (or4Var4 != null && BigdayImageLoaderProc.isImageFileExist(or4Var4.a)) {
+                    return this.b;
+                }
+            }
+            return null;
+        }
+        return (or4) invokeI.objValue;
+    }
+
+    public final void l(ArrayList<or4> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, arrayList) != null) || ListUtils.isEmpty(arrayList) || this.f) {
             return;
         }
-        this.e = on4Var;
-        if (xi.isEmpty(on4Var.e)) {
-            this.b.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f13cc));
-        } else {
-            this.b.setText(on4Var.e);
-        }
-        if (xi.isEmpty(on4Var.p)) {
-            this.b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
-        } else {
-            this.b.setTextColor(ij7.b(on4Var.p));
-        }
-        if (xi.isEmpty(on4Var.f)) {
-            this.c.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f02cf));
-        } else {
-            this.c.setText(on4Var.f);
-        }
-        if (xi.isEmpty(on4Var.q)) {
-            this.c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
-        } else {
-            this.c.setTextColor(ij7.b(on4Var.q));
-        }
-        if (!xi.isEmpty(on4Var.o)) {
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(context, R.dimen.tbds120), ij7.b(on4Var.o)));
-        }
-        if (!xi.isEmpty(on4Var.j)) {
-            this.a.K(on4Var.j, 10, false);
-        } else {
-            SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f0801fb);
+        this.a = g(arrayList, 1);
+        this.b = g(arrayList, 3);
+        this.d = arrayList;
+        f();
+        or4 or4Var = this.a;
+        if (or4Var != null && BigdayImageLoaderProc.isImageFileExist(or4Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > ry4.l().n("key_bigday_next_showtime_home", 0L)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
         }
     }
 
-    public void g(Context context) {
+    public final void m(ArrayList<or4> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d0760, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091499);
-            this.a = tbImageView;
-            tbImageView.setRadius(yi.g(context, R.dimen.tbds32));
-            this.a.setConrers(3);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09149b);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09149c);
-            this.d = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090446);
-            this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091498);
-            this.c.setOnClickListener(new a(this));
-            this.d.setOnClickListener(new b(this));
-            setContentView(inflate);
-            GreyUtil.grey(this);
-            setWidth(-1);
-            setHeight(-1);
-            setFocusable(true);
-            setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(R.color.black_alpha35)));
-            setAnimationStyle(R.style.obfuscated_res_0x7f1002ac);
-            setClippingEnabled(false);
-            setOnDismissListener(new c(this));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            or4 g = g(arrayList, 1);
+            or4 g2 = g(arrayList, 3);
+            d(arrayList);
+            this.d = arrayList;
+            if (g != null && g.a()) {
+                this.a = g;
+            }
+            if (g2 != null && g2.a()) {
+                this.b = g2;
+            }
+            f();
+            or4 or4Var = this.a;
+            if (or4Var != null && BigdayImageLoaderProc.isImageFileExist(or4Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > ry4.l().n("key_bigday_next_showtime_home", 0L)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
+            }
         }
     }
 
-    public final boolean h() {
-        InterceptResult invokeV;
+    public void n(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                currentActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                this.f = displayMetrics.widthPixels;
-                this.g = displayMetrics.heightPixels;
-            }
-            if (this.g > 2000 && this.f > 2000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (h() && (relativeLayout = this.h) != null && relativeLayout.getLayoutParams() != null) {
-                this.h.getLayoutParams().width = (this.f * 2) / 3;
-            }
-            showAtLocation(getContentView(), 17, 0, 0);
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+            this.e = bdUniqueId;
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IProcessBridge extends IInterface {
     void callMainProcessAsync(String str, int i, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException;
 
@@ -22,7 +22,7 @@ public interface IProcessBridge extends IInterface {
 
     void send(Message message) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Stub extends Binder implements IProcessBridge {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IProcessBridge";
@@ -38,7 +38,7 @@ public interface IProcessBridge extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class Proxy implements IProcessBridge {
             public static /* synthetic */ Interceptable $ic;
             public static IProcessBridge sDefaultImpl;
@@ -276,7 +276,7 @@ public interface IProcessBridge extends IInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Default implements IProcessBridge {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

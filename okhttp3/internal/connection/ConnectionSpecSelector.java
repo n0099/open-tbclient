@@ -13,13 +13,14 @@ import java.net.UnknownServiceException;
 import java.security.cert.CertificateException;
 import java.util.Arrays;
 import java.util.List;
+import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
 import javax.net.ssl.SSLSocket;
 import okhttp3.ConnectionSpec;
 import okhttp3.internal.Internal;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ConnectionSpecSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +104,7 @@ public final class ConnectionSpecSelector {
             if ((z && (iOException.getCause() instanceof CertificateException)) || (iOException instanceof SSLPeerUnverifiedException)) {
                 return false;
             }
-            if (z || (iOException instanceof SSLProtocolException)) {
+            if (z || (iOException instanceof SSLProtocolException) || (iOException instanceof SSLException)) {
                 return true;
             }
             return false;

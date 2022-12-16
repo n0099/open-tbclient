@@ -8,4 +8,10 @@ public interface h81 {
     void b(AdBaseModel adBaseModel);
 
     void c(AdBaseModel adBaseModel);
+
+    void d(AdBaseModel adBaseModel);
+
+    void e(AdBaseModel adBaseModel, String str);
+
+    void f(AdBaseModel adBaseModel);
 }

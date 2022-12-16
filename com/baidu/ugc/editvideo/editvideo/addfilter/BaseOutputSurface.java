@@ -12,7 +12,7 @@ import android.view.Surface;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj9;
+import com.baidu.tieba.mm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import com.faceunity.gles.GeneratedTexture;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 this.mPboNextIndex = (i3 + 1) % 2;
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                dj9.g(e);
+                mm9.g(e);
                 return null;
             }
         }
@@ -217,7 +217,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 }, null);
                 new WindowSurface(this.mEglCore, newInstance.getSurface(), true).makeCurrent();
             } catch (OutOfMemoryError e) {
-                dj9.g(e);
+                mm9.g(e);
             }
             return null;
         }
@@ -270,7 +270,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         while (true) {
             int glGetError = GLES20.glGetError();
             if (glGetError != 0) {
-                dj9.d(str + ": glError " + glGetError);
+                mm9.d(str + ": glError " + glGetError);
             } else {
                 return;
             }
@@ -329,7 +329,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 System.currentTimeMillis();
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                dj9.g(e);
+                mm9.g(e);
                 return null;
             }
         }

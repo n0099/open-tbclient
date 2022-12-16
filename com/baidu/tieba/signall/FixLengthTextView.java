@@ -8,13 +8,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aq5;
+import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FixLengthTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class FixLengthTextView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aq5.fixtextview);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vq5.fixtextview);
         this.a = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(0));
         obtainStyledAttributes.recycle();
     }

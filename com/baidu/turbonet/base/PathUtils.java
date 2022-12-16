@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class PathUtils {
     public static /* synthetic */ Interceptable $ic;
     public static AsyncTask<Void, Void, String[]> a;
@@ -25,7 +25,7 @@ public abstract class PathUtils {
     public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] a;

@@ -257,8 +257,8 @@ public class h05 extends ReplacementSpan {
             }
             paint.setAntiAlias(true);
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (sw4.b(charSequence.subSequence(i, i2))) {
-                sw4.a(fontMetricsInt, (int) paint.getTextSize());
+            if (tw4.b(charSequence.subSequence(i, i2))) {
+                tw4.a(fontMetricsInt, (int) paint.getTextSize());
             }
             RectF rectF = new RectF(this.i + f, fontMetricsInt.ascent + f2, (this.a + f) - this.h, (fontMetricsInt.descent + f2) - this.k);
             this.b = rectF;

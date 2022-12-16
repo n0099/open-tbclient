@@ -1,115 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes4.dex */
 public class e28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a58 a;
-    public final HttpMessageListener b;
-    public final HttpMessageListener c;
+    public FoldCommentActivity a;
+    public BdTypeListView b;
+    public p58 c;
+    public r58 d;
+    public View.OnClickListener e;
+    public View.OnClickListener f;
+    public TbRichTextView.y g;
+    public j18 h;
+    public View.OnLongClickListener i;
+    public SubPbReplyAdapter j;
+    public f28 k;
+    public List<kn> l;
+    public h08 m;
+    public ArrayList<xn> n;
 
-    /* loaded from: classes3.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e28 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(e28 e28Var, int i, boolean z) {
-            super(i, z);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e28Var, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e28Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e28 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(e28 e28Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e28Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e28Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
-            }
-        }
-    }
-
-    public e28(a58 a58Var) {
+    public e28(FoldCommentActivity foldCommentActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a58Var};
+            Object[] objArr = {foldCommentActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -119,152 +53,143 @@ public class e28 {
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
-        this.c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
-        if (a58Var != null) {
-            this.a = a58Var;
-            f();
-            return;
-        }
-        throw new NullPointerException("PbActivity is NullPointerException");
+        this.l = new ArrayList();
+        this.n = new ArrayList<>();
+        this.a = foldCommentActivity;
+        this.b = bdTypeListView;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0071  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0095  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x00a6  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00b1  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(AgreeData agreeData) {
-        xd5 currentVisiblePageExtra;
-        BaijiahaoData baijiahaoData;
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, agreeData) != null) || agreeData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, z68.b);
+            this.j = subPbReplyAdapter;
+            subPbReplyAdapter.u(false);
+            this.l.add(this.j);
+            FoldCommentActivity foldCommentActivity = this.a;
+            f28 f28Var = new f28(foldCommentActivity, PostData.N0, foldCommentActivity.getPageContext());
+            this.k = f28Var;
+            f28Var.d0(this.c);
+            this.k.e0(this.d);
+            this.k.g0(this.a);
+            this.k.k(this.e);
+            this.k.e(this.f);
+            this.k.n(this.g);
+            this.k.f0(this.h);
+            this.k.d(this.i);
+            this.l.add(this.k);
+            this.b.a(this.l);
         }
-        int i = 1;
-        if (agreeData.hasAgree) {
-            if (agreeData.agreeType == 2) {
-                agreeData.agreeType = 2;
-                agreeData.hasAgree = false;
-                agreeData.agreeNum--;
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-                httpMessage.addParam("thread_id", agreeData.threadId);
-                httpMessage.addParam("op_type", i);
-                if (agreeData.objType == 0) {
-                    agreeData.objType = 3;
-                }
-                httpMessage.addParam("obj_type", agreeData.objType);
-                httpMessage.addParam("agree_type", agreeData.agreeType);
-                httpMessage.addParam("forum_id", agreeData.forumId);
-                currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.P());
-                if (currentVisiblePageExtra != null) {
-                    httpMessage.addParam("obj_source", currentVisiblePageExtra.a());
-                }
-                if (!TextUtils.isEmpty(agreeData.postId)) {
-                    httpMessage.addParam("post_id", agreeData.postId);
-                }
-                baijiahaoData = agreeData.baijiahaoData;
-                if (baijiahaoData != null) {
-                    httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
-                    httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
-                    httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
-                    httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
-                }
-                httpMessage.setTag(c());
-                httpMessage.setExtra(Integer.valueOf(i));
-                httpMessage.addHeader("needSig", "1");
-                MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.getAdapter2() != null) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void d(boolean z) {
+        f28 f28Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (f28Var = this.k) != null) {
+            f28Var.setFromCDN(z);
+        }
+    }
+
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.e = onClickListener;
+        }
+    }
+
+    public void f(boolean z) {
+        f28 f28Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (f28Var = this.k) != null) {
+            f28Var.c0(z);
+        }
+    }
+
+    public void g(TbRichTextView.y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yVar) == null) {
+            this.g = yVar;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.i = onLongClickListener;
+        }
+    }
+
+    public void j(p58 p58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, p58Var) == null) {
+            this.c = p58Var;
+        }
+    }
+
+    public void k(r58 r58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, r58Var) == null) {
+            this.d = r58Var;
+        }
+    }
+
+    public void l(j18 j18Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, j18Var) == null) {
+            this.h = j18Var;
+        }
+    }
+
+    public void i(h08 h08Var) {
+        f28 f28Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h08Var) == null) {
+            this.m = h08Var;
+            f28 f28Var2 = this.k;
+            if (f28Var2 != null) {
+                f28Var2.r(h08Var);
             }
-            agreeData.agreeType = 2;
-            agreeData.hasAgree = true;
-            agreeData.agreeNum++;
-            kf8.g().l(this.a.getPageContext());
-        } else {
-            agreeData.agreeType = 2;
-            agreeData.hasAgree = true;
-            agreeData.agreeNum++;
-            kf8.g().l(this.a.getPageContext());
-        }
-        i = 0;
-        HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-        httpMessage2.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-        httpMessage2.addParam("thread_id", agreeData.threadId);
-        httpMessage2.addParam("op_type", i);
-        if (agreeData.objType == 0) {
-        }
-        httpMessage2.addParam("obj_type", agreeData.objType);
-        httpMessage2.addParam("agree_type", agreeData.agreeType);
-        httpMessage2.addParam("forum_id", agreeData.forumId);
-        currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.P());
-        if (currentVisiblePageExtra != null) {
-        }
-        if (!TextUtils.isEmpty(agreeData.postId)) {
-        }
-        baijiahaoData = agreeData.baijiahaoData;
-        if (baijiahaoData != null) {
-        }
-        httpMessage2.setTag(c());
-        httpMessage2.setExtra(Integer.valueOf(i));
-        httpMessage2.addHeader("needSig", "1");
-        MessageManager.getInstance().sendMessage(httpMessage2);
-    }
-
-    public BdUniqueId c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TbPageContext pageContext = this.a.getPageContext();
-            if (pageContext != null) {
-                return pageContext.getUniqueId();
+            this.n.clear();
+            h08 h08Var2 = this.m;
+            if (h08Var2 != null && h08Var2.H() != null && this.m.H().size() > 0) {
+                z68 z68Var = new z68();
+                z68Var.b(h08Var.H().size());
+                this.n.add(z68Var);
+                Iterator<PostData> it = this.m.H().iterator();
+                while (it.hasNext()) {
+                    PostData next = it.next();
+                    if (next.getType() != PostData.M0) {
+                        this.n.add(next);
+                    }
+                }
             }
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g();
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            a58 a58Var = this.a;
-            if (a58Var != null) {
-                a58Var.registerListener(this.b);
-                this.a.registerListener(this.c);
-                return true;
+            if (h08Var.Q() != null && h08Var.Q().getAuthor() != null && (f28Var = this.k) != null) {
+                f28Var.o(h08Var.Q().getAuthor().getUserId());
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            MessageManager.getInstance().unRegisterListener(this.c);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(HttpResponsedMessage httpResponsedMessage, int i) {
-        PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, httpResponsedMessage, i) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.a != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
-            CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
-            activityDialogData.type = 0;
-            uy7.a(this.a.getPageContext(), activityDialogData).show();
+            if (this.m != null) {
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_HAS_FOLD_ICON_SHOW);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem.param("fid", this.m.m());
+                statisticItem.param("fname", this.m.n());
+                statisticItem.param("tid", this.m.S());
+                TiebaStatic.log(statisticItem);
+            }
+            this.b.setData(this.n);
+            this.b.getAdapter2().notifyDataSetChanged();
         }
     }
 }

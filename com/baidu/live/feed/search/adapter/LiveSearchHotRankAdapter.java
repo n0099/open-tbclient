@@ -15,7 +15,7 @@ import com.baidu.live.feed.search.holder.LiveSearchHotRankHeaderViewHolder;
 import com.baidu.live.feed.search.holder.LiveSearchHotRankItemViewHolder;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.y90;
+import com.baidu.tieba.x90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -246,7 +246,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
                         if (context3 != null) {
                             context2 = context3.getApplicationContext();
                         }
-                        y90.I(context2, this.$position, this.$entity);
+                        x90.I(context2, this.$position, this.$entity);
                     }
                 }
             });
@@ -258,7 +258,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
                 if (context2 != null) {
                     context = context2.getApplicationContext();
                 }
-                y90.J(context, i, liveRoomEntity);
+                x90.J(context, i, liveRoomEntity);
             }
         }
     }
@@ -270,9 +270,9 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             if (i != 0) {
                 if (i != 2) {
-                    return new LiveSearchHotRankItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0567, viewGroup, false));
+                    return new LiveSearchHotRankItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0577, viewGroup, false));
                 }
-                return new LiveSearchHotRankBottomViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0566, viewGroup, false));
+                return new LiveSearchHotRankBottomViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0576, viewGroup, false));
             }
             return new LiveSearchHotRankHeaderViewHolder(new ImageView(viewGroup.getContext()));
         }

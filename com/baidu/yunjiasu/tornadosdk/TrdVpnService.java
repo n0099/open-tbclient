@@ -165,7 +165,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CUID:", tornadoSetting.getAuthCUID()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_TOKEN:", tornadoSetting.getAuthToken()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CLIENT_VERSION:", tornadoSetting.getClientVersion()));
-            this.executorService.submit(new Runnable() { // from class: com.baidu.tieba.gm9
+            this.executorService.submit(new Runnable() { // from class: com.baidu.tieba.pp9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,7 +173,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        TrdVpnService.m73setupVPN$lambda0(TornadoSetting.this, this, trdVpnConfig);
+                        TrdVpnService.m74setupVPN$lambda0(TornadoSetting.this, this, trdVpnConfig);
                     }
                 }
             });
@@ -183,7 +183,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
     }
 
     /* renamed from: setupVPN$lambda-0  reason: not valid java name */
-    public static final void m73setupVPN$lambda0(TornadoSetting setting, TrdVpnService this$0, TrdVpnConfig trdConf) {
+    public static final void m74setupVPN$lambda0(TornadoSetting setting, TrdVpnService this$0, TrdVpnConfig trdConf) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, setting, this$0, trdConf) == null) {

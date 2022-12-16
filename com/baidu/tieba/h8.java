@@ -34,25 +34,25 @@ public class h8<T> extends b7<T> {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r();
+            q();
             super.clear();
         }
     }
 
     @Override // com.baidu.tieba.b7
-    public void m() {
+    public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            r();
-            super.m();
+            q();
+            super.l();
         }
     }
 
-    public T[] p() {
+    public T[] o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            r();
+            q();
             T[] tArr = this.a;
             this.e = tArr;
             this.g++;
@@ -65,8 +65,8 @@ public class h8<T> extends b7<T> {
     public T pop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            r();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            q();
             return (T) super.pop();
         }
         return (T) invokeV.objValue;
@@ -114,12 +114,12 @@ public class h8<T> extends b7<T> {
     }
 
     @Override // com.baidu.tieba.b7
-    public T i(int i) {
+    public T h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            r();
-            return (T) super.i(i);
+            q();
+            return (T) super.h(i);
         }
         return (T) invokeI.objValue;
     }
@@ -128,43 +128,43 @@ public class h8<T> extends b7<T> {
     public void sort(Comparator<? super T> comparator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, comparator) == null) {
-            r();
+            q();
             super.sort(comparator);
         }
     }
 
     @Override // com.baidu.tieba.b7
-    public void insert(int i, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, t) == null) {
-            r();
-            super.insert(i, t);
-        }
-    }
-
-    @Override // com.baidu.tieba.b7
-    public boolean j(T t, boolean z) {
+    public boolean i(T t, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, t, z)) == null) {
-            r();
-            return super.j(t, z);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, t, z)) == null) {
+            q();
+            return super.i(t, z);
         }
         return invokeLZ.booleanValue;
     }
 
     @Override // com.baidu.tieba.b7
-    public void l(int i, T t) {
+    public void insert(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, t) == null) {
-            r();
-            super.l(i, t);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, t) == null) {
+            q();
+            super.insert(i, t);
         }
     }
 
-    public void q() {
+    @Override // com.baidu.tieba.b7
+    public void k(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, t) == null) {
+            q();
+            super.k(i, t);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             int max = Math.max(0, this.g - 1);
             this.g = max;
             T[] tArr = this.e;
@@ -182,7 +182,7 @@ public class h8<T> extends b7<T> {
         }
     }
 
-    public final void r() {
+    public final void q() {
         T[] tArr;
         T[] tArr2;
         Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class h8<T> extends b7<T> {
                     return;
                 }
             }
-            k(this.a.length);
+            j(this.a.length);
         }
     }
 }

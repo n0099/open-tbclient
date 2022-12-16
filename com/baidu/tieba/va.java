@@ -51,7 +51,7 @@ public class va {
                     linkedList.add(str2);
                 }
                 if (i3 != 0) {
-                    linkedList.add(TiebaStatic.LogFields.RESULT);
+                    linkedList.add("result");
                     linkedList.add(Integer.valueOf(i3));
                 }
                 if (!TextUtils.isEmpty(str3)) {

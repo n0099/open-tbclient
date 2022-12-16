@@ -25,7 +25,6 @@ import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,7 +37,6 @@ import com.heytap.mcssdk.callback.PushCallback;
 import com.heytap.mcssdk.mode.SubscribeResult;
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hms.aaid.HmsInstanceId;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONObject;
@@ -715,7 +713,7 @@ public class e {
                         return stringExtra;
                     }
                     String fragment = data.getFragment();
-                    if (TextUtils.isEmpty(fragment) || (split = fragment.split(ParamableElem.DIVIDE_PARAM)) == null || split.length <= 0) {
+                    if (TextUtils.isEmpty(fragment) || (split = fragment.split(";")) == null || split.length <= 0) {
                         return stringExtra;
                     }
                     for (int i2 = 0; i2 < split.length; i2++) {
@@ -767,7 +765,7 @@ public class e {
         if (android.text.TextUtils.isEmpty(r3) != false) goto L39;
      */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0048, code lost:
-        r3 = r3.split(com.yy.hiidostatis.defs.obj.ParamableElem.DIVIDE_PARAM);
+        r3 = r3.split(";");
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x004e, code lost:
         if (r3 == null) goto L39;
@@ -978,7 +976,7 @@ public class e {
     public static boolean i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) ? System.currentTimeMillis() - com.baidu.android.pushservice.i.i.b(context, "key_widget_push_source_set_time") < ImagesInvalidService.FILE_VALID_TIME : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) ? System.currentTimeMillis() - com.baidu.android.pushservice.i.i.b(context, "key_widget_push_source_set_time") < 259200000 : invokeL.booleanValue;
     }
 
     public static void j(Context context) {

@@ -40,7 +40,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCallback {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,7 +72,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     public WebSocketWriter writer;
     public final Runnable writerRunnable;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class CancelRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Close {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Message {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class PingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Streams implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -575,7 +575,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             Request build2 = this.originalRequest.newBuilder().header("Upgrade", "websocket").header(HTTP.CONN_DIRECTIVE, "Upgrade").header("Sec-WebSocket-Key", this.key).header("Sec-WebSocket-Version", "13").build();
             Call newWebSocketCall = Internal.instance.newWebSocketCall(build, build2);
             this.call = newWebSocketCall;
-            newWebSocketCall.enqueue(new Callback(this, build2) { // from class: okhttp3.internal.ws.RealWebSocket.2
+            newWebSocketCall.timeout().clearTimeout();
+            this.call.enqueue(new Callback(this, build2) { // from class: okhttp3.internal.ws.RealWebSocket.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RealWebSocket this$0;

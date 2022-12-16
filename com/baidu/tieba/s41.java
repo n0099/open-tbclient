@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,35 +10,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class s41 {
     public static /* synthetic */ Interceptable $ic;
     public static final s41 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract String a(String str);
+    public abstract void a(Context context, fy0 fy0Var, boolean z);
 
-    public abstract void b(boolean z);
+    public abstract void b(@Nullable String str, @Nullable String str2);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends s41 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.s41
-        public String a(String str) {
-            InterceptResult invokeL;
+        public void a(Context context, fy0 fy0Var, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return null;
+            if (interceptable == null || interceptable.invokeLLZ(1048576, this, context, fy0Var, z) == null) {
             }
-            return (String) invokeL.objValue;
         }
 
         @Override // com.baidu.tieba.s41
-        public void b(boolean z) {
+        public void b(@Nullable String str, @Nullable String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             }
         }
 

@@ -2,11 +2,9 @@ package com.baidu.android.imsdk.mcast;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,9 +80,8 @@ public class IMSendQuizOptMsg extends Message {
                 long j = 0;
                 try {
                     j = Long.parseLong(Utility.readUid(this.mContext));
-                } catch (Exception e) {
+                } catch (Exception unused) {
                     LogUtils.e(TAG, "bd uid is null");
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
                 jSONObject.put("bd_uid", j);
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
@@ -94,9 +91,8 @@ public class IMSendQuizOptMsg extends Message {
                 jSONObject.put("op_ext", this.mOptExt);
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
         }
     }

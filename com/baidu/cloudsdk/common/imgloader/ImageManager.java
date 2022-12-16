@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImageManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_HIT_COUNT_REQUIRED = 1;

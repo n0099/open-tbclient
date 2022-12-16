@@ -167,7 +167,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public static void setGhostView(@NonNull View view2, @Nullable GhostViewPort ghostViewPort) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, view2, ghostViewPort) == null) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6, ghostViewPort);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ce1, ghostViewPort);
         }
     }
 
@@ -184,7 +184,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
-            return (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6);
+            return (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ce1);
         }
         return (GhostViewPort) invokeL.objValue;
     }

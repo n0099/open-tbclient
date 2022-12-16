@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,21 +40,21 @@ public class cz4 {
     public static void c(TextView textView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
-            qw4.d(textView).v(R.color.CAM_X0107);
+            rw4.d(textView).v(R.color.CAM_X0107);
         }
     }
 
     public static void d(TextView textView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
-            qw4.d(textView).z(R.dimen.tbds36);
+            rw4.d(textView).z(R.dimen.tbds36);
         }
     }
 
     public static void e(TextView textView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
-            qw4 d = qw4.d(textView);
+            rw4 d = rw4.d(textView);
             d.z(R.dimen.tbds36);
             d.v(R.color.CAM_X0107);
         }
@@ -64,9 +64,9 @@ public class cz4 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
             if (i != 1 && i != 4) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110020);
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
             } else {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110022);
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
             }
             tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
         }

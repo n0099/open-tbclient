@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -211,7 +212,7 @@ public final class NalUnitUtil {
             int i4 = i2 - 1;
             int i5 = i + 2;
             while (i5 < i4) {
-                if ((bArr[i5] & 254) == 0) {
+                if ((bArr[i5] & ExifInterface.MARKER_COM) == 0) {
                     int i6 = i5 - 2;
                     if (bArr[i6] == 0 && bArr[i5 - 1] == 0 && bArr[i5] == 1) {
                         if (zArr != null) {

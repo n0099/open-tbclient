@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UnitedSchemeEntity implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final String UNITED_SCHEME;
@@ -125,7 +125,7 @@ public class UnitedSchemeEntity implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public UnitedSchemeEntity m39clone() {
+    public UnitedSchemeEntity m40clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

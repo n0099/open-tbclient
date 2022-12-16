@@ -1,167 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes6.dex */
 public class xo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public View c;
-    public View d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public ImageView h;
-    public EditText i;
-    public SpanGroupEditText j;
-    public View.OnClickListener k;
-    public e l;
-    public boolean m;
+    public View a;
+    public FrsFragment b;
+    public TextView c;
+    public FrsTabSortSwitchButton d;
+    public String e;
+    public int f;
+    public FrsTabSortSwitchButton.e g;
 
     /* loaded from: classes6.dex */
-    public interface e {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements TextWatcher {
+    public class a implements FrsTabSortSwitchButton.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xo6 a;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class a implements View.OnTouchListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                    if (motionEvent.getAction() == 0) {
-                        view2.getParent().requestDisallowInterceptTouchEvent(true);
-                    } else if (motionEvent.getAction() == 1) {
-                        view2.getParent().requestDisallowInterceptTouchEvent(false);
-                    } else if (motionEvent.getAction() == 3) {
-                        view2.getParent().requestDisallowInterceptTouchEvent(false);
-                    }
-                    return false;
-                }
-                return invokeLL.booleanValue;
-            }
-        }
-
-        public b(xo6 xo6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xo6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xo6Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                wo6.P(this.a.g, editable.toString().length(), 1000);
-                if (this.a.l != null) {
-                    this.a.l.a();
-                }
-                if (this.a.m) {
-                    qw4.d(this.a.i).v(R.color.CAM_X0105);
-                    qw4.d(this.a.j).v(R.color.CAM_X0105);
-                    this.a.m = false;
-                }
-                if (this.a.j.getLineCount() > 6) {
-                    this.a.j.setOnTouchListener(new a(this));
-                } else {
-                    this.a.j.setOnTouchListener(null);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xo6 a;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
 
         public a(xo6 xo6Var) {
             Interceptable interceptable = $ic;
@@ -181,95 +57,51 @@ public class xo6 {
             this.a = xo6Var;
         }
 
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
+        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
+        public boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                wo6.P(this.a.e, editable.toString().length(), 30);
-                if (this.a.l != null) {
-                    this.a.l.a();
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                boolean z = false;
+                if (!tj6.f().i() && !sj6.h().j()) {
+                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0cb8);
+                        return false;
+                    } else if (this.a.b.N0() != null && this.a.b.q1() != null) {
+                        z = true;
+                        if (this.a.f == i) {
+                            return true;
+                        }
+                        this.a.b.N0().Z0(this.a.d.w(this.a.f));
+                        this.a.f = i;
+                        if (this.a.f != 7) {
+                            ek5.c();
+                            nt8.a();
+                        } else {
+                            nt8.b();
+                        }
+                        this.a.b.N0().V0(this.a.d.w(this.a.f));
+                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
+                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.f));
+                        }
+                        this.a.b.N0().Y0(true);
+                        this.a.b.q1().X1();
+                        this.a.b.N0().X0(true);
+                        this.a.f();
+                    }
                 }
-                if (this.a.m) {
-                    qw4.d(this.a.i).v(R.color.CAM_X0105);
-                    qw4.d(this.a.j).v(R.color.CAM_X0105);
-                    this.a.m = false;
-                }
+                return z;
             }
+            return invokeI.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xo6 a;
-
-        public c(xo6 xo6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xo6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xo6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yi.N(this.a.a, this.a.i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xo6 a;
-
-        public d(xo6 xo6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xo6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xo6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yi.N(this.a.a, this.a.j);
-            }
-        }
-    }
-
-    public xo6(Context context) {
+    public xo6(FrsFragment frsFragment, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {frsFragment, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -279,141 +111,73 @@ public class xo6 {
                 return;
             }
         }
-        this.a = context;
-        n();
-    }
-
-    public final String i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return vo6.d(i + 1);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void o(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.k = onClickListener;
-            this.h.setOnClickListener(onClickListener);
+        this.f = -1;
+        this.g = new a(this);
+        if (frsFragment != null && relativeLayout != null) {
+            this.b = frsFragment;
+            View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0355, relativeLayout);
+            this.a = inflate;
+            inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe0);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091fe1);
+            this.d = frsTabSortSwitchButton;
+            frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
+            this.f = this.d.getState();
+            i();
         }
     }
 
-    public void p(e eVar) {
+    public void g(int i) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
-            this.l = eVar;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.t(i);
+            this.f = this.d.getState();
         }
     }
 
-    public void q(boolean z) {
-        ImageView imageView;
+    public void j(List<FrsTabInfo> list) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (imageView = this.h) != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.setData(list);
         }
     }
 
-    public void r(boolean z) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.m = z;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public void s(int i) {
-        EditText editText;
-        Context context;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (editText = this.i) != null && (context = this.a) != null) {
-            editText.setHint(String.format(context.getString(R.string.obfuscated_res_0x7f0f06ce), i(i)));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c11437");
+            statisticItem.param("obj_type", this.d.w(this.f));
+            statisticItem.param("fid", this.e);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void t(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (textView = this.f) != null) {
-            textView.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06d0), i(i)));
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null) {
-            qw4.d(this.c).f(R.color.CAM_X0204);
-            qw4.d(this.d).f(R.color.CAM_X0210);
-            qw4 d2 = qw4.d(this.f);
-            d2.v(R.color.CAM_X0107);
-            d2.A(R.string.F_X02);
-            qw4.d(this.e).v(R.color.CAM_X0111);
-            this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080964, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.j.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
-            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
-            if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                z39.l(this.i, R.drawable.obfuscated_res_0x7f0804c2);
-                z39.l(this.j, R.drawable.obfuscated_res_0x7f0804c2);
-                return;
-            }
-            z39.l(this.i, R.drawable.obfuscated_res_0x7f0804c3);
-            z39.l(this.j, R.drawable.obfuscated_res_0x7f0804c3);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c1, (ViewGroup) null);
-            this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090fcd);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09100f);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090fca);
-            this.i = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f09100e);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091011);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f092262);
-            this.j = (SpanGroupEditText) this.b.findViewById(R.id.obfuscated_res_0x7f090fc7);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fc8);
-            wo6.P(this.e, 0, 30);
-            wo6.P(this.g, 0, 1000);
-            this.i.addTextChangedListener(new a(this));
-            this.j.addTextChangedListener(new b(this));
-            this.i.setOnClickListener(new c(this));
-            this.j.setOnClickListener(new d(this));
-            j();
-        }
-    }
-
-    public SpanGroupEditText k() {
+    public FrsTabSortSwitchButton h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+            return this.d;
         }
-        return (SpanGroupEditText) invokeV.objValue;
+        return (FrsTabSortSwitchButton) invokeV.objValue;
     }
 
-    public EditText l() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
+            if (frsTabSortSwitchButton != null) {
+                frsTabSortSwitchButton.D();
+            }
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
         }
-        return (EditText) invokeV.objValue;
-    }
-
-    public View m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
     }
 }

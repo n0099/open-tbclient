@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mn2;
+import com.baidu.tieba.ln2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09086b);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090885);
             this.b = view2.findViewById(R.id.obfuscated_res_0x7f090273);
             this.c = view2.findViewById(R.id.obfuscated_res_0x7f090272);
         }
@@ -163,7 +163,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            mn2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            ln2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -174,7 +174,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d084d, viewGroup, false));
+            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0861, viewGroup, false));
         }
         return (a) invokeLI.objValue;
     }

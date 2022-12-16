@@ -3,10 +3,11 @@ package com.baidu.tieba;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.n42;
+import com.baidu.tieba.m42;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,31 +15,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.util.Locale;
+/* loaded from: classes4.dex */
 public class e52 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n42 a;
-    public final w42 b;
-    public final k42 c;
-    public String d;
+    public final m42 a;
+    public final v42 b;
+    public final j42 c;
+    public SceneType d;
 
-    /* loaded from: classes3.dex */
-    public class a implements n42.b {
+    /* loaded from: classes4.dex */
+    public class a implements m42.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SceneType a;
-        public final /* synthetic */ y42 b;
-        public final /* synthetic */ m42 c;
-        public final /* synthetic */ e52 d;
+        public final /* synthetic */ x42 a;
+        public final /* synthetic */ l42 b;
+        public final /* synthetic */ e52 c;
 
-        public a(e52 e52Var, SceneType sceneType, y42 y42Var, m42 m42Var) {
+        public a(e52 e52Var, x42 x42Var, l42 l42Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e52Var, sceneType, y42Var, m42Var};
+                Object[] objArr = {e52Var, x42Var, l42Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,64 +49,39 @@ public class e52 {
                     return;
                 }
             }
-            this.d = e52Var;
-            this.a = sceneType;
-            this.b = y42Var;
-            this.c = m42Var;
+            this.c = e52Var;
+            this.a = x42Var;
+            this.b = l42Var;
         }
 
-        @Override // com.baidu.tieba.n42.b
+        @Override // com.baidu.tieba.m42.b
         public void a(NetworkStatus networkStatus) {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                e42.b(this.d.d);
-                h42.i(1);
-                g42.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
+                f42.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                boolean m0 = ya2.U().m0();
+                long n = ln2.g0().n();
+                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
+                    this.c.f(networkStatus, this.b, this.a);
+                }
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getScene());
-                sb.append(this.c.a());
-                sb.append(this.b.d());
+                sb.append(this.c.d.getScene());
+                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
+                if (m0) {
+                    str = "框架预加载：已完成；";
+                } else {
+                    str = "框架预加载：未完成；";
+                }
+                sb.append(str);
+                sb.append(this.b.a());
+                sb.append(this.a.d());
                 sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                h42.g(sb.toString());
+                sb.append(this.a.c());
                 if (e52.e) {
-                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
+                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
                 }
-                this.d.h(networkStatus, this.c, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements n42.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(e52 e52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.n42.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                w42.d().j();
-                k42.d().j();
-                e42.c();
-                h42.i(0);
-                g42.c("exit_skeleton", networkStatus.getStatus());
+                g42.g(sb.toString());
             }
         }
     }
@@ -123,24 +99,7 @@ public class e52 {
                 return;
             }
         }
-        e = pk1.a;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e) {
-                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
-            }
-            this.a.a(new b(this));
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f(SceneType.SCENE_SKELETON_TIMEOUT);
-        }
+        e = ok1.a;
     }
 
     public e52() {
@@ -156,52 +115,61 @@ public class e52 {
                 return;
             }
         }
-        this.c = k42.d();
-        this.a = new n42();
-        this.b = w42.d();
+        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
+        this.c = j42.d();
+        this.a = new m42();
+        this.b = v42.d();
     }
 
-    public void g(String str) {
+    public void e(SceneType sceneType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
+            this.d = sceneType;
         }
     }
 
-    public void f(SceneType sceneType) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
-            if (zh3.I(this.d) && zh3.H()) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (t42.b().c()) {
                 if (e) {
-                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
+                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
                 }
-                w42.d().j();
-                k42.d().j();
-                m42 f = this.c.f();
-                this.a.a(new a(this, sceneType, this.b.f(), f));
-            } else if (e) {
-                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
+                t42.b().h(r42.b(str, 3000L));
+                t42.b().f();
+                return;
             }
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
+            }
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
+            }
+            v42.d().j();
+            j42.d().j();
+            t42.b().j(true);
+            l42 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
         }
     }
 
-    public final void h(@NonNull NetworkStatus networkStatus, @NonNull m42 m42Var, @NonNull y42 y42Var) {
+    public final void f(@NonNull NetworkStatus networkStatus, @NonNull l42 l42Var, @NonNull x42 x42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, m42Var, y42Var) == null) {
-            boolean b2 = m42Var.b();
-            int i = R.string.obfuscated_res_0x7f0f1366;
-            if (b2) {
-                i = R.string.obfuscated_res_0x7f0f136b;
-            } else if (y42Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f1369;
-            } else if (y42Var.e() != RequestStatus.STATUS_FAILED) {
-                if (y42Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f136a : R.string.obfuscated_res_0x7f0f1367;
-                } else if (y42Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f1368;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, l42Var, x42Var) == null) {
+            boolean b = l42Var.b();
+            int i = R.string.obfuscated_res_0x7f0f13a1;
+            if (b) {
+                i = R.string.obfuscated_res_0x7f0f13a6;
+            } else if (x42Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
+                i = R.string.obfuscated_res_0x7f0f13a4;
+            } else if (x42Var.e() != RequestStatus.STATUS_FAILED) {
+                if (x42Var.e() == RequestStatus.STATUS_SLOW) {
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f13a5 : R.string.obfuscated_res_0x7f0f13a2;
+                } else if (x42Var.e() != RequestStatus.STATUS_CORE_FAILED) {
+                    i = R.string.obfuscated_res_0x7f0f13a3;
                 }
             }
-            f42.f(i);
+            e42.f(i);
         }
     }
 }

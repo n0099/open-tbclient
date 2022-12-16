@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SplashPlayModuleCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, WeakReference<com.kwad.components.ad.splashscreen.c.a>> ya;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

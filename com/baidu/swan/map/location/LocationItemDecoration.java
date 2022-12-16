@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wh3;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        c = wh3.g(15.0f);
+        c = vh3.g(15.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

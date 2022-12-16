@@ -1,79 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
+import com.baidu.tieba.k96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class i96 implements xn {
+public final class i96 implements k96.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardGame a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808387, "Lcom/baidu/tieba/i96;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947808387, "Lcom/baidu/tieba/i96;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
 
     public i96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public FeatureCardGame a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k96.a
+    public void a(p76 item, long j, p96 displayer, j76 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            DrawState f = item.f();
+            if (item.i().compareTo(ItemState.Measured) >= 0) {
+                f.A((displayer.getWidth() - f.q()) * 0.5f);
+                f.H(true);
+                return;
+            }
+            f.H(false);
         }
-        return (FeatureCardGame) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void b(FeatureCardGame featureCardGame) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardGame) != null) || featureCardGame == null) {
-            return;
-        }
-        this.a = featureCardGame;
-        String str = featureCardGame.title;
-        Integer num = featureCardGame.floor;
-        Integer num2 = featureCardGame.type;
     }
 }

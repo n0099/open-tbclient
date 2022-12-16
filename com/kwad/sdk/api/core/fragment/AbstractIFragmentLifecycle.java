@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Deprecated

@@ -2,21 +2,21 @@ package com.baidu.tieba.card.holder;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.m36;
+import com.baidu.tieba.h46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class CardViewHolder<T extends m36> extends TypeAdapter.ViewHolder {
+public class CardViewHolder<T extends h46> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardViewHolder(T t) {
-        super(t.k());
+        super(t.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

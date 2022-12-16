@@ -22,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -446,7 +445,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
                 ArrayList arrayList = new ArrayList();
-                String[] split2 = str.split(ParamableElem.DIVIDE_PARAM);
+                String[] split2 = str.split(";");
                 if (split2 != null) {
                     for (int i = 0; i < split2.length; i++) {
                         if (split2[i] != null && split2[i] != "" && (split = split2[i].split(",")) != null && split[1] != "" && split[0] != "") {

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CallArgs implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CallArgs> CREATOR;
@@ -32,7 +32,7 @@ public class CallArgs implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<CallArgs> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

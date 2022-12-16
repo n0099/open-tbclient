@@ -70,13 +70,13 @@ public class ux extends wy {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925b9);
-            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0925b8);
-            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090af2);
-            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090aee);
-            ld8 t = t();
+            this.g = (TextView) inflate.findViewById(R.id.video_seg_title);
+            this.A = (TextView) this.f.findViewById(R.id.video_seg_abstract);
+            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
+            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
+            dg8 t = t();
             this.j = t;
             t.getMainView().setBackgroundResource(R.color.transparent);
         }
@@ -90,10 +90,10 @@ public class ux extends wy {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(m46<tr4> m46Var) {
+    public void p(h56<vr4> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, m46Var) == null) {
-            this.y.setSubClickListener(m46Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, h56Var) == null) {
+            this.y.setSubClickListener(h56Var);
         }
     }
 
@@ -108,15 +108,15 @@ public class ux extends wy {
     }
 
     @Override // com.baidu.tieba.wy
-    public ld8 t() {
+    public dg8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            md8 md8Var = new md8(this.b, this.i);
-            md8Var.setStageType("2003");
-            return md8Var;
+            eg8 eg8Var = new eg8(this.b, this.i);
+            eg8Var.setStageType("2003");
+            return eg8Var;
         }
-        return (ld8) invokeV.objValue;
+        return (dg8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.wy, com.baidu.tieba.tx
@@ -134,17 +134,17 @@ public class ux extends wy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wy, com.baidu.tieba.sx
     /* renamed from: u */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tr4Var) == null) {
-            this.h = tr4Var;
-            if (tr4Var != null && tr4Var.getThreadData() != null) {
-                ThreadData threadData = tr4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048583, this, vr4Var) == null) {
+            this.h = vr4Var;
+            if (vr4Var != null && vr4Var.getThreadData() != null) {
+                ThreadData threadData = vr4Var.getThreadData();
                 if (threadData.getThreadVideoInfo() != null) {
                     this.y.setVisibility(8);
                     this.i.setVisibility(0);
                     this.A.setVisibility(8);
-                    super.a(tr4Var);
+                    super.a(vr4Var);
                     return;
                 }
                 this.i.setVisibility(8);
@@ -156,7 +156,7 @@ public class ux extends wy {
                     return;
                 }
                 this.y.setVisibility(0);
-                this.y.a(tr4Var);
+                this.y.a(vr4Var);
             }
         }
     }

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class lg {
     public static /* synthetic */ Interceptable $ic;
     public static String d;

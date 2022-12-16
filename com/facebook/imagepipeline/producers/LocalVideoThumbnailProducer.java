@@ -28,7 +28,6 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
 import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
-import com.google.android.gms.common.internal.ImagesContract;
 import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -87,7 +86,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
-            producerContext.putOriginExtra(ImagesContract.LOCAL, "video");
+            producerContext.putOriginExtra("local", "video");
             StatefulProducerRunnable<CloseableReference<CloseableImage>> statefulProducerRunnable = new StatefulProducerRunnable<CloseableReference<CloseableImage>>(this, consumer, producerListener, producerContext, PRODUCER_NAME, producerListener, producerContext, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalVideoThumbnailProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +152,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, exc) == null) {
                         super.onFailure(exc);
                         this.val$listener.onUltimateProducerReached(this.val$producerContext, LocalVideoThumbnailProducer.PRODUCER_NAME, false);
-                        this.val$producerContext.putOriginExtra(ImagesContract.LOCAL);
+                        this.val$producerContext.putOriginExtra("local");
                     }
                 }
 
@@ -172,7 +171,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                             z = false;
                         }
                         producerListener2.onUltimateProducerReached(producerContext2, LocalVideoThumbnailProducer.PRODUCER_NAME, z);
-                        this.val$producerContext.putOriginExtra(ImagesContract.LOCAL);
+                        this.val$producerContext.putOriginExtra("local");
                     }
                 }
 

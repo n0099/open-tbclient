@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class kc8 extends m36<db8> {
+/* loaded from: classes5.dex */
+public class kc8 extends kn<ud8, CardViewHolder<we8>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TbImageView j;
-    public TextView k;
-    public ImageView l;
-    public db8 m;
-
-    @Override // com.baidu.tieba.m36
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d073e : invokeV.intValue;
-    }
+    public TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kc8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+        super(tbPageContext.getPageActivity(), ud8.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,54 +31,39 @@ public class kc8 extends m36<db8> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View k = k();
-        this.i = k;
-        this.j = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f091a73);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091a72);
-        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091a74);
-        this.i.setOnClickListener(this);
-    }
-
-    @Override // com.baidu.tieba.m36
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-        SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f080914, i);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
-            MessageManager messageManager = MessageManager.getInstance();
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
-            db8 db8Var = this.m;
-            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(db8Var.c, db8Var.d, "person_page")));
-        }
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m36
-    /* renamed from: r */
-    public void l(db8 db8Var) {
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public CardViewHolder<we8> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, db8Var) != null) || db8Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new we8(this.a));
         }
-        this.m = db8Var;
-        this.j.K(db8Var.a, 10, false);
-        this.k.setText(db8Var.b);
-        m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ud8 ud8Var, CardViewHolder<we8> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ud8Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(ud8Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.uz9;
+import com.baidu.tieba.d3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public class OperatorElementAt$InnerProducer extends AtomicBoolean implements uz9 {
+public class OperatorElementAt$InnerProducer extends AtomicBoolean implements d3a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uz9 actual;
+    public final d3a actual;
 
-    public OperatorElementAt$InnerProducer(uz9 uz9Var) {
+    public OperatorElementAt$InnerProducer(d3a d3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uz9Var};
+            Object[] objArr = {d3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,10 +28,10 @@ public class OperatorElementAt$InnerProducer extends AtomicBoolean implements uz
                 return;
             }
         }
-        this.actual = uz9Var;
+        this.actual = d3aVar;
     }
 
-    @Override // com.baidu.tieba.uz9
+    @Override // com.baidu.tieba.d3a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

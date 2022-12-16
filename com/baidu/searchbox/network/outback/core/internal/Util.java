@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.C;
 import com.google.android.material.slider.BasicLabelFormatter;
 import java.io.Closeable;
 import java.io.IOException;
@@ -36,7 +35,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -734,7 +733,7 @@ public final class Util {
                 }
             } else if (j < BasicLabelFormatter.TRILLION) {
                 if (j < 10000000000L) {
-                    if (j < C.NANOS_PER_SECOND) {
+                    if (j < 1000000000) {
                         i2 = 9;
                     } else {
                         i2 = 10;

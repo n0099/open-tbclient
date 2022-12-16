@@ -1,114 +1,161 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.gz7;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class o18 {
+public class o18 extends l18<CustomDialogData> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public BdTypeListView b;
-    public boolean c;
-    public int d;
-    public int e;
-    public a f;
+    public CustomDialogData c;
+    public p18 d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public View j;
+    public View k;
+    public LinearLayout l;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
+    @Override // com.baidu.tieba.q18
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.custom_dailog_view : invokeV.intValue;
     }
 
-    public o18(BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o18(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.d = -1;
-        this.e = -1;
-        this.b = bdTypeListView;
     }
 
-    public final int a(List<xn> list, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.q18
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return -1;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if ((list.get(i2) instanceof PostData) && ((PostData) list.get(i2)).getType() == PostData.N0 && (i = i + 1) == 5) {
-                    return i2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090806);
+            this.g = (TextView) getViewGroup().findViewById(R.id.dialog_body);
+            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092798);
+            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091764);
+            this.j = getViewGroup().findViewById(R.id.bdDialog_divider_line);
+            this.k = getViewGroup().findViewById(R.id.divider_yes_no_button);
+            this.l = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
+            this.h.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.common_color_10122);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.l, R.drawable.dialog_background);
+        }
+    }
+
+    public void f(p18 p18Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p18Var) == null) {
+            this.d = p18Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.q18
+    /* renamed from: e */
+    public void b(CustomDialogData customDialogData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, customDialogData) != null) || customDialogData == null) {
+            return;
+        }
+        this.c = customDialogData;
+        CustomDialogData.Head head = customDialogData.head;
+        if (!TextUtils.isEmpty(head.imageUrl)) {
+            this.e.K(head.imageUrl, 10, false);
+        }
+        if (!TextUtils.isEmpty(head.text)) {
+            this.f.setText(head.text);
+        }
+        if (!TextUtils.isEmpty(customDialogData.body)) {
+            this.g.setText(customDialogData.body);
+        }
+        CustomDialogData.Button button = customDialogData.leftButton;
+        if (button != null && !StringUtils.isNull(button.text)) {
+            this.i.setText(customDialogData.leftButton.text);
+        }
+        CustomDialogData.Button button2 = customDialogData.rightButton;
+        if (button2 != null && !StringUtils.isNull(button2.text)) {
+            this.h.setText(customDialogData.rightButton.text);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        CustomDialogData.Button button;
+        CustomDialogData.Button button2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            if (view2 == this.h) {
+                CustomDialogData customDialogData = this.c;
+                if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
+                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.c.rightButton.action});
                 }
+                p18 p18Var = this.d;
+                if (p18Var != null) {
+                    p18Var.dismiss();
+                }
+                StatisticItem statisticItem = new StatisticItem(gz7.a.b);
+                statisticItem.param("obj_locate", 2);
+                TiebaStatic.log(statisticItem);
+            } else if (view2 == this.i) {
+                CustomDialogData customDialogData2 = this.c;
+                if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageActivity(), null, this.c.leftButton.action, true)));
+                }
+                p18 p18Var2 = this.d;
+                if (p18Var2 != null) {
+                    p18Var2.dismiss();
+                }
+                StatisticItem statisticItem2 = new StatisticItem(gz7.a.b);
+                statisticItem2.param("obj_locate", 1);
+                TiebaStatic.log(statisticItem2);
             }
-            if (z) {
-                return -1;
-            }
-            return list.size() - 1;
-        }
-        return invokeLZ.intValue;
-    }
-
-    public void c(int i, int i2) {
-        BdTypeListView bdTypeListView;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) != null) || (bdTypeListView = this.b) == null || this.c || this.e < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
-            return;
-        }
-        if (this.d <= 0) {
-            this.d = this.b.getHeight() - this.a;
-        }
-        if (this.d <= 0) {
-            return;
-        }
-        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.d) {
-                return;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
-            this.c = true;
-        }
-    }
-
-    public void b(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || i == 3) {
-            return;
-        }
-        this.e = a(this.b.getData(), z);
-    }
-
-    public void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f = aVar;
         }
     }
 }

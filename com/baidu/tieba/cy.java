@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class cy extends ax<tr4> {
+/* loaded from: classes4.dex */
+public class cy extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgTextLayout f;
-    public tr4 g;
+    public vr4 g;
     public int h;
     public String i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements zy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public class cy extends ax<tr4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    x36.a(this.a.g.getThreadData().getId());
-                    x36.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    x36.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    s46.a(this.a.g.getThreadData().getId());
+                    s46.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    s46.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -91,22 +91,22 @@ public class cy extends ax<tr4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(m46<tr4> m46Var) {
+    public void p(h56<vr4> h56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
-            this.f.setSubClickListener(m46Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, h56Var) == null) {
+            this.f.setSubClickListener(h56Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: u */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
-            this.g = tr4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vr4Var) == null) {
+            this.g = vr4Var;
             this.f.setFrom(this.i);
-            this.f.a(tr4Var);
+            this.f.a(vr4Var);
         }
     }
 

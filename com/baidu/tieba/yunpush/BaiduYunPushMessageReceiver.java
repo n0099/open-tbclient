@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.mc5;
+import com.baidu.tieba.n35;
 import com.baidu.tieba.push.PushGeneralData;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.ub5;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
@@ -90,7 +90,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                qy4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                ry4.l().v(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -133,8 +133,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     pushGeneralData.parseData(jSONObject.optString("st_ext"));
                     PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                     pushRecevierEvent.generalData = pushGeneralData;
-                    ub5.i(pushRecevierEvent);
-                } else if (!m35.L()) {
+                    mc5.i(pushRecevierEvent);
+                } else if (!n35.L()) {
                     int e = xg.e(str6, 2500);
                     if (e < 2500) {
                         e += 2500;

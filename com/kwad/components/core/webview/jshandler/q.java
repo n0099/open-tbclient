@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class q implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class q implements com.kwad.sdk.core.webview.kwai.a {
     public b bL;
 
     @KsJson
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public final class q implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         @MainThread
         void a(a aVar);

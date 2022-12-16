@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao8;
 import com.baidu.tieba.pz4;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.qq8;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,17 +53,17 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.f = themeColorInfo;
-        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ba0);
+        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bbb);
         this.a = linearLayout;
-        this.b = (BarImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a90);
-        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090aae);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090aa9);
-        this.e = (TBSpecificationBtn) this.a.findViewById(R.id.obfuscated_res_0x7f090a9e);
+        this.b = (BarImageView) linearLayout.findViewById(R.id.forum_head_image);
+        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ac9);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ac4);
+        this.e = (TBSpecificationBtn) this.a.findViewById(R.id.obfuscated_res_0x7f090ab9);
         BarImageView barImageView = this.b;
         if (barImageView != null) {
             barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             BarImageView barImageView2 = this.b;
-            barImageView2.setContentDescription(barImageView2.getResources().getString(R.string.obfuscated_res_0x7f0f02e7));
+            barImageView2.setContentDescription(barImageView2.getResources().getString(R.string.obfuscated_res_0x7f0f02ec));
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             BarImageView barImageView3 = this.b;
             barImageView3.setStrokeWith(yi.g(barImageView3.getContext(), R.dimen.tbds3));
@@ -77,28 +77,28 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(ao8 ao8Var) {
+    public void a(zq8 zq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ao8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, zq8Var) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.K(ao8Var.a, 10, false);
+                barImageView.K(zq8Var.a, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(ao8Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f067b));
+                symbolEMTextView.setText(zq8Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0683));
             }
             TextView textView = this.d;
             if (textView != null) {
-                textView.setText(ao8Var.c);
+                textView.setText(zq8Var.c);
             }
             if (this.e != null) {
-                if (ao8Var.d) {
+                if (zq8Var.d) {
                     pz4 pz4Var = new pz4();
                     pz4Var.p(R.color.CAM_X0903, R.color.CAM_X0109);
                     this.e.setConfig(pz4Var);
                     TBSpecificationBtn tBSpecificationBtn = this.e;
-                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(R.string.obfuscated_res_0x7f0f0666));
+                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(R.string.obfuscated_res_0x7f0f066e));
                     return;
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -118,10 +118,10 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                     }
                 }
                 pz4 pz4Var2 = new pz4();
-                pz4Var2.s(rn8.f(str));
+                pz4Var2.s(qq8.f(str));
                 this.e.setConfig(pz4Var2);
                 TBSpecificationBtn tBSpecificationBtn2 = this.e;
-                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f0741));
+                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f0749));
             }
         }
     }
@@ -131,19 +131,19 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                qw4 d = qw4.d(linearLayout);
+                rw4 d = rw4.d(linearLayout);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0201);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                qw4 d2 = qw4.d(symbolEMTextView);
+                rw4 d2 = rw4.d(symbolEMTextView);
                 d2.A(R.string.F_X01);
                 d2.v(R.color.CAM_X0105);
             }
             TextView textView = this.d;
             if (textView != null) {
-                qw4.d(textView).v(R.color.CAM_X0109);
+                rw4.d(textView).v(R.color.CAM_X0109);
             }
             TBSpecificationBtn tBSpecificationBtn = this.e;
             if (tBSpecificationBtn != null) {

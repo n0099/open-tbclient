@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.al5;
 import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.barselect.idCard.CameraActivity;
 import com.baidu.tieba.barselect.idCard.IdentityReviewActivity;
-import com.baidu.tieba.fk5;
-import com.baidu.tieba.qw7;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.iz7;
+import com.baidu.tieba.tr8;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -163,10 +163,10 @@ public class BarVoteActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof qw7)) {
-                    qw7 qw7Var = (qw7) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(qw7Var.a(), qw7Var.b(), qw7Var.d(), qw7Var.c());
-                    commitVoteReqMsg.setTag(qw7Var.e());
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof iz7)) {
+                    iz7 iz7Var = (iz7) customMessage.getData();
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(iz7Var.a(), iz7Var.b(), iz7Var.d(), iz7Var.c());
+                    commitVoteReqMsg.setTag(iz7Var.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;
@@ -202,7 +202,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                        long g = xg.g(fk5.c(str, "fid="), 0L);
+                        long g = xg.g(al5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g, 4)));
                             return 0;
@@ -242,7 +242,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                        long g = xg.g(fk5.c(str, "fid="), 0L);
+                        long g = xg.g(al5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), g, 25042)));
                             return 0;
@@ -293,8 +293,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            uo8.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, uo8.a("c/f/bawu/electionInfo", 309642));
+            tr8.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, tr8.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

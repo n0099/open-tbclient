@@ -1,19 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes3.dex */
-public class dl8 implements ac9 {
+import tbclient.GetMoreMsg.MsgContent;
+/* loaded from: classes4.dex */
+public class dl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
     public dl8() {
         Interceptable interceptable = $ic;
@@ -25,17 +40,43 @@ public class dl8 implements ac9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = "";
     }
 
-    @Override // com.baidu.tieba.ac9
-    public boolean isAgreePrivacy() {
-        InterceptResult invokeV;
+    public dl8(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeV.booleanValue;
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
+    }
+
+    public static void a(dl8 dl8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, dl8Var) == null) {
+            dl8Var.i = 0;
+            dl8Var.g = 4;
+            dl8Var.h = 4;
+            dl8Var.l = System.currentTimeMillis();
+            dl8Var.n = true;
+        }
     }
 }

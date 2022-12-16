@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.in;
-import com.baidu.tieba.l95;
 import com.baidu.tieba.lc;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.pc;
+import com.baidu.tieba.qj5;
 import com.baidu.tieba.rg;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.xi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class BigdayImageLoaderProc implements ug<in> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public in m43decodeToResource(byte[] bArr, Object... objArr) {
+    public in m44decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -163,7 +163,7 @@ public class BigdayImageLoaderProc implements ug<in> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            xi5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            qj5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (rgVar != null) {
                 rgVar.a = webClient;
@@ -196,7 +196,7 @@ public class BigdayImageLoaderProc implements ug<in> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            return l95.k().m(str);
+            return m95.k().m(str);
         }
         return (in) invokeCommon.objValue;
     }
@@ -207,7 +207,7 @@ public class BigdayImageLoaderProc implements ug<in> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof in)) {
             in inVar = (in) obj;
             if (inVar.u()) {
-                l95.k().d(str, inVar);
+                m95.k().d(str, inVar);
             }
         }
     }

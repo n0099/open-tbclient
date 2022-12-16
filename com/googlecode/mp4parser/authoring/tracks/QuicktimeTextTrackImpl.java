@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QuicktimeTextTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         return (long[]) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Line {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import okhttp3.MediaType;
 /* loaded from: classes5.dex */
 public interface lv2 {
-    void a(long j, long j2, boolean z);
+    public static final MediaType a = MediaType.parse("application/json");
+    public static final MediaType b = MediaType.parse("application/x-www-form-urlencoded");
 }

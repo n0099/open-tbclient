@@ -1,68 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qj6 extends CustomMessageListener {
+public class qj6 extends h46<lj6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsActivity a;
-    public ws6 b;
-    public xs6 c;
+    public NoDataView i;
+    public int j;
+
+    @Override // com.baidu.tieba.h46
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02d0 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qj6(FrsActivity frsActivity) {
-        super(2921728);
+    public qj6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = frsActivity;
-        ws6 ws6Var = new ws6(frsActivity);
-        this.b = ws6Var;
-        ws6Var.F(true);
-        xs6 xs6Var = new xs6(frsActivity);
-        this.c = xs6Var;
-        xs6Var.F(true);
-        PriorityOrganizer.s(this.b, this.c);
-        setPriority(1);
+        this.j = 3;
+        NoDataView a = NoDataViewFactory.a(this.b.getPageActivity(), h(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, yi.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070252)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1147), null);
+        this.i = a;
+        a.setVisibility(0);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.h46
+    /* renamed from: r */
+    public void i(lj6 lj6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && !this.b.v(true)) {
-                this.b.E(true);
-                this.a.d0().v(this.b);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, lj6Var) == null) {
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
+    }
+
+    @Override // com.baidu.tieba.h46
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.j == i) {
+            return;
+        }
+        NoDataView noDataView = this.i;
+        if (noDataView != null) {
+            noDataView.f(this.b, i);
+        }
+        this.j = i;
     }
 }

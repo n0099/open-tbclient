@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -96,8 +97,8 @@ public final class i {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
                         iVar.e = jSONObject3.getString("notifyTitle");
                         iVar.f = jSONObject3.getString("content");
-                        if (!jSONObject3.isNull("param")) {
-                            JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
+                        if (!jSONObject3.isNull(Constants.EXTRA_PARAM)) {
+                            JSONObject jSONObject4 = jSONObject3.getJSONObject(Constants.EXTRA_PARAM);
                             if (!jSONObject4.isNull("url")) {
                                 iVar.a = jSONObject4.getString("url");
                             }
@@ -113,8 +114,8 @@ public final class i {
                         JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
                         iVar.g = jSONObject5.getString("notifyTitle");
                         iVar.h = jSONObject5.getString("content");
-                        if (!jSONObject5.isNull("param")) {
-                            JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
+                        if (!jSONObject5.isNull(Constants.EXTRA_PARAM)) {
+                            JSONObject jSONObject6 = jSONObject5.getJSONObject(Constants.EXTRA_PARAM);
                             if (!jSONObject6.isNull("url")) {
                                 iVar.b = jSONObject6.getString("url");
                             }

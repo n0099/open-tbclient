@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LegoSocketResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,15 +34,6 @@ public class LegoSocketResponse extends SocketResponsedMessage {
                 return;
             }
         }
-    }
-
-    public DataRes getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.resultData;
-        }
-        return (DataRes) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -67,5 +58,16 @@ public class LegoSocketResponse extends SocketResponsedMessage {
             return legoResIdl;
         }
         return invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public DataRes getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resultData;
+        }
+        return (DataRes) invokeV.objValue;
     }
 }

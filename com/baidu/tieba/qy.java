@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class qy extends ax<tr4> {
+/* loaded from: classes6.dex */
+public class qy extends ax<vr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int f;
     public int g;
     public ThreadCommentAndPraiseInfoLayout h;
-    public tr4 i;
+    public vr4 i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements zy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qy a;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class qy extends ax<tr4> {
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                     zy.a aVar = new zy.a(10);
                     aVar.d(2);
-                    this.a.a.a.o(aVar);
+                    this.a.a.a.p(aVar);
                 }
             }
         }
@@ -103,7 +103,7 @@ public class qy extends ax<tr4> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class qy extends ax<tr4> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements zy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -329,19 +329,19 @@ public class qy extends ax<tr4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, tr4Var) == null) {
-            this.i = tr4Var;
-            this.h.setData(tr4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048593, this, vr4Var) == null) {
+            this.i = vr4Var;
+            this.h.setData(vr4Var.getThreadData());
             x();
         }
     }
 
-    public void z(zr4 zr4Var) {
+    public void z(bs4 bs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, zr4Var) == null) {
-            this.h.setAgreeStatisticData(zr4Var);
+        if (interceptable == null || interceptable.invokeL(1048594, this, bs4Var) == null) {
+            this.h.setAgreeStatisticData(bs4Var);
         }
     }
 
@@ -375,8 +375,8 @@ public class qy extends ax<tr4> {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.m(4, new b(this));
-            this.a.m(9, new c(this));
+            this.a.n(4, new b(this));
+            this.a.n(9, new c(this));
         }
     }
 
@@ -404,9 +404,9 @@ public class qy extends ax<tr4> {
                 }
             }
             if (z) {
-                List<hx> h = this.a.h();
-                if (!ListUtils.isEmpty(h)) {
-                    for (hx hxVar : h) {
+                List<hx> i2 = this.a.i();
+                if (!ListUtils.isEmpty(i2)) {
+                    for (hx hxVar : i2) {
                         if (hxVar != null && hxVar.k() != null && hxVar.k().getVisibility() == 0) {
                             return;
                         }

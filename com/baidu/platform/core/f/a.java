@@ -15,7 +15,6 @@ import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -155,7 +154,7 @@ public class a extends com.baidu.platform.base.d {
                         bikingRouteResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                         return true;
                     }
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject("result");
                     if (optJSONObject2 == null) {
                         return false;
                     }

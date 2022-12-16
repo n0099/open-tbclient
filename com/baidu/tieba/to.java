@@ -58,9 +58,9 @@ public class to {
                         case 3:
                             if (to.d != null) {
                                 if (ti.d()) {
-                                    to.d.error(message.what, qj.a(R.string.voice_err_create_file_fail));
+                                    to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f15fe));
                                 } else {
-                                    to.d.error(message.what, qj.a(R.string.voice_err_sdcard_nospace));
+                                    to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f1607));
                                 }
                                 pj unused2 = to.d = null;
                                 break;
@@ -68,7 +68,7 @@ public class to {
                             break;
                         case 2:
                             if (to.d != null) {
-                                to.d.error(message.what, qj.a(R.string.voice_err_file_fail));
+                                to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f15ff));
                                 pj unused3 = to.d = null;
                                 break;
                             }
@@ -81,28 +81,28 @@ public class to {
                             break;
                         case 5:
                             if (to.d != null) {
-                                to.d.error(message.what, qj.a(R.string.voice_err_load_lib_fail));
+                                to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f1603));
                                 pj unused4 = to.d = null;
                                 break;
                             }
                             break;
                         case 6:
                             if (to.d != null) {
-                                to.d.error(message.what, qj.a(R.string.voice_err_init_fail));
+                                to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f1600));
                                 pj unused5 = to.d = null;
                                 break;
                             }
                             break;
                         case 7:
                             if (to.d != null) {
-                                to.d.error(message.what, qj.a(R.string.voice_record_timeout_tip));
+                                to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f1610));
                                 pj unused6 = to.d = null;
                                 break;
                             }
                             break;
                         case 8:
                             if (to.d != null) {
-                                to.d.error(message.what, qj.a(R.string.voice_record_short_tip));
+                                to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f160d));
                                 pj unused7 = to.d = null;
                                 break;
                             }
@@ -115,7 +115,7 @@ public class to {
                             break;
                         default:
                             if (to.d != null) {
-                                to.d.error(message.what, qj.a(R.string.voice_err_other));
+                                to.d.error(message.what, qj.a(R.string.obfuscated_res_0x7f0f1605));
                                 pj unused8 = to.d = null;
                                 break;
                             }

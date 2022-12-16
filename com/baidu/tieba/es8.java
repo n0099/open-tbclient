@@ -1,34 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.fragment.app.Fragment;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActBtn;
+import tbclient.TPointPost;
+import tbclient.Timgs;
+import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
 public class es8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public boolean a;
+    public ArrayList<ds8> b;
+    public ArrayList<gs8> c;
 
-    public es8(TbPageContext tbPageContext) {
+    public es8(TPointPost tPointPost) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tPointPost};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,61 +37,50 @@ public class es8 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerStickyMode(2921453);
-    }
-
-    public void a(Intent intent, as8 as8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, as8Var) != null) || intent == null) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f04e2);
-            eu4 eu4Var = new eu4();
-            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
-            int i = 1;
-            if (matcher.find()) {
-                eu4Var.c = matcher.group(1);
-            }
-            if (stringExtra.equals(string)) {
-                eu4Var.a = 1;
-            } else {
-                eu4Var.a = 2;
-                eu4Var.b = stringExtra;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, eu4Var));
-            if (stringExtra.equals(string)) {
-                intent.putExtra("sub_locate_type", 1);
-                i = 2;
-            } else {
-                intent.putExtra("sub_locate_type", stringExtra);
-            }
-            if (as8Var != null && as8Var.B() != null) {
-                as8Var.B().setCurrentTabByType(i);
-                FragmentTabHost.c h = as8Var.B().h(i);
-                if (h != null) {
-                    Fragment fragment = h.c;
-                    if (fragment instanceof wq4) {
-                        ((wq4) fragment).d1(intent);
+        if (tPointPost != null) {
+            try {
+                String str = tPointPost.position;
+                tPointPost.template_id.longValue();
+                if (tPointPost.is_tuiguang.intValue() == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                this.a = z;
+                tPointPost.template_type.intValue();
+                List<ActBtn> list = tPointPost.act_btn;
+                if (list != null && list.size() > 0) {
+                    this.b = new ArrayList<>();
+                    for (int i3 = 0; i3 != list.size(); i3++) {
+                        this.b.add(new ds8(list.get(i3)));
                     }
                 }
+                List<Timgs> list2 = tPointPost.t_imgs;
+                if (list2 != null && list2.size() > 0) {
+                    this.c = new ArrayList<>();
+                    for (int i4 = 0; i4 != list2.size(); i4++) {
+                        this.c.add(new gs8(list2.get(i4)));
+                    }
+                }
+                if (tPointPost.detail_info != null) {
+                    new fs8(tPointPost.detail_info);
+                }
+                String str2 = tPointPost.monitor_id;
+                tPointPost.hidden_day.intValue();
+                VideoInfo videoInfo = tPointPost.t_video;
+                String str3 = tPointPost.tag_name;
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
-        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
-        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
     }
 
-    public boolean b(Intent intent) {
-        InterceptResult invokeL;
+    public gs8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
-            if (intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (gs8) ListUtils.getItem(this.c, 0);
         }
-        return invokeL.booleanValue;
+        return (gs8) invokeV.objValue;
     }
 }

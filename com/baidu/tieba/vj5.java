@@ -1,43 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class vj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948242728, "Lcom/baidu/tieba/vj5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948242728, "Lcom/baidu/tieba/vj5;");
+    public static final <T extends IntentConfig> void a(int i, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65536, null, i, t) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
         }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static final <T extends IntentConfig> void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - a;
-            if (0 < j && j < 1000) {
-                return true;
-            }
-            a = currentTimeMillis;
-            return false;
+        if (interceptable == null || interceptable.invokeL(65537, null, t) == null) {
+            a(2002001, t);
         }
-        return invokeV.booleanValue;
     }
 }

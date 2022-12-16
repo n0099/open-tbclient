@@ -13,25 +13,25 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.df;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.zj7;
+import com.baidu.tieba.tr8;
+import com.baidu.tieba.wm7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Lego.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LegoPageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public qb a;
     public b b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(long j, String str, DataRes dataRes, boolean z);
 
@@ -50,7 +50,7 @@ public class LegoPageModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,8 +129,8 @@ public class LegoPageModel extends BdBaseModel {
                             this.a.b.a(j, str, dataRes, z);
                         } else {
                             if (z && dataRes != null) {
-                                jv4.f();
-                                df<byte[]> d = jv4.d("tb.lego_update");
+                                kv4.f();
+                                df<byte[]> d = kv4.d("tb.lego_update");
                                 StringBuilder sb = new StringBuilder();
                                 sb.append(j);
                                 sb.append("_");
@@ -182,14 +182,14 @@ public class LegoPageModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void B(b bVar) {
+    public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void A(int i, long j, String str, int i2, String str2) {
+    public void H(int i, long j, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) {
             LegoPageRequest legoPageRequest = new LegoPageRequest();
@@ -200,7 +200,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            zj7 a2 = zj7.a(j, str);
+            wm7 a2 = wm7.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
@@ -224,7 +224,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, uo8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, tr8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

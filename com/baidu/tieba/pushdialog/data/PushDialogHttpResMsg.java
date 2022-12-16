@@ -2,8 +2,8 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.nh8;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
-import com.baidu.tieba.ve8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ve8 mData;
+    public nh8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogHttpResMsg(int i) {
@@ -47,21 +47,21 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    ve8 ve8Var = new ve8();
-                    this.mData = ve8Var;
-                    ve8Var.e(getLockWindowMsgResIdl.data);
+                    nh8 nh8Var = new nh8();
+                    this.mData = nh8Var;
+                    nh8Var.e(getLockWindowMsgResIdl.data);
                 }
             } catch (IOException unused) {
             }
         }
     }
 
-    public ve8 getData() {
+    public nh8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (ve8) invokeV.objValue;
+        return (nh8) invokeV.objValue;
     }
 }

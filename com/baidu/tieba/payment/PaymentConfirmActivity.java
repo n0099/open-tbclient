@@ -28,17 +28,17 @@ import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kv4;
-import com.baidu.tieba.kw7;
-import com.baidu.tieba.lw7;
-import com.baidu.tieba.mw7;
+import com.baidu.tieba.cz7;
+import com.baidu.tieba.dz7;
+import com.baidu.tieba.ez7;
+import com.baidu.tieba.lv4;
 import com.baidu.tieba.payment.data.PayRequestData;
 import com.baidu.tieba.payment.data.PayResultData;
 import com.baidu.tieba.payment.data.PayVcodeInfoData;
 import com.baidu.tieba.payment.data.PaymentConfirmInfoData;
 import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.tieba.wallet.CurrencySwitchUtil;
@@ -54,7 +54,7 @@ import java.net.URLEncoder;
 public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kw7 a;
+    public cz7 a;
     public PaymentConfirmModel<PaymentConfirmActivity> b;
     public PaymentConfirmRequestData c;
     public PaymentConfirmInfoData d;
@@ -72,7 +72,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public CustomMessageListener p;
 
     /* loaded from: classes5.dex */
-    public class a implements kv4.e {
+    public class a implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -99,18 +99,18 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.b = str;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
-                this.c.c2(this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
+                this.c.b2(this.a, this.b);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements kv4.e {
+    public class b implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PaymentConfirmActivity a;
@@ -133,17 +133,17 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = paymentConfirmActivity;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements kv4.e {
+    public class c implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -168,18 +168,18 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.b.getPageContext().getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0de4), this.a, true, true, true)));
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.b.getPageContext().getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0e1b), this.a, true, true, true)));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements kv4.e {
+    public class d implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PaymentConfirmActivity a;
@@ -202,11 +202,11 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = paymentConfirmActivity;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
                 this.a.closeActivity();
             }
         }
@@ -240,9 +240,9 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                qy4.k().u(this.a.Y1("payment_confirm_show"), !z);
+                ry4.l().v(this.a.X1("payment_confirm_show"), !z);
                 if (!z) {
-                    qy4.k().w(this.a.Y1("payment_confirm_notshow_count"), 0);
+                    ry4.l().x(this.a.X1("payment_confirm_notshow_count"), 0);
                 }
             }
         }
@@ -278,15 +278,15 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!this.a.g) {
                     if (this.a.e) {
-                        lw7.a("c10292");
-                        this.a.a2();
+                        dz7.a("c10292");
+                        this.a.Z1();
                         return;
                     }
-                    lw7.a("c10293");
-                    this.a.Z1();
+                    dz7.a("c10293");
+                    this.a.Y1();
                     return;
                 }
-                this.a.k2(0, null);
+                this.a.j2(0, null);
             }
         }
     }
@@ -330,10 +330,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     this.a.d = responsePaymentConfirmInfoMessage.getPaymentConfirmInfoData();
                     if (!responsePaymentConfirmInfoMessage.hasError() && this.a.d != null) {
                         PaymentConfirmActivity paymentConfirmActivity2 = this.a;
-                        paymentConfirmActivity2.e = paymentConfirmActivity2.X1(paymentConfirmActivity2.d);
+                        paymentConfirmActivity2.e = paymentConfirmActivity2.W1(paymentConfirmActivity2.d);
                         this.a.a.l(this.a.d, this.a.e);
                         PaymentConfirmActivity paymentConfirmActivity3 = this.a;
-                        paymentConfirmActivity3.e2(paymentConfirmActivity3.d, this.a.e);
+                        paymentConfirmActivity3.d2(paymentConfirmActivity3.d, this.a.e);
                     } else if (responsePaymentConfirmInfoMessage.getError() == 1) {
                         Intent intent = new Intent();
                         intent.putExtra(DealIntentService.KEY_CLASS, 32);
@@ -346,7 +346,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     } else {
                         String errorString = responsePaymentConfirmInfoMessage.getErrorString();
                         if (StringUtils.isNull(errorString)) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c81);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
                         }
                         this.a.showToast(errorString);
                     }
@@ -397,12 +397,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     if (!responsePaymentPayMessage.hasError()) {
                         int error = responsePaymentPayMessage.getError();
                         if (error == 0) {
-                            lw7.a("c10294");
+                            dz7.a("c10294");
                             PayResultData payRequestDataData = responsePaymentPayMessage.getPayRequestDataData();
                             if (payRequestDataData != null && payRequestDataData.getDescribe() != null && payRequestDataData.getDescribe().getWord() != null) {
                                 string = payRequestDataData.getDescribe().getWord();
                             } else {
-                                string = this.a.getString(R.string.obfuscated_res_0x7f0f05e1);
+                                string = this.a.getString(R.string.exchange_success);
                             }
                             new wy4().d(string);
                             if (!TextUtils.isEmpty(this.a.j)) {
@@ -411,7 +411,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                             }
                             if (this.a.c != null) {
                                 PaymentConfirmActivity paymentConfirmActivity = this.a;
-                                paymentConfirmActivity.i2(paymentConfirmActivity.c.getOrder_id());
+                                paymentConfirmActivity.h2(paymentConfirmActivity.c.getOrder_id());
                             }
                             this.a.closeActivity();
                             return;
@@ -420,49 +420,50 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                             if (payRequestDataData2 == null) {
                                 return;
                             }
-                            this.a.k2(5, payRequestDataData2.getPubkey());
+                            this.a.j2(5, payRequestDataData2.getPubkey());
                             return;
                         } else if (error == 2150040) {
                             PayResultData payRequestDataData3 = responsePaymentPayMessage.getPayRequestDataData();
-                            if (payRequestDataData3 != null && (vcode = payRequestDataData3.getVcode()) != null) {
-                                this.a.d2(vcode);
+                            if (payRequestDataData3 == null || (vcode = payRequestDataData3.getVcode()) == null) {
                                 return;
                             }
+                            this.a.c2(vcode);
                             return;
                         } else if (error == 2) {
                             PayResultData payRequestDataData4 = responsePaymentPayMessage.getPayRequestDataData();
                             if (payRequestDataData4 == null) {
                                 return;
                             }
-                            this.a.k2(5 - payRequestDataData4.getWrongtime(), payRequestDataData4.getPubkey());
+                            this.a.j2(5 - payRequestDataData4.getWrongtime(), payRequestDataData4.getPubkey());
                             return;
-                        } else if (error == 2190005) {
-                            this.a.g = true;
-                            this.a.k2(0, null);
-                            return;
-                        } else if (error == 2270066 || error == 2270040 || error == 2270041 || error == 2270042) {
-                            this.a.l2(error);
+                        } else if (error != 2190005) {
+                            if (error != 2270066 && error != 2270040 && error != 2270041 && error != 2270042) {
+                                PayResultData payRequestDataData5 = responsePaymentPayMessage.getPayRequestDataData();
+                                if (payRequestDataData5 != null && (describe = payRequestDataData5.getDescribe()) != null) {
+                                    String word = describe.getWord();
+                                    String url = describe.getUrl();
+                                    if (!StringUtils.isNull(word) && !StringUtils.isNull(url)) {
+                                        this.a.i2(word, url);
+                                        return;
+                                    }
+                                }
+                                wy4 wy4Var = new wy4();
+                                String errorString = responsePaymentPayMessage.getErrorString();
+                                if (StringUtils.isNull(errorString)) {
+                                    errorString = this.a.getResources().getString(R.string.plugin_pay_error);
+                                }
+                                wy4Var.c(errorString);
+                                return;
+                            }
+                            this.a.k2(error);
                             return;
                         } else {
-                            PayResultData payRequestDataData5 = responsePaymentPayMessage.getPayRequestDataData();
-                            if (payRequestDataData5 != null && (describe = payRequestDataData5.getDescribe()) != null) {
-                                String word = describe.getWord();
-                                String url = describe.getUrl();
-                                if (!StringUtils.isNull(word) && !StringUtils.isNull(url)) {
-                                    this.a.j2(word, url);
-                                    return;
-                                }
-                            }
-                            wy4 wy4Var = new wy4();
-                            String errorString = responsePaymentPayMessage.getErrorString();
-                            if (StringUtils.isNull(errorString)) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eff);
-                            }
-                            wy4Var.c(errorString);
+                            this.a.g = true;
+                            this.a.j2(0, null);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c81);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cb8);
                 }
             }
         }
@@ -502,16 +503,16 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (!StringUtils.isNull(str)) {
-                    this.a.b2(null, null, null, null, str, false);
+                    this.a.a2(null, null, null, null, str, false);
                 } else {
-                    this.a.b2(null, null, null, null, null, true);
+                    this.a.a2(null, null, null, null, null, true);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class j implements kv4.e {
+    public class j implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PaymentConfirmActivity a;
@@ -534,17 +535,17 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = paymentConfirmActivity;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class k implements kv4.e {
+    public class k implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -569,16 +570,16 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
                 String q = this.b.a.q();
                 if (StringUtils.isNull(q)) {
                     return;
                 }
-                this.b.b2(this.a, q, null, null, null, false);
+                this.b.a2(this.a, q, null, null, null, false);
             }
         }
     }
@@ -587,7 +588,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public class l implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kv4 a;
+        public final /* synthetic */ lv4 a;
         public final /* synthetic */ PaymentConfirmActivity b;
 
         @Override // android.text.TextWatcher
@@ -604,12 +605,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             }
         }
 
-        public l(PaymentConfirmActivity paymentConfirmActivity, kv4 kv4Var) {
+        public l(PaymentConfirmActivity paymentConfirmActivity, lv4 lv4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {paymentConfirmActivity, kv4Var};
+                Object[] objArr = {paymentConfirmActivity, lv4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -620,7 +621,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 }
             }
             this.b = paymentConfirmActivity;
-            this.a = kv4Var;
+            this.a = lv4Var;
         }
 
         @Override // android.text.TextWatcher
@@ -661,7 +662,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 PaymentConfirmActivity paymentConfirmActivity = this.a;
-                paymentConfirmActivity.c2(2270066, paymentConfirmActivity.getResources().getString(R.string.obfuscated_res_0x7f0f109d));
+                paymentConfirmActivity.b2(2270066, paymentConfirmActivity.getResources().getString(R.string.sapi_forget_password_title));
             }
         }
     }
@@ -686,7 +687,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         this.p = new i(this, 2001359);
     }
 
-    public final void f2() {
+    public final void e2() {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -695,8 +696,8 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             } else {
                 z = false;
             }
-            this.a = new kw7(this, z, this.m);
-            this.a.r().setChecked(!qy4.k().h(Y1("payment_confirm_show"), true));
+            this.a = new cz7(this, z, this.m);
+            this.a.r().setChecked(!ry4.l().i(X1("payment_confirm_show"), true));
             this.a.r().setOnCheckedChangeListener(new e(this));
             this.a.v().setOnClickListener(new f(this));
         }
@@ -704,7 +705,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
 
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             try {
                 Intent intent = getIntent();
                 this.c = (PaymentConfirmRequestData) intent.getSerializableExtra(PaymentConfirmActivityConfig.REQUEST_PARAMS);
@@ -721,7 +722,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    public final String Y1(String str) {
+    public final String X1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -730,7 +731,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         return (String) invokeL.objValue;
     }
 
-    public final void i2(String str) {
+    public final void h2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001367, str));
@@ -752,10 +753,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
             initData();
-            f2();
-            h2();
+            e2();
             g2();
-            lw7.a("c10291");
+            f2();
+            dz7.a("c10291");
         }
     }
 
@@ -765,12 +766,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         if (interceptable == null || interceptable.invokeIIL(1048592, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1 && i2 == 230017 && intent != null) {
-                b2(null, null, intent.getStringExtra(PayVcodeActivityConfig.VCODE_MD5), intent.getStringExtra(PayVcodeActivityConfig.VCODE_RESULT), null, false);
+                a2(null, null, intent.getStringExtra(PayVcodeActivityConfig.VCODE_MD5), intent.getStringExtra(PayVcodeActivityConfig.VCODE_RESULT), null, false);
             }
         }
     }
 
-    public final boolean X1(PaymentConfirmInfoData paymentConfirmInfoData) {
+    public final boolean W1(PaymentConfirmInfoData paymentConfirmInfoData) {
         InterceptResult invokeL;
         PaymentConfirmInfoData.UserInfo.UserScores parr_scores;
         Interceptable interceptable = $ic;
@@ -790,32 +791,32 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         return invokeL.booleanValue;
     }
 
-    public final void d2(PayVcodeInfoData payVcodeInfoData) {
+    public final void c2(PayVcodeInfoData payVcodeInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, payVcodeInfoData) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayVcodeActivityConfig(getPageContext().getPageActivity(), payVcodeInfoData.getCaptcha_vcode_str(), payVcodeInfoData.getVcode_pic_url(), 230017)));
         }
     }
 
-    public final void Z1() {
+    public final void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             CurrencyJumpHelper.gotoBuyTBeanPage(getPageContext().getPageActivity(), (float) this.h, this.k, this.l);
         }
     }
 
-    public final void a2() {
+    public final void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b2(null, null, null, null, null, false);
+            a2(null, null, null, null, null, false);
         }
     }
 
-    public final void h2() {
+    public final void g2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.b.A();
-            this.b.B();
+            this.b.H();
+            this.b.I();
             registerListener(this.n);
             this.o.setSelfListener(true);
             registerListener(this.o);
@@ -823,12 +824,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    public final void b2(String str, String str2, String str3, String str4, String str5, boolean z) {
+    public final void a2(String str, String str2, String str3, String str4, String str5, boolean z) {
         PaymentConfirmInfoData paymentConfirmInfoData;
         PaymentConfirmInfoData.OrderInfo order_info;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) && (paymentConfirmInfoData = this.d) != null && (order_info = paymentConfirmInfoData.getOrder_info()) != null) {
-            showLoadingDialog(getResources().getString(R.string.obfuscated_res_0x7f0f0de0));
+            showLoadingDialog(getResources().getString(R.string.obfuscated_res_0x7f0f0e17));
             this.a.n(false);
             PayRequestData payRequestData = new PayRequestData();
             payRequestData.setOrderId(order_info.getOrder_id());
@@ -836,7 +837,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             payRequestData.setOpenId(order_info.getOpen_id());
             payRequestData.setTbs(this.d.getTbs());
             if (!StringUtils.isNull(str2)) {
-                payRequestData.setPassword(URLEncoder.encode(mw7.a(str2, str)));
+                payRequestData.setPassword(URLEncoder.encode(ez7.a(str2, str)));
             }
             if (!StringUtils.isNull(str3)) {
                 payRequestData.setCaptchaVcodeStr(str3);
@@ -850,25 +851,25 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (z) {
                 payRequestData.setMobileCheck("1");
             }
-            this.b.z(payRequestData);
+            this.b.G(payRequestData);
         }
     }
 
-    public final void c2(int i2, String str) {
+    public final void b2(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getPageContext().getPageActivity(), str, TbConfig.WEB_URL_TDOU_UEG + i2, true, true, true)));
         }
     }
 
-    public final void j2(String str, String str2) {
+    public final void i2(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
-            new kv4(getPageContext().getPageActivity()).setMessage(str).setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new d(this)).setPositiveButton(R.string.obfuscated_res_0x7f0f0de4, new c(this, str2)).create(getPageContext()).show();
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            new lv4(getPageContext().getPageActivity()).setMessage(str).setNegativeButton(R.string.obfuscated_res_0x7f0f037c, new d(this)).setPositiveButton(R.string.obfuscated_res_0x7f0f0e1b, new c(this, str2)).create(getPageContext()).show();
         }
     }
 
-    public final boolean e2(PaymentConfirmInfoData paymentConfirmInfoData, boolean z) {
+    public final boolean d2(PaymentConfirmInfoData paymentConfirmInfoData, boolean z) {
         InterceptResult invokeLZ;
         PaymentConfirmInfoData.OrderInfo order_info;
         PaymentConfirmInfoData.OrderInfo.Cpath cpath;
@@ -877,24 +878,24 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (paymentConfirmInfoData != null && (order_info = paymentConfirmInfoData.getOrder_info()) != null && (cpath = order_info.getCpath()) != null) {
                 if (z) {
                     if (cpath.getPay_cashier() == 1) {
-                        a2();
+                        Z1();
                         return true;
                     }
                 } else if (cpath.getGettdou_cashier() == 1) {
-                    Z1();
+                    Y1();
                     return true;
                 }
-                if (cpath.getTip_exist() == 1 && !qy4.k().h(Y1("payment_confirm_show"), true)) {
-                    int l2 = qy4.k().l(Y1("payment_confirm_notshow_count"), 0);
-                    if (l2 < cpath.getTip_days()) {
-                        qy4.k().w(Y1("payment_confirm_notshow_count"), l2 + 1);
+                if (cpath.getTip_exist() == 1 && !ry4.l().i(X1("payment_confirm_show"), true)) {
+                    int m2 = ry4.l().m(X1("payment_confirm_notshow_count"), 0);
+                    if (m2 < cpath.getTip_days()) {
+                        ry4.l().x(X1("payment_confirm_notshow_count"), m2 + 1);
                         if (z) {
-                            a2();
+                            Z1();
                             return true;
                         }
-                        Z1();
+                        Y1();
                         return true;
-                    } else if (l2 != 0) {
+                    } else if (m2 != 0) {
                         this.a.r().setChecked(false);
                     }
                 }
@@ -904,26 +905,26 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         return invokeLZ.booleanValue;
     }
 
-    public final void g2() {
+    public final void f2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (yi.F()) {
                 showLoadingView(this.a.p(), false);
-                this.b.C(this.c);
+                this.b.J(this.c);
                 return;
             }
-            showNetRefreshViewNoClick(this.a.p(), getResources().getString(R.string.obfuscated_res_0x7f0f0c81));
+            showNetRefreshViewNoClick(this.a.p(), getResources().getString(R.string.obfuscated_res_0x7f0f0cb8));
         }
     }
 
-    public final void k2(int i2, String str) {
+    public final void j2(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048590, this, i2, str) == null) {
             ViewGroup u = this.a.u();
             this.a.z();
             this.a.B(i2);
             this.a.k();
-            kv4 create = new kv4(getPageContext().getPageActivity()).setContentView(u).setPositiveButton(R.string.obfuscated_res_0x7f0f0f98, new k(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new j(this)).create(getPageContext());
+            lv4 create = new lv4(getPageContext().getPageActivity()).setContentView(u).setPositiveButton(R.string.push_commit, new k(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f037c, new j(this)).create(getPageContext());
             if (i2 <= 0) {
                 create.setYesBtnClickable(false);
                 this.a.m(false);
@@ -944,7 +945,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    public final void l2(int i2) {
+    public final void k2(int i2) {
         String string;
         String str;
         String string2;
@@ -956,41 +957,41 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 switch (i2) {
                     case 2270040:
                         if (CurrencySwitchUtil.isYyIsConvert(this.m)) {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0df3);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e2a);
                         } else {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0de6);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e1d);
                         }
-                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f035a);
+                        string2 = getResources().getString(R.string.bunding_phone);
                         break;
                     case 2270041:
                         if (CurrencySwitchUtil.isYyIsConvert(this.m)) {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0df2);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e29);
                         } else {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0de3);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e1a);
                         }
-                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f035a);
+                        string2 = getResources().getString(R.string.bunding_phone);
                         break;
                     case 2270042:
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f0de5);
-                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0b2b);
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f0e1c);
+                        string2 = getResources().getString(R.string.msg_validate);
                         break;
                     default:
                         str2 = "";
                         break;
                 }
-                new kv4(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
+                new lv4(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f037c, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
             }
             if (CurrencySwitchUtil.isYyIsConvert(this.m)) {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f0df1);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0e28);
             } else {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f0de2);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0e19);
             }
             str = string;
-            string2 = getResources().getString(R.string.obfuscated_res_0x7f0f117c);
+            string2 = getResources().getString(R.string.setup_password);
             String str4 = str;
             str3 = string2;
             str2 = str4;
-            new kv4(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
+            new lv4(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f037c, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
         }
     }
 }

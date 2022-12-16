@@ -1,35 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Handler;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.container.BaseNativeBrowserContainer;
-import com.baidu.nadcore.webview.container.base.AbsContainer;
-import com.baidu.tieba.m51;
+import com.baidu.tieba.i61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class o51 implements m51.a {
+public class o51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public Handler b;
 
-    @Override // com.baidu.tieba.m51.a
-    public boolean b(HashMap<String, String> hashMap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
-            return true;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i61.a a;
+        public final /* synthetic */ o51 b;
+
+        public a(o51 o51Var, i61.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o51Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = o51Var;
+            this.a = aVar;
         }
-        return invokeLI.booleanValue;
-    }
 
-    @Override // com.baidu.tieba.m51.a
-    public void c(Context context, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c(this.a.a);
+            }
         }
     }
 
@@ -43,17 +60,40 @@ public class o51 implements m51.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = false;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+                this.b = null;
+            }
+            this.a = false;
         }
     }
 
-    @Override // com.baidu.tieba.m51.a
-    public AbsContainer a(s51 s51Var, t51 t51Var, int i) {
-        InterceptResult invokeLLI;
+    public void b(i61.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, s51Var, t51Var, i)) == null) {
-            return new BaseNativeBrowserContainer(s51Var, t51Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && !this.a && aVar != null && aVar.a()) {
+            if (this.b == null) {
+                this.b = new Handler();
+            }
+            this.b.postDelayed(new a(this, aVar), (long) (aVar.c * 1000.0d));
         }
-        return (AbsContainer) invokeLLI.objValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        a11.b(str);
+        this.a = true;
     }
 }

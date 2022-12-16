@@ -74,7 +74,7 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
             c = new a("LOADING", 2, 2);
             d = new a("FAILURE", 3, 3);
             e = new a("CANCELLED", 4, 4);
-            a aVar = new a("SUCCESS", 5, 5);
+            a aVar = new a(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
             f = aVar;
             g = new a[]{a, b, c, d, e, aVar};
         }

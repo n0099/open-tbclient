@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zf6;
+import com.baidu.tieba.ug6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,15 +70,15 @@ public class EmotionCenterModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003354 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                zf6 zf6Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof zf6)) {
-                    zf6Var = (zf6) extra;
+                ug6 ug6Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof ug6)) {
+                    ug6Var = (ug6) extra;
                 }
-                if (zf6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
+                if (ug6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
                     if (this.a.a == 1) {
-                        zf6Var.S0(emotionCenterResponseMessage.data);
+                        ug6Var.Z0(emotionCenterResponseMessage.data);
                     } else {
-                        zf6Var.v0(emotionCenterResponseMessage.data);
+                        ug6Var.y0(emotionCenterResponseMessage.data);
                     }
                 }
             }
@@ -111,27 +111,27 @@ public class EmotionCenterModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(zf6 zf6Var) {
+    public void H(ug6 ug6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zf6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ug6Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             int i = this.a + 1;
             this.a = i;
             httpMessage.addParam("pn", i);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(zf6Var);
+            httpMessage.setExtra(ug6Var);
             sendMessage(httpMessage);
         }
     }
 
-    public void B(zf6 zf6Var) {
+    public void I(ug6 ug6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zf6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ug6Var) == null) {
             this.a = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             httpMessage.addParam("pn", 1);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(zf6Var);
+            httpMessage.setExtra(ug6Var);
             sendMessage(httpMessage);
         }
     }

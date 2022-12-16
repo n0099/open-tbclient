@@ -2,119 +2,32 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class kp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final List<a> b;
+    public String b;
     public final String c;
+    public final String d;
+    public final boolean e;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public boolean c;
-        public String d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = false;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static a e(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("name");
-                aVar.b = jSONObject.optString("type");
-                aVar.d = "\"" + aVar.b + "\"：\"" + aVar.a + "\"";
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public void f(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.c = z;
-            }
-        }
-    }
-
-    public kp0(@NonNull JSONObject jSONObject) {
-        int length;
+    public kp0(@NonNull JSONObject jSONObject, boolean z) {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -124,30 +37,59 @@ public class kp0 {
                 return;
             }
         }
-        jSONObject.optInt("support_close");
-        this.a = jSONObject.optString("title");
-        this.b = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("reasons");
-        if (optJSONArray == null) {
-            length = 0;
+        if (z) {
+            str = EmotionResourceInfo.JSON_KEY_PKG_NAME;
         } else {
-            length = optJSONArray.length();
+            str = "apk_name";
         }
-        for (int i3 = 0; i3 < length; i3++) {
-            a e = a.e(optJSONArray.optJSONObject(i3));
-            if (e != null && e.d()) {
-                p01.b(this.b, e);
-            }
+        this.a = jSONObject.optString(str);
+        if (z) {
+            str2 = "key";
+        } else {
+            str2 = "download_key";
         }
-        this.c = jSONObject.optString("scheme");
+        this.d = jSONObject.optString(str2);
+        this.b = jSONObject.optString("deferred_cmd");
+        this.c = jSONObject.optString("download_url");
+        jSONObject.optString("source", "apk_yuansheng");
+        this.e = a();
     }
 
-    public static kp0 a(JSONObject jSONObject) {
+    @Nullable
+    public static kp0 b(@Nullable JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new kp0(jSONObject);
+            if (jSONObject == null) {
+                return null;
+            }
+            return new kp0(jSONObject, false);
         }
         return (kp0) invokeL.objValue;
+    }
+
+    @Nullable
+    public static kp0 c(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return new kp0(jSONObject, true);
+        }
+        return (kp0) invokeL.objValue;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -5,5 +5,31 @@ import java.util.List;
 public interface ov7 {
     void a();
 
-    void j(int i, List<xn> list);
+    void c(boolean z);
+
+    void d();
+
+    void g(boolean z, List<xn> list);
+
+    void h(String str);
+
+    void j(int i);
+
+    void k();
+
+    void l(int i);
+
+    void m(boolean z);
+
+    void n();
+
+    void o(nv7 nv7Var);
+
+    void onCreate();
+
+    void onDestroy();
+
+    void p();
+
+    void q(String str);
 }

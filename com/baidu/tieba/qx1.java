@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.graphics.Region;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public class qx1 extends lx1 {
+/* loaded from: classes6.dex */
+public class qx1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
-    public Paint b;
-    public PorterDuffXfermode c;
+
+    @Override // com.baidu.tieba.kx1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public qx1() {
         Interceptable interceptable = $ic;
@@ -29,37 +30,16 @@ public class qx1 extends lx1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.b = new Paint();
-        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-    }
-
-    @Override // com.baidu.tieba.lx1
-    public void a(mx1 mx1Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, mx1Var, canvas) == null) && this.a != null) {
-            this.b.setXfermode(this.c);
-            canvas.drawRect(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.lx1
-    public void b(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = wh3.g((float) jSONArray.optDouble(0));
-                    int g2 = wh3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, wh3.g((float) jSONArray.optDouble(2)) + g, wh3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (pk1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) {
+            lx1Var.g = true;
+            canvas.clipPath(lx1Var.f, Region.Op.INTERSECT);
         }
     }
 }

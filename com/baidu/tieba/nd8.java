@@ -1,175 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class nd8 extends od8 {
+public class nd8 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoItemData N0;
-    public VideoSerializeVideoThreadInfo O0;
-    public ThreadData P0;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
+    public List<UserData> f;
 
-    @Override // com.baidu.tieba.od8
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947998727, "Lcom/baidu/tieba/nd8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947998727, "Lcom/baidu/tieba/nd8;");
+                return;
+            }
         }
+        g = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.od8, com.baidu.tieba.ld8
-    public boolean onBackPress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nd8(Context context, View view2) {
-        super(context, view2);
+    public nd8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        m0(false);
-        setStageType(null);
-    }
-
-    public final void w0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.O);
-            pbActivityConfig.createNormalCfg(str2, null, null);
-            pbActivityConfig.setForumId(String.valueOf(str));
-            pbActivityConfig.setThreadData(this.P0);
-            pbActivityConfig.setVideoOriginArea(ThreadCardUtils.computeViewArea(this.Q));
-            pbActivityConfig.setNeedPreLoad(true);
-            ij6.update(this.P0);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
-            View.OnClickListener onClickListener = this.A0;
-            if (onClickListener != null) {
-                onClickListener.onClick(getMainView());
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.od8
-    public void O() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.p;
-            if (i == this.e || i == this.n) {
-                x0();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return g;
         }
-    }
-
-    @Override // com.baidu.tieba.od8
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f = 32;
-        }
-    }
-
-    @Override // com.baidu.tieba.od8
-    public void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d0();
-            this.Q.setOnTouchListener(null);
-            this.Q.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.od8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            startPlay();
-        }
-    }
-
-    public void x0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o0(this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.od8, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2 == null) {
-            return;
-        }
-        if (view2.getId() == R.id.obfuscated_res_0x7f092593) {
-            W();
-        } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            yi.O(this.O, R.string.obfuscated_res_0x7f0f0cbc);
-        } else if (this.T) {
-            VideoItemData videoItemData = this.N0;
-            if (videoItemData != null) {
-                w0(videoItemData.forum_id, videoItemData.thread_id);
-            }
-        } else {
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.O0;
-            if (videoSerializeVideoThreadInfo != null) {
-                w0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.od8, com.baidu.tieba.ld8
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            super.setData(threadData);
-            this.P0 = threadData;
-            if (this.T) {
-                VideoItemData videoItemData = new VideoItemData();
-                this.N0 = videoItemData;
-                videoItemData.buildWithThreadData(threadData);
-                return;
-            }
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-            this.O0 = videoSerializeVideoThreadInfo;
-            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.O0;
-            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
-            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
-            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
-            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

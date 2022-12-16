@@ -1,77 +1,28 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+import tbclient.ForumGuide.LikeForum;
+/* loaded from: classes4.dex */
 public class ec6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<kn> b;
-    public b c;
-    public dc6 d;
+    public ArrayList<cc6> a;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(hc6 hc6Var);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements ho {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ec6 a;
-
-        public a(ec6 ec6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ec6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ec6Var;
-        }
-
-        @Override // com.baidu.tieba.ho
-        public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (xnVar instanceof hc6)) {
-                hc6 hc6Var = (hc6) xnVar;
-                if (this.a.c != null) {
-                    this.a.c.a(hc6Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", hc6Var.a()).param("obj_locate", 2));
-                }
-            }
-        }
-    }
-
-    public ec6(Context context) {
+    public ec6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,34 +32,55 @@ public class ec6 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-        c();
+        this.a = new ArrayList<>();
     }
 
-    public void d(b bVar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<cc6> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().L(0);
+            }
         }
     }
 
-    public List<kn> b() {
+    public ArrayList<cc6> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final void c() {
+    public void c(List<?> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dc6 dc6Var = new dc6(this.a, hc6.e);
-            this.d = dc6Var;
-            dc6Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
+            return;
+        }
+        d(list, null);
+    }
+
+    public void d(List<?> list, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
+            return;
+        }
+        try {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (!(list.get(i) instanceof LikeForum)) {
+                    return;
+                }
+                cc6 cc6Var = new cc6();
+                cc6Var.I((LikeForum) list.get(i));
+                if (!TextUtils.isEmpty(cc6Var.o())) {
+                    this.a.add(cc6Var);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

@@ -1,25 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
-public class hc3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hc3 {
+    String a(String str);
 
-    public hc3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean b(String str);
+
+    String c(String str);
+
+    @NonNull
+    ic3 d();
+
+    String e(String str);
+
+    String f();
+
+    String g(String str);
+
+    String h(String str);
+
+    String i(String str);
+
+    boolean j(String str, boolean z);
+
+    String k();
+
+    boolean l(String str);
+
+    String m(String str);
 }

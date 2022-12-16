@@ -53,9 +53,7 @@ public final class R {
     /* loaded from: classes8.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: app_name */
-        public static final int Mask_X001 = 0x7f030000;
+        public static final int app_name = 0x7f030000;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

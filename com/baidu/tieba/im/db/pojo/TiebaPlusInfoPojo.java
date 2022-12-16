@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaPlusInfo;
+import protobuf.TiebaPlusInfo;
 /* loaded from: classes4.dex */
 public class TiebaPlusInfoPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -49,45 +49,10 @@ public class TiebaPlusInfoPojo extends OrmObject {
         }
     }
 
-    public static TiebaPlusInfoPojo A(TiebaPlusInfo tiebaPlusInfo) {
+    public static TiebaPlusInfoPojo G(TiebaPlusInfo tiebaPlusInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tiebaPlusInfo)) == null) {
-            if (tiebaPlusInfo == null) {
-                return null;
-            }
-            TiebaPlusInfoPojo tiebaPlusInfoPojo = new TiebaPlusInfoPojo();
-            tiebaPlusInfoPojo.title = tiebaPlusInfo.title;
-            tiebaPlusInfoPojo.desc = tiebaPlusInfo.desc;
-            tiebaPlusInfoPojo.jumpUrl = tiebaPlusInfo.jump_url;
-            tiebaPlusInfoPojo.downloadUrl = tiebaPlusInfo.download_url;
-            tiebaPlusInfoPojo.appId = tiebaPlusInfo.app_id;
-            tiebaPlusInfoPojo.appIcon = tiebaPlusInfo.app_icon;
-            tiebaPlusInfoPojo.appPackage = tiebaPlusInfo.app_package;
-            tiebaPlusInfoPojo.appVersion = tiebaPlusInfo.app_version;
-            tiebaPlusInfoPojo.appPrivacy = tiebaPlusInfo.app_privacy;
-            tiebaPlusInfoPojo.appPower = tiebaPlusInfo.app_power;
-            tiebaPlusInfoPojo.appCompany = tiebaPlusInfo.app_company;
-            tiebaPlusInfoPojo.targetType = tiebaPlusInfo.target_type;
-            tiebaPlusInfoPojo.h5JumpType = tiebaPlusInfo.h5_jump_type;
-            tiebaPlusInfoPojo.h5JumpNumber = tiebaPlusInfo.h5_jump_number;
-            tiebaPlusInfoPojo.jumpType = tiebaPlusInfo.jump_type;
-            tiebaPlusInfoPojo.itemId = tiebaPlusInfo.item_id;
-            tiebaPlusInfoPojo.isAppoint = tiebaPlusInfo.is_appoint;
-            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.A(tiebaPlusInfo.plugin_user);
-            tiebaPlusInfoPojo.forumName = tiebaPlusInfo.forum_name;
-            tiebaPlusInfoPojo.jumpSetting = tiebaPlusInfo.jump_setting;
-            tiebaPlusInfoPojo.wxThumbnail = tiebaPlusInfo.wx_thumbnail;
-            tiebaPlusInfoPojo.buttonDesc = tiebaPlusInfo.button_desc;
-            return tiebaPlusInfoPojo;
-        }
-        return (TiebaPlusInfoPojo) invokeL.objValue;
-    }
-
-    public static TiebaPlusInfoPojo z(protobuf.TiebaPlusInfo tiebaPlusInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tiebaPlusInfo)) == null) {
             if (tiebaPlusInfo == null) {
                 return null;
             }
@@ -109,11 +74,46 @@ public class TiebaPlusInfoPojo extends OrmObject {
             tiebaPlusInfoPojo.jumpType = tiebaPlusInfo.jumpType;
             tiebaPlusInfoPojo.itemId = tiebaPlusInfo.itemId;
             tiebaPlusInfoPojo.isAppoint = tiebaPlusInfo.isAppoint;
-            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.z(tiebaPlusInfo.pluginUser);
+            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.G(tiebaPlusInfo.pluginUser);
             tiebaPlusInfoPojo.forumName = tiebaPlusInfo.forumName;
             tiebaPlusInfoPojo.jumpSetting = tiebaPlusInfo.jumpSetting;
             tiebaPlusInfoPojo.wxThumbnail = tiebaPlusInfo.wxThumbnail;
             tiebaPlusInfoPojo.buttonDesc = tiebaPlusInfo.buttonDesc;
+            return tiebaPlusInfoPojo;
+        }
+        return (TiebaPlusInfoPojo) invokeL.objValue;
+    }
+
+    public static TiebaPlusInfoPojo H(tbclient.TiebaPlusInfo tiebaPlusInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tiebaPlusInfo)) == null) {
+            if (tiebaPlusInfo == null) {
+                return null;
+            }
+            TiebaPlusInfoPojo tiebaPlusInfoPojo = new TiebaPlusInfoPojo();
+            tiebaPlusInfoPojo.title = tiebaPlusInfo.title;
+            tiebaPlusInfoPojo.desc = tiebaPlusInfo.desc;
+            tiebaPlusInfoPojo.jumpUrl = tiebaPlusInfo.jump_url;
+            tiebaPlusInfoPojo.downloadUrl = tiebaPlusInfo.download_url;
+            tiebaPlusInfoPojo.appId = tiebaPlusInfo.app_id;
+            tiebaPlusInfoPojo.appIcon = tiebaPlusInfo.app_icon;
+            tiebaPlusInfoPojo.appPackage = tiebaPlusInfo.app_package;
+            tiebaPlusInfoPojo.appVersion = tiebaPlusInfo.app_version;
+            tiebaPlusInfoPojo.appPrivacy = tiebaPlusInfo.app_privacy;
+            tiebaPlusInfoPojo.appPower = tiebaPlusInfo.app_power;
+            tiebaPlusInfoPojo.appCompany = tiebaPlusInfo.app_company;
+            tiebaPlusInfoPojo.targetType = tiebaPlusInfo.target_type;
+            tiebaPlusInfoPojo.h5JumpType = tiebaPlusInfo.h5_jump_type;
+            tiebaPlusInfoPojo.h5JumpNumber = tiebaPlusInfo.h5_jump_number;
+            tiebaPlusInfoPojo.jumpType = tiebaPlusInfo.jump_type;
+            tiebaPlusInfoPojo.itemId = tiebaPlusInfo.item_id;
+            tiebaPlusInfoPojo.isAppoint = tiebaPlusInfo.is_appoint;
+            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.H(tiebaPlusInfo.plugin_user);
+            tiebaPlusInfoPojo.forumName = tiebaPlusInfo.forum_name;
+            tiebaPlusInfoPojo.jumpSetting = tiebaPlusInfo.jump_setting;
+            tiebaPlusInfoPojo.wxThumbnail = tiebaPlusInfo.wx_thumbnail;
+            tiebaPlusInfoPojo.buttonDesc = tiebaPlusInfo.button_desc;
             return tiebaPlusInfoPojo;
         }
         return (TiebaPlusInfoPojo) invokeL.objValue;

@@ -24,7 +24,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public final class e extends b {
             cVar.mApkDownloadHelper = new com.kwad.components.core.c.a.c(adTemplate);
             cVar.cN = this.cN;
             cVar.dp = new com.kwad.sdk.core.video.videoview.a(this.mContext);
-            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f0910bb);
+            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f09111d);
             cVar.gq = kSFrameLayout;
             com.kwad.components.ad.interstitial.c.b bVar = new com.kwad.components.ad.interstitial.c.b(kSFrameLayout, 100);
             cVar.gt = bVar;
@@ -262,7 +262,7 @@ public final class e extends b {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d043b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d044a : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View

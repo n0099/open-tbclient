@@ -12,7 +12,7 @@ import com.kwai.sodler.lib.h;
 public interface b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> {
 
     /* loaded from: classes8.dex */
-    public static class a extends C0640b<com.kwai.sodler.lib.kwai.a, com.kwai.sodler.lib.b.a> {
+    public static class a extends C0657b<com.kwai.sodler.lib.kwai.a, com.kwai.sodler.lib.b.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,11 +33,11 @@ public interface b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> {
 
     /* renamed from: com.kwai.sodler.lib.ext.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0640b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> implements b<P, R> {
+    public static class C0657b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> implements b<P, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0640b() {
+        public C0657b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public interface b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> {
     }
 
     /* loaded from: classes8.dex */
-    public static class c extends C0640b<h, com.kwai.sodler.lib.b.c> {
+    public static class c extends C0657b<h, com.kwai.sodler.lib.b.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

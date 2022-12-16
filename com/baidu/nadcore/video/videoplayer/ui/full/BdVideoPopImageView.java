@@ -11,7 +11,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w41;
+import com.baidu.tieba.v41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,12 +54,12 @@ public class BdVideoPopImageView extends View {
                 return;
             }
         }
-        l = w41.a(12.0f);
-        m = w41.d(30.0f);
-        n = w41.a(16.0f);
-        o = w41.a(9.0f) + n;
-        p = w41.b(90.0f);
-        q = w41.b(90.0f);
+        l = v41.a(12.0f);
+        m = v41.d(30.0f);
+        n = v41.a(16.0f);
+        o = v41.a(9.0f) + n;
+        p = v41.b(90.0f);
+        q = v41.b(90.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,7 +100,7 @@ public class BdVideoPopImageView extends View {
             this.f.setColor(-1);
             this.f.setTextAlign(Paint.Align.CENTER);
             this.h = new Rect();
-            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5c);
+            this.g = this.a.getResources().getDrawable(R.drawable.nad_videoplayer_play_pop_bg);
         }
     }
 

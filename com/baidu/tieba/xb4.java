@@ -1,7 +1,10 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface xb4 extends yb4 {
-    void b();
 
-    void n(String str, String str2);
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import java.util.Set;
+/* loaded from: classes6.dex */
+public interface xb4 {
+    @NonNull
+    Bundle m(@NonNull Bundle bundle, Set<String> set);
 }

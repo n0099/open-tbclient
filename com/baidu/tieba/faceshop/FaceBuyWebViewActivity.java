@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.er4;
-import com.baidu.tieba.kv4;
+import com.baidu.tieba.ir4;
+import com.baidu.tieba.lv4;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
-public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements BaseWebView.d, BaseWebView.f, BaseWebView.e {
+public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements BaseWebView.c, BaseWebView.e, BaseWebView.d {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     public String d;
     public String e;
     public int f;
-    public kv4 g;
+    public lv4 g;
     public final Handler h;
     public final Runnable i;
 
@@ -117,12 +117,12 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.D1();
+            this.a.C1();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements kv4.e {
+    public class c implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -145,18 +145,18 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
                 this.a.closeActivity();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements kv4.e {
+    public class d implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -179,11 +179,11 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
             }
         }
     }
@@ -267,8 +267,8 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            C1();
-            B1(bundle);
+            B1();
+            A1(bundle);
             initCookie();
         }
     }
@@ -285,7 +285,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    public final void B1(Bundle bundle) {
+    public final void A1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
@@ -304,13 +304,13 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    public final void C1() {
+    public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0282);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092303)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070282);
-            this.a = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f0926a8);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092613);
+            setContentView(R.layout.obfuscated_res_0x7f0d0286);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092374)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070282);
+            this.a = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09271c);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
             this.b.setTitleText("");
@@ -321,17 +321,17 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    public final void D1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.g == null) {
-                kv4 kv4Var = new kv4(getPageContext().getPageActivity());
-                this.g = kv4Var;
-                kv4Var.setTitle(R.string.obfuscated_res_0x7f0f0922);
+                lv4 lv4Var = new lv4(getPageContext().getPageActivity());
+                this.g = lv4Var;
+                lv4Var.setTitle(R.string.obfuscated_res_0x7f0f0955);
                 this.g.setCancelable(false);
-                this.g.setMessageId(R.string.obfuscated_res_0x7f0f0fc9);
-                this.g.setPositiveButton(R.string.obfuscated_res_0x7f0f026b, new c(this));
-                this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f0377, new d(this));
+                this.g.setMessageId(R.string.obfuscated_res_0x7f0f1000);
+                this.g.setPositiveButton(R.string.alert_yes_button, new c(this));
+                this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f037c, new d(this));
                 this.g.create(getPageContext());
             }
             this.g.show();
@@ -342,7 +342,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                er4.b().c(TbadkCoreApplication.getCurrentBduss());
+                ir4.b().c(TbadkCoreApplication.getCurrentBduss());
                 CookieSyncManager.createInstance(getPageContext().getContext());
                 CookieManager.getInstance().setAcceptCookie(true);
                 CookieSyncManager.getInstance().sync();
@@ -352,8 +352,8 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
-    public void m(WebView webView, String str) {
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
+    public void l(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
             showProgressBar();
@@ -366,7 +366,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
             if (i == 4) {
-                D1();
+                C1();
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -374,7 +374,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) {
@@ -382,7 +382,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

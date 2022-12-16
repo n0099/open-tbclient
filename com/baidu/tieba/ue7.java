@@ -1,54 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ue7 {
+public class ue7 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public static void a(String str) {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onClick();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ue7(@NonNull Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem.make("c14880").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        getWindow().setSoftInputMode(32);
+        GreyUtil.grey(this);
+    }
+
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 
-    public static void b(String str) {
+    @Override // android.app.Dialog
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StatisticItem.make("c14879").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                Rect rect = new Rect();
+                getWindow().getDecorView().getGlobalVisibleRect(rect);
+                if (!rect.contains((int) motionEvent.getX(), (int) motionEvent.getY()) && (aVar = this.a) != null) {
+                    aVar.onClick();
+                    return true;
+                }
+                return true;
+            }
+            return true;
         }
-    }
-
-    public static void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            se7.a("私信链路耗时监控 Tb = " + j + "-x-" + currentTimeMillis);
-            TiebaStatic.log(new StatisticItem("c14673").param("obj_id", j).param("obj_param1", currentTimeMillis));
-        }
-    }
-
-    public static void d(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            se7.a("私信链路耗时监控 Tc = " + j + "-" + i + "-" + currentTimeMillis);
-            TiebaStatic.log(new StatisticItem("c14674").param("obj_id", j).param("obj_type", i).param("obj_param1", currentTimeMillis));
-        }
-    }
-
-    public static void e(long j, int i, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
-            long c = we7.c(j);
-            se7.a("私信链路耗时监控 Ta = " + c + "-" + i + "-" + j2);
-            TiebaStatic.log(new StatisticItem("c14672").param("obj_id", c).param("obj_type", i).param("obj_param1", j2));
-        }
+        return invokeL.booleanValue;
     }
 }

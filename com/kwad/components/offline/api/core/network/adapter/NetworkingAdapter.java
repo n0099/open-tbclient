@@ -17,7 +17,7 @@ import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NetworkingAdapter<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> extends m<RequestAdapter<R>, ResultDataAdapter<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MsgSettingItemView2 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +74,8 @@ public class MsgSettingItemView2 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05b8, (ViewGroup) this, true);
-            this.a = (CheckBox) findViewById(R.id.obfuscated_res_0x7f091ebf);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05c9, (ViewGroup) this, true);
+            this.a = (CheckBox) findViewById(R.id.obfuscated_res_0x7f091f2c);
         }
     }
 

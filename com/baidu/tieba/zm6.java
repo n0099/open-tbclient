@@ -1,71 +1,147 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
+import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class zm6 extends hj6<sj6, ReadProgressViewHolder> {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class zm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public um6 a;
+    public String b;
+    public VideoAggregationModel c;
+    public boolean d;
+    public VideoAggregationModel.c e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zm6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes7.dex */
+    public class a implements VideoAggregationModel.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zm6 a;
+
+        public a(zm6 zm6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zm6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zm6Var;
+        }
+
+        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.a == null) {
+                return;
+            }
+            this.a.a.n();
+            this.a.a.k(str);
+            this.a.a.onLoadFail();
+        }
+
+        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
+        public void b(List<xm6> list, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.a.a == null) {
+                return;
+            }
+            this.a.a.n();
+            this.a.d = z2;
+            this.a.a.Q0(list, z, z2);
+        }
+    }
+
+    public zm6(TbPageContext tbPageContext, um6 um6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, um6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        a aVar = new a(this);
+        this.e = aVar;
+        this.a = um6Var;
+        this.c = new VideoAggregationModel(tbPageContext, aVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: E */
-    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void f(String str) {
+        VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0348, viewGroup, false), this.c.getPageActivity());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (videoAggregationModel = this.c) != null) {
+            videoAggregationModel.setFrom(str);
         }
-        return (ReadProgressViewHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, sj6 sj6Var, ReadProgressViewHolder readProgressViewHolder) {
-        InterceptResult invokeCommon;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sj6Var, readProgressViewHolder})) == null) {
-            if (sj6Var != null && readProgressViewHolder != null) {
-                readProgressViewHolder.b(sj6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+            VideoAggregationModel videoAggregationModel = this.c;
+            if (videoAggregationModel != null) {
+                videoAggregationModel.L(str);
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.hj6, com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (sj6) obj, (ReadProgressViewHolder) viewHolder);
-        return view2;
+    public void h(String str) {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (videoAggregationModel = this.c) != null) {
+            videoAggregationModel.M(str);
+        }
+    }
+
+    public void i(String str) {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (videoAggregationModel = this.c) != null) {
+            videoAggregationModel.N(str);
+        }
+    }
+
+    public void c() {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (videoAggregationModel = this.c) != null) {
+            videoAggregationModel.cancelLoadData();
+        }
+    }
+
+    public void d() {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.c) != null && this.d) {
+            videoAggregationModel.loadData();
+        }
+    }
+
+    public void e() {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (videoAggregationModel = this.c) != null) {
+            videoAggregationModel.K();
+        }
     }
 }

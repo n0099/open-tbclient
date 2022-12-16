@@ -166,7 +166,7 @@ public class b7<T> implements Iterable<T> {
                 if (this.b) {
                     int i = this.c - 1;
                     this.c = i;
-                    this.a.i(i);
+                    this.a.h(i);
                     return;
                 }
                 throw new GdxRuntimeException("Remove not allowed.");
@@ -241,7 +241,7 @@ public class b7<T> implements Iterable<T> {
             if (i >= 0) {
                 int i2 = this.b + i;
                 if (i2 > this.a.length) {
-                    k(Math.max(Math.max(8, i2), (int) (this.b * 1.75f)));
+                    j(Math.max(Math.max(8, i2), (int) (this.b * 1.75f)));
                 }
                 return this.a;
             }
@@ -283,10 +283,10 @@ public class b7<T> implements Iterable<T> {
         return invokeL.booleanValue;
     }
 
-    public T i(int i) {
+    public T h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
             int i2 = this.b;
             if (i < i2) {
                 T[] tArr = this.a;
@@ -370,16 +370,16 @@ public class b7<T> implements Iterable<T> {
         this.a = (T[]) new Object[i];
     }
 
-    public boolean j(T t, boolean z) {
+    public boolean i(T t, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, t, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, t, z)) == null) {
             T[] tArr = this.a;
             if (!z && t != null) {
                 int i = this.b;
                 for (int i2 = 0; i2 < i; i2++) {
                     if (t.equals(tArr[i2])) {
-                        i(i2);
+                        h(i2);
                         return true;
                     }
                 }
@@ -387,7 +387,7 @@ public class b7<T> implements Iterable<T> {
                 int i3 = this.b;
                 for (int i4 = 0; i4 < i3; i4++) {
                     if (tArr[i4] == t) {
-                        i(i4);
+                        h(i4);
                         return true;
                     }
                 }
@@ -397,7 +397,7 @@ public class b7<T> implements Iterable<T> {
         return invokeLZ.booleanValue;
     }
 
-    public void l(int i, T t) {
+    public void k(int i, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048594, this, i, t) == null) {
             if (i < this.b) {
@@ -471,7 +471,7 @@ public class b7<T> implements Iterable<T> {
         }
     }
 
-    public static <T> b7<T> o(T... tArr) {
+    public static <T> b7<T> n(T... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tArr)) == null) {
@@ -486,7 +486,7 @@ public class b7<T> implements Iterable<T> {
             T[] tArr = this.a;
             int i = this.b;
             if (i == tArr.length) {
-                tArr = k(Math.max(8, (int) (i * 1.75f)));
+                tArr = j(Math.max(8, (int) (i * 1.75f)));
             }
             int i2 = this.b;
             this.b = i2 + 1;
@@ -501,7 +501,7 @@ public class b7<T> implements Iterable<T> {
         }
     }
 
-    public T[] k(int i) {
+    public T[] j(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
@@ -514,7 +514,7 @@ public class b7<T> implements Iterable<T> {
         return (T[]) ((Object[]) invokeI.objValue);
     }
 
-    public <V> V[] n(Class<V> cls) {
+    public <V> V[] m(Class<V> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, cls)) == null) {
@@ -549,7 +549,7 @@ public class b7<T> implements Iterable<T> {
             T[] tArr2 = this.a;
             int i3 = this.b + i2;
             if (i3 > tArr2.length) {
-                tArr2 = k(Math.max(Math.max(8, i3), (int) (this.b * 1.75f)));
+                tArr2 = j(Math.max(Math.max(8, i3), (int) (this.b * 1.75f)));
             }
             System.arraycopy(tArr, i, tArr2, this.b, i2);
             this.b = i3;
@@ -564,25 +564,13 @@ public class b7<T> implements Iterable<T> {
         }
     }
 
-    public T f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.b != 0) {
-                return this.a[0];
-            }
-            throw new IllegalStateException("Array is empty.");
-        }
-        return (T) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: g */
+    /* renamed from: f */
     public b<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (g7.a) {
                 return new b<>(this, true);
             }
@@ -594,10 +582,22 @@ public class b7<T> implements Iterable<T> {
         return (b) invokeV.objValue;
     }
 
-    public T h() {
+    public T first() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.b != 0) {
+                return this.a[0];
+            }
+            throw new IllegalStateException("Array is empty.");
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public T g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             int i = this.b;
             if (i == 0) {
                 return null;
@@ -610,7 +610,7 @@ public class b7<T> implements Iterable<T> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (!this.c) {
                 return super.hashCode();
             }
@@ -632,7 +632,7 @@ public class b7<T> implements Iterable<T> {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (this.b == 0) {
                 return true;
             }
@@ -641,7 +641,7 @@ public class b7<T> implements Iterable<T> {
         return invokeV.booleanValue;
     }
 
-    public void m() {
+    public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             i8.a().b(this.a, 0, this.b);
@@ -682,7 +682,7 @@ public class b7<T> implements Iterable<T> {
     public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             if (i < this.b) {
                 return this.a[i];
             }
@@ -693,12 +693,12 @@ public class b7<T> implements Iterable<T> {
 
     public void insert(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i, t) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048590, this, i, t) == null) {
             int i2 = this.b;
             if (i <= i2) {
                 T[] tArr = this.a;
                 if (i2 == tArr.length) {
-                    tArr = k(Math.max(8, (int) (i2 * 1.75f)));
+                    tArr = j(Math.max(8, (int) (i2 * 1.75f)));
                 }
                 if (this.c) {
                     System.arraycopy(tArr, i, tArr, i + 1, this.b - i);

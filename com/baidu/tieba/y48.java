@@ -1,26 +1,17 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ClickableSpan;
-import android.text.style.ImageSpan;
-import android.text.style.ReplacementSpan;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,26 +19,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class y48 {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends ClickableSpan {
+    public static class a extends LinearSmoothScroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ BdTypeRecyclerView a;
 
-        public a(String str, String str2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
+                Object[] objArr = {context, bdTypeRecyclerView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bdTypeRecyclerView;
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public int calculateDtToFit(int i, int i2, int i3, int i4, int i5) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+                int calculateDtToFit = super.calculateDtToFit(i, i2, i3, i4, i5);
+                if (calculateDtToFit == 0) {
+                    return calculateDtToFit;
+                }
+                int[] iArr = new int[2];
+                this.a.getLocationOnScreen(iArr);
+                return ((calculateDtToFit - y48.a) - ((iArr[1] + this.a.getHeight()) - yi.j(TbadkCoreApplication.getInst().getApp()))) + oi.b(TbadkCoreApplication.getInst().getApp());
+            }
+            return invokeCommon.intValue;
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+            InterceptResult invokeL;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, displayMetrics)) == null) {
+                if (displayMetrics != null && (i = displayMetrics.densityDpi) != 0) {
+                    return 300.0f / i;
+                }
+                return super.calculateSpeedPerPixel(displayMetrics);
+            }
+            return invokeL.floatValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeRecyclerView a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ LinearSmoothScroller c;
+
+        public b(BdTypeRecyclerView bdTypeRecyclerView, String str, LinearSmoothScroller linearSmoothScroller) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeRecyclerView, str, linearSmoothScroller};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,142 +108,57 @@ public class y48 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
+            this.a = bdTypeRecyclerView;
+            this.b = str;
+            this.c = linearSmoothScroller;
         }
 
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
+            int b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || StringUtils.isNull(this.a)) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b = y48.b(this.a, this.b)) >= 0) {
+                this.c.setTargetPosition(b);
+                RecyclerView.LayoutManager layoutManager = this.a.getLayoutManager();
+                if (layoutManager != null) {
+                    layoutManager.startSmoothScroll(this.c);
+                }
             }
-            StatisticItem statisticItem = new StatisticItem("c13313");
-            statisticItem.param("tid", this.b);
-            TiebaStatic.log(statisticItem);
-            sp4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.a);
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends ImageSpan {
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeRecyclerView a;
+        public final /* synthetic */ int b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Drawable drawable, int i) {
-            super(drawable, i);
+        public c(BdTypeRecyclerView bdTypeRecyclerView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {drawable, Integer.valueOf(i)};
+                Object[] objArr = {bdTypeRecyclerView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = bdTypeRecyclerView;
+            this.b = i;
         }
 
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                canvas.save();
-                canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
-                drawable.draw(canvas);
-                canvas.restore();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.smoothScrollToPosition(this.b - 1);
             }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    fontMetricsInt.bottom = i6;
-                    fontMetricsInt.descent = i6;
-                }
-                return bounds.right;
-            }
-            return invokeCommon.intValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends ReplacementSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public c(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-        }
-
-        public final TextPaint a(Paint paint) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, paint)) == null) {
-                TextPaint textPaint = new TextPaint(paint);
-                textPaint.setTextSize(this.a);
-                textPaint.setColor(this.b);
-                return textPaint;
-            }
-            return (TextPaint) invokeL.objValue;
-        }
-
-        @Override // android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                CharSequence subSequence = charSequence.subSequence(i, i2);
-                TextPaint a = a(paint);
-                Paint.FontMetricsInt fontMetricsInt = a.getFontMetricsInt();
-                canvas.drawText(subSequence.toString(), f, i4 - (((((fontMetricsInt.descent + i4) + i4) + fontMetricsInt.ascent) / 2) - ((i5 + i3) / 2)), a);
-            }
-        }
-
-        @Override // android.text.style.ReplacementSpan
-        public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                return (int) a(paint).measureText(charSequence.subSequence(i, i2).toString());
-            }
-            return invokeCommon.intValue;
         }
     }
 
@@ -209,57 +175,150 @@ public class y48 {
                 return;
             }
         }
-        a = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+        a = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
+        b = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds562);
     }
 
-    public static void a(Context context, TextView textView, String str, String str2, String str3) {
+    public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        List<xn> data;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, context, textView, str, str2, str3) == null) && context != null && textView != null && !StringUtils.isNull(str)) {
-            int color = SkinManager.getColor(R.color.CAM_X0107);
-            String str4 = str + GlideException.IndentedAppendable.INDENT;
-            TextPaint paint = textView.getPaint();
-            int g = yi.s(context)[0] - (yi.g(context, R.dimen.tbds48) * 2);
-            int g2 = yi.g(context, R.dimen.tbds116);
-            int w = yi.w(paint, " 广告");
-            int w2 = yi.w(paint, "...  ");
-            int w3 = yi.w(paint, str4);
-            int g3 = yi.g(context, R.dimen.tbds30);
-            int i = w3 + g2 + w + g3;
-            int i2 = g * 2;
-            if (i >= i2) {
-                str4 = b(paint, str4, (((i2 - g2) - w) - w2) - g3) + "...  ";
-            } else if (i >= g && w3 < g && i >= g) {
-                str4 = str4.trim() + "\n";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView != null && (data = bdTypeRecyclerView.getData()) != null && data.size() > 0) {
+                for (int i = 0; i < data.size(); i++) {
+                    xn xnVar = data.get(i);
+                    if ((xnVar instanceof PostData) && xnVar.getType() == PostData.N0) {
+                        return true;
+                    }
+                }
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
-            SpannableString spannableString = new SpannableString("_");
-            Drawable drawable = SkinManager.getDrawable(R.drawable.icon_video_pb_ad_link);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new b(drawable, 0), 0, 1, 17);
-            spannableString.setSpan(new a(str2, str3), 0, 1, 17);
-            spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
-            SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new c(a, color), 0, 3, 17);
-            spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
-            textView.setHighlightColor(0);
-            textView.setText(spannableStringBuilder);
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
-            StatisticItem statisticItem = new StatisticItem("c13312");
-            statisticItem.param("tid", str3);
-            TiebaStatic.log(statisticItem);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView == null) {
+                return -1;
+            }
+            List<xn> data = bdTypeRecyclerView.getData();
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (data != null && data.size() > 0) {
+                int size = data.size();
+                for (int i = 0; i < size; i++) {
+                    if (data.get(i) instanceof u08) {
+                        return i + headerViewsCount;
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bdTypeRecyclerView, str)) == null) {
+            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+                List<xn> data = bdTypeRecyclerView.getData();
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        xn xnVar = data.get(i);
+                        if ((xnVar instanceof PostData) && xnVar.getType() == PostData.N0 && str.equals(((PostData) xnVar).M())) {
+                            return i + headerViewsCount;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int d(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView == null) {
+                return -1;
+            }
+            List<xn> data = bdTypeRecyclerView.getData();
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (data != null && data.size() > 0) {
+                int size = data.size();
+                for (int i = 0; i < size; i++) {
+                    xn xnVar = data.get(i);
+                    if ((xnVar instanceof u08) && ((u08) xnVar).b == u08.j) {
+                        return i + headerViewsCount;
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void e(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int d = d(bdTypeRecyclerView);
+        if (d < 0) {
+            d = c(bdTypeRecyclerView);
+        }
+        if (d >= 0) {
+            RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
+            if (layoutManager instanceof LinearLayoutManager) {
+                ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(d, 0);
+            }
         }
     }
 
-    public static String b(Paint paint, String str, int i) {
-        InterceptResult invokeLLI;
+    public static void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, paint, str, i)) == null) {
-            String str2 = str;
-            for (int length = str.length() - 1; yi.w(paint, str2) > i && length > 0; length--) {
-                str2 = str.substring(0, length);
-            }
-            return str2;
+        if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
+            b = i;
         }
-        return (String) invokeLLI.objValue;
+    }
+
+    public static void f(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, bdTypeRecyclerView, str) == null) && bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+            e(bdTypeRecyclerView);
+            bdTypeRecyclerView.post(new c(bdTypeRecyclerView, b(bdTypeRecyclerView, str)));
+        }
+    }
+
+    public static void g(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, bdTypeRecyclerView, str) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        bdTypeRecyclerView.getLayoutManager().scrollToPosition(b(bdTypeRecyclerView, str));
+    }
+
+    public static void h(BdTypeRecyclerView bdTypeRecyclerView, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65544, null, bdTypeRecyclerView, str, z) == null) && bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+            a aVar = new a(bdTypeRecyclerView.getContext(), bdTypeRecyclerView);
+            e(bdTypeRecyclerView);
+            if (z) {
+                int b2 = b(bdTypeRecyclerView, str);
+                RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
+                if (layoutManager instanceof LinearLayoutManager) {
+                    ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(b2, (UtilHelper.getScreenHeight(bdTypeRecyclerView.getContext()) - b) / 5);
+                    return;
+                }
+                return;
+            }
+            ah.a().post(new b(bdTypeRecyclerView, str, aVar));
+        }
     }
 }

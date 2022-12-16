@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gx8;
-import com.baidu.tieba.gy8;
 import com.baidu.tieba.jm;
 import com.baidu.tieba.km;
+import com.baidu.tieba.p09;
+import com.baidu.tieba.p19;
+import com.baidu.tieba.r66;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-import com.baidu.tieba.w56;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -76,7 +76,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    yi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a11);
+                    yi.P(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
             }
 
@@ -85,7 +85,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    yi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a11);
+                    yi.P(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
             }
 
@@ -177,12 +177,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<w56> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<r66> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof gx8)) {
-                    return new CustomResponsedMessage<>(2921466, new gy8((gx8) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof p09)) {
+                    return new CustomResponsedMessage<>(2921466, new p19((p09) customMessage.getData()));
                 }
                 return null;
             }

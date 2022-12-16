@@ -1,130 +1,87 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.text.StaticLayout;
-import android.text.TextPaint;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.components.core.response.model.AdResultData;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class xu9 {
+public class xu9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public HashMap<String, Bitmap> b;
-    public HashMap<String, String> c;
-    public HashMap<String, TextPaint> d;
-    public HashMap<String, StaticLayout> e;
-    public HashMap<String, Function2<Canvas, Integer, Boolean>> f;
-    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> g;
-    public boolean h;
 
-    public xu9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xu9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
-        this.e = new HashMap<>();
-        this.f = new HashMap<>();
-        this.g = new HashMap<>();
     }
 
-    public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        AdResultData adResultData;
+        List<AdTemplate> adTemplateList;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("a");
+                boolean z = true;
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                if (obj2 instanceof AdResultData) {
+                    adResultData = (AdResultData) obj2;
+                } else {
+                    adResultData = null;
+                }
+                if (adResultData == null) {
+                    z = false;
+                }
+                if (z && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
+                    AdTemplate adTemplate = adTemplateList.get(0);
+                    if (adTemplate == null) {
+                        list = null;
+                    } else {
+                        list = adTemplate.adInfoList;
+                    }
+                    if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                        return null;
+                    }
+                    return av9.a(adInfo);
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, Boolean> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, Bitmap> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, StaticLayout> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, TextPaint> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

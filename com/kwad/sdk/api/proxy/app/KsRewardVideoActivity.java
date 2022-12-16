@@ -7,7 +7,7 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyActivity;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsRewardVideoActivity extends BaseProxyActivity {
     @Override // com.kwad.sdk.api.proxy.BaseProxyActivity
     @NonNull

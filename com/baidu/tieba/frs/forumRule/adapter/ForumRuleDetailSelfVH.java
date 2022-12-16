@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -73,24 +73,24 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ac3);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ade);
             this.b = headImageView;
             headImageView.setRadius(R.dimen.tbds47);
             this.b.setConrers(15);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ad0);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ace);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090acd);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090abe);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aca);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090ac2);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aeb);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ae9);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ae8);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ad9);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ae5);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090add);
             this.h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06d2));
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac1);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06da));
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090adc);
             this.l = eMTextView;
-            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06d7));
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ac8);
-            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac9);
-            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac7);
+            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06df));
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ae3);
+            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ae4);
+            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ae2);
         }
     }
 
@@ -159,17 +159,17 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            qw4 d = qw4.d(this.c);
+            rw4 d = rw4.d(this.c);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0105);
-            qw4 d2 = qw4.d(this.g);
+            rw4 d2 = rw4.d(this.g);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0109);
-            qw4 d3 = qw4.d(this.l);
+            rw4 d3 = rw4.d(this.l);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0107);
-            qw4.d(this.k).v(R.color.CAM_X0105);
-            qw4 d4 = qw4.d(this.j);
+            rw4.d(this.k).v(R.color.CAM_X0105);
+            rw4 d4 = rw4.d(this.j);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);

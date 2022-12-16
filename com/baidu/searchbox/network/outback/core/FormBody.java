@@ -17,7 +17,7 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FormBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType CONTENT_TYPE;
@@ -25,7 +25,7 @@ public final class FormBody extends RequestBody {
     public final List<String> encodedNames;
     public final List<String> encodedValues;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

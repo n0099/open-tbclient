@@ -24,6 +24,8 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ChatSession> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean isHandlerChangeRole;
+    public int mAidType;
     public int mBusinessType;
     public int mCategory;
     public String mCertification;
@@ -32,32 +34,55 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int mClassShow;
     public String mClassTitle;
     public int mClassType;
+    public int mCollectState;
     public int mCollectionType;
     public long mContacter;
     public long mContacterId;
+    public long mContacterImuk;
+    public String mDesc;
+    public int mDisturb;
+    public String mDraft;
     public String mExt;
-    public String mGameHistory;
+    public int mHighlightDataId;
+    public String mHighlightDesc;
+    public int mHighlightPriority;
     public String mIconUrl;
     public int mIsClicked;
+    public int mIsStranger;
+    public long mLastAnswerUk;
+    public long mLastAskUk;
+    public long mLastDialogueId;
+    public int mLastDialogueStatus;
     public String mLastMsg;
+    public long mLastMsgId;
     public String mLastMsgName;
     public long mLastMsgTime;
     public long mLastMsgUid;
+    public long mLastMsgidFromMe;
     public long mLastOpenTime;
+    public String mLastResourceId;
+    public String mLastStatusShow;
+    public int mMapType;
     public int mMarkTop;
     public long mMarkTopTime;
     public String mName;
-    public int mNewFansAtMsgSum;
     public long mNewMsgSum;
     public String mNickName;
     public long mPaid;
+    public long mRemindMsgId;
+    public String mRemindRoleDisplayName;
+    public int mRemindType;
+    public long mRemindUid;
     public int mSessionFrom;
+    public int mSessionType;
     public int mShield;
     public long mShieldTime;
+    public String mShieldTypes;
     public int mShow;
+    public long mSrotTime;
     public int mState;
+    public int mSubscribe;
     public String mVipId;
-    public int mWeight;
     public String vPortrait;
 
     @Override // android.os.Parcelable
@@ -73,7 +98,22 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public ChatSession getChatRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (ChatSession) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : (ChatSession) invokeV.objValue;
+    }
+
+    public int getNewFansAtMsgSum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setNewFansAtMsgSum(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048687, this, i) == null) {
+        }
     }
 
     static {
@@ -151,10 +191,19 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         return (ChatSession) invokeV.objValue;
     }
 
-    public int getBusinessType() {
+    public int getAidType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mAidType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBusinessType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mBusinessType;
         }
         return invokeV.intValue;
@@ -163,7 +212,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getCategory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mCategory;
         }
         return invokeV.intValue;
@@ -172,7 +221,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getCertification() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mCertification;
         }
         return (String) invokeV.objValue;
@@ -181,7 +230,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getChatType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mChatType;
         }
         return invokeV.intValue;
@@ -190,7 +239,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getClassAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mClassAvatar;
         }
         return (String) invokeV.objValue;
@@ -199,7 +248,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getClassShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mClassShow;
         }
         return invokeV.intValue;
@@ -208,7 +257,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getClassTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mClassTitle;
         }
         return (String) invokeV.objValue;
@@ -217,8 +266,17 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getClassType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.mClassType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getCollectState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mCollectState;
         }
         return invokeV.intValue;
     }
@@ -226,7 +284,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getCollectionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.mCollectionType;
         }
         return invokeV.intValue;
@@ -235,7 +293,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getContacter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.mContacter;
         }
         return invokeV.longValue;
@@ -244,34 +302,88 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getContacterId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mContacterId;
         }
         return invokeV.longValue;
     }
 
+    public long getContacterImuk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mContacterImuk;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getDesc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mDesc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDisturb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mDisturb;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getDraft() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mDraft;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public String getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.mExt;
         }
         return (String) invokeV.objValue;
     }
 
-    public String getGameHistory() {
+    public int getHighlightDataId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.mGameHistory;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mHighlightDataId;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getHighlightDesc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.mHighlightDesc;
         }
         return (String) invokeV.objValue;
+    }
+
+    public int getHighlightPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mHighlightPriority;
+        }
+        return invokeV.intValue;
     }
 
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.mIconUrl;
         }
         return (String) invokeV.objValue;
@@ -280,8 +392,53 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getIsClicked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.mIsClicked;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getIsStranger() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.mIsStranger;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getLastAnswerUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.mLastAnswerUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLastAskUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.mLastAskUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLastDialogueId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.mLastDialogueId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getLastDialogueStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.mLastDialogueStatus;
         }
         return invokeV.intValue;
     }
@@ -289,16 +446,25 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getLastMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             return this.mLastMsg;
         }
         return (String) invokeV.objValue;
     }
 
+    public long getLastMsgId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.mLastMsgId;
+        }
+        return invokeV.longValue;
+    }
+
     public String getLastMsgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             return this.mLastMsgName;
         }
         return (String) invokeV.objValue;
@@ -307,7 +473,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getLastMsgTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             return this.mLastMsgTime;
         }
         return invokeV.longValue;
@@ -316,8 +482,17 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getLastMsgUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.mLastMsgUid;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLastMsgidFromMe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.mLastMsgidFromMe;
         }
         return invokeV.longValue;
     }
@@ -325,16 +500,43 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getLastOpenTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             return this.mLastOpenTime;
         }
         return invokeV.longValue;
     }
 
+    public String getLastResourceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return this.mLastResourceId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLastStatusShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            return this.mLastStatusShow;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getMapType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            return this.mMapType;
+        }
+        return invokeV.intValue;
+    }
+
     public int getMarkTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             return this.mMarkTop;
         }
         return invokeV.intValue;
@@ -343,7 +545,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getMarkTopTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             return this.mMarkTopTime;
         }
         return invokeV.longValue;
@@ -352,25 +554,16 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             return this.mName;
         }
         return (String) invokeV.objValue;
     }
 
-    public int getNewFansAtMsgSum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.mNewFansAtMsgSum;
-        }
-        return invokeV.intValue;
-    }
-
     public long getNewMsgSum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             return this.mNewMsgSum;
         }
         return invokeV.longValue;
@@ -379,7 +572,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getNickName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             return this.mNickName;
         }
         return (String) invokeV.objValue;
@@ -388,8 +581,44 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getPaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             return this.mPaid;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getRemindMsgid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            return this.mRemindMsgId;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getRemindRoleDisplayName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            return this.mRemindRoleDisplayName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getRemindType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            return this.mRemindType;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getRemindUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+            return this.mRemindUid;
         }
         return invokeV.longValue;
     }
@@ -397,8 +626,17 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getSessionFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             return this.mSessionFrom;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSessionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            return this.mSessionType;
         }
         return invokeV.intValue;
     }
@@ -406,7 +644,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public int getShield() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             return this.mShield;
         }
         return invokeV.intValue;
@@ -415,26 +653,53 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public long getShieldTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             return this.mShieldTime;
         }
         return invokeV.longValue;
     }
 
+    public String getShieldTypes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+            return this.mShieldTypes;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public int getShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             return this.mShow;
         }
         return invokeV.intValue;
     }
 
+    public long getSortTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+            return this.mSrotTime;
+        }
+        return invokeV.longValue;
+    }
+
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             return this.mState;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSubscribe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            return this.mSubscribe;
         }
         return invokeV.intValue;
     }
@@ -442,7 +707,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getVPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
             return this.vPortrait;
         }
         return (String) invokeV.objValue;
@@ -451,25 +716,25 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String getVipId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
             return this.mVipId;
         }
         return (String) invokeV.objValue;
     }
 
-    public int getWeight() {
+    public boolean isHandlerChangeRole() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return this.mWeight;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+            return this.isHandlerChangeRole;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
     public boolean isRed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             if (this.mIsClicked == 0) {
                 return true;
             }
@@ -481,7 +746,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public boolean isShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
             if (this.mShow == 1) {
                 return true;
             }
@@ -511,7 +776,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mLastMsgTime = -1L;
         this.mLastOpenTime = -1L;
         this.mNewMsgSum = 0L;
-        this.mWeight = 0;
         this.mShow = 1;
         this.mCollectionType = -1;
         this.mChatType = -1;
@@ -525,7 +789,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mMarkTop = 0;
         this.mMarkTopTime = 0L;
         this.mNickName = null;
-        this.mGameHistory = "";
         this.mExt = "";
         this.vPortrait = "";
         this.mCertification = "";
@@ -536,7 +799,55 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mBusinessType = -1;
         this.mLastMsgUid = 0L;
         this.mLastMsgName = "";
-        this.mNewFansAtMsgSum = 0;
+        this.mRemindType = 0;
+        this.mRemindMsgId = 0L;
+        this.mRemindUid = 0L;
+        this.isHandlerChangeRole = false;
+        this.mSessionType = 0;
+        this.mLastMsgId = -1L;
+        this.mLastDialogueId = -1L;
+        this.mLastResourceId = "";
+        this.mAidType = 0;
+        this.mLastDialogueStatus = 0;
+        this.mLastAskUk = 0L;
+        this.mLastAnswerUk = 0L;
+        this.mIsStranger = 0;
+        this.mSubscribe = 0;
+    }
+
+    public String getRemindTypeRemark() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            int i = this.mRemindType;
+            if (i == 0) {
+                return getHighlightDesc();
+            }
+            if (i == 1) {
+                return "有人@我";
+            }
+            if (TextUtils.isEmpty(this.mRemindRoleDisplayName)) {
+                int i2 = this.mRemindType;
+                if (i2 == 2) {
+                    return "群主@我";
+                }
+                if (i2 == 4) {
+                    return "群主发言了";
+                }
+                if (i2 == 5) {
+                    return "管理员发言了";
+                }
+            } else {
+                int i3 = this.mRemindType;
+                if (i3 == 2) {
+                    return this.mRemindRoleDisplayName + "@我";
+                } else if (i3 == 4 || i3 == 5) {
+                    return this.mRemindRoleDisplayName + "发言了";
+                }
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public ChatSession(int i, long j, long j2, String str) {
@@ -562,7 +873,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mLastMsgTime = -1L;
         this.mLastOpenTime = -1L;
         this.mNewMsgSum = 0L;
-        this.mWeight = 0;
         this.mShow = 1;
         this.mCollectionType = -1;
         this.mChatType = -1;
@@ -576,7 +886,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mMarkTop = 0;
         this.mMarkTopTime = 0L;
         this.mNickName = null;
-        this.mGameHistory = "";
         this.mExt = "";
         this.vPortrait = "";
         this.mCertification = "";
@@ -587,7 +896,20 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mBusinessType = -1;
         this.mLastMsgUid = 0L;
         this.mLastMsgName = "";
-        this.mNewFansAtMsgSum = 0;
+        this.mRemindType = 0;
+        this.mRemindMsgId = 0L;
+        this.mRemindUid = 0L;
+        this.isHandlerChangeRole = false;
+        this.mSessionType = 0;
+        this.mLastMsgId = -1L;
+        this.mLastDialogueId = -1L;
+        this.mLastResourceId = "";
+        this.mAidType = 0;
+        this.mLastDialogueStatus = 0;
+        this.mLastAskUk = 0L;
+        this.mLastAnswerUk = 0L;
+        this.mIsStranger = 0;
+        this.mSubscribe = 0;
         this.mContacter = j;
         this.mName = str;
         this.mCategory = i;
@@ -617,7 +939,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mLastMsgTime = -1L;
         this.mLastOpenTime = -1L;
         this.mNewMsgSum = 0L;
-        this.mWeight = 0;
         this.mShow = 1;
         this.mCollectionType = -1;
         this.mChatType = -1;
@@ -631,7 +952,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mMarkTop = 0;
         this.mMarkTopTime = 0L;
         this.mNickName = null;
-        this.mGameHistory = "";
         this.mExt = "";
         this.vPortrait = "";
         this.mCertification = "";
@@ -642,7 +962,20 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mBusinessType = -1;
         this.mLastMsgUid = 0L;
         this.mLastMsgName = "";
-        this.mNewFansAtMsgSum = 0;
+        this.mRemindType = 0;
+        this.mRemindMsgId = 0L;
+        this.mRemindUid = 0L;
+        this.isHandlerChangeRole = false;
+        this.mSessionType = 0;
+        this.mLastMsgId = -1L;
+        this.mLastDialogueId = -1L;
+        this.mLastResourceId = "";
+        this.mAidType = 0;
+        this.mLastDialogueStatus = 0;
+        this.mLastAskUk = 0L;
+        this.mLastAnswerUk = 0L;
+        this.mIsStranger = 0;
+        this.mSubscribe = 0;
         this.mCategory = parcel.readInt();
         this.mContacter = parcel.readLong();
         this.mContacterId = parcel.readLong();
@@ -651,7 +984,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mLastMsgTime = parcel.readLong();
         this.mLastOpenTime = parcel.readLong();
         this.mNewMsgSum = parcel.readLong();
-        this.mWeight = parcel.readInt();
         this.mShow = parcel.readInt();
         this.mCollectionType = parcel.readInt();
         this.mChatType = parcel.readInt();
@@ -666,7 +998,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mMarkTop = parcel.readInt();
         this.mMarkTopTime = parcel.readLong();
         this.mNickName = parcel.readString();
-        this.mGameHistory = parcel.readString();
         this.mExt = parcel.readString();
         this.vPortrait = parcel.readString();
         this.mCertification = parcel.readString();
@@ -676,7 +1007,33 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mSessionFrom = parcel.readInt();
         this.mLastMsgUid = parcel.readLong();
         this.mLastMsgName = parcel.readString();
-        this.mNewFansAtMsgSum = parcel.readInt();
+        this.mSessionType = parcel.readInt();
+        this.mLastMsgId = parcel.readLong();
+        this.mLastDialogueId = parcel.readLong();
+        this.mLastResourceId = parcel.readString();
+        this.mAidType = parcel.readInt();
+        this.mLastDialogueStatus = parcel.readInt();
+        this.mLastAskUk = parcel.readLong();
+        this.mLastAnswerUk = parcel.readLong();
+        this.mDesc = parcel.readString();
+        this.mDraft = parcel.readString();
+        this.mLastStatusShow = parcel.readString();
+        this.mDisturb = parcel.readInt();
+        this.mSrotTime = parcel.readLong();
+        this.mIsStranger = parcel.readInt();
+        this.mContacterImuk = parcel.readLong();
+        this.mSubscribe = parcel.readInt();
+        this.mShieldTypes = parcel.readString();
+        this.mMapType = parcel.readInt();
+        this.mCollectState = parcel.readInt();
+        this.mRemindType = parcel.readInt();
+        this.mRemindMsgId = parcel.readLong();
+        this.mRemindUid = parcel.readLong();
+        this.mRemindRoleDisplayName = parcel.readString();
+        this.mHighlightDesc = parcel.readString();
+        this.mHighlightPriority = parcel.readInt();
+        this.mLastMsgidFromMe = parcel.readLong();
+        this.mHighlightDataId = parcel.readInt();
     }
 
     public void addExt(String str, String str2) {
@@ -699,234 +1056,416 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
+    public void setAidType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048646, this, i) == null) {
+            this.mAidType = i;
+        }
+    }
+
     public void setBusinessType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
             this.mBusinessType = i;
+        }
+    }
+
+    public void setCategory(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
+            this.mCategory = i;
         }
     }
 
     public void setCertification(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
             this.mCertification = str;
         }
     }
 
     public void setChatType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
             this.mChatType = i;
         }
     }
 
     public void setClassAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
             this.mClassAvatar = str;
         }
     }
 
     public void setClassShow(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048652, this, i) == null) {
             this.mClassShow = i;
         }
     }
 
     public void setClassTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, str) == null) {
             this.mClassTitle = str;
         }
     }
 
     public void setClassType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048654, this, i) == null) {
             this.mClassType = i;
+        }
+    }
+
+    public void setCollectState(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048655, this, i) == null) {
+            this.mCollectState = i;
         }
     }
 
     public void setCollectionType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048656, this, i) == null) {
             this.mCollectionType = i;
         }
     }
 
     public void setContacter(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048657, this, j) == null) {
             this.mContacter = j;
+        }
+    }
+
+    public void setContacterImuk(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048658, this, j) == null) {
+            this.mContacterImuk = j;
+        }
+    }
+
+    public void setDesc(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048659, this, str) == null) {
+            this.mDesc = str;
+        }
+    }
+
+    public void setDisturb(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048660, this, i) == null) {
+            this.mDisturb = i;
+        }
+    }
+
+    public void setDraft(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048661, this, str) == null) {
+            this.mDraft = str;
         }
     }
 
     public void setExt(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048662, this, str) == null) {
             this.mExt = str;
         }
     }
 
-    public void setGameHistory(String str) {
+    public void setHandlerChangeRole(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
-            this.mGameHistory = str;
+        if (interceptable == null || interceptable.invokeZ(1048663, this, z) == null) {
+            this.isHandlerChangeRole = z;
+        }
+    }
+
+    public void setHighlightDataId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048664, this, i) == null) {
+            this.mHighlightDataId = i;
+        }
+    }
+
+    public void setHighlightDesc(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048665, this, str) == null) {
+            this.mHighlightDesc = str;
+        }
+    }
+
+    public void setHighlightPriority(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048666, this, i) == null) {
+            this.mHighlightPriority = i;
         }
     }
 
     public void setIconUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048667, this, str) == null) {
             this.mIconUrl = str;
         }
     }
 
     public void setIsClicked(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048668, this, i) == null) {
             this.mIsClicked = i;
+        }
+    }
+
+    public void setIsStranger(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048669, this, i) == null) {
+            this.mIsStranger = i;
+        }
+    }
+
+    public void setLastAnswerUk(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048670, this, j) == null) {
+            this.mLastAnswerUk = j;
+        }
+    }
+
+    public void setLastAskUk(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048671, this, j) == null) {
+            this.mLastAskUk = j;
+        }
+    }
+
+    public void setLastDialogueId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048672, this, j) == null) {
+            this.mLastDialogueId = j;
+        }
+    }
+
+    public void setLastDialogueStatus(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048673, this, i) == null) {
+            this.mLastDialogueStatus = i;
         }
     }
 
     public void setLastMsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048674, this, str) == null) {
             this.mLastMsg = str;
+        }
+    }
+
+    public void setLastMsgId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048675, this, j) == null) {
+            this.mLastMsgId = j;
         }
     }
 
     public void setLastMsgName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048676, this, str) == null) {
             this.mLastMsgName = str;
         }
     }
 
     public void setLastMsgTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048677, this, j) == null) {
             this.mLastMsgTime = j;
         }
     }
 
     public void setLastMsgUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048678, this, j) == null) {
             this.mLastMsgUid = j;
+        }
+    }
+
+    public void setLastMsgidFromMe(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048679, this, j) == null) {
+            this.mLastMsgidFromMe = j;
         }
     }
 
     public void setLastOpenTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048680, this, j) == null) {
             this.mLastOpenTime = j;
+        }
+    }
+
+    public void setLastResourceId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048681, this, str) == null) {
+            this.mLastResourceId = str;
+        }
+    }
+
+    public void setLastStatusShow(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048682, this, str) == null) {
+            this.mLastStatusShow = str;
+        }
+    }
+
+    public void setMapType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {
+            this.mMapType = i;
         }
     }
 
     public void setMarkTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048684, this, i) == null) {
             this.mMarkTop = i;
         }
     }
 
     public void setMarkTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048685, this, j) == null) {
             this.mMarkTopTime = j;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048686, this, str) == null) {
             this.mName = str;
-        }
-    }
-
-    public void setNewFansAtMsgSum(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
-            this.mNewFansAtMsgSum = i;
         }
     }
 
     public void setNewMsgSum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048688, this, j) == null) {
             this.mNewMsgSum = j;
         }
     }
 
     public void setNickName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048689, this, str) == null) {
             this.mNickName = str;
         }
     }
 
     public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048690, this, j) == null) {
             this.mPaid = j;
+        }
+    }
+
+    public void setRemindMsgId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048691, this, j) == null) {
+            this.mRemindMsgId = j;
+        }
+    }
+
+    public void setRemindRoleDisplayName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048692, this, str) == null) {
+            this.mRemindRoleDisplayName = str;
+        }
+    }
+
+    public void setRemindType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048693, this, i) == null) {
+            this.mRemindType = i;
+        }
+    }
+
+    public void setRemindUid(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048694, this, j) == null) {
+            this.mRemindUid = j;
         }
     }
 
     public void setSessionFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048695, this, i) == null) {
             this.mSessionFrom = i;
+        }
+    }
+
+    public void setSessionType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
+            this.mSessionType = i;
         }
     }
 
     public void setShield(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048645, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048697, this, i) == null) {
             this.mShield = i;
         }
     }
 
     public void setShieldTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048646, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048698, this, j) == null) {
             this.mShieldTime = j;
+        }
+    }
+
+    public void setShieldTypes(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048699, this, str) == null) {
+            this.mShieldTypes = str;
         }
     }
 
     public void setShow(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048700, this, i) == null) {
             this.mShow = i;
+        }
+    }
+
+    public void setSortTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048701, this, j) == null) {
+            this.mSrotTime = j;
         }
     }
 
     public void setState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048702, this, i) == null) {
             this.mState = i;
+        }
+    }
+
+    public void setSubscribe(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048703, this, i) == null) {
+            this.mSubscribe = i;
         }
     }
 
     public void setVPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048704, this, str) == null) {
             this.vPortrait = str;
         }
     }
 
     public void setVipId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048705, this, str) == null) {
             this.mVipId = str;
-        }
-    }
-
-    public void setWeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i) == null) {
-            this.mWeight = i;
         }
     }
 
@@ -934,7 +1473,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("ChatSession [");
             sb.append(" category=");
@@ -1009,11 +1548,59 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
             sb.append(" mLastMsgName=");
             sb.append(this.mLastMsgName);
             sb.append(" ,");
-            sb.append(" mNewFansAtMsgSum=");
-            sb.append(this.mNewFansAtMsgSum);
+            sb.append(" mSessionType=");
+            sb.append(this.mSessionType);
+            sb.append(" ,");
+            sb.append(" mLastMsgId=");
+            sb.append(this.mLastMsgId);
+            sb.append(" ,");
+            sb.append(" mLastDialogueId=");
+            sb.append(this.mLastDialogueId);
+            sb.append(" ,");
+            sb.append(" mLastResourceId=");
+            sb.append(this.mLastResourceId);
+            sb.append(" ,");
+            sb.append(" mAidType=");
+            sb.append(this.mAidType);
+            sb.append(" ,");
+            sb.append(" mLastDialogueStatus=");
+            sb.append(this.mLastDialogueStatus);
+            sb.append(" ,");
+            sb.append(" mLastAskUk=");
+            sb.append(this.mLastAskUk);
+            sb.append(" ,");
+            sb.append(" mLastAnswerUk=");
+            sb.append(this.mLastAnswerUk);
+            sb.append(" ,");
+            sb.append(" mDesc=");
+            sb.append(this.mDesc);
+            sb.append(" ,");
+            sb.append(" mDraft=");
+            sb.append(this.mDraft);
+            sb.append(" ,");
+            sb.append(" mLastStatusShow=");
+            sb.append(this.mLastStatusShow);
+            sb.append(" ,");
+            sb.append(" mSubscribe=");
+            sb.append(this.mSubscribe);
+            sb.append(" ,");
+            sb.append(" mDisturb=");
+            sb.append(this.mDisturb);
             sb.append(" ,");
             sb.append(" mSessionFrom=");
             sb.append(this.mSessionFrom);
+            sb.append(",");
+            sb.append(" mLastMsgidFromMe=");
+            sb.append(this.mLastMsgidFromMe);
+            sb.append(",");
+            sb.append(" mHighlightDesc=");
+            sb.append(this.mHighlightDesc);
+            sb.append(",");
+            sb.append(" mHighlightPriority=");
+            sb.append(this.mHighlightPriority);
+            sb.append(",");
+            sb.append(" mShieldTypes=");
+            sb.append(this.mShieldTypes);
             sb.append(PreferencesUtil.RIGHT_MOUNT);
             return sb.toString();
         }
@@ -1023,7 +1610,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048653, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048707, this, parcel, i) == null) {
             parcel.writeInt(this.mCategory);
             parcel.writeLong(this.mContacter);
             parcel.writeLong(this.mContacterId);
@@ -1032,7 +1619,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
             parcel.writeLong(this.mLastMsgTime);
             parcel.writeLong(this.mLastOpenTime);
             parcel.writeLong(this.mNewMsgSum);
-            parcel.writeInt(this.mWeight);
             parcel.writeInt(this.mShow);
             parcel.writeInt(this.mCollectionType);
             parcel.writeInt(this.mChatType);
@@ -1047,7 +1633,6 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
             parcel.writeInt(this.mMarkTop);
             parcel.writeLong(this.mMarkTopTime);
             parcel.writeString(this.mNickName);
-            parcel.writeString(this.mGameHistory);
             parcel.writeString(this.mExt);
             parcel.writeString(this.vPortrait);
             parcel.writeString(this.mCertification);
@@ -1057,7 +1642,33 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
             parcel.writeInt(this.mSessionFrom);
             parcel.writeLong(this.mLastMsgUid);
             parcel.writeString(this.mLastMsgName);
-            parcel.writeInt(this.mNewFansAtMsgSum);
+            parcel.writeInt(this.mSessionType);
+            parcel.writeLong(this.mLastMsgId);
+            parcel.writeLong(this.mLastDialogueId);
+            parcel.writeString(this.mLastResourceId);
+            parcel.writeInt(this.mAidType);
+            parcel.writeInt(this.mLastDialogueStatus);
+            parcel.writeLong(this.mLastAskUk);
+            parcel.writeLong(this.mLastAnswerUk);
+            parcel.writeString(this.mDesc);
+            parcel.writeString(this.mDraft);
+            parcel.writeString(this.mLastStatusShow);
+            parcel.writeInt(this.mDisturb);
+            parcel.writeLong(this.mSrotTime);
+            parcel.writeInt(this.mIsStranger);
+            parcel.writeLong(this.mContacterImuk);
+            parcel.writeInt(this.mSubscribe);
+            parcel.writeString(this.mShieldTypes);
+            parcel.writeInt(this.mMapType);
+            parcel.writeInt(this.mCollectState);
+            parcel.writeInt(this.mRemindType);
+            parcel.writeLong(this.mRemindMsgId);
+            parcel.writeLong(this.mRemindUid);
+            parcel.writeString(this.mRemindRoleDisplayName);
+            parcel.writeString(this.mHighlightDesc);
+            parcel.writeInt(this.mHighlightPriority);
+            parcel.writeLong(this.mLastMsgidFromMe);
+            parcel.writeInt(this.mHighlightDataId);
         }
     }
 }

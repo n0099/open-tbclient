@@ -1,24 +1,14 @@
 package com.baidu.tieba;
 
-import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+/* loaded from: classes4.dex */
 public interface d32 {
-    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
+    boolean dispatchTouchEvent(MotionEvent motionEvent);
 
-    void continueTimer();
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    void onScrollChanged(int i, int i2, int i3, int i4);
 
-    String getContainerId();
-
-    String getUrl();
-
-    boolean isDestroyed();
-
-    boolean isWebView();
-
-    void onJSLoaded();
-
-    void suspendTimer();
+    boolean onTouchEvent(MotionEvent motionEvent);
 }

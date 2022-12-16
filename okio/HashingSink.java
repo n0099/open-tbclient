@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class HashingSink extends ForwardingSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public final class HashingSink extends ForwardingSink {
         return (HashingSink) invokeL.objValue;
     }
 
-    public ByteString hash() {
+    public final ByteString hash() {
         InterceptResult invokeV;
         byte[] doFinal;
         Interceptable interceptable = $ic;

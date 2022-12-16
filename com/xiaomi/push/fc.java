@@ -15,19 +15,19 @@ public class fc implements bg.b.a {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fw f353a;
+    public fw f376a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f354a;
+    public XMPushService f377a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bg.b f355a;
+    public bg.b f378a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bg.c f356a;
+    public bg.c f379a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f357a;
+    public boolean f380a;
 
     public fc(XMPushService xMPushService, bg.b bVar) {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class fc implements bg.b.a {
                 return;
             }
         }
-        this.f357a = false;
-        this.f354a = xMPushService;
-        this.f356a = bg.c.b;
-        this.f355a = bVar;
+        this.f380a = false;
+        this.f377a = xMPushService;
+        this.f379a = bg.c.b;
+        this.f378a = bVar;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f355a.b(this);
+            this.f378a.b(this);
         }
     }
 
@@ -70,24 +70,24 @@ public class fc implements bg.b.a {
             return;
         }
         b();
-        if (!this.f357a || this.a == 11) {
+        if (!this.f380a || this.a == 11) {
             return;
         }
-        fa m330a = fh.m328a().m330a();
-        int i = fe.a[this.f356a.ordinal()];
+        fa m340a = fh.m338a().m340a();
+        int i = fe.a[this.f379a.ordinal()];
         if (i != 1) {
             if (i == 3) {
                 ezVar = ez.H;
             }
-            if (m330a != null) {
-                m330a.b(this.f353a.m354a());
-                m330a.d(this.f355a.f937b);
-                m330a.f342b = 1;
+            if (m340a != null) {
+                m340a.b(this.f376a.m364a());
+                m340a.d(this.f378a.f960b);
+                m340a.f365b = 1;
                 try {
-                    m330a.a((byte) Integer.parseInt(this.f355a.g));
+                    m340a.a((byte) Integer.parseInt(this.f378a.g));
                 } catch (NumberFormatException unused) {
                 }
-                fh.m328a().a(m330a);
+                fh.m338a().a(m340a);
                 return;
             }
             return;
@@ -100,24 +100,24 @@ public class fc implements bg.b.a {
         } else {
             try {
                 ff.a c = ff.c(fh.a().a());
-                m330a.f339a = c.a.a();
-                m330a.c(c.f358a);
+                m340a.f362a = c.a.a();
+                m340a.c(c.f381a);
             } catch (NullPointerException unused2) {
-                m330a = null;
+                m340a = null;
             }
-            if (m330a != null) {
+            if (m340a != null) {
             }
         }
-        m330a.f339a = ezVar.a();
-        if (m330a != null) {
+        m340a.f362a = ezVar.a();
+        if (m340a != null) {
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f355a.a(this);
-            this.f353a = this.f354a.m589a();
+            this.f378a.a(this);
+            this.f376a = this.f377a.m599a();
         }
     }
 
@@ -125,12 +125,12 @@ public class fc implements bg.b.a {
     public void a(bg.c cVar, bg.c cVar2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i) == null) {
-            if (!this.f357a && cVar == bg.c.b) {
-                this.f356a = cVar2;
+            if (!this.f380a && cVar == bg.c.b) {
+                this.f379a = cVar2;
                 this.a = i;
-                this.f357a = true;
+                this.f380a = true;
             }
-            this.f354a.a(new fd(this, 4));
+            this.f377a.a(new fd(this, 4));
         }
     }
 }

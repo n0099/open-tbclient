@@ -4,9 +4,12 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.HttpRuntime;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.Proxy;
 import java.util.List;
 import java.util.Map;
+import okhttp3.Dns;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONObject;
@@ -24,6 +28,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public transient /* synthetic */ FieldHolder $fh;
     public int connectionTimeout;
     public CookieManager cookieManager;
+    public Dns dns;
+    public boolean enableBrotli;
     public boolean enableRetry;
     public JSONObject extraUserLog;
     public boolean followRedirects;
@@ -36,6 +42,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public LogInterceptor.Level logLevel;
     public String logTag;
     public IAsyncRequestParamsHandler paramsHandler;
+    public int pingInterval;
     public Proxy proxy;
     public int readTimeout;
     public int requestFrom;
@@ -91,7 +98,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T setUrlParams(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, map)) == null) {
             if (map != null && map.size() > 0) {
                 HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
                 for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -156,6 +163,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.proxy = httpRequest.proxy;
         this.followRedirects = httpRequest.followRedirects;
         this.followSslRedirects = httpRequest.followSslRedirects;
+        this.dns = httpRequest.dns;
+        this.pingInterval = httpRequest.pingInterval;
     }
 
     public T addHeader(String str, String str2) {
@@ -183,7 +192,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T log(String str, LogInterceptor.Level level) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, level)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, level)) == null) {
             this.logTag = str;
             this.logLevel = level;
             return this;
@@ -194,7 +203,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T setHeader(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, str, str2)) == null) {
             this.headersBuilder.set(str, str2);
             return this;
         }
@@ -204,7 +213,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T setUrlParam(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, str2)) == null) {
             HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
             newBuilder.setQueryParameter(str, str2);
             this.httpUrl = newBuilder.build();
@@ -230,7 +239,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T headers(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, map)) == null) {
             if (map != null && !map.isEmpty()) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     this.headersBuilder.set(entry.getKey(), entry.getValue());
@@ -244,7 +253,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T removeUrlParams(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
             if (list != null && list.size() > 0) {
                 HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
                 for (String str : list) {
@@ -287,10 +296,20 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return (T) invokeL.objValue;
     }
 
+    public T dns(Dns dns) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dns)) == null) {
+            this.dns = dns;
+            return this;
+        }
+        return (T) invokeL.objValue;
+    }
+
     public T enableStat(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
             this.isReqNetStatEnable = z;
             return this;
         }
@@ -300,7 +319,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T extraUserLog(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jSONObject)) == null) {
             this.extraUserLog = jSONObject;
             return this;
         }
@@ -310,7 +329,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T followRedirects(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             this.followRedirects = z;
             return this;
         }
@@ -320,17 +339,27 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T followSslRedirects(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
             this.followSslRedirects = z;
             return this;
         }
         return (T) invokeZ.objValue;
     }
 
+    public T pingInterval(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            this.pingInterval = i;
+            return this;
+        }
+        return (T) invokeI.objValue;
+    }
+
     public T proxy(Proxy proxy) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, proxy)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, proxy)) == null) {
             this.proxy = proxy;
             return this;
         }
@@ -340,7 +369,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T readTimeout(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
             this.readTimeout = i;
             return this;
         }
@@ -350,7 +379,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T removeHeader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
             this.headersBuilder.removeAll(str);
             return this;
         }
@@ -360,7 +389,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T removeHeaders(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, list)) == null) {
             if (list != null && list.size() > 0) {
                 for (String str : list) {
                     this.headersBuilder.removeAll(str);
@@ -374,7 +403,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T removeUrlParam(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
             HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
             newBuilder.removeAllQueryParameters(str);
             this.httpUrl = newBuilder.build();
@@ -386,7 +415,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T requestFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
             this.requestFrom = i;
             return this;
         }
@@ -396,7 +425,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T requestSubFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
             this.requestSubFrom = i;
             return this;
         }
@@ -406,7 +435,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T setRequestParamsHandler(IAsyncRequestParamsHandler iAsyncRequestParamsHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, iAsyncRequestParamsHandler)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iAsyncRequestParamsHandler)) == null) {
             this.paramsHandler = iAsyncRequestParamsHandler;
             return this;
         }
@@ -416,18 +445,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T tag(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, obj)) == null) {
             this.tag = obj;
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T url(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
-            this.httpUrl = HttpUrl.parse(str);
             return this;
         }
         return (T) invokeL.objValue;
@@ -436,7 +455,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T userAgent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 this.headersBuilder.set("User-Agent", str);
             }
@@ -448,7 +467,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T wifiOnly(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048606, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048609, this, z)) == null) {
             this.isWifiOnly = z;
             return this;
         }
@@ -458,19 +477,55 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public T writeTimeout(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) {
             this.writeTimeout = i;
             return this;
         }
         return (T) invokeI.objValue;
     }
 
+    public T enableBrotli() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            this.enableBrotli = true;
+            return this;
+        }
+        return (T) invokeV.objValue;
+    }
+
     public RequestCall makeRequestCall() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return build().makeRequestCall();
         }
         return (RequestCall) invokeV.objValue;
+    }
+
+    public T url(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
+            if (str != null) {
+                if (str.regionMatches(true, 0, "ws:", 0, 3)) {
+                    str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
+                } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
+                    str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
+                }
+                HttpUrl parse = HttpUrl.parse(str);
+                if (parse != null) {
+                    this.httpUrl = parse;
+                    return this;
+                }
+                NetworkStatRecord networkStatRecord = new NetworkStatRecord();
+                IllegalArgumentException illegalArgumentException = new IllegalArgumentException("unexpected url: " + str);
+                networkStatRecord.exception = illegalArgumentException;
+                HttpRuntime.getHttpContext().uploadIllegalUrlBy850(networkStatRecord.toUBCJson());
+                throw illegalArgumentException;
+            }
+            throw new NullPointerException("url == null");
+        }
+        return (T) invokeL.objValue;
     }
 }

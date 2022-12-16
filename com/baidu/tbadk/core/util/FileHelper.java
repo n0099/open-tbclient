@@ -685,9 +685,13 @@ public class FileHelper {
         return invokeL.booleanValue;
     }
 
-    public static void deleteFileOrDir(File file) {
+    public static boolean deleteFileOrDir(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65578, null, file) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, file)) == null) {
+            if (file == null) {
+                return false;
+            }
             try {
                 if (file.exists()) {
                     if (file.isDirectory()) {
@@ -702,12 +706,16 @@ public class FileHelper {
                         }
                     }
                     file.delete();
+                    return true;
                 }
+                return true;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.deleteFileOrDir");
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
     public static PackageInfo getApkFileMetaData(String str) {
@@ -1211,18 +1219,26 @@ public class FileHelper {
         }
     }
 
-    public static void makeRootDirectory(String str) {
+    public static boolean makeRootDirectory(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65610, null, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65610, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
             try {
                 File file = new File(str);
                 if (!file.exists()) {
                     file.mkdir();
+                    return true;
                 }
+                return true;
             } catch (Exception e) {
                 TiebaStatic.file(e, "FileHelper.makeRootDirectory " + str);
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
     public static byte[] GetFileData(String str, String str2) {
@@ -2340,15 +2356,15 @@ public class FileHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65600, null)) == null) {
             String externalStorageState = Environment.getExternalStorageState();
             if (externalStorageState.equals("removed")) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05c4);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
             }
             if (!externalStorageState.equals("unmounted") && !externalStorageState.equals("unmountable")) {
                 if (externalStorageState.equals(SwanKV.FLAVOR_SHARED)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05c9);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_shared);
                 }
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05c7);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_error);
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05c4);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
         }
         return (String) invokeV.objValue;
     }

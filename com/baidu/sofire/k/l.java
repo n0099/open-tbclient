@@ -25,7 +25,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] b;
@@ -33,7 +33,7 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

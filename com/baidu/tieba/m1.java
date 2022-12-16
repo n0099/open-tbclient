@@ -159,7 +159,7 @@ public class m1 implements r8<Void> {
                 GenericDeclaration genericDeclaration = b7Var.get(i).b;
                 for (int i2 = b7Var.b - 1; i2 > i; i2--) {
                     if (genericDeclaration == b7Var.get(i2).b && str.equals(b7Var.get(i2).a)) {
-                        b7Var.i(i2);
+                        b7Var.h(i2);
                     }
                 }
             }

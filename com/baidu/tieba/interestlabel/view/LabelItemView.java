@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uh7;
+import com.baidu.tieba.rk7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,7 +102,7 @@ public class LabelItemView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) this, false);
+            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04a0, (ViewGroup) this, false);
         }
         return (TextView) invokeV.objValue;
     }
@@ -142,7 +142,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<uh7> list, boolean z) {
+    public void setData(List<rk7> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -156,19 +156,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            uh7 uh7Var = list.get(i2);
-            if (uh7Var != null && (getChildAt(i2) instanceof TextView)) {
+            rk7 rk7Var = list.get(i2);
+            if (rk7Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = uh7Var.b;
-                if (!StringUtils.isNull(str) && uh7Var.b.length() > 4) {
-                    str = uh7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = rk7Var.b;
+                if (!StringUtils.isNull(str) && rk7Var.b.length() > 4) {
+                    str = rk7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(uh7Var.c);
-                textView.setTag(uh7Var);
+                textView.setSelected(rk7Var.c);
+                textView.setTag(rk7Var);
             }
             i2++;
         }

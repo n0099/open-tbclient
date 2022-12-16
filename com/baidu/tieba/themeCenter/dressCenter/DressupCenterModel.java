@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.tv8;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.wv8;
-import com.baidu.tieba.xv8;
+import com.baidu.tieba.tr8;
+import com.baidu.tieba.vy8;
+import com.baidu.tieba.yy8;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wv8> a;
-    public xv8 b;
-    public List<tv8> c;
+    public List<yy8> a;
+    public zy8 b;
+    public List<vy8> c;
     public b d;
     public boolean e;
     public qb f;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, List<tv8> list, xv8 xv8Var, List<wv8> list2);
+        void a(int i, String str, List<vy8> list, zy8 zy8Var, List<yy8> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -127,14 +127,14 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
         registerListener(this.f);
     }
 
-    public void H(b bVar) {
+    public void O(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
-    public boolean G() {
+    public boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            uo8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            uo8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            tr8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            tr8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

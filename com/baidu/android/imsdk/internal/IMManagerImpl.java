@@ -1,10 +1,8 @@
 package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -120,6 +118,21 @@ public class IMManagerImpl {
         return invokeL.booleanValue;
     }
 
+    private void loadClassForName(String str) {
+        Method method;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null || (method = cls.getMethod("init", Context.class)) == null) {
+                    return;
+                }
+                method.invoke(cls, sContext);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
     public ChatMsg checkKickOffMsg(ArrayList<ChatMsg> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -152,22 +165,6 @@ public class IMManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             Utility.startIMService(context);
-        }
-    }
-
-    private void loadClassForName(String str) {
-        Method method;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            try {
-                Class<?> cls = Class.forName(str);
-                if (cls == null || (method = cls.getMethod("init", Context.class)) == null) {
-                    return;
-                }
-                method.invoke(cls, sContext);
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(sContext).exception(Log.getStackTraceString(e)).build();
-            }
         }
     }
 

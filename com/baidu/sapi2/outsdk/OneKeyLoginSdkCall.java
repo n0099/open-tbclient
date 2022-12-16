@@ -19,13 +19,12 @@ import com.baidu.sapi2.stat.OneKeyLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.ci1;
+import com.baidu.tieba.bi1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -150,7 +149,7 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
                 try {
-                    ci1.d().j(sapiConfiguration.context, 15000L, new ci1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                    bi1.d().j(sapiConfiguration.context, 15000L, new bi1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -175,7 +174,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.baidu.tieba.ci1.a
+                        @Override // com.baidu.tieba.bi1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -190,7 +189,7 @@ public class OneKeyLoginSdkCall {
                                         jSONObject.put("operator", this.this$0.getOperatorType());
                                         jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
                                         jSONObject.put("token", extraStr);
-                                        jSONObject.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                                        jSONObject.put("oneKeySdkVersion", "v2");
                                     } catch (Exception e) {
                                         Log.e(OneKeyLoginSdkCall.TAG, e);
                                     }
@@ -260,10 +259,10 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.OauthToken.statExtMap.put("netType", SapiUtils.getNetworkClass(sapiConfiguration.context));
-            OneKeyLoginStat.OauthToken.statExtMap.put("operator", ci1.d().c(sapiConfiguration.context));
+            OneKeyLoginStat.OauthToken.statExtMap.put("operator", bi1.d().c(sapiConfiguration.context));
             try {
                 try {
-                    ci1.d().g(sapiConfiguration.context, 15000L, new ci1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                    bi1.d().g(sapiConfiguration.context, 15000L, new bi1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -290,7 +289,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.baidu.tieba.ci1.a
+                        @Override // com.baidu.tieba.bi1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -306,7 +305,7 @@ public class OneKeyLoginSdkCall {
                                         jSONObject.put("code", 0);
                                         jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
                                         jSONObject.put("token", extraStr);
-                                        jSONObject.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                                        jSONObject.put("oneKeySdkVersion", "v2");
                                         jSONObject.put("operator", this.this$0.getOperatorType());
                                         if (formatOptResult.getOperateType().equals("2")) {
                                             jSONObject.put("CUVersion", "2");
@@ -385,9 +384,9 @@ public class OneKeyLoginSdkCall {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sapiConfiguration) == null) {
             try {
-                ci1.d().e(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
-                ci1.d().b(sapiConfiguration.debug);
-                ci1.d().i(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+                bi1.d().e(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
+                bi1.d().b(sapiConfiguration.debug);
+                bi1.d().i(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
             } catch (NoClassDefFoundError unused) {
                 Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
             }
@@ -499,7 +498,7 @@ public class OneKeyLoginSdkCall {
             }
             String networkClass = SapiUtils.getNetworkClass(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("netType", networkClass);
-            String c = ci1.d().c(context);
+            String c = bi1.d().c(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("operator", c);
             if (!TextUtils.equals(c, OPERATOR_CHINA_MOBILE) && !TextUtils.equals(c, OPERATOR_CHINA_UNICOM) && !TextUtils.equals(c, OPERATOR_CHINA_TELECOM)) {
                 z2 = false;
@@ -524,7 +523,7 @@ public class OneKeyLoginSdkCall {
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("is_login", "0");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "1");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_ABLE_SIM, "1");
-                    ci1.d().h(context, i, new ci1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                    bi1.d().h(context, i, new bi1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -555,7 +554,7 @@ public class OneKeyLoginSdkCall {
                             this.val$callback = oneKeyLoginOptCallback;
                         }
 
-                        @Override // com.baidu.tieba.ci1.a
+                        @Override // com.baidu.tieba.bi1.a
                         public void onFinish(String str2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {

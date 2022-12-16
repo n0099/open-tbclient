@@ -1,6 +1,5 @@
 package com.baidu.ueg.encrypt.entity;
 
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class EncryptAlgorithm {
     public static final /* synthetic */ EncryptAlgorithm[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +28,7 @@ public final class EncryptAlgorithm {
                 return;
             }
         }
-        EncryptAlgorithm encryptAlgorithm = new EncryptAlgorithm(RSAUtil.ALGORITHM_RSA, 0);
+        EncryptAlgorithm encryptAlgorithm = new EncryptAlgorithm("RSA", 0);
         RSA = encryptAlgorithm;
         $VALUES = new EncryptAlgorithm[]{encryptAlgorithm};
     }

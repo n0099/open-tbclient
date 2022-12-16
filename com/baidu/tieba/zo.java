@@ -2,10 +2,12 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.audiorecorder.lib.voice.SendVoiceView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class zo extends w65 {
+/* loaded from: classes7.dex */
+public class zo extends x65 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +56,8 @@ public class zo extends w65 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1396);
-        this.d = R.drawable.obfuscated_res_0x7f0809f2;
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13d1);
+        this.d = R.drawable.icon_pure_post_voice24;
         this.f = R.color.CAM_X0105;
         this.i = false;
         this.j = true;
@@ -69,5 +71,21 @@ public class zo extends w65 {
         ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
         ((View) this.m).setLayoutParams(layoutParams);
         this.p = new int[0];
+    }
+
+    @Override // com.baidu.tieba.x65
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.k && getContext() != null && (this.m instanceof SendVoiceView)) {
+                BdTopToast bdTopToast = new BdTopToast(getContext());
+                bdTopToast.h(false);
+                bdTopToast.g(getContext().getString(R.string.function_can_not_use));
+                bdTopToast.i((ViewGroup) ((SendVoiceView) this.m).getRootView());
+            }
+            return this.k;
+        }
+        return invokeV.booleanValue;
     }
 }

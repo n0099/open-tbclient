@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -66,7 +67,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = i;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
-        this.mUbc = new MessageUbc(context, chatMsg, UBCConstants.BCSEND_UBCID);
+        this.mUbc = new MessageUbc(context, chatMsg);
     }
 
     public IMMediaSendMsgHttpRequest(Context context, long j, ChatMsg chatMsg, String str) {
@@ -90,7 +91,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactor = j;
         this.mSendMsg = chatMsg;
         this.mListenerKey = str;
-        this.mUbc = new MessageUbc(context, chatMsg, UBCConstants.BCSEND_UBCID);
+        this.mUbc = new MessageUbc(context, chatMsg);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -134,7 +135,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
@@ -153,6 +154,9 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
                 }
                 jSONObject.put("msg_key", this.mMsgKey);
                 LogUtils.d(TAG, "BC> before genSign param=" + jSONObject);
+                if (this.mSendMsg.getCategory() != 4 && this.mSendMsg.getCategory() != 9) {
+                    jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
+                }
                 jSONObject.put("sign", generateSign(jSONObject));
             } catch (Exception e) {
                 e.printStackTrace();

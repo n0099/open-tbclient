@@ -1,43 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestCommonViewHolder;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class pl7 extends kn<ul7, SearchSuggestCommonViewHolder> {
+public class pl7 extends io4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+
+    @Override // com.baidu.tieba.io4
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements ho {
+    public class a extends BdAsyncTask<Object, Integer, no4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public volatile NetWork a;
+        public String b;
+        public String c;
+        public HashMap<String, String> d;
+        public q9 e;
 
-        public a(pl7 pl7Var, Context context) {
+        public a(pl7 pl7Var, String str, String str2, HashMap<String, String> hashMap, q9 q9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pl7Var, context};
+                Object[] objArr = {pl7Var, str, str2, hashMap, q9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,95 +51,115 @@ public class pl7 extends kn<ul7, SearchSuggestCommonViewHolder> {
                     return;
                 }
             }
-            this.a = context;
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = hashMap;
+            this.e = q9Var;
         }
 
-        @Override // com.baidu.tieba.ho
-        public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public no4 doInBackground(Object... objArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(xnVar instanceof ul7)) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                no4 no4Var = new no4();
+                try {
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
+                    Set<String> keySet = this.d.keySet();
+                    if (keySet.size() > 0) {
+                        for (String str : keySet) {
+                            if (!"url".equalsIgnoreCase(str)) {
+                                this.a.addPostData(str, this.d.get(str));
+                            }
+                        }
+                    }
+                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    boolean z = true;
+                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.a.postNetData();
+                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
+                        no4Var.b = this.a.getNetErrorCode();
+                        no4Var.c = this.a.getNetString();
+                    } else {
+                        no4Var.b = this.a.getServerErrorCode();
+                        no4Var.c = this.a.getErrorString();
+                    }
+                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        if (no4Var.b != 0) {
+                            z = false;
+                        }
+                        no4Var.a = z;
+                        return no4Var;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                no4Var.a = false;
+                return no4Var;
             }
-            ul7 ul7Var = (ul7) xnVar;
-            String a = ul7Var.a();
-            String b = ul7Var.b();
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, b);
-            Context context = this.a;
-            if (context != null && (context instanceof BdBaseActivity)) {
-                customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
+            return (no4) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(no4 no4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, no4Var) == null) {
+                q9 q9Var = this.e;
+                if (q9Var != null) {
+                    q9Var.c(no4Var);
+                }
+                ll7.a().d(this.c, this.d, no4Var);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
-            TiebaStatic.log(new StatisticItem("c12842").param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", b));
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                    this.a = null;
+                }
+                super.cancel(true);
+                q9 q9Var = this.e;
+                if (q9Var != null) {
+                    q9Var.c(null);
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pl7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public pl7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.io4, com.baidu.tieba.lo4
+    public void a(Object obj, HashMap<String, String> hashMap, String str, q9 q9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, q9Var) == null) && hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
+            String str2 = hashMap.get("url");
+            if (TextUtils.isEmpty(str2)) {
                 return;
             }
-        }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public SearchSuggestCommonViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new SearchSuggestCommonViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b9, viewGroup, false));
-        }
-        return (SearchSuggestCommonViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ul7 ul7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        t(i, view2, viewGroup, ul7Var, searchSuggestCommonViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, ul7 ul7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ul7Var, searchSuggestCommonViewHolder})) == null) {
-            if (ul7Var == null) {
-                return view2;
-            }
-            u(searchSuggestCommonViewHolder);
-            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.obfuscated_res_0x7f080a9e, R.color.CAM_X0109, null);
-            ol7.a(searchSuggestCommonViewHolder.b, ul7Var.b(), ul7Var.a());
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void u(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
-            qw4 d = qw4.d(searchSuggestCommonViewHolder.b);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
-            qw4.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
+            a aVar = new a(this, str, str2, hashMap, q9Var);
+            aVar.setPriority(2);
+            aVar.execute(new Object[0]);
         }
     }
 }

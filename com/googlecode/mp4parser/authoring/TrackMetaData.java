@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.EditListBox;
 import com.googlecode.mp4parser.util.Matrix;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TrackMetaData implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

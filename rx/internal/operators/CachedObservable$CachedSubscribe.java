@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.o0a;
-import com.baidu.tieba.sz9;
-import com.baidu.tieba.yz9;
+import com.baidu.tieba.b3a;
+import com.baidu.tieba.h3a;
+import com.baidu.tieba.x3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements sz9.a<T> {
+public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements b3a.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2817751667698696782L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o0a<T> state;
+    public final x3a<T> state;
 
-    public CachedObservable$CachedSubscribe(o0a<T> o0aVar) {
+    public CachedObservable$CachedSubscribe(x3a<T> x3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o0aVar};
+            Object[] objArr = {x3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,21 +30,21 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
                 return;
             }
         }
-        this.state = o0aVar;
+        this.state = x3aVar;
     }
 
-    @Override // com.baidu.tieba.sz9.a, com.baidu.tieba.g0a
+    @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yz9) ((yz9) obj));
+        call((h3a) ((h3a) obj));
     }
 
-    public void call(yz9<? super T> yz9Var) {
+    public void call(h3a<? super T> h3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yz9Var) == null) {
-            CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(yz9Var, this.state);
+        if (interceptable == null || interceptable.invokeL(1048576, this, h3aVar) == null) {
+            CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(h3aVar, this.state);
             this.state.c(cachedObservable$ReplayProducer);
-            yz9Var.b(cachedObservable$ReplayProducer);
-            yz9Var.f(cachedObservable$ReplayProducer);
+            h3aVar.b(cachedObservable$ReplayProducer);
+            h3aVar.f(cachedObservable$ReplayProducer);
             if (!get() && compareAndSet(false, true)) {
                 this.state.d();
             }

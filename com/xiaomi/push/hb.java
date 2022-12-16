@@ -25,22 +25,22 @@ public class hb {
     public static volatile int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f453a;
+    public static long f476a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ao f454a;
+    public static ao f477a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static com.xiaomi.push.providers.a f455a;
+    public static com.xiaomi.push.providers.a f478a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f456a;
+    public static final Object f479a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f457a;
+    public static String f480a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<a> f458a;
+    public static List<a> f481a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -50,17 +50,17 @@ public class hb {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public long f459a;
+        public long f482a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f460a;
+        public String f483a;
         public int b;
 
         /* renamed from: b  reason: collision with other field name */
-        public long f461b;
+        public long f484b;
 
         /* renamed from: b  reason: collision with other field name */
-        public String f462b;
+        public String f485b;
 
         public a(String str, long j, int i, int i2, String str2, long j2) {
             Interceptable interceptable = $ic;
@@ -77,24 +77,24 @@ public class hb {
                     return;
                 }
             }
-            this.f460a = "";
-            this.f459a = 0L;
+            this.f483a = "";
+            this.f482a = 0L;
             this.a = -1;
             this.b = -1;
-            this.f462b = "";
-            this.f461b = 0L;
-            this.f460a = str;
-            this.f459a = j;
+            this.f485b = "";
+            this.f484b = 0L;
+            this.f483a = str;
+            this.f482a = j;
             this.a = i;
             this.b = i2;
-            this.f462b = str2;
-            this.f461b = j2;
+            this.f485b = str2;
+            this.f484b = j2;
         }
 
         public boolean a(a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f460a, this.f460a) && TextUtils.equals(aVar.f462b, this.f462b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f459a - this.f459a) <= 5000 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f483a, this.f483a) && TextUtils.equals(aVar.f485b, this.f485b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f482a - this.f482a) <= 5000 : invokeL.booleanValue;
         }
     }
 
@@ -111,13 +111,13 @@ public class hb {
                 return;
             }
         }
-        f454a = new ao(true);
+        f477a = new ao(true);
         a = -1;
-        f453a = System.currentTimeMillis();
-        f456a = new Object();
-        f458a = Collections.synchronizedList(new ArrayList());
-        f457a = "";
-        f455a = null;
+        f476a = System.currentTimeMillis();
+        f479a = new Object();
+        f481a = Collections.synchronizedList(new ArrayList());
+        f480a = "";
+        f478a = null;
     }
 
     public static int a(Context context) {
@@ -150,8 +150,8 @@ public class hb {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2), Boolean.valueOf(z2)})) == null) {
             if (z && z2) {
-                long j3 = f453a;
-                f453a = j2;
+                long j3 = f476a;
+                f476a = j2;
                 if (j2 - j3 > 30000 && j > 1024) {
                     return j * 2;
                 }
@@ -162,35 +162,35 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m389a(Context context) {
+    public static com.xiaomi.push.providers.a m399a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            com.xiaomi.push.providers.a aVar = f455a;
+            com.xiaomi.push.providers.a aVar = f478a;
             if (aVar != null) {
                 return aVar;
             }
             com.xiaomi.push.providers.a aVar2 = new com.xiaomi.push.providers.a(context);
-            f455a = aVar2;
+            f478a = aVar2;
             return aVar2;
         }
         return (com.xiaomi.push.providers.a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m390a(Context context) {
+    public static synchronized String m400a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             synchronized (hb.class) {
-                return !TextUtils.isEmpty(f457a) ? f457a : "";
+                return !TextUtils.isEmpty(f480a) ? f480a : "";
             }
         }
         return (String) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m392a(Context context) {
+    public static void m402a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             a = b(context);
@@ -204,12 +204,12 @@ public class hb {
         if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) || context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
-        synchronized (f456a) {
-            isEmpty = f458a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m390a(context) : "", j));
+        synchronized (f479a) {
+            isEmpty = f481a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m400a(context) : "", j));
         }
         if (isEmpty) {
-            f454a.a(new hc(context), 5000L);
+            f477a.a(new hc(context), 5000L);
         }
     }
 
@@ -223,23 +223,23 @@ public class hb {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, aVar) == null) {
-            for (a aVar2 : f458a) {
+            for (a aVar2 : f481a) {
                 if (aVar2.a(aVar)) {
-                    aVar2.f461b += aVar.f461b;
+                    aVar2.f484b += aVar.f484b;
                     return;
                 }
             }
-            f458a.add(aVar);
+            f481a.add(aVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m393a(String str) {
+    public static synchronized void m403a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             synchronized (hb.class) {
-                if (!m.m566d() && !TextUtils.isEmpty(str)) {
-                    f457a = str;
+                if (!m.m576d() && !TextUtils.isEmpty(str)) {
+                    f480a = str;
                 }
             }
         }
@@ -270,17 +270,17 @@ public class hb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
-                synchronized (com.xiaomi.push.providers.a.f824a) {
-                    SQLiteDatabase writableDatabase = m389a(context).getWritableDatabase();
+                synchronized (com.xiaomi.push.providers.a.f847a) {
+                    SQLiteDatabase writableDatabase = m399a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
                     for (a aVar : list) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("package_name", aVar.f460a);
-                        contentValues.put("message_ts", Long.valueOf(aVar.f459a));
+                        contentValues.put("package_name", aVar.f483a);
+                        contentValues.put("message_ts", Long.valueOf(aVar.f482a));
                         contentValues.put("network_type", Integer.valueOf(aVar.a));
-                        contentValues.put("bytes", Long.valueOf(aVar.f461b));
+                        contentValues.put("bytes", Long.valueOf(aVar.f484b));
                         contentValues.put("rcv", Integer.valueOf(aVar.b));
-                        contentValues.put(BaseStatisContent.IMSI, aVar.f462b);
+                        contentValues.put(BaseStatisContent.IMSI, aVar.f485b);
                         writableDatabase.insert("traffic", null, contentValues);
                     }
                     writableDatabase.setTransactionSuccessful();

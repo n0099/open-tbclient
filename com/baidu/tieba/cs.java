@@ -19,7 +19,7 @@ import okhttp3.Headers;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cs<T> extends ds {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class cs<T> extends ds {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

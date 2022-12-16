@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.jf8;
+import com.baidu.tieba.bi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,11 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, jf8> mModuleInfos;
+    public Map<String, bi8> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResHttpMsg() {
@@ -40,7 +40,7 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public Map<String, jf8> getModuleInfos() {
+    public Map<String, bi8> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -64,9 +64,9 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
                 this.mModuleInfos.clear();
                 for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                     if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                        jf8 jf8Var = new jf8();
-                        jf8Var.e(offpack);
-                        this.mModuleInfos.put(offpack.mod_name, jf8Var);
+                        bi8 bi8Var = new bi8();
+                        bi8Var.e(offpack);
+                        this.mModuleInfos.put(offpack.mod_name, bi8Var);
                     }
                 }
             }

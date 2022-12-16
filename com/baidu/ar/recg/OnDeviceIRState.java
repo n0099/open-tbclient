@@ -1,5 +1,6 @@
 package com.baidu.ar.recg;
 
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ public final class OnDeviceIRState {
         START = new OnDeviceIRState("START", 0);
         DB_DOWNLOADED = new OnDeviceIRState("DB_DOWNLOADED", 1);
         DB_INIT = new OnDeviceIRState("DB_INIT", 2);
-        SUCCESS = new OnDeviceIRState("SUCCESS", 3);
+        SUCCESS = new OnDeviceIRState(c.p, 3);
         NO_NETWORK = new OnDeviceIRState("NO_NETWORK", 4);
         OnDeviceIRState onDeviceIRState = new OnDeviceIRState("ERROR", 5);
         ERROR = onDeviceIRState;

@@ -139,7 +139,7 @@ public class pz4 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setColor(rn8.a(i, 0.08f));
+                gradientDrawable.setColor(qq8.a(i, 0.08f));
             } else {
                 gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
             }

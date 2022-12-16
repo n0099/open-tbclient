@@ -47,12 +47,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
 
         /* renamed from: com.baidu.tbadk.widget.RightFloatLayerLottieView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0199a extends AnimatorListenerAdapter {
+        public class C0212a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0199a(a aVar) {
+            public C0212a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.getVisibility() == 0) {
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0199a(this), 0L);
+                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0212a(this), 0L);
             }
         }
     }
@@ -604,13 +604,13 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.j(context);
-            this.w = findViewById(R.id.obfuscated_res_0x7f090a18);
-            this.y = findViewById(R.id.obfuscated_res_0x7f090a0c);
-            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a12);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a1);
-            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a13);
-            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a14);
-            SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f080606);
+            this.w = findViewById(R.id.float_picture_and_unfold_container);
+            this.y = findViewById(R.id.float_fold_container);
+            this.u = (ImageView) findViewById(R.id.float_layer_feedback_picture_fold);
+            this.v = (TextView) findViewById(R.id.layer_ad_lable_icon_layout_fold);
+            this.z = (TBLottieAnimationView) findViewById(R.id.float_layer_logo_lottie_fold);
+            this.x = (TBLottieAnimationView) findViewById(R.id.float_layer_logo_lottie_unfold);
+            SkinManager.setImageResource(this.u, R.drawable.ic_icon_popup_close_n);
             this.x.setVisibility(0);
         }
     }
@@ -646,9 +646,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             if (tBLottieAnimationView2 != null) {
                 tBLottieAnimationView2.invalidate();
             }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080606, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0112, 1);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.obfuscated_res_0x7f080606, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0112, 1);
         }
     }

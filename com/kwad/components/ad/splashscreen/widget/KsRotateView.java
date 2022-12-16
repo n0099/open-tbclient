@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsRotateView extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int Al = 50;
@@ -118,11 +118,11 @@ public class KsRotateView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
-            this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c4c);
+            this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c74);
             obtainStyledAttributes.recycle();
             ImageView imageView = new ImageView(getContext());
             this.Ak = imageView;
-            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c4b);
+            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c73);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 49;
             addView(this.Ak, layoutParams);

@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class ux9 implements qx9 {
+public final class ux9 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public TreeMap<String, String> b;
+    public final /* synthetic */ sx9 a;
 
-    public ux9() {
+    public ux9(sx9 sx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,58 +29,24 @@ public class ux9 implements qx9 {
                 return;
             }
         }
-        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        this.a = sx9Var;
     }
 
-    @Override // com.baidu.tieba.tx9
-    public Iterator<String> g() {
-        InterceptResult invokeV;
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Collections.unmodifiableSet(this.b.keySet()).iterator();
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) != null) {
+            return;
         }
-        return (Iterator) invokeV.objValue;
+        this.a.q();
     }
 
-    @Override // com.baidu.tieba.tx9
-    public byte[] getContent() {
-        InterceptResult invokeV;
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
+            return;
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tx9
-    public String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.b.get(str);
-            if (str2 == null) {
-                return "";
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tx9
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qx9
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.b.put(str, str2);
-        }
+        this.a.f(iBinder);
     }
 }

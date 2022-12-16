@@ -1,454 +1,284 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.di9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class w19 implements di9.b {
+public class w19 extends z19 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile w19 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public di9.b b;
-    public di9.b c;
-    public di9.b d;
-    public boolean e;
-    public di9.f f;
-    public SurfaceTexture g;
-    public int h;
-    public boolean i;
-    public di9.a j;
+    public long d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948217866, "Lcom/baidu/tieba/w19;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948217866, "Lcom/baidu/tieba/w19;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements di9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w19 a;
-
-        public a(w19 w19Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w19Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w19Var;
-        }
-
-        @Override // com.baidu.tieba.di9.a
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof String) {
-                    String str = (String) obj;
-                }
-                this.a.C();
-                this.a.d.k(this.a.g, this.a.f);
-                if (!this.a.i) {
-                    return;
-                }
-                this.a.i = false;
-                this.a.d.n();
-            }
-        }
-    }
-
-    public w19(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w19(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.i = false;
-        this.j = new a(this);
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (System.currentTimeMillis() - u19.b.c() >= u19.a) {
-                u19.b.k(0);
-            }
-            if (1 != u19.b.d().intValue()) {
-                this.c = t19.U(tbPageContext);
-            }
-        }
-        v19 B = v19.B(tbPageContext);
-        this.b = B;
-        this.d = B;
+        this.d = 88200L;
     }
 
-    @Override // com.baidu.tieba.di9.b
-    public void d(byte[] bArr) {
-        di9.b bVar;
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.z19
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(String str) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        ByteBuffer[] byteBufferArr;
+        long j;
+        int dequeueOutputBuffer;
+        int dequeueInputBuffer;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
-            bVar.d(bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void h(boolean z) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.e = z;
-            if (z && (bVar = this.c) != null) {
-                bVar.s(this.j);
-                this.d = this.c;
-                return;
-            }
-            di9.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            this.d = this.b;
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void i(boolean z) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bVar = this.d) != null) {
-            bVar.i(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void j(boolean z) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (bVar = this.d) != null) {
-            bVar.j(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void l(int i) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (bVar = this.d) != null) {
-            bVar.l(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void m(boolean z) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (bVar = this.d) != null) {
-            bVar.m(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void s(di9.a aVar) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && (bVar = this.c) != null) {
-            bVar.s(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.h = i;
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                bVar.u(i);
-            }
-        }
-    }
-
-    public static w19 D(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            if (k == null) {
-                synchronized (w19.class) {
-                    if (k == null) {
-                        k = new w19(tbPageContext);
-                    } else if (tbPageContext != null) {
-                        k.a = tbPageContext;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            w19 w19Var = this;
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    if (w19Var.b == 0) {
+                        w19Var.b = 48000;
                     }
+                    if (w19Var.c == 0) {
+                        w19Var.c = 1;
+                    }
+                    w19Var.d = (w19Var.b * 16) / 8;
+                    FileInputStream fileInputStream2 = new FileInputStream(w19Var.a);
+                    try {
+                        fileOutputStream = new FileOutputStream(str);
+                        try {
+                            MediaCodec f = f();
+                            f.start();
+                            ByteBuffer[] inputBuffers = f.getInputBuffers();
+                            ByteBuffer[] outputBuffers = f.getOutputBuffers();
+                            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                            byte[] bArr = new byte[4096];
+                            ByteBuffer[] byteBufferArr2 = outputBuffers;
+                            long j2 = 0;
+                            long j3 = 0;
+                            boolean z2 = false;
+                            int i2 = 0;
+                            boolean z3 = false;
+                            boolean z4 = false;
+                            int i3 = 0;
+                            while (!z3) {
+                                if (!z4 && (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) >= 0) {
+                                    ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
+                                    byteBuffer.clear();
+                                    int remaining = byteBuffer.remaining();
+                                    if (remaining != bArr.length) {
+                                        bArr = new byte[remaining];
+                                    }
+                                    byte[] bArr2 = bArr;
+                                    if (!z2 && (i2 = fileInputStream2.read(bArr2)) == -1) {
+                                        i = i2;
+                                        z = true;
+                                    } else {
+                                        z = z2;
+                                        i = i2;
+                                    }
+                                    if (z) {
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        byteBufferArr = inputBuffers;
+                                        i2 = i;
+                                        bArr = bArr2;
+                                        z2 = z;
+                                        j = 10000;
+                                        z4 = true;
+                                        dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                        if (dequeueOutputBuffer < 0) {
+                                            if ((bufferInfo.flags & 2) != 0) {
+                                                BdLog.i("audio encoder: codec config buffer");
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            } else {
+                                                if (bufferInfo.size != 0) {
+                                                    ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
+                                                    byteBuffer2.position(bufferInfo.offset);
+                                                    byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
+                                                    BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
+                                                    if (j2 < bufferInfo.presentationTimeUs) {
+                                                        long j4 = bufferInfo.presentationTimeUs;
+                                                        int i4 = bufferInfo.size;
+                                                        int i5 = i4 + 7;
+                                                        byteBuffer2.position(bufferInfo.offset);
+                                                        byteBuffer2.limit(bufferInfo.offset + i4);
+                                                        byte[] bArr3 = new byte[i5];
+                                                        w19Var.e(bArr3, i5);
+                                                        byteBuffer2.get(bArr3, 7, i4);
+                                                        fileOutputStream.write(bArr3, 0, i5);
+                                                        BdLog.i(i5 + " bytes written.");
+                                                        j2 = j4;
+                                                    } else {
+                                                        BdLog.i("error sample! its presentationTimeUs should not lower than before.");
+                                                    }
+                                                }
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                                if ((bufferInfo.flags & 4) != 0) {
+                                                    w19Var = this;
+                                                    inputBuffers = byteBufferArr;
+                                                    z3 = true;
+                                                }
+                                            }
+                                        } else if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr2 = f.getOutputBuffers();
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            BdLog.i("format change : " + f.getOutputFormat());
+                                        }
+                                        w19Var = this;
+                                        inputBuffers = byteBufferArr;
+                                    } else {
+                                        int i6 = i;
+                                        byteBuffer.put(bArr2, 0, i6);
+                                        int i7 = i3 + i6;
+                                        byteBufferArr = inputBuffers;
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
+                                        i3 = i7;
+                                        i2 = i6;
+                                        j3 = (long) (((i7 / 2.0d) * 1000000.0d) / w19Var.d);
+                                        bArr = bArr2;
+                                        z2 = z;
+                                    }
+                                } else {
+                                    byteBufferArr = inputBuffers;
+                                }
+                                j = 10000;
+                                dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                if (dequeueOutputBuffer < 0) {
+                                }
+                                w19Var = this;
+                                inputBuffers = byteBufferArr;
+                            }
+                            BdLog.i("acc encode done");
+                            fileInputStream2.close();
+                            fileOutputStream.close();
+                        } catch (Exception e) {
+                            e = e;
+                            fileInputStream = fileInputStream2;
+                            try {
+                                e.printStackTrace();
+                                if (fileInputStream != null) {
+                                    fileInputStream.close();
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileInputStream = fileInputStream2;
+                            if (fileInputStream != null) {
+                            }
+                            if (fileOutputStream != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            } catch (Exception e5) {
+                e = e5;
+                fileOutputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileOutputStream = null;
+            }
+        }
+    }
+
+    public final void e(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
+            int[] iArr = {96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+            int i2 = 0;
+            while (true) {
+                if (i2 < 13) {
+                    if (iArr[i2] == this.b) {
+                        break;
+                    }
+                    i2++;
+                } else {
+                    i2 = 4;
+                    break;
                 }
             }
-            return k;
-        }
-        return (w19) invokeL.objValue;
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null) {
-            this.b.u(this.h);
-            this.b.i(this.c.o());
-            this.b.m(this.c.a());
-            this.b.j(this.c.p());
-            this.c.q();
-            this.c.release();
-            this.d = this.b;
-            this.e = false;
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + 0);
+            bArr[3] = (byte) (128 + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
         }
     }
 
-    @Override // com.baidu.tieba.di9.b
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public int b() {
+    @TargetApi(16)
+    public final MediaCodec f() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.b();
-            }
-            return -1;
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString("mime", "audio/mp4a-latm");
+            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+            mediaFormat.setInteger("channel-count", this.c);
+            mediaFormat.setInteger("sample-rate", this.b);
+            mediaFormat.setInteger("aac-profile", 2);
+            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            return createEncoderByType;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.e();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.f();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.i = true;
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                bVar.n();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.o();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.p();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void q() {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (bVar = this.d) != null) {
-            bVar.q();
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.r();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            q();
-            this.d = null;
-            di9.b bVar = this.b;
-            if (bVar != null) {
-                bVar.release();
-            }
-            di9.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            k = null;
-            this.f = null;
-            this.g = null;
-            this.j = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            di9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.v();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void c(int i, int i2, int i3, int i4) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.c(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void t(int i, int i2, int i3, int i4) {
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.t(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public void g(int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.b.g(i, i2, i3, z);
-            di9.b bVar = this.c;
-            if (bVar != null) {
-                bVar.g(i, i2, i3, z);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.di9.b
-    public boolean k(SurfaceTexture surfaceTexture, di9.f fVar) {
-        InterceptResult invokeLL;
-        di9.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
-            this.g = surfaceTexture;
-            this.f = fVar;
-            if (this.e && (bVar = this.c) != null) {
-                if (bVar.k(surfaceTexture, fVar)) {
-                    return true;
-                }
-                C();
-                di9.b bVar2 = this.d;
-                if (bVar2 == null) {
-                    return false;
-                }
-                boolean k2 = bVar2.k(surfaceTexture, fVar);
-                if (this.i) {
-                    this.i = false;
-                    this.d.n();
-                }
-                return k2;
-            }
-            di9.b bVar3 = this.b;
-            this.d = bVar3;
-            if (bVar3 == null) {
-                return false;
-            }
-            return bVar3.k(surfaceTexture, fVar);
-        }
-        return invokeLL.booleanValue;
+        return (MediaCodec) invokeV.objValue;
     }
 }

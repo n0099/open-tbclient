@@ -23,6 +23,7 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
@@ -64,7 +65,7 @@ import org.json.JSONObject;
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a;
-    public static C0008b e = null;
+    public static C0021b e = null;
     public static boolean f = true;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context b;
@@ -105,7 +106,7 @@ public final class b {
 
     /* renamed from: com.baidu.android.bbalbs.common.util.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0008b {
+    public static class C0021b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -113,7 +114,7 @@ public final class b {
         public int c;
         public int d;
 
-        public C0008b() {
+        public C0021b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +131,7 @@ public final class b {
             this.d = 0;
         }
 
-        public /* synthetic */ C0008b(com.baidu.android.bbalbs.common.util.c cVar) {
+        public /* synthetic */ C0021b(com.baidu.android.bbalbs.common.util.c cVar) {
             this();
         }
 
@@ -146,7 +147,7 @@ public final class b {
             return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
         }
 
-        public static C0008b b(String str) {
+        public static C0021b b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -168,46 +169,46 @@ public final class b {
                     int i = jSONObject.getInt(b.m("dmVy"));
                     int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                     if (!TextUtils.isEmpty(string)) {
-                        C0008b c0008b = new C0008b();
-                        c0008b.a = string;
-                        c0008b.c = i;
-                        c0008b.d = length;
+                        C0021b c0021b = new C0021b();
+                        c0021b.a = string;
+                        c0021b.c = i;
+                        c0021b.d = length;
                         if (length < 14) {
                             if (!TextUtils.isEmpty(str3)) {
                                 str2 = str3;
                             }
-                            c0008b.b = str2;
+                            c0021b.b = str2;
                         }
-                        return c0008b;
+                        return c0021b;
                     }
                 } catch (JSONException e) {
                     b.b(e);
                 }
                 return null;
             }
-            return (C0008b) invokeL.objValue;
+            return (C0021b) invokeL.objValue;
         }
 
-        public static C0008b b(String str, String str2) {
+        public static C0021b b(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                C0008b c0008b = new C0008b();
-                c0008b.a = str;
+                C0021b c0021b = new C0021b();
+                c0021b.a = str;
                 int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-                c0008b.d = length;
+                c0021b.d = length;
                 if (length < 14) {
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "0";
                     }
-                    c0008b.b = str2;
+                    c0021b.b = str2;
                 }
-                return c0008b;
+                return c0021b;
             }
-            return (C0008b) invokeLL.objValue;
+            return (C0021b) invokeLL.objValue;
         }
 
         public boolean a() {
@@ -452,11 +453,11 @@ public final class b {
         }
     }
 
-    private synchronized void a(C0008b c0008b) {
+    private synchronized void a(C0021b c0021b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, c0008b) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, this, c0021b) == null) {
             synchronized (this) {
-                new Thread(c(c0008b)).start();
+                new Thread(c(c0021b)).start();
             }
         }
     }
@@ -506,7 +507,7 @@ public final class b {
         return (String[]) invokeL.objValue;
     }
 
-    private C0008b b() {
+    private C0021b b() {
         InterceptResult invokeV;
         boolean z;
         String str;
@@ -528,21 +529,21 @@ public final class b {
                 }
             }
             File file = new File(this.b.getFilesDir(), "libcuid.so");
-            C0008b b = file.exists() ? C0008b.b(j(b(file))) : null;
+            C0021b b = file.exists() ? C0021b.b(j(b(file))) : null;
             if (b == null) {
                 this.c |= 16;
                 List<a> a3 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
                 if (a3 != null) {
-                    String str2 = "files";
+                    String str2 = NetDiskFileMsg.JSON_KEY_FILES;
                     File filesDir = this.b.getFilesDir();
-                    if (!"files".equals(filesDir.getName())) {
+                    if (!NetDiskFileMsg.JSON_KEY_FILES.equals(filesDir.getName())) {
                         Log.e(DeviceId.f, "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                         str2 = filesDir.getName();
                     }
                     for (a aVar : a3) {
                         if (!aVar.d) {
                             File file2 = new File(new File(aVar.a.dataDir, str2), "libcuid.so");
-                            if (file2.exists() && (b = C0008b.b(j(b(file2)))) != null) {
+                            if (file2.exists() && (b = C0021b.b(j(b(file2)))) != null) {
                                 break;
                             }
                         }
@@ -550,7 +551,7 @@ public final class b {
                 }
             }
             if (b == null) {
-                b = C0008b.b(j(f("com.baidu.deviceid.v2")));
+                b = C0021b.b(j(f("com.baidu.deviceid.v2")));
             }
             boolean g = g(h.i);
             if (b == null && g) {
@@ -574,7 +575,7 @@ public final class b {
                 if (!z2) {
                     str = l("");
                 }
-                b = new C0008b(null);
+                b = new C0021b(null);
                 String c2 = c(this.b);
                 b.a = com.baidu.android.bbalbs.common.security.b.a((Build.VERSION.SDK_INT < 23 ? str + c2 + UUID.randomUUID().toString() : "com.baidu" + c2).getBytes(), true);
                 b.b = str;
@@ -583,15 +584,15 @@ public final class b {
             a(b);
             return b;
         }
-        return (C0008b) invokeV.objValue;
+        return (C0021b) invokeV.objValue;
     }
 
-    public static C0008b b(Context context) {
+    public static C0021b b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
             if (e == null) {
-                synchronized (C0008b.class) {
+                synchronized (C0021b.class) {
                     if (e == null) {
                         SystemClock.uptimeMillis();
                         e = new b(context).b();
@@ -601,7 +602,7 @@ public final class b {
             }
             return e;
         }
-        return (C0008b) invokeL.objValue;
+        return (C0021b) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -703,19 +704,19 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean b(C0008b c0008b) {
+    public boolean b(C0021b c0021b) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, c0008b)) == null) {
-            if (c0008b.b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, c0021b)) == null) {
+            if (c0021b.b()) {
                 str = "O";
-            } else if (!c0008b.a()) {
+            } else if (!c0021b.a()) {
                 return false;
             } else {
                 str = "0";
             }
-            c0008b.b = str;
+            c0021b.b = str;
             return true;
         }
         return invokeL.booleanValue;
@@ -736,10 +737,10 @@ public final class b {
         return invokeLL.booleanValue;
     }
 
-    private Runnable c(C0008b c0008b) {
+    private Runnable c(C0021b c0021b) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65566, this, c0008b)) == null) ? new d(this, c0008b) : (Runnable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65566, this, c0021b)) == null) ? new d(this, c0021b) : (Runnable) invokeL.objValue;
     }
 
     public static String c(Context context) {
@@ -787,14 +788,14 @@ public final class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? g("android.permission.WRITE_SETTINGS") : invokeV.booleanValue;
     }
 
-    private C0008b d() {
+    private C0021b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) ? C0008b.b(f("com.baidu.deviceid"), f("bd_setting_i")) : (C0008b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) ? C0021b.b(f("com.baidu.deviceid"), f("bd_setting_i")) : (C0021b) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0008b e() {
+    public C0021b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) {
@@ -805,7 +806,7 @@ public final class b {
                     return null;
                 }
                 try {
-                    return C0008b.b(new String(com.baidu.android.bbalbs.common.security.a.b(a, a, Base64.decode(b.getBytes()))));
+                    return C0021b.b(new String(com.baidu.android.bbalbs.common.security.a.b(a, a, Base64.decode(b.getBytes()))));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -813,7 +814,7 @@ public final class b {
             }
             return null;
         }
-        return (C0008b) invokeV.objValue;
+        return (C0021b) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -898,7 +899,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0008b h(String str) {
+    public C0021b h(String str) {
         InterceptResult invokeL;
         String str2;
         String[] split;
@@ -930,12 +931,12 @@ public final class b {
                     str3 = split[1];
                 } catch (FileNotFoundException | IOException | Exception unused2) {
                 }
-                return C0008b.b(str3, str2);
+                return C0021b.b(str3, str2);
             }
             str2 = "";
-            return C0008b.b(str3, str2);
+            return C0021b.b(str3, str2);
         }
-        return (C0008b) invokeL.objValue;
+        return (C0021b) invokeL.objValue;
     }
 
     public static String i(String str) {

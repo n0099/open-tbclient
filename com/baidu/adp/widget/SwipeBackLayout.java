@@ -79,9 +79,9 @@ public class SwipeBackLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface c {
-        void F0();
+        void E0();
 
-        void a0();
+        void Y();
     }
 
     /* loaded from: classes.dex */
@@ -261,14 +261,14 @@ public class SwipeBackLayout extends FrameLayout {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (this.mIsSupportNight) {
                 if (i == 1) {
-                    this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aec);
                 } else if (i == 4) {
-                    this.mRealContentView.setBackgroundResource(R.color.swipe_layout_dark_bg);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aeb);
                 } else {
-                    this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aed);
                 }
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aed);
             }
         }
     }
@@ -282,14 +282,14 @@ public class SwipeBackLayout extends FrameLayout {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         } else if (this.mIsSupportNight) {
             if (i == 1) {
-                this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aec);
             } else if (i == 4) {
-                this.mRealContentView.setBackgroundResource(R.color.swipe_layout_dark_bg);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aeb);
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aed);
             }
         } else {
-            this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aed);
         }
     }
 
@@ -517,7 +517,7 @@ public class SwipeBackLayout extends FrameLayout {
                 if (this.isTransparent) {
                     this.mRealContentView.setBackgroundResource(R.color.transparent);
                 } else {
-                    this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aed);
                 }
             }
             this.mIsSupportNight = z;

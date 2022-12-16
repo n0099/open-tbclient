@@ -93,14 +93,14 @@ public class wy4 {
     public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03d0, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
             this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09225b);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09224e);
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
             this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080af9);
+            this.e.setImageResource(R.drawable.icon_toast_game_error);
             e(this.c);
         }
     }
@@ -108,14 +108,14 @@ public class wy4 {
     public void d(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03d0, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
             this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09225b);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09224e);
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
             this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080afa);
+            this.e.setImageResource(R.drawable.icon_toast_game_ok);
             e(this.c);
         }
     }

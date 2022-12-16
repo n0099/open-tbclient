@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PreLoadBaiduClass extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class PreLoadBaiduClass extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Class.forName("com.baidu.tieba.bg1");
+                Class.forName("com.baidu.tieba.ag1");
             } catch (ClassNotFoundException e) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e.toString());
                 e.printStackTrace();
@@ -76,7 +76,7 @@ public class PreLoadBaiduClass extends LaunchTask {
                 e4.printStackTrace();
             }
             try {
-                Class.forName("com.baidu.tieba.as8");
+                Class.forName("com.baidu.tieba.zu8");
             } catch (ClassNotFoundException e5) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
                 e5.printStackTrace();

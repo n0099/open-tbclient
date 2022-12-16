@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes5.dex */
 public interface qn1 {
-    String c();
-
-    boolean d();
+    void a(Context context);
 }

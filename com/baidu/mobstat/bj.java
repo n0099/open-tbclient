@@ -34,11 +34,11 @@ public abstract class bj implements bh.a {
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<Activity> a;
         public b b;
-        public final WeakHashMap<View, C0116a> c;
+        public final WeakHashMap<View, C0130a> c;
 
         /* renamed from: com.baidu.mobstat.bj$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0116a extends View.AccessibilityDelegate {
+        public class C0130a extends View.AccessibilityDelegate {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -48,7 +48,7 @@ public abstract class bj implements bh.a {
             public long e;
             public long f;
 
-            public C0116a(a aVar, WeakReference<Activity> weakReference, View view2, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
+            public C0130a(a aVar, WeakReference<Activity> weakReference, View view2, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public abstract class bj implements bh.a {
                             return;
                         }
                         this.f = System.currentTimeMillis();
-                        if (this.b != null && !(this.b instanceof C0116a) && this.b != this) {
+                        if (this.b != null && !(this.b instanceof C0130a) && this.b != this) {
                             this.b.sendAccessibilityEvent(view2, i);
                         } else {
                             super.sendAccessibilityEvent(view2, i);
@@ -162,12 +162,12 @@ public abstract class bj implements bh.a {
 
         @Override // com.baidu.mobstat.bj
         public void a() {
-            WeakHashMap<View, C0116a> weakHashMap;
+            WeakHashMap<View, C0130a> weakHashMap;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (weakHashMap = this.c) == null) {
                 return;
             }
-            for (Map.Entry<View, C0116a> entry : weakHashMap.entrySet()) {
+            for (Map.Entry<View, C0130a> entry : weakHashMap.entrySet()) {
                 entry.getKey().setAccessibilityDelegate(entry.getValue().a());
             }
             this.c.clear();
@@ -185,13 +185,13 @@ public abstract class bj implements bh.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{weakReference, view2, str, Boolean.valueOf(z)}) == null) {
                 View.AccessibilityDelegate a = a(view2);
-                if (!(a instanceof C0116a)) {
-                    C0116a c0116a = new C0116a(this, weakReference, view2, str, a, z);
-                    view2.setAccessibilityDelegate(c0116a);
-                    this.c.put(view2, c0116a);
+                if (!(a instanceof C0130a)) {
+                    C0130a c0130a = new C0130a(this, weakReference, view2, str, a, z);
+                    view2.setAccessibilityDelegate(c0130a);
+                    this.c.put(view2, c0130a);
                     return;
                 }
-                ((C0116a) a).a(z);
+                ((C0130a) a).a(z);
             }
         }
     }

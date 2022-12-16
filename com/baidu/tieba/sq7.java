@@ -1,45 +1,249 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Environment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class sq7 extends w65 {
+import java.io.File;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
+public class sq7 {
     public static /* synthetic */ Interceptable $ic;
+    public static sq7 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sq7(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13c2), 16, i);
+    /* loaded from: classes6.dex */
+    public class a implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ sq7 b;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        public a(sq7 sq7Var, CyberPlayerManager.InstallListener installListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sq7Var, installListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sq7Var;
+            this.a = installListener;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b < 3) {
+                    sq7.c(this.b);
+                    this.b.g(this.a);
+                    return;
+                }
+                this.b.b = 0;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallError(i, i2, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ sq7 b;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        public b(sq7 sq7Var, CyberPlayerManager.InstallListener installListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sq7Var, installListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sq7Var;
+            this.a = installListener;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b < 3) {
+                    sq7.c(this.b);
+                    this.b.g(this.a);
+                    return;
+                }
+                this.b.b = 0;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallError(i, i2, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
+            }
+        }
+    }
+
+    public sq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08082d;
-        this.e = R.drawable.obfuscated_res_0x7f08082d;
-        this.h = R.drawable.icon_pure_post_more_tail64;
-        this.r = R.drawable.obfuscated_res_0x7f0809ce;
-        this.i = false;
-        this.j = true;
-        this.m = new TailToolController(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        this.a = true;
+    }
+
+    public static sq7 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                i();
+            }
+            return c;
+        }
+        return (sq7) invokeV.objValue;
+    }
+
+    public static synchronized void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (sq7.class) {
+                if (c == null) {
+                    c = new sq7();
+                }
+            }
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
+            if (isCoreLoaded && !this.a) {
+                this.a = true;
+            }
+            return isCoreLoaded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ int c(sq7 sq7Var) {
+        int i = sq7Var.b;
+        sq7Var.b = i + 1;
+        return i;
+    }
+
+    public void g(CyberPlayerManager.InstallListener installListener) {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, installListener) == null) && !CyberPlayerManager.isCoreLoaded(3)) {
+            this.a = false;
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null) {
+                absolutePath = cacheDir.getAbsolutePath();
+            } else {
+                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("cache-path", absolutePath);
+            try {
+                CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, 3, (Class<?>) null, hashMap, new a(this, installListener));
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void h(CyberPlayerManager.InstallListener installListener, int i) {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, installListener, i) == null) && !CyberPlayerManager.isCoreLoaded(i)) {
+            this.a = false;
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null) {
+                absolutePath = cacheDir.getAbsolutePath();
+            } else {
+                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("cache-path", absolutePath);
+            try {
+                CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, i, (Class<?>) null, hashMap, new b(this, installListener));
+            } catch (Exception unused) {
+            }
+        }
     }
 }

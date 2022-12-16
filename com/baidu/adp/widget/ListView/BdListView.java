@@ -102,7 +102,7 @@ public class BdListView extends ListView implements zn<BdListView> {
 
     /* loaded from: classes.dex */
     public interface q {
-        void u(BdListView bdListView);
+        void w(BdListView bdListView);
     }
 
     /* loaded from: classes.dex */
@@ -324,7 +324,7 @@ public class BdListView extends ListView implements zn<BdListView> {
                         if (i2 != 2 && this.b) {
                             if (i2 == 0) {
                                 this.e.setSelection(0);
-                                if (((int) ((y - this.c) / k)) < yi.g(this.a.getContext(), R.dimen.adp_list_view_pull_maxoffset) && y - this.c > 0) {
+                                if (((int) ((y - this.c) / k)) < yi.g(this.a.getContext(), R.dimen.obfuscated_res_0x7f0700db) && y - this.c > 0) {
                                     this.d = 1;
                                     this.a.w(this.f.booleanValue());
                                     this.f = Boolean.FALSE;
@@ -344,7 +344,7 @@ public class BdListView extends ListView implements zn<BdListView> {
                                 }
                             } else if (i2 == 1) {
                                 this.e.setSelection(0);
-                                if (((int) ((y - this.c) / k)) >= yi.g(this.a.getContext(), R.dimen.adp_list_view_pull_maxoffset)) {
+                                if (((int) ((y - this.c) / k)) >= yi.g(this.a.getContext(), R.dimen.obfuscated_res_0x7f0700db)) {
                                     this.d = 0;
                                     this.f = Boolean.TRUE;
                                     this.a.y();
@@ -772,8 +772,8 @@ public class BdListView extends ListView implements zn<BdListView> {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 int n = this.a.a.n();
                 if (i < n) {
-                    if (this.a.o != null && view2 == this.a.o.b()) {
-                        this.a.o.c();
+                    if (this.a.o != null && view2 == this.a.o.c()) {
+                        this.a.o.d();
                         return;
                     } else if (this.a.e != null) {
                         this.a.e.onClick(view2);
@@ -788,8 +788,8 @@ public class BdListView extends ListView implements zn<BdListView> {
                     if (this.a.b != null) {
                         this.a.b.onItemClick(adapterView, view2, i2, j);
                     }
-                } else if (this.a.p != null && view2 == this.a.p.b()) {
-                    this.a.p.c();
+                } else if (this.a.p != null && view2 == this.a.p.c()) {
+                    this.a.p.d();
                 } else if (this.a.f != null) {
                     this.a.f.onClick(view2);
                 }
@@ -873,7 +873,7 @@ public class BdListView extends ListView implements zn<BdListView> {
                         this.a.m.onScrollToBottom();
                     }
                     if (this.a.n != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                        this.a.n.u(this.a);
+                        this.a.n.w(this.a);
                     }
                     if (this.a.k != null && absListView.getFirstVisiblePosition() <= this.a.l) {
                         this.a.k.onScrollToTop();
@@ -1255,11 +1255,11 @@ public class BdListView extends ListView implements zn<BdListView> {
         if (interceptable == null || interceptable.invokeL(1048610, this, lnVar) == null) {
             ln lnVar2 = this.p;
             if (lnVar2 != null) {
-                removeFooterView(lnVar2.b());
+                removeFooterView(lnVar2.c());
                 this.p = null;
             }
             if (lnVar != null) {
-                this.a.f(lnVar.b(), null, true, 0);
+                this.a.f(lnVar.c(), null, true, 0);
                 this.p = lnVar;
             }
         }
@@ -1369,11 +1369,11 @@ public class BdListView extends ListView implements zn<BdListView> {
         if (interceptable == null || interceptable.invokeL(1048625, this, lnVar) == null) {
             ln lnVar2 = this.o;
             if (lnVar2 != null) {
-                removeHeaderView(lnVar2.b());
+                removeHeaderView(lnVar2.c());
                 this.o = null;
             }
             if (lnVar != null) {
-                addHeaderView(lnVar.b());
+                addHeaderView(lnVar.c());
                 this.o = lnVar;
             }
         }

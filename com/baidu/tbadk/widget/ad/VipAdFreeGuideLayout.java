@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.rq5;
-import com.baidu.tieba.sr8;
+import com.baidu.tieba.mr5;
+import com.baidu.tieba.ru8;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,7 +257,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092635);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.vip_ad_free_guide_icon);
             this.f = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
             if (layoutParams == null) {
@@ -301,14 +301,14 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            setGuideContent(rq5.e().h(), rq5.e().g());
+            setGuideContent(mr5.e().h(), mr5.e().g());
         }
     }
 
     public final void c(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sr8.VipAdFreeGuideLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ru8.VipAdFreeGuideLayout);
             this.g = obtainStyledAttributes.getBoolean(1, false);
             this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
             obtainStyledAttributes.recycle();
@@ -330,9 +330,9 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setClipToPadding(false);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d091b, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.vip_ad_free_guide_layout, (ViewGroup) null);
             this.d = linearLayout;
-            this.e = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092634);
+            this.e = (TextView) linearLayout.findViewById(R.id.vip_ad_free_guide_content);
             b();
             if (this.g) {
                 this.c = t;
@@ -415,13 +415,13 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
                 }
                 blRadius.brRadius(f2).into(this);
             }
-            qw4 d = qw4.d(this.e);
+            rw4 d = rw4.d(this.e);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0311);
             if (this.g) {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a6a, R.color.CAM_X0626, null);
+                WebPManager.setPureDrawable(this.f, R.drawable.icon_pure_vip_ad_free_guide_del, R.color.CAM_X0626, null);
             } else {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a69, R.color.CAM_X0311, null);
+                WebPManager.setPureDrawable(this.f, R.drawable.icon_pure_vip_ad_free_guide_arrows, R.color.CAM_X0311, null);
             }
         }
     }

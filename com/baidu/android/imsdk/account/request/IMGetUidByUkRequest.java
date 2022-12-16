@@ -1,12 +1,10 @@
 package com.baidu.android.imsdk.account.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -215,7 +213,6 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                             e = e;
                             treeMap2 = treeMap3;
                             LogUtils.e("IMGetUidByUkRequest", e.getMessage(), e);
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                             treeMap = treeMap2;
                             i2 = 1010;

@@ -17,9 +17,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.uq4;
+import com.baidu.tieba.tn5;
+import com.baidu.tieba.vq4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.ym5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -276,7 +276,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new ym5(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new tn5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -475,36 +475,36 @@ public class UrlManager {
         return invokeCommon.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x013f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x013e, code lost:
         if (r12.mWebListener == null) goto L76;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x0147, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x0146, code lost:
         if (r4.contains("nohead:url") != false) goto L75;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x014f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x014e, code lost:
         if (r4.contains("booktown") != false) goto L75;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0157, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x0156, code lost:
         if (r4.contains("bookreader") == false) goto L67;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x015b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x015a, code lost:
         if (r15.length <= 1) goto L74;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:77:0x0163, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x0162, code lost:
         if (com.baidu.adp.lib.util.StringUtils.isNull(r15[1]) != false) goto L74;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x016d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x016c, code lost:
         if (com.baidu.tbadk.core.util.UrlManager.YUN_PUSH_TAG.equals(r15[1]) == false) goto L74;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x016f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x016e, code lost:
         r4 = new com.baidu.tbadk.core.atomData.MainTabActivityConfig(r13.getPageActivity());
         r4.setTargetScheme(r15[0]);
         com.baidu.adp.framework.MessageManager.getInstance().sendMessage(new com.baidu.adp.framework.message.CustomMessage(2015002, r4));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x018d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x018c, code lost:
         jumpToWeb(r13, r14, r15[0], r16, r17, r18, r19);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x019e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x019d, code lost:
         return true;
      */
     /*
@@ -515,7 +515,7 @@ public class UrlManager {
         boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{tbPageContext, str, strArr, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2), bundle})) == null) {
-            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0]) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext, null)) {
+            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0]) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext)) {
                 return false;
             }
             String str2 = strArr[0];
@@ -529,7 +529,7 @@ public class UrlManager {
                         hashMap.put(str3, parse.getQueryParameter(str3));
                     }
                     FlutterOpenData flutterOpenData = new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap);
-                    if (uq4.c().contains("-Flutter") && findTask == null) {
+                    if (vq4.c().contains("-Flutter") && findTask == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, flutterOpenData));
                         return false;
                     }
@@ -596,7 +596,7 @@ public class UrlManager {
         int deal;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, tbPageContext, strArr)) == null) {
-            if (strArr == null || strArr.length == 0 || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext, null)) {
+            if (strArr == null || strArr.length == 0 || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext)) {
                 return 3;
             }
             String str = strArr[0];

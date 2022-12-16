@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.swan.nalib.audio.SwanAudioPlayer;
+import com.baidu.tieba.gy3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,46 +17,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
+import java.net.MalformedURLException;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 /* loaded from: classes4.dex */
 public class hy3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static volatile hy3 f;
+    public static final boolean g;
+    public static volatile hy3 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ArrayList<b>> a;
-    public final ExecutorService b;
+    public ey3 a;
+    public HashMap<String, Long> b;
     public String c;
-    public Object d;
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-    }
+    public HandlerThread d;
+    public Handler e;
+    public SwanAudioPlayer f;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsArrayBuffer a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ hy3 c;
+        public final /* synthetic */ hy3 a;
 
-        public a(hy3 hy3Var, JsArrayBuffer jsArrayBuffer, b bVar) {
+        public a(hy3 hy3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hy3Var, jsArrayBuffer, bVar};
+                Object[] objArr = {hy3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,28 +53,81 @@ public class hy3 {
                     return;
                 }
             }
-            this.c = hy3Var;
-            this.a = jsArrayBuffer;
-            this.b = bVar;
+            this.a = hy3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f = SwanAudioPlayer.getInstance();
+                SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
-            String g = this.c.g(this.a.buffer());
-            File file = new File(g);
-            if (file.exists()) {
-                if (!file.isDirectory()) {
-                    this.b.a(g);
-                } else {
-                    this.b.b();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hy3 a;
+
+        public b(hy3 hy3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hy3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } else if (this.c.e(g, this.b)) {
-            } else {
-                this.c.i(g, this.a.buffer());
+            }
+            this.a = hy3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f.pauseAll();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hy3 a;
+
+        public c(hy3 hy3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hy3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hy3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f.resume();
             }
         }
     }
@@ -99,23 +145,71 @@ public class hy3 {
                 return;
             }
         }
-        e = pk1.a;
+        g = ok1.a;
+        x93.b();
     }
 
-    public static hy3 f() {
+    public static hy3 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (h == null) {
                 synchronized (hy3.class) {
-                    if (f == null) {
-                        f = new hy3();
+                    if (h == null) {
+                        h = new hy3();
                     }
                 }
             }
-            return f;
+            return h;
         }
         return (hy3) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d == null) {
+            HandlerThread handlerThread = new HandlerThread("audio_thread");
+            this.d = handlerThread;
+            handlerThread.start();
+            this.e = new Handler(this.d.getLooper());
+        }
+    }
+
+    public Handler e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            SwanAudioPlayer swanAudioPlayer = this.f;
+            if (swanAudioPlayer != null) {
+                swanAudioPlayer.isAudioPlayer();
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f != null) {
+            e().post(new c(this));
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f != null) {
+            e().postDelayed(new b(this), 50L);
+        }
     }
 
     public hy3() {
@@ -131,140 +225,78 @@ public class hy3 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = Executors.newCachedThreadPool();
-        this.d = new Object();
-        this.c = by3.g() + by3.f();
+        this.b = new HashMap<>();
+        this.c = ay3.g();
+        this.a = new ey3(this.c);
+        c();
+        e().post(new a(this));
     }
 
-    public final boolean e(String str, b bVar) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                z = true;
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.a.put(str, arrayList);
-                    z = false;
-                }
-                arrayList.add(bVar);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
-            this.b.execute(new a(this, jsArrayBuffer, bVar));
-        }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                if (arrayList == null) {
-                    return;
-                }
-                boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<b> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    b next = it.next();
-                    if (!isEmpty) {
-                        if (e) {
-                            Log.e("AudioBufferManager", "save success path: " + str);
-                        }
-                        next.a(str);
-                    } else {
-                        next.b();
-                    }
-                }
-                this.a.remove(str);
-            }
-        }
-    }
-
-    public final String g(byte[] bArr) {
+    public String g(String str) throws MalformedURLException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            String h = by3.h(bArr);
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.c);
-            sb.append(bArr.length);
-            if (TextUtils.isEmpty(h)) {
-                h = "";
-            }
-            sb.append(h);
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.c + ay3.d(str);
         }
         return (String) invokeL.objValue;
     }
 
-    public final void i(String str, byte[] bArr) {
-        FileOutputStream fileOutputStream;
+    public void j(String str, dy3 dy3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
-            File file = new File(this.c);
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, dy3Var) == null) {
+            this.a.e(str, dy3Var);
+        }
+    }
+
+    public void m(JsArrayBuffer jsArrayBuffer, gy3.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, jsArrayBuffer, bVar) == null) {
+            gy3.f().h(jsArrayBuffer, bVar);
+        }
+    }
+
+    public synchronized iy3 d(String str, boolean z) {
+        InterceptResult invokeLZ;
+        jy3 jy3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            synchronized (this) {
+                if (g) {
+                    Log.e("AudioPlayerManager", "create media player src = " + str);
+                }
+                jy3Var = new jy3();
             }
-            File file2 = new File(str + ".bdsave");
-            Closeable closeable = null;
+            return jy3Var;
+        }
+        return (iy3) invokeLZ.objValue;
+    }
+
+    public long f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.b.containsKey(str)) {
+                return this.b.get(str).longValue();
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
                 try {
-                    fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        fileOutputStream.write(bArr);
-                        fileOutputStream.flush();
-                        File file3 = new File(str);
-                        if (file3.exists() && !file3.isDirectory()) {
-                            file3.delete();
-                        }
-                        if (file2.renameTo(file3)) {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename success path = " + str);
-                            }
-                            d(str);
-                        } else {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename error path = " + str);
-                            }
-                            file2.delete();
-                            d(null);
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (e) {
-                            e.printStackTrace();
-                        }
-                        if (file2.exists()) {
-                            file2.delete();
-                        }
-                        d(null);
-                        jk4.d(fileOutputStream);
+                    mediaMetadataRetriever.setDataSource(str);
+                    long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
+                    mediaMetadataRetriever.release();
+                    this.b.put(str, Long.valueOf(parseLong));
+                    return parseLong;
+                } catch (Exception e) {
+                    if (g) {
+                        e.printStackTrace();
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable = ".bdsave";
-                    jk4.d(closeable);
-                    throw th;
+                    mediaMetadataRetriever.release();
+                    return 0L;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                jk4.d(closeable);
-                throw th;
+            } finally {
+                mediaMetadataRetriever.release();
             }
-            jk4.d(fileOutputStream);
         }
+        return invokeL.longValue;
     }
 }

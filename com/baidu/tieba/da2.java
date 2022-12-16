@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +13,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.channels.Channels;
-/* loaded from: classes3.dex */
-public class da2 extends aa2 {
+import java.util.HashMap;
+/* loaded from: classes4.dex */
+public class da2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File b;
+    public z92 a;
+    public HashMap<String, aa2> b;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final da2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-868224234, "Lcom/baidu/tieba/da2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-868224234, "Lcom/baidu/tieba/da2$b;");
+                    return;
+                }
+            }
+            a = new da2(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +64,37 @@ public class da2 extends aa2 {
                 return;
             }
         }
-        c = pk1.a;
+        c = ok1.a;
+    }
+
+    public static da2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (da2) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final z92 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c && d()) {
+                return new ca2();
+            }
+            return new y92();
+        }
+        return (z92) invokeV.objValue;
     }
 
     public da2() {
@@ -51,88 +110,37 @@ public class da2 extends aa2 {
                 return;
             }
         }
-        this.b = o();
-    }
-
-    @Override // com.baidu.tieba.aa2
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = new File(this.b, "preset_list.json");
-            if (!file.exists()) {
-                return null;
-            }
-            return jk4.E(file);
+        long currentTimeMillis = System.currentTimeMillis();
+        z92 a2 = a();
+        this.a = a2;
+        this.b = a2.h();
+        if (c) {
+            Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
         }
-        return (String) invokeV.objValue;
     }
 
-    public final File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
-        }
-        return (File) invokeV.objValue;
+    public /* synthetic */ da2(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.aa2
-    public boolean e(ba2 ba2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ba2Var)) == null) {
-            if (ba2Var == null || !this.b.exists()) {
-                return false;
-            }
-            File file = this.b;
-            File file2 = new File(file, ba2Var.g + File.separator + ba2Var.q);
-            if (!file2.exists()) {
-                return false;
-            }
-            try {
-                if (!d(Channels.newChannel(new FileInputStream(file2)), ba2Var.m)) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "校验签名失败");
-                    }
-                    return false;
-                }
-                File j = j(ba2Var.h, ba2Var.g, ba2Var.i);
-                if (j == null) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(new FileInputStream(file2)), j);
-            } catch (IOException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa2
-    public String f(String str) {
+    @Nullable
+    public aa2 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!this.b.exists()) {
-                return null;
+            HashMap<String, aa2> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(str);
             }
-            File file = this.b;
-            File file2 = new File(file, str + File.separator + "app_info.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            return jk4.E(file2);
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (aa2) invokeL.objValue;
+    }
+
+    public void e(aa2 aa2Var, ba2 ba2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aa2Var, ba2Var) == null) {
+            this.a.k(aa2Var, ba2Var);
+        }
     }
 }

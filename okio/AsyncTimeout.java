@@ -1,6 +1,7 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AsyncTimeout extends Timeout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long IDLE_TIMEOUT_MILLIS;
@@ -34,7 +35,7 @@ public class AsyncTimeout extends Timeout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Watchdog extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,7 +216,7 @@ public class AsyncTimeout extends Timeout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iOException)) == null) {
-            InterruptedIOException interruptedIOException = new InterruptedIOException("timeout");
+            InterruptedIOException interruptedIOException = new InterruptedIOException(a.O);
             if (iOException != null) {
                 interruptedIOException.initCause(iOException);
             }

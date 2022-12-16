@@ -22,6 +22,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ImageMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra;
     public int mHeight;
     public String mThumbUrl;
     public int mWidth;
@@ -30,7 +31,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "[图片]" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "[图片]" : (String) invokeV.objValue;
     }
 
     static {
@@ -109,10 +110,19 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         setMsgType(1);
     }
 
-    public int getHeight() {
+    public AdvisoryMsgBusinessExtra getAdvisoryBusinessExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.advisoryMsgBusinessExtra;
+        }
+        return (AdvisoryMsgBusinessExtra) invokeV.objValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mHeight;
         }
         return invokeV.intValue;
@@ -121,7 +131,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public String getThumbUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mThumbUrl;
         }
         return (String) invokeV.objValue;
@@ -130,7 +140,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mWidth;
         }
         return invokeV.intValue;
@@ -162,10 +172,10 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         this.mThumbUrl = parcel.readString();
     }
 
-    private String getImgContent(String str) {
+    public String getImgContent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -236,7 +246,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (TextUtils.isEmpty(this.mjsonContent)) {
                 return false;
             }
@@ -246,6 +256,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 this.mThumbUrl = jSONObject.optString("thumbnail");
                 this.mWidth = jSONObject.optInt(Config.DEVICE_WIDTH, 0);
                 this.mHeight = jSONObject.optInt("h", 0);
+                this.advisoryMsgBusinessExtra = AdvisoryMsgBusinessExtra.parseAdvisoryExtra(jSONObject.optString("business_ext"));
                 return true;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -257,21 +268,21 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
 
     public void setContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             setMsgContent(getImgContent(str));
         }
     }
 
     public void setThumbUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.mThumbUrl = str;
         }
     }
 
     public void setContent(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, str, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i, i2) == null) {
             this.mWidth = i;
             this.mHeight = i2;
             setMsgContent(getImgContent(str));
@@ -280,7 +291,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
 
     public void setImgWH(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             this.mWidth = i;
             this.mHeight = i2;
         }
@@ -289,7 +300,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeInt(this.mHeight);
             parcel.writeInt(this.mWidth);

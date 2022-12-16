@@ -123,7 +123,7 @@ public final class b {
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0507b extends e {
+    public static class C0524b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -138,7 +138,7 @@ public final class b {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0507b() {
+        public C0524b() {
             super((byte) 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -155,7 +155,7 @@ public final class b {
             }
         }
 
-        public /* synthetic */ C0507b(byte b) {
+        public /* synthetic */ C0524b(byte b) {
             this();
         }
     }
@@ -273,7 +273,7 @@ public final class b {
         } else if (i < 28) {
             a = new e((byte) 0);
         } else {
-            a = new C0507b((byte) 0);
+            a = new C0524b((byte) 0);
         }
     }
 

@@ -82,8 +82,8 @@ public class i05 extends ReplacementSpan {
             int i8 = ((int) f) + this.k;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             int i9 = 0;
-            if (sw4.b(charSequence)) {
-                sw4.a(fontMetricsInt, (int) paint.getTextSize());
+            if (tw4.b(charSequence)) {
+                tw4.a(fontMetricsInt, (int) paint.getTextSize());
                 dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
             } else {
                 dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;

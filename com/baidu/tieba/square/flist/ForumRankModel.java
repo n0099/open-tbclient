@@ -11,14 +11,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.df;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForumRankModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class ForumRankModel extends BdBaseModel {
     public b b;
     public String c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<Void, ForumRankData, ForumRankData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,8 +96,8 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                jv4.f();
-                df<String> g = jv4.g("tb.forum_rank");
+                kv4.f();
+                df<String> g = kv4.g("tb.forum_rank");
                 if (g != null) {
                     str = g.get("forum_rank_cache_key_" + this.a.a);
                 } else {
@@ -181,7 +181,7 @@ public class ForumRankModel extends BdBaseModel {
         this.c = bundle.getString("st_type");
     }
 
-    public void G(Bundle bundle) {
+    public void N(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             bundle.putString("id", this.a);

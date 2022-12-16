@@ -2,6 +2,7 @@ package com.facebook.imagepipeline.systrace;
 
 import android.os.Build;
 import android.os.Trace;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +73,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append('=');
+                sb.append(a.h);
                 sb.append(Double.toString(d));
                 return this;
             }
@@ -87,7 +88,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append('=');
+                sb.append(a.h);
                 sb.append(Integer.toString(i));
                 return this;
             }
@@ -102,7 +103,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append('=');
+                sb.append(a.h);
                 sb.append(Long.toString(j));
                 return this;
             }
@@ -118,7 +119,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append('=');
+                sb.append(a.h);
                 if (obj == null) {
                     obj2 = StringUtil.NULL_STRING;
                 } else {

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class yk {
     public static /* synthetic */ Interceptable $ic;
     public static final Matrix.ScaleToFit[] q;
@@ -44,7 +44,7 @@ public abstract class yk {
     public RectF o;
     public boolean p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         boolean a(Canvas canvas, Drawable drawable);
     }
@@ -57,7 +57,7 @@ public abstract class yk {
 
     public abstract void i(Canvas canvas, ImageView imageView);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

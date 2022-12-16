@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.k.o;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +189,7 @@ public class c implements SharedPreferences {
             }
             Bundle a = a("getBoolean", str, String.valueOf(z));
             if (a != null) {
-                return a.getBoolean(TiebaStatic.LogFields.RESULT, z);
+                return a.getBoolean("result", z);
             }
             return z;
         }
@@ -215,7 +214,7 @@ public class c implements SharedPreferences {
             }
             Bundle a = a("getFloat", str, String.valueOf(f));
             if (a != null) {
-                return a.getFloat(TiebaStatic.LogFields.RESULT, f);
+                return a.getFloat("result", f);
             }
             return f;
         }
@@ -240,7 +239,7 @@ public class c implements SharedPreferences {
             }
             Bundle a = a("getInt", str, String.valueOf(i));
             if (a != null) {
-                return a.getInt(TiebaStatic.LogFields.RESULT, i);
+                return a.getInt("result", i);
             }
             return i;
         }
@@ -265,7 +264,7 @@ public class c implements SharedPreferences {
             }
             Bundle a = a("getLong", str, String.valueOf(j));
             if (a != null) {
-                return a.getLong(TiebaStatic.LogFields.RESULT, j);
+                return a.getLong("result", j);
             }
             return j;
         }
@@ -290,7 +289,7 @@ public class c implements SharedPreferences {
             }
             Bundle a = a("getString", str, str2);
             if (a != null) {
-                return a.getString(TiebaStatic.LogFields.RESULT, str2);
+                return a.getString("result", str2);
             }
             return str2;
         }

@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yz9;
+import com.baidu.tieba.h3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,18 +19,18 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
     public final AtomicInteger wip;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$LatestEmitter(yz9<? super T> yz9Var) {
-        super(yz9Var);
+    public OnSubscribeFromEmitter$LatestEmitter(h3a<? super T> h3aVar) {
+        super(h3aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yz9Var};
+            Object[] objArr = {h3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yz9) newInitContext.callArgs[0]);
+                super((h3a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,7 +86,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
         if (r9 == 0) goto L49;
      */
     /* JADX WARN: Code restructure failed: missing block: B:46:0x0080, code lost:
-        com.baidu.tieba.n0a.g(r17, r9);
+        com.baidu.tieba.w3a.g(r17, r9);
      */
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0083, code lost:
         r4 = r17.wip.addAndGet(-r4);
@@ -103,7 +103,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.wip.getAndIncrement() != 0) {
             return;
         }
-        yz9<? super T> yz9Var = this.actual;
+        h3a<? super T> h3aVar = this.actual;
         AtomicReference<Object> atomicReference = this.queue;
         int i = 1;
         do {
@@ -114,7 +114,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                 int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                 if (i2 == 0) {
                     break;
-                } else if (yz9Var.isUnsubscribed()) {
+                } else if (h3aVar.isUnsubscribed()) {
                     atomicReference.lazySet(null);
                     return;
                 } else {
@@ -137,7 +137,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                     } else if (z) {
                         break;
                     } else {
-                        yz9Var.onNext((Object) NotificationLite.e(andSet));
+                        h3aVar.onNext((Object) NotificationLite.e(andSet));
                         j2++;
                     }
                 }

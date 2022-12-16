@@ -24,7 +24,7 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -392,9 +392,9 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.g = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e4, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091cbf);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f09206f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08fa, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091d2c);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f0920de);
             this.b = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(R.array.S_O_X001);
             this.b.setDefaultSelectorColorResourceId(R.color.CAM_X0101);
@@ -411,22 +411,22 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             this.b.setOnTabItemClickListener(new b(this));
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902f1);
             this.c = textView;
-            qw4 d2 = qw4.d(textView);
+            rw4 d2 = rw4.d(textView);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X10);
             d2.A(R.string.F_X01);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0301);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091b41);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bac);
             this.d = textView2;
-            qw4 d3 = qw4.d(textView2);
+            rw4 d3 = rw4.d(textView2);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X07);
             d3.A(R.string.F_X02);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b3f);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091baa);
             this.e = findViewById;
             ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -yi.g(context, R.dimen.tbds20), 0, 0);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091b40);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091bab);
             this.f = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             if (this.f.isAnimating()) {
@@ -466,7 +466,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    yi.M(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0c81));
+                    yi.N(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0cb8));
                     return;
                 }
                 d dVar = this.i;

@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -16,7 +16,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
@@ -115,7 +114,10 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");
-                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    str = jSONObject.optString("tips");
+                    if (TextUtils.isEmpty(str)) {
+                        str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    }
                     if (i == 0 && jSONObject.has("response_params")) {
                         j2 = jSONObject.getJSONObject("response_params").optLong("group_id", -1L);
                     } else {
@@ -125,8 +127,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                    str = "";
                     j = 0;
                 }
                 if (i == 0) {
@@ -147,7 +148,8 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                         chatSession.setLastMsgTime(1L);
                         chatSession.setLastOpenTime(1L);
                         chatSession.setLastMsg("");
-                        ChatMessageDBManager.getInstance(this.this$0.mContext).updateChatSession(1, chatSession);
+                        chatSession.setDisturb(1);
+                        ChatMessageDBManager.getInstance(this.this$0.mContext).updateChatSession(0, chatSession);
                         GroupInfoDAOImpl.activeGroupState(this.this$0.mContext, String.valueOf(j));
                     }
                     ArrayList arrayList2 = new ArrayList();
@@ -155,7 +157,6 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                         j3 = Long.valueOf(AccountManagerImpl.getInstance(this.this$0.mContext).getUid()).longValue();
                     } catch (Exception e2) {
                         LogUtils.e(IMCreateGroupRequest.TAG, e2.getMessage());
-                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     }
                     arrayList2.add(new GroupMember(String.valueOf(j), AccountManagerImpl.getInstance(this.this$0.mContext).getUK(), "", j3, 1, System.currentTimeMillis() / 1000));
                     long addMemberToGroup = GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, String.valueOf(j), arrayList2);
@@ -219,7 +220,6 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                     sb.append(URLEncoder.encode(this.mName, IMAudioTransRequest.CHARSET));
                 } catch (UnsupportedEncodingException e) {
                     LogUtils.e(TAG, "Exception ", e);
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
             }
             sb.append("&sign=");

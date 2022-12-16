@@ -10,9 +10,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.kf7;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.sq4;
+import com.baidu.tieba.hi7;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.tq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kf7 a;
+    public hi7 a;
 
     public InvatateAnswerSettingActivity() {
         Interceptable interceptable = $ic;
@@ -37,25 +37,25 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.qy4 */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: com.baidu.tieba.kf7 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.ry4 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: com.baidu.tieba.hi7 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v2 */
-    /* JADX WARN: Type inference failed for: r5v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v3, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v6 */
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void h0(View view2, BdSwitchView.SwitchState switchState) {
-        kf7 kf7Var;
+    public void e0(View view2, BdSwitchView.SwitchState switchState) {
+        hi7 hi7Var;
         PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
         ?? r5;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (kf7Var = this.a) != null && (personalTalkSettingViewSettingView = kf7Var.n) != null && view2 == personalTalkSettingViewSettingView.getChatNeglectSwitch()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (hi7Var = this.a) != null && (personalTalkSettingViewSettingView = hi7Var.n) != null && view2 == personalTalkSettingViewSettingView.getChatNeglectSwitch()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 r5 = 1;
             } else {
                 r5 = 0;
             }
-            qy4.k().u("key_question_msg_no_remind", r5);
+            ry4.l().v("key_question_msg_no_remind", r5);
             this.a.c(r5);
             new StatisticItem(CommonStatisticKey.KEY_QUESTION_MSG_NO_SHIELD).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", (int) r5).eventStat();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921727, Boolean.valueOf((boolean) r5)));
@@ -67,7 +67,7 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            sq4 layoutMode = getLayoutMode();
+            tq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -82,9 +82,9 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            kf7 kf7Var = new kf7(this);
-            this.a = kf7Var;
-            kf7Var.b(this);
+            hi7 hi7Var = new hi7(this);
+            this.a = hi7Var;
+            hi7Var.b(this);
         }
     }
 }

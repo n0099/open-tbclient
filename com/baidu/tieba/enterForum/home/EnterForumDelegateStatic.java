@@ -35,6 +35,8 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
+import com.baidu.tieba.cc6;
+import com.baidu.tieba.ec6;
 import com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity;
 import com.baidu.tieba.enterForum.message.ForumGuideHttpResponseMessage;
 import com.baidu.tieba.enterForum.message.ForumGuideSocketResponseMessage;
@@ -45,28 +47,26 @@ import com.baidu.tieba.enterForum.model.EnterForumAdResponsedMessage;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListSocketResponsedMessage;
-import com.baidu.tieba.hb6;
-import com.baidu.tieba.jb6;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.kc6;
+import com.baidu.tieba.mj5;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.oc6;
 import com.baidu.tieba.of;
-import com.baidu.tieba.oj5;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.pb6;
 import com.baidu.tieba.pf;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.qa5;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.qf;
-import com.baidu.tieba.qy4;
 import com.baidu.tieba.ra5;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.s66;
 import com.baidu.tieba.sa5;
-import com.baidu.tieba.sj5;
-import com.baidu.tieba.tb6;
-import com.baidu.tieba.ti5;
-import com.baidu.tieba.tp8;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.ss8;
+import com.baidu.tieba.ta5;
+import com.baidu.tieba.tr8;
 import com.baidu.tieba.view.bubbleView.BubbleLayout;
-import com.baidu.tieba.wa5;
-import com.baidu.tieba.x56;
+import com.baidu.tieba.xa5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -81,7 +81,7 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class EnterForumDelegateStatic extends pa5 {
+public class EnterForumDelegateStatic extends qa5 {
     public static /* synthetic */ Interceptable $ic;
     public static pf c;
     public static EnterForumModel d;
@@ -154,12 +154,12 @@ public class EnterForumDelegateStatic extends pa5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !TbadkCoreApplication.isLogin()) {
                 return;
             }
-            qy4 k = qy4.k();
-            if (k.h("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            ry4 l = ry4.l();
+            if (l.i("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 return;
             }
-            qy4 k2 = qy4.k();
-            if (k2.l("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), 0) <= 5 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Activity)) {
+            ry4 l2 = ry4.l();
+            if (l2.m("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), 0) <= 5 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Activity)) {
                 ah.a().post(new a(this, customResponsedMessage));
             }
         }
@@ -244,8 +244,8 @@ public class EnterForumDelegateStatic extends pa5 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.a, R.layout.obfuscated_res_0x7f0d027b, null);
-                TextView textView = (TextView) bubbleLayout.findViewById(R.id.obfuscated_res_0x7f090920);
+                BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.a, R.layout.obfuscated_res_0x7f0d027f, null);
+                TextView textView = (TextView) bubbleLayout.findViewById(R.id.obfuscated_res_0x7f09093a);
                 textView.setOnClickListener(new a(this));
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
                 bubbleLayout.d(SkinManager.getColor(R.color.cp_link_tip_a_alpha95));
@@ -286,7 +286,7 @@ public class EnterForumDelegateStatic extends pa5 {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements sa5.b {
+    public class a implements ta5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -309,7 +309,7 @@ public class EnterForumDelegateStatic extends pa5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.sa5.b
+        @Override // com.baidu.tieba.ta5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -343,11 +343,11 @@ public class EnterForumDelegateStatic extends pa5 {
         public void a(EnterForumModel.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                jb6 e = eVar.d.e();
+                ec6 e = eVar.d.e();
                 ArrayList arrayList = new ArrayList();
-                Iterator<hb6> it = e.b().iterator();
+                Iterator<cc6> it = e.b().iterator();
                 while (it.hasNext()) {
-                    arrayList.add(it.next().r());
+                    arrayList.add(it.next().o());
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new EnterForumInfoMessage(2001329, arrayList));
             }
@@ -416,10 +416,10 @@ public class EnterForumDelegateStatic extends pa5 {
                     return;
                 }
                 if (z) {
-                    EnterForumDelegateStatic.d.R((ForumGuideSocketResponseMessage) responsedMessage);
+                    EnterForumDelegateStatic.d.Y((ForumGuideSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof ForumGuideHttpResponseMessage) {
-                    EnterForumDelegateStatic.d.Q((ForumGuideHttpResponseMessage) responsedMessage);
+                    EnterForumDelegateStatic.d.X((ForumGuideHttpResponseMessage) responsedMessage);
                 }
             }
         }
@@ -456,9 +456,9 @@ public class EnterForumDelegateStatic extends pa5 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                 if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                    EnterForumDelegateStatic.d.J(true);
+                    EnterForumDelegateStatic.d.Q(true);
                 } else {
-                    EnterForumDelegateStatic.d.K(true);
+                    EnterForumDelegateStatic.d.R(true);
                 }
             }
         }
@@ -484,11 +484,11 @@ public class EnterForumDelegateStatic extends pa5 {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<x56> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<s66> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2016562, new tb6());
+                return new CustomResponsedMessage<>(2016562, new oc6());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -560,7 +560,7 @@ public class EnterForumDelegateStatic extends pa5 {
                 String data = customMessage.getData();
                 VisitedForumData visitedForumData = new VisitedForumData();
                 visitedForumData.setForumId(data);
-                pb6.n().i(visitedForumData);
+                kc6.n().i(visitedForumData);
                 TiebaStatic.log(new StatisticItem("c13005").param("fid", data));
                 return null;
             }
@@ -596,17 +596,17 @@ public class EnterForumDelegateStatic extends pa5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            qa5 b;
+            ra5 b;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                EnterForumDelegateStatic.e.F();
+                EnterForumDelegateStatic.e.M();
             }
-            ((ra5) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-            if (((ra5) customResponsedMessage.getData()).getContext() == null || (b = enterForumDelegateStatic.b()) == null || b.a.isAdded()) {
+            ((sa5) customResponsedMessage.getData()).a(enterForumDelegateStatic);
+            if (((sa5) customResponsedMessage.getData()).getContext() == null || (b = enterForumDelegateStatic.b()) == null || b.a.isAdded()) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -637,7 +637,7 @@ public class EnterForumDelegateStatic extends pa5 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                pb6.n().q();
+                kc6.n().q();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -668,14 +668,14 @@ public class EnterForumDelegateStatic extends pa5 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921483, pb6.n().m());
+                return new CustomResponsedMessage<>(2921483, kc6.n().m());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class m extends oj5<Boolean> {
+    public static class m extends ik5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -695,7 +695,7 @@ public class EnterForumDelegateStatic extends pa5 {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.oj5
+        @Override // com.baidu.tieba.ik5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -722,7 +722,7 @@ public class EnterForumDelegateStatic extends pa5 {
     }
 
     /* loaded from: classes4.dex */
-    public static class n implements ti5<Boolean> {
+    public static class n implements mj5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -746,7 +746,7 @@ public class EnterForumDelegateStatic extends pa5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ti5
+        @Override // com.baidu.tieba.mj5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -822,8 +822,8 @@ public class EnterForumDelegateStatic extends pa5 {
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qy4 k = qy4.k();
-                k.u("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), true);
+                ry4 l = ry4.l();
+                l.v("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), true);
                 pf unused = EnterForumDelegateStatic.c = null;
                 this.a.removeCallbacks(this.b);
             }
@@ -898,22 +898,22 @@ public class EnterForumDelegateStatic extends pa5 {
             CustomMessageTask customMessageTask = new CustomMessageTask(2921519, new h());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            pb6.n();
+            kc6.n();
         }
     }
 
     public static void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            uo8.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
+            tr8.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
         }
     }
 
     public static void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            uo8.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
-            uo8.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+            tr8.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
+            tr8.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
@@ -923,7 +923,7 @@ public class EnterForumDelegateStatic extends pa5 {
             CustomMessageTask customMessageTask = new CustomMessageTask(2921483, new l());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            pb6.n();
+            kc6.n();
         }
     }
 
@@ -936,7 +936,7 @@ public class EnterForumDelegateStatic extends pa5 {
         }
     }
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.qa5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -946,12 +946,12 @@ public class EnterForumDelegateStatic extends pa5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pa5
+    @Override // com.baidu.tieba.qa5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) sa5.e().d(1002, new a(this, context));
+            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) ta5.e().d(1002, new a(this, context));
             this.b = maintabBottomIndicator;
             return maintabBottomIndicator;
         }
@@ -961,11 +961,11 @@ public class EnterForumDelegateStatic extends pa5 {
     public static void l(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
-            qy4 k2 = qy4.k();
-            int l2 = k2.l("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), 0);
-            qy4 k3 = qy4.k();
-            k3.l("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), l2 + 1);
-            sj5.b(new m(), new n(activity));
+            ry4 l2 = ry4.l();
+            int m2 = l2.m("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), 0);
+            ry4 l3 = ry4.l();
+            l3.m("key_enter_forum_ufan_attention_check_count" + TbadkCoreApplication.getCurrentAccount(), m2 + 1);
+            mk5.b(new m(), new n(activity));
         }
     }
 
@@ -995,11 +995,11 @@ public class EnterForumDelegateStatic extends pa5 {
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            tp8.d();
+            ss8.d();
             if (d == null) {
                 EnterForumModel enterForumModel = new EnterForumModel(null);
                 d = enterForumModel;
-                enterForumModel.Y(new b());
+                enterForumModel.f0(new b());
             }
             if (e == null) {
                 EnterForumAdModel enterForumAdModel = new EnterForumAdModel();
@@ -1014,38 +1014,38 @@ public class EnterForumDelegateStatic extends pa5 {
     public static void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            uo8.h(303011, forumRecommendSocketResponseMessage.class, false, false);
-            uo8.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
-            uo8.h(309683, ForumGuideSocketResponseMessage.class, false, false);
-            uo8.c(309683, CmdConfigHttp.CMD_ENTER_FORUM_DATA, "c/f/forum/forumGuide", ForumGuideHttpResponseMessage.class, false, false, true, false);
-            uo8.h(309685, SetLikeForumSocketResponseMessage.class, false, false);
-            uo8.c(309685, CmdConfigHttp.CMD_SET_LIKE_FORUM, "c/c/forum/setLikeForumSort", SetLikeForumHttpResponseMessage.class, false, false, false, false);
+            tr8.h(303011, forumRecommendSocketResponseMessage.class, false, false);
+            tr8.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
+            tr8.h(309683, ForumGuideSocketResponseMessage.class, false, false);
+            tr8.c(309683, CmdConfigHttp.CMD_ENTER_FORUM_DATA, "c/f/forum/forumGuide", ForumGuideHttpResponseMessage.class, false, false, true, false);
+            tr8.h(309685, SetLikeForumSocketResponseMessage.class, false, false);
+            tr8.c(309685, CmdConfigHttp.CMD_SET_LIKE_FORUM, "c/c/forum/setLikeForumSort", SetLikeForumHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public static void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            uo8.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
-            uo8.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
-            uo8.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
+            tr8.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
+            tr8.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
+            tr8.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
         }
     }
 
-    @Override // com.baidu.tieba.pa5
-    public qa5 a() {
+    @Override // com.baidu.tieba.qa5
+    public ra5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qa5 qa5Var = new qa5();
-            qa5Var.a = new EnterForumTabFragment();
-            qa5Var.e = 1;
-            qa5Var.b = R.string.enter_forum;
-            qa5Var.i = qa5.l;
-            qa5Var.f = R.raw.lottie_tab_forum;
-            qa5Var.h = wa5.d().c("enterForum");
-            return qa5Var;
+            ra5 ra5Var = new ra5();
+            ra5Var.a = new EnterForumTabFragment();
+            ra5Var.e = 1;
+            ra5Var.b = R.string.enter_forum;
+            ra5Var.i = ra5.l;
+            ra5Var.f = R.raw.lottie_tab_forum;
+            ra5Var.h = xa5.d().c("enterForum");
+            return ra5Var;
         }
-        return (qa5) invokeV.objValue;
+        return (ra5) invokeV.objValue;
     }
 }

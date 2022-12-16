@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.RadiusProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pu4;
+import com.baidu.tieba.qq8;
 import com.baidu.tieba.qu4;
-import com.baidu.tieba.rn8;
+import com.baidu.tieba.ru4;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImageProgressView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,15 +98,15 @@ public class ImageProgressView extends FrameLayout {
         b();
     }
 
-    public final ImageProgressItemView a(qu4 qu4Var) {
+    public final ImageProgressItemView a(ru4 ru4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qu4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ru4Var)) == null) {
             ImageProgressItemView imageProgressItemView = new ImageProgressItemView(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.weight = 1.0f;
             this.b.addView(imageProgressItemView, layoutParams);
-            imageProgressItemView.b(qu4Var);
+            imageProgressItemView.b(ru4Var);
             return imageProgressItemView;
         }
         return (ImageProgressItemView) invokeL.objValue;
@@ -115,29 +115,29 @@ public class ImageProgressView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03cf, (ViewGroup) this, true);
-            this.a = (RadiusProgressView) findViewById(R.id.obfuscated_res_0x7f090ed8);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ed4);
+            LayoutInflater.from(getContext()).inflate(R.layout.image_progress_view, (ViewGroup) this, true);
+            this.a = (RadiusProgressView) findViewById(R.id.image_radius_progress_view);
+            this.b = (LinearLayout) findViewById(R.id.image_progress_item_container);
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void c(pu4 pu4Var) {
+    public void c(qu4 qu4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pu4Var) != null) || pu4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qu4Var) != null) || qu4Var == null) {
             return;
         }
-        int count = ListUtils.getCount(pu4Var.i());
+        int count = ListUtils.getCount(qu4Var.j());
         if (count > 0) {
-            int e = xg.e(pu4Var.k(), 0);
+            int e = xg.e(qu4Var.m(), 0);
             this.a.setMax(e);
-            this.a.setProgress(xg.e(pu4Var.f(), 0) - (e / (count * 2)));
+            this.a.setProgress(xg.e(qu4Var.g(), 0) - (e / (count * 2)));
         }
         this.c.clear();
         this.b.removeAllViews();
-        if (!ListUtils.isEmpty(pu4Var.i())) {
-            for (int i = 0; i < pu4Var.i().size(); i++) {
-                this.c.add(a(pu4Var.i().get(i)));
+        if (!ListUtils.isEmpty(qu4Var.j())) {
+            for (int i = 0; i < qu4Var.j().size(); i++) {
+                this.c.add(a(qu4Var.j().get(i)));
             }
         }
         d(TbadkCoreApplication.getInst().getSkinType());
@@ -147,9 +147,9 @@ public class ImageProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a.setSolidColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.a.setProgressColor(rn8.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorRight(rn8.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorLeft(rn8.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
+            this.a.setProgressColor(qq8.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorRight(qq8.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorLeft(qq8.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 this.c.get(i2).c(i);
             }

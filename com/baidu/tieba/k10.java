@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k10 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean d;
@@ -274,7 +274,7 @@ public class k10 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = null;
             try {
-                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110074);
+                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110076);
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
                 try {
                     str = bufferedReader.readLine();

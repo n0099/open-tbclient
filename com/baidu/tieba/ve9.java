@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,32 +16,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import com.baidu.ubc.Flow;
+import java.util.ConcurrentModificationException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ve9 {
+public class ve9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
-    public static StringBuffer c;
+    public static final boolean k;
+    public static volatile ve9 l;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ScheduledExecutorService b;
+    public ExecutorService c;
+    public ye9 d;
+    public ue9 e;
+    public int f;
+    public boolean g;
+    public nf9 h;
+    public boolean i;
+    public boolean j;
 
     /* loaded from: classes6.dex */
-    public static class a extends xe9 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ ve9 a;
 
-        public a(String str, String str2, String str3) {
+        public a(ve9 ve9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
+                Object[] objArr = {ve9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,26 +62,1111 @@ public final class ve9 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.a = ve9Var;
         }
 
-        @Override // com.baidu.tieba.xe9
-        public final void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                StringBuffer stringBuffer = new StringBuffer();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
-                stringBuffer.append(simpleDateFormat.format(new Date()));
-                stringBuffer.append("\t");
-                stringBuffer.append(this.a);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.b);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.c);
-                af9.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, ve9.c.toString());
+                if (this.a.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "sendArrivalData#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.a.e.E();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ff9 a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ ve9 c;
+
+        public b(ve9 ve9Var, ff9 ff9Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, ff9Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            this.a = ff9Var;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "processUploadRealTimeEvent#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.c.e.w(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ve9 c;
+
+        public c(ve9 ve9Var, boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            this.a = z;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                if (this.a) {
+                    this.c.e.Q(this.b);
+                } else {
+                    this.c.e.P(this.b);
+                }
+                ag9.m().B(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public d(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.e == null) {
+                return;
+            }
+            this.a.e.S();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public e(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "upload#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                if (Math.abs(System.currentTimeMillis() - cg9.a().c("ubc_last_upload_all_time", 0L)) < 3600000) {
+                    return;
+                }
+                this.a.e.S();
+                long currentTimeMillis = System.currentTimeMillis();
+                cg9.a().e("ubc_last_upload_all_time", currentTimeMillis);
+                cg9.a().e("ubc_last_upload_non_real", currentTimeMillis);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public f(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.e == null) {
+                return;
+            }
+            this.a.e.M();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public g(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "saveCache#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.a.e.m();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ue9.c a;
+        public final /* synthetic */ ve9 b;
+
+        public h(ve9 ve9Var, ue9.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ve9Var;
+            this.a = cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "uploadData#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.b.e.N(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class i implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ue9.c a;
+        public final /* synthetic */ ve9 b;
+
+        public i(ve9 ve9Var, ue9.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ve9Var;
+            this.a = cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "uploadData#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.b.e.N(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class j implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public j(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "processOneFailedData#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.a.e.v();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class k implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public k(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.a.e.u();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class l implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public l(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "sendQualityData#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.a.e.F();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class m implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public of9 a;
+        public boolean b;
+        public kf9 c;
+        public final /* synthetic */ ve9 d;
+
+        public m(ve9 ve9Var, of9 of9Var, boolean z, kf9 kf9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, of9Var, Boolean.valueOf(z), kf9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ve9Var;
+            this.a = of9Var;
+            this.b = z;
+            this.c = kf9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.d.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "ConfigUpdateRunnable#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.d.e.K(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class n implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ff9 a;
+        public String b;
+        public final /* synthetic */ ve9 c;
+
+        public n(ve9 ve9Var, String str, String str2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, str2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            this.a = new ff9(str, str2, i);
+            this.b = str;
+        }
+
+        public n(ve9 ve9Var, String str, String str2, int i, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, str2, Integer.valueOf(i), str3};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            ff9 ff9Var = new ff9(str, str2, i);
+            this.a = ff9Var;
+            this.b = str;
+            ff9Var.r(str3);
+        }
+
+        public n(ve9 ve9Var, String str, String str2, int i, String str3, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            this.a = new ff9(str, str2, i, str3, i2);
+            this.b = str;
+        }
+
+        public n(ve9 ve9Var, String str, String str2, int i, String str3, long j, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            this.a = new ff9(str, str2, i, str3, j, i2);
+            this.b = str;
+        }
+
+        public n(ve9 ve9Var, String str, JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, jSONObject, Integer.valueOf(i)};
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            this.a = new ff9(str, jSONObject, i);
+            this.b = str;
+        }
+
+        public n(ve9 ve9Var, String str, JSONObject jSONObject, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, jSONObject, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65541, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65541, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            ff9 ff9Var = new ff9(str, jSONObject, i);
+            this.a = ff9Var;
+            this.b = str;
+            ff9Var.r(str2);
+        }
+
+        public final boolean a(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+                if ((i & 16) != 0 && !tf9.i().c(str)) {
+                    return false;
+                }
+                if (this.c.d != null && !this.c.d.g(str, i)) {
+                    return false;
+                }
+                if (this.c.d != null && this.c.d.F(str)) {
+                    return false;
+                }
+                if (this.c.d != null && this.c.d.h(str)) {
+                    return false;
+                }
+                if (this.c.d != null && this.c.d.d(str)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeLI.booleanValue;
+        }
+
+        public final void b(String str, String str2) {
+            int length;
+            int s;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (length = str2.length()) > (s = ye9.o().s())) {
+                vf9.a().g(String.valueOf(s), String.valueOf(length), str);
+                if (ve9.k) {
+                    Log.e("UBCBehaviorProcessor", "UBC log too large, id=" + str + ", content=" + str2);
+                    throw new RuntimeException(String.format("UBC log too large(size=%dKB / threshold=%dKB), log id=%s, please deal with. Any question connect UBC owner. content=%s", Integer.valueOf(length / 1024), Integer.valueOf(s / 1024), str, str2));
+                }
+            }
+        }
+
+        public final void c() {
+            ff9 ff9Var;
+            JSONObject m;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (ff9Var = this.a) == null) {
+                return;
+            }
+            String l = ff9Var.l();
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            String f = this.a.f();
+            if (TextUtils.isEmpty(f) && (m = this.a.m()) != null) {
+                try {
+                    f = m.toString();
+                } catch (ConcurrentModificationException e) {
+                    if (this.c.h != null) {
+                        this.c.h.b(l, e.toString());
+                        return;
+                    }
+                    return;
+                }
+            }
+            if (!TextUtils.isEmpty(f)) {
+                b(l, f);
+                if (this.c.h != null) {
+                    this.c.h.a(l, f);
+                }
+            }
+        }
+
+        public void d(boolean z) {
+            ff9 ff9Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (ff9Var = this.a) != null) {
+                ff9Var.u(z);
+            }
+        }
+
+        public void e(String str) {
+            ff9 ff9Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (ff9Var = this.a) != null) {
+                ff9Var.x(str);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                if (this.c.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                if (!this.c.i) {
+                    if (this.c.h == null) {
+                        this.c.h = (nf9) ServiceManager.getService(nf9.a);
+                    }
+                    this.c.i = true;
+                }
+                if (this.c.d != null && this.c.d.b(this.b) == 1) {
+                    c();
+                }
+                if (this.a.j() == -1) {
+                    if (!a(this.a.l(), this.a.n())) {
+                        return;
+                    }
+                    if (this.c.d != null && this.c.d.J(this.a.l())) {
+                        d(true);
+                    }
+                    pf9.f().a(this.a.l(), true);
+                }
+                this.a.v();
+                String l = this.a.l();
+                if (TextUtils.isEmpty(l)) {
+                    return;
+                }
+                if (this.c.d != null) {
+                    String j = this.c.d.j(l);
+                    if (!TextUtils.isEmpty(j)) {
+                        this.a.s(j);
+                    }
+                }
+                if (this.c.d != null && this.c.d.b(this.b) == 2) {
+                    c();
+                }
+                if (this.a.j() == -1 && TextUtils.equals(l, "1876")) {
+                    this.c.e.C(this.a);
+                } else if ((this.a.n() & 8) != 0) {
+                    this.c.e.B(this.a);
+                } else if ((this.a.n() & 128) != 0) {
+                    if (this.c.j) {
+                        this.c.e.t(this.a);
+                    } else {
+                        this.c.e.A(this.a);
+                    }
+                } else if (this.a != null && this.c.d != null && this.c.d.f(l)) {
+                    this.c.e.X(this.a);
+                } else if (this.c.j) {
+                    this.c.e.t(this.a);
+                } else {
+                    this.c.e.A(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class o implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public final /* synthetic */ ve9 c;
+
+        public o(ve9 ve9Var, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ve9Var;
+            this.a = str;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "FlowCancelRunnable#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.c.e.h(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class p implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public hf9 a;
+        public final /* synthetic */ ve9 b;
+
+        public p(ve9 ve9Var, Flow flow, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, flow, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ve9Var;
+            hf9 hf9Var = new hf9(flow.getId(), flow.getHandle(), str, flow.getOption());
+            this.a = hf9Var;
+            hf9Var.q(flow.getStartTime());
+            this.a.C("1");
+            ve9.n(ve9Var);
+        }
+
+        public p(ve9 ve9Var, Flow flow, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, flow, str, str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.b = ve9Var;
+            hf9 hf9Var = new hf9(flow.getId(), flow.getHandle(), str, flow.getOption());
+            this.a = hf9Var;
+            hf9Var.q(flow.getStartTime());
+            this.a.C("1");
+            ve9.n(ve9Var);
+            this.a.r(str2);
+        }
+
+        public p(ve9 ve9Var, Flow flow, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, flow, jSONObject};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.b = ve9Var;
+            hf9 hf9Var = new hf9(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
+            this.a = hf9Var;
+            hf9Var.q(flow.getStartTime());
+            this.a.C("1");
+            ve9.n(ve9Var);
+        }
+
+        public p(ve9 ve9Var, Flow flow, JSONObject jSONObject, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, flow, jSONObject, str};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            this.b = ve9Var;
+            hf9 hf9Var = new hf9(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
+            this.a = hf9Var;
+            hf9Var.q(flow.getStartTime());
+            this.a.C("1");
+            ve9.n(ve9Var);
+            this.a.r(str);
+        }
+
+        public void a(boolean z) {
+            hf9 hf9Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (hf9Var = this.a) != null) {
+                hf9Var.u(z);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.b.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "FlowCreateRunnable#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.a.x();
+                if (!TextUtils.isEmpty(this.b.d.j(this.a.l()))) {
+                    this.a.s(this.b.d.j(this.a.l()));
+                }
+                this.b.e.I(this.a);
+                tf9.q(this.b.f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class q implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public int c;
+        public long d;
+        public JSONArray e;
+        public final /* synthetic */ ve9 f;
+
+        public q(ve9 ve9Var, String str, int i, int i2, JSONArray jSONArray) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, Integer.valueOf(i), Integer.valueOf(i2), jSONArray};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = ve9Var;
+            this.a = str;
+            this.b = i;
+            this.c = i2;
+            this.d = System.currentTimeMillis();
+            this.e = jSONArray;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "FlowEndRunnable#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                pf9.f().a(this.a, true);
+                this.f.e.l(this.a, this.b, this.c, this.d, this.e);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class r implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public String c;
+        public final /* synthetic */ ve9 d;
+
+        public r(ve9 ve9Var, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ve9Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.d.e == null) {
+                    if (ve9.k) {
+                        Log.d("UBCBehaviorProcessor", "FlowUpdateRunnable#ubc init not finish");
+                        return;
+                    }
+                    return;
+                }
+                this.d.e.L(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class s implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        public s(ve9 ve9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        public /* synthetic */ s(ve9 ve9Var, d dVar) {
+            this(ve9Var);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(10);
+                this.a.d = ye9.o();
+                this.a.e = new ue9(this.a.a);
+                this.a.e.H();
+                ve9 ve9Var = this.a;
+                ve9Var.j = ve9Var.d.N();
             }
         }
     }
@@ -82,78 +1184,429 @@ public final class ve9 {
                 return;
             }
         }
-        c = new StringBuffer();
-        if (ud9.h() != null) {
-            a = !com.baidu.ubs.analytics.d.a.a();
-            b = true;
-            c.append("ABsdkLog-");
-            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            c.append("_");
-            try {
-                c.append(c(qe9.g(ud9.h().getContext()).getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException e) {
-                df9.d(e);
-            } catch (Exception e2) {
-                df9.d(e2);
-            }
-            c.append(".log");
-        }
+        k = tf9.m();
     }
 
-    public static void a(String str) {
+    public ve9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            if (a) {
-                Log.w("BaiDuUbs", str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            d(Config.DEVICE_WIDTH, "BaiDuUbs", str);
         }
+        this.g = false;
+        y(tf9.b());
     }
 
-    public static void b(String str) {
+    public static ve9 w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            if (a) {
-                Log.e("BaiDuUbs", str);
-            }
-            d("e", "BaiDuUbs", str);
-        }
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder("");
-            if (bArr != null && bArr.length > 0) {
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() < 2) {
-                        sb.append(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (l == null) {
+                synchronized (ve9.class) {
+                    if (l == null) {
+                        l = new ve9();
                     }
-                    sb.append(hexString);
                 }
-                return sb.toString();
             }
-            return null;
+            return l;
+        }
+        return (ve9) invokeV.objValue;
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.execute(new k(this));
+        }
+    }
+
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.execute(new j(this));
+        }
+    }
+
+    public void K() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || !nf1.g()) {
+            return;
+        }
+        this.b.execute(new a(this));
+    }
+
+    public void L() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.b.execute(new l(this));
+        }
+    }
+
+    public void O() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.g) {
+            return;
+        }
+        this.g = true;
+        this.b.execute(new e(this));
+    }
+
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.b.execute(new f(this));
+        }
+    }
+
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.b.execute(new d(this));
+        }
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            this.b.execute(new g(this));
+        }
+    }
+
+    public static /* synthetic */ int n(ve9 ve9Var) {
+        int i2 = ve9Var.f;
+        ve9Var.f = i2 + 1;
+        return i2;
+    }
+
+    public void R(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
+            S(jSONObject, null);
+        }
+    }
+
+    public String x(String str) {
+        InterceptResult invokeL;
+        int q2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
+            ue9 ue9Var = this.e;
+            if (ue9Var != null && (q2 = ue9Var.q(str)) != -1) {
+                return String.valueOf(q2);
+            }
+            return "";
         }
         return (String) invokeL.objValue;
     }
 
-    public static void d(String str, String str2, String str3) {
+    public void I(ff9 ff9Var, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) != null) || !b) {
-            return;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, ff9Var, z) == null) {
+            this.b.execute(new b(this, ff9Var, z));
         }
-        we9.a(new a(str, str2, str3));
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public void J(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.toString();
+        if (interceptable == null || interceptable.invokeLJ(1048585, this, runnable, j2) == null) {
+            this.b.schedule(runnable, j2, TimeUnit.MILLISECONDS);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void S(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, jSONObject, str) == null) {
+            T(jSONObject, str, false, null, null);
+        }
+    }
+
+    public void V(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048597, this, str, z) == null) {
+            this.b.execute(new c(this, z, str));
+        }
+    }
+
+    public void s(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048603, this, str, i2) == null) {
+            this.b.execute(new o(this, str, i2));
+        }
+    }
+
+    public void A(String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) {
+            this.b.execute(new n(this, str, str2, i2));
+        }
+    }
+
+    public void C(String str, JSONObject jSONObject, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject, i2) == null) {
+            this.b.execute(new n(this, str, jSONObject, i2));
+        }
+    }
+
+    public void M(of9 of9Var, boolean z, kf9 kf9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{of9Var, Boolean.valueOf(z), kf9Var}) == null) {
+            this.b.execute(new m(this, of9Var, z, kf9Var));
+        }
+    }
+
+    public void N(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048589, this, str, i2, str2) == null) {
+            this.b.execute(new r(this, str, i2, str2));
+        }
+    }
+
+    public void B(String str, String str2, int i2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i2, str3) == null) {
+            this.b.execute(new n(this, str, str2, i2, str3));
+        }
+    }
+
+    public void D(String str, JSONObject jSONObject, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048579, this, str, jSONObject, i2, str2) == null) {
+            this.b.execute(new n(this, str, jSONObject, i2, str2));
+        }
+    }
+
+    public void U(JSONObject jSONObject, boolean z, ff9 ff9Var, lf9 lf9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{jSONObject, Boolean.valueOf(z), ff9Var, lf9Var}) == null) {
+            T(jSONObject, null, z, ff9Var, lf9Var);
+        }
+    }
+
+    public void z(String str, String str2, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048609, this, str, str2, str3, i2) == null) {
+            n nVar = new n(this, str, str2, i2);
+            if (!TextUtils.isEmpty(str3)) {
+                nVar.e(str3);
+            }
+            this.b.execute(nVar);
+        }
+    }
+
+    public void F(String str, String str2, int i2, String str3, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
+            this.b.execute(new n(this, str, str2, i2, str3, i3));
+        }
+    }
+
+    public void G(String str, String str2, int i2, String str3, long j2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
+            this.b.execute(new n(this, str, str2, i2, str3, j2, i3));
+        }
+    }
+
+    public void Q(dg9 dg9Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, dg9Var, str) == null) {
+            if (k) {
+                Log.d("UBCBehaviorProcessor", "uploadData isDataInFile:" + dg9Var.x());
+                if (dg9Var.x()) {
+                    dg9Var.F("UBCDEBUG");
+                } else {
+                    Log.d("UBCDEBUG", dg9Var.u().toString());
+                }
+            }
+            if (!tf9.l() && !dg9Var.A()) {
+                return;
+            }
+            ue9.c cVar = new ue9.c();
+            boolean x = dg9Var.x();
+            cVar.a = x;
+            if (x) {
+                cVar.c = dg9Var.o();
+                cVar.f = dg9Var.m();
+            } else {
+                cVar.d = dg9Var.u();
+            }
+            cVar.h = dg9Var.A();
+            cVar.e = str;
+            ag9.m().z();
+            this.c.execute(new i(this, cVar));
+        }
+    }
+
+    public Flow t(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, str, i2)) == null) {
+            Flow flow = new Flow(str, this.f, i2);
+            ye9 ye9Var = this.d;
+            if (ye9Var != null && !ye9Var.g(str, i2)) {
+                flow.setValid(false);
+                return flow;
+            } else if ((i2 & 16) != 0 && !tf9.i().c(str)) {
+                flow.setValid(false);
+                return flow;
+            } else {
+                ye9 ye9Var2 = this.d;
+                if (ye9Var2 != null && ye9Var2.h(str)) {
+                    flow.setValid(false);
+                    return flow;
+                }
+                ye9 ye9Var3 = this.d;
+                if (ye9Var3 != null && ye9Var3.F(str)) {
+                    flow.setValid(false);
+                    return flow;
+                }
+                ye9 ye9Var4 = this.d;
+                if (ye9Var4 != null && !ye9Var4.K(str)) {
+                    flow.setValid(false);
+                }
+                return flow;
+            }
+        }
+        return (Flow) invokeLI.objValue;
+    }
+
+    public final void T(JSONObject jSONObject, String str, boolean z, ff9 ff9Var, lf9 lf9Var) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{jSONObject, str, Boolean.valueOf(z), ff9Var, lf9Var}) == null) {
+            if (k) {
+                Log.d("UBCBehaviorProcessor", "uploadData:" + str);
+                Log.d("UBCDEBUG", jSONObject.toString());
+            }
+            boolean l2 = tf9.l();
+            if (ff9Var != null && (ff9Var.n() & 128) != 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!l2 && !z2) {
+                return;
+            }
+            ue9.c cVar = new ue9.c();
+            cVar.a = false;
+            cVar.d = jSONObject;
+            cVar.e = str;
+            cVar.g = z;
+            cVar.h = z2;
+            cVar.b = ff9Var;
+            cVar.i = lf9Var;
+            this.c.execute(new h(this, cVar));
+        }
+    }
+
+    public synchronized Flow o(String str, String str2, int i2) {
+        InterceptResult invokeLLI;
+        Flow t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048599, this, str, str2, i2)) == null) {
+            synchronized (this) {
+                t = t(str, i2);
+                if (t != null && t.getValid()) {
+                    p pVar = new p(this, t, str2);
+                    if (this.d != null && this.d.J(str)) {
+                        pVar.a(true);
+                    }
+                    this.b.execute(pVar);
+                }
+            }
+            return t;
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    public synchronized Flow q(String str, JSONObject jSONObject, int i2) {
+        InterceptResult invokeLLI;
+        Flow t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048601, this, str, jSONObject, i2)) == null) {
+            synchronized (this) {
+                t = t(str, i2);
+                if (t != null && t.getValid()) {
+                    p pVar = new p(this, t, jSONObject);
+                    if (this.d != null && this.d.J(str)) {
+                        pVar.a(true);
+                    }
+                    this.b.execute(pVar);
+                }
+            }
+            return t;
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    public synchronized Flow p(String str, String str2, int i2, String str3) {
+        InterceptResult invokeLLIL;
+        Flow t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048600, this, str, str2, i2, str3)) == null) {
+            synchronized (this) {
+                t = t(str, i2);
+                if (t != null && t.getValid()) {
+                    p pVar = new p(this, t, str2, str3);
+                    if (this.d != null && this.d.J(str)) {
+                        pVar.a(true);
+                    }
+                    this.b.execute(pVar);
+                }
+            }
+            return t;
+        }
+        return (Flow) invokeLLIL.objValue;
+    }
+
+    public synchronized Flow r(String str, JSONObject jSONObject, int i2, String str2) {
+        InterceptResult invokeLLIL;
+        Flow t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048602, this, str, jSONObject, i2, str2)) == null) {
+            synchronized (this) {
+                t = t(str, i2);
+                if (t != null && t.getValid()) {
+                    p pVar = new p(this, t, jSONObject, str2);
+                    if (this.d != null && this.d.J(str)) {
+                        pVar.a(true);
+                    }
+                    this.b.execute(pVar);
+                }
+            }
+            return t;
+        }
+        return (Flow) invokeLLIL.objValue;
+    }
+
+    public void u(String str, int i2, int i3, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), jSONArray}) == null) {
+            this.b.execute(new q(this, str, i2, i3, jSONArray));
+        }
+    }
+
+    public final void y(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048608, this, context) == null) && this.a == null && context != null) {
+            if (context instanceof Application) {
+                this.a = context;
+            } else {
+                this.a = context.getApplicationContext();
+            }
+            this.f = tf9.d();
+            ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+            this.b = newSingleThreadScheduledExecutor;
+            newSingleThreadScheduledExecutor.execute(new s(this, null));
+            this.c = Executors.newSingleThreadExecutor();
+        }
     }
 }

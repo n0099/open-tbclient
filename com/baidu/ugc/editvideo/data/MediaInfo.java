@@ -3,13 +3,13 @@ package com.baidu.ugc.editvideo.data;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uj9;
+import com.baidu.tieba.dn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MediaInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int minimumDuration = 3000;
@@ -194,7 +194,7 @@ public class MediaInfo {
                     isMore3s = false;
                 }
             }
-            if (!uj9.a) {
+            if (!dn9.a) {
                 if (this.duration > 15000) {
                     z = false;
                 }

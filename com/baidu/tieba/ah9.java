@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes3.dex */
-public interface ah9 extends Runnable {
+public class ah9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void b(DownloadException downloadException);
-
-        void onConnectCanceled();
-
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "process";
+            }
+            try {
+                return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
-
-    void cancel();
-
-    boolean isCanceled();
-
-    boolean isPaused();
-
-    void pause();
 }

@@ -1,82 +1,114 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-/* loaded from: classes3.dex */
-public class cj7 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ReplyMe.DataRes;
+import tbclient.ReplyMe.ReplyList;
+import tbclient.ReplyMe.ReplyMeResIdl;
+/* loaded from: classes4.dex */
+public class cj7 implements ud5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<FeedData> a;
+    public vt4 b;
+    public aj7 c;
 
-    public static bj7 a(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public cj7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof bj7)) {
-                return null;
-            }
-            return (bj7) iLegoAdvert;
-        }
-        return (bj7) invokeL.objValue;
-    }
-
-    public static void b(bj7 bj7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, bj7Var) == null) && bj7Var != null && bj7Var.getParallelCharge() != null) {
-            b11.b(bj7Var.getParallelCharge().b);
-            Iterator<String> it = bj7Var.getParallelCharge().c.iterator();
-            while (it.hasNext()) {
-                b11.b(it.next());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new vt4();
+        this.c = new aj7();
     }
 
-    public static void c(AdvertAppInfo advertAppInfo) {
+    public ArrayList<FeedData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
-            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
-            if (iLegoAdvert != null) {
-                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
-            }
-            a11.b(clogBuilder);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static boolean d(bj7 bj7Var) {
-        InterceptResult invokeL;
-        boolean z;
+    public vt4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bj7Var)) == null) {
-            if (bj7Var == null || bj7Var.getParallelCharge() == null) {
-                return false;
-            }
-            String str = bj7Var.getParallelCharge().a;
-            b11.b(str);
-            if (!TextUtils.isEmpty(str)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Iterator<String> it = bj7Var.getParallelCharge().d.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!z && TextUtils.isEmpty(next)) {
-                    z = false;
-                } else {
-                    z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (vt4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ud5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+                if (optJSONArray == null) {
+                    optJSONArray = jSONObject.optJSONArray("at_list");
                 }
-                b11.b(next);
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserJson(optJSONArray.optJSONObject(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.c.f(jSONObject.optJSONObject("message"));
+                this.b.i(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return z;
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ud5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {
+            DataRes dataRes = ((ReplyMeResIdl) message).data;
+            try {
+                List<ReplyList> list = dataRes.reply_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserProtoBuf(list.get(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.b.j(dataRes.page);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

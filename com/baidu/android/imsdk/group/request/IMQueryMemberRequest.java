@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -12,7 +11,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -114,20 +112,27 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     if (i == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("members");
-                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                        int i2 = 0;
+                        int i3 = 0;
+                        while (i3 < jSONArray.length()) {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                             long optLong = jSONObject2.optLong("bd_uid");
                             int optInt = jSONObject2.optInt("role");
                             long optLong2 = jSONObject2.optLong(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
                             long optLong3 = jSONObject2.optLong("uk");
                             String optString = jSONObject2.optString("name");
-                            int optInt2 = jSONObject2.optInt("status", 0);
+                            int optInt2 = jSONObject2.optInt("status", i2);
                             if (optInt2 != 0 && optInt2 != 2) {
                                 arrayList2.add(String.valueOf(optLong));
+                                i3++;
+                                i2 = 0;
                             }
                             GroupMember groupMember = new GroupMember(String.valueOf(this.this$0.mGroupId), optLong3, "", optLong, optInt, optLong2);
                             groupMember.setNickName(optString);
+                            groupMember.setAvatarExt(jSONObject2.optString(DBTableDefine.GroupMemberColumns.COLUMN_AVATAR_EXT, ""));
                             arrayList.add(groupMember);
+                            i3++;
+                            i2 = 0;
                         }
                         if (this.this$0.mSaveToDB == 1) {
                             String str2 = IMQueryMemberRequest.TAG;
@@ -164,7 +169,6 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);

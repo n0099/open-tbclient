@@ -13,7 +13,7 @@ import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 aVar.a(this);
                 aVar.a(this.bJ);
                 aVar.a(this.bS, this.nM.mRootContainer, adTemplate);
-                aVar.a(new a.InterfaceC0538a(this) { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
+                aVar.a(new a.InterfaceC0555a(this) { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ b sv;
@@ -175,7 +175,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                         this.sv = this;
                     }
 
-                    @Override // com.kwad.components.ad.i.a.InterfaceC0538a
+                    @Override // com.kwad.components.ad.i.a.InterfaceC0555a
                     public final void V(boolean z) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
@@ -205,7 +205,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091120);
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09117f);
         }
     }
 

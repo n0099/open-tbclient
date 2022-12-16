@@ -15,7 +15,7 @@ import com.kwad.sdk.api.core.AbstractKsDrawAd;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends AbstractKsDrawAd implements com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

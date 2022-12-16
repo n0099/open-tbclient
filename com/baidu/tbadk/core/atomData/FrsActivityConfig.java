@@ -17,14 +17,15 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.dn8;
+import com.baidu.tieba.ek5;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.hg8;
-import com.baidu.tieba.kj5;
-import com.baidu.tieba.nv6;
+import com.baidu.tieba.kw6;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,6 +86,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_PAGE_ID = "frs_page_id";
     public static final String FRS_PB_CARD_GIFT = "tb_pb_card_gift";
     public static final String GOOD = "good";
+    public static final String IS_SHOW_IM_GROUP_LIST = "is_show_im_group_list";
     public static final String KEY_ACHIEVEMENT_URL = "key_achievement_url";
     public static final String KEY_FPS_FRS = "BaToFrs_frs_tran";
     public static final String KEY_FPS_FRS_FROM = "BaToFrs";
@@ -121,6 +123,7 @@ public class FrsActivityConfig extends IntentConfig {
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
+        dn8.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -235,61 +238,61 @@ public class FrsActivityConfig extends IntentConfig {
                 i2 = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.L(nv6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.S(kw6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(nv6.d(i2));
+            frsRequestData.setSortType(kw6.d(i2));
             if (i2 == 5) {
-                frsRequestData.O(1);
+                frsRequestData.V(1);
             } else {
-                frsRequestData.O(0);
+                frsRequestData.V(0);
             }
-            frsRequestData.z("forum_name", xi.getUrlEncode(stringExtra));
-            frsRequestData.z("client_type", "2");
+            frsRequestData.G("forum_name", xi.getUrlEncode(stringExtra));
+            frsRequestData.G("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            nv6.e(i2, frsRequestData);
-            frsRequestData.W("2");
-            frsRequestData.X("-2");
-            frsRequestData.Q(stringExtra);
-            frsRequestData.e0(1);
-            frsRequestData.I(0);
-            frsRequestData.d0(yi.l(TbadkCoreApplication.getInst()));
-            frsRequestData.c0(yi.j(TbadkCoreApplication.getInst()));
-            frsRequestData.b0(yi.i(TbadkCoreApplication.getInst()));
+            kw6.e(i2, frsRequestData);
+            frsRequestData.d0("2");
+            frsRequestData.e0("-2");
+            frsRequestData.X(stringExtra);
+            frsRequestData.l0(1);
+            frsRequestData.P(0);
+            frsRequestData.k0(yi.l(TbadkCoreApplication.getInst()));
+            frsRequestData.j0(yi.j(TbadkCoreApplication.getInst()));
+            frsRequestData.i0(yi.i(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             } else {
                 i = 1;
             }
-            frsRequestData.g0(i);
+            frsRequestData.n0(i);
             if (uri != null) {
-                frsRequestData.a0(uri.toString());
+                frsRequestData.h0(uri.toString());
             }
-            frsRequestData.S(null);
-            frsRequestData.f0(stringExtra3);
-            frsRequestData.R(xg.g(kj5.a(), 0L));
+            frsRequestData.Z(null);
+            frsRequestData.m0(stringExtra3);
+            frsRequestData.Y(xg.g(ek5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
-            frsRequestData.N(1);
+            frsRequestData.U(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
-            frsRequestData.M(longExtra);
-            nv6.e(i2, frsRequestData);
-            frsRequestData.U(1);
+            frsRequestData.T(longExtra);
+            kw6.e(i2, frsRequestData);
+            frsRequestData.b0(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && hg8.l().b() != null) {
-                int d = hg8.l().b().d(stringExtra, false);
-                int e = hg8.l().b().e(stringExtra, false);
-                if (frsRequestData.E() == 1) {
+            if (ThreadData.isRecAppLoaded.get() && zi8.l().b() != null) {
+                int d = zi8.l().b().d(stringExtra, false);
+                int e = zi8.l().b().e(stringExtra, false);
+                if (frsRequestData.L() == 1) {
                     d++;
-                } else if (frsRequestData.E() == 2) {
+                } else if (frsRequestData.L() == 2) {
                     e++;
                 }
-                frsRequestData.Y(d);
-                frsRequestData.T(e);
+                frsRequestData.f0(d);
+                frsRequestData.a0(e);
             }
             FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
             frsNetModel.setUniqueId(this.mPageId);
-            frsNetModel.b0(frsNetModel);
+            frsNetModel.i0(frsNetModel);
             TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
             frsNetModel.loadData();
             frsRequestData.setPushTid(null);
@@ -342,10 +345,22 @@ public class FrsActivityConfig extends IntentConfig {
         }
     }
 
+    public void setIsShowImGroupList(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (intent = getIntent()) != null) {
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            intent.putExtra(IS_SHOW_IM_GROUP_LIST, z);
+        }
+    }
+
     public void setPushTid(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra(MainTabActivityConfig.PUSH_TID, str);
         }
     }
@@ -353,7 +368,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }

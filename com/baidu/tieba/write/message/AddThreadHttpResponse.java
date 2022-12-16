@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.d79;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.u39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(u39.a(toast));
+        BdToastHelper.toast(d79.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
             addThreadHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addThreadResIdl.data;
             if (dataRes != null) {
-                BdToastData a = u39.a(dataRes.toast);
+                BdToastData a = d79.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addThreadHttpResponse.resultJSON.put(DI.TOAST_NAME, json);
                 }
@@ -281,10 +281,12 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
     public JSONObject getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.resultJSON;
         }
         return (JSONObject) invokeV.objValue;

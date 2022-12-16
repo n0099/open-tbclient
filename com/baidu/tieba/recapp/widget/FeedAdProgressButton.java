@@ -20,8 +20,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq5;
-import com.baidu.tieba.ci8;
+import com.baidu.tieba.uk8;
+import com.baidu.tieba.vq5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DrawAllocation"})
-/* loaded from: classes5.dex */
-public class FeedAdProgressButton extends View implements ci8 {
+/* loaded from: classes6.dex */
+public class FeedAdProgressButton extends View implements uk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -56,7 +56,7 @@ public class FeedAdProgressButton extends View implements ci8 {
     public Rect u;
     public Paint v;
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void setButtonTextNightColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -93,7 +93,7 @@ public class FeedAdProgressButton extends View implements ci8 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0932);
+        this.q = getResources().getString(R.string.install_app);
         this.t = 0;
         e(context, attributeSet);
     }
@@ -128,12 +128,12 @@ public class FeedAdProgressButton extends View implements ci8 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0932);
+        this.q = getResources().getString(R.string.install_app);
         this.t = 0;
         e(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -144,7 +144,7 @@ public class FeedAdProgressButton extends View implements ci8 {
         }
     }
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -229,7 +229,7 @@ public class FeedAdProgressButton extends View implements ci8 {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aq5.feed_ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vq5.feed_ad_progress);
             int color = getResources().getColor(R.color.CAM_X0302);
             int color2 = getResources().getColor(R.color.CAM_X0302);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
@@ -271,7 +271,7 @@ public class FeedAdProgressButton extends View implements ci8 {
                 if (this.q.length() >= 4) {
                     string = this.q;
                 } else {
-                    string = getResources().getString(R.string.obfuscated_res_0x7f0f0932);
+                    string = getResources().getString(R.string.install_app);
                 }
                 this.v.getTextBounds(string, 0, string.length(), this.u);
                 float height = this.u.height() + (this.s * 2);
@@ -338,7 +338,7 @@ public class FeedAdProgressButton extends View implements ci8 {
         }
     }
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -347,7 +347,7 @@ public class FeedAdProgressButton extends View implements ci8 {
         }
     }
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -370,7 +370,7 @@ public class FeedAdProgressButton extends View implements ci8 {
         }
     }
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -385,7 +385,7 @@ public class FeedAdProgressButton extends View implements ci8 {
         }
     }
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void setRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -417,7 +417,7 @@ public class FeedAdProgressButton extends View implements ci8 {
         }
     }
 
-    @Override // com.baidu.tieba.ci8
+    @Override // com.baidu.tieba.uk8
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {

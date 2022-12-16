@@ -11,12 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes4.dex */
+import org.apache.http.client.methods.HttpOptions;
+/* loaded from: classes5.dex */
 public class lb4 extends HttpCommonRequest<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends HttpCommonRequestBuilder<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +146,7 @@ public class lb4 extends HttpCommonRequest<a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) {
-            return this.okRequestBuilder.method("CONNECT", requestBody).build();
+            return this.okRequestBuilder.method(HttpOptions.METHOD_NAME, requestBody).build();
         }
         return (Request) invokeL.objValue;
     }

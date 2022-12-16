@@ -21,8 +21,8 @@ import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho0;
-import com.baidu.tieba.jq0;
+import com.baidu.tieba.go0;
+import com.baidu.tieba.iq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -175,12 +175,12 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
             /* renamed from: com.baidu.nadcore.lp.reward.view.NadVideoRewardCountDownView$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public static final class C0118a implements ValueAnimator.AnimatorUpdateListener {
+            public static final class C0132a implements ValueAnimator.AnimatorUpdateListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0118a(a aVar) {
+                public C0132a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,7 +239,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                     ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.5f);
-                    ofFloat.addUpdateListener(new C0118a(this));
+                    ofFloat.addUpdateListener(new C0132a(this));
                     ofFloat.setDuration(200L).start();
                 }
             }
@@ -264,14 +264,14 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadVideoRewardCountDownView a;
-        public final /* synthetic */ jq0 b;
+        public final /* synthetic */ iq0 b;
 
-        public a(NadVideoRewardCountDownView nadVideoRewardCountDownView, jq0 jq0Var) {
+        public a(NadVideoRewardCountDownView nadVideoRewardCountDownView, iq0 iq0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nadVideoRewardCountDownView, jq0Var};
+                Object[] objArr = {nadVideoRewardCountDownView, iq0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -282,7 +282,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
                 }
             }
             this.a = nadVideoRewardCountDownView;
-            this.b = jq0Var;
+            this.b = iq0Var;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -343,20 +343,20 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     }
 
     /* loaded from: classes2.dex */
-    public static final class d extends ho0 {
+    public static final class d extends go0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadVideoRewardCountDownView j;
-        public final /* synthetic */ jq0 k;
+        public final /* synthetic */ iq0 k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(NadVideoRewardCountDownView nadVideoRewardCountDownView, jq0 jq0Var, int i, long j, long j2) {
+        public d(NadVideoRewardCountDownView nadVideoRewardCountDownView, iq0 iq0Var, int i, long j, long j2) {
             super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r6;
-                Object[] objArr = {nadVideoRewardCountDownView, jq0Var, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {nadVideoRewardCountDownView, iq0Var, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -369,10 +369,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
                 }
             }
             this.j = nadVideoRewardCountDownView;
-            this.k = jq0Var;
+            this.k = iq0Var;
         }
 
-        @Override // com.baidu.tieba.ho0
+        @Override // com.baidu.tieba.go0
         public void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -384,7 +384,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             }
         }
 
-        @Override // com.baidu.tieba.ho0
+        @Override // com.baidu.tieba.go0
         public void l(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -420,7 +420,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
         @Override // java.lang.Runnable
         public final void run() {
-            ho0 countDownTime;
+            go0 countDownTime;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTime = this.a.getCountDownTime()) != null) {
                 countDownTime.m();
@@ -456,11 +456,11 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         this.h = LazyKt__LazyJVMKt.lazy(new NadVideoRewardCountDownView$tvCountDown$2(this));
         this.i = LazyKt__LazyJVMKt.lazy(new NadVideoRewardCountDownView$tvDesc$2(this));
         this.j = LazyKt__LazyJVMKt.lazy(new NadVideoRewardCountDownView$lottieView$2(this));
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0626, this);
+        LayoutInflater.from(context).inflate(R.layout.nad_reward_video_lp_countdown, this);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(ExtensionsKt.d(14, context));
-        gradientDrawable.setStroke(ExtensionsKt.d(1, context), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0608a9));
-        int color = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0608a7);
+        gradientDrawable.setStroke(ExtensionsKt.d(1, context), ContextCompat.getColor(context, R.color.nad_welfare_countdown_stroke));
+        int color = ContextCompat.getColor(context, R.color.nad_welfare_countdown_bg);
         gradientDrawable.setColors(new int[]{color, color});
         Unit unit = Unit.INSTANCE;
         setBackground(gradientDrawable);
@@ -497,7 +497,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             long millis = TimeUnit.SECONDS.toMillis(this.k);
-            ho0 countDownTime = getCountDownTime();
+            go0 countDownTime = getCountDownTime();
             if (countDownTime != null) {
                 j = countDownTime.i();
             } else {
@@ -508,11 +508,11 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         return invokeV.longValue;
     }
 
-    public final void o(jq0 jq0Var) {
+    public final void o(iq0 iq0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jq0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, iq0Var) == null) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f, 1.0f);
-            ofFloat.addUpdateListener(new a(this, jq0Var));
+            ofFloat.addUpdateListener(new a(this, iq0Var));
             ofFloat.setDuration(400L).start();
         }
     }
@@ -534,12 +534,12 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    public final void q(jq0 jq0Var) {
+    public final void q(iq0 iq0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jq0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, iq0Var) == null) {
             getTvCountDown().setVisibility(0);
             getIvIcon().setVisibility(0);
-            getTvDesc().setText(jq0Var.m());
+            getTvDesc().setText(iq0Var.m());
             getLlLimit().setVisibility(8);
             getLottieView().setVisibility(8);
         }
@@ -547,7 +547,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
     @SuppressLint({"SetTextI18n"})
-    public void setData(int i, jq0 rewardData, Function0<Unit> onFinish) {
+    public void setData(int i, iq0 rewardData, Function0<Unit> onFinish) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048582, this, i, rewardData, onFinish) == null) {
             Intrinsics.checkNotNullParameter(rewardData, "rewardData");

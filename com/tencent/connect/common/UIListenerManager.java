@@ -2,7 +2,6 @@ package com.tencent.connect.common;
 
 import android.content.Intent;
 import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -185,7 +184,7 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "OpenUi, onActivityResult, onError = " + intExtra + "");
                 iUiListener.onError(new UiError(intExtra, intent.getStringExtra(Constants.KEY_ERROR_MSG), intent.getStringExtra(Constants.KEY_ERROR_DETAIL)));
             } else if ("action_share".equals(stringExtra)) {
-                String stringExtra3 = intent.getStringExtra(TiebaStatic.LogFields.RESULT);
+                String stringExtra3 = intent.getStringExtra("result");
                 String stringExtra4 = intent.getStringExtra("response");
                 if ("cancel".equals(stringExtra3)) {
                     iUiListener.onCancel();
@@ -265,7 +264,7 @@ public class UIListenerManager {
                         listnerWithRequestCode.onError(new UiError(intExtra2, intent.getStringExtra(Constants.KEY_ERROR_MSG), intent.getStringExtra(Constants.KEY_ERROR_DETAIL)));
                     }
                 } else {
-                    String stringExtra4 = intent.getStringExtra(TiebaStatic.LogFields.RESULT);
+                    String stringExtra4 = intent.getStringExtra("result");
                     String stringExtra5 = intent.getStringExtra("response");
                     if ("cancel".equals(stringExtra4)) {
                         listnerWithRequestCode.onCancel();

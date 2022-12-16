@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.net.BdNet;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.net.HttpURLConnection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -304,7 +303,7 @@ public class BdNetTask implements INoProGuard {
                 if (this.mCookies == NULL_ARRAY) {
                     this.mCookies = new HashMap();
                 }
-                for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
+                for (String str2 : str.split(";")) {
                     String[] split = str2.split("=");
                     if (split.length >= 2) {
                         this.mCookies.put(split[0], split[1]);

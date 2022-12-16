@@ -123,7 +123,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
     public void setDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
-            ((ImageView) this.f1064view).setImageDrawable(drawable);
+            ((ImageView) this.f1089view).setImageDrawable(drawable);
         }
     }
 
@@ -133,7 +133,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ((ImageView) this.f1064view).getDrawable();
+            return ((ImageView) this.f1089view).getDrawable();
         }
         return (Drawable) invokeV.objValue;
     }

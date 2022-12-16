@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
@@ -239,7 +240,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     String stringExtra2 = intent.getStringExtra("service_name");
                     String stringExtra3 = intent.getStringExtra("notify_type");
                     String stringExtra4 = intent.getStringExtra("app_id");
-                    int intExtra = intent.getIntExtra("notify_id", 0);
+                    int intExtra = intent.getIntExtra(Constants.EXTRA_NOTIFY_ID, 0);
                     String stringExtra5 = intent.getStringExtra("widget_badge_info");
                     byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_body");
                     byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_secur_info");

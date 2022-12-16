@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.n9;
 import com.baidu.tieba.t9;
@@ -94,17 +95,17 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(2019, 5, 7, 19, 20, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 7, 19, 20, 0);
             long timeInMillis = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 7, 21, 0, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 7, 21, 0, 0);
             long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 20, 10, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 15, 20, 10, 0);
             long timeInMillis3 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 21, 50, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 15, 21, 50, 0);
             long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 0, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 4, 27, 20, 0, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 30, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 4, 27, 20, 30, 0);
             long timeInMillis6 = calendar.getTimeInMillis();
             if ((timeInMillis <= j && j <= timeInMillis2) || ((timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= timeInMillis6))) {
                 return true;
@@ -271,17 +272,17 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(2019, 5, 7, 21, 0, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 7, 21, 0, 0);
             long timeInMillis = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 7, 21, 30, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 7, 21, 30, 0);
             long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 21, 50, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 15, 21, 50, 0);
             long timeInMillis3 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 22, 20, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 5, 15, 22, 20, 0);
             long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 30, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 4, 27, 20, 30, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 21, 0, 0);
+            calendar.set(IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, 4, 27, 21, 0, 0);
             long timeInMillis6 = calendar.getTimeInMillis();
             long currentTimeMillis = System.currentTimeMillis();
             if ((timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2) || ((timeInMillis3 <= currentTimeMillis && currentTimeMillis <= timeInMillis4) || (timeInMillis5 <= currentTimeMillis && currentTimeMillis <= timeInMillis6))) {

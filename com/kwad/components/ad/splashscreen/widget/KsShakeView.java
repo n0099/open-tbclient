@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.m.n;
 import com.kwad.sdk.R;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsShakeView extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class KsShakeView extends KSFrameLayout {
             this.Ar = obtainStyledAttributes.getInteger(6, 1);
             this.Av = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
             this.Aw = obtainStyledAttributes.getDimension(2, 1.0f);
-            this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c4d);
+            this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c75);
             this.Ax = obtainStyledAttributes.getDimension(0, com.kwad.sdk.b.kwai.a.a(context, 10.0f));
             obtainStyledAttributes.recycle();
             this.nC = new ImageView(getContext());
@@ -231,7 +231,7 @@ public class KsShakeView extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.Ar = i;
-            setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c4d : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c4e);
+            setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c75 : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c76);
         }
     }
 

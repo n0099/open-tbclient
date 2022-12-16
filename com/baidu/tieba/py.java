@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class py {
     public static /* synthetic */ Interceptable $ic;
-    public static final int k;
     public static final int l;
     public static final int m;
     public static final int n;
     public static final int o;
     public static final int p;
     public static final int q;
+    public static final int r;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
@@ -30,11 +30,12 @@ public class py {
     public int g;
     public int h;
     public int i;
-    public boolean j;
+    public int j;
+    public boolean k;
 
-    public void g(int i) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
@@ -51,13 +52,13 @@ public class py {
                 return;
             }
         }
-        k = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        l = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        l = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
         m = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        n = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        o = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        p = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
-        q = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        n = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        o = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        p = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        q = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
+        r = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
     public py() {
@@ -74,21 +75,23 @@ public class py {
             }
         }
         this.a = false;
-        this.b = n;
-        this.c = p;
-        this.d = k;
-        this.e = 0;
-        this.f = l;
+        this.b = o;
+        this.c = q;
+        this.d = l;
+        int i3 = r;
+        this.e = i3;
+        this.f = 0;
         this.g = m;
-        this.h = R.color.CAM_X0205;
-        this.i = q;
+        this.h = n;
+        this.i = R.color.CAM_X0205;
+        this.j = i3;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+            return this.k;
         }
         return invokeV.booleanValue;
     }
@@ -96,28 +99,28 @@ public class py {
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.h = i;
+            this.i = i;
         }
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.e = i;
+            this.f = i;
         }
     }
 
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.i = i;
+            this.j = i;
         }
     }
 
     public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f = i;
+            this.e = i;
         }
     }
 
@@ -128,24 +131,31 @@ public class py {
         }
     }
 
-    public void h(int i) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.h = i;
         }
     }
 
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.d = i;
         }
     }
 
-    public void j(boolean z) {
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.j = z;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.k = z;
         }
     }
 }

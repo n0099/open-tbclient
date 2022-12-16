@@ -1,111 +1,76 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.newdetail.HotTopicDetailView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v87 {
+public class v87 extends h46<t87> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<HotTopicDetailActivity> a;
-    public View b;
-    public String c;
-    public String d;
+    public View i;
+    public t87 j;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v87 a;
+    @Override // com.baidu.tieba.h46
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bd : invokeV.intValue;
+    }
 
-        public a(v87 v87Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v87Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v87Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                us7.h(this.a.a, "c14391");
-                this.a.c();
-            }
+    @Override // com.baidu.tieba.h46
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
         }
     }
 
-    public v87(View view2, TbPageContext<?> tbPageContext) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v87(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tbPageContext};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = view2;
-        if (view2 instanceof TextView) {
-            HotTopicDetailView.setWriteViewStyle((TextView) view2, SkinManager.getColor(R.color.CAM_X0302));
-        }
-        this.b.setOnClickListener(new a(this));
+        this.i = h().findViewById(R.id.obfuscated_res_0x7f0905a8);
     }
 
-    public void d(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.h46
+    /* renamed from: r */
+    public void i(t87 t87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d = str;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, t87Var) != null) || t87Var == null) {
+            return;
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !WriteActivityConfig.isAsyncWriting() && this.c != null) {
-            String str = null;
-            if (!StringUtils.isNull(this.d)) {
-                str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08aa), this.d);
-            }
-            WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.a.getPageActivity());
-            newInstance.setIntentAction(IntentAction.ActivityForResult);
-            newInstance.setRequestCode(25065);
-            newInstance.setType(9).setForumId("0").setTopicId(String.valueOf(this.c)).setFrom("topic_detail").setCallFrom("1").setTitle(str).send();
-        }
+        this.j = t87Var;
+        SkinManager.setBackgroundColor(this.i, t87Var.b);
+        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
+        layoutParams.height = yi.g(this.c, t87Var.a);
+        this.i.setLayoutParams(layoutParams);
     }
 }

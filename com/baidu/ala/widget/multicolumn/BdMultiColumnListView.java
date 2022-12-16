@@ -10,13 +10,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.bo;
+import com.baidu.tieba.by9;
 import com.baidu.tieba.fl;
 import com.baidu.tieba.jo;
 import com.baidu.tieba.ln;
 import com.baidu.tieba.mn;
 import com.baidu.tieba.on;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.su9;
 import com.baidu.tieba.w9;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yn;
@@ -441,14 +441,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i3 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof su9) {
-                        int c = firstVisiblePosition - ((su9) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof by9) {
+                        int c = firstVisiblePosition - ((by9) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((su9) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((by9) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -682,14 +682,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i3 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof su9) {
-                        int c = firstVisiblePosition - ((su9) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof by9) {
+                        int c = firstVisiblePosition - ((by9) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((su9) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((by9) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -923,14 +923,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i32 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof su9) {
-                        int c = firstVisiblePosition - ((su9) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof by9) {
+                        int c = firstVisiblePosition - ((by9) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((su9) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((by9) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -1142,11 +1142,11 @@ public class BdMultiColumnListView extends MultiColumnListView {
         if (interceptable == null || interceptable.invokeL(1048585, this, lnVar) == null) {
             ln lnVar2 = this.mNextPage;
             if (lnVar2 != null) {
-                removeFooterView(lnVar2.b());
+                removeFooterView(lnVar2.c());
                 this.mNextPage = null;
             }
             if (lnVar != null) {
-                addFooterView(lnVar.b(), null, true, 0);
+                addFooterView(lnVar.c(), null, true, 0);
                 this.mNextPage = lnVar;
             }
         }
@@ -1198,8 +1198,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                        if (this.this$0.mAdapter instanceof su9) {
-                            i2 = ((su9) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof by9) {
+                            i2 = ((by9) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1267,8 +1267,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        if (this.this$0.mAdapter instanceof su9) {
-                            i2 = ((su9) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof by9) {
+                            i2 = ((by9) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1394,14 +1394,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     ListAdapter listAdapter;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        if (this.this$0.mAdapter instanceof su9) {
-                            i2 = ((su9) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof by9) {
+                            i2 = ((by9) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
                         if (i < i2) {
-                            if (this.this$0.mPrePage != null && view2 == this.this$0.mPrePage.b()) {
-                                this.this$0.mPrePage.c();
+                            if (this.this$0.mPrePage != null && view2 == this.this$0.mPrePage.c()) {
+                                this.this$0.mPrePage.d();
                                 return;
                             } else if (this.this$0.mOnHeaderClickListener != null) {
                                 this.this$0.mOnHeaderClickListener.onClick(view2);
@@ -1411,8 +1411,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             }
                         }
                         int i3 = i - i2;
-                        if (this.this$0.mAdapter instanceof su9) {
-                            listAdapter = ((su9) this.this$0.mAdapter).getWrappedAdapter();
+                        if (this.this$0.mAdapter instanceof by9) {
+                            listAdapter = ((by9) this.this$0.mAdapter).getWrappedAdapter();
                         } else {
                             listAdapter = this.this$0.mAdapter;
                         }
@@ -1420,8 +1420,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             if (this.this$0.mOnItemClickListener != null) {
                                 this.this$0.mOnItemClickListener.onItemClick(pLA_AdapterView, view2, i3, j);
                             }
-                        } else if (this.this$0.mNextPage != null && view2 == this.this$0.mNextPage.b()) {
-                            this.this$0.mNextPage.c();
+                        } else if (this.this$0.mNextPage != null && view2 == this.this$0.mNextPage.c()) {
+                            this.this$0.mNextPage.d();
                         } else if (this.this$0.mOnFooterClickListener != null) {
                             this.this$0.mOnFooterClickListener.onClick(view2);
                         }

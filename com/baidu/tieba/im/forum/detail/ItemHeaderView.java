@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sq4;
+import com.baidu.tieba.tq4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,13 +99,13 @@ public class ItemHeaderView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ab, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02af, (ViewGroup) this, true);
             setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d49);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d48);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a68);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d47);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d4a);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d97);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d96);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a83);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d95);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d98);
             this.b.setPlaceHolder(1);
         }
     }
@@ -113,7 +113,7 @@ public class ItemHeaderView extends RelativeLayout {
     public void b(ForumDetailActivity forumDetailActivity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            sq4 layoutMode = forumDetailActivity.getLayoutMode();
+            tq4 layoutMode = forumDetailActivity.getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

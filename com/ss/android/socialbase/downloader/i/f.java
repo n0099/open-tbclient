@@ -429,10 +429,10 @@ public class f {
                                         if (d(downloadInfo.getSavePath()) < 16384) {
                                             throw new BaseException(1006, "download savePath directory can not created:" + str);
                                         }
-                                        throw new BaseException((int) ARPMessageType.MSG_TYPE_VIDEO_PLAY_FINISH, "download savePath directory can not created:" + str);
+                                        throw new BaseException(1030, "download savePath directory can not created:" + str);
                                     }
                                 } else {
-                                    throw new BaseException((int) ARPMessageType.MSG_TYPE_VIDEO_PLAY_FINISH, "download savePath directory can not created:" + str);
+                                    throw new BaseException(1030, "download savePath directory can not created:" + str);
                                 }
                             }
                         } else {

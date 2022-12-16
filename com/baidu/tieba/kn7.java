@@ -1,392 +1,339 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.searchbox.live.interfaces.net.DownLoadCallback;
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.ConnectException;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import javax.net.ssl.SSLException;
-import okhttp3.Response;
-/* loaded from: classes4.dex */
-public class kn7 implements INetWork {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class kn7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<qn7> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public HashMap<String, String> d;
-    public Map<String, Object> e;
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setRetryCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
-
-    public kn7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918933, "Lcom/baidu/tieba/kn7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947918933, "Lcom/baidu/tieba/kn7;");
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
+        a = new ArrayList();
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void cancel() {
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpManager.getDefault(TbadkCoreApplication.getInst()).cancelTag(this);
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            dp7.j().D(context, "");
         }
     }
 
-    public final Map<String, String> a(Map<String, Object> map) {
-        InterceptResult invokeL;
+    public static void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            dp7.j().q(context);
+        }
+    }
+
+    public static void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            dp7.j().t(context);
+        }
+    }
+
+    public static void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
+            dp7.j().z(context);
+        }
+    }
+
+    public static void o(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
+            for (int i = 0; i < a.size(); i++) {
+                a.get(i).onCallback(jSONObject);
+            }
+            a.clear();
+        }
+    }
+
+    public static void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
             HashMap hashMap = new HashMap();
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                if (!TextUtils.isEmpty(entry.getKey()) && (entry.getValue() instanceof String)) {
-                    hashMap.put(entry.getKey(), (String) entry.getValue());
-                }
-            }
-            return hashMap;
+            hashMap.put("uid", Long.valueOf(j));
+            dp7.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
         }
-        return (Map) invokeL.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0114 -> B:88:0x012f). Please submit an issue!!! */
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void download(Object obj, String str, DownLoadCallback downLoadCallback) {
-        InputStream inputStream;
-        Throwable th;
+    public static void b(Context context, String str, HashMap<String, Object> hashMap) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, str, downLoadCallback) == null) {
-            boolean startsWith = this.a.startsWith("https://");
-            GetRequest.GetRequestBuilder request = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest();
-            request.url(this.a).tag(this).addHeaders(this.d).connectionTimeout(this.b).readTimeout(this.c);
-            if (startsWith) {
-                request.cookieManager(CookieManager.WEBKIT_COOKIES);
-            }
-            NetResponse netResponse = new NetResponse();
-            try {
-                Response executeSync = request.build().executeSync();
-                if (executeSync.isSuccessful()) {
-                    FileOutputStream fileOutputStream = null;
-                    if (executeSync.body() != null) {
-                        inputStream = executeSync.body().byteStream();
-                    } else {
-                        inputStream = null;
-                    }
-                    if (inputStream != null) {
-                        File file = new File(str);
-                        File parentFile = file.getParentFile();
-                        if (parentFile != null && !parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                        try {
-                            try {
-                                try {
-                                    if (file.createNewFile()) {
-                                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                                        try {
-                                            byte[] bArr = new byte[2048];
-                                            long contentLength = executeSync.body().contentLength();
-                                            long j = 0;
-                                            if (contentLength > 0) {
-                                                while (true) {
-                                                    int read = inputStream.read(bArr);
-                                                    if (read == -1) {
-                                                        break;
-                                                    }
-                                                    fileOutputStream2.write(bArr, 0, read);
-                                                    long j2 = j + read;
-                                                    downLoadCallback.onFileUpdateProgress(obj, j2, contentLength);
-                                                    j = j2;
-                                                }
-                                                fileOutputStream2.flush();
-                                                downLoadCallback.onFileDownloaded(obj, executeSync.code(), 0, "");
-                                            } else {
-                                                downLoadCallback.onFileDownloaded(obj, executeSync.code(), -10, "no content length");
-                                            }
-                                            fileOutputStream = fileOutputStream2;
-                                        } catch (IOException e) {
-                                            e = e;
-                                            fileOutputStream = fileOutputStream2;
-                                            downLoadCallback.onFileDownloaded(obj, executeSync.code(), -19, e.getMessage());
-                                            inputStream.close();
-                                            if (fileOutputStream != null) {
-                                                fileOutputStream.close();
-                                            }
-                                            return;
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            fileOutputStream = fileOutputStream2;
-                                            try {
-                                                inputStream.close();
-                                                if (fileOutputStream != null) {
-                                                    fileOutputStream.close();
-                                                }
-                                            } catch (IOException e2) {
-                                                e2.printStackTrace();
-                                            }
-                                            throw th;
-                                        }
-                                    } else {
-                                        downLoadCallback.onFileDownloaded(obj, executeSync.code(), -19, "mkdir fail");
-                                    }
-                                    inputStream.close();
-                                    if (fileOutputStream != null) {
-                                        fileOutputStream.close();
-                                    }
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            } catch (Throwable th3) {
-                                th = th3;
-                            }
-                        } catch (IOException e4) {
-                            e = e4;
-                        }
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, hashMap) == null) {
+            if (hashMap != null) {
+                String str3 = (String) hashMap.get("enterroom_type");
+                String str4 = (String) hashMap.get("live_activity_type");
+                String str5 = (String) hashMap.get("extra");
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("live_activity_type", str4);
+                    jSONObject.put("extra", str5);
+                    str2 = jSONObject.toString();
+                } catch (JSONException unused) {
+                    str2 = "";
+                }
+                if ("1".equals(str3)) {
+                    dp7.j().H(context, str2);
+                    return;
+                } else {
+                    dp7.j().D(context, "");
                     return;
                 }
-                downLoadCallback.onFileDownloaded(obj, executeSync.code(), -10, "http error");
-            } catch (ConnectException e5) {
-                netResponse.netErrorCode = -22;
-                netResponse.exception = e5.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -22, e5.getMessage());
-            } catch (SocketException e6) {
-                netResponse.netErrorCode = -12;
-                netResponse.exception = e6.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -12, e6.getMessage());
-            } catch (SocketTimeoutException e7) {
-                netResponse.netErrorCode = -13;
-                netResponse.exception = e7.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -13, e7.getMessage());
-            } catch (UnknownHostException e8) {
-                netResponse.netErrorCode = -21;
-                netResponse.exception = e8.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -21, e8.getMessage());
-            } catch (SSLException e9) {
-                netResponse.netErrorCode = -20;
-                netResponse.exception = e9.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -20, e9.getMessage());
-            } catch (IOException e10) {
-                netResponse.netErrorCode = -19;
-                netResponse.exception = e10.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -19, e10.getMessage());
-            } catch (Throwable th4) {
-                netResponse.netErrorCode = -10;
-                netResponse.exception = th4.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -10, th4.getMessage());
             }
+            dp7.j().D(context, "");
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public NetResponse getSync(Map<String, Object> map) {
-        InterceptResult invokeL;
-        String str;
+    public static void e(Context context, un7 un7Var, qn7 qn7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-            NetResponse netResponse = new NetResponse();
+        if ((interceptable != null && interceptable.invokeLLL(65541, null, context, un7Var, qn7Var) != null) || context == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        if (un7Var != null) {
             try {
-                Response executeSync = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest().url(this.a).tag(this).addUrlParams(a(map)).addHeaders(this.d).connectionTimeout(this.b).readTimeout(this.c).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
-                try {
-                    netResponse.responseCode = executeSync.code();
-                    if (executeSync.body() != null) {
-                        str = executeSync.body().string();
-                    } else {
-                        str = null;
+                if (!TextUtils.isEmpty(un7Var.a)) {
+                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, un7Var.a);
+                    if (qn7Var != null) {
+                        a.add(qn7Var);
                     }
-                    netResponse.decodedResponseStr = str;
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
-                return netResponse;
-            } catch (ConnectException e2) {
-                netResponse.netErrorCode = -22;
-                netResponse.exception = e2.getMessage();
-                return netResponse;
-            } catch (SocketException e3) {
-                netResponse.netErrorCode = -12;
-                netResponse.exception = e3.getMessage();
-                return netResponse;
-            } catch (SocketTimeoutException e4) {
-                netResponse.netErrorCode = -13;
-                netResponse.exception = e4.getMessage();
-                return netResponse;
-            } catch (UnknownHostException e5) {
-                netResponse.netErrorCode = -21;
-                netResponse.exception = e5.getMessage();
-                return netResponse;
-            } catch (SSLException e6) {
-                netResponse.netErrorCode = -20;
-                netResponse.exception = e6.getMessage();
-                return netResponse;
-            } catch (IOException e7) {
-                netResponse.netErrorCode = -19;
-                netResponse.exception = e7.getMessage();
-                return netResponse;
-            } catch (Throwable th) {
-                netResponse.netErrorCode = -10;
-                netResponse.exception = th.getMessage();
-                return netResponse;
+                jSONObject.put("isTranslucent", un7Var.b);
+                if (!TextUtils.isEmpty(un7Var.c)) {
+                    jSONObject.put("from", un7Var.c);
+                }
+            } catch (JSONException unused) {
             }
         }
-        return (NetResponse) invokeL.objValue;
+        dp7.j().B(context, jSONObject.toString());
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public NetResponse postSync(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Boolean bool;
-        Integer num;
+    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(Context context, String str, Map<String, Object> map) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            Map<String, Object> map2 = this.e;
-            String str = null;
-            if (map2 != null && (map2.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT) instanceof Boolean)) {
-                bool = (Boolean) this.e.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT);
-            } else {
-                bool = null;
-            }
-            Map<String, Object> map3 = this.e;
-            if (map3 != null && (map3.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM) instanceof Integer)) {
-                num = (Integer) this.e.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM);
-            } else {
-                num = null;
-            }
-            Map<String, Object> map4 = this.e;
-            if (map4 != null && (map4.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM) instanceof Integer)) {
-                Integer num2 = (Integer) this.e.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM);
-            }
-            NetResponse netResponse = new NetResponse();
+        if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, map) == null) {
+            String str3 = (String) map.get("enterroom_type");
+            String str4 = (String) map.get("room_id");
+            String str5 = (String) map.get("live_id");
+            String str6 = (String) map.get("username");
+            String str7 = (String) map.get("userrec");
+            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
+            String str10 = (String) map.get("screen_direction");
+            String str11 = (String) map.get("open_giftlist");
+            String str12 = (String) map.get("tab");
+            String str13 = (String) map.get("tag");
+            String str14 = (String) map.get("source");
+            String str15 = (String) map.get("from");
+            String str16 = (String) map.get("extra");
+            String str17 = (String) map.get("audioUrl");
+            String str18 = (String) map.get("audio_bg");
+            String str19 = (String) map.get("chat_mcast_id");
+            String str20 = (String) map.get("open_msgpanel");
+            JSONObject jSONObject = new JSONObject();
             try {
-                PostFormRequest.PostFormRequestBuilder postFormRequest = HttpManager.getDefault(TbadkCoreApplication.getInst()).postFormRequest();
-                if (bool != null) {
-                    postFormRequest.enableStat(bool.booleanValue());
+                if (!TextUtils.isEmpty(str12)) {
+                    jSONObject.put("tab", str12);
                 }
-                if (num != null) {
-                    postFormRequest.requestFrom(num.intValue());
+                if (!TextUtils.isEmpty(str13)) {
+                    jSONObject.put("tag", str13);
                 }
-                Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) postFormRequest.url(this.a)).params(a(map)).addHeaders(this.d)).connectionTimeout(this.b)).readTimeout(this.c)).cookieManager(CookieManager.WEBKIT_COOKIES)).build().executeSync();
-                try {
-                    netResponse.responseCode = executeSync.code();
-                    if (executeSync.body() != null) {
-                        str = executeSync.body().string();
+                if (!TextUtils.isEmpty(str14)) {
+                    jSONObject.put("source", str14);
+                }
+                if (!TextUtils.isEmpty(str15)) {
+                    jSONObject.put("from", str15);
+                }
+                if (!TextUtils.isEmpty(str8)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
+                }
+                if (!TextUtils.isEmpty(str9)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
+                }
+                if (!TextUtils.isEmpty(str10)) {
+                    jSONObject.put("screen_direction", str10);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    str2 = str5;
+                    try {
+                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
+                    } catch (JSONException e) {
+                        e = e;
+                        e.printStackTrace();
+                        if (!"1".equals(str3)) {
+                        }
                     }
-                    netResponse.decodedResponseStr = str;
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } else {
+                    str2 = str5;
                 }
-                return netResponse;
-            } catch (ConnectException e2) {
-                netResponse.netErrorCode = -22;
-                netResponse.exception = e2.getMessage();
-                return netResponse;
-            } catch (SocketException e3) {
-                netResponse.netErrorCode = -12;
-                netResponse.exception = e3.getMessage();
-                return netResponse;
-            } catch (SocketTimeoutException e4) {
-                netResponse.netErrorCode = -13;
-                netResponse.exception = e4.getMessage();
-                return netResponse;
-            } catch (UnknownHostException e5) {
-                netResponse.netErrorCode = -21;
-                netResponse.exception = e5.getMessage();
-                return netResponse;
-            } catch (SSLException e6) {
-                netResponse.netErrorCode = -20;
-                netResponse.exception = e6.getMessage();
-                return netResponse;
-            } catch (IOException e7) {
-                netResponse.netErrorCode = -19;
-                netResponse.exception = e7.getMessage();
-                return netResponse;
-            } catch (Throwable th) {
-                netResponse.netErrorCode = -10;
-                netResponse.exception = th.getMessage();
-                return netResponse;
+                if (!TextUtils.isEmpty(str16)) {
+                    jSONObject.put("extra", str16);
+                }
+                if (!TextUtils.isEmpty(str17)) {
+                    jSONObject.put("audioUrl", str17);
+                }
+                if (!TextUtils.isEmpty(str18)) {
+                    jSONObject.put("audio_bg", str18);
+                }
+                if (!TextUtils.isEmpty(str19)) {
+                    jSONObject.put("chat_mcast_id", str19);
+                }
+                if (!TextUtils.isEmpty(str20)) {
+                    jSONObject.put("open_msgpanel", str20);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+                str2 = str5;
             }
-        }
-        return (NetResponse) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setConnectTimeout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setExtra(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-            this.e = map;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setHeaderData(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.d = hashMap;
+            if (!"1".equals(str3)) {
+                dp7.j().y(context, str, jSONObject.toString(), map);
+                return;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("user_name", str6);
+                jSONObject2.put("open_giftlist", str11);
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("live_id", str2);
+                jSONObject3.put("useRecommend", true);
+                jSONObject3.put("otherParams", jSONObject);
+            } catch (JSONException e4) {
+                e4.printStackTrace();
+            }
+            dp7.j().x(context, jSONObject3.toString());
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setReadTimeout(int i) {
+    public static void d(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            dp7.j().h(context, str);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setUrl(String str) {
+    public static void m(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            dp7.j().A(context, str);
+        }
+    }
+
+    public static void p(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uid", str);
+            hashMap.put("isSubscribe", Boolean.valueOf(z));
+            dp7.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
+        }
+    }
+
+    public static void g(Context context, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            dp7.j().v(context, j, i);
+        }
+    }
+
+    public static void h(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65544, null, context, str, i) == null) {
+            dp7.j().s(context, str, i);
+        }
+    }
+
+    public static void j(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
+            dp7.j().u(context, str, str2);
+        }
+    }
+
+    public static void n(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
+            dp7.j().C(context, str, str2);
+        }
+    }
+
+    public static void r(Application application, String str, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
+            dp7.j().r(application, str, uri);
+        }
+    }
+
+    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) && alaLiveInfoCoreData != null) {
+            long j = alaLiveInfoCoreData.liveID;
+            String str2 = alaLiveInfoCoreData.userName;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
+                jSONObject.put("user_name", str2);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
+                jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
+                jSONObject.put("open_giftlist", "0");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("live_id", j);
+                jSONObject2.put("useRecommend", true);
+                jSONObject2.put("otherParams", jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            dp7.j().x(context, jSONObject2.toString());
         }
     }
 }

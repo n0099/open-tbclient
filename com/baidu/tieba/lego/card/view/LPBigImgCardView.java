@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -225,9 +225,9 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d017b, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f092139);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09213a);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0923c3);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f0921a8);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0921a9);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092434);
             return this.m;
         }
         return (View) invokeV.objValue;

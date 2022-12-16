@@ -126,13 +126,13 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0285, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092469);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09244e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102b);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0289, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.tv_title);
+            this.b = (TextView) findViewById(R.id.tv_right);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091089);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08062e, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
             this.c.setOnClickListener(new a(this));
         }
     }

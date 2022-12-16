@@ -13,10 +13,10 @@ public final class j implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ e f83a;
+    public final /* synthetic */ e f106a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f84a;
+    public final /* synthetic */ String f107a;
 
     public j(String str, Context context, e eVar) {
         Interceptable interceptable = $ic;
@@ -33,19 +33,19 @@ public final class j implements Runnable {
                 return;
             }
         }
-        this.f84a = str;
+        this.f107a = str;
         this.a = context;
-        this.f83a = eVar;
+        this.f106a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f84a)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f107a)) {
             return;
         }
-        String[] split = this.f84a.split(Constants.WAVE_SEPARATOR);
+        String[] split = this.f107a.split(Constants.WAVE_SEPARATOR);
         int length = split.length;
         int i = 0;
         while (true) {
@@ -61,11 +61,11 @@ public final class j implements Runnable {
             i++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m99a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.a, this.f83a, str);
-        i.m151a(this.a);
+        com.xiaomi.channel.commonutils.logger.b.m99a("ASSEMBLE_PUSH : receive correct token");
+        i.d(this.a, this.f106a, str);
+        i.m161a(this.a);
     }
 }

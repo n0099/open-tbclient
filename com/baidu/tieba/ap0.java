@@ -1,9 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.webview.container.base.AbsContainer;
+import com.baidu.nadcore.max.event.NestedEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface ap0 extends zi0 {
-    AbsContainer b();
+public final /* synthetic */ class ap0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e(int i);
+    static {
+        int[] iArr = new int[NestedEvent.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
+        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
+    }
 }

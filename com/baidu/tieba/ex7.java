@@ -1,81 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.method.LinkMovementMethod;
-import android.view.LayoutInflater;
+import android.graphics.Point;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
+import com.baidu.tieba.ml5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class ex7 extends BaseAdapter {
+public class ex7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m48> a;
-    public Context b;
-    public int c;
-    public int d;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
+    public final SimpleDragSortListView a;
+    public final a b;
+    public final ml5 c;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public static class a extends nl5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
+        public int F;
+        public int G;
+        public ListView H;
 
-        public a() {
+        @Override // com.baidu.tieba.ql5, com.baidu.tieba.ml5.j
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ml5 ml5Var, ListView listView) {
+            super(ml5Var, listView, 0, 2, 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ml5Var, listView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ml5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.F = 0;
+            this.G = Integer.MAX_VALUE;
+            s(false);
+            this.H = listView;
+        }
+
+        @Override // com.baidu.tieba.nl5, com.baidu.tieba.ml5.j
+        public void c(View view2, Point point, Point point2) {
+            View view3;
+            int top;
+            int top2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, point, point2) == null) {
+                int firstVisiblePosition = this.H.getFirstVisiblePosition();
+                int dividerHeight = this.H.getDividerHeight();
+                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
+                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
+                int childCount = this.H.getChildCount();
+                View view4 = null;
+                if (headerViewsCount >= 0 && headerViewsCount < childCount) {
+                    view3 = this.H.getChildAt(headerViewsCount);
+                } else {
+                    view3 = null;
+                }
+                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
+                    view4 = this.H.getChildAt(headerViewsCount2);
+                }
+                if (view3 != null && point.y < (top2 = view3.getTop())) {
+                    point.y = top2;
+                }
+                if (view4 != null && point.y > (top = (view4.getTop() - dividerHeight) - view2.getHeight())) {
+                    point.y = top;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.nl5
+        public int w(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+                int n = super.n(motionEvent);
+                int headerViewsCount = n - this.H.getHeaderViewsCount();
+                if (headerViewsCount >= this.F && headerViewsCount < this.G) {
+                    return n;
+                }
+                return -1;
+            }
+            return invokeL.intValue;
+        }
+
+        public void z(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+                this.F = i;
+                this.G = i2;
             }
         }
     }
 
-    public ex7(Context context) {
+    public ex7(SimpleDragSortListView simpleDragSortListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {simpleDragSortListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,181 +129,36 @@ public class ex7 extends BaseAdapter {
                 return;
             }
         }
-        this.c = 0;
-        this.d = 0;
-        this.b = context;
-        this.a = new ArrayList();
-        this.c = yi.l(context) - (((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)) * 2);
-        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
+        this.a = simpleDragSortListView;
+        ml5 ml5Var = new ml5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
+        this.c = ml5Var;
+        simpleDragSortListView.setDragSortViewEventDelegate(ml5Var);
+        a aVar = new a(this.c, simpleDragSortListView);
+        this.b = aVar;
+        aVar.d(-1);
+        this.c.s0(this.b);
+        this.c.u0(this.b);
+        simpleDragSortListView.setOnTouchListener(this.b);
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<m48> list = this.a;
-            if (list != null && list.size() > 0) {
-                if (i >= 0 && i < this.a.size()) {
-                    m48 m48Var = this.a.get(i);
-                    if (m48Var == null) {
-                        return super.getItemViewType(i);
-                    }
-                    if (m48Var.getType() == 0) {
-                        return 0;
-                    }
-                    if (m48Var.getType() == 3) {
-                        return 1;
-                    }
-                    return super.getItemViewType(i);
-                }
-                return super.getItemViewType(i);
-            }
-            return super.getItemViewType(i);
-        }
-        return invokeI.intValue;
-    }
-
-    public final View a(int i, View view2) {
-        InterceptResult invokeIL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view2)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01d8, (ViewGroup) null);
-                aVar = new a();
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091820);
-                view2.setTag(aVar);
-            }
-            m48 item = getItem(i);
-            if (item instanceof n48) {
-                n48 n48Var = (n48) item;
-                if (!StringUtils.isNull(n48Var.e) && !"1".equals(n48Var.e)) {
-                    aVar.a.setVisibility(0);
-                    ViewGroup.LayoutParams layoutParams = aVar.a.getLayoutParams();
-                    int i2 = this.c;
-                    int c = n48Var.c(i2);
-                    if (layoutParams == null) {
-                        layoutParams = new AbsListView.LayoutParams(i2, c);
-                    } else {
-                        layoutParams.height = c;
-                        layoutParams.width = i2;
-                    }
-                    aVar.a.setLayoutParams(layoutParams);
-                    aVar.a.K(n48Var.d(), 17, false);
-                } else {
-                    aVar.a.setVisibility(8);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    public final View c(int i, View view2) {
-        InterceptResult invokeIL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, view2)) == null) {
-            if (view2 instanceof TextView) {
-                textView = (TextView) view2;
-            } else {
-                textView = new TextView(this.b);
-                textView.setTextSize(0, this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-                textView.setLineSpacing(0.0f, 1.2f);
-                textView.setMovementMethod(LinkMovementMethod.getInstance());
-                int i2 = this.d;
-                textView.setPadding(i2, 0, i2, 0);
-            }
-            m48 item = getItem(i);
-            if (item instanceof p48) {
-                p48 p48Var = (p48) item;
-                textView.setText(p48Var.b());
-                int d = p48Var.d();
-                if (d != 1) {
-                    if (d != 2) {
-                        textView.setGravity(3);
-                    } else {
-                        textView.setGravity(5);
-                    }
-                } else {
-                    textView.setGravity(17);
-                }
-                if (!StringUtils.isNull(p48Var.e())) {
-                    if (!SkinManager.setViewTextColor(textView, p48Var.e())) {
-                        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                    }
-                } else {
-                    SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                }
-                if (p48Var.f() > 0) {
-                    textView.setTextSize(0, p48Var.f());
-                }
-            }
-            return textView;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public m48 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<m48> list = this.a;
-            if (list != null && list.size() > 0) {
-                int size = this.a.size();
-                if (i >= 0 && i < size) {
-                    return this.a.get(i);
-                }
-            }
-            return null;
-        }
-        return (m48) invokeI.objValue;
-    }
-
-    public void d(List<m48> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.a.clear();
-            if (list != null && list.size() > 0) {
-                this.a.addAll(list);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c.o0(z);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void c(ml5.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<m48> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
+            this.c.t0(iVar);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            if (itemViewType == 0) {
-                return c(i, view2);
-            }
-            if (itemViewType == 1) {
-                return a(i, view2);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.b.z(i, i2);
         }
-        return (View) invokeILL.objValue;
     }
 }

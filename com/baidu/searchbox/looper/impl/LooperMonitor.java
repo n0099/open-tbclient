@@ -6,9 +6,9 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.lt9;
-import com.baidu.tieba.mt9;
-import com.baidu.tieba.nt9;
+import com.baidu.tieba.uw9;
+import com.baidu.tieba.vw9;
+import com.baidu.tieba.ww9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LooperMonitor implements ILooperMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
     public transient /* synthetic */ FieldHolder $fh;
-    public mt9 mBlockCanaryCore;
+    public vw9 mBlockCanaryCore;
     public boolean mMonitorStarted;
 
     static {
@@ -94,10 +94,10 @@ public class LooperMonitor implements ILooperMonitor {
         }
     }
 
-    public void addBlockInterceptor(nt9 nt9Var) {
+    public void addBlockInterceptor(ww9 ww9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, nt9Var) == null) && nt9Var != null) {
-            this.mBlockCanaryCore.b(nt9Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) && ww9Var != null) {
+            this.mBlockCanaryCore.b(ww9Var);
         }
     }
 
@@ -108,11 +108,11 @@ public class LooperMonitor implements ILooperMonitor {
             if (sLooperContextDispatcher == null) {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
-            lt9.init(context, sLooperContextDispatcher, i);
-            mt9.k(lt9.get());
-            mt9 e = mt9.e();
+            uw9.init(context, sLooperContextDispatcher, i);
+            vw9.k(uw9.get());
+            vw9 e = vw9.e();
             this.mBlockCanaryCore = e;
-            e.b(lt9.get());
+            e.b(uw9.get());
             startLooperPrint();
             startTrack(context);
         }

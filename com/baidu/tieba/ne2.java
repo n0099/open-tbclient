@@ -1,128 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ne2 extends re2<sf2, vf2> {
+public class ne2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile ne2 e;
-    public static boolean f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final re2 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return oe2.f(e());
-            }
-            return (re2) invokeV.objValue;
-        }
-
-        public final ExtensionCore c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (d() == null) {
-                    return null;
-                }
-                ExtensionCore d = d().d();
-                if (!d.isAvailable()) {
-                    d().h();
-                    return d().d();
-                }
-                return d;
-            }
-            return (ExtensionCore) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putParcelable("aiapps_extension_core", c());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", ne2.f);
-                f12.k("ExtCore-AppsManager", "is extension file exists : " + ne2.f);
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -137,128 +30,113 @@ public class ne2 extends re2<sf2, vf2> {
                 return;
             }
         }
-        d = pk1.a;
-        f = m();
+        a = ok1.a;
     }
 
-    public static ne2 k() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (ne2.class) {
-                    if (e == null) {
-                        e = new ne2();
-                    }
-                }
-            }
-            return e;
-        }
-        return (ne2) invokeV.objValue;
-    }
-
-    public static sf2 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (j()) {
-                return new sf2();
-            }
-            return new tf2();
-        }
-        return (sf2) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ne2() {
-        super(l(), new vf2());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((rf2) objArr[0], (uf2) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            f(0).f().c();
+            f(0).e().f();
+            if (f(1) != null) {
+                f(1).f().c();
+                f(1).e().f();
             }
         }
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
+    public static <T extends kf2> Exception b(int i, T t) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                f12.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f);
-                return f;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
+            qe2 f = f(i);
+            if (f == null) {
+                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
             }
-            u03 c = s03.c(b.class, null);
-            boolean z = true;
-            if (c.a() && !c.a.getBoolean("swan_preset_extension", true)) {
-                z = false;
-            }
-            f12.k("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
-            return z;
+            return f.a(t);
         }
-        return invokeV.booleanValue;
+        return (Exception) invokeIL.objValue;
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
-        boolean z;
+    public static void h(int i, @Nullable xi3<Exception> xi3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            mf2 mf2Var = new mf2();
-            if (qg3.a(AppRuntime.getAppContext(), mf2Var.d()) && qg3.a(AppRuntime.getAppContext(), mf2Var.a())) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, xi3Var) == null) {
+            qe2 f = f(i);
+            if (f != null) {
+                f.g(xi3Var);
+            } else if (xi3Var != null) {
+                xi3Var.a(null);
             }
-            f12.k("ExtCore-AppsManager", "preset extension isFileExists : " + z);
-            return z;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.re2
-    public String b(int i) {
+    public static ExtensionCore c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 1) {
-                return we2.b().getPath();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            qe2 f = f(i);
+            if (f == null) {
+                return null;
             }
-            return null;
+            return f.c();
+        }
+        return (ExtensionCore) invokeI.objValue;
+    }
+
+    public static long d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null) {
+                return c.extensionCoreVersionCode;
+            }
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null && !TextUtils.isEmpty(c.extensionCoreVersionName)) {
+                return c.extensionCoreVersionName;
+            }
+            return "0";
         }
         return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.re2
-    @Nullable
-    public ExtensionCore c() {
-        InterceptResult invokeV;
-        ExtensionCore extensionCore;
+    public static qe2 f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                extensionCore = d();
-            } else {
-                Bundle bundle = s03.c(a.class, null).a;
-                bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-                extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (d) {
-                    Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 1) {
+                qe2 t = mn2.i().t();
+                if (t == null && ok1.a) {
+                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
                 }
+                return t;
             }
-            if (extensionCore != null && e03.Y() && extensionCore.extensionCoreVersionCode < 4294967297L) {
-                return e03.a(extensionCore);
-            }
-            return extensionCore;
+            return me2.k();
         }
-        return (ExtensionCore) invokeV.objValue;
+        return (qe2) invokeI.objValue;
+    }
+
+    public static void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            if (a) {
+                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            if (!"com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) && i == i2) {
+                return;
+            }
+            a();
+            vf2.i(0, true);
+            vf2.i(1, true);
+        }
     }
 }

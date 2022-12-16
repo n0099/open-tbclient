@@ -1,124 +1,124 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tieba.j95;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public class z97 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.TopicInfo;
+import tbclient.VideoInfo;
+/* loaded from: classes7.dex */
+public class z97 implements xn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public long i;
+    public ba7 j;
+    public boolean k;
 
-    public static SpannableString a(ArrayList<wm5> arrayList, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, str)) == null) {
-            if (TbFaceManager.i().p(str)) {
-                SpannableString spannableString = new SpannableString(str + " ");
-                wm5 d = TbFaceManager.i().d(str);
-                if (arrayList != null) {
-                    arrayList.add(d);
-                }
-                j95.a g = TbFaceManager.i().g(str);
-                if (g != null) {
-                    int a = (int) (g.a() * 0.5d);
-                    d.setBounds(new Rect(0, 0, a, a));
-                } else {
-                    d.setBounds(new Rect(0, 0, 0, 0));
-                }
-                spannableString.setSpan(new ue6(d, 1), 0, str.length(), 33);
-                return spannableString;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314865, "Lcom/baidu/tieba/z97;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948314865, "Lcom/baidu/tieba/z97;");
+                return;
+            }
         }
-        return (SpannableString) invokeLL.objValue;
+        l = BdUniqueId.gen();
     }
 
-    public static SpannableString b(String str) {
-        InterceptResult invokeL;
+    public z97() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return UrlManager.findAllWebUrl(str);
         }
-        return (SpannableString) invokeL.objValue;
     }
 
-    public static ArrayList<TbRichTextData> c(String str, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            ArrayList<TbRichTextData> arrayList = new ArrayList<>();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            TbRichTextData tbRichTextData = new TbRichTextData(1);
-            arrayList.add(tbRichTextData);
-            try {
-                int length = str.length();
-                int i3 = 0;
-                String str2 = "";
-                while (i3 < str.length()) {
-                    char charAt = str.charAt(i3);
-                    if (charAt == '#' && i3 < length - 1 && str.charAt(i3 + 1) == '(') {
-                        String str3 = SmallTailInfo.EMOTION_PREFIX;
-                        i3 += 2;
-                        while (i3 < length) {
-                            char charAt2 = str.charAt(i3);
-                            str3 = str3 + charAt2;
-                            if (charAt2 != ')' && ((i2 = i3 + 1) >= length || str.charAt(i2) != '#')) {
-                                i3 = i2;
-                            }
-                        }
-                        if (!TbFaceManager.i().p(str3)) {
-                            str2 = str2 + str3;
-                        } else {
-                            if (!TextUtils.isEmpty(str2)) {
-                                if (i == 1) {
-                                    tbRichTextData.A(str2);
-                                } else {
-                                    SpannableString b = b(str2);
-                                    if (b != null) {
-                                        tbRichTextData.A(b);
-                                    }
-                                }
-                                str2 = "";
-                            }
-                            SpannableString a = a(tbRichTextData.B(), str3);
-                            if (a != null) {
-                                tbRichTextData.A(a);
-                            }
-                        }
-                    } else {
-                        str2 = str2 + charAt;
-                    }
-                    i3++;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    if (i == 1) {
-                        tbRichTextData.A(str2);
-                    } else {
-                        SpannableString b2 = b(str2);
-                        if (b2 != null) {
-                            tbRichTextData.A(b2);
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return l;
         }
-        return (ArrayList) invokeLI.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(TopicInfo topicInfo) {
+        String str;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicInfo) != null) || topicInfo == null) {
+            return;
+        }
+        this.a = String.valueOf(topicInfo.topic_id);
+        this.b = topicInfo.topic_name;
+        this.c = topicInfo.desc;
+        this.d = topicInfo.total_post_num.longValue();
+        this.e = topicInfo.head_photo_url;
+        this.f = topicInfo.head_background_url;
+        if (StringUtils.isNull(topicInfo.share_title)) {
+            str = "";
+        } else {
+            str = topicInfo.share_title;
+        }
+        this.g = str;
+        this.h = topicInfo.share_pic;
+        this.i = topicInfo.idx_num.longValue();
+        Long l2 = topicInfo.pmy_topic_id;
+        String str2 = topicInfo.head_photo_jump_url;
+        Integer num = topicInfo.pmy_source;
+        if (topicInfo.is_deleted.longValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.k = z;
+        VideoInfo videoInfo = topicInfo.video_info;
+        if (videoInfo != null && !StringUtils.isNull(videoInfo.video_url) && topicInfo.video_info.video_duration.intValue() > 0) {
+            VideoInfo videoInfo2 = topicInfo.video_info;
+            String str3 = videoInfo2.video_md5;
+            String str4 = videoInfo2.video_url;
+            videoInfo2.video_duration.intValue();
+            topicInfo.video_info.video_width.intValue();
+            topicInfo.video_info.video_height.intValue();
+            VideoInfo videoInfo3 = topicInfo.video_info;
+            String str5 = videoInfo3.thumbnail_url;
+            videoInfo3.thumbnail_width.intValue();
+            topicInfo.video_info.thumbnail_height.intValue();
+            topicInfo.video_info.video_length.intValue();
+            topicInfo.video_info.play_count.intValue();
+        }
+        String str6 = topicInfo.tag_list_type;
+        if (topicInfo.join_info != null) {
+            ba7 ba7Var = new ba7();
+            this.j = ba7Var;
+            ba7Var.a(topicInfo.join_info);
+        }
     }
 }

@@ -11,7 +11,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class c extends Thread {
         this.c = bArr;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00f2  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00f3  */
     /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
     @Override // java.lang.Thread, java.lang.Runnable
     /*

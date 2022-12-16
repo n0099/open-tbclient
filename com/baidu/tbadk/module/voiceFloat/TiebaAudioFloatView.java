@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.module.voiceFloat.TiebaAudioFloatView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d056e, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.liveaudio_tieba_audio_float_view, (ViewGroup) this, true);
         c();
         b();
     }
@@ -89,7 +89,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     }
                     ImageView imageView3 = this.d;
                     if (imageView3 != null) {
-                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.kb5
+                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.cc5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -138,7 +138,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d056e, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.liveaudio_tieba_audio_float_view, (ViewGroup) this, true);
         c();
         b();
     }
@@ -164,7 +164,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d056e, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.liveaudio_tieba_audio_float_view, (ViewGroup) this, true);
         c();
         b();
     }
@@ -215,19 +215,19 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924d7);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902f7);
-            this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a16);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090674);
+            this.a = (ImageView) findViewById(R.id.user_avatar);
+            this.b = (RelativeLayout) findViewById(R.id.audio_avatar);
+            this.c = (TBLottieAnimationView) findViewById(R.id.float_lottie);
+            ImageView imageView = (ImageView) findViewById(R.id.close_btn);
             this.d = imageView;
             if (imageView != null) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a6c, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_voiceroom_close20, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
             ImageView imageView2 = this.a;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b6d, false));
+                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_voiceroom_floatingball, false));
             }
-            SkinManager.setLottieAnimation(this.c, R.raw.obfuscated_res_0x7f110067);
+            SkinManager.setLottieAnimation(this.c, R.raw.lottie_video_window_min);
             TBLottieAnimationView tBLottieAnimationView = this.c;
             if (tBLottieAnimationView != null) {
                 tBLottieAnimationView.setRepeatCount(Integer.MAX_VALUE);
@@ -240,7 +240,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             if (tBLottieAnimationView3 != null) {
                 tBLottieAnimationView3.playAnimation();
             }
-            qw4 d = qw4.d(this);
+            rw4 d = rw4.d(this);
             d.n(R.string.J_X01);
             d.g(SkinManager.getColor(0, (int) R.color.CAM_X0201));
         }

@@ -1002,9 +1002,9 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (AdaptationSet) invokeLLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0099  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00ad  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0104  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0094  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00ff  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

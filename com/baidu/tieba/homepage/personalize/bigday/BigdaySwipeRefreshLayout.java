@@ -28,7 +28,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.az4;
-import com.baidu.tieba.m47;
+import com.baidu.tieba.k57;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1243,8 +1243,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.s = kVar;
             kVar.getView().setVisibility(8);
             addView(this.s.getView(), 0);
-            if (kVar instanceof m47) {
-                ((m47) kVar).U(new c(this, kVar));
+            if (kVar instanceof k57) {
+                ((k57) kVar).U(new c(this, kVar));
             }
         }
     }

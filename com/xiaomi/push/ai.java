@@ -46,6 +46,6 @@ public class ai {
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ah.f95a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ah.f118a : invokeL.booleanValue;
     }
 }

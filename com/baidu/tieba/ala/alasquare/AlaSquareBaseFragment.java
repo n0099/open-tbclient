@@ -13,7 +13,7 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void q1();
+    public abstract void x1();
 
     public AlaSquareBaseFragment() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onNetRefreshButtonClicked();
-            q1();
+            x1();
         }
     }
 

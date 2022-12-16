@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class d extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +34,12 @@ public final class d extends g {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0073, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0072, code lost:
         if (r4.versionCode < r6) goto L38;
      */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0049  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0078  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x007e  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0048  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x007d  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -66,22 +66,22 @@ public final class d extends g {
         } else {
             try {
                 intent = Intent.parseUri(queryParameter2, 1);
-            } catch (URISyntaxException e) {
-                e = e;
-                intent = null;
-            }
-            try {
-                intent.addCategory("android.intent.category.BROWSABLE");
-                intent.setComponent(null);
-                intent.setSelector(null);
+                try {
+                    intent.addCategory("android.intent.category.BROWSABLE");
+                    intent.setComponent(null);
+                    intent.setSelector(null);
+                } catch (URISyntaxException e) {
+                    e = e;
+                    e.printStackTrace();
+                    if (intent != null) {
+                    }
+                    z = false;
+                    if (!z) {
+                    }
+                }
             } catch (URISyntaxException e2) {
                 e = e2;
-                e.printStackTrace();
-                if (intent != null) {
-                }
-                z = false;
-                if (!z) {
-                }
+                intent = null;
             }
         }
         if (intent != null) {

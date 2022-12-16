@@ -1,32 +1,76 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface cb5 {
     @NonNull
-    public static final ServiceReference a;
-    @NonNull
-    public static final cb5 b;
+    public static final ServiceReference a = new ServiceReference("AlaLiveSdk", "IMSdkService");
+    public static final Comparator<ChatMsg> b = new a();
 
-    boolean a(@NonNull String str);
+    void a(@NonNull Context context, @NonNull List<Long> list, @NonNull hb5 hb5Var);
 
-    @NonNull
-    String b(@NonNull String str);
+    void b(@NonNull Context context, @NonNull List<Long> list, @NonNull hb5 hb5Var);
 
-    @NonNull
-    String c();
+    void c(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull eb5 eb5Var);
 
-    @NonNull
-    String d(@NonNull String str, boolean z);
+    void d(@NonNull ib5 ib5Var);
 
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
+    void e(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull fb5 fb5Var);
 
-    static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (cb5) ServiceManager.getService(serviceReference);
+    void f(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @NonNull jb5 jb5Var);
+
+    void g(@NonNull ib5 ib5Var);
+
+    void h(@NonNull Context context, @NonNull String str, @NonNull List<Long> list);
+
+    void i(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull kb5 kb5Var);
+
+    /* loaded from: classes3.dex */
+    public static class a implements Comparator<ChatMsg> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(ChatMsg chatMsg, ChatMsg chatMsg2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMsg, chatMsg2)) == null) {
+                if (TextUtils.equals(chatMsg.getMsgKey(), chatMsg2.getMsgKey())) {
+                    return 0;
+                }
+                if (chatMsg.getMsgId() - chatMsg2.getMsgId() > 0) {
+                    return 1;
+                }
+                return -1;
+            }
+            return invokeLL.intValue;
+        }
     }
 }

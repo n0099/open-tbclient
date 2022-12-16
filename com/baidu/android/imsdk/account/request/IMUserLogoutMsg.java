@@ -2,10 +2,8 @@ package com.baidu.android.imsdk.account.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +73,6 @@ public class IMUserLogoutMsg extends Message {
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(IMUserLogoutMsg.class.getSimpleName(), "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -84,7 +81,8 @@ public class IMUserLogoutMsg extends Message {
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
-            Utility.logout(context, getListenerKey());
+            String listenerKey = getListenerKey();
+            Utility.logout(context, listenerKey, "logout :" + i);
         }
     }
 }

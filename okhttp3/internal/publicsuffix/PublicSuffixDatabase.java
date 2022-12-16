@@ -23,9 +23,10 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String BAIDU_TLD_PLUS_ONE = "baidu.com";
     public static final String[] EMPTY_RULE;
     public static final byte EXCEPTION_MARKER = 33;
     public static final String[] PREVAILING_RULE;
@@ -76,22 +77,25 @@ public final class PublicSuffixDatabase {
 
     private void readTheListUninterruptibly() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             boolean z = false;
             while (true) {
                 try {
                     try {
-                        readTheList();
-                        break;
-                    } catch (InterruptedIOException unused) {
-                        z = true;
-                    } catch (IOException e) {
-                        Platform.get().log(5, "Failed to read public suffix list", e);
-                        if (z) {
-                            Thread.currentThread().interrupt();
+                        try {
+                            readTheList();
+                            break;
+                        } catch (IOException e) {
+                            Platform.get().log(5, "Failed to read public suffix list", e);
+                            if (z) {
+                                Thread.currentThread().interrupt();
+                                return;
+                            }
                             return;
                         }
-                        return;
+                    } catch (InterruptedIOException unused) {
+                        Thread.interrupted();
+                        z = true;
                     }
                 } catch (Throwable th) {
                     if (z) {
@@ -289,10 +293,22 @@ public final class PublicSuffixDatabase {
         return (PublicSuffixDatabase) invokeV.objValue;
     }
 
+    private boolean isBaiduDomain(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            if (!str.equals(BAIDU_TLD_PLUS_ONE) && !str.endsWith(".baidu.com")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     private void readTheList() throws IOException {
         InputStream resourceAsStream;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || (resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE)) == null) {
+        if ((interceptable != null && interceptable.invokeV(65542, this) != null) || (resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE)) == null) {
             return;
         }
         BufferedSource buffer = Okio.buffer(new GzipSource(Okio.source(resourceAsStream)));
@@ -318,6 +334,9 @@ public final class PublicSuffixDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
+                if (isBaiduDomain(str)) {
+                    return BAIDU_TLD_PLUS_ONE;
+                }
                 String[] split = IDN.toUnicode(str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String[] findMatchingRule = findMatchingRule(split);
                 if (split.length == findMatchingRule.length && findMatchingRule[0].charAt(0) != '!') {

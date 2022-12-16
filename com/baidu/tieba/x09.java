@@ -1,24 +1,10 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoLoadingFragment;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class x09 implements View.OnLongClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ x09 a = new x09();
-    public transient /* synthetic */ FieldHolder $fh;
+public interface x09 {
+    void n1(String str, int i, String str2);
 
-    private /* synthetic */ x09() {
-    }
-
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? VideoLoadingFragment.v1(view2) : invokeL.booleanValue;
-    }
+    void setMusicData(List<MusicData> list);
 }

@@ -54,7 +54,6 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";
     public static final String PAGE_FROM = "page_from";
-    public static final String PARAM_IS_VERTAIL = "is_vertail";
     public static final String PARAM_ST_TYPE = "st_type";
     public static final String PARAM_YUELAOU_LACATION = "yuelaou_locate";
     public static final String SOURCE_FROM = "source_from";
@@ -402,24 +401,22 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         }
     }
 
-    public void setParamIsVertail(boolean z) {
+    public VideoRecommentPlayActivityConfig setUri(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getIntent() != null) {
-            getIntent().putExtra("is_vertail", z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                intent.putExtra(IntentConfig.KEY_URI, uri);
+            }
+            return this;
         }
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, uri) == null) && (intent = getIntent()) != null) {
-            intent.putExtra(IntentConfig.KEY_URI, uri);
-        }
+        return (VideoRecommentPlayActivityConfig) invokeL.objValue;
     }
 
     public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             getIntent().putExtra("video_show_index", i);
         }
     }

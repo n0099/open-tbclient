@@ -45,7 +45,7 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import javax.security.auth.x500.X500Principal;
 @JNINamespace
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class X509Util {
     public static /* synthetic */ Interceptable $ic;
     public static CertificateFactory a;
@@ -62,13 +62,13 @@ public class X509Util {
     public static final char[] l;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         List<X509Certificate> a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException;
     }
@@ -77,7 +77,7 @@ public class X509Util {
 
     public static native void nativeRecordCertVerifyCapabilitiesHistogram(boolean z);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class X509Util {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class c implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public class X509Util {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class e implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

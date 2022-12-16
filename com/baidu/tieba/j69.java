@@ -1,145 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.write.view.LocalChannelTopicSelectView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class j69 extends t69<k79> {
+/* loaded from: classes5.dex */
+public class j69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public LocalChannelTopicSelectView g;
-    @Nullable
-    public String h;
+    public LruCache<String, Bitmap> a;
 
-    @Override // com.baidu.tieba.y69
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+    /* loaded from: classes5.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(j69 j69Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j69Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) && bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: b */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
+            }
+            return invokeLL.intValue;
         }
     }
 
-    @Override // com.baidu.tieba.y69
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j69(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, k79.class);
+    public j69(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ba, viewGroup, false);
-            this.c = inflate;
-            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) inflate.findViewById(R.id.obfuscated_res_0x7f092709);
-            this.g = localChannelTopicSelectView;
-            if (localChannelTopicSelectView != null) {
-                localChannelTopicSelectView.setLocalChannelTopic(this.h);
-            }
-            return this.c;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-            writeData.setLocalChannelDynamic(true);
-            writeData.setLocalChannelTopic(this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void onChangeSkinType(int i) {
-        LocalChannelTopicSelectView localChannelTopicSelectView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (localChannelTopicSelectView = this.g) != null) {
-            localChannelTopicSelectView.b();
-        }
-    }
-
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public void h(@Nullable String str, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, writeData) != null) || StringUtils.isNull(str)) {
+        if (i > 0) {
+            this.a = new a(this, i);
             return;
         }
-        try {
-            writeData.setLocalChannelTopic(new JSONObject(str).optString("t"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        throw new IllegalArgumentException("maxSize <= 0");
     }
 
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
-            super.m(bundle, intent, writeData);
-            if (bundle != null) {
-                this.h = bundle.getString(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
-            } else if (intent != null) {
-                this.h = intent.getStringExtra(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (StringUtils.isNull(this.h)) {
-                this.h = writeData.getLocalChannelTopic();
-            }
+            return this.a.get(str);
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.t69, com.baidu.tieba.y69
-    public void onActivityResult(int i, int i2, Intent intent) {
-        LocalChannelTopicSelectView localChannelTopicSelectView;
+    public void b(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 == -1 && i == 25068 && intent != null && (localChannelTopicSelectView = this.g) != null && localChannelTopicSelectView.getVisibility() == 0) {
-                String stringExtra = intent.getStringExtra(LocalChannelTopicListActivityConfig.KEY_RESPONSE_TOPIC);
-                this.h = stringExtra;
-                this.g.setLocalChannelTopic(stringExtra);
-            }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) && !TextUtils.isEmpty(str) && bitmap != null && !bitmap.isRecycled()) {
+            this.a.put(str, bitmap);
         }
     }
 }

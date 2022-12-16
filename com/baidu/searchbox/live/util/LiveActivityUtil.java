@@ -8,7 +8,6 @@ import android.os.Build;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.live.arch.runtime.MiniShellRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,17 +91,10 @@ public class LiveActivityUtil {
         }
     }
 
-    public static void fixTiebaWindowSoftInputMode(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, activity) == null) && MiniShellRuntime.INSTANCE.isTieba()) {
-            activity.getWindow().setSoftInputMode(50);
-        }
-    }
-
     public static boolean startActivitySafely(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
             return startActivitySafely(context, intent, false);
         }
         return invokeLL.booleanValue;
@@ -111,7 +103,7 @@ public class LiveActivityUtil {
     public static boolean startActivitySafely(Context context, Intent intent, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, context, intent, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) {
             return startActivitySafely(context, intent, z, true);
         }
         return invokeLLZ.booleanValue;
@@ -120,7 +112,7 @@ public class LiveActivityUtil {
     public static boolean startActivitySafely(Context context, Intent intent, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (z || !(context instanceof Activity)) {
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }

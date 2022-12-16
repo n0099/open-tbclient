@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MemoryBitmapCache implements IBitmapCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class MemoryBitmapCache implements IBitmapCache {
     public Map<String, CacheEntry> mMap;
     public int mMaxSize;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface IEvictPolicy {
         public static final int LRU = 0;
         public static final int OLDEST = 1;
@@ -28,7 +28,7 @@ public class MemoryBitmapCache implements IBitmapCache {
         void updateCacheItem(CacheEntry cacheEntry);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class CacheEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class MemoryBitmapCache implements IBitmapCache {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class LRUPolicy implements IEvictPolicy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class MemoryBitmapCache implements IBitmapCache {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class OldestPolicy implements IEvictPolicy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

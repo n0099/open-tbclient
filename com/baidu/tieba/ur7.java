@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes6.dex */
-public class ur7 {
+public class ur7 implements vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public String b;
 
-    public ur7(Context context) {
+    public ur7(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,6 +29,30 @@ public class ur7 {
                 return;
             }
         }
-        this.a = context;
+        if (vipBannerItem == null) {
+            return;
+        }
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
+    }
+
+    @Override // com.baidu.tieba.vw4
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vw4
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

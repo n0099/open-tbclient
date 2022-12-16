@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf8;
-import com.baidu.tieba.ze8;
+import com.baidu.tieba.rh8;
+import com.baidu.tieba.th8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, bf8.a {
+/* loaded from: classes6.dex */
+public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, th8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Camera a;
@@ -29,26 +29,26 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     public c d;
     public Handler e;
     public boolean f;
-    public bf8 g;
+    public th8 g;
     public int h;
     public Runnable i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a();
 
         void b(String str);
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends bf8 {
+    /* loaded from: classes6.dex */
+    public class a extends th8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Camera e;
         public final /* synthetic */ QRCodeView f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(QRCodeView qRCodeView, Camera camera, byte[] bArr, bf8.a aVar, int i, Camera camera2) {
+        public a(QRCodeView qRCodeView, Camera camera, byte[] bArr, th8.a aVar, int i, Camera camera2) {
             super(camera, bArr, aVar, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -60,7 +60,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Camera) objArr2[0], (byte[]) objArr2[1], (bf8.a) objArr2[2], ((Integer) objArr2[3]).intValue());
+                    super((Camera) objArr2[0], (byte[]) objArr2[1], (th8.a) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -95,7 +95,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
             layoutParams.addRule(6, this.b.getId());
             layoutParams.addRule(8, this.b.getId());
             addView(this.c, layoutParams);
-            this.h = ze8.c(context);
+            this.h = rh8.c(context);
         }
     }
 
@@ -202,10 +202,10 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     }
 
     public void b() {
-        bf8 bf8Var;
+        th8 th8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bf8Var = this.g) != null) {
-            bf8Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (th8Var = this.g) != null) {
+            th8Var.a();
             this.g = null;
         }
     }

@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,10 +37,10 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09181e);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09181d);
+        this.b = (RelativeLayout) view2.findViewById(R.id.pb_check_video_more);
+        TextView textView = (TextView) view2.findViewById(R.id.pb_check_more_text);
         this.c = textView;
-        qw4 d = qw4.d(textView);
+        rw4 d = rw4.d(textView);
         d.z(R.dimen.T_X12);
         d.A(R.string.F_X01);
         d.v(R.color.CAM_X0107);

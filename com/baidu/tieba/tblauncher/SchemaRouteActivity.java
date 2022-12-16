@@ -27,7 +27,6 @@ import com.baidu.tbadk.core.atomData.Anniversary18thActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
@@ -51,31 +50,34 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
-import com.baidu.tieba.db5;
-import com.baidu.tieba.en4;
-import com.baidu.tieba.fj5;
-import com.baidu.tieba.fk5;
+import com.baidu.tieba.al5;
+import com.baidu.tieba.dn4;
+import com.baidu.tieba.fl8;
 import com.baidu.tieba.fx4;
-import com.baidu.tieba.gi5;
-import com.baidu.tieba.h35;
-import com.baidu.tieba.h95;
+import com.baidu.tieba.i35;
+import com.baidu.tieba.i95;
+import com.baidu.tieba.jh8;
 import com.baidu.tieba.jx4;
-import com.baidu.tieba.lm4;
+import com.baidu.tieba.km4;
+import com.baidu.tieba.mk7;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.ni8;
+import com.baidu.tieba.ob5;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.ph7;
-import com.baidu.tieba.re8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.tblauncher.dispatcher.EnterForumDispatcher;
 import com.baidu.tieba.tblauncher.dispatcher.MessageCenterDispatcher;
+import com.baidu.tieba.vb5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.wz8;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yi5;
+import com.baidu.tieba.yj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,6 +86,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class SchemaRouteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -91,27 +95,55 @@ public class SchemaRouteActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public final BdUniDispatchSchemeController.b a;
 
-    public final void x1(Intent intent) {
-        boolean z;
+    /* JADX WARN: Removed duplicated region for block: B:128:0x03f7 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x03f8  */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x0411  */
+    /* JADX WARN: Removed duplicated region for block: B:149:0x04e4  */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x054b  */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x0557  */
+    /* JADX WARN: Removed duplicated region for block: B:154:0x05b7  */
+    /* JADX WARN: Removed duplicated region for block: B:157:0x05c1  */
+    /* JADX WARN: Removed duplicated region for block: B:158:0x0633  */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x063e  */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x06c9  */
+    /* JADX WARN: Removed duplicated region for block: B:183:0x071c  */
+    /* JADX WARN: Removed duplicated region for block: B:194:0x076c  */
+    /* JADX WARN: Removed duplicated region for block: B:197:0x077b  */
+    /* JADX WARN: Removed duplicated region for block: B:200:0x0787  */
+    /* JADX WARN: Removed duplicated region for block: B:203:0x0792  */
+    /* JADX WARN: Removed duplicated region for block: B:206:0x079d  */
+    /* JADX WARN: Removed duplicated region for block: B:209:0x07a8  */
+    /* JADX WARN: Removed duplicated region for block: B:212:0x07b3  */
+    /* JADX WARN: Removed duplicated region for block: B:215:0x07be  */
+    /* JADX WARN: Removed duplicated region for block: B:218:0x07c9  */
+    /* JADX WARN: Removed duplicated region for block: B:219:0x07cd  */
+    /* JADX WARN: Removed duplicated region for block: B:227:0x07ea  */
+    /* JADX WARN: Removed duplicated region for block: B:301:0x065e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:305:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void v1(Intent intent) {
         String str;
         String str2;
         String str3;
-        String str4;
-        String str5;
         int i;
+        String str4;
+        JSONObject jSONObject;
+        LoginActivityConfig loginActivityConfig;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || intent == null) {
             return;
         }
-        fx4.s(intent.getDataString(), false);
+        fx4.r(intent.getDataString(), false);
         y1(intent.getData());
         z1(intent.getData());
         String dataString = intent.getDataString();
         UtilHelper.clearClipBoardBySchemaParam(dataString);
-        en4.e(intent.getData());
-        en4.c(intent.getData());
+        dn4.e(intent.getData());
+        dn4.c(intent.getData());
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
-        ni8.d().a(intent.getData());
+        fl8.d().a(intent.getData());
         if (TextUtils.isEmpty(dataString)) {
             return;
         }
@@ -119,8 +151,12 @@ public class SchemaRouteActivity extends BaseActivity {
             jx4.a().i(1);
         }
         if (SchemeActionHelper.isTieBaAppSchemeHeader(dataString)) {
-            lm4.w().L(true);
+            km4.w().L(true);
             if (!n9.g().i("MainTabActivity")) {
+                if (x1(dataString)) {
+                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{dataString}, true);
+                    return;
+                }
                 b = dataString;
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig(getActivity())));
                 return;
@@ -137,26 +173,26 @@ public class SchemaRouteActivity extends BaseActivity {
                         tbWebViewActivityConfig.setUri(intent.getData());
                         sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
                     }
-                    lm4.w().L(true);
+                    km4.w().L(true);
                 } else if (!dataString.contains("tbtopicdetail") && !dataString.contains("unidispatch/topicdetail")) {
                     if (!dataString.contains("tbusercenter") && !dataString.contains("unidispatch/usercenter") && !dataString.contains("usercenter")) {
                         if (dataString.contains(UrlSchemaHelper.FROM_FORUM_SQUARE)) {
                             ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(getActivity());
                             forumSquareActivityConfig.setUri(intent.getData());
                             sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
-                            lm4.w().L(true);
+                            km4.w().L(true);
                             return;
                         } else if (dataString.contains("unidispatch/hotuserrank")) {
                             HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(getActivity());
                             hotUserRankActivityConfig.setUri(intent.getData());
                             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-                            lm4.w().L(true);
+                            km4.w().L(true);
                             return;
                         } else if (dataString.contains("unidispatch/openapp") || dataString.contains("donothing")) {
                             if (!n9.g().i("MainTabActivity")) {
                                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig(getActivity())));
                             }
-                            lm4.w().L(true);
+                            km4.w().L(true);
                             return;
                         } else {
                             if (dataString.contains(BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_CHUSHOU_ALA_ROOM)) {
@@ -164,24 +200,24 @@ public class SchemaRouteActivity extends BaseActivity {
                                 String queryParameter = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_CHUSHOU_THIRD_LIVE_TYPE);
                                 String queryParameter2 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_CHUSHOU_ROOM_ID);
                                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + queryParameter2 + "&livetype=" + queryParameter});
-                                lm4.w().L(true);
+                                km4.w().L(true);
                                 return;
                             }
                             if (dataString.contains(BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_TIEBA_YY_ROOM)) {
                                 String queryParameter3 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_YY_URL);
                                 if (queryParameter3 != null) {
                                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});
-                                    lm4.w().L(true);
+                                    km4.w().L(true);
                                     return;
                                 }
                                 return;
                             } else if (dataString.contains(BdUniDispatchSchemeController.PATH_TIEBA_BAR_FRIEND)) {
-                                UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{yi.S(dataString, "from=key_from_live_close_link")});
-                                lm4.w().L(true);
+                                UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{yi.T(dataString, "from=key_from_live_close_link")});
+                                km4.w().L(true);
                                 return;
                             } else if (dataString.contains(BdUniDispatchSchemeController.PATH_BDP_LIVE_CHANNEL)) {
                                 AlaTabFeedActivityConfig alaTabFeedActivityConfig = new AlaTabFeedActivityConfig(this);
-                                alaTabFeedActivityConfig.setPageSource(h35.d(dataString));
+                                alaTabFeedActivityConfig.setPageSource(i35.d(dataString));
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, alaTabFeedActivityConfig));
                                 return;
                             } else if (dataString.contains("unidispatch/onekeysign")) {
@@ -192,7 +228,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                 } else {
                                     sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this).createNormalCfg(1)));
                                 }
-                                lm4.w().L(true);
+                                km4.w().L(true);
                                 return;
                             } else if (dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_MY_CONCERN_LIST)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
@@ -226,141 +262,225 @@ public class SchemaRouteActivity extends BaseActivity {
                                     hashMap.put("home_tab_name", queryParameter9);
                                     sendMessage(new CustomMessage(2002015, new FlutterOpenData(this, "ItemRecommendList", hashMap)));
                                 }
+                                if (!TextUtils.isEmpty(dataString) && dataString.startsWith(UrlSchemaHelper.OPEN_GROUPCHAT_SCHEME)) {
+                                    String queryParameter10 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_CHAT_ROOM_ID_CAMEL);
+                                    if (queryParameter10 != null) {
+                                        try {
+                                            JSONObject jSONObject2 = new JSONObject(queryParameter10);
+                                            str4 = jSONObject2.optString("page");
+                                            try {
+                                                jSONObject = jSONObject2.optJSONObject("pageParams");
+                                            } catch (JSONException e) {
+                                                e = e;
+                                                e.printStackTrace();
+                                                jSONObject = null;
+                                                if ("im/groupChat".equals(str4)) {
+                                                    long optLong = jSONObject.optLong("roomId");
+                                                    String optString = jSONObject.optString(IntentConfig.BACK_SCHEME);
+                                                    loginActivityConfig = new LoginActivityConfig(getApplicationContext(), true);
+                                                    loginActivityConfig.setJumpToAfterDestroy(2);
+                                                    loginActivityConfig.setBackScheme(dataString);
+                                                    if (ViewHelper.checkUpIsLoginFromH5(loginActivityConfig)) {
+                                                    }
+                                                }
+                                                if (dataString.contains("/itemDetailsPage")) {
+                                                }
+                                                if (dataString.contains("unidispatch/item")) {
+                                                    String queryParameter11 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_ITEM_ID);
+                                                    HashMap hashMap2 = new HashMap();
+                                                    hashMap2.put("itemID", String.valueOf(queryParameter11));
+                                                    sendMessage(new CustomMessage(2002015, new FlutterOpenData(this, "GameItemDetailsPage", hashMap2)));
+                                                }
+                                                if (dataString.contains("unidispatch/login_page_test")) {
+                                                    sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this)));
+                                                }
+                                                if (dataString.contains("unidispatch/video_middle_page_qa")) {
+                                                }
+                                                if (dataString.contains("unidispatch/video_middle_light_page_qa")) {
+                                                }
+                                                if (dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
+                                                }
+                                                if (dataString.startsWith("tiebaclient://passlogin")) {
+                                                }
+                                                if (dataString.contains("unidispatch/voiceRoom")) {
+                                                }
+                                                if (dataString.contains("unidispatch/searchResultPage")) {
+                                                }
+                                                if (dataString.contains("unidispatch/videoTopicPage")) {
+                                                }
+                                                if (dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_RANK_LIST)) {
+                                                }
+                                                if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
+                                                }
+                                                if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
+                                                }
+                                                if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
+                                                }
+                                                if (dataString.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
+                                                }
+                                                if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
+                                                }
+                                                if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
+                                                }
+                                                if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_DISPATCH_PAGE)) {
+                                                }
+                                                if (!dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
+                                                }
+                                                if (TextUtils.isEmpty(dataString)) {
+                                                }
+                                            }
+                                        } catch (JSONException e2) {
+                                            e = e2;
+                                            str4 = null;
+                                        }
+                                    } else {
+                                        jSONObject = null;
+                                        str4 = null;
+                                    }
+                                    if ("im/groupChat".equals(str4) && jSONObject != null) {
+                                        long optLong2 = jSONObject.optLong("roomId");
+                                        String optString2 = jSONObject.optString(IntentConfig.BACK_SCHEME);
+                                        loginActivityConfig = new LoginActivityConfig(getApplicationContext(), true);
+                                        loginActivityConfig.setJumpToAfterDestroy(2);
+                                        loginActivityConfig.setBackScheme(dataString);
+                                        if (ViewHelper.checkUpIsLoginFromH5(loginActivityConfig)) {
+                                            return;
+                                        }
+                                        vb5.a().a(getActivity(), optLong2, -1, optString2);
+                                        return;
+                                    }
+                                }
                                 if (dataString.contains("/itemDetailsPage")) {
                                     Uri parse3 = Uri.parse(dataString);
-                                    String queryParameter10 = parse3.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_NAME);
-                                    if (!StringUtils.isNull(queryParameter10)) {
+                                    String queryParameter12 = parse3.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_NAME);
+                                    if (!StringUtils.isNull(queryParameter12)) {
                                         B1(dataString);
-                                        String str6 = "com.baidu.tieba://unidispatch/itemDetailsPage?name=" + queryParameter10 + "&from=" + FrsActivityConfig.FRS_FROM_ITEM;
+                                        String str5 = "com.baidu.tieba://unidispatch/itemDetailsPage?name=" + queryParameter12 + "&from=" + FrsActivityConfig.FRS_FROM_ITEM;
                                         FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
-                                        frsActivityConfig.setUri(Uri.parse(str6));
+                                        frsActivityConfig.setUri(Uri.parse(str5));
                                         sendMessage(new CustomMessage(2003000, frsActivityConfig));
-                                        lm4.w().L(true);
+                                        km4.w().L(true);
                                     } else {
-                                        String queryParameter11 = parse3.getQueryParameter(BdUniDispatchSchemeController.PARAM_ITEM_ID_CAMEL);
-                                        HashMap hashMap2 = new HashMap();
-                                        hashMap2.put("itemID", String.valueOf(queryParameter11));
-                                        sendMessage(new CustomMessage(2002015, new FlutterOpenData(this, "GameItemDetailsPage", hashMap2)));
+                                        String queryParameter13 = parse3.getQueryParameter(BdUniDispatchSchemeController.PARAM_ITEM_ID_CAMEL);
+                                        HashMap hashMap3 = new HashMap();
+                                        hashMap3.put("itemID", String.valueOf(queryParameter13));
+                                        sendMessage(new CustomMessage(2002015, new FlutterOpenData(this, "GameItemDetailsPage", hashMap3)));
                                     }
                                 }
                                 if (dataString.contains("unidispatch/item") && !dataString.contains("/itemDetailsPage")) {
-                                    String queryParameter12 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_ITEM_ID);
-                                    HashMap hashMap3 = new HashMap();
-                                    hashMap3.put("itemID", String.valueOf(queryParameter12));
-                                    sendMessage(new CustomMessage(2002015, new FlutterOpenData(this, "GameItemDetailsPage", hashMap3)));
+                                    String queryParameter112 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_ITEM_ID);
+                                    HashMap hashMap22 = new HashMap();
+                                    hashMap22.put("itemID", String.valueOf(queryParameter112));
+                                    sendMessage(new CustomMessage(2002015, new FlutterOpenData(this, "GameItemDetailsPage", hashMap22)));
                                 }
                                 if (dataString.contains("unidispatch/login_page_test") && !TbadkCoreApplication.isLogin()) {
                                     sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this)));
                                 }
                                 if (dataString.contains("unidispatch/video_middle_page_qa")) {
+                                    str = "video_url";
+                                    str2 = "video_thumbnail_url";
+                                } else {
                                     Uri parse4 = Uri.parse(dataString);
-                                    String queryParameter13 = parse4.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
-                                    String queryParameter14 = parse4.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_ID);
-                                    String queryParameter15 = parse4.getQueryParameter("title");
+                                    String queryParameter14 = parse4.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
+                                    String queryParameter15 = parse4.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_ID);
+                                    String queryParameter16 = parse4.getQueryParameter("title");
                                     parse4.getQueryParameter("author_name");
                                     parse4.getQueryParameter("author_nick_name");
                                     parse4.getQueryParameter("author_is_god");
                                     parse4.getQueryParameter("author_is_bigv");
                                     parse4.getQueryParameter("author_portrait");
-                                    str3 = "author_portrait";
-                                    String queryParameter16 = parse4.getQueryParameter("video_thumbnail_url");
-                                    String queryParameter17 = parse4.getQueryParameter("video_url");
+                                    String queryParameter17 = parse4.getQueryParameter("video_thumbnail_url");
+                                    String queryParameter18 = parse4.getQueryParameter("video_url");
                                     str = "video_url";
                                     ArrayList arrayList = new ArrayList();
                                     str2 = "video_thumbnail_url";
                                     VideoItemData videoItemData = new VideoItemData();
-                                    videoItemData.thread_id = queryParameter13;
-                                    videoItemData.forum_id = queryParameter14;
-                                    videoItemData.title = queryParameter15;
-                                    videoItemData.thumbnail_url = queryParameter16;
-                                    videoItemData.video_url = queryParameter17;
+                                    videoItemData.thread_id = queryParameter14;
+                                    videoItemData.forum_id = queryParameter15;
+                                    videoItemData.title = queryParameter16;
+                                    videoItemData.thumbnail_url = queryParameter17;
+                                    videoItemData.video_url = queryParameter18;
                                     arrayList.add(videoItemData);
                                     VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList, "from_nani_video", VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
                                     videoPlayActivityConfig.setUri(intent.getData());
                                     videoPlayActivityConfig.setUri(intent.getData());
                                     sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                                } else {
-                                    str = "video_url";
-                                    str2 = "video_thumbnail_url";
-                                    str3 = "author_portrait";
                                 }
                                 if (dataString.contains("unidispatch/video_middle_light_page_qa")) {
+                                    str3 = str2;
+                                } else {
                                     Uri parse5 = Uri.parse(dataString);
-                                    String queryParameter18 = parse5.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
-                                    String queryParameter19 = parse5.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_ID);
-                                    String queryParameter20 = parse5.getQueryParameter("title");
+                                    String queryParameter19 = parse5.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
+                                    String queryParameter20 = parse5.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_ID);
+                                    String queryParameter21 = parse5.getQueryParameter("title");
                                     parse5.getQueryParameter("author_name");
                                     parse5.getQueryParameter("author_nick_name");
                                     parse5.getQueryParameter("author_is_god");
                                     parse5.getQueryParameter("author_is_bigv");
-                                    str4 = str3;
-                                    parse5.getQueryParameter(str4);
-                                    str5 = str2;
-                                    String queryParameter21 = parse5.getQueryParameter(str5);
-                                    String queryParameter22 = parse5.getQueryParameter(str);
+                                    parse5.getQueryParameter("author_portrait");
+                                    str3 = str2;
+                                    String queryParameter22 = parse5.getQueryParameter(str3);
+                                    String queryParameter23 = parse5.getQueryParameter(str);
                                     ArrayList arrayList2 = new ArrayList();
                                     VideoItemData videoItemData2 = new VideoItemData();
-                                    videoItemData2.thread_id = queryParameter18;
-                                    videoItemData2.forum_id = queryParameter19;
-                                    videoItemData2.title = queryParameter20;
-                                    videoItemData2.thumbnail_url = queryParameter21;
-                                    videoItemData2.video_url = queryParameter22;
+                                    videoItemData2.thread_id = queryParameter19;
+                                    videoItemData2.forum_id = queryParameter20;
+                                    videoItemData2.title = queryParameter21;
+                                    videoItemData2.thumbnail_url = queryParameter22;
+                                    videoItemData2.video_url = queryParameter23;
                                     arrayList2.add(videoItemData2);
                                     VideoPlayActivityConfig videoPlayActivityConfig2 = new VideoPlayActivityConfig(this, arrayList2, "from_nani_video", VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
                                     videoPlayActivityConfig2.setUri(intent.getData());
                                     sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
-                                } else {
-                                    str4 = str3;
-                                    str5 = str2;
                                 }
                                 if (dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
+                                    i = 2002001;
+                                } else {
                                     Uri parse6 = Uri.parse(dataString);
-                                    String queryParameter23 = parse6.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
-                                    String queryParameter24 = parse6.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_ID);
-                                    String queryParameter25 = parse6.getQueryParameter("title");
-                                    String queryParameter26 = parse6.getQueryParameter("author_uid");
-                                    String queryParameter27 = parse6.getQueryParameter("author_name");
-                                    String queryParameter28 = parse6.getQueryParameter("author_nick_name");
-                                    String queryParameter29 = parse6.getQueryParameter(str4);
-                                    String queryParameter30 = parse6.getQueryParameter(str5);
-                                    String queryParameter31 = parse6.getQueryParameter(str);
+                                    String queryParameter24 = parse6.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
+                                    String queryParameter25 = parse6.getQueryParameter(BdUniDispatchSchemeController.PARAM_FORUM_ID);
+                                    String queryParameter26 = parse6.getQueryParameter("title");
+                                    String queryParameter27 = parse6.getQueryParameter("author_uid");
+                                    String queryParameter28 = parse6.getQueryParameter("author_name");
+                                    String queryParameter29 = parse6.getQueryParameter("author_nick_name");
+                                    String queryParameter30 = parse6.getQueryParameter("author_portrait");
+                                    String queryParameter31 = parse6.getQueryParameter(str3);
+                                    String queryParameter32 = parse6.getQueryParameter(str);
                                     ArrayList arrayList3 = new ArrayList();
                                     VideoItemData videoItemData3 = new VideoItemData();
-                                    videoItemData3.thread_id = queryParameter23;
-                                    videoItemData3.forum_id = queryParameter24;
-                                    videoItemData3.title = queryParameter25;
+                                    videoItemData3.thread_id = queryParameter24;
+                                    videoItemData3.forum_id = queryParameter25;
+                                    videoItemData3.title = queryParameter26;
                                     UserItemData userItemData = new UserItemData();
-                                    userItemData.user_id = queryParameter26;
-                                    userItemData.user_name = queryParameter27;
-                                    userItemData.name_show = queryParameter28;
-                                    userItemData.portrait = queryParameter29;
+                                    userItemData.user_id = queryParameter27;
+                                    userItemData.user_name = queryParameter28;
+                                    userItemData.name_show = queryParameter29;
+                                    userItemData.portrait = queryParameter30;
                                     videoItemData3.author_info = userItemData;
-                                    videoItemData3.thumbnail_url = queryParameter30;
-                                    videoItemData3.video_url = queryParameter31;
+                                    videoItemData3.thumbnail_url = queryParameter31;
+                                    videoItemData3.video_url = queryParameter32;
                                     arrayList3.add(videoItemData3);
                                     VideoPlayActivityConfig videoPlayActivityConfig3 = new VideoPlayActivityConfig(this, arrayList3, "from_nani_video", VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
                                     videoPlayActivityConfig3.setParamIsVertail(true);
                                     videoPlayActivityConfig3.setUri(intent.getData());
                                     i = 2002001;
                                     sendMessage(new CustomMessage(2002001, videoPlayActivityConfig3));
-                                } else {
-                                    i = 2002001;
                                 }
                                 if (dataString.startsWith("tiebaclient://passlogin")) {
-                                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this);
-                                    loginActivityConfig.setAutoLogin(dataString);
-                                    sendMessage(new CustomMessage(i, loginActivityConfig));
-                                    lm4.w().L(true);
+                                    LoginActivityConfig loginActivityConfig2 = new LoginActivityConfig(this);
+                                    loginActivityConfig2.setAutoLogin(dataString);
+                                    sendMessage(new CustomMessage(i, loginActivityConfig2));
+                                    km4.w().L(true);
                                 }
                                 if (dataString.contains("unidispatch/voiceRoom")) {
                                     try {
                                         Uri parse7 = Uri.parse(dataString);
                                         HashMap hashMap4 = new HashMap();
-                                        for (String str7 : parse7.getQueryParameterNames()) {
-                                            hashMap4.put(str7, parse7.getQueryParameter(str7));
+                                        for (String str6 : parse7.getQueryParameterNames()) {
+                                            hashMap4.put(str6, parse7.getQueryParameter(str6));
                                         }
                                         if (hashMap4.containsKey("room_id")) {
-                                            ((db5) ServiceManager.getService(db5.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), xg.g((String) hashMap4.get("room_id"), 0L));
+                                            ((ob5) ServiceManager.getService(ob5.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), xg.g((String) hashMap4.get("room_id"), 0L));
                                         }
                                     } catch (Exception unused) {
                                         if (BdBaseApplication.getInst().isDebugMode()) {
@@ -369,10 +489,10 @@ public class SchemaRouteActivity extends BaseActivity {
                                     }
                                 }
                                 if (dataString.contains("unidispatch/searchResultPage")) {
-                                    String queryParameter32 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY);
+                                    String queryParameter33 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY);
                                     IntentConfig intentConfig = new IntentConfig(this);
-                                    if (!StringUtils.isNull(queryParameter32)) {
-                                        intentConfig.getIntent().putExtra(IntentConfig.SEARCH_PAGE_QUERY_CONTENT_KEY, queryParameter32);
+                                    if (!StringUtils.isNull(queryParameter33)) {
+                                        intentConfig.getIntent().putExtra(IntentConfig.SEARCH_PAGE_QUERY_CONTENT_KEY, queryParameter33);
                                         MessageManager.getInstance().sendMessage(new CustomMessage(2015003, intentConfig));
                                     } else {
                                         sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
@@ -380,34 +500,34 @@ public class SchemaRouteActivity extends BaseActivity {
                                 }
                                 if (dataString.contains("unidispatch/videoTopicPage")) {
                                     Uri parse8 = Uri.parse(dataString);
-                                    String queryParameter33 = parse8.getQueryParameter("topic_id");
-                                    String queryParameter34 = parse8.getQueryParameter(IntentConfig.TOPIC_NAME);
-                                    String queryParameter35 = parse8.getQueryParameter("is_video_topic");
-                                    if (!TextUtils.isEmpty(queryParameter33)) {
-                                        if (!StringHelper.equals(queryParameter35, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                            fj5.e(getPageContext(), queryParameter33, queryParameter34);
+                                    String queryParameter34 = parse8.getQueryParameter("topic_id");
+                                    String queryParameter35 = parse8.getQueryParameter(IntentConfig.TOPIC_NAME);
+                                    String queryParameter36 = parse8.getQueryParameter("is_video_topic");
+                                    if (!TextUtils.isEmpty(queryParameter34)) {
+                                        if (!StringHelper.equals(queryParameter36, "1") && NewWebHotTopicPageSwitch.isOn()) {
+                                            yj5.e(getPageContext(), queryParameter34, queryParameter35);
                                         } else {
-                                            new HotTopicActivityConfig(getPageContext().getPageActivity()).createNormalConfig(queryParameter33, queryParameter34, queryParameter35, null).start();
+                                            new HotTopicActivityConfig(getPageContext().getPageActivity()).createNormalConfig(queryParameter34, queryParameter35, queryParameter36, null).start();
                                         }
                                     }
                                 }
                                 if (dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_RANK_LIST)) {
-                                    new HotRanklistActivityConfig(this).createNormalConfig("default", "all").start();
+                                    wz8.c(getPageContext());
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                                    re8.e(this, dataString, true);
+                                    jh8.e(this, dataString, true);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                                    re8.a(this, dataString);
+                                    jh8.a(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                                    re8.d(this, dataString);
+                                    jh8.d(this, dataString);
                                 }
                                 if (dataString.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                                    re8.b(this, dataString);
+                                    jh8.b(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                                    re8.c(this, dataString);
+                                    jh8.c(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                                     UrlSchemaJumpHelper.jumpGamePlayPage(this, dataString);
@@ -415,7 +535,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_DISPATCH_PAGE)) {
                                     UrlSchemaJumpHelper.jumpDispatchOrderPage(this, dataString);
                                 }
-                                if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
+                                if (!dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
                                     UrlSchemaJumpHelper.jumpUnPaidOrderPage(this, dataString);
                                 } else if (dataString.startsWith(UrlSchemaHelper.SCHEMA_MESSAGE_CENTER_PAGE)) {
                                     UrlSchemaJumpHelper.jumpMessageCenterPage(this, dataString);
@@ -423,11 +543,11 @@ public class SchemaRouteActivity extends BaseActivity {
                                     UrlSchemaJumpHelper.jumpUnPaidListPage(this, dataString);
                                 }
                                 if (TextUtils.isEmpty(dataString)) {
-                                    return;
-                                }
-                                if (dataString.contains(UrlSchemaHelper.SCHEMA_GAME_RECOMMENT_PAGE) || dataString.contains(NewUrlSchemaHelper.Jump.JUMP_TO_VIDEO_SQUARE) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.contains(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_LAUNCH) || dataString.contains("com.baidu.tieba://unidispatch/homepage") || dataString.contains("com.baidu.tieba://unidispatch/activitypage") || dataString.contains("com.baidu.tieba://unidispatch/minePage") || dataString.contains(MessageCenterDispatcher.url) || dataString.contains(EnterForumDispatcher.url) || dataString.contains("com.baidu.tieba://unidispatch/recommendforum") || dataString.contains("com.baidu.tieba://deeplink") || dataString.contains("com.baidu.tieba://unidispatch/videotab") || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOMEPAGE_ANYTAB)) {
-                                    ph7.H(dataString);
-                                    MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(TbadkCoreApplication.getInst()).createUriCfg(intent.getData())));
+                                    if (dataString.contains(UrlSchemaHelper.SCHEMA_GAME_RECOMMENT_PAGE) || dataString.contains(NewUrlSchemaHelper.Jump.JUMP_TO_VIDEO_SQUARE) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.contains(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_LAUNCH) || dataString.contains("com.baidu.tieba://unidispatch/homepage") || dataString.contains("com.baidu.tieba://unidispatch/activitypage") || dataString.contains("com.baidu.tieba://unidispatch/minePage") || dataString.contains(MessageCenterDispatcher.url) || dataString.contains(EnterForumDispatcher.url) || dataString.contains("com.baidu.tieba://unidispatch/recommendforum") || dataString.contains("com.baidu.tieba://deeplink") || dataString.contains("com.baidu.tieba://unidispatch/videotab") || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOMEPAGE_ANYTAB)) {
+                                        mk7.H(dataString);
+                                        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(TbadkCoreApplication.getInst()).createUriCfg(intent.getData())));
+                                        return;
+                                    }
                                     return;
                                 }
                                 return;
@@ -437,16 +557,16 @@ public class SchemaRouteActivity extends BaseActivity {
                     PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getActivity());
                     personPolymericActivityConfig.setUri(intent.getData());
                     sendMessage(new CustomMessage(2002001, personPolymericActivityConfig));
-                    lm4.w().L(true);
+                    km4.w().L(true);
                 } else {
                     if (NewWebHotTopicPageSwitch.isOn()) {
-                        fj5.e(getPageContext(), fk5.c(dataString, "topic_id="), null);
+                        yj5.e(getPageContext(), al5.c(dataString, "topic_id="), null);
                     } else {
                         TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(getActivity());
                         topicDetailActivityConfig.setUri(intent.getData());
                         sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
                     }
-                    lm4.w().L(true);
+                    km4.w().L(true);
                 }
             } else if ("tbpb://tieba.baidu.com".equals(dataString)) {
                 if (n9.g().i("MainTabActivity")) {
@@ -454,29 +574,27 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig(getActivity())));
             } else {
-                String queryParameter36 = intent.getData().getQueryParameter("obj_param1");
-                if (!BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter36) && !"2".equals(queryParameter36)) {
+                String queryParameter37 = intent.getData().getQueryParameter("obj_param1");
+                if (!BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter37) && !"2".equals(queryParameter37)) {
                     sendMessage(new CustomMessage(2004001, PbActivityConfig.createCfgFromUri(getActivity(), intent.getData())));
-                    z = true;
                 } else {
-                    String queryParameter37 = intent.getData().getQueryParameter("tid");
+                    String queryParameter38 = intent.getData().getQueryParameter("tid");
                     ArrayList arrayList4 = new ArrayList();
                     VideoItemData videoItemData4 = new VideoItemData();
-                    videoItemData4.thread_id = queryParameter37;
+                    videoItemData4.thread_id = queryParameter38;
                     arrayList4.add(videoItemData4);
-                    VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this, arrayList4, null, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME);
-                    z = true;
-                    videoRecommentPlayActivityConfig.setParamIsVertail(true);
-                    videoRecommentPlayActivityConfig.setUri(intent.getData());
-                    sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
+                    new VideoRecommentPlayActivityConfig(this, arrayList4, null, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME).setUri(intent.getData()).start();
                 }
-                lm4.w().L(z);
+                km4.w().L(true);
             }
         } else {
             FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(getActivity());
             frsActivityConfig2.setUri(intent.getData());
+            if (dataString.contains(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST)) {
+                frsActivityConfig2.setIsShowImGroupList(xg.e(Uri.parse(dataString).getQueryParameter(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST), 0));
+            }
             sendMessage(new CustomMessage(2003000, frsActivityConfig2));
-            lm4.w().L(true);
+            km4.w().L(true);
         }
     }
 
@@ -532,7 +650,7 @@ public class SchemaRouteActivity extends BaseActivity {
         this.a = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.de5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ve5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -567,7 +685,7 @@ public class SchemaRouteActivity extends BaseActivity {
 
     public final void y1(Uri uri) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, uri) != null) || uri == null || !BdUniDispatchSchemeController.isUniScheme(uri)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, uri) != null) || uri == null || !BdUniDispatchSchemeController.isUniScheme(uri)) {
             return;
         }
         String queryParameter = uri.getQueryParameter("obj_locate");
@@ -578,10 +696,10 @@ public class SchemaRouteActivity extends BaseActivity {
 
     public final void z1(Uri uri) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, uri) != null) || uri == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, uri) != null) || uri == null) {
             return;
         }
-        gi5.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
+        yi5.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -590,19 +708,39 @@ public class SchemaRouteActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY);
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                h95.a = true;
+                i95.a = true;
             }
-            ph7.o = true;
-            fx4.u(this);
+            mk7.o = true;
+            fx4.t(this);
             super.onCreate(bundle);
             A1();
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                x1(getIntent());
+                v1(getIntent());
             }
             BaseVM.m(1);
             TbSingleton.getInstance().setPushOrSchemeLog(true);
             finish();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_END_STAMP_KEY);
         }
+    }
+
+    public final boolean x1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return false;
+            }
+            try {
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (!"flutter/peiWanPage".equalsIgnoreCase(new JSONObject(parse.getQueryParameter("params")).optString("page"))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -20,7 +20,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d062e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.nad_video_tail_frame_full_view : invokeV.intValue;
     }
 
     /* loaded from: classes2.dex */
@@ -122,7 +122,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.e(context);
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f4d)).setOnClickListener(new a(this));
+            ((ImageView) findViewById(R.id.immersive_video_ad_tail_frame_full_back_btn)).setOnClickListener(new a(this));
         }
     }
 }

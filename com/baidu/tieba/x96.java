@@ -3,73 +3,66 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.ItemManage.DataRes;
-import tbclient.ManageInfo;
 /* loaded from: classes6.dex */
-public class x96 implements cd5 {
+public final class x96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<o96> a;
-    public List<o96> b;
-    public Integer c;
+    public final int a;
+    public final int b;
 
-    @Override // com.baidu.tieba.cd5
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.cd5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-        }
-    }
-
-    public x96() {
+    public x96(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
+        this.a = i;
+        this.b = i2;
     }
 
-    public void a(x96 x96Var) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, x96Var) == null) {
-            this.a.addAll(x96Var.a);
-            this.b = x96Var.b;
-            this.c = x96Var.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public void b(DataRes dataRes) {
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
-            for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.a.add(o96.c(manageInfo));
-            }
-            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.b.add(o96.c(manageInfo2));
-            }
-            this.c = dataRes.has_more;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: int : 0x000e: IGET  (r1v3 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.x96 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.x96.a int), ('x' char), (wrap: int : 0x0018: IGET  (r1v5 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.x96 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.x96.b int), (']' char)] */
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            sb.append(this.a);
+            sb.append('x');
+            sb.append(this.b);
+            sb.append(']');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

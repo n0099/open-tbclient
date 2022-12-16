@@ -1,47 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes6.dex */
-public class w97 {
+public class w97 implements xn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static vf5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
-            try {
-                vf5 vf5Var = new vf5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(vf5Var);
-                return vf5Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948225492, "Lcom/baidu/tieba/w97;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948225492, "Lcom/baidu/tieba/w97;");
+                return;
             }
         }
-        return (vf5) invokeIL.objValue;
+        a = BdUniqueId.gen();
     }
 
-    public static wf5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
+    public w97() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            wf5 wf5Var = new wf5(i);
-            wf5Var.setResponsedClass(cls);
-            wf5Var.h(z);
-            wf5Var.setParallel(TiebaIMConfig.getParallel());
-            MessageManager.getInstance().registerTask(wf5Var);
-            return wf5Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (wf5) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(TopicList topicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
+            topicList.topic_id.longValue();
+            String str = topicList.topic_name;
+            topicList.tag.intValue();
+            topicList.discuss_num.longValue();
+            String str2 = topicList.topic_desc;
+            String str3 = topicList.topic_pic;
+        }
+    }
+
+    public void b(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 }

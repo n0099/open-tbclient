@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.w38;
+import com.baidu.tieba.o68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
-    public w38 n;
+    public o68 n;
     public TbPageContext<MsglistActivity<?>> o;
 
     /* loaded from: classes4.dex */
@@ -80,9 +80,9 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            w38 w38Var = new w38(this.mContext);
-            this.n = w38Var;
-            w38Var.b(this.o.getUniqueId());
+            o68 o68Var = new o68(this.mContext);
+            this.n = o68Var;
+            o68Var.b(this.o.getUniqueId());
         }
     }
 
@@ -115,7 +115,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
         }
     }
 
-    public void I(boolean z) {
+    public void J(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.l = z;
@@ -136,21 +136,21 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgrightView a2 = msgViewHolder.a();
-            a2.I(this.g);
-            a2.A(this.l);
-            a2.x(this.h);
+            a2.K(this.g);
+            a2.B(this.l);
+            a2.y(this.h);
             a2.setUpdateListener(this.j);
-            a2.H(this.i);
-            a2.z(this.m);
-            a2.u();
+            a2.J(this.i);
+            a2.A(this.m);
+            a2.v();
             chatMessage.getCacheData().setIs_left(0);
-            a2.D(this.b);
-            a2.E(this.c);
-            a2.F(i);
-            a2.v(this.d);
-            a2.B(chatMessage.getCacheData().getLastMsgTime());
-            a2.G(viewGroup, chatMessage);
-            a2.w(viewGroup, chatMessage);
+            a2.E(this.b);
+            a2.F(this.c);
+            a2.G(i);
+            a2.w(this.d);
+            a2.C(chatMessage.getCacheData().getLastMsgTime());
+            a2.H(viewGroup, chatMessage);
+            a2.x(viewGroup, chatMessage);
             this.o.getLayoutMode().l(false);
             this.o.getLayoutMode().k(view2);
             return view2;

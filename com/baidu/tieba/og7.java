@@ -1,94 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class og7 extends kn<mg7, CardViewHolder<pg7>> {
+public class og7 extends yf1<sb5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public m46 b;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public og7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class a implements sb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public sg7 b;
+
+        public a(og7 og7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.sb5
+        public void onChangeSkinType(int i) {
+            sg7 sg7Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (sg7Var = this.b) != null) {
+                sg7Var.N(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.xb5
+        public void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, list, Long.valueOf(j), str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+                sg7 sg7Var = this.b;
+                if (sg7Var == null) {
+                    this.b = new sg7(tbPageContext, j, str, j2, list, z);
+                } else {
+                    sg7Var.T(j, str, j2, list, z);
+                }
+                this.b.V();
+            }
+        }
+
+        @Override // com.baidu.tieba.sb5
+        public void onDestroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                sg7 sg7Var = this.b;
+                if (sg7Var != null) {
+                    sg7Var.O();
+                }
+                this.b = null;
+            }
+        }
+
+        @Override // com.baidu.tieba.sb5
+        public void onPause() {
+            sg7 sg7Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (sg7Var = this.b) != null) {
+                sg7Var.Q();
+            }
+        }
+
+        @Override // com.baidu.tieba.sb5
+        public void onResume() {
+            sg7 sg7Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (sg7Var = this.b) != null) {
+                sg7Var.R();
+            }
+        }
+    }
+
+    public og7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.kn
-    public ho getOnAdapterItemClickListener() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public sb5 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+            return new a(this);
         }
-        return (ho) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<pg7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            pg7 pg7Var = new pg7(this.a, viewGroup);
-            m46 m46Var = this.b;
-            if (m46Var != null) {
-                pg7Var.n(m46Var);
-            }
-            return new CardViewHolder<>(pg7Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mg7 mg7Var, CardViewHolder<pg7> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mg7Var, cardViewHolder})) == null) {
-            if (mg7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().w(this.c);
-                cardViewHolder.a().l(mg7Var);
-                return cardViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return (sb5) invokeV.objValue;
     }
 }

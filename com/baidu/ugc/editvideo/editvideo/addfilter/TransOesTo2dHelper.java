@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj9;
+import com.baidu.tieba.mm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.GeneratedTexture;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TransOesTo2dHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class TransOesTo2dHelper {
                 Matrix.setIdentityM(fArr, 0);
             } catch (Exception e) {
                 release();
-                dj9.g(e);
+                mm9.g(e);
             }
             return this.mTexture2DId;
         }

@@ -1,120 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.CardHListViewData;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class tu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
 
-    public tu6(String str) {
+    public static boolean a(ArrayList<xn> arrayList, String str, CardHListViewData cardHListViewData, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
+            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
+                int size = arrayList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    xn xnVar = arrayList.get(i2);
+                    if ((xnVar instanceof CardHListViewData) && str.equals(((CardHListViewData) xnVar).threadId)) {
+                        return false;
+                    }
+                }
+                int i3 = i + 1;
+                if (i3 > 0) {
+                    ListUtils.add(arrayList, i3, cardHListViewData);
+                    return true;
+                }
             }
+            return false;
         }
-        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
-            this.a = str.substring(0, 1).contains("1");
-            this.b = str.substring(2, 3).contains("1");
-            if (str.length() >= 5) {
-                this.c = str.substring(4, 5).contains("1");
-                return;
+        return invokeLLLI.booleanValue;
+    }
+
+    public static boolean b(FrsRequestData frsRequestData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) {
+            if (frsRequestData == null || frsRequestData.L() != 1) {
+                return false;
             }
-            return;
+            return true;
         }
-        this.a = false;
-        this.b = true;
-    }
-
-    public tu6(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = z;
-        this.b = z2;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.b ? 1 : 0), Integer.valueOf(this.c ? 1 : 0));
-        }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

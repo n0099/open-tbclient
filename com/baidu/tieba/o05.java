@@ -126,8 +126,8 @@ public class o05 extends j05<o05> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             i(s());
-            if (!si5.g(this.c, f())) {
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a67, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+            if (!lj5.g(this.c, f())) {
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                 eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
                 eMRichTextAnyIconSpan.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
                 l(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);

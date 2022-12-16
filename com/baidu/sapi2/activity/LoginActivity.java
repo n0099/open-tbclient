@@ -242,7 +242,7 @@ public class LoginActivity extends BaseActivity {
                 return;
             }
             sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(R.string.obfuscated_res_0x7f0f10d3);
+            setTitleText(R.string.sapi_sdk_title_sms_login);
             this.sapiWebView.loadLogin(1, this.C);
         }
     }
@@ -519,7 +519,7 @@ public class LoginActivity extends BaseActivity {
                     if (intent == null) {
                         str = "";
                     } else {
-                        str2 = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
+                        str2 = intent.getStringExtra("business_type");
                         str = intent.getStringExtra("username");
                     }
                     if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME.equals(str2)) {
@@ -599,7 +599,7 @@ public class LoginActivity extends BaseActivity {
             super.onCreate(bundle);
             try {
                 if (this.mNeedSetContentView) {
-                    setContentView(R.layout.obfuscated_res_0x7f0d0516);
+                    setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 }
                 init();
                 setupViews();
@@ -646,7 +646,7 @@ public class LoginActivity extends BaseActivity {
             this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
             this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
             this.B = getIntent().getStringExtra("extraJson");
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.sapi_webview);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091e6a);
             this.sapiWebView = sapiWebView;
             sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.LoginActivity.4
                 public static /* synthetic */ Interceptable $ic;
@@ -944,7 +944,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(R.string.obfuscated_res_0x7f0f10d3);
+                    setTitleText(R.string.sapi_sdk_title_sms_login);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -960,7 +960,7 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair("loginUserName", this.x));
                     }
-                    setTitleText(R.string.obfuscated_res_0x7f0f10c6);
+                    setTitleText(R.string.sapi_sdk_title_login);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }

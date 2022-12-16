@@ -1,6 +1,5 @@
 package com.badlogic.gdx.scenes.scene2d;
 
-import com.baidu.tieba.account.AccountRestoreActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +42,7 @@ public final class InputEvent$Type {
         touchDragged = new InputEvent$Type("touchDragged", 2);
         mouseMoved = new InputEvent$Type("mouseMoved", 3);
         enter = new InputEvent$Type("enter", 4);
-        exit = new InputEvent$Type(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, 5);
+        exit = new InputEvent$Type("exit", 5);
         scrolled = new InputEvent$Type("scrolled", 6);
         keyDown = new InputEvent$Type("keyDown", 7);
         keyUp = new InputEvent$Type("keyUp", 8);

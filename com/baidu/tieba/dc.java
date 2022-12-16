@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface dc {
     in a(byte[] bArr, int i, int i2);
 
     in get(String str);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements dc {
         public static /* synthetic */ Interceptable $ic;
         public static dc c;

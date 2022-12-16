@@ -56,7 +56,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10ca);
+            setTitleText(R.string.sapi_sdk_title_login_google);
             try {
                 d();
             } catch (Exception e) {
@@ -88,7 +88,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f10b6));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.sapi_sdk_google_loging));
         }
     }
 

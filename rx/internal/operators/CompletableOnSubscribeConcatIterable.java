@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o4a;
-import com.baidu.tieba.p4a;
-import com.baidu.tieba.qz9;
-import com.baidu.tieba.rz9;
-import com.baidu.tieba.zz9;
+import com.baidu.tieba.a3a;
+import com.baidu.tieba.i3a;
+import com.baidu.tieba.x7a;
+import com.baidu.tieba.y7a;
+import com.baidu.tieba.z2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,26 +13,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class CompletableOnSubscribeConcatIterable implements qz9.f {
+public final class CompletableOnSubscribeConcatIterable implements z2a.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable<? extends qz9> a;
+    public final Iterable<? extends z2a> a;
 
     /* loaded from: classes9.dex */
-    public static final class ConcatInnerSubscriber extends AtomicInteger implements rz9 {
+    public static final class ConcatInnerSubscriber extends AtomicInteger implements a3a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final rz9 actual;
-        public final o4a sd;
-        public final Iterator<? extends qz9> sources;
+        public final a3a actual;
+        public final x7a sd;
+        public final Iterator<? extends z2a> sources;
 
-        public ConcatInnerSubscriber(rz9 rz9Var, Iterator<? extends qz9> it) {
+        public ConcatInnerSubscriber(a3a a3aVar, Iterator<? extends z2a> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rz9Var, it};
+                Object[] objArr = {a3aVar, it};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,9 +42,9 @@ public final class CompletableOnSubscribeConcatIterable implements qz9.f {
                     return;
                 }
             }
-            this.actual = rz9Var;
+            this.actual = a3aVar;
             this.sources = it;
-            this.sd = new o4a();
+            this.sd = new x7a();
         }
 
         public void next() {
@@ -52,7 +52,7 @@ public final class CompletableOnSubscribeConcatIterable implements qz9.f {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.sd.isUnsubscribed() || getAndIncrement() != 0) {
                 return;
             }
-            Iterator<? extends qz9> it = this.sources;
+            Iterator<? extends z2a> it = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 try {
                     if (!it.hasNext()) {
@@ -60,7 +60,7 @@ public final class CompletableOnSubscribeConcatIterable implements qz9.f {
                         return;
                     }
                     try {
-                        qz9 next = it.next();
+                        z2a next = it.next();
                         if (next == null) {
                             this.actual.onError(new NullPointerException("The completable returned is null"));
                             return;
@@ -80,7 +80,7 @@ public final class CompletableOnSubscribeConcatIterable implements qz9.f {
             }
         }
 
-        @Override // com.baidu.tieba.rz9
+        @Override // com.baidu.tieba.a3a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -88,7 +88,7 @@ public final class CompletableOnSubscribeConcatIterable implements qz9.f {
             }
         }
 
-        @Override // com.baidu.tieba.rz9
+        @Override // com.baidu.tieba.a3a
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -96,16 +96,16 @@ public final class CompletableOnSubscribeConcatIterable implements qz9.f {
             }
         }
 
-        @Override // com.baidu.tieba.rz9
-        public void onSubscribe(zz9 zz9Var) {
+        @Override // com.baidu.tieba.a3a
+        public void onSubscribe(i3a i3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, zz9Var) == null) {
-                this.sd.a(zz9Var);
+            if (interceptable == null || interceptable.invokeL(1048579, this, i3aVar) == null) {
+                this.sd.a(i3aVar);
             }
         }
     }
 
-    public CompletableOnSubscribeConcatIterable(Iterable<? extends qz9> iterable) {
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends z2a> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,23 +124,23 @@ public final class CompletableOnSubscribeConcatIterable implements qz9.f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qz9.f, com.baidu.tieba.g0a
-    public void call(rz9 rz9Var) {
+    @Override // com.baidu.tieba.z2a.f, com.baidu.tieba.p3a
+    public void call(a3a a3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rz9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, a3aVar) == null) {
             try {
-                Iterator<? extends qz9> it = this.a.iterator();
+                Iterator<? extends z2a> it = this.a.iterator();
                 if (it == null) {
-                    rz9Var.onSubscribe(p4a.c());
-                    rz9Var.onError(new NullPointerException("The iterator returned is null"));
+                    a3aVar.onSubscribe(y7a.c());
+                    a3aVar.onError(new NullPointerException("The iterator returned is null"));
                     return;
                 }
-                ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(rz9Var, it);
-                rz9Var.onSubscribe(concatInnerSubscriber.sd);
+                ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(a3aVar, it);
+                a3aVar.onSubscribe(concatInnerSubscriber.sd);
                 concatInnerSubscriber.next();
             } catch (Throwable th) {
-                rz9Var.onSubscribe(p4a.c());
-                rz9Var.onError(th);
+                a3aVar.onSubscribe(y7a.c());
+                a3aVar.onError(th);
             }
         }
     }

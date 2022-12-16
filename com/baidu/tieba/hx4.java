@@ -25,10 +25,10 @@ public class hx4 implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(aj5 aj5Var) {
+    public void onFinish(tj5 tj5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aj5Var) == null) && aj5Var != null) {
-            ix4.a().c(aj5Var.b);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, tj5Var) == null) && tj5Var != null) {
+            ix4.a().c(tj5Var.b);
         }
     }
 }

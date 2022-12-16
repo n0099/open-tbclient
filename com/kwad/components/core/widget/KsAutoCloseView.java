@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsAutoCloseView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static String wD = "%s秒后自动关闭";
@@ -30,7 +30,7 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     public boolean Pv;
     public int countDown;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void dg();
 
@@ -155,9 +155,9 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     private void L(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0419, this);
-            this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a2);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a1);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0428, this);
+            this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f091104);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091103);
             this.Ps = imageView;
             imageView.setOnClickListener(this);
         }

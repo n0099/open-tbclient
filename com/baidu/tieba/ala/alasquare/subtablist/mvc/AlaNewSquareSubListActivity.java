@@ -7,7 +7,7 @@ import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.iy5;
+import com.baidu.tieba.dz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import java.util.List;
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iy5 a;
+    public dz5 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
@@ -43,9 +43,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            iy5 iy5Var = this.a;
-            if (iy5Var != null) {
-                iy5Var.i();
+            dz5 dz5Var = this.a;
+            if (dz5Var != null) {
+                dz5Var.i();
             }
         }
     }
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            iy5 iy5Var = this.a;
-            if (iy5Var != null) {
-                iy5Var.h(getPageContext(), i);
+            dz5 dz5Var = this.a;
+            if (dz5Var != null) {
+                dz5Var.h(getPageContext(), i);
             }
         }
     }
@@ -76,16 +76,16 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new iy5(getPageContext(), true);
+            this.a = new dz5(getPageContext(), true);
             if (getIntent() != null) {
-                x1(getIntent());
+                v1(getIntent());
             } else {
                 finish();
             }
         }
     }
 
-    public final void x1(Intent intent) {
+    public final void v1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             this.b = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);

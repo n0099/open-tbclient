@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -83,6 +84,8 @@ public final class IMPushPb {
 
         NewConnection getNewConnection();
 
+        NewRequest getNewRequest();
+
         Request getRequest();
 
         Ui getUi();
@@ -100,6 +103,8 @@ public final class IMPushPb {
         boolean hasMsg();
 
         boolean hasNewConnection();
+
+        boolean hasNewRequest();
 
         boolean hasRequest();
 
@@ -402,6 +407,8 @@ public final class IMPushPb {
 
         ByteString getExtBytes();
 
+        long getIosBlcpStartTime();
+
         long getLcpLoginBegin();
 
         long getLcpLoginEnd();
@@ -436,6 +443,8 @@ public final class IMPushPb {
 
         boolean hasExt();
 
+        boolean hasIosBlcpStartTime();
+
         boolean hasLcpLoginBegin();
 
         boolean hasLcpLoginEnd();
@@ -453,6 +462,57 @@ public final class IMPushPb {
         boolean hasTokenBegin();
 
         boolean hasTokenEnd();
+    }
+
+    /* loaded from: classes.dex */
+    public interface NewRequestOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        long getErrorCode();
+
+        String getErrorMsg();
+
+        ByteString getErrorMsgBytes();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        String getMethodId();
+
+        ByteString getMethodIdBytes();
+
+        LcpNetInfo getNetInfo();
+
+        long getRequestId();
+
+        long getRequestTime();
+
+        long getResponseTime();
+
+        String getServiceId();
+
+        ByteString getServiceIdBytes();
+
+        boolean hasAliasId();
+
+        boolean hasErrorCode();
+
+        boolean hasErrorMsg();
+
+        boolean hasExt();
+
+        boolean hasMethodId();
+
+        boolean hasNetInfo();
+
+        boolean hasRequestId();
+
+        boolean hasRequestTime();
+
+        boolean hasResponseTime();
+
+        boolean hasServiceId();
     }
 
     /* loaded from: classes.dex */
@@ -1818,6 +1878,7 @@ public final class IMPushPb {
         public static final int DB_FIELD_NUMBER = 4;
         public static final int MSG_FIELD_NUMBER = 8;
         public static final int NEW_CONNECTION_FIELD_NUMBER = 9;
+        public static final int NEW_REQUEST_FIELD_NUMBER = 10;
         public static Parser<Action> PARSER = null;
         public static final int REQUEST_FIELD_NUMBER = 6;
         public static final int UI_FIELD_NUMBER = 2;
@@ -1834,6 +1895,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public Msg msg_;
         public NewConnection newConnection_;
+        public NewRequest newRequest_;
         public Request request_;
         public Ui ui_;
 
@@ -1849,6 +1911,7 @@ public final class IMPushPb {
             public Db db_;
             public Msg msg_;
             public NewConnection newConnection_;
+            public NewRequest newRequest_;
             public Request request_;
             public Ui ui_;
 
@@ -1862,7 +1925,7 @@ public final class IMPushPb {
             public final boolean isInitialized() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
                     return true;
                 }
                 return invokeV.booleanValue;
@@ -1890,6 +1953,7 @@ public final class IMPushPb {
                 this.ack_ = Ack.getDefaultInstance();
                 this.msg_ = Msg.getDefaultInstance();
                 this.newConnection_ = NewConnection.getDefaultInstance();
+                this.newRequest_ = NewRequest.getDefaultInstance();
                 maybeForceBuilderInitialization();
             }
 
@@ -1994,10 +2058,21 @@ public final class IMPushPb {
                 return (Builder) invokeV.objValue;
             }
 
-            public Builder clearRequest() {
+            public Builder clearNewRequest() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                    this.newRequest_ = NewRequest.getDefaultInstance();
+                    this.bitField0_ &= -513;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearRequest() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
                     this.request_ = Request.getDefaultInstance();
                     this.bitField0_ &= -33;
                     return this;
@@ -2008,7 +2083,7 @@ public final class IMPushPb {
             public Builder clearUi() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                     this.ui_ = Ui.getDefaultInstance();
                     this.bitField0_ &= -3;
                     return this;
@@ -2021,7 +2096,7 @@ public final class IMPushPb {
             public Builder clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                     return create().mergeFrom(buildPartial());
                 }
                 return (Builder) invokeV.objValue;
@@ -2031,7 +2106,7 @@ public final class IMPushPb {
             public Ack getAck() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                     return this.ack_;
                 }
                 return (Ack) invokeV.objValue;
@@ -2041,7 +2116,7 @@ public final class IMPushPb {
             public ActionType getActionType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                     return this.actionType_;
                 }
                 return (ActionType) invokeV.objValue;
@@ -2051,7 +2126,7 @@ public final class IMPushPb {
             public Connection getConnection() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                     return this.connection_;
                 }
                 return (Connection) invokeV.objValue;
@@ -2061,7 +2136,7 @@ public final class IMPushPb {
             public Crash getCrash() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
                     return this.crash_;
                 }
                 return (Crash) invokeV.objValue;
@@ -2071,7 +2146,7 @@ public final class IMPushPb {
             public Db getDb() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
                     return this.db_;
                 }
                 return (Db) invokeV.objValue;
@@ -2082,7 +2157,7 @@ public final class IMPushPb {
             public Action getDefaultInstanceForType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
                     return Action.getDefaultInstance();
                 }
                 return (Action) invokeV.objValue;
@@ -2092,7 +2167,7 @@ public final class IMPushPb {
             public Msg getMsg() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
                     return this.msg_;
                 }
                 return (Msg) invokeV.objValue;
@@ -2102,17 +2177,27 @@ public final class IMPushPb {
             public NewConnection getNewConnection() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
                     return this.newConnection_;
                 }
                 return (NewConnection) invokeV.objValue;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+            public NewRequest getNewRequest() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                    return this.newRequest_;
+                }
+                return (NewRequest) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Request getRequest() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
                     return this.request_;
                 }
                 return (Request) invokeV.objValue;
@@ -2122,7 +2207,7 @@ public final class IMPushPb {
             public Ui getUi() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
                     return this.ui_;
                 }
                 return (Ui) invokeV.objValue;
@@ -2132,7 +2217,7 @@ public final class IMPushPb {
             public boolean hasAck() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
                     if ((this.bitField0_ & 64) == 64) {
                         return true;
                     }
@@ -2145,7 +2230,7 @@ public final class IMPushPb {
             public boolean hasActionType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
                     if ((this.bitField0_ & 1) == 1) {
                         return true;
                     }
@@ -2158,7 +2243,7 @@ public final class IMPushPb {
             public boolean hasConnection() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
                     if ((this.bitField0_ & 16) == 16) {
                         return true;
                     }
@@ -2171,7 +2256,7 @@ public final class IMPushPb {
             public boolean hasCrash() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
                     if ((this.bitField0_ & 4) == 4) {
                         return true;
                     }
@@ -2184,7 +2269,7 @@ public final class IMPushPb {
             public boolean hasDb() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
                     if ((this.bitField0_ & 8) == 8) {
                         return true;
                     }
@@ -2197,7 +2282,7 @@ public final class IMPushPb {
             public boolean hasMsg() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
                     if ((this.bitField0_ & 128) == 128) {
                         return true;
                     }
@@ -2210,8 +2295,21 @@ public final class IMPushPb {
             public boolean hasNewConnection() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
                     if ((this.bitField0_ & 256) == 256) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+            public boolean hasNewRequest() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+                    if ((this.bitField0_ & 512) == 512) {
                         return true;
                     }
                     return false;
@@ -2223,7 +2321,7 @@ public final class IMPushPb {
             public boolean hasRequest() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
                     if ((this.bitField0_ & 32) == 32) {
                         return true;
                     }
@@ -2236,7 +2334,7 @@ public final class IMPushPb {
             public boolean hasUi() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
                     if ((this.bitField0_ & 2) == 2) {
                         return true;
                     }
@@ -2290,6 +2388,10 @@ public final class IMPushPb {
                         i2 |= 256;
                     }
                     action.newConnection_ = this.newConnection_;
+                    if ((i & 512) == 512) {
+                        i2 |= 512;
+                    }
+                    action.newRequest_ = this.newRequest_;
                     action.bitField0_ = i2;
                     return action;
                 }
@@ -2321,6 +2423,8 @@ public final class IMPushPb {
                     this.bitField0_ &= -129;
                     this.newConnection_ = NewConnection.getDefaultInstance();
                     this.bitField0_ &= -257;
+                    this.newRequest_ = NewRequest.getDefaultInstance();
+                    this.bitField0_ &= -513;
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -2329,7 +2433,7 @@ public final class IMPushPb {
             public Builder mergeAck(Ack ack) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, ack)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, ack)) == null) {
                     if ((this.bitField0_ & 64) == 64 && this.ack_ != Ack.getDefaultInstance()) {
                         this.ack_ = Ack.newBuilder(this.ack_).mergeFrom(ack).buildPartial();
                     } else {
@@ -2344,7 +2448,7 @@ public final class IMPushPb {
             public Builder mergeConnection(Connection connection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, connection)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, connection)) == null) {
                     if ((this.bitField0_ & 16) == 16 && this.connection_ != Connection.getDefaultInstance()) {
                         this.connection_ = Connection.newBuilder(this.connection_).mergeFrom(connection).buildPartial();
                     } else {
@@ -2359,7 +2463,7 @@ public final class IMPushPb {
             public Builder mergeCrash(Crash crash) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, crash)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, crash)) == null) {
                     if ((this.bitField0_ & 4) == 4 && this.crash_ != Crash.getDefaultInstance()) {
                         this.crash_ = Crash.newBuilder(this.crash_).mergeFrom(crash).buildPartial();
                     } else {
@@ -2374,7 +2478,7 @@ public final class IMPushPb {
             public Builder mergeDb(Db db) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, db)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, db)) == null) {
                     if ((this.bitField0_ & 8) == 8 && this.db_ != Db.getDefaultInstance()) {
                         this.db_ = Db.newBuilder(this.db_).mergeFrom(db).buildPartial();
                     } else {
@@ -2389,7 +2493,7 @@ public final class IMPushPb {
             public Builder mergeMsg(Msg msg) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, msg)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, msg)) == null) {
                     if ((this.bitField0_ & 128) == 128 && this.msg_ != Msg.getDefaultInstance()) {
                         this.msg_ = Msg.newBuilder(this.msg_).mergeFrom(msg).buildPartial();
                     } else {
@@ -2404,7 +2508,7 @@ public final class IMPushPb {
             public Builder mergeNewConnection(NewConnection newConnection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, newConnection)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, newConnection)) == null) {
                     if ((this.bitField0_ & 256) == 256 && this.newConnection_ != NewConnection.getDefaultInstance()) {
                         this.newConnection_ = NewConnection.newBuilder(this.newConnection_).mergeFrom(newConnection).buildPartial();
                     } else {
@@ -2416,10 +2520,25 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
+            public Builder mergeNewRequest(NewRequest newRequest) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, newRequest)) == null) {
+                    if ((this.bitField0_ & 512) == 512 && this.newRequest_ != NewRequest.getDefaultInstance()) {
+                        this.newRequest_ = NewRequest.newBuilder(this.newRequest_).mergeFrom(newRequest).buildPartial();
+                    } else {
+                        this.newRequest_ = newRequest;
+                    }
+                    this.bitField0_ |= 512;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
             public Builder mergeRequest(Request request) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, request)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, request)) == null) {
                     if ((this.bitField0_ & 32) == 32 && this.request_ != Request.getDefaultInstance()) {
                         this.request_ = Request.newBuilder(this.request_).mergeFrom(request).buildPartial();
                     } else {
@@ -2434,7 +2553,7 @@ public final class IMPushPb {
             public Builder mergeUi(Ui ui) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, ui)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, ui)) == null) {
                     if ((this.bitField0_ & 2) == 2 && this.ui_ != Ui.getDefaultInstance()) {
                         this.ui_ = Ui.newBuilder(this.ui_).mergeFrom(ui).buildPartial();
                     } else {
@@ -2451,7 +2570,7 @@ public final class IMPushPb {
             public Builder mergeFrom(Action action) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, action)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, action)) == null) {
                     if (action == Action.getDefaultInstance()) {
                         return this;
                     }
@@ -2482,6 +2601,9 @@ public final class IMPushPb {
                     if (action.hasNewConnection()) {
                         mergeNewConnection(action.getNewConnection());
                     }
+                    if (action.hasNewRequest()) {
+                        mergeNewRequest(action.getNewRequest());
+                    }
                     return this;
                 }
                 return (Builder) invokeL.objValue;
@@ -2496,7 +2618,7 @@ public final class IMPushPb {
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048624, this, codedInputStream, extensionRegistryLite)) == null) {
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048627, this, codedInputStream, extensionRegistryLite)) == null) {
                     Action action = null;
                     try {
                         try {
@@ -2531,7 +2653,7 @@ public final class IMPushPb {
             public Builder setAck(Ack.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, builder)) == null) {
                     this.ack_ = builder.build();
                     this.bitField0_ |= 64;
                     return this;
@@ -2542,7 +2664,7 @@ public final class IMPushPb {
             public Builder setActionType(ActionType actionType) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, actionType)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, actionType)) == null) {
                     if (actionType != null) {
                         this.bitField0_ |= 1;
                         this.actionType_ = actionType;
@@ -2556,7 +2678,7 @@ public final class IMPushPb {
             public Builder setConnection(Connection.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, builder)) == null) {
                     this.connection_ = builder.build();
                     this.bitField0_ |= 16;
                     return this;
@@ -2567,7 +2689,7 @@ public final class IMPushPb {
             public Builder setCrash(Crash.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, builder)) == null) {
                     this.crash_ = builder.build();
                     this.bitField0_ |= 4;
                     return this;
@@ -2578,7 +2700,7 @@ public final class IMPushPb {
             public Builder setDb(Db.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, builder)) == null) {
                     this.db_ = builder.build();
                     this.bitField0_ |= 8;
                     return this;
@@ -2589,7 +2711,7 @@ public final class IMPushPb {
             public Builder setMsg(Msg.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, builder)) == null) {
                     this.msg_ = builder.build();
                     this.bitField0_ |= 128;
                     return this;
@@ -2600,9 +2722,20 @@ public final class IMPushPb {
             public Builder setNewConnection(NewConnection.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, builder)) == null) {
                     this.newConnection_ = builder.build();
                     this.bitField0_ |= 256;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setNewRequest(NewRequest.Builder builder) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, builder)) == null) {
+                    this.newRequest_ = builder.build();
+                    this.bitField0_ |= 512;
                     return this;
                 }
                 return (Builder) invokeL.objValue;
@@ -2611,7 +2744,7 @@ public final class IMPushPb {
             public Builder setRequest(Request.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, builder)) == null) {
                     this.request_ = builder.build();
                     this.bitField0_ |= 32;
                     return this;
@@ -2622,7 +2755,7 @@ public final class IMPushPb {
             public Builder setUi(Ui.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, builder)) == null) {
                     this.ui_ = builder.build();
                     this.bitField0_ |= 2;
                     return this;
@@ -2633,7 +2766,7 @@ public final class IMPushPb {
             public Builder setAck(Ack ack) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, ack)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, ack)) == null) {
                     if (ack != null) {
                         this.ack_ = ack;
                         this.bitField0_ |= 64;
@@ -2647,7 +2780,7 @@ public final class IMPushPb {
             public Builder setConnection(Connection connection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, connection)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, connection)) == null) {
                     if (connection != null) {
                         this.connection_ = connection;
                         this.bitField0_ |= 16;
@@ -2661,7 +2794,7 @@ public final class IMPushPb {
             public Builder setCrash(Crash crash) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, crash)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, crash)) == null) {
                     if (crash != null) {
                         this.crash_ = crash;
                         this.bitField0_ |= 4;
@@ -2675,7 +2808,7 @@ public final class IMPushPb {
             public Builder setDb(Db db) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, db)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, db)) == null) {
                     if (db != null) {
                         this.db_ = db;
                         this.bitField0_ |= 8;
@@ -2689,7 +2822,7 @@ public final class IMPushPb {
             public Builder setMsg(Msg msg) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, msg)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, msg)) == null) {
                     if (msg != null) {
                         this.msg_ = msg;
                         this.bitField0_ |= 128;
@@ -2703,7 +2836,7 @@ public final class IMPushPb {
             public Builder setNewConnection(NewConnection newConnection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, newConnection)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, newConnection)) == null) {
                     if (newConnection != null) {
                         this.newConnection_ = newConnection;
                         this.bitField0_ |= 256;
@@ -2714,10 +2847,24 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
+            public Builder setNewRequest(NewRequest newRequest) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, newRequest)) == null) {
+                    if (newRequest != null) {
+                        this.newRequest_ = newRequest;
+                        this.bitField0_ |= 512;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
             public Builder setRequest(Request request) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, request)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, request)) == null) {
                     if (request != null) {
                         this.request_ = request;
                         this.bitField0_ |= 32;
@@ -2731,7 +2878,7 @@ public final class IMPushPb {
             public Builder setUi(Ui ui) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, ui)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048654, this, ui)) == null) {
                     if (ui != null) {
                         this.ui_ = ui;
                         this.bitField0_ |= 2;
@@ -2793,7 +2940,7 @@ public final class IMPushPb {
         public static Action getDefaultInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
                 return defaultInstance;
             }
             return (Action) invokeV.objValue;
@@ -2802,7 +2949,7 @@ public final class IMPushPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65554, null)) != null) {
+            if (interceptable != null && (invokeV = interceptable.invokeV(65555, null)) != null) {
                 return (Builder) invokeV.objValue;
             }
             return Builder.create();
@@ -2889,11 +3036,21 @@ public final class IMPushPb {
             return (NewConnection) invokeV.objValue;
         }
 
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+        public NewRequest getNewRequest() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.newRequest_;
+            }
+            return (NewRequest) invokeV.objValue;
+        }
+
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<Action> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 return PARSER;
             }
             return (Parser) invokeV.objValue;
@@ -2903,7 +3060,7 @@ public final class IMPushPb {
         public Request getRequest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 return this.request_;
             }
             return (Request) invokeV.objValue;
@@ -2913,7 +3070,7 @@ public final class IMPushPb {
         public Ui getUi() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
                 return this.ui_;
             }
             return (Ui) invokeV.objValue;
@@ -2923,7 +3080,7 @@ public final class IMPushPb {
         public boolean hasAck() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
                 if ((this.bitField0_ & 64) == 64) {
                     return true;
                 }
@@ -2936,7 +3093,7 @@ public final class IMPushPb {
         public boolean hasActionType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
                 if ((this.bitField0_ & 1) == 1) {
                     return true;
                 }
@@ -2949,7 +3106,7 @@ public final class IMPushPb {
         public boolean hasConnection() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 if ((this.bitField0_ & 16) == 16) {
                     return true;
                 }
@@ -2962,7 +3119,7 @@ public final class IMPushPb {
         public boolean hasCrash() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 if ((this.bitField0_ & 4) == 4) {
                     return true;
                 }
@@ -2975,7 +3132,7 @@ public final class IMPushPb {
         public boolean hasDb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 if ((this.bitField0_ & 8) == 8) {
                     return true;
                 }
@@ -2988,7 +3145,7 @@ public final class IMPushPb {
         public boolean hasMsg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 if ((this.bitField0_ & 128) == 128) {
                     return true;
                 }
@@ -3001,8 +3158,21 @@ public final class IMPushPb {
         public boolean hasNewConnection() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                 if ((this.bitField0_ & 256) == 256) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+        public boolean hasNewRequest() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                if ((this.bitField0_ & 512) == 512) {
                     return true;
                 }
                 return false;
@@ -3014,7 +3184,7 @@ public final class IMPushPb {
         public boolean hasRequest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 if ((this.bitField0_ & 32) == 32) {
                     return true;
                 }
@@ -3027,7 +3197,7 @@ public final class IMPushPb {
         public boolean hasUi() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 if ((this.bitField0_ & 2) == 2) {
                     return true;
                 }
@@ -3040,7 +3210,7 @@ public final class IMPushPb {
         public final boolean isInitialized() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                 byte b = this.memoizedIsInitialized;
                 if (b != -1) {
                     if (b == 1) {
@@ -3059,7 +3229,7 @@ public final class IMPushPb {
         public Builder newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
                 return newBuilder();
             }
             return (Builder) invokeV.objValue;
@@ -3070,7 +3240,7 @@ public final class IMPushPb {
         public Builder toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
                 return newBuilder(this);
             }
             return (Builder) invokeV.objValue;
@@ -3080,7 +3250,7 @@ public final class IMPushPb {
         public Object writeReplace() throws ObjectStreamException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
                 return super.writeReplace();
             }
             return invokeV.objValue;
@@ -3110,105 +3280,113 @@ public final class IMPushPb {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
-                        if (readTag != 0) {
-                            if (readTag != 8) {
-                                if (readTag != 18) {
-                                    if (readTag != 26) {
-                                        if (readTag != 34) {
-                                            if (readTag != 42) {
-                                                if (readTag != 50) {
-                                                    if (readTag != 58) {
-                                                        if (readTag != 66) {
-                                                            if (readTag != 74) {
-                                                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                                                }
-                                                            } else {
-                                                                builder = (this.bitField0_ & 256) == 256 ? this.newConnection_.toBuilder() : null;
-                                                                NewConnection newConnection = (NewConnection) codedInputStream.readMessage(NewConnection.PARSER, extensionRegistryLite);
-                                                                this.newConnection_ = newConnection;
-                                                                if (builder != null) {
-                                                                    builder.mergeFrom(newConnection);
-                                                                    this.newConnection_ = builder.buildPartial();
-                                                                }
-                                                                this.bitField0_ |= 256;
-                                                            }
-                                                        } else {
-                                                            builder = (this.bitField0_ & 128) == 128 ? this.msg_.toBuilder() : null;
-                                                            Msg msg = (Msg) codedInputStream.readMessage(Msg.PARSER, extensionRegistryLite);
-                                                            this.msg_ = msg;
-                                                            if (builder != null) {
-                                                                builder.mergeFrom(msg);
-                                                                this.msg_ = builder.buildPartial();
-                                                            }
-                                                            this.bitField0_ |= 128;
-                                                        }
-                                                    } else {
-                                                        builder = (this.bitField0_ & 64) == 64 ? this.ack_.toBuilder() : null;
-                                                        Ack ack = (Ack) codedInputStream.readMessage(Ack.PARSER, extensionRegistryLite);
-                                                        this.ack_ = ack;
-                                                        if (builder != null) {
-                                                            builder.mergeFrom(ack);
-                                                            this.ack_ = builder.buildPartial();
-                                                        }
-                                                        this.bitField0_ |= 64;
-                                                    }
-                                                } else {
-                                                    builder = (this.bitField0_ & 32) == 32 ? this.request_.toBuilder() : null;
-                                                    Request request = (Request) codedInputStream.readMessage(Request.PARSER, extensionRegistryLite);
-                                                    this.request_ = request;
-                                                    if (builder != null) {
-                                                        builder.mergeFrom(request);
-                                                        this.request_ = builder.buildPartial();
-                                                    }
-                                                    this.bitField0_ |= 32;
-                                                }
-                                            } else {
-                                                builder = (this.bitField0_ & 16) == 16 ? this.connection_.toBuilder() : null;
-                                                Connection connection = (Connection) codedInputStream.readMessage(Connection.PARSER, extensionRegistryLite);
-                                                this.connection_ = connection;
-                                                if (builder != null) {
-                                                    builder.mergeFrom(connection);
-                                                    this.connection_ = builder.buildPartial();
-                                                }
-                                                this.bitField0_ |= 16;
-                                            }
-                                        } else {
-                                            builder = (this.bitField0_ & 8) == 8 ? this.db_.toBuilder() : null;
-                                            Db db = (Db) codedInputStream.readMessage(Db.PARSER, extensionRegistryLite);
-                                            this.db_ = db;
-                                            if (builder != null) {
-                                                builder.mergeFrom(db);
-                                                this.db_ = builder.buildPartial();
-                                            }
-                                            this.bitField0_ |= 8;
-                                        }
-                                    } else {
-                                        builder = (this.bitField0_ & 4) == 4 ? this.crash_.toBuilder() : null;
-                                        Crash crash = (Crash) codedInputStream.readMessage(Crash.PARSER, extensionRegistryLite);
-                                        this.crash_ = crash;
-                                        if (builder != null) {
-                                            builder.mergeFrom(crash);
-                                            this.crash_ = builder.buildPartial();
-                                        }
-                                        this.bitField0_ |= 4;
-                                    }
-                                } else {
-                                    builder = (this.bitField0_ & 2) == 2 ? this.ui_.toBuilder() : null;
-                                    Ui ui = (Ui) codedInputStream.readMessage(Ui.PARSER, extensionRegistryLite);
-                                    this.ui_ = ui;
-                                    if (builder != null) {
-                                        builder.mergeFrom(ui);
-                                        this.ui_ = builder.buildPartial();
-                                    }
-                                    this.bitField0_ |= 2;
-                                }
-                            } else {
+                        switch (readTag) {
+                            case 0:
+                                break;
+                            case 8:
                                 ActionType valueOf = ActionType.valueOf(codedInputStream.readEnum());
                                 if (valueOf != null) {
                                     this.bitField0_ = 1 | this.bitField0_;
                                     this.actionType_ = valueOf;
+                                } else {
+                                    continue;
                                 }
-                            }
+                            case 18:
+                                builder = (this.bitField0_ & 2) == 2 ? this.ui_.toBuilder() : null;
+                                Ui ui = (Ui) codedInputStream.readMessage(Ui.PARSER, extensionRegistryLite);
+                                this.ui_ = ui;
+                                if (builder != null) {
+                                    builder.mergeFrom(ui);
+                                    this.ui_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 2;
+                                continue;
+                            case 26:
+                                builder = (this.bitField0_ & 4) == 4 ? this.crash_.toBuilder() : null;
+                                Crash crash = (Crash) codedInputStream.readMessage(Crash.PARSER, extensionRegistryLite);
+                                this.crash_ = crash;
+                                if (builder != null) {
+                                    builder.mergeFrom(crash);
+                                    this.crash_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 4;
+                                continue;
+                            case 34:
+                                builder = (this.bitField0_ & 8) == 8 ? this.db_.toBuilder() : null;
+                                Db db = (Db) codedInputStream.readMessage(Db.PARSER, extensionRegistryLite);
+                                this.db_ = db;
+                                if (builder != null) {
+                                    builder.mergeFrom(db);
+                                    this.db_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 8;
+                                continue;
+                            case 42:
+                                builder = (this.bitField0_ & 16) == 16 ? this.connection_.toBuilder() : null;
+                                Connection connection = (Connection) codedInputStream.readMessage(Connection.PARSER, extensionRegistryLite);
+                                this.connection_ = connection;
+                                if (builder != null) {
+                                    builder.mergeFrom(connection);
+                                    this.connection_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 16;
+                                continue;
+                            case 50:
+                                builder = (this.bitField0_ & 32) == 32 ? this.request_.toBuilder() : null;
+                                Request request = (Request) codedInputStream.readMessage(Request.PARSER, extensionRegistryLite);
+                                this.request_ = request;
+                                if (builder != null) {
+                                    builder.mergeFrom(request);
+                                    this.request_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 32;
+                                continue;
+                            case 58:
+                                builder = (this.bitField0_ & 64) == 64 ? this.ack_.toBuilder() : null;
+                                Ack ack = (Ack) codedInputStream.readMessage(Ack.PARSER, extensionRegistryLite);
+                                this.ack_ = ack;
+                                if (builder != null) {
+                                    builder.mergeFrom(ack);
+                                    this.ack_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 64;
+                                continue;
+                            case 66:
+                                builder = (this.bitField0_ & 128) == 128 ? this.msg_.toBuilder() : null;
+                                Msg msg = (Msg) codedInputStream.readMessage(Msg.PARSER, extensionRegistryLite);
+                                this.msg_ = msg;
+                                if (builder != null) {
+                                    builder.mergeFrom(msg);
+                                    this.msg_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 128;
+                                continue;
+                            case 74:
+                                builder = (this.bitField0_ & 256) == 256 ? this.newConnection_.toBuilder() : null;
+                                NewConnection newConnection = (NewConnection) codedInputStream.readMessage(NewConnection.PARSER, extensionRegistryLite);
+                                this.newConnection_ = newConnection;
+                                if (builder != null) {
+                                    builder.mergeFrom(newConnection);
+                                    this.newConnection_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 256;
+                                continue;
+                            case 82:
+                                builder = (this.bitField0_ & 512) == 512 ? this.newRequest_.toBuilder() : null;
+                                NewRequest newRequest = (NewRequest) codedInputStream.readMessage(NewRequest.PARSER, extensionRegistryLite);
+                                this.newRequest_ = newRequest;
+                                if (builder != null) {
+                                    builder.mergeFrom(newRequest);
+                                    this.newRequest_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 512;
+                                continue;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                    break;
+                                } else {
+                                    continue;
+                                }
                         }
                         z = true;
                     } catch (InvalidProtocolBufferException e) {
@@ -3255,7 +3433,7 @@ public final class IMPushPb {
         public static Action parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, inputStream, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
                 return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
@@ -3264,7 +3442,7 @@ public final class IMPushPb {
         public static Action parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, byteString, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, byteString, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
@@ -3291,7 +3469,7 @@ public final class IMPushPb {
 
         private void initFields() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65554, this) == null) {
                 this.actionType_ = ActionType.UI;
                 this.ui_ = Ui.getDefaultInstance();
                 this.crash_ = Crash.getDefaultInstance();
@@ -3301,13 +3479,14 @@ public final class IMPushPb {
                 this.ack_ = Ack.getDefaultInstance();
                 this.msg_ = Msg.getDefaultInstance();
                 this.newConnection_ = NewConnection.getDefaultInstance();
+                this.newRequest_ = NewRequest.getDefaultInstance();
             }
         }
 
         public static Builder newBuilder(Action action) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, action)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, action)) == null) {
                 return newBuilder().mergeFrom(action);
             }
             return (Builder) invokeL.objValue;
@@ -3316,7 +3495,7 @@ public final class IMPushPb {
         public static Action parseDelimitedFrom(InputStream inputStream) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, inputStream)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
                 return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Action) invokeL.objValue;
@@ -3325,7 +3504,7 @@ public final class IMPushPb {
         public static Action parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, byteString)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, byteString)) == null) {
                 return PARSER.parseFrom(byteString);
             }
             return (Action) invokeL.objValue;
@@ -3334,7 +3513,7 @@ public final class IMPushPb {
         public static Action parseFrom(CodedInputStream codedInputStream) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, codedInputStream)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, codedInputStream)) == null) {
                 return PARSER.parseFrom(codedInputStream);
             }
             return (Action) invokeL.objValue;
@@ -3343,7 +3522,7 @@ public final class IMPushPb {
         public static Action parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, codedInputStream, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, codedInputStream, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
@@ -3352,7 +3531,7 @@ public final class IMPushPb {
         public static Action parseFrom(InputStream inputStream) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, inputStream)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, inputStream)) == null) {
                 return PARSER.parseFrom(inputStream);
             }
             return (Action) invokeL.objValue;
@@ -3361,7 +3540,7 @@ public final class IMPushPb {
         public static Action parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, inputStream, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, inputStream, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
@@ -3370,7 +3549,7 @@ public final class IMPushPb {
         public static Action parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, bArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, bArr)) == null) {
                 return PARSER.parseFrom(bArr);
             }
             return (Action) invokeL.objValue;
@@ -3379,7 +3558,7 @@ public final class IMPushPb {
         public static Action parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, bArr, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, bArr, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
@@ -3389,7 +3568,7 @@ public final class IMPushPb {
         public int getSerializedSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 int i = this.memoizedSerializedSize;
                 if (i != -1) {
                     return i;
@@ -3422,6 +3601,9 @@ public final class IMPushPb {
                 if ((this.bitField0_ & 256) == 256) {
                     i2 += CodedOutputStream.computeMessageSize(9, this.newConnection_);
                 }
+                if ((this.bitField0_ & 512) == 512) {
+                    i2 += CodedOutputStream.computeMessageSize(10, this.newRequest_);
+                }
                 this.memoizedSerializedSize = i2;
                 return i2;
             }
@@ -3431,7 +3613,7 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048604, this, codedOutputStream) == null) {
+            if (interceptable == null || interceptable.invokeL(1048606, this, codedOutputStream) == null) {
                 getSerializedSize();
                 if ((this.bitField0_ & 1) == 1) {
                     codedOutputStream.writeEnum(1, this.actionType_.getNumber());
@@ -3459,6 +3641,9 @@ public final class IMPushPb {
                 }
                 if ((this.bitField0_ & 256) == 256) {
                     codedOutputStream.writeMessage(9, this.newConnection_);
+                }
+                if ((this.bitField0_ & 512) == 512) {
+                    codedOutputStream.writeMessage(10, this.newRequest_);
                 }
             }
         }
@@ -15066,6 +15251,7 @@ public final class IMPushPb {
         public static final int DNS_END_FIELD_NUMBER = 8;
         public static final int END_TIME_FIELD_NUMBER = 2;
         public static final int EXT_FIELD_NUMBER = 14;
+        public static final int IOS_BLCP_START_TIME_FIELD_NUMBER = 18;
         public static final int LCP_LOGIN_BEGIN_FIELD_NUMBER = 11;
         public static final int LCP_LOGIN_END_FIELD_NUMBER = 12;
         public static final int NET_INFO_FIELD_NUMBER = 15;
@@ -15088,6 +15274,7 @@ public final class IMPushPb {
         public long dnsEnd_;
         public long endTime_;
         public Object ext_;
+        public long iosBlcpStartTime_;
         public long lcpLoginBegin_;
         public long lcpLoginEnd_;
         public byte memoizedIsInitialized;
@@ -15113,6 +15300,7 @@ public final class IMPushPb {
             public long dnsEnd_;
             public long endTime_;
             public Object ext_;
+            public long iosBlcpStartTime_;
             public long lcpLoginBegin_;
             public long lcpLoginEnd_;
             public LcpNetInfo netInfo_;
@@ -15133,7 +15321,7 @@ public final class IMPushPb {
             public final boolean isInitialized() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
                     return true;
                 }
                 return invokeV.booleanValue;
@@ -15271,10 +15459,21 @@ public final class IMPushPb {
                 return (Builder) invokeV.objValue;
             }
 
-            public Builder clearLcpLoginBegin() {
+            public Builder clearIosBlcpStartTime() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                    this.bitField0_ &= -131073;
+                    this.iosBlcpStartTime_ = 0L;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearLcpLoginBegin() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                     this.bitField0_ &= -1025;
                     this.lcpLoginBegin_ = 0L;
                     return this;
@@ -15285,7 +15484,7 @@ public final class IMPushPb {
             public Builder clearLcpLoginEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                     this.bitField0_ &= -2049;
                     this.lcpLoginEnd_ = 0L;
                     return this;
@@ -15296,7 +15495,7 @@ public final class IMPushPb {
             public Builder clearNetInfo() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                     this.netInfo_ = LcpNetInfo.getDefaultInstance();
                     this.bitField0_ &= -16385;
                     return this;
@@ -15307,7 +15506,7 @@ public final class IMPushPb {
             public Builder clearRetry() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                     this.bitField0_ &= -65537;
                     this.retry_ = 0L;
                     return this;
@@ -15318,7 +15517,7 @@ public final class IMPushPb {
             public Builder clearSocketBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                     this.bitField0_ &= -257;
                     this.socketBegin_ = 0L;
                     return this;
@@ -15329,7 +15528,7 @@ public final class IMPushPb {
             public Builder clearSocketEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                     this.bitField0_ &= -513;
                     this.socketEnd_ = 0L;
                     return this;
@@ -15340,7 +15539,7 @@ public final class IMPushPb {
             public Builder clearStartTime() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                     this.bitField0_ &= -2;
                     this.startTime_ = 0L;
                     return this;
@@ -15351,7 +15550,7 @@ public final class IMPushPb {
             public Builder clearTokenBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                     this.bitField0_ &= -17;
                     this.tokenBegin_ = 0L;
                     return this;
@@ -15362,7 +15561,7 @@ public final class IMPushPb {
             public Builder clearTokenEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                     this.bitField0_ &= -33;
                     this.tokenEnd_ = 0L;
                     return this;
@@ -15375,7 +15574,7 @@ public final class IMPushPb {
             public Builder clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
                     return create().mergeFrom(buildPartial());
                 }
                 return (Builder) invokeV.objValue;
@@ -15385,7 +15584,7 @@ public final class IMPushPb {
             public long getAliasId() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
                     return this.aliasId_;
                 }
                 return invokeV.longValue;
@@ -15395,7 +15594,7 @@ public final class IMPushPb {
             public String getConnectErrorCode() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
                     Object obj = this.connectErrorCode_;
                     if (!(obj instanceof String)) {
                         String stringUtf8 = ((ByteString) obj).toStringUtf8();
@@ -15411,7 +15610,7 @@ public final class IMPushPb {
             public ByteString getConnectErrorCodeBytes() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
                     Object obj = this.connectErrorCode_;
                     if (obj instanceof String) {
                         ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -15427,7 +15626,7 @@ public final class IMPushPb {
             public String getConnectSource() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
                     Object obj = this.connectSource_;
                     if (!(obj instanceof String)) {
                         String stringUtf8 = ((ByteString) obj).toStringUtf8();
@@ -15443,7 +15642,7 @@ public final class IMPushPb {
             public ByteString getConnectSourceBytes() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
                     Object obj = this.connectSource_;
                     if (obj instanceof String) {
                         ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -15459,7 +15658,7 @@ public final class IMPushPb {
             public long getConnectState() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
                     return this.connectState_;
                 }
                 return invokeV.longValue;
@@ -15470,7 +15669,7 @@ public final class IMPushPb {
             public NewConnection getDefaultInstanceForType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
                     return NewConnection.getDefaultInstance();
                 }
                 return (NewConnection) invokeV.objValue;
@@ -15480,7 +15679,7 @@ public final class IMPushPb {
             public long getDnsBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
                     return this.dnsBegin_;
                 }
                 return invokeV.longValue;
@@ -15490,7 +15689,7 @@ public final class IMPushPb {
             public long getDnsEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
                     return this.dnsEnd_;
                 }
                 return invokeV.longValue;
@@ -15500,7 +15699,7 @@ public final class IMPushPb {
             public long getEndTime() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
                     return this.endTime_;
                 }
                 return invokeV.longValue;
@@ -15510,7 +15709,7 @@ public final class IMPushPb {
             public String getExt() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
                     Object obj = this.ext_;
                     if (!(obj instanceof String)) {
                         String stringUtf8 = ((ByteString) obj).toStringUtf8();
@@ -15526,7 +15725,7 @@ public final class IMPushPb {
             public ByteString getExtBytes() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
                     Object obj = this.ext_;
                     if (obj instanceof String) {
                         ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -15539,10 +15738,20 @@ public final class IMPushPb {
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getIosBlcpStartTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+                    return this.iosBlcpStartTime_;
+                }
+                return invokeV.longValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
             public long getLcpLoginBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
                     return this.lcpLoginBegin_;
                 }
                 return invokeV.longValue;
@@ -15552,7 +15761,7 @@ public final class IMPushPb {
             public long getLcpLoginEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
                     return this.lcpLoginEnd_;
                 }
                 return invokeV.longValue;
@@ -15562,7 +15771,7 @@ public final class IMPushPb {
             public LcpNetInfo getNetInfo() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
                     return this.netInfo_;
                 }
                 return (LcpNetInfo) invokeV.objValue;
@@ -15572,7 +15781,7 @@ public final class IMPushPb {
             public long getRetry() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
                     return this.retry_;
                 }
                 return invokeV.longValue;
@@ -15582,7 +15791,7 @@ public final class IMPushPb {
             public long getSocketBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
                     return this.socketBegin_;
                 }
                 return invokeV.longValue;
@@ -15592,7 +15801,7 @@ public final class IMPushPb {
             public long getSocketEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
                     return this.socketEnd_;
                 }
                 return invokeV.longValue;
@@ -15602,7 +15811,7 @@ public final class IMPushPb {
             public long getStartTime() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
                     return this.startTime_;
                 }
                 return invokeV.longValue;
@@ -15612,7 +15821,7 @@ public final class IMPushPb {
             public long getTokenBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
                     return this.tokenBegin_;
                 }
                 return invokeV.longValue;
@@ -15622,7 +15831,7 @@ public final class IMPushPb {
             public long getTokenEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
                     return this.tokenEnd_;
                 }
                 return invokeV.longValue;
@@ -15632,7 +15841,7 @@ public final class IMPushPb {
             public boolean hasAliasId() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
                     if ((this.bitField0_ & 32768) == 32768) {
                         return true;
                     }
@@ -15645,7 +15854,7 @@ public final class IMPushPb {
             public boolean hasConnectErrorCode() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
                     if ((this.bitField0_ & 8) == 8) {
                         return true;
                     }
@@ -15658,7 +15867,7 @@ public final class IMPushPb {
             public boolean hasConnectSource() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
                     if ((this.bitField0_ & 4096) == 4096) {
                         return true;
                     }
@@ -15671,7 +15880,7 @@ public final class IMPushPb {
             public boolean hasConnectState() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
                     if ((this.bitField0_ & 4) == 4) {
                         return true;
                     }
@@ -15684,7 +15893,7 @@ public final class IMPushPb {
             public boolean hasDnsBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
                     if ((this.bitField0_ & 64) == 64) {
                         return true;
                     }
@@ -15697,7 +15906,7 @@ public final class IMPushPb {
             public boolean hasDnsEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
                     if ((this.bitField0_ & 128) == 128) {
                         return true;
                     }
@@ -15710,7 +15919,7 @@ public final class IMPushPb {
             public boolean hasEndTime() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
                     if ((this.bitField0_ & 2) == 2) {
                         return true;
                     }
@@ -15723,8 +15932,21 @@ public final class IMPushPb {
             public boolean hasExt() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
                     if ((this.bitField0_ & 8192) == 8192) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasIosBlcpStartTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+                    if ((this.bitField0_ & 131072) == 131072) {
                         return true;
                     }
                     return false;
@@ -15736,7 +15958,7 @@ public final class IMPushPb {
             public boolean hasLcpLoginBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
                     if ((this.bitField0_ & 1024) == 1024) {
                         return true;
                     }
@@ -15749,7 +15971,7 @@ public final class IMPushPb {
             public boolean hasLcpLoginEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
                     if ((this.bitField0_ & 2048) == 2048) {
                         return true;
                     }
@@ -15762,7 +15984,7 @@ public final class IMPushPb {
             public boolean hasNetInfo() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
                     if ((this.bitField0_ & 16384) == 16384) {
                         return true;
                     }
@@ -15775,7 +15997,7 @@ public final class IMPushPb {
             public boolean hasRetry() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
                     if ((this.bitField0_ & 65536) == 65536) {
                         return true;
                     }
@@ -15788,7 +16010,7 @@ public final class IMPushPb {
             public boolean hasSocketBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
                     if ((this.bitField0_ & 256) == 256) {
                         return true;
                     }
@@ -15801,7 +16023,7 @@ public final class IMPushPb {
             public boolean hasSocketEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
                     if ((this.bitField0_ & 512) == 512) {
                         return true;
                     }
@@ -15814,7 +16036,7 @@ public final class IMPushPb {
             public boolean hasStartTime() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
                     if ((this.bitField0_ & 1) == 1) {
                         return true;
                     }
@@ -15827,7 +16049,7 @@ public final class IMPushPb {
             public boolean hasTokenBegin() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
                     if ((this.bitField0_ & 16) == 16) {
                         return true;
                     }
@@ -15840,7 +16062,7 @@ public final class IMPushPb {
             public boolean hasTokenEnd() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
                     if ((this.bitField0_ & 32) == 32) {
                         return true;
                     }
@@ -15926,6 +16148,10 @@ public final class IMPushPb {
                         i2 |= 65536;
                     }
                     newConnection.retry_ = this.retry_;
+                    if ((i & 131072) == 131072) {
+                        i2 |= 131072;
+                    }
+                    newConnection.iosBlcpStartTime_ = this.iosBlcpStartTime_;
                     newConnection.bitField0_ = i2;
                     return newConnection;
                 }
@@ -15987,7 +16213,10 @@ public final class IMPushPb {
                     int i15 = i14 & (-32769);
                     this.bitField0_ = i15;
                     this.retry_ = 0L;
-                    this.bitField0_ = (-65537) & i15;
+                    int i16 = i15 & (-65537);
+                    this.bitField0_ = i16;
+                    this.iosBlcpStartTime_ = 0L;
+                    this.bitField0_ = (-131073) & i16;
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -15998,7 +16227,7 @@ public final class IMPushPb {
             public Builder mergeFrom(NewConnection newConnection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, newConnection)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, newConnection)) == null) {
                     if (newConnection == NewConnection.getDefaultInstance()) {
                         return this;
                     }
@@ -16056,6 +16285,9 @@ public final class IMPushPb {
                     if (newConnection.hasRetry()) {
                         setRetry(newConnection.getRetry());
                     }
+                    if (newConnection.hasIosBlcpStartTime()) {
+                        setIosBlcpStartTime(newConnection.getIosBlcpStartTime());
+                    }
                     return this;
                 }
                 return (Builder) invokeL.objValue;
@@ -16070,7 +16302,7 @@ public final class IMPushPb {
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048647, this, codedInputStream, extensionRegistryLite)) == null) {
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048650, this, codedInputStream, extensionRegistryLite)) == null) {
                     NewConnection newConnection = null;
                     try {
                         try {
@@ -16105,7 +16337,7 @@ public final class IMPushPb {
             public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048652, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048655, this, j)) == null) {
                     this.bitField0_ |= 32768;
                     this.aliasId_ = j;
                     return this;
@@ -16116,7 +16348,7 @@ public final class IMPushPb {
             public Builder setConnectErrorCode(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, str)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, str)) == null) {
                     if (str != null) {
                         this.bitField0_ |= 8;
                         this.connectErrorCode_ = str;
@@ -16130,7 +16362,7 @@ public final class IMPushPb {
             public Builder setConnectErrorCodeBytes(ByteString byteString) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048654, this, byteString)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, byteString)) == null) {
                     if (byteString != null) {
                         this.bitField0_ |= 8;
                         this.connectErrorCode_ = byteString;
@@ -16144,7 +16376,7 @@ public final class IMPushPb {
             public Builder setConnectSource(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, str)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048658, this, str)) == null) {
                     if (str != null) {
                         this.bitField0_ |= 4096;
                         this.connectSource_ = str;
@@ -16158,7 +16390,7 @@ public final class IMPushPb {
             public Builder setConnectSourceBytes(ByteString byteString) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, byteString)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, byteString)) == null) {
                     if (byteString != null) {
                         this.bitField0_ |= 4096;
                         this.connectSource_ = byteString;
@@ -16172,7 +16404,7 @@ public final class IMPushPb {
             public Builder setConnectState(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048657, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048660, this, j)) == null) {
                     this.bitField0_ |= 4;
                     this.connectState_ = j;
                     return this;
@@ -16183,7 +16415,7 @@ public final class IMPushPb {
             public Builder setDnsBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048658, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048661, this, j)) == null) {
                     this.bitField0_ |= 64;
                     this.dnsBegin_ = j;
                     return this;
@@ -16194,7 +16426,7 @@ public final class IMPushPb {
             public Builder setDnsEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048659, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048662, this, j)) == null) {
                     this.bitField0_ |= 128;
                     this.dnsEnd_ = j;
                     return this;
@@ -16205,7 +16437,7 @@ public final class IMPushPb {
             public Builder setEndTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048660, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048663, this, j)) == null) {
                     this.bitField0_ |= 2;
                     this.endTime_ = j;
                     return this;
@@ -16216,7 +16448,7 @@ public final class IMPushPb {
             public Builder setExt(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, str)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, str)) == null) {
                     if (str != null) {
                         this.bitField0_ |= 8192;
                         this.ext_ = str;
@@ -16230,7 +16462,7 @@ public final class IMPushPb {
             public Builder setExtBytes(ByteString byteString) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, byteString)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, byteString)) == null) {
                     if (byteString != null) {
                         this.bitField0_ |= 8192;
                         this.ext_ = byteString;
@@ -16241,10 +16473,21 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
+            public Builder setIosBlcpStartTime(long j) {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048666, this, j)) == null) {
+                    this.bitField0_ |= 131072;
+                    this.iosBlcpStartTime_ = j;
+                    return this;
+                }
+                return (Builder) invokeJ.objValue;
+            }
+
             public Builder setLcpLoginBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048663, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048667, this, j)) == null) {
                     this.bitField0_ |= 1024;
                     this.lcpLoginBegin_ = j;
                     return this;
@@ -16255,7 +16498,7 @@ public final class IMPushPb {
             public Builder setLcpLoginEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048664, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048668, this, j)) == null) {
                     this.bitField0_ |= 2048;
                     this.lcpLoginEnd_ = j;
                     return this;
@@ -16266,7 +16509,7 @@ public final class IMPushPb {
             public Builder setNetInfo(LcpNetInfo.Builder builder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, builder)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, builder)) == null) {
                     this.netInfo_ = builder.build();
                     this.bitField0_ |= 16384;
                     return this;
@@ -16277,7 +16520,7 @@ public final class IMPushPb {
             public Builder setRetry(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048667, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j)) == null) {
                     this.bitField0_ |= 65536;
                     this.retry_ = j;
                     return this;
@@ -16288,7 +16531,7 @@ public final class IMPushPb {
             public Builder setSocketBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048668, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048672, this, j)) == null) {
                     this.bitField0_ |= 256;
                     this.socketBegin_ = j;
                     return this;
@@ -16299,7 +16542,7 @@ public final class IMPushPb {
             public Builder setSocketEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048669, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048673, this, j)) == null) {
                     this.bitField0_ |= 512;
                     this.socketEnd_ = j;
                     return this;
@@ -16310,7 +16553,7 @@ public final class IMPushPb {
             public Builder setStartTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048670, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048674, this, j)) == null) {
                     this.bitField0_ |= 1;
                     this.startTime_ = j;
                     return this;
@@ -16321,7 +16564,7 @@ public final class IMPushPb {
             public Builder setTokenBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048675, this, j)) == null) {
                     this.bitField0_ |= 16;
                     this.tokenBegin_ = j;
                     return this;
@@ -16332,7 +16575,7 @@ public final class IMPushPb {
             public Builder setTokenEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048672, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048676, this, j)) == null) {
                     this.bitField0_ |= 32;
                     this.tokenEnd_ = j;
                     return this;
@@ -16343,7 +16586,7 @@ public final class IMPushPb {
             public Builder mergeNetInfo(LcpNetInfo lcpNetInfo) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, lcpNetInfo)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048654, this, lcpNetInfo)) == null) {
                     if ((this.bitField0_ & 16384) == 16384 && this.netInfo_ != LcpNetInfo.getDefaultInstance()) {
                         this.netInfo_ = LcpNetInfo.newBuilder(this.netInfo_).mergeFrom(lcpNetInfo).buildPartial();
                     } else {
@@ -16358,7 +16601,7 @@ public final class IMPushPb {
             public Builder setNetInfo(LcpNetInfo lcpNetInfo) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048666, this, lcpNetInfo)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048670, this, lcpNetInfo)) == null) {
                     if (lcpNetInfo != null) {
                         this.netInfo_ = lcpNetInfo;
                         this.bitField0_ |= 16384;
@@ -16420,7 +16663,7 @@ public final class IMPushPb {
         public static NewConnection getDefaultInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
                 return defaultInstance;
             }
             return (NewConnection) invokeV.objValue;
@@ -16429,7 +16672,7 @@ public final class IMPushPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65565, null)) != null) {
+            if (interceptable != null && (invokeV = interceptable.invokeV(65566, null)) != null) {
                 return (Builder) invokeV.objValue;
             }
             return Builder.create();
@@ -16602,10 +16845,20 @@ public final class IMPushPb {
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
-        public long getLcpLoginBegin() {
+        public long getIosBlcpStartTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.iosBlcpStartTime_;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getLcpLoginBegin() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
                 return this.lcpLoginBegin_;
             }
             return invokeV.longValue;
@@ -16615,7 +16868,7 @@ public final class IMPushPb {
         public long getLcpLoginEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
                 return this.lcpLoginEnd_;
             }
             return invokeV.longValue;
@@ -16625,7 +16878,7 @@ public final class IMPushPb {
         public LcpNetInfo getNetInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 return this.netInfo_;
             }
             return (LcpNetInfo) invokeV.objValue;
@@ -16635,7 +16888,7 @@ public final class IMPushPb {
         public Parser<NewConnection> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 return PARSER;
             }
             return (Parser) invokeV.objValue;
@@ -16645,7 +16898,7 @@ public final class IMPushPb {
         public long getRetry() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 return this.retry_;
             }
             return invokeV.longValue;
@@ -16655,7 +16908,7 @@ public final class IMPushPb {
         public long getSocketBegin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                 return this.socketBegin_;
             }
             return invokeV.longValue;
@@ -16665,7 +16918,7 @@ public final class IMPushPb {
         public long getSocketEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                 return this.socketEnd_;
             }
             return invokeV.longValue;
@@ -16675,7 +16928,7 @@ public final class IMPushPb {
         public long getStartTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 return this.startTime_;
             }
             return invokeV.longValue;
@@ -16685,7 +16938,7 @@ public final class IMPushPb {
         public long getTokenBegin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 return this.tokenBegin_;
             }
             return invokeV.longValue;
@@ -16695,7 +16948,7 @@ public final class IMPushPb {
         public long getTokenEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                 return this.tokenEnd_;
             }
             return invokeV.longValue;
@@ -16705,7 +16958,7 @@ public final class IMPushPb {
         public boolean hasAliasId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
                 if ((this.bitField0_ & 32768) == 32768) {
                     return true;
                 }
@@ -16718,7 +16971,7 @@ public final class IMPushPb {
         public boolean hasConnectErrorCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
                 if ((this.bitField0_ & 8) == 8) {
                     return true;
                 }
@@ -16731,7 +16984,7 @@ public final class IMPushPb {
         public boolean hasConnectSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
                 if ((this.bitField0_ & 4096) == 4096) {
                     return true;
                 }
@@ -16744,7 +16997,7 @@ public final class IMPushPb {
         public boolean hasConnectState() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
                 if ((this.bitField0_ & 4) == 4) {
                     return true;
                 }
@@ -16757,7 +17010,7 @@ public final class IMPushPb {
         public boolean hasDnsBegin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
                 if ((this.bitField0_ & 64) == 64) {
                     return true;
                 }
@@ -16770,7 +17023,7 @@ public final class IMPushPb {
         public boolean hasDnsEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
                 if ((this.bitField0_ & 128) == 128) {
                     return true;
                 }
@@ -16783,7 +17036,7 @@ public final class IMPushPb {
         public boolean hasEndTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
                 if ((this.bitField0_ & 2) == 2) {
                     return true;
                 }
@@ -16796,8 +17049,21 @@ public final class IMPushPb {
         public boolean hasExt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
                 if ((this.bitField0_ & 8192) == 8192) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasIosBlcpStartTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                if ((this.bitField0_ & 131072) == 131072) {
                     return true;
                 }
                 return false;
@@ -16809,7 +17075,7 @@ public final class IMPushPb {
         public boolean hasLcpLoginBegin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
                 if ((this.bitField0_ & 1024) == 1024) {
                     return true;
                 }
@@ -16822,7 +17088,7 @@ public final class IMPushPb {
         public boolean hasLcpLoginEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
                 if ((this.bitField0_ & 2048) == 2048) {
                     return true;
                 }
@@ -16835,7 +17101,7 @@ public final class IMPushPb {
         public boolean hasNetInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
                 if ((this.bitField0_ & 16384) == 16384) {
                     return true;
                 }
@@ -16848,7 +17114,7 @@ public final class IMPushPb {
         public boolean hasRetry() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
                 if ((this.bitField0_ & 65536) == 65536) {
                     return true;
                 }
@@ -16861,7 +17127,7 @@ public final class IMPushPb {
         public boolean hasSocketBegin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
                 if ((this.bitField0_ & 256) == 256) {
                     return true;
                 }
@@ -16874,7 +17140,7 @@ public final class IMPushPb {
         public boolean hasSocketEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
                 if ((this.bitField0_ & 512) == 512) {
                     return true;
                 }
@@ -16887,7 +17153,7 @@ public final class IMPushPb {
         public boolean hasStartTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
                 if ((this.bitField0_ & 1) == 1) {
                     return true;
                 }
@@ -16900,7 +17166,7 @@ public final class IMPushPb {
         public boolean hasTokenBegin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
                 if ((this.bitField0_ & 16) == 16) {
                     return true;
                 }
@@ -16913,7 +17179,7 @@ public final class IMPushPb {
         public boolean hasTokenEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
                 if ((this.bitField0_ & 32) == 32) {
                     return true;
                 }
@@ -16926,7 +17192,7 @@ public final class IMPushPb {
         public final boolean isInitialized() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
                 byte b = this.memoizedIsInitialized;
                 if (b != -1) {
                     if (b == 1) {
@@ -16945,7 +17211,7 @@ public final class IMPushPb {
         public Builder newBuilderForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
                 return newBuilder();
             }
             return (Builder) invokeV.objValue;
@@ -16956,7 +17222,7 @@ public final class IMPushPb {
         public Builder toBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
                 return newBuilder(this);
             }
             return (Builder) invokeV.objValue;
@@ -16966,7 +17232,7 @@ public final class IMPushPb {
         public Object writeReplace() throws ObjectStreamException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
                 return super.writeReplace();
             }
             return invokeV.objValue;
@@ -16994,96 +17260,102 @@ public final class IMPushPb {
             while (!z) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        switch (readTag) {
-                            case 0:
-                                break;
-                            case 8:
-                                this.bitField0_ |= 1;
-                                this.startTime_ = codedInputStream.readInt64();
-                                continue;
-                            case 16:
-                                this.bitField0_ |= 2;
-                                this.endTime_ = codedInputStream.readInt64();
-                                continue;
-                            case 24:
-                                this.bitField0_ |= 4;
-                                this.connectState_ = codedInputStream.readInt64();
-                                continue;
-                            case 34:
-                                this.bitField0_ |= 8;
-                                this.connectErrorCode_ = codedInputStream.readBytes();
-                                continue;
-                            case 40:
-                                this.bitField0_ |= 16;
-                                this.tokenBegin_ = codedInputStream.readInt64();
-                                continue;
-                            case 48:
-                                this.bitField0_ |= 32;
-                                this.tokenEnd_ = codedInputStream.readInt64();
-                                continue;
-                            case 56:
-                                this.bitField0_ |= 64;
-                                this.dnsBegin_ = codedInputStream.readInt64();
-                                continue;
-                            case 64:
-                                this.bitField0_ |= 128;
-                                this.dnsEnd_ = codedInputStream.readInt64();
-                                continue;
-                            case 72:
-                                this.bitField0_ |= 256;
-                                this.socketBegin_ = codedInputStream.readInt64();
-                                continue;
-                            case 80:
-                                this.bitField0_ |= 512;
-                                this.socketEnd_ = codedInputStream.readInt64();
-                                continue;
-                            case 88:
-                                this.bitField0_ |= 1024;
-                                this.lcpLoginBegin_ = codedInputStream.readInt64();
-                                continue;
-                            case 96:
-                                this.bitField0_ |= 2048;
-                                this.lcpLoginEnd_ = codedInputStream.readInt64();
-                                continue;
-                            case 106:
-                                this.bitField0_ |= 4096;
-                                this.connectSource_ = codedInputStream.readBytes();
-                                continue;
-                            case 114:
-                                this.bitField0_ |= 8192;
-                                this.ext_ = codedInputStream.readBytes();
-                                continue;
-                            case 122:
-                                LcpNetInfo.Builder builder = (this.bitField0_ & 16384) == 16384 ? this.netInfo_.toBuilder() : null;
-                                LcpNetInfo lcpNetInfo = (LcpNetInfo) codedInputStream.readMessage(LcpNetInfo.PARSER, extensionRegistryLite);
-                                this.netInfo_ = lcpNetInfo;
-                                if (builder != null) {
-                                    builder.mergeFrom(lcpNetInfo);
-                                    this.netInfo_ = builder.buildPartial();
-                                }
-                                this.bitField0_ |= 16384;
-                                continue;
-                            case 128:
-                                this.bitField0_ |= 32768;
-                                this.aliasId_ = codedInputStream.readInt64();
-                                continue;
-                            case 136:
-                                this.bitField0_ |= 65536;
-                                this.retry_ = codedInputStream.readInt64();
-                                continue;
-                            default:
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
                                     break;
-                                } else {
+                                case 8:
+                                    this.bitField0_ |= 1;
+                                    this.startTime_ = codedInputStream.readInt64();
                                     continue;
-                                }
+                                case 16:
+                                    this.bitField0_ |= 2;
+                                    this.endTime_ = codedInputStream.readInt64();
+                                    continue;
+                                case 24:
+                                    this.bitField0_ |= 4;
+                                    this.connectState_ = codedInputStream.readInt64();
+                                    continue;
+                                case 34:
+                                    this.bitField0_ |= 8;
+                                    this.connectErrorCode_ = codedInputStream.readBytes();
+                                    continue;
+                                case 40:
+                                    this.bitField0_ |= 16;
+                                    this.tokenBegin_ = codedInputStream.readInt64();
+                                    continue;
+                                case 48:
+                                    this.bitField0_ |= 32;
+                                    this.tokenEnd_ = codedInputStream.readInt64();
+                                    continue;
+                                case 56:
+                                    this.bitField0_ |= 64;
+                                    this.dnsBegin_ = codedInputStream.readInt64();
+                                    continue;
+                                case 64:
+                                    this.bitField0_ |= 128;
+                                    this.dnsEnd_ = codedInputStream.readInt64();
+                                    continue;
+                                case 72:
+                                    this.bitField0_ |= 256;
+                                    this.socketBegin_ = codedInputStream.readInt64();
+                                    continue;
+                                case 80:
+                                    this.bitField0_ |= 512;
+                                    this.socketEnd_ = codedInputStream.readInt64();
+                                    continue;
+                                case 88:
+                                    this.bitField0_ |= 1024;
+                                    this.lcpLoginBegin_ = codedInputStream.readInt64();
+                                    continue;
+                                case 96:
+                                    this.bitField0_ |= 2048;
+                                    this.lcpLoginEnd_ = codedInputStream.readInt64();
+                                    continue;
+                                case 106:
+                                    this.bitField0_ |= 4096;
+                                    this.connectSource_ = codedInputStream.readBytes();
+                                    continue;
+                                case 114:
+                                    this.bitField0_ |= 8192;
+                                    this.ext_ = codedInputStream.readBytes();
+                                    continue;
+                                case 122:
+                                    LcpNetInfo.Builder builder = (this.bitField0_ & 16384) == 16384 ? this.netInfo_.toBuilder() : null;
+                                    LcpNetInfo lcpNetInfo = (LcpNetInfo) codedInputStream.readMessage(LcpNetInfo.PARSER, extensionRegistryLite);
+                                    this.netInfo_ = lcpNetInfo;
+                                    if (builder != null) {
+                                        builder.mergeFrom(lcpNetInfo);
+                                        this.netInfo_ = builder.buildPartial();
+                                    }
+                                    this.bitField0_ |= 16384;
+                                    continue;
+                                case 128:
+                                    this.bitField0_ |= 32768;
+                                    this.aliasId_ = codedInputStream.readInt64();
+                                    continue;
+                                case 136:
+                                    this.bitField0_ |= 65536;
+                                    this.retry_ = codedInputStream.readInt64();
+                                    continue;
+                                case Cea708Decoder.COMMAND_SPA /* 144 */:
+                                    this.bitField0_ |= 131072;
+                                    this.iosBlcpStartTime_ = codedInputStream.readInt64();
+                                    continue;
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        break;
+                                    } else {
+                                        continue;
+                                    }
+                            }
+                            z = true;
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                        z = true;
-                    } catch (InvalidProtocolBufferException e) {
-                        throw e.setUnfinishedMessage(this);
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -17124,7 +17396,7 @@ public final class IMPushPb {
         public static NewConnection parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, inputStream, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, inputStream, extensionRegistryLite)) == null) {
                 return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
@@ -17133,7 +17405,7 @@ public final class IMPushPb {
         public static NewConnection parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, byteString, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, byteString, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
@@ -17161,7 +17433,7 @@ public final class IMPushPb {
         public static Builder newBuilder(NewConnection newConnection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, newConnection)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, newConnection)) == null) {
                 return newBuilder().mergeFrom(newConnection);
             }
             return (Builder) invokeL.objValue;
@@ -17170,7 +17442,7 @@ public final class IMPushPb {
         public static NewConnection parseDelimitedFrom(InputStream inputStream) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, inputStream)) == null) {
                 return PARSER.parseDelimitedFrom(inputStream);
             }
             return (NewConnection) invokeL.objValue;
@@ -17179,7 +17451,7 @@ public final class IMPushPb {
         public static NewConnection parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, byteString)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, byteString)) == null) {
                 return PARSER.parseFrom(byteString);
             }
             return (NewConnection) invokeL.objValue;
@@ -17187,7 +17459,7 @@ public final class IMPushPb {
 
         private void initFields() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65564, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65565, this) == null) {
                 this.startTime_ = 0L;
                 this.endTime_ = 0L;
                 this.connectState_ = 0L;
@@ -17205,13 +17477,14 @@ public final class IMPushPb {
                 this.netInfo_ = LcpNetInfo.getDefaultInstance();
                 this.aliasId_ = 0L;
                 this.retry_ = 0L;
+                this.iosBlcpStartTime_ = 0L;
             }
         }
 
         public static NewConnection parseFrom(CodedInputStream codedInputStream) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, codedInputStream)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, codedInputStream)) == null) {
                 return PARSER.parseFrom(codedInputStream);
             }
             return (NewConnection) invokeL.objValue;
@@ -17220,7 +17493,7 @@ public final class IMPushPb {
         public static NewConnection parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, codedInputStream, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, codedInputStream, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
@@ -17229,7 +17502,7 @@ public final class IMPushPb {
         public static NewConnection parseFrom(InputStream inputStream) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, inputStream)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, inputStream)) == null) {
                 return PARSER.parseFrom(inputStream);
             }
             return (NewConnection) invokeL.objValue;
@@ -17238,7 +17511,7 @@ public final class IMPushPb {
         public static NewConnection parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, inputStream, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65575, null, inputStream, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
@@ -17247,7 +17520,7 @@ public final class IMPushPb {
         public static NewConnection parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, bArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, bArr)) == null) {
                 return PARSER.parseFrom(bArr);
             }
             return (NewConnection) invokeL.objValue;
@@ -17256,7 +17529,7 @@ public final class IMPushPb {
         public static NewConnection parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, bArr, extensionRegistryLite)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65577, null, bArr, extensionRegistryLite)) == null) {
                 return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
@@ -17266,7 +17539,7 @@ public final class IMPushPb {
         public int getSerializedSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 int i = this.memoizedSerializedSize;
                 if (i != -1) {
                     return i;
@@ -17323,6 +17596,9 @@ public final class IMPushPb {
                 if ((this.bitField0_ & 65536) == 65536) {
                     i2 += CodedOutputStream.computeInt64Size(17, this.retry_);
                 }
+                if ((this.bitField0_ & 131072) == 131072) {
+                    i2 += CodedOutputStream.computeInt64Size(18, this.iosBlcpStartTime_);
+                }
                 this.memoizedSerializedSize = i2;
                 return i2;
             }
@@ -17332,7 +17608,7 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048623, this, codedOutputStream) == null) {
+            if (interceptable == null || interceptable.invokeL(1048625, this, codedOutputStream) == null) {
                 getSerializedSize();
                 if ((this.bitField0_ & 1) == 1) {
                     codedOutputStream.writeInt64(1, this.startTime_);
@@ -17384,6 +17660,1765 @@ public final class IMPushPb {
                 }
                 if ((this.bitField0_ & 65536) == 65536) {
                     codedOutputStream.writeInt64(17, this.retry_);
+                }
+                if ((this.bitField0_ & 131072) == 131072) {
+                    codedOutputStream.writeInt64(18, this.iosBlcpStartTime_);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static final class NewRequest extends GeneratedMessageLite implements NewRequestOrBuilder {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int ALIAS_ID_FIELD_NUMBER = 9;
+        public static final int ERROR_CODE_FIELD_NUMBER = 6;
+        public static final int ERROR_MSG_FIELD_NUMBER = 7;
+        public static final int EXT_FIELD_NUMBER = 10;
+        public static final int METHOD_ID_FIELD_NUMBER = 2;
+        public static final int NET_INFO_FIELD_NUMBER = 8;
+        public static Parser<NewRequest> PARSER = null;
+        public static final int REQUEST_ID_FIELD_NUMBER = 1;
+        public static final int REQUEST_TIME_FIELD_NUMBER = 4;
+        public static final int RESPONSE_TIME_FIELD_NUMBER = 5;
+        public static final int SERVICE_ID_FIELD_NUMBER = 3;
+        public static final NewRequest defaultInstance;
+        public static final long serialVersionUID = 0;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long aliasId_;
+        public int bitField0_;
+        public long errorCode_;
+        public Object errorMsg_;
+        public Object ext_;
+        public byte memoizedIsInitialized;
+        public int memoizedSerializedSize;
+        public Object methodId_;
+        public LcpNetInfo netInfo_;
+        public long requestId_;
+        public long requestTime_;
+        public long responseTime_;
+        public Object serviceId_;
+
+        /* loaded from: classes.dex */
+        public static final class Builder extends GeneratedMessageLite.Builder<NewRequest, Builder> implements NewRequestOrBuilder {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public long aliasId_;
+            public int bitField0_;
+            public long errorCode_;
+            public Object errorMsg_;
+            public Object ext_;
+            public Object methodId_;
+            public LcpNetInfo netInfo_;
+            public long requestId_;
+            public long requestTime_;
+            public long responseTime_;
+            public Object serviceId_;
+
+            private void maybeForceBuilderInitialization() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+                }
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+                    return true;
+                }
+                return invokeV.booleanValue;
+            }
+
+            public Builder() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.methodId_ = "";
+                this.serviceId_ = "";
+                this.errorMsg_ = "";
+                this.netInfo_ = LcpNetInfo.getDefaultInstance();
+                this.ext_ = "";
+                maybeForceBuilderInitialization();
+            }
+
+            public static Builder create() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                    return new Builder();
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.MessageLite.Builder
+            public NewRequest build() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    NewRequest buildPartial = buildPartial();
+                    if (buildPartial.isInitialized()) {
+                        return buildPartial;
+                    }
+                    throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
+                }
+                return (NewRequest) invokeV.objValue;
+            }
+
+            public Builder clearAliasId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                    this.bitField0_ &= -257;
+                    this.aliasId_ = 0L;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearErrorCode() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                    this.bitField0_ &= -33;
+                    this.errorCode_ = 0L;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearErrorMsg() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                    this.bitField0_ &= -65;
+                    this.errorMsg_ = NewRequest.getDefaultInstance().getErrorMsg();
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearExt() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                    this.bitField0_ &= -513;
+                    this.ext_ = NewRequest.getDefaultInstance().getExt();
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearMethodId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                    this.bitField0_ &= -3;
+                    this.methodId_ = NewRequest.getDefaultInstance().getMethodId();
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearNetInfo() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                    this.netInfo_ = LcpNetInfo.getDefaultInstance();
+                    this.bitField0_ &= -129;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearRequestId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                    this.bitField0_ &= -2;
+                    this.requestId_ = 0L;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearRequestTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                    this.bitField0_ &= -9;
+                    this.requestTime_ = 0L;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearResponseTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                    this.bitField0_ &= -17;
+                    this.responseTime_ = 0L;
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            public Builder clearServiceId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                    this.bitField0_ &= -5;
+                    this.serviceId_ = NewRequest.getDefaultInstance().getServiceId();
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            public Builder clone() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                    return create().mergeFrom(buildPartial());
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public long getAliasId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                    return this.aliasId_;
+                }
+                return invokeV.longValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+            public NewRequest getDefaultInstanceForType() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                    return NewRequest.getDefaultInstance();
+                }
+                return (NewRequest) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public long getErrorCode() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                    return this.errorCode_;
+                }
+                return invokeV.longValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public String getErrorMsg() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+                    Object obj = this.errorMsg_;
+                    if (!(obj instanceof String)) {
+                        String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                        this.errorMsg_ = stringUtf8;
+                        return stringUtf8;
+                    }
+                    return (String) obj;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public ByteString getErrorMsgBytes() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+                    Object obj = this.errorMsg_;
+                    if (obj instanceof String) {
+                        ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                        this.errorMsg_ = copyFromUtf8;
+                        return copyFromUtf8;
+                    }
+                    return (ByteString) obj;
+                }
+                return (ByteString) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public String getExt() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                    Object obj = this.ext_;
+                    if (!(obj instanceof String)) {
+                        String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                        this.ext_ = stringUtf8;
+                        return stringUtf8;
+                    }
+                    return (String) obj;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public ByteString getExtBytes() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+                    Object obj = this.ext_;
+                    if (obj instanceof String) {
+                        ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                        this.ext_ = copyFromUtf8;
+                        return copyFromUtf8;
+                    }
+                    return (ByteString) obj;
+                }
+                return (ByteString) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public String getMethodId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                    Object obj = this.methodId_;
+                    if (!(obj instanceof String)) {
+                        String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                        this.methodId_ = stringUtf8;
+                        return stringUtf8;
+                    }
+                    return (String) obj;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public ByteString getMethodIdBytes() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                    Object obj = this.methodId_;
+                    if (obj instanceof String) {
+                        ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                        this.methodId_ = copyFromUtf8;
+                        return copyFromUtf8;
+                    }
+                    return (ByteString) obj;
+                }
+                return (ByteString) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public LcpNetInfo getNetInfo() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                    return this.netInfo_;
+                }
+                return (LcpNetInfo) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public long getRequestId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+                    return this.requestId_;
+                }
+                return invokeV.longValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public long getRequestTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+                    return this.requestTime_;
+                }
+                return invokeV.longValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public long getResponseTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+                    return this.responseTime_;
+                }
+                return invokeV.longValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public String getServiceId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+                    Object obj = this.serviceId_;
+                    if (!(obj instanceof String)) {
+                        String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                        this.serviceId_ = stringUtf8;
+                        return stringUtf8;
+                    }
+                    return (String) obj;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public ByteString getServiceIdBytes() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+                    Object obj = this.serviceId_;
+                    if (obj instanceof String) {
+                        ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                        this.serviceId_ = copyFromUtf8;
+                        return copyFromUtf8;
+                    }
+                    return (ByteString) obj;
+                }
+                return (ByteString) invokeV.objValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasAliasId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+                    if ((this.bitField0_ & 256) == 256) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasErrorCode() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+                    if ((this.bitField0_ & 32) == 32) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasErrorMsg() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+                    if ((this.bitField0_ & 64) == 64) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasExt() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+                    if ((this.bitField0_ & 512) == 512) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasMethodId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+                    if ((this.bitField0_ & 2) == 2) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasNetInfo() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+                    if ((this.bitField0_ & 128) == 128) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasRequestId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+                    if ((this.bitField0_ & 1) == 1) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasRequestTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+                    if ((this.bitField0_ & 8) == 8) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasResponseTime() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+                    if ((this.bitField0_ & 16) == 16) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+            public boolean hasServiceId() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+                    if ((this.bitField0_ & 4) == 4) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.MessageLite.Builder
+            public NewRequest buildPartial() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    NewRequest newRequest = new NewRequest(this, (AnonymousClass1) null);
+                    int i = this.bitField0_;
+                    int i2 = 1;
+                    if ((i & 1) != 1) {
+                        i2 = 0;
+                    }
+                    newRequest.requestId_ = this.requestId_;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
+                    }
+                    newRequest.methodId_ = this.methodId_;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
+                    }
+                    newRequest.serviceId_ = this.serviceId_;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
+                    }
+                    newRequest.requestTime_ = this.requestTime_;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
+                    }
+                    newRequest.responseTime_ = this.responseTime_;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
+                    }
+                    newRequest.errorCode_ = this.errorCode_;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
+                    }
+                    newRequest.errorMsg_ = this.errorMsg_;
+                    if ((i & 128) == 128) {
+                        i2 |= 128;
+                    }
+                    newRequest.netInfo_ = this.netInfo_;
+                    if ((i & 256) == 256) {
+                        i2 |= 256;
+                    }
+                    newRequest.aliasId_ = this.aliasId_;
+                    if ((i & 512) == 512) {
+                        i2 |= 512;
+                    }
+                    newRequest.ext_ = this.ext_;
+                    newRequest.bitField0_ = i2;
+                    return newRequest;
+                }
+                return (NewRequest) invokeV.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            public Builder clear() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    super.clear();
+                    this.requestId_ = 0L;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
+                    this.methodId_ = "";
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
+                    this.serviceId_ = "";
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
+                    this.requestTime_ = 0L;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
+                    this.responseTime_ = 0L;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
+                    this.errorCode_ = 0L;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
+                    this.errorMsg_ = "";
+                    this.bitField0_ = i6 & (-65);
+                    this.netInfo_ = LcpNetInfo.getDefaultInstance();
+                    int i7 = this.bitField0_ & (-129);
+                    this.bitField0_ = i7;
+                    this.aliasId_ = 0L;
+                    int i8 = i7 & (-257);
+                    this.bitField0_ = i8;
+                    this.ext_ = "";
+                    this.bitField0_ = i8 & (-513);
+                    return this;
+                }
+                return (Builder) invokeV.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder
+            public Builder mergeFrom(NewRequest newRequest) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, newRequest)) == null) {
+                    if (newRequest == NewRequest.getDefaultInstance()) {
+                        return this;
+                    }
+                    if (newRequest.hasRequestId()) {
+                        setRequestId(newRequest.getRequestId());
+                    }
+                    if (newRequest.hasMethodId()) {
+                        this.bitField0_ |= 2;
+                        this.methodId_ = newRequest.methodId_;
+                    }
+                    if (newRequest.hasServiceId()) {
+                        this.bitField0_ |= 4;
+                        this.serviceId_ = newRequest.serviceId_;
+                    }
+                    if (newRequest.hasRequestTime()) {
+                        setRequestTime(newRequest.getRequestTime());
+                    }
+                    if (newRequest.hasResponseTime()) {
+                        setResponseTime(newRequest.getResponseTime());
+                    }
+                    if (newRequest.hasErrorCode()) {
+                        setErrorCode(newRequest.getErrorCode());
+                    }
+                    if (newRequest.hasErrorMsg()) {
+                        this.bitField0_ |= 64;
+                        this.errorMsg_ = newRequest.errorMsg_;
+                    }
+                    if (newRequest.hasNetInfo()) {
+                        mergeNetInfo(newRequest.getNetInfo());
+                    }
+                    if (newRequest.hasAliasId()) {
+                        setAliasId(newRequest.getAliasId());
+                    }
+                    if (newRequest.hasExt()) {
+                        this.bitField0_ |= 512;
+                        this.ext_ = newRequest.ext_;
+                    }
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Removed duplicated region for block: B:17:0x0021  */
+            @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
+            public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048627, this, codedInputStream, extensionRegistryLite)) == null) {
+                    NewRequest newRequest = null;
+                    try {
+                        try {
+                            NewRequest parsePartialFrom = NewRequest.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
+                            }
+                            return this;
+                        } catch (InvalidProtocolBufferException e) {
+                            NewRequest newRequest2 = (NewRequest) e.getUnfinishedMessage();
+                            try {
+                                throw e;
+                            } catch (Throwable th) {
+                                th = th;
+                                newRequest = newRequest2;
+                                if (newRequest != null) {
+                                }
+                                throw th;
+                            }
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (newRequest != null) {
+                            mergeFrom(newRequest);
+                        }
+                        throw th;
+                    }
+                }
+                return (Builder) invokeLL.objValue;
+            }
+
+            public Builder setAliasId(long j) {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048632, this, j)) == null) {
+                    this.bitField0_ |= 256;
+                    this.aliasId_ = j;
+                    return this;
+                }
+                return (Builder) invokeJ.objValue;
+            }
+
+            public Builder setErrorCode(long j) {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048633, this, j)) == null) {
+                    this.bitField0_ |= 32;
+                    this.errorCode_ = j;
+                    return this;
+                }
+                return (Builder) invokeJ.objValue;
+            }
+
+            public Builder setErrorMsg(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
+                    if (str != null) {
+                        this.bitField0_ |= 64;
+                        this.errorMsg_ = str;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setErrorMsgBytes(ByteString byteString) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, byteString)) == null) {
+                    if (byteString != null) {
+                        this.bitField0_ |= 64;
+                        this.errorMsg_ = byteString;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setExt(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, str)) == null) {
+                    if (str != null) {
+                        this.bitField0_ |= 512;
+                        this.ext_ = str;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, byteString)) == null) {
+                    if (byteString != null) {
+                        this.bitField0_ |= 512;
+                        this.ext_ = byteString;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setMethodId(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
+                    if (str != null) {
+                        this.bitField0_ |= 2;
+                        this.methodId_ = str;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setMethodIdBytes(ByteString byteString) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, byteString)) == null) {
+                    if (byteString != null) {
+                        this.bitField0_ |= 2;
+                        this.methodId_ = byteString;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setNetInfo(LcpNetInfo.Builder builder) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, builder)) == null) {
+                    this.netInfo_ = builder.build();
+                    this.bitField0_ |= 128;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setRequestId(long j) {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048642, this, j)) == null) {
+                    this.bitField0_ |= 1;
+                    this.requestId_ = j;
+                    return this;
+                }
+                return (Builder) invokeJ.objValue;
+            }
+
+            public Builder setRequestTime(long j) {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j)) == null) {
+                    this.bitField0_ |= 8;
+                    this.requestTime_ = j;
+                    return this;
+                }
+                return (Builder) invokeJ.objValue;
+            }
+
+            public Builder setResponseTime(long j) {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048644, this, j)) == null) {
+                    this.bitField0_ |= 16;
+                    this.responseTime_ = j;
+                    return this;
+                }
+                return (Builder) invokeJ.objValue;
+            }
+
+            public Builder setServiceId(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, str)) == null) {
+                    if (str != null) {
+                        this.bitField0_ |= 4;
+                        this.serviceId_ = str;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setServiceIdBytes(ByteString byteString) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, byteString)) == null) {
+                    if (byteString != null) {
+                        this.bitField0_ |= 4;
+                        this.serviceId_ = byteString;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder mergeNetInfo(LcpNetInfo lcpNetInfo) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, lcpNetInfo)) == null) {
+                    if ((this.bitField0_ & 128) == 128 && this.netInfo_ != LcpNetInfo.getDefaultInstance()) {
+                        this.netInfo_ = LcpNetInfo.newBuilder(this.netInfo_).mergeFrom(lcpNetInfo).buildPartial();
+                    } else {
+                        this.netInfo_ = lcpNetInfo;
+                    }
+                    this.bitField0_ |= 128;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setNetInfo(LcpNetInfo lcpNetInfo) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, lcpNetInfo)) == null) {
+                    if (lcpNetInfo != null) {
+                        this.netInfo_ = lcpNetInfo;
+                        this.bitField0_ |= 128;
+                        return this;
+                    }
+                    throw null;
+                }
+                return (Builder) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(717516867, "Lcom/baidu/android/imsdk/upload/action/pb/IMPushPb$NewRequest;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(717516867, "Lcom/baidu/android/imsdk/upload/action/pb/IMPushPb$NewRequest;");
+                    return;
+                }
+            }
+            PARSER = new AbstractParser<NewRequest>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequest.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.protobuf.Parser
+                public NewRequest parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) {
+                        return new NewRequest(codedInputStream, extensionRegistryLite, null);
+                    }
+                    return (NewRequest) invokeLL.objValue;
+                }
+            };
+            NewRequest newRequest = new NewRequest(true);
+            defaultInstance = newRequest;
+            newRequest.initFields();
+        }
+
+        public static NewRequest getDefaultInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+                return defaultInstance;
+            }
+            return (NewRequest) invokeV.objValue;
+        }
+
+        private void initFields() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+                this.requestId_ = 0L;
+                this.methodId_ = "";
+                this.serviceId_ = "";
+                this.requestTime_ = 0L;
+                this.responseTime_ = 0L;
+                this.errorCode_ = 0L;
+                this.errorMsg_ = "";
+                this.netInfo_ = LcpNetInfo.getDefaultInstance();
+                this.aliasId_ = 0L;
+                this.ext_ = "";
+            }
+        }
+
+        public static Builder newBuilder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(65559, null)) != null) {
+                return (Builder) invokeV.objValue;
+            }
+            return Builder.create();
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public long getAliasId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.aliasId_;
+            }
+            return invokeV.longValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public NewRequest getDefaultInstanceForType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return defaultInstance;
+            }
+            return (NewRequest) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public long getErrorCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.errorCode_;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public String getErrorMsg() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                Object obj = this.errorMsg_;
+                if (obj instanceof String) {
+                    return (String) obj;
+                }
+                ByteString byteString = (ByteString) obj;
+                String stringUtf8 = byteString.toStringUtf8();
+                if (byteString.isValidUtf8()) {
+                    this.errorMsg_ = stringUtf8;
+                }
+                return stringUtf8;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public ByteString getErrorMsgBytes() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                Object obj = this.errorMsg_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.errorMsg_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+            return (ByteString) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public String getExt() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                Object obj = this.ext_;
+                if (obj instanceof String) {
+                    return (String) obj;
+                }
+                ByteString byteString = (ByteString) obj;
+                String stringUtf8 = byteString.toStringUtf8();
+                if (byteString.isValidUtf8()) {
+                    this.ext_ = stringUtf8;
+                }
+                return stringUtf8;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public ByteString getExtBytes() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                Object obj = this.ext_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.ext_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+            return (ByteString) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public String getMethodId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                Object obj = this.methodId_;
+                if (obj instanceof String) {
+                    return (String) obj;
+                }
+                ByteString byteString = (ByteString) obj;
+                String stringUtf8 = byteString.toStringUtf8();
+                if (byteString.isValidUtf8()) {
+                    this.methodId_ = stringUtf8;
+                }
+                return stringUtf8;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public ByteString getMethodIdBytes() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                Object obj = this.methodId_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.methodId_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+            return (ByteString) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public LcpNetInfo getNetInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.netInfo_;
+            }
+            return (LcpNetInfo) invokeV.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
+        public Parser<NewRequest> getParserForType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return PARSER;
+            }
+            return (Parser) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public long getRequestId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.requestId_;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public long getRequestTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.requestTime_;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public long getResponseTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.responseTime_;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public String getServiceId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                Object obj = this.serviceId_;
+                if (obj instanceof String) {
+                    return (String) obj;
+                }
+                ByteString byteString = (ByteString) obj;
+                String stringUtf8 = byteString.toStringUtf8();
+                if (byteString.isValidUtf8()) {
+                    this.serviceId_ = stringUtf8;
+                }
+                return stringUtf8;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public ByteString getServiceIdBytes() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                Object obj = this.serviceId_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.serviceId_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+            return (ByteString) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasAliasId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                if ((this.bitField0_ & 256) == 256) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasErrorCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                if ((this.bitField0_ & 32) == 32) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasErrorMsg() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                if ((this.bitField0_ & 64) == 64) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasExt() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                if ((this.bitField0_ & 512) == 512) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasMethodId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                if ((this.bitField0_ & 2) == 2) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasNetInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                if ((this.bitField0_ & 128) == 128) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasRequestId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                if ((this.bitField0_ & 1) == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasRequestTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+                if ((this.bitField0_ & 8) == 8) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasResponseTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                if ((this.bitField0_ & 16) == 16) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
+        public boolean hasServiceId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+                if ((this.bitField0_ & 4) == 4) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public final boolean isInitialized() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    if (b == 1) {
+                        return true;
+                    }
+                    return false;
+                }
+                this.memoizedIsInitialized = (byte) 1;
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                return newBuilder();
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder toBuilder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                return newBuilder(this);
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public Object writeReplace() throws ObjectStreamException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                return super.writeReplace();
+            }
+            return invokeV.objValue;
+        }
+
+        public NewRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {codedInputStream, extensionRegistryLite};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+            initFields();
+            boolean z = false;
+            while (!z) {
+                try {
+                    try {
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.requestId_ = codedInputStream.readInt64();
+                                continue;
+                            case 18:
+                                this.bitField0_ |= 2;
+                                this.methodId_ = codedInputStream.readBytes();
+                                continue;
+                            case 26:
+                                this.bitField0_ |= 4;
+                                this.serviceId_ = codedInputStream.readBytes();
+                                continue;
+                            case 32:
+                                this.bitField0_ |= 8;
+                                this.requestTime_ = codedInputStream.readInt64();
+                                continue;
+                            case 40:
+                                this.bitField0_ |= 16;
+                                this.responseTime_ = codedInputStream.readInt64();
+                                continue;
+                            case 48:
+                                this.bitField0_ |= 32;
+                                this.errorCode_ = codedInputStream.readInt64();
+                                continue;
+                            case 58:
+                                this.bitField0_ |= 64;
+                                this.errorMsg_ = codedInputStream.readBytes();
+                                continue;
+                            case 66:
+                                LcpNetInfo.Builder builder = (this.bitField0_ & 128) == 128 ? this.netInfo_.toBuilder() : null;
+                                LcpNetInfo lcpNetInfo = (LcpNetInfo) codedInputStream.readMessage(LcpNetInfo.PARSER, extensionRegistryLite);
+                                this.netInfo_ = lcpNetInfo;
+                                if (builder != null) {
+                                    builder.mergeFrom(lcpNetInfo);
+                                    this.netInfo_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 128;
+                                continue;
+                            case 72:
+                                this.bitField0_ |= 256;
+                                this.aliasId_ = codedInputStream.readInt64();
+                                continue;
+                            case 82:
+                                this.bitField0_ |= 512;
+                                this.ext_ = codedInputStream.readBytes();
+                                continue;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                    break;
+                                } else {
+                                    continue;
+                                }
+                        }
+                        z = true;
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    }
+                } finally {
+                    makeExtensionsImmutable();
+                }
+            }
+        }
+
+        public /* synthetic */ NewRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, AnonymousClass1 anonymousClass1) throws InvalidProtocolBufferException {
+            this(codedInputStream, extensionRegistryLite);
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public NewRequest(GeneratedMessageLite.Builder builder) {
+            super(builder);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {builder};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public /* synthetic */ NewRequest(GeneratedMessageLite.Builder builder, AnonymousClass1 anonymousClass1) {
+            this(builder);
+        }
+
+        public static NewRequest parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, inputStream, extensionRegistryLite)) == null) {
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+            }
+            return (NewRequest) invokeLL.objValue;
+        }
+
+        public static NewRequest parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, byteString, extensionRegistryLite)) == null) {
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
+            }
+            return (NewRequest) invokeLL.objValue;
+        }
+
+        public NewRequest(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65541, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65541, newInitContext);
+                    return;
+                }
+            }
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static Builder newBuilder(NewRequest newRequest) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, newRequest)) == null) {
+                return newBuilder().mergeFrom(newRequest);
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public static NewRequest parseDelimitedFrom(InputStream inputStream) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, inputStream)) == null) {
+                return PARSER.parseDelimitedFrom(inputStream);
+            }
+            return (NewRequest) invokeL.objValue;
+        }
+
+        public static NewRequest parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, byteString)) == null) {
+                return PARSER.parseFrom(byteString);
+            }
+            return (NewRequest) invokeL.objValue;
+        }
+
+        public static NewRequest parseFrom(CodedInputStream codedInputStream) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, codedInputStream)) == null) {
+                return PARSER.parseFrom(codedInputStream);
+            }
+            return (NewRequest) invokeL.objValue;
+        }
+
+        public static NewRequest parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, codedInputStream, extensionRegistryLite)) == null) {
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+            }
+            return (NewRequest) invokeLL.objValue;
+        }
+
+        public static NewRequest parseFrom(InputStream inputStream) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
+                return PARSER.parseFrom(inputStream);
+            }
+            return (NewRequest) invokeL.objValue;
+        }
+
+        public static NewRequest parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, inputStream, extensionRegistryLite)) == null) {
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
+            }
+            return (NewRequest) invokeLL.objValue;
+        }
+
+        public static NewRequest parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, bArr)) == null) {
+                return PARSER.parseFrom(bArr);
+            }
+            return (NewRequest) invokeL.objValue;
+        }
+
+        public static NewRequest parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, bArr, extensionRegistryLite)) == null) {
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
+            }
+            return (NewRequest) invokeLL.objValue;
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public int getSerializedSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
+                }
+                int i2 = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i2 = 0 + CodedOutputStream.computeInt64Size(1, this.requestId_);
+                }
+                if ((this.bitField0_ & 2) == 2) {
+                    i2 += CodedOutputStream.computeBytesSize(2, getMethodIdBytes());
+                }
+                if ((this.bitField0_ & 4) == 4) {
+                    i2 += CodedOutputStream.computeBytesSize(3, getServiceIdBytes());
+                }
+                if ((this.bitField0_ & 8) == 8) {
+                    i2 += CodedOutputStream.computeInt64Size(4, this.requestTime_);
+                }
+                if ((this.bitField0_ & 16) == 16) {
+                    i2 += CodedOutputStream.computeInt64Size(5, this.responseTime_);
+                }
+                if ((this.bitField0_ & 32) == 32) {
+                    i2 += CodedOutputStream.computeInt64Size(6, this.errorCode_);
+                }
+                if ((this.bitField0_ & 64) == 64) {
+                    i2 += CodedOutputStream.computeBytesSize(7, getErrorMsgBytes());
+                }
+                if ((this.bitField0_ & 128) == 128) {
+                    i2 += CodedOutputStream.computeMessageSize(8, this.netInfo_);
+                }
+                if ((this.bitField0_ & 256) == 256) {
+                    i2 += CodedOutputStream.computeInt64Size(9, this.aliasId_);
+                }
+                if ((this.bitField0_ & 512) == 512) {
+                    i2 += CodedOutputStream.computeBytesSize(10, getExtBytes());
+                }
+                this.memoizedSerializedSize = i2;
+                return i2;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048610, this, codedOutputStream) == null) {
+                getSerializedSize();
+                if ((this.bitField0_ & 1) == 1) {
+                    codedOutputStream.writeInt64(1, this.requestId_);
+                }
+                if ((this.bitField0_ & 2) == 2) {
+                    codedOutputStream.writeBytes(2, getMethodIdBytes());
+                }
+                if ((this.bitField0_ & 4) == 4) {
+                    codedOutputStream.writeBytes(3, getServiceIdBytes());
+                }
+                if ((this.bitField0_ & 8) == 8) {
+                    codedOutputStream.writeInt64(4, this.requestTime_);
+                }
+                if ((this.bitField0_ & 16) == 16) {
+                    codedOutputStream.writeInt64(5, this.responseTime_);
+                }
+                if ((this.bitField0_ & 32) == 32) {
+                    codedOutputStream.writeInt64(6, this.errorCode_);
+                }
+                if ((this.bitField0_ & 64) == 64) {
+                    codedOutputStream.writeBytes(7, getErrorMsgBytes());
+                }
+                if ((this.bitField0_ & 128) == 128) {
+                    codedOutputStream.writeMessage(8, this.netInfo_);
+                }
+                if ((this.bitField0_ & 256) == 256) {
+                    codedOutputStream.writeInt64(9, this.aliasId_);
+                }
+                if ((this.bitField0_ & 512) == 512) {
+                    codedOutputStream.writeBytes(10, getExtBytes());
                 }
             }
         }
@@ -22848,6 +24883,8 @@ public final class IMPushPb {
         public static final int MSG_VALUE = 701;
         public static final ActionType NEWCONNECTION;
         public static final int NEWCONNECTION_VALUE = 801;
+        public static final ActionType NEWREQUEST;
+        public static final int NEWREQUEST_VALUE = 901;
         public static final ActionType REQUEST;
         public static final int REQUEST_VALUE = 501;
         public static final ActionType UI;
@@ -22876,9 +24913,10 @@ public final class IMPushPb {
             REQUEST = new ActionType("REQUEST", 4, 4, 501);
             ACK = new ActionType("ACK", 5, 5, 601);
             MSG = new ActionType("MSG", 6, 6, 701);
-            ActionType actionType = new ActionType("NEWCONNECTION", 7, 7, 801);
-            NEWCONNECTION = actionType;
-            $VALUES = new ActionType[]{UI, CRASH, DB, CONNECTION, REQUEST, ACK, MSG, actionType};
+            NEWCONNECTION = new ActionType("NEWCONNECTION", 7, 7, 801);
+            ActionType actionType = new ActionType("NEWREQUEST", 8, 8, 901);
+            NEWREQUEST = actionType;
+            $VALUES = new ActionType[]{UI, CRASH, DB, CONNECTION, REQUEST, ACK, MSG, NEWCONNECTION, actionType};
             internalValueMap = new Internal.EnumLiteMap<ActionType>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionType.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -22972,7 +25010,10 @@ public final class IMPushPb {
                                     if (i != 601) {
                                         if (i != 701) {
                                             if (i != 801) {
-                                                return null;
+                                                if (i != 901) {
+                                                    return null;
+                                                }
+                                                return NEWREQUEST;
                                             }
                                             return NEWCONNECTION;
                                         }

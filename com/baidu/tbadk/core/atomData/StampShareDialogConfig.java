@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.en8;
+import com.baidu.tieba.dq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class StampShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public en8 mStampShareData;
+    public dq8 mStampShareData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, en8 en8Var) {
+    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, dq8 dq8Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), en8Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), dq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class StampShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mStampShareData = en8Var;
+        this.mStampShareData = dq8Var;
     }
 
-    public en8 getStampShareData() {
+    public dq8 getStampShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mStampShareData;
         }
-        return (en8) invokeV.objValue;
+        return (dq8) invokeV.objValue;
     }
 }

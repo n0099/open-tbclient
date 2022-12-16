@@ -4,21 +4,22 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -47,6 +48,85 @@ public class ConnectManager {
     public String mWifiBSSID;
     public String mWifiSSID;
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes2.dex */
+    public static final class NetworkStateEnum {
+        public static final /* synthetic */ NetworkStateEnum[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final NetworkStateEnum NO;
+        public static final NetworkStateEnum UNKNOWN;
+        public static final NetworkStateEnum WIFI;
+        public static final NetworkStateEnum _2G;
+        public static final NetworkStateEnum _3G;
+        public static final NetworkStateEnum _4G;
+        public static final NetworkStateEnum _5G;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String name;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1419671811, "Lcom/baidu/searchbox/http/ConnectManager$NetworkStateEnum;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1419671811, "Lcom/baidu/searchbox/http/ConnectManager$NetworkStateEnum;");
+                    return;
+                }
+            }
+            NO = new NetworkStateEnum(HlsPlaylistParser.BOOLEAN_FALSE, 0, "no");
+            WIFI = new NetworkStateEnum("WIFI", 1, "wifi");
+            _2G = new NetworkStateEnum("_2G", 2, "2g");
+            _3G = new NetworkStateEnum("_3G", 3, "3g");
+            _4G = new NetworkStateEnum("_4G", 4, "4g");
+            _5G = new NetworkStateEnum("_5G", 5, "5g");
+            NetworkStateEnum networkStateEnum = new NetworkStateEnum(RomUtils.UNKNOWN, 6, "unknown");
+            UNKNOWN = networkStateEnum;
+            $VALUES = new NetworkStateEnum[]{NO, WIFI, _2G, _3G, _4G, _5G, networkStateEnum};
+        }
+
+        public NetworkStateEnum(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.name = str2;
+        }
+
+        public static NetworkStateEnum valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetworkStateEnum) Enum.valueOf(NetworkStateEnum.class, str);
+            }
+            return (NetworkStateEnum) invokeL.objValue;
+        }
+
+        public static NetworkStateEnum[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetworkStateEnum[]) $VALUES.clone();
+            }
+            return (NetworkStateEnum[]) invokeV.objValue;
+        }
+    }
+
     public ConnectManager(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,15 +146,29 @@ public class ConnectManager {
         checkNetworkType(context);
     }
 
+    public static boolean isMobile(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        NetworkInfo activeNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (context == null || (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || activeNetworkInfo.getType() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static boolean isWifi(Context context) {
         InterceptResult invokeL;
+        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == 1) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            if (context == null || (activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected() || activeNetworkInfo.getType() != 1) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -127,71 +221,42 @@ public class ConnectManager {
     }
 
     private void checkNetworkType(Context context) {
-        NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            try {
-                networkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (NullPointerException unused) {
-                networkInfo = null;
-            }
-            if (networkInfo != null) {
-                if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
-                    this.mNetType = "wifi";
-                    this.mUseWap = false;
-                    checkWifi(context);
-                } else {
-                    checkApn(context, networkInfo);
-                    this.mNetType = this.mApn;
-                }
-                checkSIMCard(context);
-                this.mSubType = networkInfo.getSubtype();
-                this.mSubTypeName = networkInfo.getSubtypeName();
-            }
-            this.mHttpProxyIp = System.getProperty("http.proxyHost");
-            String property = System.getProperty("http.proxyPort");
-            if (!TextUtils.isEmpty(property)) {
-                this.mHttpProxyPort = Integer.parseInt(property);
-            }
-            this.mAirModeOn = isAirModeOn(context);
-            this.mVpnOn = isVPNConnected(context);
+        if ((interceptable != null && interceptable.invokeL(65538, this, context) != null) || context == null) {
+            return;
         }
-    }
-
-    private void checkSIMCard(Context context) {
-        TelephonyManager telephonyManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, context) == null) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
-            this.mSimOperatorName = telephonyManager.getSimOperatorName();
-            String simOperator = telephonyManager.getSimOperator();
-            if (simOperator != null && simOperator.length() >= 5) {
-                StringBuilder sb = new StringBuilder();
-                try {
-                    int length = simOperator.length();
-                    if (length > 6) {
-                        length = 6;
-                    }
-                    for (int i = 0; i < length; i++) {
-                        if (!Character.isDigit(simOperator.charAt(i))) {
-                            if (sb.length() > 0) {
-                                break;
-                            }
-                        } else {
-                            sb.append(simOperator.charAt(i));
-                        }
-                    }
-                    this.mSimOperatorCode = Integer.valueOf(sb.toString()).toString();
-                } catch (Exception unused) {
-                }
-            }
+        NetworkInfo networkInfo = null;
+        try {
+            networkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (NullPointerException unused) {
         }
+        if (networkInfo != null) {
+            if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
+                this.mNetType = "wifi";
+                this.mUseWap = false;
+                checkWifi(context);
+            } else {
+                checkApn(context, networkInfo);
+                this.mNetType = this.mApn;
+            }
+            checkSIMCard(context);
+            this.mSubType = networkInfo.getSubtype();
+            this.mSubTypeName = networkInfo.getSubtypeName();
+        }
+        this.mHttpProxyIp = System.getProperty("http.proxyHost");
+        String property = System.getProperty("http.proxyPort");
+        if (!TextUtils.isEmpty(property)) {
+            this.mHttpProxyPort = Integer.parseInt(property);
+        }
+        this.mAirModeOn = isAirModeOn(context);
+        this.mVpnOn = isVPNConnected(context);
     }
 
     public static boolean isVPNConnected(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             ArrayList arrayList = new ArrayList();
             if (Build.VERSION.SDK_INT >= 21) {
                 z = checkVPN(context);
@@ -219,7 +284,7 @@ public class ConnectManager {
                     return true;
                 }
                 return z;
-            } catch (SocketException e) {
+            } catch (NullPointerException | SocketException e) {
                 e.printStackTrace();
                 return z;
             }
@@ -227,24 +292,41 @@ public class ConnectManager {
         return invokeL.booleanValue;
     }
 
+    private void checkSIMCard(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            this.mSimOperatorCode = "";
+            this.mSimOperatorName = "";
+        }
+    }
+
     @RequiresApi(api = 21)
     public static boolean checkVPN(Context context) {
         InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null || connectivityManager.getNetworkInfo(17) == null) {
+            if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (networkInfo = connectivityManager.getNetworkInfo(17)) == null) {
                 return false;
             }
-            return connectivityManager.getNetworkInfo(17).isConnectedOrConnecting();
+            return networkInfo.isConnectedOrConnecting();
         }
         return invokeL.booleanValue;
+    }
+
+    private void checkWifi(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+            this.mWifiBSSID = "";
+            this.mWifiSSID = "";
+        }
     }
 
     public static boolean isAirModeOn(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0) != 1) {
                 return false;
             }
@@ -255,100 +337,111 @@ public class ConnectManager {
 
     public static boolean isNetworkConnected(Context context) {
         InterceptResult invokeL;
+        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                return activeNetworkInfo.isConnectedOrConnecting();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            if (context == null || (activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo()) == null) {
+                return false;
             }
-            return false;
+            return activeNetworkInfo.isConnectedOrConnecting();
         }
         return invokeL.booleanValue;
     }
 
-    private void checkWifi(Context context) {
-        NetworkInfo activeNetworkInfo;
-        WifiManager wifiManager;
-        WifiInfo connectionInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && 1 == activeNetworkInfo.getType() && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                    this.mWifiBSSID = connectionInfo.getBSSID();
-                    this.mWifiSSID = connectionInfo.getSSID();
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
     public static String getNetworkInfo(Context context) {
         InterceptResult invokeL;
+        NetworkInfo activeNetworkInfo;
         String lowerCase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (activeNetworkInfo.getType() == 1) {
-                    return "wifi";
-                }
-                if (activeNetworkInfo.getType() == 0) {
-                    int subtype = activeNetworkInfo.getSubtype();
-                    if (activeNetworkInfo.getExtraInfo() == null) {
-                        lowerCase = "none";
-                    } else {
-                        lowerCase = activeNetworkInfo.getExtraInfo().toLowerCase();
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    String subtypeName = activeNetworkInfo.getSubtypeName();
-                    if (subtype != 20) {
-                        switch (subtype) {
-                            case 1:
-                            case 2:
-                            case 4:
-                            case 7:
-                            case 11:
-                                sb.append("2g");
-                                break;
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                sb.append("3g");
-                                break;
-                            case 13:
-                                sb.append("4g");
-                                break;
-                            default:
-                                sb.append(activeNetworkInfo.getTypeName());
-                                break;
-                        }
-                    } else {
-                        sb.append("5g");
-                    }
-                    sb.append("_");
-                    sb.append(lowerCase);
-                    sb.append("_");
-                    sb.append(subtypeName);
-                    return sb.toString();
-                }
-                return activeNetworkInfo.getTypeName() + "_" + activeNetworkInfo.getSubtypeName();
+            if (context == null || (activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
+                return "no";
             }
-            return "no";
+            if (activeNetworkInfo.getType() == 1) {
+                return "wifi";
+            }
+            if (activeNetworkInfo.getType() == 0) {
+                int subtype = activeNetworkInfo.getSubtype();
+                if (activeNetworkInfo.getExtraInfo() == null) {
+                    lowerCase = "none";
+                } else {
+                    lowerCase = activeNetworkInfo.getExtraInfo().toLowerCase();
+                }
+                StringBuilder sb = new StringBuilder();
+                String subtypeName = activeNetworkInfo.getSubtypeName();
+                if (subtype != 20) {
+                    switch (subtype) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            sb.append("2g");
+                            break;
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            sb.append("3g");
+                            break;
+                        case 13:
+                            sb.append("4g");
+                            break;
+                        default:
+                            sb.append(activeNetworkInfo.getTypeName());
+                            break;
+                    }
+                } else {
+                    sb.append("5g");
+                }
+                sb.append("_");
+                sb.append(lowerCase);
+                sb.append("_");
+                sb.append(subtypeName);
+                return sb.toString();
+            }
+            return activeNetworkInfo.getTypeName() + "_" + activeNetworkInfo.getSubtypeName();
         }
         return (String) invokeL.objValue;
+    }
+
+    public static NetworkStateEnum getNetworkType(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            String networkInfo = getNetworkInfo(context);
+            if (networkInfo.startsWith("no")) {
+                return NetworkStateEnum.NO;
+            }
+            if (networkInfo.startsWith("wifi")) {
+                return NetworkStateEnum.WIFI;
+            }
+            if (networkInfo.startsWith("2g")) {
+                return NetworkStateEnum._2G;
+            }
+            if (networkInfo.startsWith("3g")) {
+                return NetworkStateEnum._3G;
+            }
+            if (networkInfo.startsWith("4g")) {
+                return NetworkStateEnum._4G;
+            }
+            if (networkInfo.startsWith("5g")) {
+                return NetworkStateEnum._5G;
+            }
+            return NetworkStateEnum.UNKNOWN;
+        }
+        return (NetworkStateEnum) invokeL.objValue;
     }
 
     public static boolean isProxyConnected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String property = System.getProperty("http.proxyHost");
             String property2 = System.getProperty("http.proxyPort");
             if (!TextUtils.isEmpty(property) && !TextUtils.isEmpty(property2)) {

@@ -22,11 +22,11 @@ import com.baidu.tbadk.mutiprocess.live.ImageViewLiveEvent;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh7;
-import com.baidu.tieba.kh7;
+import com.baidu.tieba.ak7;
+import com.baidu.tieba.hk7;
+import com.baidu.tieba.mc5;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.ub5;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +40,7 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public final List<kh7> b;
+    public final List<hk7> b;
     public final TbPageContext c;
     public String d;
     public String e;
@@ -120,7 +120,7 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
             this.e = tBLottieAnimationView;
             tBLottieAnimationView.setImageAssetsFolder("lottie_live_icon");
             this.e.setRepeatCount(-1);
-            SkinManager.setLottieAnimation(this.e, R.raw.obfuscated_res_0x7f110044);
+            SkinManager.setLottieAnimation(this.e, R.raw.obfuscated_res_0x7f110046);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903a4);
             a();
         }
@@ -128,15 +128,15 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qw4 d = qw4.d(this.b);
+                rw4 d = rw4.d(this.b);
                 d.v(R.color.CAM_X0101);
                 d.z(R.dimen.T_X06);
                 d.A(R.string.F_X02);
-                qw4 d2 = qw4.d(this.c);
+                rw4 d2 = rw4.d(this.c);
                 d2.v(R.color.CAM_X0101);
                 d2.z(R.dimen.T_X09);
                 d2.A(R.string.F_X01);
-                qw4 d3 = qw4.d(this.d);
+                rw4 d3 = rw4.d(this.d);
                 d3.v(R.color.CAM_X0101);
                 d3.z(R.dimen.T_X09);
                 d3.A(R.string.F_X01);
@@ -190,15 +190,15 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kh7 a;
+        public final /* synthetic */ hk7 a;
         public final /* synthetic */ LiveRoomRecommendListAdapter b;
 
-        public b(LiveRoomRecommendListAdapter liveRoomRecommendListAdapter, kh7 kh7Var) {
+        public b(LiveRoomRecommendListAdapter liveRoomRecommendListAdapter, hk7 hk7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {liveRoomRecommendListAdapter, kh7Var};
+                Object[] objArr = {liveRoomRecommendListAdapter, hk7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -209,7 +209,7 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
                 }
             }
             this.b = liveRoomRecommendListAdapter;
-            this.a = kh7Var;
+            this.a = hk7Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -252,7 +252,7 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
         }
     }
 
-    public void j(List<kh7> list) {
+    public void j(List<hk7> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
@@ -262,7 +262,7 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
         this.b.addAll(list);
     }
 
-    public final void e(List<kh7> list) {
+    public final void e(List<hk7> list) {
         int b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
@@ -283,22 +283,22 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
         }
     }
 
-    public void f(Context context, kh7 kh7Var) {
+    public void f(Context context, hk7 hk7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, kh7Var) == null) && context != null && kh7Var != null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hk7Var) == null) && context != null && hk7Var != null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                yi.O(context, R.string.obfuscated_res_0x7f0f0cbc);
+                yi.P(context, R.string.no_network_guide);
                 return;
             }
-            dh7.c(1, this.d, this.e, TbadkCoreApplication.getCurrentAccount(), this.f, kh7Var);
-            YyExtData g = kh7Var.g();
+            ak7.c(1, this.d, this.e, TbadkCoreApplication.getCurrentAccount(), this.f, hk7Var);
+            YyExtData g = hk7Var.g();
             if (g != null) {
                 ImageViewLiveEvent imageViewLiveEvent = new ImageViewLiveEvent();
                 String str = g.mSid;
                 String str2 = g.mSsid;
                 String str3 = g.mTemplateId;
-                imageViewLiveEvent.initData(str, str2, str3, "" + kh7Var.d(), g.streamInfo, YYLiveUtil.SOURCE_PB_DATU_EOF);
-                ub5.i(imageViewLiveEvent);
+                imageViewLiveEvent.initData(str, str2, str3, "" + hk7Var.d(), g.streamInfo, YYLiveUtil.SOURCE_PB_DATU_EOF);
+                mc5.i(imageViewLiveEvent);
             }
         }
     }
@@ -311,7 +311,7 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d056c, viewGroup, false);
+            View inflate = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d057c, viewGroup, false);
             int[] s = yi.s(this.c.getPageActivity());
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             inflate.setLayoutParams(new FrameLayout.LayoutParams((s[0] - dimenPixelSize) / 2, ((int) ((((s[0] - dimenPixelSize) - UtilHelper.getDimenPixelSize(R.dimen.M_W_X004)) / 2) * 1.25d)) + dimenPixelSize));
@@ -324,24 +324,24 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: g */
     public void onBindViewHolder(@NonNull LiveRoomViewHolder liveRoomViewHolder, int i) {
-        kh7 kh7Var;
+        hk7 hk7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, liveRoomViewHolder, i) != null) || (kh7Var = this.b.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, liveRoomViewHolder, i) != null) || (hk7Var = this.b.get(i)) == null) {
             return;
         }
-        dh7.d(this.d, this.e, TbadkCoreApplication.getCurrentAccount(), this.f, kh7Var);
-        liveRoomViewHolder.a.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08090a);
+        ak7.d(this.d, this.e, TbadkCoreApplication.getCurrentAccount(), this.f, hk7Var);
+        liveRoomViewHolder.a.setDefaultBgResource(R.drawable.icon_pic_zhibo_default);
         liveRoomViewHolder.a.setConrers(15);
-        liveRoomViewHolder.a.setRadius(UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f070034));
-        liveRoomViewHolder.a.K(kh7Var.b(), 10, false);
-        liveRoomViewHolder.b.setText(kh7Var.f());
+        liveRoomViewHolder.a.setRadius(UtilHelper.getDimenPixelSize(R.dimen.NAD_F_J_X06));
+        liveRoomViewHolder.a.K(hk7Var.b(), 10, false);
+        liveRoomViewHolder.b.setText(hk7Var.f());
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(kh7Var.a());
+        stringBuffer.append(hk7Var.a());
         stringBuffer.append("人");
         liveRoomViewHolder.c.setText(stringBuffer.toString());
-        liveRoomViewHolder.d.setText(kh7Var.c());
+        liveRoomViewHolder.d.setText(hk7Var.c());
         liveRoomViewHolder.e.addOnAttachStateChangeListener(new a(this, liveRoomViewHolder));
-        liveRoomViewHolder.a.setOnClickListener(new b(this, kh7Var));
+        liveRoomViewHolder.a.setOnClickListener(new b(this, hk7Var));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

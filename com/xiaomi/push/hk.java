@@ -14,12 +14,12 @@ public final class hk {
     public static final hk a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hk[] f470a;
+    public static final /* synthetic */ hk[] f493a;
     public static final hk b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f471a;
+    public final int f494a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class hk {
         a = new hk("START", 0, 0);
         hk hkVar = new hk("BIND", 1, 1);
         b = hkVar;
-        f470a = new hk[]{a, hkVar};
+        f493a = new hk[]{a, hkVar};
     }
 
     public hk(String str, int i, int i2) {
@@ -58,7 +58,7 @@ public final class hk {
                 return;
             }
         }
-        this.f471a = i2;
+        this.f494a = i2;
     }
 
     public static hk valueOf(String str) {
@@ -70,12 +70,12 @@ public final class hk {
     public static hk[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hk[]) f470a.clone() : (hk[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hk[]) f493a.clone() : (hk[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f471a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f494a : invokeV.intValue;
     }
 }

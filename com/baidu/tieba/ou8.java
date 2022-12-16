@@ -1,210 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.aw4;
-import com.baidu.tieba.ph7;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Context;
+import android.location.Address;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ou8 extends aw4 {
+public class ou8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity c;
-    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public class a implements ph7.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw4.a a;
-        public final /* synthetic */ ou8 b;
-
-        public a(ou8 ou8Var, aw4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ou8Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ou8Var;
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.tieba.ph7.e
-        public void a() {
-            aw4.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
-                aVar.a(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.ph7.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (!ph7.n(this.b.c).k(this.b.c.B.intValue(), 0)) {
-                    aw4.a aVar = this.a;
-                    if (aVar != null) {
-                        aVar.a(false);
-                        return;
-                    }
-                    return;
-                }
-                aw4.a aVar2 = this.a;
-                if (aVar2 != null) {
-                    aVar2.a(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ph7.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ou8 a;
-
-        public b(ou8 ou8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ou8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ou8Var;
-        }
-
-        @Override // com.baidu.tieba.ph7.f
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hw4.r("insertAd");
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ou8 a;
-
-        public c(ou8 ou8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ou8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ou8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!ph7.n(this.a.c).I(this.a.c.B.intValue(), 0)) {
-                    this.a.c();
-                } else {
-                    hw4.m("insertAd");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ou8(TbPageContext tbPageContext, as8 as8Var, MainTabActivity mainTabActivity, boolean z) {
-        super(mainTabActivity);
+    public static void a(NetWork netWork, WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, as8Var, mainTabActivity, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
+            netWork.addPostData("is_location", "2");
+            Address j = tf.n().j(false);
+            if (j != null) {
+                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+            }
+            LocationData b = it8.a().b();
+            if (b != null) {
+                netWork.addPostData("name", b.getFormatted_address());
+                netWork.addPostData("sn", b.getSn());
             }
         }
-        this.c = mainTabActivity;
-        this.d = z;
     }
 
-    @Override // com.baidu.tieba.aw4
-    public void b() {
+    public static void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ph7.n(this.c).l();
-        }
-    }
-
-    @Override // com.baidu.tieba.aw4
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ph7.n(this.c).F(new b(this));
-            ah.a().postDelayed(new c(this), 400L);
-        }
-    }
-
-    @Override // com.baidu.tieba.aw4
-    public void d(aw4.a aVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (hw4.k() && aVar != null) {
-                aVar.a(false);
-            } else if (!ph7.m && ((TbSingleton.getInstance().isCanShowHotSplash || ph7.m || TbSingleton.getInstance().mIsSplashClick) && !this.d)) {
-                if (aVar != null) {
-                    aVar.a(false);
-                }
-            } else {
-                ph7 n = ph7.n(this.c);
-                if (ph7.m) {
-                    str = "1";
-                } else {
-                    str = "2";
-                }
-                if (!n.C(str, this.c.B.intValue(), 0, this.c.K, new a(this, aVar), false) && aVar != null) {
-                    aVar.a(false);
-                }
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
+            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            View findViewById = inflate.findViewById(R.id.experience_score);
+            TextView textView = (TextView) inflate.findViewById(R.id.success_text);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.pre_msg);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.color_msg);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
+            if (imageView != null) {
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, null));
             }
+            if (StringUtils.isNull(str)) {
+                str = context.getString(R.string.send_success);
+            }
+            textView.setText(str);
+            if (str2 != null || str3 != null) {
+                findViewById.setVisibility(0);
+                textView2.setText(str2);
+                textView3.setText(str3);
+            }
+            c(context, inflate);
+        }
+    }
+
+    public static void c(Context context, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
+            Toast toast = new Toast(context);
+            toast.setView(view2);
+            toast.setGravity(17, 0, 0);
+            toast.setDuration(3000);
+            GreyUtil.grey(toast);
+            toast.show();
         }
     }
 }

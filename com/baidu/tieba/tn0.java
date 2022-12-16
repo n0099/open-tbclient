@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface tn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "loadVideo");
+    public static final ServiceReference a = new ServiceReference("nad.business", "rewardLpBDTaskCenter");
     public static final tn0 b = new a();
 
-    void a(String str, int i);
+    @NonNull
+    String a();
 
     /* loaded from: classes6.dex */
     public static class a implements tn0 {
@@ -18,10 +21,11 @@ public interface tn0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.tn0
-        public void a(String str, int i) {
+        @NonNull
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
         public a() {

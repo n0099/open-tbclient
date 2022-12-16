@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class zy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class zy4 {
             this.b = create;
             GreyUtil.grey(create);
             ch.i(this.b, this.a);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07ea, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09076d);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.small_blue_progress_dialog, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.custom_loading_text);
             if (!TextUtils.isEmpty(this.e)) {
                 textView.setText(this.e);
             }

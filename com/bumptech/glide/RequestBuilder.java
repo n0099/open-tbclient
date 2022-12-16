@@ -169,8 +169,8 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequestBuilder<TranscodeType> requestBuilder = (RequestBuilder) super.m75clone();
-            requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m74clone();
+            RequestBuilder<TranscodeType> requestBuilder = (RequestBuilder) super.m76clone();
+            requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m75clone();
             if (requestBuilder.requestListeners != null) {
                 requestBuilder.requestListeners = new ArrayList(requestBuilder.requestListeners);
             }
@@ -343,7 +343,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
                 throw new IllegalStateException("You cannot use a request as both the main request and a thumbnail, consider using clone() on the request(s) passed to thumbnail()");
             } else if (this.thumbSizeMultiplier != null) {
                 ThumbnailRequestCoordinator thumbnailRequestCoordinator2 = new ThumbnailRequestCoordinator(obj, requestCoordinator);
-                thumbnailRequestCoordinator2.setRequests(obtainRequest(obj, target, requestListener, baseRequestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2, executor), obtainRequest(obj, target, requestListener, baseRequestOptions.m75clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2, executor));
+                thumbnailRequestCoordinator2.setRequests(obtainRequest(obj, target, requestListener, baseRequestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2, executor), obtainRequest(obj, target, requestListener, baseRequestOptions.m76clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2, executor));
                 return thumbnailRequestCoordinator2;
             } else {
                 return obtainRequest(obj, target, requestListener, baseRequestOptions, requestCoordinator, transitionOptions, priority, i, i2, executor);

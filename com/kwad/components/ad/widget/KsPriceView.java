@@ -26,7 +26,7 @@ import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
 import com.kwad.sdk.core.e.b;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsPriceView extends TextView implements e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Cw = "¥%s 到手约 ¥%s";
@@ -38,7 +38,7 @@ public class KsPriceView extends TextView implements e {
     public a Cv;
     public String Cz;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

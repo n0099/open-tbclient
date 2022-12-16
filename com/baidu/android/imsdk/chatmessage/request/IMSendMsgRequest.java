@@ -115,7 +115,7 @@ public class IMSendMsgRequest extends BaseHttpRequest {
                         str2 = Constants.URL_HTTP_QA;
                     }
                 } else {
-                    str2 = "http://rd-im-server.bcc-szth.baidu.com:8111/";
+                    str2 = Constants.URL_HTTP_RD_8111;
                 }
             }
             boolean isStudioHostSendMsg = Utility.isStudioHostSendMsg(this.mContext);

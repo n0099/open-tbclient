@@ -29,6 +29,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     public String mContactorThirdid;
     public int mContactorType;
     public String mKey;
+    public String mStatus;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
@@ -92,7 +93,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
             LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
             IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);
             if (iMediaGetContactorPauidListener != null) {
-                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(((Integer) transErrorCode.first).intValue(), -1L, -1, (String) transErrorCode.second);
+                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(((Integer) transErrorCode.first).intValue(), this.mStatus, -1L, -1, (String) transErrorCode.second);
             }
         }
     }
@@ -148,7 +149,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
@@ -164,33 +165,36 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
+        int i2;
         long j;
         String str;
-        int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, "onSuccess resultContent = " + str2);
+            int i4 = -1;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 int optInt = jSONObject.optInt("error_code", 0);
                 String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                long optLong = jSONObject.optLong("pa_uid", -1L);
-                i3 = jSONObject.optInt("is_buser", -1);
+                long optLong = jSONObject.optLong(Constants.EXTRA_PAUID_TYPE, -1L);
+                i4 = jSONObject.optInt("is_buser", -1);
+                this.mStatus = jSONObject.optString("status");
+                i2 = i4;
                 str = optString;
                 j = optLong;
-                i2 = optInt;
+                i3 = optInt;
             } catch (JSONException e) {
                 LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e);
+                i2 = i4;
                 j = -1;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                i2 = 1010;
-                i3 = -1;
+                i3 = 1010;
             }
             IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);
             if (iMediaGetContactorPauidListener != null) {
-                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i2, j, i3, str);
+                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i3, this.mStatus, j, i2, str);
             }
         }
     }

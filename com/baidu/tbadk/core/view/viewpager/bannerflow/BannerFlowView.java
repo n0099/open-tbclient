@@ -76,8 +76,8 @@ public class BannerFlowView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806f9));
-            this.b.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806f8));
+            this.b.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
+            this.b.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class yx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

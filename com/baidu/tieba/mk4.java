@@ -1,191 +1,89 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Xml;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class mk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    public static boolean a(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        int read;
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
-            boolean z = false;
-            if (inputStream == null || file == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
             }
-            File parentFile = file.getParentFile();
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            FileOutputStream fileOutputStream3 = null;
-            try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
                 try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException unused) {
+                    i = 0;
                 }
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr, 0, read);
+                if (i != -1) {
+                    byteArrayOutputStream.write(bArr, 0, i);
+                } else {
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    ik4.d(byteArrayOutputStream);
+                    return byteArray;
                 }
-                fileOutputStream.flush();
-                z = true;
-                jk4.d(fileOutputStream);
-                fileOutputStream2 = read;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream3 = fileOutputStream;
-                e.printStackTrace();
-                jk4.d(fileOutputStream3);
-                fileOutputStream2 = fileOutputStream3;
-                jk4.d(inputStream);
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                jk4.d(fileOutputStream2);
-                jk4.d(inputStream);
-                throw th;
             }
-            jk4.d(inputStream);
-            return z;
+        } else {
+            return (byte[]) invokeL.objValue;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static String b(InputStream inputStream) {
+    public static String c(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            return c(inputStream, Xml.Encoding.UTF_8.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                byte[] a = a(inputStream);
+                if (a != null) {
+                    String str = new String(a);
+                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                        str = str.substring(1);
+                    }
+                    ik4.d(inputStream);
+                    return str;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                ik4.d(inputStream);
+                throw th;
+            }
+            ik4.d(inputStream);
+            return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            StringBuilder sb = new StringBuilder();
             try {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    }
-                } catch (Throwable th) {
-                    jk4.d(inputStream);
-                    throw th;
-                }
-            } catch (Exception | OutOfMemoryError e) {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
+                return str;
             }
-            jk4.d(inputStream);
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
-            boolean z = false;
-            if (inputStream != null && !TextUtils.isEmpty(str)) {
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                byte[] bArr = new byte[8192];
-                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
-                while (true) {
-                    try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry != null) {
-                            String str2 = str + "/" + nextEntry.getName();
-                            if (jk4.x(str2)) {
-                                jk4.d(zipInputStream);
-                                return false;
-                            } else if (nextEntry.isDirectory()) {
-                                File file2 = new File(str2);
-                                if (!file2.exists()) {
-                                    file2.mkdirs();
-                                }
-                            } else {
-                                File parentFile = new File(str2).getParentFile();
-                                if (!parentFile.exists()) {
-                                    parentFile.mkdirs();
-                                }
-                                if (!parentFile.isDirectory()) {
-                                    parentFile.delete();
-                                    parentFile.mkdirs();
-                                }
-                                FileOutputStream fileOutputStream = new FileOutputStream(str2);
-                                while (true) {
-                                    try {
-                                        int read = zipInputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } finally {
-                                    }
-                                }
-                                jk4.d(fileOutputStream);
-                            }
-                        } else {
-                            z = true;
-                            break;
-                        }
-                    } catch (IOException unused) {
-                    } catch (Throwable th) {
-                        jk4.d(zipInputStream);
-                        throw th;
-                    }
-                }
-                jk4.d(zipInputStream);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba;
 public interface yf2 {
     void a();
 
-    void b(boolean z);
+    void b();
 
-    void c();
+    void c(boolean z);
 }

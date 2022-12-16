@@ -1,8 +1,8 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import com.baidu.tieba.c86;
-import com.baidu.tieba.u66;
-import com.baidu.tieba.u86;
+import com.baidu.tieba.p76;
+import com.baidu.tieba.p96;
+import com.baidu.tieba.x86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,23 +13,23 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes3.dex */
-public final class AkTopRetainer$layout$holder$1 extends Lambda implements Function1<u66, Boolean> {
+/* loaded from: classes4.dex */
+public final class AkTopRetainer$layout$holder$1 extends Lambda implements Function1<p76, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ long $currentTimeMills;
-    public final /* synthetic */ u86 $displayer;
-    public final /* synthetic */ u66 $drawItem;
+    public final /* synthetic */ p96 $displayer;
+    public final /* synthetic */ p76 $drawItem;
     public final /* synthetic */ long $duration;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AkTopRetainer$layout$holder$1(u66 u66Var, u86 u86Var, long j, long j2) {
+    public AkTopRetainer$layout$holder$1(p76 p76Var, p96 p96Var, long j, long j2) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u66Var, u86Var, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {p76Var, p96Var, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,20 +40,20 @@ public final class AkTopRetainer$layout$holder$1 extends Lambda implements Funct
                 return;
             }
         }
-        this.$drawItem = u66Var;
-        this.$displayer = u86Var;
+        this.$drawItem = p76Var;
+        this.$displayer = p96Var;
         this.$currentTimeMills = j;
         this.$duration = j2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Boolean invoke(u66 u66Var) {
+    public final Boolean invoke(p76 p76Var) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u66Var)) == null) {
-            if (u66Var != null && c86.f(u66Var, this.$drawItem, this.$displayer, this.$currentTimeMills, this.$duration)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p76Var)) == null) {
+            if (p76Var != null && x86.f(p76Var, this.$drawItem, this.$displayer, this.$currentTimeMills, this.$duration)) {
                 z = false;
             } else {
                 z = true;

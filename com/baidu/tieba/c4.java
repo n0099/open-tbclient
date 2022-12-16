@@ -113,12 +113,12 @@ public class c4 implements i7 {
 
         /* renamed from: com.baidu.tieba.c4$c$c  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0225c implements o<q> {
+        public class C0231c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C0225c(c cVar, String[] strArr) {
+            public C0231c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -728,7 +728,7 @@ public class c4 implements i7 {
                 x7Var2.i("offset", new n(this, strArr));
                 x7Var2.i("orig", new a(this, strArr));
                 x7Var2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                x7Var2.i("rotate", new C0225c(this, strArr));
+                x7Var2.i("rotate", new C0231c(this, strArr));
                 x7Var2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(k3Var.m()), 1024);
                 try {
@@ -802,8 +802,8 @@ public class c4 implements i7 {
                                     qVar.j = qVar.f;
                                 }
                                 if (b7Var != null && b7Var.b > 0) {
-                                    qVar.n = (String[]) b7Var.n(String.class);
-                                    qVar.o = (int[][]) b7Var2.n(int[].class);
+                                    qVar.n = (String[]) b7Var.m(String.class);
+                                    qVar.o = (int[][]) b7Var2.m(int[].class);
                                     b7Var.clear();
                                     b7Var2.clear();
                                 }

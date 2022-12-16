@@ -1,230 +1,122 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.model.LegoPageModel;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Lego.DataRes;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hk7 implements fk7 {
+public class hk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LegoPageModel a;
-    public gk7 b;
-    public LegoPageModel.b c;
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public YyExtData e;
+    public String f;
+    public String g;
 
-    /* loaded from: classes4.dex */
-    public class a implements LegoPageModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hk7 a;
-
-        public a(hk7 hk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hk7Var;
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void a(long j, String str, DataRes dataRes, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z)}) == null) && this.a.b != null) {
-                this.a.b.c(j, str, dataRes, z);
-            }
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void b(long j, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) && this.a.b != null) {
-                this.a.b.b(j, str, str2, i);
-            }
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void c(long j, String str, DataRes dataRes, boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.a.b != null) {
-                this.a.b.a(true, dataRes, !z, j, str, i);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends oj5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ df a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-
-        public b(hk7 hk7Var, df dfVar, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk7Var, dfVar, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dfVar;
-            this.b = j;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oj5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                df dfVar = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                if (TextUtils.isEmpty(this.c)) {
-                    str = "";
-                } else {
-                    str = this.c;
-                }
-                sb.append(str);
-                byte[] bArr = (byte[]) dfVar.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException unused) {
-                    }
-                }
-                return null;
-            }
-            return (DataRes) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements ti5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ hk7 c;
-
-        public c(hk7 hk7Var, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk7Var, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = hk7Var;
-            this.a = j;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ti5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) {
-                return;
-            }
-            this.c.f(this.a, this.b, dataRes);
-        }
-    }
-
-    public hk7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public hk7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new a(this);
-        LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.a = legoPageModel;
-        legoPageModel.B(this.c);
     }
 
-    @Override // com.baidu.tieba.fk7
-    public void b(gk7 gk7Var) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gk7Var) == null) {
-            this.b = gk7Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.fk7
-    public void a(long j, String str) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
-            jv4.f();
-            sj5.b(new b(this, jv4.d("tb.lego_update"), j, str), new c(this, j, str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fk7
-    public void c(int i, long j, String str, int i2, String str2) {
-        LegoPageModel legoPageModel;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) && (legoPageModel = this.a) != null) {
-            legoPageModel.A(i, j, str, i2, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void f(long j, String str, DataRes dataRes) {
+    public long d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, dataRes}) != null) || j < 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public YyExtData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (YyExtData) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        gk7 gk7Var = this.b;
-        if (gk7Var != null) {
-            gk7Var.a(false, dataRes, false, j, str, 1);
-        }
-        this.a.A(2, j, str, 1, "");
+        this.a = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        jSONObject.optLong("live_id");
+        this.b = jSONObject.optString("user_name");
+        jSONObject.optString("portrait");
+        this.c = jSONObject.optInt("audience_count");
+        jSONObject.optString("title");
+        this.d = jSONObject.optLong("room_id");
+        jSONObject.optString("cover_wide");
+        JSONObject optJSONObject = jSONObject.optJSONObject("yy_ext");
+        YyExtData yyExtData = new YyExtData();
+        this.e = yyExtData;
+        yyExtData.parserJson(optJSONObject);
+        this.f = jSONObject.optString("label_name");
+        jSONObject.optString("feed_id");
+        this.g = jSONObject.optString("user_id");
     }
 }

@@ -1,39 +1,58 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
-/* loaded from: classes4.dex */
-public abstract class jx9 extends kx9 {
+/* loaded from: classes5.dex */
+public final class jx9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final tx9 b;
+    public volatile boolean c;
 
-    @Override // com.baidu.tieba.kx9
-    public void h() throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jx9(Framedata.Opcode opcode) {
-        super(opcode);
+    public jx9(Context context, tx9 tx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
+            Object[] objArr = {context, tx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
+            }
+        }
+        this.a = context;
+        this.b = tx9Var;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = true;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.c) {
+                if (mx9.d().h(this.a)) {
+                    this.b.a(com.google.ar.core.p.c);
+                    return;
+                }
+                try {
+                    Thread.sleep(200L);
+                } catch (InterruptedException unused) {
+                }
             }
         }
     }

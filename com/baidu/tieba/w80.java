@@ -28,6 +28,7 @@ import java.security.cert.CertificateException;
 import java.util.concurrent.TimeoutException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSocket;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes6.dex */
 public class w80 extends t80 {
     public static /* synthetic */ Interceptable $ic;
@@ -138,7 +139,7 @@ public class w80 extends t80 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            m90.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i + "-----------------");
+            l90.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i + "-----------------");
             this.c = h(str, i);
             u80 u80Var = new u80();
             Socket socket = this.c;
@@ -165,12 +166,12 @@ public class w80 extends t80 {
     */
     public final Socket i(String str, int i) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
         InterceptResult invokeLI;
-        SSLCertificateSocketFactory sSLCertificateSocketFactory;
+        SSLSocket sSLSocket;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
             SSLSessionCache sSLSessionCache = new SSLSessionCache(this.a);
-            if (str.contains("baidu.com")) {
-                m90.a("TcpMessageHandler", "localdns begin...,domain:" + str);
+            if (str.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
+                l90.a("TcpMessageHandler", "localdns begin...,domain:" + str);
                 try {
                     InetAddress[] allByName = InetAddress.getAllByName(str);
                     if (allByName != null && allByName.length > 0) {
@@ -188,23 +189,24 @@ public class w80 extends t80 {
                         }
                     }
                 } catch (Exception e) {
-                    m90.c("TcpMessageHandler", "createSocketOnLine", e);
+                    l90.c("TcpMessageHandler", "createSocketOnLine", e);
                 }
             }
-            if (str.contains("baidu.com")) {
-                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
-            } else {
-                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(10000, sSLSessionCache);
-            }
+            SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
             if (sSLCertificateSocketFactory == null) {
                 return null;
             }
-            SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
-            sSLSocket.setEnabledCipherSuites(sSLSocket.getEnabledCipherSuites());
-            sSLSocket.setEnabledProtocols(sSLSocket.getEnabledProtocols());
-            sSLCertificateSocketFactory.setUseSessionTickets(sSLSocket, true);
-            sSLSocket.startHandshake();
-            return sSLSocket;
+            if (str.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
+                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
+            } else {
+                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(InetAddress.getByName(str), i);
+            }
+            SSLSocket sSLSocket2 = sSLSocket;
+            sSLSocket2.setEnabledCipherSuites(sSLSocket2.getEnabledCipherSuites());
+            sSLSocket2.setEnabledProtocols(sSLSocket2.getEnabledProtocols());
+            sSLCertificateSocketFactory.setUseSessionTickets(sSLSocket2, true);
+            sSLSocket2.startHandshake();
+            return sSLSocket2;
         }
         return (Socket) invokeLI.objValue;
     }
@@ -232,7 +234,7 @@ public class w80 extends t80 {
                 u80Var.e = null;
                 return true;
             } catch (IOException e) {
-                m90.c("TcpMessageHandler", "destroy:", e);
+                l90.c("TcpMessageHandler", "destroy:", e);
                 return false;
             }
         }

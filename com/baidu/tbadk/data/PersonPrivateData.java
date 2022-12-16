@@ -31,18 +31,18 @@ public class PersonPrivateData extends OrmObject {
         this.a = 1;
     }
 
-    public int z() {
+    public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    public void A(PrivSets privSets) {
+    public void H(PrivSets privSets) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, privSets) != null) || privSets == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, privSets) != null) || privSets == null) {
             return;
         }
         try {
@@ -59,7 +59,7 @@ public class PersonPrivateData extends OrmObject {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         jSONObject.optInt("location", 1);

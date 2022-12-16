@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdThumbSeekBarView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFERING_PAINT_COLOR = -2039584;
@@ -67,7 +67,7 @@ public class BdThumbSeekBarView extends View {
     public final int mUISpace;
     public final int mUITraceHeight;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnBdSeekBarChangeListener {
         void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
 
@@ -77,7 +77,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* renamed from: com.baidu.searchbox.player.widget.BdThumbSeekBarView$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle;
         public static /* synthetic */ Interceptable $ic;
@@ -110,7 +110,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BdSeeBarStatus {
         public static final /* synthetic */ BdSeeBarStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -176,7 +176,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BdSeekBarStyle {
         public static final /* synthetic */ BdSeekBarStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -242,7 +242,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SeekBarDirect {
         public static final /* synthetic */ SeekBarDirect[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

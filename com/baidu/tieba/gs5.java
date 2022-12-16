@@ -1,23 +1,71 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gs5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gs5 o;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ks5> a;
-    public List<ks5> b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public long m;
+    public boolean n;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-765624061, "Lcom/baidu/tieba/gs5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-765624061, "Lcom/baidu/tieba/gs5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public gs5() {
         Interceptable interceptable = $ic;
@@ -33,83 +81,184 @@ public class gs5 {
         }
     }
 
-    public List<ks5> a() {
+    public static gs5 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (o == null) {
+                synchronized (gs5.class) {
+                    if (o == null) {
+                        o = new gs5();
+                    }
+                }
             }
+            return o;
+        }
+        return (gs5) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = 0;
+            this.f = 0;
+            this.g = 0;
+            this.h = 0;
+            this.i = 0;
+            this.n = false;
+        }
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
+        }
+        return invokeV.longValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean b(List<ks5> list, z35 z35Var) {
-        InterceptResult invokeLL;
-        List<z35> a;
+    public int i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z35Var)) == null) {
-            if (list != null && z35Var != null) {
-                for (ks5 ks5Var : list) {
-                    if (ks5Var != null && (a = ks5Var.a()) != null) {
-                        for (z35 z35Var2 : a) {
-                            if (z35Var2 != null && z35Var2.d() == z35Var.d()) {
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.l;
         }
-        return invokeLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean c(DataRes dataRes) {
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int k(AbsDataRecorder.Scene scene) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
-            if (dataRes != null && dataRes.robots_list != null) {
-                this.b = new ArrayList();
-                z = false;
-                for (robotsList robotslist : dataRes.robots_list) {
-                    if (TextUtils.isEmpty(robotslist.key)) {
-                        z = true;
-                    } else {
-                        ks5 ks5Var = new ks5();
-                        ks5Var.d(robotslist);
-                        this.b.add(ks5Var);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
+            int i = a.a[scene.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    return 0;
                 }
-            } else {
-                z = false;
+                return this.h;
             }
-            if (dataRes != null && dataRes.address_list != null) {
-                this.a = new ArrayList();
-                for (listData listdata : dataRes.address_list) {
-                    if (TextUtils.isEmpty(listdata.key)) {
-                        z = true;
-                    } else {
-                        ks5 ks5Var2 = new ks5();
-                        ks5Var2.c(listdata);
-                        if (ks5Var2.a() != null) {
-                            for (z35 z35Var : ks5Var2.a()) {
-                                if (b(this.b, z35Var)) {
-                                    z35Var.q(1);
-                                } else {
-                                    z35Var.q(0);
-                                }
-                            }
-                        }
-                        this.a.add(ks5Var2);
-                    }
-                }
-            }
-            return z;
+            return this.f;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public int l(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
+            int i = a.a[scene.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    return 0;
+                }
+                return this.i;
+            }
+            return this.g;
+        }
+        return invokeL.intValue;
+    }
+
+    public void o(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                this.n = true;
+                this.a = jSONObject.optString("icon_url");
+                this.b = jSONObject.optString("title");
+                this.c = jSONObject.optString("desc");
+                this.d = jSONObject.optString("btn_text");
+                this.e = jSONObject.optInt("frequency");
+                jSONObject.optInt("index");
+                JSONObject optJSONObject = jSONObject.optJSONObject("display_after_refresh");
+                if (optJSONObject != null) {
+                    this.f = optJSONObject.optInt("rec_refresh_times");
+                    this.g = optJSONObject.optInt("rec_refresh_times_interval");
+                    this.h = optJSONObject.optInt("frs_refresh_times");
+                    this.i = optJSONObject.optInt("frs_refresh_times_interval");
+                    this.j = optJSONObject.optInt("rec_frequency");
+                    this.k = optJSONObject.optInt("frs_frequency");
+                    this.l = optJSONObject.optInt("pb_frequency");
+                }
+                this.m = jSONObject.optLong("ad_free_remain_time");
+                return;
+            }
+            this.n = false;
+        }
     }
 }

@@ -11,7 +11,7 @@ import kotlin.UShort;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "", "index"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class DirectHeader$int16$1 extends Lambda implements Function1<Integer, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class DirectHeader$int16$1 extends Lambda implements Function1<Inte
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return Integer.valueOf(UShort.m976constructorimpl((short) ((UByte.m716constructorimpl(this.this$0.getBuffer()[i + 1]) & 255 & 255) | (((UByte.m716constructorimpl(this.this$0.getBuffer()[i]) & 255) & 255) << 8))) & UShort.MAX_VALUE);
+            return Integer.valueOf(UShort.m986constructorimpl((short) ((UByte.m726constructorimpl(this.this$0.getBuffer()[i + 1]) & 255 & 255) | (((UByte.m726constructorimpl(this.this$0.getBuffer()[i]) & 255) & 255) << 8))) & UShort.MAX_VALUE);
         }
         return (Integer) invokeI.objValue;
     }

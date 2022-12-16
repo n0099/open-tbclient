@@ -240,6 +240,55 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         return (Descriptor) invokeL.objValue;
     }
 
+    public static ChunkSampleStream<DashChunkSource>[] newSampleStreamArray(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return new ChunkSampleStream[i];
+        }
+        return (ChunkSampleStream[]) invokeI.objValue;
+    }
+
+    public static void releaseIfEmbeddedSampleStream(SampleStream sampleStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, sampleStream) == null) && (sampleStream instanceof ChunkSampleStream.EmbeddedSampleStream)) {
+            ((ChunkSampleStream.EmbeddedSampleStream) sampleStream).release();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public boolean continueLoading(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.sequenceableLoader.continueLoading(j);
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void discardBuffer(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            for (ChunkSampleStream<DashChunkSource> chunkSampleStream : this.sampleStreams) {
+                chunkSampleStream.discardEmbeddedTracksTo(j);
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long seekToUs(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            for (ChunkSampleStream<DashChunkSource> chunkSampleStream : this.sampleStreams) {
+                chunkSampleStream.seekToUs(j);
+            }
+            return j;
+        }
+        return invokeJ.longValue;
+    }
+
     public static int[][] getGroupedAdaptationSetIndices(List<AdaptationSet> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -317,55 +366,6 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static ChunkSampleStream<DashChunkSource>[] newSampleStreamArray(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return new ChunkSampleStream[i];
-        }
-        return (ChunkSampleStream[]) invokeI.objValue;
-    }
-
-    public static void releaseIfEmbeddedSampleStream(SampleStream sampleStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, sampleStream) == null) && (sampleStream instanceof ChunkSampleStream.EmbeddedSampleStream)) {
-            ((ChunkSampleStream.EmbeddedSampleStream) sampleStream).release();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public boolean continueLoading(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.sequenceableLoader.continueLoading(j);
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void discardBuffer(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            for (ChunkSampleStream<DashChunkSource> chunkSampleStream : this.sampleStreams) {
-                chunkSampleStream.discardEmbeddedTracksTo(j);
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long seekToUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            for (ChunkSampleStream<DashChunkSource> chunkSampleStream : this.sampleStreams) {
-                chunkSampleStream.seekToUs(j);
-            }
-            return j;
-        }
-        return invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader

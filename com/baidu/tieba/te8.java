@@ -1,51 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class te8 {
+public class te8 extends h46<rd8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbImageView i;
+    public View j;
+    public View k;
 
-    public static boolean a() {
+    @Override // com.baidu.tieba.h46
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-            if (StringUtils.isNull(systemProperty) || xg.e(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) < 9) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a9 : invokeV.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
-            try {
-                try {
-                } catch (PackageManager.NameNotFoundException unused) {
-                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
-                        return true;
-                    }
-                }
-            } catch (PackageManager.NameNotFoundException unused2) {
-            }
-            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public te8(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View h = h();
+        this.j = h;
+        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905fb);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091607);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.h46
+    /* renamed from: r */
+    public void i(rd8 rd8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rd8Var) == null) {
+            if (rd8Var == null) {
+                this.j.setVisibility(8);
+            }
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = rd8Var.a;
+                }
+                if (layoutParams.height > 0) {
+                    layoutParams.height = rd8Var.b;
+                }
+            }
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tieba.h46
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

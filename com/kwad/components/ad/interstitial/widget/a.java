@@ -17,7 +17,7 @@ import com.kwad.sdk.api.KsInterstitialAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,16 +26,16 @@ public final class a extends PagerAdapter {
     public final Dialog gi;
     public final boolean ia;
     public b ib;
-    public InterfaceC0545a ic;
+    public InterfaceC0562a ic;
     public final List<AdTemplate> mAdTemplateList;
 
     /* renamed from: com.kwad.components.ad.interstitial.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0545a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0562a {
         void dL();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(e eVar, int i);
     }
@@ -62,10 +62,10 @@ public final class a extends PagerAdapter {
         this.ia = com.kwad.sdk.core.response.a.a.bu(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) == 1;
     }
 
-    public final void a(InterfaceC0545a interfaceC0545a) {
+    public final void a(InterfaceC0562a interfaceC0562a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0545a) == null) {
-            this.ic = interfaceC0545a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0562a) == null) {
+            this.ic = interfaceC0562a;
         }
     }
 

@@ -1,64 +1,110 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-import tbclient.ThemeBgProp;
 /* loaded from: classes5.dex */
 public class lv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<DressItemData> b;
+    public final MainTabActivity a;
+    public boolean b;
+    public Runnable c;
 
-    public lv8() {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lv8 a;
+
+        public a(lv8 lv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lv8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                    this.a.b = true;
+                } else {
+                    this.a.a();
+                }
+            }
+        }
+    }
+
+    public lv8(MainTabActivity mainTabActivity, zu8 zu8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, zu8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = new a(this);
+        this.a = mainTabActivity;
     }
 
-    public List<DressItemData> a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbSingleton.getInstance().getNewUserRedPackageData() != null) {
+            TbSingleton.getInstance().setNewUserRedPackageShowed(true);
+            this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
+            TbSingleton.getInstance().setNewUserRedPackageData(null);
         }
-        return (List) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            this.b = false;
+            ah.a().removeCallbacks(this.c);
+            ah.a().postDelayed(this.c, 200L);
         }
-        return (String) invokeV.objValue;
     }
 
-    public void c(ThemeBubbleInMain themeBubbleInMain) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBubbleInMain) != null) || themeBubbleInMain == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ah.a().removeCallbacks(this.c);
         }
-        this.a = themeBubbleInMain.bubble_category;
-        this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
-            this.b.add(new DressItemData(themeBgProp));
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ah.a().removeCallbacks(this.c);
+            ah.a().postDelayed(this.c, 200L);
         }
     }
 }

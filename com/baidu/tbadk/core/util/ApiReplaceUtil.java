@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.sy4;
-import com.baidu.tieba.uq4;
+import com.baidu.tieba.vq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +72,7 @@ public class ApiReplaceUtil {
         /* JADX INFO: Access modifiers changed from: private */
         public void checkPrivacyPolicyOnDebug() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && uq4.e() && !PermissionUtil.isAgreePrivacyPolicy()) {
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && vq4.e() && !PermissionUtil.isAgreePrivacyPolicy()) {
                 throw new IllegalStateException("未同意隐私协议前，禁止调用系统相关API");
             }
         }

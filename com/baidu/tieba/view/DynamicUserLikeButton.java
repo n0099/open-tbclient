@@ -101,7 +101,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements r05 {
         pz4 pz4Var = new pz4();
         pz4Var.r(R.color.CAM_X0302);
         setConfig(pz4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
     }
 
     @Override // com.baidu.tieba.r05
@@ -177,7 +177,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements r05 {
                     pz4Var.q();
                     setConfig(pz4Var);
                     setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 } else {
                     pz4 pz4Var2 = new pz4();
                     pz4Var2.u(R.color.CAM_X0105);
@@ -186,14 +186,14 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements r05 {
                     pz4Var2.h(R.color.CAM_X0105);
                     setConfig(pz4Var2);
                     setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
                 }
             } else if (z) {
                 pz4 pz4Var3 = new pz4();
                 pz4Var3.t(R.color.CAM_X0109);
                 setConfig(pz4Var3);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1010));
+                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 pz4 pz4Var4 = new pz4();
                 pz4Var4.r(R.color.CAM_X0302);
@@ -203,7 +203,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements r05 {
                 }
                 setConfig(pz4Var4);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

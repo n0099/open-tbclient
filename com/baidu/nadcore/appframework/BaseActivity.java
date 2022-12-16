@@ -20,15 +20,15 @@ import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c41;
-import com.baidu.tieba.i71;
-import com.baidu.tieba.jn0;
-import com.baidu.tieba.k71;
-import com.baidu.tieba.n31;
-import com.baidu.tieba.og0;
-import com.baidu.tieba.oj0;
-import com.baidu.tieba.qg0;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.b41;
+import com.baidu.tieba.h71;
+import com.baidu.tieba.in0;
+import com.baidu.tieba.j71;
+import com.baidu.tieba.m31;
+import com.baidu.tieba.ng0;
+import com.baidu.tieba.nj0;
+import com.baidu.tieba.pg0;
+import com.baidu.tieba.s21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,14 +85,14 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @CallSuper
-    public void b1(Intent intent) {
+    public void c1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
         }
     }
 
     @CallSuper
-    public void d1() {
+    public void e1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
@@ -144,12 +144,12 @@ public class BaseActivity extends FragmentActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements i71 {
+    public class a implements h71 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivity a;
 
-        @Override // com.baidu.tieba.i71
+        @Override // com.baidu.tieba.h71
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -215,7 +215,7 @@ public class BaseActivity extends FragmentActivity {
                 }
                 if (!this.c.g && !this.c.i && this.a) {
                     this.a = false;
-                    k71.c(this.c, null);
+                    j71.c(this.c, null);
                 }
                 this.c.s1(0.0f);
             }
@@ -258,7 +258,7 @@ public class BaseActivity extends FragmentActivity {
                 }
                 if (!this.c.g && !this.c.i && !this.a) {
                     this.a = true;
-                    k71.d(this.c, null);
+                    j71.d(this.c, null);
                 }
                 float f3 = this.b >> 2;
                 this.c.s1((f * f3) - f3);
@@ -375,7 +375,7 @@ public class BaseActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             super.onPause();
-            d1();
+            e1();
         }
     }
 
@@ -418,7 +418,7 @@ public class BaseActivity extends FragmentActivity {
     public void setCurrentActivityNoTransparent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            k71.c(this, new a(this));
+            j71.c(this, new a(this));
         }
     }
 
@@ -495,7 +495,7 @@ public class BaseActivity extends FragmentActivity {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (n31.b.d()) {
+            if (m31.b.d()) {
                 return super.checkSelfPermission(str);
             }
             return 0;
@@ -582,7 +582,7 @@ public class BaseActivity extends FragmentActivity {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, str)) == null) {
-            if (n31.b.d() && super.shouldShowRequestPermissionRationale(str)) {
+            if (m31.b.d() && super.shouldShowRequestPermissionRationale(str)) {
                 return true;
             }
             return false;
@@ -657,7 +657,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z2 = z;
             }
-            int e = n31.c.e(this);
+            int e = m31.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -679,7 +679,7 @@ public class BaseActivity extends FragmentActivity {
                 str = "0";
             }
             if ((this.e || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
-                oj0.b(new c(this));
+                nj0.b(new c(this));
             }
         }
     }
@@ -705,9 +705,9 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             super.onMultiWindowModeChanged(z);
             if (z && !s) {
-                t21.a().b(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b99, 1);
+                s21.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
                 o1(true);
-            } else if (!z && !n31.a()) {
+            } else if (!z && !m31.a()) {
                 o1(false);
             }
         }
@@ -724,32 +724,32 @@ public class BaseActivity extends FragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public final void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048600, this, bundle) != null) || qg0.a(this)) {
+        if ((interceptable != null && interceptable.invokeL(1048600, this, bundle) != null) || pg0.a(this)) {
             return;
         }
         try {
             if (!k1(bundle)) {
-                if (!og0.a) {
+                if (!ng0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException("Class " + getClass() + " failed at preCreate");
             }
-            int d2 = c41.d(this);
+            int d2 = b41.d(this);
             super.onCreate(bundle);
-            c41.a(this, d2);
+            b41.a(this, d2);
             l1();
             try {
                 Z0(bundle);
             } catch (Throwable th) {
-                if (!og0.a) {
+                if (!ng0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException(th);
             }
         } catch (Throwable unused) {
-            if (!og0.a) {
+            if (!ng0.a) {
                 finish();
                 return;
             }
@@ -776,9 +776,9 @@ public class BaseActivity extends FragmentActivity {
                 }
             }
             try {
-                b1(intent);
+                c1(intent);
             } catch (Throwable th) {
-                if (!og0.a) {
+                if (!ng0.a) {
                     finish();
                     return;
                 }
@@ -792,10 +792,10 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeF(1048617, this, f) == null) {
             try {
                 if (this.m == null || this.m.get() == null) {
-                    this.m = new WeakReference<>(jn0.d());
+                    this.m = new WeakReference<>(in0.d());
                 }
                 if (this.m.get() != null) {
-                    Activity e = jn0.e();
+                    Activity e = in0.e();
                     Activity activity = this.m.get();
                     if (e != null && activity != null && e.getLocalClassName().equals(activity.getLocalClassName())) {
                         r1(activity, 0.0f);

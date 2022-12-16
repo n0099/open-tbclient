@@ -1,69 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gi1 {
+public final class gi1 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public SharedPreferences.Editor b;
-    public Context c;
 
-    public gi1(Context context) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        try {
-            this.c = context;
-            SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
-            this.a = sharedPreferences;
-            this.b = sharedPreferences.edit();
-        } catch (Throwable th) {
-            pj1.d(th);
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && a) {
+            Log.d("SsoOneKey", str);
         }
     }
 
-    public String a() {
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a) {
+            Log.e("SsoOneKey", str);
+        }
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("xyus", "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getString("xyusec", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b.putString("xyusec", str);
-            this.b.commit();
-        }
+        return invokeV.booleanValue;
     }
 }

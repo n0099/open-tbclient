@@ -2,7 +2,7 @@ package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yq3;
+import com.baidu.tieba.xq3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -245,7 +245,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (yq3) null);
+                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (xq3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -586,7 +586,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, yq3 yq3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, xq3 xq3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -629,7 +629,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, yq3 yq3Var) {
+    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, xq3 xq3Var) {
         this(builder);
     }
 

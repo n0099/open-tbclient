@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -28,6 +27,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 @Deprecated
 /* loaded from: classes.dex */
 public class UrlUtil {
@@ -221,7 +221,7 @@ public class UrlUtil {
             if (TextUtils.isEmpty(host)) {
                 return false;
             }
-            if (!host.endsWith(".baidu.com") && !host.equals("baidu.com")) {
+            if (!host.endsWith(".baidu.com") && !host.equals(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
                 return false;
             }
             return true;
@@ -510,7 +510,7 @@ public class UrlUtil {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ParamableElem.DIVIDE_PARAM;
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ";";
         }
         return (String) invokeCommon.objValue;
     }

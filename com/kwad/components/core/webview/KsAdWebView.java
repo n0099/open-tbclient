@@ -25,7 +25,7 @@ import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.q;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsAdWebView extends com.kwad.components.core.webview.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
     public c.a gX;
     public String mUniqueId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,24 +84,24 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
                 if (readyClientConfig != null) {
                     readyClientConfig.R(this.KO.gX.getAdTemplate());
                 }
-                com.kwad.components.core.c.a.a.a(new a.C0577a(this.KO.getContext2()).L(this.KO.gX.getAdTemplate()).al(true));
+                com.kwad.components.core.c.a.a.a(new a.C0594a(this.KO.getContext2()).L(this.KO.gX.getAdTemplate()).al(true));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void kU();
 
         void onSuccess();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void nu();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         void a(int i, String str, String str2);
 

@@ -2,7 +2,6 @@ package com.tencent.open.web.security;
 
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +11,7 @@ import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends a.C0710a {
+public class c extends a.C0730a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
@@ -57,7 +56,7 @@ public class c extends a.C0710a {
         }
     }
 
-    @Override // com.tencent.open.a.C0710a
+    @Override // com.tencent.open.a.C0730a
     public void a(String str) {
         int i;
         Interceptable interceptable = $ic;
@@ -70,7 +69,7 @@ public class c extends a.C0710a {
                 i = 0;
             }
             try {
-                jSONObject.put(TiebaStatic.LogFields.RESULT, i);
+                jSONObject.put("result", i);
                 jSONObject.put("sn", this.b);
                 jSONObject.put("data", str);
             } catch (JSONException e) {
@@ -80,7 +79,7 @@ public class c extends a.C0710a {
         }
     }
 
-    @Override // com.tencent.open.a.C0710a
+    @Override // com.tencent.open.a.C0730a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -88,7 +87,7 @@ public class c extends a.C0710a {
         }
     }
 
-    @Override // com.tencent.open.a.C0710a
+    @Override // com.tencent.open.a.C0730a
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {

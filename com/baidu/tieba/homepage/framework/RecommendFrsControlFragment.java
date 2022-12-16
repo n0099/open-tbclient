@@ -38,32 +38,32 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.cf5;
-import com.baidu.tieba.cr4;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.er8;
-import com.baidu.tieba.fn4;
-import com.baidu.tieba.ge5;
-import com.baidu.tieba.he5;
+import com.baidu.tieba.dr4;
+import com.baidu.tieba.du8;
+import com.baidu.tieba.en4;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
-import com.baidu.tieba.hu8;
-import com.baidu.tieba.j07;
-import com.baidu.tieba.k07;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.ly4;
-import com.baidu.tieba.m07;
-import com.baidu.tieba.p57;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.j17;
+import com.baidu.tieba.jx8;
+import com.baidu.tieba.k17;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.m17;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.n67;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.tieba.u9;
-import com.baidu.tieba.vr8;
-import com.baidu.tieba.wm4;
-import com.baidu.tieba.wq4;
-import com.baidu.tieba.x25;
+import com.baidu.tieba.uf5;
+import com.baidu.tieba.uu8;
+import com.baidu.tieba.vm4;
+import com.baidu.tieba.we5;
+import com.baidu.tieba.wi5;
+import com.baidu.tieba.xq4;
+import com.baidu.tieba.y25;
+import com.baidu.tieba.ye5;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,20 +72,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes4.dex */
-public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
+public class RecommendFrsControlFragment extends BaseFragment implements xq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ScrollFragmentTabHost a;
-    public m07 b;
+    public m17 b;
     public Boolean c;
     public boolean d;
     public boolean e;
     public boolean f;
     public boolean g;
-    public fn4 h;
+    public en4 h;
     public boolean i;
     public Runnable j;
-    public fn4.b k;
+    public en4.b k;
     public CustomMessageListener l;
     public CustomMessageListener m;
     public CustomMessageListener n;
@@ -94,23 +94,23 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
     public CustomMessageListener q;
     public boolean r;
     public CustomMessageListener s;
-    public k07 t;
+    public k17 t;
     public ConcernPageView.o u;
     public CustomMessageListener v;
 
     /* loaded from: classes4.dex */
-    public static class ControlModelMessage extends CustomMessage<m07> {
+    public static class ControlModelMessage extends CustomMessage<m17> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ControlModelMessage(m07 m07Var) {
+        public ControlModelMessage(m17 m17Var) {
             super(2001406);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m07Var};
+                Object[] objArr = {m17Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -121,17 +121,17 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                     return;
                 }
             }
-            setData(m07Var);
+            setData(m17Var);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements k07 {
+    public class a implements k17 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendFrsControlFragment a;
 
-        @Override // com.baidu.tieba.k07
+        @Override // com.baidu.tieba.k17
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -156,22 +156,22 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             this.a = recommendFrsControlFragment;
         }
 
-        @Override // com.baidu.tieba.k07
-        public void c(int i, ei5 ei5Var, int i2) {
+        @Override // com.baidu.tieba.k17
+        public void c(int i, wi5 wi5Var, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), ei5Var, Integer.valueOf(i2)}) == null) {
-                this.a.b.i(1, i, ei5Var, 1, i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), wi5Var, Integer.valueOf(i2)}) == null) {
+                this.a.b.i(1, i, wi5Var, 1, i2);
                 if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 1));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.k07
-        public void d(int i, int i2, ei5 ei5Var, int i3) {
+        @Override // com.baidu.tieba.k17
+        public void d(int i, int i2, wi5 wi5Var, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), ei5Var, Integer.valueOf(i3)}) == null) {
-                this.a.b.i(2, i2, ei5Var, i, i3);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wi5Var, Integer.valueOf(i3)}) == null) {
+                this.a.b.i(2, i2, wi5Var, i, i3);
                 if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 2));
                 }
@@ -204,10 +204,10 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.o
-        public void b(ei5 ei5Var) {
+        public void b(wi5 wi5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ei5Var) == null) {
-                this.a.b.h("", ei5Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wi5Var) == null) {
+                this.a.b.h("", wi5Var);
             }
         }
 
@@ -216,7 +216,9 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (z) {
-                    this.a.a.setShowConcernRedTip(false);
+                    if (this.a.a != null) {
+                        this.a.a.setShowConcernRedTip(false);
+                    }
                     if (this.a.d) {
                         if (!this.a.isPrimary()) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016325, 1));
@@ -232,10 +234,10 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.o
-        public void c(String str, ei5 ei5Var) {
+        public void c(String str, wi5 wi5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, ei5Var) == null) {
-                this.a.b.h(str, ei5Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, wi5Var) == null) {
+                this.a.b.h(str, wi5Var);
             }
         }
     }
@@ -270,21 +272,21 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.F1(this.a);
+                this.b.L1(this.a);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements m07.d {
+    public class d implements m17.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendFrsControlFragment a;
 
-        @Override // com.baidu.tieba.m07.d
-        public void e(boolean z, p57 p57Var, boolean z2, String str, String str2, boolean z3) {
+        @Override // com.baidu.tieba.m17.d
+        public void e(boolean z, n67 n67Var, boolean z2, String str, String str2, boolean z3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), p57Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), n67Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
             }
         }
 
@@ -306,63 +308,64 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             this.a = recommendFrsControlFragment;
         }
 
-        @Override // com.baidu.tieba.m07.d
+        @Override // com.baidu.tieba.m17.d
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.a == null) {
                 return;
             }
             this.a.a.setShowConcernRedTip(z);
-            this.a.a.L();
             if (this.a.isPrimary() && z) {
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016325, Integer.valueOf(z ? 1 : 0)));
         }
 
-        @Override // com.baidu.tieba.m07.d
+        @Override // com.baidu.tieba.m17.d
         public void b(DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.a.a.m0(dataRes, z, z2);
-            }
-        }
-
-        @Override // com.baidu.tieba.m07.d
-        public void c(String str, String str2, int i, boolean z, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) != null) || !this.a.a.T()) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.a.a == null) {
                 return;
             }
-            this.a.a.l0(str2, i, i2);
+            this.a.a.k0(dataRes, z, z2);
         }
 
-        @Override // com.baidu.tieba.m07.d
+        @Override // com.baidu.tieba.m17.d
+        public void c(String str, String str2, int i, boolean z, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) != null) || this.a.a == null || !this.a.a.R()) {
+                return;
+            }
+            this.a.a.j0(str2, i, i2);
+        }
+
+        @Override // com.baidu.tieba.m17.d
         public void d(tbclient.Userlike.DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048579, this, dataRes, z) == null) {
-                this.a.a.k0(dataRes, z);
+            if ((interceptable != null && interceptable.invokeLZ(1048579, this, dataRes, z) != null) || this.a.a == null) {
+                return;
             }
+            this.a.a.i0(dataRes, z);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e extends ee5 {
+    public class e extends we5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendFrsControlFragment b;
 
-        @Override // com.baidu.tieba.ee5
-        public boolean a(ge5 ge5Var) {
+        @Override // com.baidu.tieba.we5
+        public boolean a(ye5 ye5Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ge5Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ye5Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ee5
+        @Override // com.baidu.tieba.we5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -390,12 +393,12 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             this.b = recommendFrsControlFragment;
         }
 
-        @Override // com.baidu.tieba.ee5
+        @Override // com.baidu.tieba.we5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return he5.b().c();
+                return ze5.b().c();
             }
             return invokeV.intValue;
         }
@@ -433,7 +436,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && this.a.a.getCurrentTabType() == 1) {
-                this.a.a.f0();
+                this.a.a.d0();
             }
         }
     }
@@ -472,7 +475,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
     }
 
     /* loaded from: classes4.dex */
-    public class h implements fn4.b {
+    public class h implements en4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendFrsControlFragment a;
@@ -495,7 +498,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             this.a = recommendFrsControlFragment;
         }
 
-        @Override // com.baidu.tieba.fn4.b
+        @Override // com.baidu.tieba.en4.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.isPrimary() && this.a.h != null) {
@@ -508,7 +511,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                     TiebaStatic.log(new StatisticItem("c13394").param("obj_type", "1"));
                     return;
                 }
-                yi.O(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c81);
+                yi.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f0cb8);
                 TiebaStatic.log(new StatisticItem("c13394").param("obj_type", "2"));
             }
         }
@@ -586,7 +589,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                ly4.e(this.a.getPageContext().getPageActivity(), 2);
+                my4.e(this.a.getPageContext().getPageActivity(), 2);
                 if (this.a.a != null && this.a.a.getCurrentTabType() != 0) {
                     this.a.a.setCurrentTab(0);
                 }
@@ -627,13 +630,13 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (this.a.h != null) {
-                    if (this.a.E1() && !this.a.h.d() && this.a.isResumed() && !this.a.f) {
+                    if (this.a.K1() && !this.a.h.d() && this.a.isResumed() && !this.a.f) {
                         this.a.h.f();
-                    } else if (!this.a.E1() && this.a.h.d()) {
+                    } else if (!this.a.K1() && this.a.h.d()) {
                         this.a.h.c();
                     }
                 }
-                if (this.a.a != null && this.a.a.O()) {
+                if (this.a.a != null && this.a.a.M()) {
                     if (this.a.isPrimary()) {
                         ah.a().postDelayed(this.a.j, 10L);
                     } else {
@@ -680,8 +683,8 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && this.a.isPrimary() && BdNetTypeUtil.isNetWorkAvailable() && this.a.a.getCurrentTabType() != 1) {
-                this.a.a.f0();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && this.a.isPrimary() && BdNetTypeUtil.isNetWorkAvailable() && this.a.a != null && this.a.a.getCurrentTabType() != 1) {
+                this.a.a.d0();
             }
         }
     }
@@ -737,18 +740,18 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016325, 0));
                     if (!this.a.isPrimary() && TextUtils.isEmpty(TbSingleton.getInstance().getPushTid())) {
                         if (this.a.a.getCurrentTabType() == 0) {
-                            boolean Y = this.a.a.Y();
-                            TiebaStatic.log(new StatisticItem("c12350").param("obj_type", Y ? 1 : 0));
-                            if (Y) {
+                            boolean W = this.a.a.W();
+                            TiebaStatic.log(new StatisticItem("c12350").param("obj_type", W ? 1 : 0));
+                            if (W) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921058));
-                                this.a.a.f0();
+                                this.a.a.d0();
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    this.a.a.f0();
+                    this.a.a.d0();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, Boolean.TRUE));
@@ -803,7 +806,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                 return;
             }
             this.a.f = false;
-            if (this.a.h != null && this.a.isResumed() && this.a.E1() && !this.a.h.d()) {
+            if (this.a.h != null && this.a.isResumed() && this.a.K1() && !this.a.h.d()) {
                 this.a.h.f();
             }
         }
@@ -899,25 +902,25 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             super.onResume();
             Boolean bool = this.c;
             if (bool == null) {
-                this.c = Boolean.valueOf(cr4.c().g());
+                this.c = Boolean.valueOf(dr4.c().g());
                 z = false;
             } else {
-                if (bool.booleanValue() != cr4.c().g()) {
+                if (bool.booleanValue() != dr4.c().g()) {
                     z = true;
                 } else {
                     z = false;
                 }
-                this.c = Boolean.valueOf(cr4.c().g());
-            }
-            if (z) {
-                this.a.Q();
+                this.c = Boolean.valueOf(dr4.c().g());
             }
             ScrollFragmentTabHost scrollFragmentTabHost = this.a;
             if (scrollFragmentTabHost != null) {
-                scrollFragmentTabHost.setPrimary(isPrimary());
-                this.a.c0();
+                if (z) {
+                    scrollFragmentTabHost.O();
+                }
+                this.a.setPrimary(isPrimary());
+                this.a.a0();
             }
-            if (this.h != null && E1() && !this.h.d() && !this.f) {
+            if (this.h != null && K1() && !this.h.d() && !this.f) {
                 this.h.f();
             }
             if (this.e) {
@@ -935,25 +938,12 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         }
     }
 
-    @Override // com.baidu.tieba.wq4
-    public void d1(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, intent) != null) || intent == null) {
-            return;
-        }
-        int intExtra = intent.getIntExtra("sub_locate_type", 0);
-        ScrollFragmentTabHost scrollFragmentTabHost = this.a;
-        if (scrollFragmentTabHost != null) {
-            scrollFragmentTabHost.setCurrentTab(intExtra);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            vr8.b(new c(this, bundle), 3);
+            uu8.b(new c(this, bundle), 3);
         }
     }
 
@@ -975,7 +965,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             ScrollFragmentTabHost scrollFragmentTabHost = this.a;
             if (scrollFragmentTabHost != null) {
                 SkinManager.setBackgroundColor(scrollFragmentTabHost, R.color.CAM_X0202);
-                this.a.a0(i2);
+                this.a.Y(i2);
             }
         }
     }
@@ -985,43 +975,44 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         ScrollFragmentTabHost scrollFragmentTabHost;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && (scrollFragmentTabHost = this.a) != null) {
-            scrollFragmentTabHost.Z();
+            scrollFragmentTabHost.X();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void setPrimary(boolean z) {
+        ScrollFragmentTabHost scrollFragmentTabHost;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             super.setPrimary(z);
-            if (!z) {
-                this.a.P();
+            if (!z && (scrollFragmentTabHost = this.a) != null) {
+                scrollFragmentTabHost.N();
             }
         }
     }
 
-    public final void D1() {
+    public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m07 m07Var = new m07(getPageContext(), getUniqueId());
-            this.b = m07Var;
-            m07Var.k(new d(this));
+            m17 m17Var = new m17(getPageContext(), getUniqueId());
+            this.b = m17Var;
+            m17Var.k(new d(this));
             MessageManager.getInstance().sendMessage(new ControlModelMessage(this.b));
         }
     }
 
-    public final boolean E1() {
+    public final boolean K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            x25 shakeData = TbSingleton.getInstance().getShakeData();
+            y25 shakeData = TbSingleton.getInstance().getShakeData();
             if (shakeData == null) {
-                shakeData = new x25();
+                shakeData = new y25();
             }
             if (shakeData.c() == Long.MAX_VALUE || shakeData.b() == 0 || StringUtils.isNull(shakeData.a())) {
                 try {
-                    shakeData.parserJson(new JSONObject(qy4.k().q("shake_data", StringUtil.EMPTY_ARRAY)));
+                    shakeData.parserJson(new JSONObject(ry4.l().r("shake_data", StringUtil.EMPTY_ARRAY)));
                     TbSingleton.getInstance().setShakeData(shakeData);
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -1036,20 +1027,20 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         return invokeV.booleanValue;
     }
 
-    public void F1(Bundle bundle) {
+    public void L1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) != null) || getHost() == null) {
             return;
         }
         SpeedStatsManager.getInstance().addStatsTimeStamp(4014);
         SpeedStatsManager.getInstance().addStatsTimeStamp(4015);
-        D1();
+        J1();
         SpeedStatsManager.getInstance().addStatsTimeStamp(4016);
         SpeedStatsManager.getInstance().addStatsTimeStamp(4017);
-        this.a.V(getPageContext());
+        this.a.T(getPageContext());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_INIT_TABLE_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(4019);
-        this.a.W(getChildFragmentManager(), this.t, this.u);
+        this.a.U(getChildFragmentManager(), this.t, this.u);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_INIT_VIEW_PAPER_END_STAMP_KEY);
         this.a.setPageUniqueId(getUniqueId());
         if (this.b != null) {
@@ -1057,38 +1048,38 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         }
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY);
         boolean z = false;
-        this.a.j0(false);
+        this.a.h0(false);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY);
         this.r = TbadkCoreApplication.isLogin();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY);
         if (TbadkCoreApplication.isLogin() && this.a.getCurrentTabType() != 0) {
-            if (System.currentTimeMillis() > qy4.k().m(qy4.o("concern_unread_tip_next_show_time"), 0L)) {
+            if (System.currentTimeMillis() > ry4.l().n(ry4.p("concern_unread_tip_next_show_time"), 0L)) {
                 z = true;
             }
-            m07 m07Var = this.b;
-            if (m07Var != null) {
-                m07Var.b(z);
+            m17 m17Var = this.b;
+            if (m17Var != null) {
+                m17Var.b(z);
             }
         }
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY);
-        j07.d().h(System.currentTimeMillis() - j07.d().a(1));
-        cf5.b().C(System.currentTimeMillis() - j07.d().a(1));
+        j17.d().h(System.currentTimeMillis() - j17.d().a(1));
+        uf5.b().C(System.currentTimeMillis() - j17.d().a(1));
         if (UbsABTestHelper.isConcernForumCardShow()) {
-            this.a.h0();
+            this.a.f0();
         } else {
-            this.a.i0();
+            this.a.g0();
         }
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ve5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ScrollFragmentTabHost scrollFragmentTabHost = this.a;
             if (scrollFragmentTabHost != null) {
                 return scrollFragmentTabHost.getCurrentPageKey();
@@ -1098,14 +1089,14 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
-    public ee5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ve5
+    public we5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return new e(this);
         }
-        return (ee5) invokeV.objValue;
+        return (we5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1115,7 +1106,10 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             super.onDestroy();
             ah.a().removeCallbacks(this.j);
             MessageManager.getInstance().unRegisterListener(this.l);
-            this.a.b0();
+            ScrollFragmentTabHost scrollFragmentTabHost = this.a;
+            if (scrollFragmentTabHost != null) {
+                scrollFragmentTabHost.Z();
+            }
         }
     }
 
@@ -1127,11 +1121,28 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             ScrollFragmentTabHost scrollFragmentTabHost = this.a;
             if (scrollFragmentTabHost != null) {
                 scrollFragmentTabHost.setPrimary(isPrimary());
-                this.a.P();
+                this.a.N();
             }
-            fn4 fn4Var = this.h;
-            if (fn4Var != null && fn4Var.d()) {
+            en4 en4Var = this.h;
+            if (en4Var != null && en4Var.d()) {
                 this.h.c();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xq4
+    public void j1(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, intent) == null) && intent != null && this.a != null) {
+            String stringExtra = intent.getStringExtra("sub_tab_code");
+            String stringExtra2 = intent.getStringExtra("sub_tab_name");
+            int intExtra = intent.getIntExtra("sub_locate_type", 0);
+            if (!TextUtils.isEmpty(stringExtra)) {
+                this.a.setCurrentTabByCode(stringExtra);
+            } else if (!TextUtils.isEmpty(stringExtra2)) {
+                this.a.setCurrentTab(stringExtra2);
+            } else {
+                this.a.setCurrentTab(intExtra);
             }
         }
     }
@@ -1139,7 +1150,8 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
         String stringExtra;
-        k55 homeOperateData;
+        ScrollFragmentTabHost scrollFragmentTabHost;
+        l55 homeOperateData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
@@ -1152,8 +1164,8 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                 }
             } else if (i3 == -1 && (stringExtra = intent.getStringExtra("tid")) != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001390, stringExtra));
-                if (intent.getIntExtra("type", -1) == 4 && isPrimary()) {
-                    this.a.f0();
+                if (intent.getIntExtra("type", -1) == 4 && isPrimary() && (scrollFragmentTabHost = this.a) != null) {
+                    scrollFragmentTabHost.d0();
                 }
             }
         }
@@ -1164,8 +1176,8 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4002);
-            j07.d().g(System.currentTimeMillis(), 1);
-            cf5.b().B(System.currentTimeMillis());
+            j17.d().g(System.currentTimeMillis(), 1);
+            uf5.b().B(System.currentTimeMillis());
             super.onCreate(bundle);
             registerListener(this.p);
             registerListener(this.o);
@@ -1178,7 +1190,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             registerListener(this.n);
             registerListener(this.q);
             registerListener(this.v);
-            this.h = new fn4(getContext(), this.k);
+            this.h = new en4(getContext(), this.k);
             SpeedStatsManager.getInstance().addStatsTimeStamp(4003);
         }
     }
@@ -1190,7 +1202,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4004);
             if (this.a == null) {
-                ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) null);
+                ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07a3, (ViewGroup) null);
                 this.a = scrollFragmentTabHost;
                 scrollFragmentTabHost.setDrawingCacheEnabled(false);
             }
@@ -1207,7 +1219,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
     public void onPrimary() {
         String str;
         String str2;
-        hu8 Y0;
+        jx8 Z0;
         int intExtra;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -1219,9 +1231,9 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
                 return;
             }
             if (isPrimary()) {
-                wm4.b().j(true);
+                vm4.b().j(true);
             } else {
-                wm4.b().j(false);
+                vm4.b().j(false);
             }
             if (getActivity().getIntent() != null) {
                 str = getActivity().getIntent().getStringExtra(MainTabActivityConfig.VIDEOTHREAD_ON_SQUARE_ID);
@@ -1275,19 +1287,19 @@ public class RecommendFrsControlFragment extends BaseFragment implements wq4 {
             if (isPrimary()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "c10702", "click");
             } else {
-                VoiceManager a2 = er8.a(getActivity());
+                VoiceManager a2 = du8.a(getActivity());
                 if (a2 != null) {
                     a2.stopPlay();
                 }
             }
             this.a.setPrimary(isPrimary());
-            this.a.d0();
+            this.a.b0();
             if (isPrimary() && this.g) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921653));
                 this.g = false;
             }
-            if (isPrimary() && (getActivity() instanceof MainTabActivity) && (Y0 = ((MainTabActivity) getActivity()).Y0()) != null) {
-                Y0.b();
+            if (isPrimary() && (getActivity() instanceof MainTabActivity) && (Z0 = ((MainTabActivity) getActivity()).Z0()) != null) {
+                Z0.b();
             }
         }
     }

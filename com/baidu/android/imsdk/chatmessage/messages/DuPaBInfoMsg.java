@@ -20,7 +20,6 @@ public class DuPaBInfoMsg extends ChatMsg {
     public static final String B_ACTION = "action";
     public static final int B_ACTION_ENTER = 1;
     public static final String B_ADDR = "addr";
-    public static final String B_IP = "ip";
     public static final String B_LATITUDE = "latitude";
     public static final String B_LONGITUDE = "longitude";
     public static final String B_TIME = "time";
@@ -29,7 +28,6 @@ public class DuPaBInfoMsg extends ChatMsg {
     public transient /* synthetic */ FieldHolder $fh;
     public int action;
     public String addr;
-    public String ip;
     public String latitude;
     public String longitude;
     public long time;
@@ -130,7 +128,6 @@ public class DuPaBInfoMsg extends ChatMsg {
         this.time = parcel.readLong();
         this.longitude = parcel.readString();
         this.latitude = parcel.readString();
-        this.ip = parcel.readString();
         this.action = parcel.readInt();
     }
 
@@ -143,17 +140,16 @@ public class DuPaBInfoMsg extends ChatMsg {
             parcel.writeLong(this.time);
             parcel.writeString(this.longitude);
             parcel.writeString(this.latitude);
-            parcel.writeString(this.ip);
             parcel.writeInt(this.action);
         }
     }
 
-    public DuPaBInfoMsg(String str, long j, String str2, String str3, String str4, int i) {
+    public DuPaBInfoMsg(String str, long j, String str2, String str3, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2, str3, str4, Integer.valueOf(i)};
+            Object[] objArr = {str, Long.valueOf(j), str2, str3, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -170,7 +166,6 @@ public class DuPaBInfoMsg extends ChatMsg {
         this.time = j;
         this.longitude = str2;
         this.latitude = str3;
-        this.ip = str4;
         this.action = i;
         setMsgContent(getBInfoContentJson());
     }
@@ -184,9 +179,6 @@ public class DuPaBInfoMsg extends ChatMsg {
                 if (this.action == 1) {
                     jSONObject.put(B_ADDR, this.addr);
                     jSONObject.put("time", this.time);
-                    jSONObject.put("longitude", this.longitude);
-                    jSONObject.put("latitude", this.latitude);
-                    jSONObject.put("ip", this.ip);
                 }
                 jSONObject.put("action", this.action);
             } catch (JSONException e) {

@@ -16,7 +16,7 @@ import com.kwad.components.ad.reward.l;
 import com.kwad.components.core.widget.KSCornerImageView;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class i extends d implements View.OnClickListener {
     public View vh;
 
     /* renamed from: vi  reason: collision with root package name */
-    public View f1082vi;
+    public View f1107vi;
     public View vj;
 
     public i(DialogFragment dialogFragment, AdTemplate adTemplate, LayoutInflater layoutInflater, ViewGroup viewGroup, l.a aVar) {
@@ -53,23 +53,23 @@ public final class i extends d implements View.OnClickListener {
         this.vf = dialogFragment;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0463, viewGroup, false);
+        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0472, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a8);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911aa);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a6);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a9);
-            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a7);
-            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a3);
-            this.f1082vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a5);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a4);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091207);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091209);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091205);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091208);
+            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f091206);
+            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f091202);
+            this.f1107vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091204);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091203);
             this.kP.setOnClickListener(this);
-            this.f1082vi.setOnClickListener(this);
+            this.f1107vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.it.setOnClickListener(this);
             this.eQ.setOnClickListener(this);
@@ -106,7 +106,7 @@ public final class i extends d implements View.OnClickListener {
                 if (aVar2 != null) {
                     aVar2.fI();
                 }
-            } else if (view2.equals(this.f1082vi)) {
+            } else if (view2.equals(this.f1107vi)) {
                 this.vf.dismiss();
                 l.a aVar3 = this.nf;
                 if (aVar3 != null) {

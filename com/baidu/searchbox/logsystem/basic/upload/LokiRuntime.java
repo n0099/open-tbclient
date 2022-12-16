@@ -6,8 +6,8 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
-import com.baidu.tieba.nk8;
-import com.baidu.tieba.wk8;
+import com.baidu.tieba.hn8;
+import com.baidu.tieba.tn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LokiRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final ILokiIdentityContext EMPTY;
@@ -174,7 +174,7 @@ public class LokiRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return nk8.a();
+            return hn8.a();
         }
         return (ILokiIdentityContext) invokeV.objValue;
     }
@@ -184,7 +184,7 @@ public class LokiRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return wk8.a();
+            return tn8.a();
         }
         return (ILokiIdentityNeedContext) invokeV.objValue;
     }

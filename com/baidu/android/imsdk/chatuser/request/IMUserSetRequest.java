@@ -1,13 +1,11 @@
 package com.baidu.android.imsdk.chatuser.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -118,7 +116,6 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
                 str = optString;
             } catch (JSONException e) {
                 LogUtils.e("IMUserSetRequest", "JSONException", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
             }

@@ -1,11 +1,19 @@
 package com.baidu.tieba;
-
-import android.opengl.EGLContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface zi9 {
-    void a(EGLContext eGLContext);
+    int availableBytes();
 
-    void b(int i, int i2, int i3);
+    void close();
 
-    void release();
+    void flush();
+
+    byte[] getOutPutBytes();
+
+    void init(int i, int i2);
+
+    boolean putBytes(byte[] bArr, int i);
+
+    int receiveBytes(byte[] bArr, int i);
+
+    void setSpeed(float f);
 }

@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m8a;
+import com.baidu.tieba.vba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,11 +71,11 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092425);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090465);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09240c);
-            this.d = view2.findViewById(R.id.obfuscated_res_0x7f091ca0);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f091cae);
+            this.a = (TextView) view2.findViewById(R.id.tv_num);
+            this.b = (TextView) view2.findViewById(R.id.btn_pay);
+            this.c = (TextView) view2.findViewById(R.id.tv_link);
+            this.d = view2.findViewById(R.id.rl_amount);
+            this.e = view2.findViewById(R.id.rl_link);
         }
     }
 
@@ -241,7 +241,7 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, m8a.a.a(this.c))).inflate(R.layout.obfuscated_res_0x7f0d06bf, viewGroup, false));
+            return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, vba.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

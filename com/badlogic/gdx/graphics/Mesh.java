@@ -251,7 +251,7 @@ public class Mesh implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (e.get(f1.a) != null) {
-                e.get(f1.a).j(this, true);
+                e.get(f1.a).i(this, true);
             }
             this.a.dispose();
             v5 v5Var = this.c;

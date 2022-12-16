@@ -11,6 +11,7 @@ import com.facebook.common.util.UriUtil;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import okhttp3.internal.http2.Http2Codec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,7 +61,7 @@ public class a {
                                 f fVar = new f();
                                 fVar.xK = optJSONObject.getString("resPath");
                                 fVar.xL = optJSONObject.optString("resId");
-                                fVar.xM = optJSONObject.optString("encoding");
+                                fVar.xM = optJSONObject.optString(Http2Codec.ENCODING);
                                 fVar.xN = optJSONObject.optString(PackageTable.MD5);
                                 this.xu.put(fVar.xK, fVar);
                             }

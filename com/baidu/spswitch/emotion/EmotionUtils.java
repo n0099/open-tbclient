@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EmotionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -58,7 +58,7 @@ public class EmotionUtils {
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class EmotionUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

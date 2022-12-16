@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.u78;
+import com.baidu.tieba.ma8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.List;
 public class PersonCenterSmartAppPageView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<u78> a;
+    public List<ma8> a;
     public List<PersonCenterSmartAppItemView> b;
     public int c;
 
@@ -45,12 +45,12 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
         }
     }
 
-    public void a(u78 u78Var) {
+    public void a(ma8 ma8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, u78Var) == null) && u78Var != null && this.a.size() != this.c) {
-            this.a.add(u78Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ma8Var) == null) && ma8Var != null && this.a.size() != this.c) {
+            this.a.add(ma8Var);
             PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.b, this.a.size() - 1);
-            personCenterSmartAppItemView.a(u78Var);
+            personCenterSmartAppItemView.a(ma8Var);
             personCenterSmartAppItemView.setVisibility(0);
         }
     }

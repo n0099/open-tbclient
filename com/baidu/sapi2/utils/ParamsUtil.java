@@ -12,7 +12,6 @@ import com.baidu.sapi2.utils.enums.BindInfoAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -395,7 +394,7 @@ public class ParamsUtil implements NoProguard {
             hashMap.put(CriusAttrConstants.DISPLAY, "native");
             hashMap.put("act", "optional");
             hashMap.put("supportGuestAccount", "1");
-            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, sapiConfiguration.twitterAppKey);
+            hashMap.put("app_key", sapiConfiguration.twitterAppKey);
             hashMap.put("client", "android");
             hashMap.put("clientfrom", "native");
             return str + SapiUtils.mapToUrlParams(hashMap, false);

@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r19;
-import com.baidu.tieba.sr8;
+import com.baidu.tieba.a59;
+import com.baidu.tieba.ru8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class BubbleLayout extends FrameLayout {
     public static float j = -1.0f;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrowDirection a;
-    public r19 b;
+    public a59 b;
     public float c;
     public float d;
     public float e;
@@ -148,7 +148,7 @@ public class BubbleLayout extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, sr8.BubbleLayout);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ru8.BubbleLayout);
         this.c = obtainStyledAttributes.getDimension(2, a(8.0f, context));
         this.e = obtainStyledAttributes.getDimension(0, a(8.0f, context));
         this.d = obtainStyledAttributes.getDimension(4, 0.0f);
@@ -173,7 +173,7 @@ public class BubbleLayout extends FrameLayout {
     public final void b(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) && i2 >= i && i4 >= i3) {
-            this.b = new r19(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
+            this.b = new a59(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
         }
     }
 
@@ -226,9 +226,9 @@ public class BubbleLayout extends FrameLayout {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            r19 r19Var = this.b;
-            if (r19Var != null) {
-                r19Var.draw(canvas);
+            a59 a59Var = this.b;
+            if (a59Var != null) {
+                a59Var.draw(canvas);
             }
             super.dispatchDraw(canvas);
         }

@@ -1,436 +1,170 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.bubbleView.ArrowDirection;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class r19 extends Drawable {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class r19 extends p9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
-    public Path b;
-    public Paint c;
-    public Path d;
-    public Paint e;
-    public float f;
-    public float g;
-    public float h;
-    public float i;
-    public float j;
+    public View a;
+    public HorizontalListView b;
+    public o19 c;
+    public z09 d;
+    public b19 e;
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
+    public void o(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return -3;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
         }
-        return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-511536622, "Lcom/baidu/tieba/r19$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-511536622, "Lcom/baidu/tieba/r19$a;");
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r19 a;
+
+        public a(r19 r19Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r19Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[ArrowDirection.values().length];
-            a = iArr;
-            try {
-                iArr[ArrowDirection.LEFT.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[ArrowDirection.TOP.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ArrowDirection.RIGHT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ArrowDirection.BOTTOM.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            this.a = r19Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                j19 j19Var = (j19) this.a.d.getItem(i);
+                if (this.a.e != null) {
+                    this.a.e.h(j19Var);
+                }
+                if (this.a.c != null && this.a.c.C() != null) {
+                    this.a.c.C().setFilter(j19Var);
+                }
             }
         }
     }
 
-    public r19(RectF rectF, float f, float f2, float f3, float f4, float f5, int i, int i2, ArrowDirection arrowDirection) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r19(r9 r9Var, o19 o19Var) {
+        super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rectF, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2), arrowDirection};
+            Object[] objArr = {r9Var, o19Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Path();
-        Paint paint = new Paint(1);
-        this.c = paint;
-        this.a = rectF;
-        this.f = f;
-        this.g = f2;
-        this.h = f3;
-        this.i = f4;
-        this.j = f5;
-        paint.setColor(i2);
-        if (f5 > 0.0f) {
-            Paint paint2 = new Paint(1);
-            this.e = paint2;
-            paint2.setColor(i);
-            this.d = new Path();
-            e(arrowDirection, this.b, f5);
-            e(arrowDirection, this.d, 0.0f);
-            return;
-        }
-        e(arrowDirection, this.b, 0.0f);
+        this.c = o19Var;
+        View inflate = LayoutInflater.from(r9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d024b, (ViewGroup) null);
+        this.a = inflate;
+        inflate.getResources();
+        p();
     }
 
-    public final void a(RectF rectF, Path path, float f) {
+    public void t(j19 j19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + this.g + f, rectF.top + f);
-            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
-            float f2 = rectF.right;
-            float f3 = this.g;
-            float f4 = rectF.top;
-            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f, ((rectF.bottom - this.h) - this.g) - f);
-            float f5 = rectF.right;
-            float f6 = this.g;
-            float f7 = rectF.bottom;
-            float f8 = this.h;
-            path.arcTo(new RectF(f5 - f6, (f7 - f6) - f8, f5 - f, (f7 - f8) - f), 0.0f, 90.0f);
-            float f9 = f / 2.0f;
-            path.lineTo(((rectF.left + this.f) + this.i) - f9, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
-            path.lineTo(rectF.left + this.i + f9, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + Math.min(this.g, this.i) + f, (rectF.bottom - this.h) - f);
-            float f10 = rectF.left;
-            float f11 = rectF.bottom;
-            float f12 = this.g;
-            float f13 = this.h;
-            path.arcTo(new RectF(f10 + f, (f11 - f12) - f13, f12 + f10, (f11 - f13) - f), 90.0f, 90.0f);
-            path.lineTo(rectF.left + f, rectF.top + this.g + f);
-            float f14 = rectF.left;
-            float f15 = rectF.top;
-            float f16 = this.g;
-            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
-            path.close();
+        if (interceptable == null || interceptable.invokeL(1048583, this, j19Var) == null) {
+            this.d.b(j19Var);
         }
     }
 
-    public final void c(RectF rectF, Path path, float f) {
+    public void u(b19 b19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(this.f + rectF.left + this.g + f, rectF.top + f);
-            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
-            float f2 = rectF.right;
-            float f3 = this.g;
-            float f4 = rectF.top;
-            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
-            float f5 = rectF.right;
-            float f6 = this.g;
-            float f7 = rectF.bottom;
-            path.arcTo(new RectF(f5 - f6, f7 - f6, f5 - f, f7 - f), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.f + this.g + f, rectF.bottom - f);
-            float f8 = rectF.left;
-            float f9 = this.f;
-            float f10 = rectF.bottom;
-            float f11 = this.g;
-            path.arcTo(new RectF(f8 + f9 + f, f10 - f11, f11 + f8 + f9, f10 - f), 90.0f, 90.0f);
-            float f12 = f / 2.0f;
-            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f12);
-            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
-            path.lineTo(rectF.left + this.f + f, this.i + f12);
-            path.lineTo(rectF.left + this.f + f, rectF.top + this.g + f);
-            float f13 = rectF.left;
-            float f14 = this.f;
-            float f15 = rectF.top;
-            float f16 = this.g;
-            path.arcTo(new RectF(f13 + f14 + f, f + f15, f13 + f16 + f14, f16 + f15), 180.0f, 90.0f);
-            path.close();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, b19Var) == null) {
+            this.e = b19Var;
         }
     }
 
-    public final void f(RectF rectF, Path path, float f) {
+    public void v(List<j19> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + this.g + f, rectF.top + f);
-            path.lineTo(((rectF.width() - this.g) - this.f) - f, rectF.top + f);
-            float f2 = rectF.right;
-            float f3 = this.g;
-            float f4 = this.f;
-            float f5 = rectF.top;
-            path.arcTo(new RectF((f2 - f3) - f4, f5 + f, (f2 - f4) - f, f3 + f5), 270.0f, 90.0f);
-            float f6 = f / 2.0f;
-            path.lineTo((rectF.right - this.f) - f, this.i + f6);
-            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
-            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f6);
-            path.lineTo((rectF.right - this.f) - f, (rectF.bottom - this.g) - f);
-            float f7 = rectF.right;
-            float f8 = this.g;
-            float f9 = this.f;
-            float f10 = rectF.bottom;
-            path.arcTo(new RectF((f7 - f8) - f9, f10 - f8, (f7 - f9) - f, f10 - f), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
-            float f11 = rectF.left;
-            float f12 = rectF.bottom;
-            float f13 = this.g;
-            path.arcTo(new RectF(f11 + f, f12 - f13, f13 + f11, f12 - f), 90.0f, 90.0f);
-            float f14 = rectF.left;
-            float f15 = rectF.top;
-            float f16 = this.g;
-            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
-            path.close();
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.d.c(list);
+            this.b.setAdapter((ListAdapter) this.d);
         }
     }
 
-    public final void h(RectF rectF, Path path, float f) {
+    public j19 m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + Math.min(this.i, this.g) + f, rectF.top + this.h + f);
-            float f2 = f / 2.0f;
-            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
-            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
-            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
-            path.lineTo((rectF.right - this.g) - f, rectF.top + this.h + f);
-            float f3 = rectF.right;
-            float f4 = this.g;
-            float f5 = rectF.top;
-            float f6 = this.h;
-            path.arcTo(new RectF(f3 - f4, f5 + f6 + f, f3 - f, f4 + f5 + f6), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
-            float f7 = rectF.right;
-            float f8 = this.g;
-            float f9 = rectF.bottom;
-            path.arcTo(new RectF(f7 - f8, f9 - f8, f7 - f, f9 - f), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.g + f, rectF.bottom - f);
-            float f10 = rectF.left;
-            float f11 = rectF.bottom;
-            float f12 = this.g;
-            path.arcTo(new RectF(f10 + f, f11 - f12, f12 + f10, f11 - f), 90.0f, 90.0f);
-            path.lineTo(rectF.left + f, rectF.top + this.h + this.g + f);
-            float f13 = rectF.left;
-            float f14 = f13 + f;
-            float f15 = rectF.top;
-            float f16 = this.h;
-            float f17 = f15 + f16 + f;
-            float f18 = this.g;
-            path.arcTo(new RectF(f14, f17, f13 + f18, f18 + f15 + f16), 180.0f, 90.0f);
-            path.close();
-        }
-    }
-
-    public final void b(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + f, rectF.top + f);
-            path.lineTo(rectF.right - f, rectF.top + f);
-            path.lineTo(rectF.right - f, (rectF.bottom - this.h) - f);
-            float f2 = f / 2.0f;
-            path.lineTo(((rectF.left + this.f) + this.i) - f2, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
-            path.lineTo(rectF.left + this.i + f2, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + this.i + f, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + f, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + f, rectF.top + f);
-            path.close();
-        }
-    }
-
-    public final void e(ArrowDirection arrowDirection, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{arrowDirection, path, Float.valueOf(f)}) == null) {
-            int i = a.a[arrowDirection.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 4) {
-                            float f2 = this.g;
-                            if (f2 <= 0.0f) {
-                                b(this.a, path, f);
-                                return;
-                            } else if (f > 0.0f && f > f2) {
-                                b(this.a, path, f);
-                                return;
-                            } else {
-                                a(this.a, path, f);
-                                return;
-                            }
-                        }
-                        return;
-                    }
-                    float f3 = this.g;
-                    if (f3 <= 0.0f) {
-                        g(this.a, path, f);
-                        return;
-                    } else if (f > 0.0f && f > f3) {
-                        g(this.a, path, f);
-                        return;
-                    } else {
-                        f(this.a, path, f);
-                        return;
-                    }
-                }
-                float f4 = this.g;
-                if (f4 <= 0.0f) {
-                    i(this.a, path, f);
-                    return;
-                } else if (f > 0.0f && f > f4) {
-                    i(this.a, path, f);
-                    return;
-                } else {
-                    h(this.a, path, f);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            for (j19 j19Var : this.d.a()) {
+                if (j19Var != null && StringHelper.equals(j19Var.c, str)) {
+                    return j19Var;
                 }
             }
-            float f5 = this.g;
-            if (f5 <= 0.0f) {
-                d(this.a, path, f);
-            } else if (f > 0.0f && f > f5) {
-                d(this.a, path, f);
-            } else {
-                c(this.a, path, f);
-            }
+            return null;
         }
+        return (j19) invokeL.objValue;
     }
 
-    public final void i(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + this.i + f, rectF.top + this.h + f);
-            float f2 = f / 2.0f;
-            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
-            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
-            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
-            path.lineTo(rectF.right - f, rectF.top + this.h + f);
-            path.lineTo(rectF.right - f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.top + this.h + f);
-            path.lineTo(rectF.left + this.i + f, rectF.top + this.h + f);
-            path.close();
-        }
-    }
-
-    public final void d(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(this.f + rectF.left + f, rectF.top + f);
-            path.lineTo(rectF.width() - f, rectF.top + f);
-            path.lineTo(rectF.right - f, rectF.bottom - f);
-            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
-            float f2 = f / 2.0f;
-            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f2);
-            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
-            path.lineTo(rectF.left + this.f + f, this.i + f2);
-            path.lineTo(rectF.left + this.f + f, rectF.top + f);
-            path.close();
-        }
-    }
-
-    public final void g(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + f, rectF.top + f);
-            path.lineTo((rectF.width() - this.f) - f, rectF.top + f);
-            float f2 = f / 2.0f;
-            path.lineTo((rectF.right - this.f) - f, this.i + f2);
-            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
-            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f2);
-            path.lineTo((rectF.right - this.f) - f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.top + f);
-            path.close();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.j > 0.0f) {
-                canvas.drawPath(this.d, this.e);
-            }
-            canvas.drawPath(this.b, this.c);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rect) == null) {
-            super.onBoundsChange(rect);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.c.setAlpha(i);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
-            this.c.setColorFilter(colorFilter);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
+    public View n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return (int) this.a.height();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return (int) this.a.width();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f0908a6);
+            this.d = new z09();
+            v(b19.c(this.a.getContext()));
+            this.b.setOnItemClickListener(new a(this));
         }
-        return invokeV.intValue;
     }
 }

@@ -21,7 +21,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class zj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class zj {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public class zj {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

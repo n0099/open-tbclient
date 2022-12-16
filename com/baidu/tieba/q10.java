@@ -141,14 +141,14 @@ public class q10 {
             } else {
                 this.a = this.a.replace("_", "-");
             }
-            String str2 = DeviceInfoManager.INSTANCE.getManufacturer("param", "pub_param").deviceId;
+            String str2 = DeviceInfoManager.INSTANCE.getManufacturer(Constants.EXTRA_PARAM, "pub_param").deviceId;
             this.b = str2;
             if (TextUtils.isEmpty(str2)) {
                 this.b = "NUL";
             } else {
                 this.b = this.b.replace("_", "-");
             }
-            String str3 = DeviceInfoManager.INSTANCE.getOsVersion("param", "pub_param").deviceId;
+            String str3 = DeviceInfoManager.INSTANCE.getOsVersion(Constants.EXTRA_PARAM, "pub_param").deviceId;
             this.c = str3;
             if (TextUtils.isEmpty(str3)) {
                 this.c = "0.0";

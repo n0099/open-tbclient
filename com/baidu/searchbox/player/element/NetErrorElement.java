@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetErrorElement extends AbsElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,8 +98,8 @@ public class NetErrorElement extends AbsElement {
             if (this.mRootView == null) {
                 this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0156, null);
             }
-            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e5);
-            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09042e);
+            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092458);
+            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09042f);
             this.mBtnRetry = button;
             button.setOnClickListener(this.mParent);
         }

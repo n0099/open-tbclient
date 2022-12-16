@@ -199,7 +199,7 @@ public class wn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return bi5.p(this.a.B(i - this.a.getHeaderViewsCount()));
+                return ti5.p(this.a.E(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }
@@ -274,12 +274,12 @@ public class wn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (i > 0) {
-                xn B = this.a.B(i - this.a.getHeaderViewsCount());
-                if (B instanceof BaseCardInfo) {
-                    return ((BaseCardInfo) B).position;
+                xn E = this.a.E(i - this.a.getHeaderViewsCount());
+                if (E instanceof BaseCardInfo) {
+                    return ((BaseCardInfo) E).position;
                 }
-                if (B instanceof ht4) {
-                    return ((ht4) B).i();
+                if (E instanceof jt4) {
+                    return ((jt4) E).j();
                 }
             }
             return -1;

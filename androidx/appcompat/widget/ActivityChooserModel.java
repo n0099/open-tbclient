@@ -330,22 +330,22 @@ public class ActivityChooserModel extends DataSetObservable {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IPUT]}, finally: {[IGET, IPUT, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x006f, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x0070, code lost:
             if (r15 != null) goto L17;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0071, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0072, code lost:
             r15.close();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:20:0x0094, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:20:0x0095, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:25:0x00b4, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:25:0x00b5, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:30:0x00d4, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:30:0x00d5, code lost:
             if (r15 == null) goto L15;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x00d7, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x00d8, code lost:
             return null;
          */
         @Override // android.os.AsyncTask
@@ -732,26 +732,28 @@ public class ActivityChooserModel extends DataSetObservable {
                 FileInputStream openFileInput = this.mContext.openFileInput(this.mHistoryFileName);
                 try {
                     try {
-                        newPullParser = Xml.newPullParser();
-                        newPullParser.setInput(openFileInput, "UTF-8");
-                        for (int i = 0; i != 1 && i != 2; i = newPullParser.next()) {
-                        }
-                    } catch (Throwable th) {
-                        if (openFileInput != null) {
-                            try {
-                                openFileInput.close();
-                            } catch (IOException unused) {
+                        try {
+                            newPullParser = Xml.newPullParser();
+                            newPullParser.setInput(openFileInput, "UTF-8");
+                            for (int i = 0; i != 1 && i != 2; i = newPullParser.next()) {
                             }
+                        } catch (Throwable th) {
+                            if (openFileInput != null) {
+                                try {
+                                    openFileInput.close();
+                                } catch (IOException unused) {
+                                }
+                            }
+                            throw th;
                         }
-                        throw th;
+                    } catch (XmlPullParserException e) {
+                        String str = LOG_TAG;
+                        Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e);
+                        if (openFileInput == null) {
+                            return;
+                        }
                     }
-                } catch (IOException e) {
-                    String str = LOG_TAG;
-                    Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e);
-                    if (openFileInput == null) {
-                        return;
-                    }
-                } catch (XmlPullParserException e2) {
+                } catch (IOException e2) {
                     String str2 = LOG_TAG;
                     Log.e(str2, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
                     if (openFileInput == null) {

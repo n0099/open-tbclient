@@ -10,9 +10,9 @@ import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.sa4;
 import com.baidu.tieba.ta4;
 import com.baidu.tieba.ua4;
-import com.baidu.tieba.va4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,11 +46,11 @@ public class SwanAudioPlayer {
     public static int mSampleBufSize = 192;
     public static int mSampleRate = 44100;
     public transient /* synthetic */ FieldHolder $fh;
-    public ua4 mAudioRecordListener;
+    public ta4 mAudioRecordListener;
     public SparseArray<MediaPlayer.OnCompletionListener> mEndMap;
     public SparseArray<MediaPlayer.OnErrorListener> mErrorMap;
     public a mEventHandler;
-    public SparseArray<va4> mPausedMap;
+    public SparseArray<ua4> mPausedMap;
     public SparseArray<MediaPlayer.OnPreparedListener> mPreparedMap;
     public SparseArray<MediaPlayer.OnSeekCompleteListener> mSeekMap;
 
@@ -151,9 +151,9 @@ public class SwanAudioPlayer {
                                 if (i != 5) {
                                     if (i != 100) {
                                         if (i == 101) {
-                                            ta4 ta4Var = (ta4) message.obj;
+                                            sa4 sa4Var = (sa4) message.obj;
                                             if (this.a.mAudioRecordListener != null) {
-                                                this.a.mAudioRecordListener.a(ta4Var);
+                                                this.a.mAudioRecordListener.a(sa4Var);
                                                 return;
                                             }
                                             return;
@@ -163,9 +163,9 @@ public class SwanAudioPlayer {
                                     this.a.postRunnable(Long.parseLong(message.obj.toString()));
                                     return;
                                 }
-                                va4 va4Var = (va4) this.a.mPausedMap.get(message.arg1);
-                                if (va4Var != null) {
-                                    va4Var.onPause();
+                                ua4 ua4Var = (ua4) this.a.mPausedMap.get(message.arg1);
+                                if (ua4Var != null) {
+                                    ua4Var.onPause();
                                     return;
                                 }
                                 return;
@@ -250,21 +250,21 @@ public class SwanAudioPlayer {
         }
     }
 
-    public void setOnAudioRecordListener(ua4 ua4Var) {
+    public void setOnAudioRecordListener(ta4 ta4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, ua4Var) == null) {
-            this.mAudioRecordListener = ua4Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, ta4Var) == null) {
+            this.mAudioRecordListener = ta4Var;
         }
     }
 
     public void postAudioData(byte[] bArr, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j) == null) && bArr != null) {
-            ta4 ta4Var = new ta4();
-            ta4Var.a = bArr;
-            ta4Var.b = j;
-            ta4Var.c = System.nanoTime();
-            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, ta4Var));
+            sa4 sa4Var = new sa4();
+            sa4Var.a = bArr;
+            sa4Var.b = j;
+            sa4Var.c = System.nanoTime();
+            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, sa4Var));
         }
     }
 
@@ -282,10 +282,10 @@ public class SwanAudioPlayer {
         }
     }
 
-    public void setOnPauseListener(int i, va4 va4Var) {
+    public void setOnPauseListener(int i, ua4 ua4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i, va4Var) == null) {
-            this.mPausedMap.put(i, va4Var);
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, ua4Var) == null) {
+            this.mPausedMap.put(i, ua4Var);
         }
     }
 

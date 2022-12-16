@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public /* synthetic */ class jn3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.google.protobuf.MessageLiteOrBuilder;
+/* loaded from: classes5.dex */
+public interface jn3 extends MessageLiteOrBuilder {
 }

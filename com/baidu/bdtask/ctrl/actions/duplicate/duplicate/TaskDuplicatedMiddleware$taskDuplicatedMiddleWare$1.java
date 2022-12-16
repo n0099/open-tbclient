@@ -93,14 +93,14 @@ public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends L
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", "action", "Lcom/baidu/bdtask/framework/redux/Action;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.actions.duplicate.duplicate.TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C00671 extends Lambda implements Function1<gr, Unit> {
+        public static final class C00811 extends Lambda implements Function1<gr, Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Function1 $next;
             public final /* synthetic */ AnonymousClass1 this$0;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C00671(AnonymousClass1 anonymousClass1, Function1 function1) {
+            public C00811(AnonymousClass1 anonymousClass1, Function1 function1) {
                 super(1);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -177,7 +177,7 @@ public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends L
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) {
-                return new C00671(this, function1);
+                return new C00811(this, function1);
             }
             return (Function1) invokeL.objValue;
         }

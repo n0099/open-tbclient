@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.group;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
@@ -231,7 +230,7 @@ public class GroupInfoSyncManagerImpl {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long currentTimeMillis = System.currentTimeMillis() - IMConstants.FANS_GROUP_INFO_EXPIRED_TIME;
+                        long currentTimeMillis = System.currentTimeMillis() - 604800000;
                         ArrayList<String> expiredFansGroupInfoList = GroupInfoDAOImpl.getExpiredFansGroupInfoList(this.val$context, currentTimeMillis);
                         if (expiredFansGroupInfoList != null && expiredFansGroupInfoList.size() > 0) {
                             GroupManagerImpl.getInstance(this.val$context).getFansGroupInfo(expiredFansGroupInfoList, true, null);
@@ -383,10 +382,12 @@ public class GroupInfoSyncManagerImpl {
         if (Utility.readIntData(context, TAG_GROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
             GroupManagerImpl.getInstance(context).getGroupList(null);
         }
-        if (Utility.readIntData(context, TAG_FANSGROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
-            GroupManagerImpl.getInstance(context).getFansGroupList(true, null);
-        } else {
-            updateExpiredFansGroups(context);
+        if (!AccountManager.isCuidLogin(context)) {
+            if (Utility.readIntData(context, TAG_FANSGROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
+                GroupManagerImpl.getInstance(context).getFansGroupList(true, null);
+            } else {
+                updateExpiredFansGroups(context);
+            }
         }
         ArrayList<String> starGroupList = GroupInfoDAOImpl.getStarGroupList(context);
         if (starGroupList != null && starGroupList.size() > 0) {

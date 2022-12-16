@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.forbiddenforum;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.wi8;
+import com.baidu.tieba.ol8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetDislikeList.GetDislikeListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForbiddenForumHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wi8 pageData;
+    public ol8 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForbiddenForumHttpResMsg() {
@@ -36,13 +36,13 @@ public class ForbiddenForumHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public wi8 getPageData() {
+    public ol8 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.pageData;
         }
-        return (wi8) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class ForbiddenForumHttpResMsg extends HttpResponsedMessage {
             }
             setErrorString(getDislikeListResIdl.error.usermsg);
         }
-        wi8 wi8Var = new wi8();
-        this.pageData = wi8Var;
-        wi8Var.a(getDislikeListResIdl.data);
+        ol8 ol8Var = new ol8();
+        this.pageData = ol8Var;
+        ol8Var.a(getDislikeListResIdl.data);
     }
 }

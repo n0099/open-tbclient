@@ -12,7 +12,7 @@ import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.ai1;
+import com.baidu.tieba.zh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_URL = "asset://";
@@ -39,7 +39,7 @@ public class WebGLImageLoader {
     public static BitmapReferenceMap sReferenceMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -543,7 +543,7 @@ public class WebGLImageLoader {
             ImageBitmapBean imageBitmapBean = null;
             if (obj instanceof String) {
                 String str2 = (String) obj;
-                if (ai1.b(str2)) {
+                if (zh1.b(str2)) {
                     decodeStream = BitmapFactory.decodeFile(str2, options);
                     if (decodeStream == null) {
                         decodeStream = BitmapFactory.decodeFile(str2);

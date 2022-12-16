@@ -30,7 +30,7 @@ public class bl extends bv.a implements cv.a {
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f943a;
+    public XMPushService f966a;
 
     /* loaded from: classes8.dex */
     public static class a implements cv.b {
@@ -67,7 +67,7 @@ public class bl extends bv.a implements cv.a {
                 int port = url.getPort() == -1 ? 80 : url.getPort();
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    String a = com.xiaomi.push.bj.a(com.xiaomi.push.v.m687a(), url);
+                    String a = com.xiaomi.push.bj.a(com.xiaomi.push.v.m697a(), url);
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     fj.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
                     return a;
@@ -112,8 +112,8 @@ public class bl extends bv.a implements cv.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, str, str2, Boolean.valueOf(z)})) == null) {
                 try {
-                    if (fh.m328a().m333a()) {
-                        str2 = bv.m648a();
+                    if (fh.m338a().m343a()) {
+                        str2 = bv.m658a();
                     }
                     return super.a(arrayList, str, str2, z);
                 } catch (IOException e) {
@@ -140,7 +140,7 @@ public class bl extends bv.a implements cv.a {
                 return;
             }
         }
-        this.f943a = xMPushService;
+        this.f966a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -174,32 +174,32 @@ public class bl extends bv.a implements cv.a {
         com.xiaomi.push.cr b2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.a > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.m89a("fetch bucket :" + bVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m99a("fetch bucket :" + bVar.a());
             this.a = System.currentTimeMillis();
             cv a2 = cv.a();
-            a2.m254a();
-            a2.m257b();
-            fw m589a = this.f943a.m589a();
-            if (m589a == null || (b2 = a2.b(m589a.m353a().c())) == null) {
+            a2.m264a();
+            a2.m267b();
+            fw m599a = this.f966a.m599a();
+            if (m599a == null || (b2 = a2.b(m599a.m363a().c())) == null) {
                 return;
             }
-            ArrayList<String> m242a = b2.m242a();
+            ArrayList<String> m252a = b2.m252a();
             boolean z = true;
-            Iterator<String> it = m242a.iterator();
+            Iterator<String> it = m252a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m589a.m354a())) {
+                } else if (it.next().equals(m599a.m364a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m242a.isEmpty()) {
+            if (!z || m252a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m89a("bucket changed, force reconnect");
-            this.f943a.a(0, (Exception) null);
-            this.f943a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m99a("bucket changed, force reconnect");
+            this.f966a.a(0, (Exception) null);
+            this.f966a.a(false);
         }
     }
 }

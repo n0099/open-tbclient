@@ -1,5 +1,5 @@
 package com.baidu.searchbox.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ISwanData {
     String getSwanNativeVersionGroup();
 }

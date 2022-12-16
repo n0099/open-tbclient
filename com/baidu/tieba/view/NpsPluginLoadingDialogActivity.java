@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm7;
+import com.baidu.tieba.dp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,27 +68,27 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onBackPressed();
-            x1();
+            v1();
         }
     }
 
-    public final void x1() {
+    public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            fm7.j().n();
+            dp7.j().n();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09144f) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0914b0) {
             finish();
-            x1();
+            v1();
         }
     }
 
-    public void y1(int i) {
+    public void x1(int i) {
         PluginRoundProgressBar pluginRoundProgressBar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (pluginRoundProgressBar = this.a) != null && pluginRoundProgressBar.getProgress() != i) {
@@ -105,26 +105,26 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d0935);
+            setContentView(R.layout.obfuscated_res_0x7f0d094c);
             Intent intent = getIntent();
             this.c = intent.getBooleanExtra("showHideView", false);
             intent.getLongExtra("dialogId", -1L);
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091b0a);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.progress_bar);
             this.a = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.a.setRoundColor(0);
             this.a.setTextColor(-1);
             this.a.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09144f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b0);
             this.b = textView;
             if (this.c) {
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
-            if (!fm7.j().m()) {
+            if (!dp7.j().m()) {
                 finish();
             } else {
-                fm7.j().o(this);
+                dp7.j().o(this);
             }
         }
     }

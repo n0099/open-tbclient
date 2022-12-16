@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes7.dex */
@@ -80,7 +80,7 @@ public class VideoCloudSetting {
             FAILED = new MatchedType("FAILED", 0);
             AND_NEED_CHECK_NEXT = new MatchedType("AND_NEED_CHECK_NEXT", 1);
             OR_NEED_CHECK_NEXT = new MatchedType("OR_NEED_CHECK_NEXT", 2);
-            MatchedType matchedType = new MatchedType("SUCCESS", 3);
+            MatchedType matchedType = new MatchedType(c.p, 3);
             SUCCESS = matchedType;
             $VALUES = new MatchedType[]{FAILED, AND_NEED_CHECK_NEXT, OR_NEED_CHECK_NEXT, matchedType};
         }
@@ -401,7 +401,7 @@ public class VideoCloudSetting {
             if (!TextUtils.isEmpty(videoCfgValue)) {
                 str = videoCfgValue;
             }
-            videoCloudSettingItem.parseSettingItem(str, "|", ParamableElem.DIVIDE_PARAM);
+            videoCloudSettingItem.parseSettingItem(str, "|", ";");
             String str2 = DEFAULT_ERROR_LOG_ENABLE_ALL;
             String videoCfgValue2 = getVideoCfgValue(PREF_KEY_ENABLE_HOST, DEFAULT_ERROR_LOG_ENABLE_ALL);
             VideoCloudSettingItem videoCloudSettingItem2 = new VideoCloudSettingItem();
@@ -409,7 +409,7 @@ public class VideoCloudSetting {
             if (!TextUtils.isEmpty(videoCfgValue2)) {
                 str2 = videoCfgValue2;
             }
-            videoCloudSettingItem2.parseSettingItem(str2, "|", ParamableElem.DIVIDE_PARAM);
+            videoCloudSettingItem2.parseSettingItem(str2, "|", ";");
             Log.d(TAG, "createVideoSetting videoEnableSdkVersion:" + str + " hostsStr:" + str2);
             VideoSettings videoSettings = new VideoSettings();
             videoSettings.getItems().put(0, videoCloudSettingItem);

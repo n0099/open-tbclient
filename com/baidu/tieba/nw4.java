@@ -1,141 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class nw4 {
+public final class nw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                nw4.startService();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
-                if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    if (!nw4.a) {
-                        nw4.b.sendEmptyMessageDelayed(1, 10000L);
-                        return;
+    public static final void b(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
+            for (DialogStrategiesData dialogStrategiesData : list) {
+                Iterator<T> it = list2.iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        obj = it.next();
+                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), dialogStrategiesData.getDialogName())) {
+                            break;
+                        }
+                    } else {
+                        obj = null;
+                        break;
                     }
-                    return;
                 }
-                nw4.b.removeMessages(1);
-                nw4.stopService();
+                DialogStrategiesData dialogStrategiesData2 = (DialogStrategiesData) obj;
+                if (dialogStrategiesData2 != null) {
+                    DialogStrategiesData.StrategiesConfigData c = c(dialogStrategiesData2, "FREQUENCE_STRATEGY");
+                    boolean z = false;
+                    if (c != null && d(c, c(dialogStrategiesData, "FREQUENCE_STRATEGY"))) {
+                        z = true;
+                    }
+                    if (z) {
+                        lw4 lw4Var = lw4.a;
+                        String dialogName = dialogStrategiesData.getDialogName();
+                        Intrinsics.checkNotNullExpressionValue(dialogName, "ori.dialogName");
+                        lw4Var.b(dialogName);
+                    }
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016862, "Lcom/baidu/tieba/nw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final DialogStrategiesData.StrategiesConfigData c(DialogStrategiesData dialogStrategiesData, String str) {
+        InterceptResult invokeLL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialogStrategiesData, str)) == null) {
+            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
+            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
+            Iterator<T> it = dialogStrategy.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    obj = it.next();
+                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
+                        break;
+                    }
+                } else {
+                    obj = null;
+                    break;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948016862, "Lcom/baidu/tieba/nw4;");
-                return;
+            return (DialogStrategiesData.StrategiesConfigData) obj;
+        }
+        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
+    }
+
+    public static final boolean d(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strategiesConfigData, strategiesConfigData2)) == null) {
+            if (strategiesConfigData2 != null) {
+                if (Intrinsics.areEqual(strategiesConfigData.H().get("startTimestamp"), strategiesConfigData2.H().get("startTimestamp")) && Intrinsics.areEqual(strategiesConfigData.H().get("endTimestamp"), strategiesConfigData2.H().get("endTimestamp"))) {
+                    return false;
+                }
+                return true;
             }
+            return false;
         }
-        b = new a();
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            MessageManager.getInstance().registerListener(new b(2001011));
-        }
-    }
-
-    public static void startService() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            bh.startService(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
-        }
-    }
-
-    public static void stopService() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            bh.stopService(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
-        }
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            a = z;
-        }
+        return invokeLL.booleanValue;
     }
 }

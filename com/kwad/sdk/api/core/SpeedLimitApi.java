@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import java.io.InputStream;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface SpeedLimitApi {
     @KsAdSdkDynamicApi
     @Keep

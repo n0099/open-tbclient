@@ -1,69 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.fragment.app.Fragment;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.BackgroundItemView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class dv8 extends BaseAdapter {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes4.dex */
+public class dv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<List<DressItemData>> a;
-    public TbPageContext<?> b;
-    public cv8 c;
+    public TbPageContext a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public BackgroundItemView b;
-        public BackgroundItemView c;
-        public BackgroundItemView d;
-
-        public a(dv8 dv8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public dv8(TbPageContext<?> tbPageContext, cv8 cv8Var) {
+    public dv8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cv8Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,90 +38,61 @@ public class dv8 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = cv8Var;
+        this.a = tbPageContext;
+        MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public List<DressItemData> getItem(int i) {
-        InterceptResult invokeI;
+    public void a(Intent intent, zu8 zu8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, zu8Var) != null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+        if (!TextUtils.isEmpty(stringExtra)) {
+            String string = this.a.getString(R.string.des_page_home_recommend);
+            fu4 fu4Var = new fu4();
+            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
+            int i = 1;
+            if (matcher.find()) {
+                fu4Var.c = matcher.group(1);
             }
-            return null;
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public void b(List<List<DressItemData>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            List<DressItemData> item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
+            if (stringExtra.equals(string)) {
+                fu4Var.a = 1;
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0135, viewGroup, false);
-                aVar = new a(this);
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f092304);
-                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090399);
-                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039a);
-                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039b);
-                view2.setTag(aVar);
+                fu4Var.a = 2;
+                fu4Var.b = stringExtra;
             }
-            if (item != null) {
-                if (i == 0) {
-                    aVar.a.setVisibility(0);
-                } else {
-                    aVar.a.setVisibility(8);
-                }
-                aVar.b.e(item.get(0));
-                aVar.b.setController(this.c);
-                if (item.size() > 2) {
-                    aVar.c.e(item.get(1));
-                    aVar.d.e(item.get(2));
-                    aVar.c.setController(this.c);
-                    aVar.d.setController(this.c);
-                } else if (item.size() > 1) {
-                    aVar.c.e(item.get(1));
-                    aVar.c.setController(this.c);
-                    aVar.d.f();
-                } else {
-                    aVar.c.f();
-                    aVar.d.f();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, fu4Var));
+            if (stringExtra.equals(string)) {
+                intent.putExtra("sub_locate_type", 1);
+                i = 2;
+            } else {
+                intent.putExtra("sub_locate_type", stringExtra);
+            }
+            if (zu8Var != null && zu8Var.x() != null) {
+                zu8Var.x().setCurrentTabByType(i);
+                FragmentTabHost.c h = zu8Var.x().h(i);
+                if (h != null) {
+                    Fragment fragment = h.c;
+                    if (fragment instanceof xq4) {
+                        ((xq4) fragment).j1(intent);
+                    }
                 }
             }
-            this.b.getLayoutMode().k(view2);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
+        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+    }
+
+    public boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            if (intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

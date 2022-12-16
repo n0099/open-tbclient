@@ -27,7 +27,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.tencent.connect.common.Constants;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
 import java.util.Iterator;
@@ -36,12 +35,12 @@ import java.util.Locale;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,13 +297,13 @@ public class h1 {
                 StringBuilder sb = new StringBuilder();
                 for (InputMethodInfo inputMethodInfo : inputMethodList) {
                     sb.append(inputMethodInfo.getId());
-                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    sb.append(";");
                 }
                 if (TextUtils.isEmpty(sb)) {
                     return i1.c;
                 }
                 String sb2 = sb.toString();
-                return sb2.endsWith(ParamableElem.DIVIDE_PARAM) ? sb2.substring(0, sb2.length() - 1) : sb2;
+                return sb2.endsWith(";") ? sb2.substring(0, sb2.length() - 1) : sb2;
             } catch (Exception unused) {
                 return i1.d;
             }
@@ -536,7 +535,7 @@ public class h1 {
                         sb.append(next);
                         sb.append("=");
                         sb.append(string);
-                        str = ParamableElem.DIVIDE_PARAM;
+                        str = ";";
                     }
                     return sb.toString();
                 }
@@ -780,7 +779,7 @@ public class h1 {
                     if (string == null) {
                         string = StringUtil.NULL_STRING;
                     }
-                    String str2 = "1=" + string + ParamableElem.DIVIDE_PARAM;
+                    String str2 = "1=" + string + ";";
                     InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
                     if (inputMethodManager != null && (enabledInputMethodList = inputMethodManager.getEnabledInputMethodList()) != null) {
                         String str3 = str2 + "2=";
@@ -809,7 +808,7 @@ public class h1 {
                             sb.append(settingsActivity);
                             sb.append("-");
                             sb.append(String.format("%d", Integer.valueOf(i)));
-                            sb.append(ParamableElem.DIVIDE_PARAM);
+                            sb.append(";");
                             str3 = sb.toString();
                         }
                         return str3;

@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.bg;
 import com.kwad.sdk.widget.KSFrameLayout;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends KSFrameLayout implements bg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View Kr;
     public final bg Ks;
     public final int OA;
-    public InterfaceC0600a Ot;
+    public InterfaceC0617a Ot;
     public boolean Ou;
     public boolean Ov;
     public int Ow;
@@ -29,8 +29,8 @@ public final class a extends KSFrameLayout implements bg.a {
     public final float Oz;
 
     /* renamed from: com.kwad.components.core.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0600a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0617a {
         void em();
     }
 
@@ -106,9 +106,9 @@ public final class a extends KSFrameLayout implements bg.a {
                 this.Ks.sendEmptyMessage(1);
                 return;
             }
-            InterfaceC0600a interfaceC0600a = this.Ot;
-            if (interfaceC0600a != null) {
-                interfaceC0600a.em();
+            InterfaceC0617a interfaceC0617a = this.Ot;
+            if (interfaceC0617a != null) {
+                interfaceC0617a.em();
                 return;
             }
             return;
@@ -128,9 +128,9 @@ public final class a extends KSFrameLayout implements bg.a {
             pT();
             return;
         }
-        InterfaceC0600a interfaceC0600a2 = this.Ot;
-        if (interfaceC0600a2 != null) {
-            interfaceC0600a2.em();
+        InterfaceC0617a interfaceC0617a2 = this.Ot;
+        if (interfaceC0617a2 != null) {
+            interfaceC0617a2.em();
         }
     }
 
@@ -160,21 +160,21 @@ public final class a extends KSFrameLayout implements bg.a {
 
     @Override // com.kwad.sdk.widget.KSFrameLayout, com.kwad.sdk.widget.i
     public final void k(View view2) {
-        InterfaceC0600a interfaceC0600a;
-        InterfaceC0600a interfaceC0600a2;
+        InterfaceC0617a interfaceC0617a;
+        InterfaceC0617a interfaceC0617a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             super.k(view2);
-            if (this.OA == 0 && (interfaceC0600a2 = this.Ot) != null) {
-                interfaceC0600a2.em();
+            if (this.OA == 0 && (interfaceC0617a2 = this.Ot) != null) {
+                interfaceC0617a2.em();
             } else if (!this.Ox) {
                 this.Ox = true;
                 this.Oy = System.currentTimeMillis();
                 pU();
                 pT();
-            } else if (System.currentTimeMillis() - this.Oy <= this.OA || (interfaceC0600a = this.Ot) == null) {
+            } else if (System.currentTimeMillis() - this.Oy <= this.OA || (interfaceC0617a = this.Ot) == null) {
             } else {
-                interfaceC0600a.em();
+                interfaceC0617a.em();
                 pU();
             }
         }
@@ -196,10 +196,10 @@ public final class a extends KSFrameLayout implements bg.a {
         }
     }
 
-    public final void setViewCallback(InterfaceC0600a interfaceC0600a) {
+    public final void setViewCallback(InterfaceC0617a interfaceC0617a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0600a) == null) {
-            this.Ot = interfaceC0600a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0617a) == null) {
+            this.Ot = interfaceC0617a;
         }
     }
 }

@@ -1,8 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,51 +68,40 @@ public class LogFile {
     }
 
     public void writeByte(byte[] bArr) {
-        IMTrack.CrashBuilder crashBuilder;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
             FileOutputStream fileOutputStream = null;
             try {
                 try {
-                    Context context = this.mContext;
-                    fileOutputStream = context.openFileOutput(LogUtils.fileName() + ".log", 32768);
-                    if (fileOutputStream != null) {
-                        fileOutputStream.write(bArr);
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e) {
-                            e = e;
-                            LogUtils.e(TAG, "Exception ", e);
-                            crashBuilder = new IMTrack.CrashBuilder(this.mContext);
-                            crashBuilder.exception(Log.getStackTraceString(e)).build();
-                        }
-                    }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "Exception ", e2);
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e3) {
-                            e = e3;
-                            LogUtils.e(TAG, "Exception ", e);
-                            crashBuilder = new IMTrack.CrashBuilder(this.mContext);
-                            crashBuilder.exception(Log.getStackTraceString(e)).build();
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                if (fileOutputStream != null) {
                     try {
-                        fileOutputStream.close();
-                    } catch (IOException e4) {
-                        LogUtils.e(TAG, "Exception ", e4);
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                        Context context = this.mContext;
+                        fileOutputStream = context.openFileOutput(LogUtils.fileName() + ".log", 32768);
+                        if (fileOutputStream != null) {
+                            fileOutputStream.write(bArr);
+                        }
+                    } catch (Exception e) {
+                        LogUtils.e(TAG, "Exception ", e);
+                        if (fileOutputStream != null) {
+                            fileOutputStream.close();
+                        } else {
+                            return;
+                        }
                     }
+                    if (fileOutputStream != null) {
+                        fileOutputStream.close();
+                    }
+                } catch (Throwable th) {
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException e2) {
+                            LogUtils.e(TAG, "Exception ", e2);
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (IOException e3) {
+                LogUtils.e(TAG, "Exception ", e3);
             }
         }
     }

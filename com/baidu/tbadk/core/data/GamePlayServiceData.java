@@ -41,7 +41,7 @@ public class GamePlayServiceData {
             JSONObject jSONObject = new JSONObject(str);
             this.expires = jSONObject.optLong("expires");
             this.gid = jSONObject.optString(TbEnum.ParamKey.GID);
-            this.is_god = jSONObject.optBoolean("is_god", false);
+            this.is_god = jSONObject.optBoolean(IMUserExtraData.KEY_IS_GOD, false);
             this.saveTime = jSONObject.optLong("saveTime");
         } catch (Exception e) {
             e.printStackTrace();

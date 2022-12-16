@@ -1,82 +1,166 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import android.app.Application;
+import android.text.TextUtils;
+import android.text.format.DateFormat;
+import android.text.format.Time;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.RemindRecommendMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class gv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public TextView c;
-    public TbImageView d;
-    public TextView e;
 
-    public gv8(TbPageContext<?> tbPageContext) {
+    public static RemindRecommendMessage a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
+                JSONObject jSONObject = new JSONObject(str);
+                remindRecommendMessage.title = jSONObject.optString("title");
+                remindRecommendMessage.url = jSONObject.optString("url");
+                remindRecommendMessage.picture = jSONObject.optString("picture");
+                remindRecommendMessage.name = jSONObject.optString("name");
+                remindRecommendMessage.isLocal = false;
+                return remindRecommendMessage;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-        this.a = tbPageContext;
-        b();
+        return (RemindRecommendMessage) invokeL.objValue;
     }
 
-    public void d(DressItemData dressItemData) {
+    public static String g(DataRes dataRes) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, dressItemData) != null) || dressItemData == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
+            if (dataRes != null && dataRes.local_dialog != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("title", dataRes.local_dialog.title);
+                    jSONObject.put("picture", dataRes.local_dialog.picture);
+                    jSONObject.put("url", dataRes.local_dialog.url);
+                    jSONObject.put("name", dataRes.local_dialog.name);
+                    return jSONObject.toString();
+                } catch (JSONException unused) {
+                }
+            }
+            return null;
         }
-        this.c.setText(dressItemData.getTitle());
-        this.d.K(dressItemData.getPermissionImgUrl(), 10, false);
-        this.e.setText(dressItemData.getDescription());
+        return (String) invokeL.objValue;
     }
 
-    public View a() {
+    public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c(System.currentTimeMillis());
         }
-        return (View) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public void c() {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qf5.a(this.a, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (ry4.l().m("sync_local_dialog", 1) == 1) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void b() {
+    public static long c(long j) {
+        InterceptResult invokeJ;
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0133, (ViewGroup) null);
-            this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09216d);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090396);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09216c);
-            c();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            String str = "12:05:00";
+            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
+            if (!TextUtils.isEmpty(loadString)) {
+                str = loadString;
+            }
+            String[] split = str.split(":");
+            int i4 = 5;
+            if (split != null && split.length == 3) {
+                i2 = xg.e(split[0], 12);
+                i3 = xg.e(split[1], 5);
+                i = xg.e(split[2], 0);
+            } else {
+                i = 0;
+                i2 = 12;
+                i3 = 5;
+            }
+            if (i2 >= 0 && i2 <= 23 && i3 >= 0 && i3 <= 59 && i >= 0 && i <= 59) {
+                i4 = i3;
+            } else {
+                i = 0;
+                i2 = 12;
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            calendar.set(12, i4);
+            calendar.set(13, i);
+            Application app = TbadkCoreApplication.getInst().getApp();
+            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
+                calendar.set(11, i2);
+            } else {
+                if (i2 >= 12) {
+                    i2 -= 12;
+                    calendar.set(9, 1);
+                } else {
+                    calendar.set(9, 0);
+                }
+                calendar.set(10, i2);
+            }
+            return calendar.getTimeInMillis();
         }
+        return invokeJ.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbadkSettings.getInst().loadInt(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_server_switch", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            Time time = new Time();
+            time.set(j);
+            int i = time.year;
+            int i2 = time.month;
+            int i3 = time.monthDay;
+            time.set(System.currentTimeMillis());
+            if (i == time.year && i2 == time.month && i3 == time.monthDay) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 }

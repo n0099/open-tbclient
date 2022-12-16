@@ -15,10 +15,10 @@ public class cj extends XMPushService.j {
     public final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f972a;
+    public final /* synthetic */ String f995a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ byte[] f973a;
+    public final /* synthetic */ byte[] f996a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cj(XMPushService xMPushService, int i, String str, byte[] bArr) {
@@ -39,8 +39,8 @@ public class cj extends XMPushService.j {
             }
         }
         this.a = xMPushService;
-        this.f972a = str;
-        this.f973a = bArr;
+        this.f995a = str;
+        this.f996a = bArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
@@ -55,7 +55,7 @@ public class cj extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ah.a(this.a, this.f972a, this.f973a);
+                ah.a(this.a, this.f995a, this.f996a);
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 this.a.a(10, e);

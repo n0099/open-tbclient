@@ -1,26 +1,420 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Rect;
+import android.net.Uri;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.ItemStarData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.GroupChatEntranceStatisticUtils;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SpecHotTopicHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tbadk.module.hottopic.HotTopicStat;
+import com.baidu.tbadk.util.TiePlusHelper;
+import com.baidu.tbadk.widget.richText.RichTextMaker;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.HeadItem;
+import tbclient.PbContent;
+import tbclient.TiebaPlusInfo;
+/* loaded from: classes6.dex */
 public class sn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final int[] b;
-    public static int[] c;
-    public static int[] d;
+    public static String a;
+    public static final h b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    @DrawableRes
+    public static int n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? (i & (((1 << i2) - 1) << i3)) >> i3 : invokeIII.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) ? i == 5 ? R.drawable.icon_group_chat_icon : R.drawable.icon_pure_post_link16 : invokeI.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends RichTextMaker<qb5> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            h(R.drawable.icon_pure_videotopic31);
+            i(R.dimen.tbds3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.widget.richText.RichTextMaker
+        @NonNull
+        /* renamed from: j */
+        public SpannableString b(int i, @NonNull String str, @NonNull qb5 qb5Var) {
+            InterceptResult invokeILL;
+            RichTextMaker.IconPos iconPos;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, qb5Var)) == null) {
+                if (qb5Var.n() && str.contains("[视频]")) {
+                    qb5Var.p(true);
+                    str = str.replace("[视频]", "");
+                }
+                f(qb5Var.m());
+                if (qb5Var.o()) {
+                    iconPos = RichTextMaker.IconPos.START_OFFSET.setOffset(1);
+                } else {
+                    iconPos = RichTextMaker.IconPos.NONE;
+                }
+                g(iconPos);
+                return super.b(i, str, qb5Var);
+            }
+            return (SpannableString) invokeILL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.widget.richText.RichTextMaker
+        /* renamed from: k */
+        public void c(@NonNull View view2, int i, @NonNull qb5 qb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i, qb5Var) == null) {
+                if (qb5Var.n()) {
+                    Context context = view2.getContext();
+                    BdToast b = BdToast.b(context, context.getString(R.string.video_check_click_msg));
+                    b.f(BdToast.ToastIcon.FAILURE);
+                    b.i();
+                    return;
+                }
+                if (qb5Var.o()) {
+                    HotTopicStat.a(UrlUtils.getParamValue(qb5Var.h(), "topic_id"), UrlUtils.getParamValue(qb5Var.h(), IntentConfig.TOPIC_NAME), qb5Var.i(), qb5Var.g(), qb5Var.k());
+                }
+                sn5.D(qb5Var.h(), qb5Var.l());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends RichTextMaker<ao5> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(RichTextMaker.IconPos iconPos, int i, int i2, int i3) {
+            super(iconPos, i, i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iconPos, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((RichTextMaker.IconPos) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.widget.richText.RichTextMaker
+        /* renamed from: j */
+        public void c(@NonNull View view2, int i, @NonNull ao5 ao5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, ao5Var) == null) {
+                ao5Var.q(TiePlusStat.StatType.CLICK);
+                TiePlusEventController.onEvent(ao5Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends tn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String i;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(int i, String str, String str2) {
+            super(i, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = str2;
+        }
+
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            sn5.D(this.i, null);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends tn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(int i, String str) {
+            super(i, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                BdToast b = BdToast.b(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.video_check_click_msg));
+                b.f(BdToast.ToastIcon.FAILURE);
+                b.i();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e extends tn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThreadData i;
+        public final /* synthetic */ String j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(int i, String str, ThreadData threadData, String str2) {
+            super(i, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, threadData, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = threadData;
+            this.j = str2;
+        }
+
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            sn5.A(this.i, this.j);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f extends tn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String i;
+        public final /* synthetic */ ThreadData j;
+        public final /* synthetic */ String k;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(int i, String str, String str2, ThreadData threadData, String str3) {
+            super(i, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2, threadData, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = str2;
+            this.j = threadData;
+            this.k = str3;
+        }
+
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            sn5.B(this.i, this.j, this.k);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class g extends tn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int i;
+        public final /* synthetic */ String j;
+        public final /* synthetic */ int k;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(int i, String str, int i2, int i3, String str2, int i4) {
+            super(i, str, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2, Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = i3;
+            this.j = str2;
+            this.k = i4;
+        }
+
+        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                sn5.C(this.i, this.j, this.k);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SparseArray<RichTextMaker<?>> a;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new SparseArray<>();
+        }
+
+        public <T> RichTextMaker<T> a(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return (RichTextMaker<T>) this.a.get(i);
+            }
+            return (RichTextMaker) invokeI.objValue;
+        }
+
+        public void b(int i, RichTextMaker<?> richTextMaker) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, richTextMaker) == null) {
+                this.a.put(i, richTextMaker);
+            }
+        }
     }
 
     static {
@@ -36,142 +430,802 @@ public class sn5 {
                 return;
             }
         }
-        a = new int[]{0, 31, 59, 90, 120, Cea708Decoder.COMMAND_SWA, 181, 212, 243, 273, 304, 334, 365};
-        b = new int[]{8697535, 306771, 677704, 5580477, 861776, 890180, 4631225, 354893, 634178, 2404022, 306762, 6966718, 675154, 861510, 6116026, 742478, 879171, 2714935, 613195, 7642049, 300884, 674632, 5973436, 435536, 447557, 4905656, 177741, 612162, 2398135, 300874, 6703934, 870993, 959814, 5690554, 372046, 177732, 3749688, 601675, 8165055, 824659, 870984, 7185723, 742735, 354885, 4894137, 154957, 601410, 2921910, 693578, 8080061, 445009, 742726, 5593787, 318030, 678723, 3484600, 338764, 9082175, 955730, 436808, 7001404, 701775, 308805, 4871993, 677709, 337474, 4100917, 890185, 7711422, 354897, 617798, 5549755, 306511, 675139, 5056183, 861515, 9261759, 742482, 748103, 6909244, 613200, 301893, 4869049, 674637, 11216322, 435540, 447561, 7002685, 702033, 612166, 5543867, 300879, 412484, 3581239, 959818, 8827583, 371795, 702023, 5846716, 601680, 824901, 5065400, 870988, 894273, 2468534, 354889, 8039869, 154962, 601415, 6067642, 693582, 739907, 4937015, 709962, 9788095, 309843, 678728, 6630332, 338768, 693061, 4672185, 436812, 709953, 2415286, 308810, 6969149, 675409, 861766, 6198074, 873293, 371267, 3585335, 617803, 11841215, 306515, 675144, 7153084, 861519, 873028, 6138424, 744012, 355649, 2403766, 301898, 8014782, 674641, 697670, 5984954, 447054, 711234, 3496759, 603979, 8689601, 300883, 412488, 6726972, 959823, 436804, 4896312, 699980, 601666, 3970869, 824905, 8211133, 870993, 894277, 5614266, 354894, 683331, 4533943, 339275, 9082303, 693587, 739911, 7034171, 709967, 350789, 4873528, 678732, 338754, 3838902, 430921, 7809469, 436817, 709958, 5561018, 308814, 677699, 4532024, 861770, 9343806, 873042, 895559, 6731067, 355663, 306757, 4869817, 675148, 857409, 2986677};
-        c = new int[]{1887, 966732, 967231, 967733, 968265, 968766, 969297, 969798, 970298, 970829, 971330, 971830, 972362, 972863, 973395, 973896, 974397, 974928, 975428, 975929, 976461, 976962, 977462, 977994, 978494, 979026, 979526, 980026, 980558, 981059, 981559, 982091, 982593, 983124, 983624, 984124, 984656, 985157, 985656, 986189, 986690, 987191, 987722, 988222, 988753, 989254, 989754, 990286, 990788, 991288, 991819, 992319, 992851, 993352, 993851, 994383, 994885, 995385, 995917, 996418, 996918, 997450, 997949, 998481, 998982, 999483, 1000014, 1000515, 1001016, 1001548, 1002047, 1002578, 1003080, 1003580, 1004111, 1004613, 1005113, 1005645, 1006146, 1006645, 1007177, 1007678, 1008209, 1008710, 1009211, 1009743, 1010243, 1010743, 1011275, 1011775, 1012306, 1012807, 1013308, 1013840, 1014341, 1014841, 1015373, 1015874, 1016404, 1016905, 1017405, 1017937, 1018438, 1018939, 1019471, 1019972, 1020471, 1021002, 1021503, 1022035, 1022535, 1023036, 1023568, 1024069, 1024568, 1025100, 1025601, 1026102, 1026633, 1027133, 1027666, 1028167, 1028666, 1029198, 1029699, 1030199, 1030730, 1031231, 1031763, 1032264, 1032764, 1033296, 1033797, 1034297, 1034828, 1035329, 1035830, 1036362, 1036861, 1037393, 1037894, 1038394, 1038925, 1039427, 1039927, 1040459, 1040959, 1041491, 1041992, 1042492, 1043023, 1043524, 1044024, 1044556, 1045057, 1045558, 1046090, 1046590, 1047121, 1047622, 1048122, 1048654, 1049154, 1049655, 1050187, 1050689, 1051219, 1051720, 1052220, 1052751, 1053252, 1053752, 1054284, 1054786, 1055285, 1055817, 1056317, 1056849, 1057349, 1057850, 1058382, 1058883, 1059383, 1059915, 1060415, 1060947, 1061447, 1061947, 1062479, 1062981, 1063480, 1064012, 1064514, 1065014, 1065545, 1066045, 1066577, 1067078, 1067578, 1068110, 1068611, 1069112, 1069642, 1070142, 1070674, 1071175, 1071675, 1072207, 1072709, 1073209, 1073740, 1074241, 1074741, 1075273, 1075773, 1076305, 1076807, 1077308, 1077839, 1078340, 1078840, 1079372, 1079871, 1080403, 1080904};
-        d = new int[]{1887, 5780, 5802, 19157, 2742, 50359, 1198, 2646, 46378, 7466, 3412, 30122, 5482, 67949, 2396, 5294, 43597, 6732, 6954, 36181, 2772, 4954, 18781, 2396, 54427, 5274, 6730, 47781, 5800, 6868, 21210, 4790, 59703, 2350, 5270, 46667, 3402, 3496, 38325, 1388, 4782, 18735, 2350, 52374, 6804, 7498, 44457, 2906, 1388, 29294, 4700, 63789, 6442, 6804, 56138, 5802, 2772, 38235, FeatureCodes.FACE_MULTI, 4698, 22827, 5418, 63125, 3476, 5802, 43701, 2484, 5302, 27223, 2646, 70954, 7466, 3412, 54698, 5482, 2412, 38062, 5294, 2636, 32038, 6954, 60245, 2772, 4826, 43357, 2394, 5274, 39501, 6730, 72357, 5800, 5844, 53978, 4790, 2358, 38039, 5270, 87627, 3402, 3496, 54708, 5484, 4782, 43311, 2350, 3222, 27978, 7498, 68965, 2904, 5484, 45677, 4700, 6444, 39573, 6804, 6986, 19285, 2772, 62811, FeatureCodes.FACE_MULTI, 4698, 47403, 5418, 5780, 38570, 5546, 76469, 2420, 5302, 51799, 2646, 5414, 36501, 3412, 5546, 18869, 2412, 54446, 5276, 6732, 48422, 6822, 2900, 28010, 4826, 92509, 2394, 5274, 55883, 6730, 6820, 47956, 5812, 2778, 18779, 2358, 62615, 5270, 5450, 46757, 3492, 5556, 27318, 4718, 67887, 2350, 3222, 52554, 7498, 3428, 38252, 5468, 4700, 31022, 6444, 64149, 6804, 6986, 43861, 2772, 5338, 35421, 2650, 70955, 5418, 5780, 54954, 5546, 2740, 38074, 5302, 2646, 29991, 3366, 61011, 3412, 5546, 43445, 2412, 5294, 35406, 6732, 72998, 6820, 6996, 52586, 2778, 2396, 38045, 5274, 6698, 23333, 6820, 64338, 5812, 2746, 43355, 2358, 5270, 39499, 5450, 79525, 3492, 5548};
+        b = new h();
+        y();
+        x();
     }
 
-    public static final int[] b(int i, int i2, int i3, boolean z) {
+    @Deprecated
+    public static SpannableString t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            return new SpannableString("");
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public static void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65569, null) == null) {
+            b.b(18, new a());
+        }
+    }
+
+    public static void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65570, null) == null) {
+            b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.icon_pure_post_link16, R.color.CAM_X0304, R.dimen.M_W_X002));
+        }
+    }
+
+    public static void A(ThreadData threadData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, threadData, str) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!TextUtils.isEmpty(str) && currentActivity != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(currentActivity, str, null)));
+                if (threadData != null) {
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
+                    if (threadData.isFromConcern()) {
+                        statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
+                        statisticItem.param("obj_source", 1);
+                        g(statisticItem, threadData);
+                    } else if (threadData.isFromHomPage) {
+                        statisticItem.param("obj_source", 2);
+                        if (threadData.getBaijiahaoData() != null) {
+                            statisticItem.param("obj_type", threadData.getBaijiahaoData().oriUgcType);
+                        }
+                    } else {
+                        statisticItem.param("obj_source", 3);
+                        if (threadData.getBaijiahaoData() != null) {
+                            statisticItem.param("obj_type", threadData.getBaijiahaoData().oriUgcType);
+                        }
+                    }
+                    statisticItem.param("obj_locate", 5);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    public static void g(StatisticItem statisticItem, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65552, null, statisticItem, threadData) == null) {
+            if (threadData.isVideoThreadType()) {
+                statisticItem.param("obj_type", 2);
+            } else if (threadData.isLinkThread()) {
+                statisticItem.param("obj_type", 4);
+            } else if (threadData.isShareThread) {
+                statisticItem.param("obj_type", 5);
+            } else if (threadData.isBJHArticleThreadType()) {
+                statisticItem.param("obj_type", 6);
+            } else if (threadData.isBJHNormalThreadType()) {
+                statisticItem.param("obj_type", 7);
+            } else if (threadData.isBJHVideoThreadType()) {
+                statisticItem.param("obj_type", 8);
+            } else if (threadData.isBJHVideoDynamicThreadType()) {
+                statisticItem.param("obj_type", 9);
+            } else if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                statisticItem.param("obj_type", 1);
+            }
+        }
+    }
+
+    public static SpannableString r(int i, boolean z) {
+        InterceptResult invokeCommon;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return null;
+            }
+            if (i > 5) {
+                i2 = 5;
+            } else {
+                i2 = i;
+            }
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds10);
+            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
+            int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
+            SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.item_stars));
+            spannableString.setSpan(new i05(i2, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeCommon.objValue;
+    }
+
+    public static boolean z(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, str, str2)) == null) {
+            if (xi.isEmpty(str) || xi.isEmpty(str2)) {
+                return false;
+            }
+            if (UrlManager.getInstance().isUrlValid(str2) && UrlManager.getInstance().isUrlValid(str)) {
+                if (str.equals(str2)) {
+                    return false;
+                }
+                List<String> queryParameters = Uri.parse(str2).getQueryParameters("url");
+                if (ListUtils.isEmpty(queryParameters)) {
+                    return true;
+                }
+                String str3 = queryParameters.get(0);
+                if (!str.equals(str3)) {
+                    if (!("http://" + str).equals(str3)) {
+                        if (("https://" + str).equals(str3)) {
+                        }
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void B(String str, ThreadData threadData, String str2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, threadData, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK);
+            statisticItem.param("tid", threadData.getTid());
+            if (threadData.isFromHomPage) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
+            ItemClickJumpUtil.itemClickJump(str2, str, 8, 8);
+        }
+    }
+
+    public static void C(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
+                UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
+            }
+            if (i == 2 && i2 == 5) {
+                u(str);
+            }
+        }
+    }
+
+    public static void D(String str, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, threadData) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
+                TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
+                x55 x55Var = new x55();
+                x55Var.a = str;
+                if (threadData != null) {
+                    x55Var.b = threadData.getResource();
+                    x55Var.c = threadData.getPbTitle();
+                }
+                lj5.h(x55Var);
+                UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{x55Var.a, x55Var.c});
+            }
+        }
+    }
+
+    public static SpannableStringBuilder E(ThreadData threadData, List<PbContent> list, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, threadData, list, str)) == null) {
+            return F(threadData, list, str, null);
+        }
+        return (SpannableStringBuilder) invokeLLL.objValue;
+    }
+
+    public static SpannableString h(ThreadData threadData, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, threadData, str, str2)) == null) {
+            return m(threadData, 16, str, str2, 0);
+        }
+        return (SpannableString) invokeLLL.objValue;
+    }
+
+    public static SpannableStringBuilder F(ThreadData threadData, List<PbContent> list, String str, @Nullable List<ao5> list2) {
+        InterceptResult invokeLLLL;
+        int size;
+        Pair<CharSequence, ao5> q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, threadData, list, str, list2)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (!ListUtils.isEmpty(list)) {
+                if (list != null && (size = list.size()) > 0) {
+                    for (int i = 0; i < size; i++) {
+                        PbContent pbContent = list.get(i);
+                        if (pbContent != null && (!TextUtils.isEmpty(pbContent.text) || !TextUtils.isEmpty(i(pbContent)))) {
+                            int f2 = f(pbContent.type);
+                            CharSequence charSequence = null;
+                            if (f2 == 35 && (q = q(f2, threadData, pbContent.tiebaplus_info)) != null) {
+                                charSequence = q.first;
+                                bk5.b(list2);
+                                list2.add(q.second);
+                            }
+                            if (charSequence == null) {
+                                charSequence = o(threadData, pbContent);
+                            }
+                            if (charSequence != null) {
+                                spannableStringBuilder.append(charSequence);
+                            }
+                        }
+                    }
+                }
+            } else {
+                if (str == null) {
+                    str = "";
+                }
+                spannableStringBuilder.append((CharSequence) str);
+            }
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeLLLL.objValue;
+    }
+
+    public static SpannableStringBuilder G(List<PbContent> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
+            return H(list, "");
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public static SpannableStringBuilder e(List<HeadItem> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, list)) == null) {
+            ItemStarData itemStarData = new ItemStarData();
+            itemStarData.parseProto(list);
+            return d(itemStarData);
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    @NonNull
+    public static final String i(@NonNull PbContent pbContent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, pbContent)) == null) {
+            TiebaPlusInfo tiebaPlusInfo = pbContent.tiebaplus_info;
+            if (tiebaPlusInfo != null) {
+                return tiebaPlusInfo.desc;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static SpannableStringBuilder H(List<PbContent> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, list, str)) == null) {
+            return E(null, list, str);
+        }
+        return (SpannableStringBuilder) invokeLL.objValue;
+    }
+
+    public static SpannableStringBuilder I(List<PbContent> list, List<HeadItem> list2, boolean z, @Nullable ThreadData threadData, @Nullable List<ao5> list3) {
+        InterceptResult invokeCommon;
+        int size;
+        CharSequence charSequence;
+        char c2;
+        Pair<CharSequence, ao5> q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{list, list2, Boolean.valueOf(z), threadData, list3})) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (!ListUtils.isEmpty(list)) {
+                if (list != null && (size = list.size()) > 0) {
+                    for (int i = 0; i < size; i++) {
+                        PbContent pbContent = list.get(i);
+                        if (pbContent != null && (!TextUtils.isEmpty(pbContent.text) || !TextUtils.isEmpty(i(pbContent)))) {
+                            int f2 = f(pbContent.type);
+                            SpannableStringBuilder spannableStringBuilder2 = null;
+                            if (f2 == 35 && (q = q(f2, threadData, pbContent.tiebaplus_info)) != null) {
+                                charSequence = q.first;
+                                bk5.b(list3);
+                                list3.add(q.second);
+                            } else {
+                                charSequence = null;
+                            }
+                            if (charSequence == null) {
+                                charSequence = o(threadData, pbContent);
+                            }
+                            if (i == 0 && list2 != null) {
+                                spannableStringBuilder2 = e(list2);
+                                if (f2 == 16) {
+                                    c2 = 1;
+                                } else {
+                                    c2 = 0;
+                                }
+                            } else {
+                                c2 = 65535;
+                            }
+                            if (c2 == 65535) {
+                                if (charSequence != null) {
+                                    spannableStringBuilder.append(charSequence);
+                                }
+                            } else if (c2 == 0) {
+                                if (spannableStringBuilder2 != null) {
+                                    spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
+                                }
+                                if (charSequence != null) {
+                                    spannableStringBuilder.append(charSequence);
+                                }
+                            } else {
+                                if (charSequence != null) {
+                                    spannableStringBuilder.append(charSequence);
+                                }
+                                if (spannableStringBuilder2 != null) {
+                                    if (z) {
+                                        spannableStringBuilder.append((CharSequence) "\n");
+                                    }
+                                    spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                spannableStringBuilder.append((CharSequence) "");
+            }
+            if (spannableStringBuilder.toString().endsWith("\n")) {
+                try {
+                    return spannableStringBuilder.replace(spannableStringBuilder.length() - 2, spannableStringBuilder.length(), (CharSequence) "");
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public static SpannableStringBuilder d(ItemStarData itemStarData) {
+        InterceptResult invokeL;
+        List<ItemStarData.SingleItemStar> list;
+        String str;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, itemStarData)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (itemStarData != null && (list = itemStarData.list) != null) {
+                int count = ListUtils.getCount(list);
+                if (count == 0) {
+                    return spannableStringBuilder;
+                }
+                if (count == 1) {
+                    try {
+                        i2 = Integer.parseInt(((ItemStarData.SingleItemStar) ListUtils.getItem(itemStarData.list, 0)).content);
+                    } catch (NumberFormatException unused) {
+                        i2 = 0;
+                    }
+                    spannableStringBuilder.append((CharSequence) r(i2, false));
+                } else {
+                    for (ItemStarData.SingleItemStar singleItemStar : itemStarData.list) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(singleItemStar.name);
+                        sb.append(": ");
+                        if (singleItemStar.type == 1) {
+                            str = singleItemStar.content;
+                        } else {
+                            str = " ";
+                        }
+                        sb.append(str);
+                        spannableStringBuilder.append((CharSequence) new SpannableString(sb.toString()));
+                        if (singleItemStar.type == 2) {
+                            try {
+                                i = Integer.parseInt(singleItemStar.content);
+                            } catch (NumberFormatException unused2) {
+                                i = 0;
+                            }
+                            spannableStringBuilder.append((CharSequence) r(i, false));
+                        }
+                        if (!spannableStringBuilder.toString().endsWith("\n")) {
+                            spannableStringBuilder.append((CharSequence) "\n");
+                        }
+                    }
+                }
+            }
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public static int f(Integer num) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, num)) == null) {
+            int intValue = num.intValue();
+            if (intValue != 13) {
+                if (intValue != 14) {
+                    if (intValue != 18) {
+                        if (intValue != 20) {
+                            if (intValue != 27) {
+                                if (intValue != 1282) {
+                                    switch (intValue) {
+                                        case 0:
+                                            return 1;
+                                        case 1:
+                                            return 2;
+                                        case 2:
+                                            return 4;
+                                        case 3:
+                                            return 8;
+                                        case 4:
+                                            return 16;
+                                        case 5:
+                                            return 32;
+                                        case 6:
+                                            return 64;
+                                        default:
+                                            switch (intValue) {
+                                                case 8:
+                                                    return 128;
+                                                case 9:
+                                                    return 256;
+                                                case 10:
+                                                    return 512;
+                                                case 11:
+                                                    return 17;
+                                                default:
+                                                    switch (intValue) {
+                                                        case 30:
+                                                        case 31:
+                                                        case 32:
+                                                        case 33:
+                                                            return 1;
+                                                        default:
+                                                            switch (intValue) {
+                                                                case 35:
+                                                                    return 35;
+                                                                case 36:
+                                                                    return 36;
+                                                                case 37:
+                                                                    return 37;
+                                                                default:
+                                                                    return 0;
+                                                            }
+                                                    }
+                                            }
+                                    }
+                                }
+                                return 1282;
+                            }
+                            return 39;
+                        }
+                        return 20;
+                    }
+                    return 18;
+                }
+                return 1280;
+            }
+            return 1024;
+        }
+        return invokeL.intValue;
+    }
+
+    public static SpannableString j(String str) {
+        InterceptResult invokeL;
+        String str2;
+        k95.a f2;
+        double d2;
+        int a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+            if (str != null && TbFaceManager.i().o(str)) {
+                String j = TbFaceManager.i().j(str);
+                if (!TextUtils.isEmpty(str) && str.startsWith("shoubai_emoji_")) {
+                    str2 = PreferencesUtil.LEFT_MOUNT + j + PreferencesUtil.RIGHT_MOUNT;
+                    f2 = TbFaceManager.i().f("image_emoticon");
+                } else {
+                    str2 = SmallTailInfo.EMOTION_PREFIX + j + SmallTailInfo.EMOTION_SUFFIX;
+                    f2 = TbFaceManager.i().f(str);
+                }
+                SpannableString spannableString = new SpannableString(str2 + " ");
+                rn5 c2 = TbFaceManager.i().c(str);
+                if (f2 != null) {
+                    if (str != null && str.startsWith("bearchildren_")) {
+                        d2 = 0.25d;
+                        a2 = f2.a();
+                    } else {
+                        d2 = 0.4d;
+                        a2 = f2.a();
+                    }
+                    int i = (int) (a2 * d2);
+                    c2.setBounds(new Rect(0, 0, i, i));
+                } else {
+                    c2.setBounds(new Rect(0, 0, 0, 0));
+                }
+                spannableString.setSpan(new jl5(c2, 2), 0, str2.length(), 33);
+                return spannableString;
+            }
+            return null;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static SpannableString k(ThreadData threadData, int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            if (i >= 1900 && i <= 2099 && i2 >= 1 && i2 <= 12 && i3 >= 1 && i3 <= 30) {
-                int[] iArr = b;
-                int i4 = i - 1900;
-                int i5 = (iArr[i4] & 31) - 1;
-                if (((iArr[i4] & 96) >> 5) == 2) {
-                    i5 += 31;
-                }
-                for (int i6 = 1; i6 < i2; i6++) {
-                    if (((524288 >> (i6 - 1)) & b[i4]) == 0) {
-                        i5 += 29;
-                    } else {
-                        i5 += 30;
-                    }
-                }
-                int i7 = i5 + i3;
-                int i8 = (b[i4] & 15728640) >> 20;
-                if (i8 != 0 && (i2 > i8 || (i2 == i8 && z))) {
-                    i7 = ((524288 >> (i2 - 1)) & b[i4]) == 0 ? i7 + 29 : i7 + 30;
-                }
-                if (i7 > 366 || (i % 4 != 0 && i7 > 365)) {
-                    i++;
-                    i7 = i % 4 == 1 ? i7 - 366 : i7 - 365;
-                }
-                int[] iArr2 = new int[3];
-                int i9 = 1;
-                while (true) {
-                    if (i9 >= 13) {
-                        break;
-                    }
-                    int i10 = a[i9];
-                    int i11 = i % 4;
-                    if (i11 == 0 && i9 > 2) {
-                        i10++;
-                    }
-                    if (i11 == 0 && i9 == 2 && i10 + 1 == i7) {
-                        iArr2[1] = i9;
-                        iArr2[2] = i7 - 31;
-                        break;
-                    } else if (i10 >= i7) {
-                        iArr2[1] = i9;
-                        int i12 = i9 - 1;
-                        int i13 = a[i12];
-                        if (i11 == 0 && i9 > 2) {
-                            i13++;
-                        }
-                        if (i7 > i13) {
-                            iArr2[2] = i7 - i13;
-                        } else if (i7 == i13) {
-                            if (i11 == 0 && i9 == 2) {
-                                int[] iArr3 = a;
-                                iArr2[2] = (iArr3[i9] - iArr3[i12]) + 1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{threadData, Integer.valueOf(i), str, str2, str3})) == null) {
+            return s(threadData, i, str, str2, 0, 0, str3);
+        }
+        return (SpannableString) invokeCommon.objValue;
+    }
+
+    public static SpannableString m(ThreadData threadData, int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{threadData, Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
+            return s(threadData, i, str, str2, 0, i2, null);
+        }
+        return (SpannableString) invokeCommon.objValue;
+    }
+
+    public static SpannableString l(ThreadData threadData, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65557, null, threadData, str, str2, str3)) == null) {
+            return k(threadData, 39, str, str2, str3);
+        }
+        return (SpannableString) invokeLLLL.objValue;
+    }
+
+    public static CharSequence o(ThreadData threadData, PbContent pbContent) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, threadData, pbContent)) == null) {
+            int f2 = f(pbContent.type);
+            if (f2 != 2) {
+                if (f2 != 4) {
+                    if (f2 != 16) {
+                        if (f2 != 18) {
+                            String str = "";
+                            if (f2 != 35) {
+                                if (f2 != 39) {
+                                    if (f2 != 1282) {
+                                        String str2 = pbContent.text;
+                                        if (str2 != null) {
+                                            str = str2;
+                                        }
+                                        return new SpannableString(str);
+                                    }
+                                } else {
+                                    String str3 = pbContent.text;
+                                    return l(threadData, str3, pbContent.item_id + "", pbContent.item_forum_name);
+                                }
                             } else {
-                                int[] iArr4 = a;
-                                iArr2[2] = iArr4[i9] - iArr4[i12];
+                                return new SpannableString("");
+                            }
+                        }
+                        if (threadData != null && pbContent != null) {
+                            qb5 f3 = qb5.f(threadData, pbContent);
+                            f3.b(HotTopicStat.Locate.THREAD_CARD);
+                            if (f2 == 1282) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            f3.a(z);
+                            return p(f3);
+                        }
+                    } else {
+                        return h(threadData, pbContent.text, String.valueOf(pbContent.uid));
+                    }
+                }
+                return j(pbContent.text);
+            }
+            return m(threadData, 2, pbContent.text, pbContent.link, pbContent.link_type.intValue());
+        }
+        return (CharSequence) invokeLL.objValue;
+    }
+
+    public static SpannableString p(@NonNull qb5 qb5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, qb5Var)) == null) {
+            SpannableString b2 = b.a(18).b(18, qb5Var.j().text, qb5Var);
+            SpecHotTopicHelper.addSpecTopic(qb5Var.l(), b2, b2.toString(), 0);
+            return b2;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 13).param("fid", GroupChatEntranceStatisticUtils.getForumIdByUrl(str)).param("room_id", GroupChatEntranceStatisticUtils.getRoomIdByUrl(str)));
+        }
+    }
+
+    public static boolean v(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            List<PbContent> firstFloorList = threadData.getFirstFloorList();
+            if (!ListUtils.isEmpty(firstFloorList)) {
+                for (int count = ListUtils.getCount(firstFloorList) - 1; count >= 0; count--) {
+                    if (firstFloorList.get(count).type.intValue() == 37) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean w(PostData postData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, postData)) == null) {
+            if (postData != null && postData.X() != null) {
+                ArrayList<TbRichTextData> I = postData.X().I();
+                if (!ListUtils.isEmpty(I)) {
+                    for (int count = ListUtils.getCount(I) - 1; count >= 0; count--) {
+                        if (I.get(count).getType() == 37) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public static Pair<CharSequence, ao5> q(int i, @Nullable ThreadData threadData, @Nullable TiebaPlusInfo tiebaPlusInfo) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65562, null, i, threadData, tiebaPlusInfo)) == null) {
+            if (threadData != null && TiePlusHelper.m(tiebaPlusInfo) && !TextUtils.isEmpty(tiebaPlusInfo.desc)) {
+                ao5 c2 = ao5.c(i, tiebaPlusInfo, threadData);
+                RichTextMaker a2 = b.a(i);
+                int intValue = tiebaPlusInfo.jump_type.intValue();
+                if (intValue != 2) {
+                    if (intValue != 3) {
+                        if (intValue != 5) {
+                            if (intValue != 6) {
+                                if (intValue != 7) {
+                                    a2.h(R.drawable.icon_pure_post_link16);
+                                }
+                            } else {
+                                a2.h(R.drawable.pic_post_order);
                             }
                         } else {
-                            iArr2[2] = i7;
+                            a2.h(R.drawable.icon_mask_messageline);
+                        }
+                    }
+                    a2.h(R.drawable.icon_pure_wechat16);
+                } else {
+                    a2.h(R.drawable.icon_pure_post_download16);
+                }
+                return Pair.create(a2.b(i, tiebaPlusInfo.desc, c2), c2);
+            }
+            return null;
+        }
+        return (Pair) invokeILL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00df  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0102  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static SpannableString s(ThreadData threadData, int i, String str, String str2, int i2, int i3, String str3) {
+        InterceptResult invokeCommon;
+        boolean z;
+        boolean z2;
+        SpannableString spannableString;
+        tn5 gVar;
+        SpannableString spannableString2;
+        String str4;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65564, null, new Object[]{threadData, Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3), str3})) == null) {
+            String str5 = str;
+            if (str5 != null) {
+                int i6 = 2;
+                if (i == 2 && z(str, str2)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (i == 39) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!str5.endsWith(" ")) {
+                    str5 = str5 + " ";
+                }
+                String str6 = str5;
+                if (z) {
+                    spannableString = new SpannableString("m" + str6);
+                } else if (z2) {
+                    spannableString = new SpannableString(str6 + "m");
+                } else {
+                    spannableString = new SpannableString(str6);
+                }
+                SpannableString spannableString3 = spannableString;
+                if (i == 18) {
+                    gVar = new c(i, str2, str2);
+                } else if (i == 1282) {
+                    gVar = new d(i, str2);
+                } else if (i == 16) {
+                    gVar = new e(i, str2, threadData, str2);
+                } else if (i == 39) {
+                    gVar = new f(i, str2, str2, threadData, str3);
+                } else {
+                    spannableString2 = spannableString3;
+                    str4 = str6;
+                    i4 = 1;
+                    i5 = 0;
+                    gVar = new g(i, str2, i3, i, str2, i3);
+                    gVar.l(i2);
+                    gVar.k(i3);
+                    if (i2 != i4) {
+                        gVar.j(R.color.CAM_X0109);
+                    } else {
+                        gVar.j(-1);
+                    }
+                    if (!z) {
+                        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(n(i3), R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                        eMRichTextAnyIconSpan.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+                        spannableString2.setSpan(eMRichTextAnyIconSpan, i5, i4, 33);
+                        spannableString2.setSpan(gVar, i4, (i4 + str4.length()) - i4, 33);
+                    } else if (z2) {
+                        EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.icon_use_item_n, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                        eMRichTextAnyIconSpan2.h(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
+                        spannableString2.setSpan(eMRichTextAnyIconSpan2, str4.length() - i4, i4 + str4.length(), 33);
+                        spannableString2.setSpan(gVar, i5, str4.length() - i4, 33);
+                        if (a != threadData.getTid()) {
+                            a = threadData.getTid();
+                            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_EXPOSURE);
+                            statisticItem.param("tid", a);
+                            if (threadData.isFromHomPage) {
+                                i6 = 1;
+                            }
+                            statisticItem.param("obj_locate", i6);
+                            TiebaStatic.log(statisticItem);
                         }
                     } else {
-                        i9++;
+                        spannableString2.setSpan(gVar, i5, str4.length() - i4, 33);
                     }
+                    return spannableString2;
                 }
-                iArr2[0] = i;
-                return iArr2;
+                spannableString2 = spannableString3;
+                str4 = str6;
+                i4 = 1;
+                i5 = 0;
+                gVar.l(i2);
+                gVar.k(i3);
+                if (i2 != i4) {
+                }
+                if (!z) {
+                }
+                return spannableString2;
             }
-            throw new IllegalArgumentException("Illegal lunar date, must be like that:\n\tyear : 1900~2099\n\tmonth : 1~12\n\tday : 1~30");
+            return null;
         }
-        return (int[]) invokeCommon.objValue;
-    }
-
-    public static long c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            int i4 = (i2 + 9) % 12;
-            int i5 = i - (i4 / 10);
-            return (((i5 * 365) + (i5 / 4)) - (i5 / 100)) + (i5 / 400) + (((i4 * 306) + 5) / 10) + (i3 - 1);
-        }
-        return invokeIII.longValue;
-    }
-
-    public static final int[] d(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3)) == null) {
-            int[] iArr = new int[4];
-            int[] iArr2 = c;
-            int i5 = 0;
-            int i6 = i - iArr2[0];
-            if (iArr2[i6] > ((i << 9) | (i2 << 5) | i3)) {
-                i6--;
-            }
-            int i7 = c[i6];
-            long c2 = c(i, i2, i3) - c(a(i7, 12, 9), a(i7, 4, 5), a(i7, 5, 0));
-            int i8 = d[i6];
-            int a2 = a(i8, 4, 13);
-            int i9 = i6 + c[0];
-            long j = c2 + 1;
-            int i10 = 1;
-            for (int i11 = 0; i11 < 13; i11++) {
-                if (a(i8, 1, 12 - i11) == 1) {
-                    i4 = 30;
-                } else {
-                    i4 = 29;
-                }
-                long j2 = i4;
-                if (j <= j2) {
-                    break;
-                }
-                i10++;
-                j -= j2;
-            }
-            int i12 = (int) j;
-            iArr[0] = i9;
-            iArr[1] = i10;
-            if (a2 != 0 && i10 > a2) {
-                iArr[1] = i10 - 1;
-                if (i10 == a2 + 1) {
-                    i5 = 1;
-                }
-            }
-            iArr[2] = i12;
-            iArr[3] = i5;
-            return iArr;
-        }
-        return (int[]) invokeIII.objValue;
+        return (SpannableString) invokeCommon.objValue;
     }
 }

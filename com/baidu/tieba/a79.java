@@ -1,91 +1,100 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface a79 {
-    void A();
+public class a79 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Fragment a;
+    public Activity b;
+    public z69 c;
 
-    void C();
+    public a79() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void D(l65 l65Var);
+    public static a79 c(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            a79 a79Var = new a79();
+            a79Var.a = fragment;
+            return a79Var;
+        }
+        return (a79) invokeL.objValue;
+    }
 
-    void E();
+    public void a(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
+            return;
+        }
+        if (i2 == -1) {
+            z69 z69Var = this.c;
+            if (z69Var != null) {
+                z69Var.a();
+                return;
+            }
+            return;
+        }
+        z69 z69Var2 = this.c;
+        if (z69Var2 != null) {
+            z69Var2.b();
+        }
+    }
 
-    LinkedList<j05> F();
-
-    void b(boolean z);
-
-    void c();
-
-    void d(String str);
-
-    void e(int i, boolean z);
-
-    void f();
-
-    int g();
-
-    void h();
-
-    boolean i();
-
-    void j();
-
-    void k(boolean z);
-
-    void m();
-
-    void n(@Nullable ArrayList<AtSelectData> arrayList);
-
-    void o(boolean z);
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    boolean onBackPressed();
-
-    void onChangeSkinType(int i);
-
-    void onCreate(Bundle bundle);
-
-    void onDestroy();
-
-    void onNewIntent(Intent intent);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void onStart();
-
-    void onStop();
-
-    void p(boolean z);
-
-    void r();
-
-    void s();
-
-    @NonNull
-    PermissionJudgePolicy t();
-
-    void u();
-
-    void v();
-
-    void w();
-
-    void x(int[] iArr);
-
-    void y(boolean z);
-
-    void z(l65 l65Var);
+    public void b(z69 z69Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z69Var) == null) {
+            this.c = z69Var;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
+                }
+                z69 z69Var2 = this.c;
+                if (z69Var2 != null) {
+                    z69Var2.a();
+                    return;
+                }
+                return;
+            }
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                z69 z69Var3 = this.c;
+                if (z69Var3 != null) {
+                    z69Var3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+        }
+    }
 }

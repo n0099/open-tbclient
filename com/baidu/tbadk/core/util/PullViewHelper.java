@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +84,7 @@ public class PullViewHelper {
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
         this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
-        setShouldShowLoadingView(qy4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(ry4.l().i("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 
     private File createFileDir(File file) {
@@ -179,18 +179,18 @@ public class PullViewHelper {
     public void buildDrawables() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String q = qy4.k().q("pull_image_url", "");
+            String r = ry4.l().r("pull_image_url", "");
             boolean z = false;
-            int l = qy4.k().l("pull_image_num", 0);
-            this.pullview_backgroundColor_day = qy4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            this.pullview_backgroundColor_night = qy4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
-            if (!TextUtils.isEmpty(q)) {
-                if (l > 0 && isImagesExist(l)) {
-                    this.drawables = new Drawable[l];
+            int m = ry4.l().m("pull_image_num", 0);
+            this.pullview_backgroundColor_day = ry4.l().m("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            this.pullview_backgroundColor_night = ry4.l().m("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            if (!TextUtils.isEmpty(r)) {
+                if (m > 0 && isImagesExist(m)) {
+                    this.drawables = new Drawable[m];
                     File imageFileDir = getImageFileDir();
                     if (imageFileDir != null) {
                         File[] listFiles = imageFileDir.listFiles();
-                        for (int i = 1; i <= l; i++) {
+                        for (int i = 1; i <= m; i++) {
                             this.drawables[i - 1] = buildDrawable(listFiles, i + ".");
                         }
                     }
@@ -382,8 +382,8 @@ public class PullViewHelper {
             int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int l = qy4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int l2 = qy4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int m = ry4.l().m("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int m2 = ry4.l().m("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -392,18 +392,18 @@ public class PullViewHelper {
                     i = Color.parseColor(str5);
                 } catch (Exception unused2) {
                 }
-                if (l != i2 || i != l2) {
-                    qy4.k().w("pullview_background_color_day", i2);
-                    qy4.k().w("pullview_background_color_night", i);
+                if (m != i2 || i != m2) {
+                    ry4.l().x("pullview_background_color_day", i2);
+                    ry4.l().x("pullview_background_color_night", i);
                     this.pullview_backgroundColor_day = i2;
                     this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
-                qy4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                qy4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                ry4.l().x("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                ry4.l().x("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             }
-            qy4.k().u("pullview_should_show_3d_loading", true);
+            ry4.l().v("pullview_should_show_3d_loading", true);
             setShouldShowLoadingView(true);
             dh.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
@@ -432,10 +432,10 @@ public class PullViewHelper {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        qy4.k().D("pull_image_url");
-                        qy4.k().D("pull_image_num");
-                        qy4.k().D("pullview_background_color_day");
-                        qy4.k().D("pullview_background_color_night");
+                        ry4.l().E("pull_image_url");
+                        ry4.l().E("pull_image_num");
+                        ry4.l().E("pullview_background_color_day");
+                        ry4.l().E("pullview_background_color_night");
                         this.this$0.deletePullDir();
                         this.this$0.buildDrawables();
                     }

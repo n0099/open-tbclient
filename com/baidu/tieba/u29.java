@@ -1,7 +1,13 @@
 package com.baidu.tieba;
-
-import android.graphics.Bitmap;
 /* loaded from: classes6.dex */
 public interface u29 {
-    void a(int i, Bitmap bitmap);
+    void D0(String str);
+
+    void H0(String str);
+
+    void a0();
+
+    void p0(String str, String str2);
+
+    void showErrorView();
 }

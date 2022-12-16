@@ -1,40 +1,62 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.interest.data.RecentClientInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class pk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public nk7 a;
+    public RecentClientInfo b;
 
-    public static String a(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public pk7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str + "?");
-            Iterator<String> keys = jSONObject.keys();
-            boolean z = true;
-            while (keys.hasNext()) {
-                if (z) {
-                    String next = keys.next();
-                    if (next != null) {
-                        sb.append(next + "=" + jSONObject.optString(next));
-                        z = false;
-                    }
-                } else {
-                    String next2 = keys.next();
-                    if (next2 != null) {
-                        sb.append("&");
-                        sb.append(next2 + "=" + jSONObject.optString(next2));
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public nk7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (nk7) invokeV.objValue;
+    }
+
+    public RecentClientInfo b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (RecentClientInfo) invokeV.objValue;
+    }
+
+    public void c(nk7 nk7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nk7Var) == null) {
+            this.a = nk7Var;
+        }
+    }
+
+    public void d(RecentClientInfo recentClientInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, recentClientInfo) == null) {
+            this.b = recentClientInfo;
+        }
     }
 }

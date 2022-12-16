@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pz4;
-import com.baidu.tieba.tr4;
+import com.baidu.tieba.vr4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ExtraLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class ExtraLayout extends RelativeLayout {
     public View.OnClickListener d;
     public final View.OnClickListener e;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,26 +140,26 @@ public class ExtraLayout extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0197, (ViewGroup) this, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090987);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_extra_item, (ViewGroup) this, true);
+            TextView textView = (TextView) inflate.findViewById(R.id.extra_text);
             this.b = textView;
             textView.setCompoundDrawablePadding(yi.g(context, R.dimen.tbds10));
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090986);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090983);
+            this.c = (TextView) inflate.findViewById(R.id.extra_tag);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
             pz4 pz4Var = new pz4();
             pz4Var.r(R.color.CAM_X0302);
             this.a.setConfig(pz4Var);
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0523));
+            this.a.setText(getResources().getString(R.string.download_just_now));
         }
     }
 
-    public void setData(tr4 tr4Var) {
+    public void setData(vr4 vr4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tr4Var) == null) {
-            ThreadData threadData = tr4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr4Var) == null) {
+            ThreadData threadData = vr4Var.getThreadData();
             boolean z2 = true;
             int i = 8;
             if (!TextUtils.isEmpty(threadData.extraText)) {

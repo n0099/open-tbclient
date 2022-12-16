@@ -54,19 +54,6 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
         mImageExtrasList = new String[]{ProducerContext.ExtraKeys.ENCODED_SIZE, ProducerContext.ExtraKeys.ENCODED_WIDTH, ProducerContext.ExtraKeys.ENCODED_HEIGHT, ProducerContext.ExtraKeys.SOURCE_URI, "image_format", "bitmap_config"};
     }
 
-    public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || isClosed()) {
-            return;
-        }
-        FLog.w(TAG, "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
-        try {
-            close();
-        } finally {
-            super.finalize();
-        }
-    }
-
     public CloseableImage() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -102,6 +89,19 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
             return ImmutableQualityInfo.FULL_QUALITY;
         }
         return (QualityInfo) invokeV.objValue;
+    }
+
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || isClosed()) {
+            return;
+        }
+        FLog.w(TAG, "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
+        try {
+            close();
+        } finally {
+            super.finalize();
+        }
     }
 
     public void setImageExtras(Map<String, Object> map) {

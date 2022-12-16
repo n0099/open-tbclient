@@ -1,13 +1,19 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes4.dex */
 public interface ip6 {
-    mp6 a(int i);
+    void a(kp6 kp6Var);
 
-    void b(int i, int i2);
+    void b(List<mp6> list);
 
-    void c(int i, int i2);
+    void c(boolean z, String str);
 
-    boolean d(int i, int i2);
+    void d(lp6 lp6Var);
 
-    String k();
+    void e(String str);
+
+    void f();
+
+    void finish();
 }

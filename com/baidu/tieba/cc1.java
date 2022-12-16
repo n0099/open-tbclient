@@ -1,48 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cc1 extends Handler {
+public class cc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+    public String b;
+    public Bitmap c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc1() {
-        super(Looper.getMainLooper());
+    public cc1(ImageView imageView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageView, str, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            dc1 dc1Var = (dc1) message.obj;
-            ImageView imageView = dc1Var.a;
-            if (((String) imageView.getTag()).equals(dc1Var.b)) {
-                imageView.setImageBitmap(dc1Var.c);
-            } else {
-                ed1.g("不是最新数据");
-            }
-        }
+        this.a = imageView;
+        this.b = str;
+        this.c = bitmap;
     }
 }

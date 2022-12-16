@@ -3,12 +3,11 @@ package com.baidu.rtc.logreport;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.rtc.CommonDefine;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,10 +121,10 @@ public class ErrorInfoReport {
             OTHER_ERROR = new ErrorCode("OTHER_ERROR", 17, 700, "OTHER_ERROR");
             ENTER_FAILED = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_FAILED, 18, NodeType.E_PARTICLE, CommonDefine.SLILoginEvent.ENTER_FAILED);
             ENTER_TIMEOUT = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_TIMEOUT, 19, NodeType.E_PARTICLE, CommonDefine.SLILoginEvent.ENTER_TIMEOUT);
-            AUDIO_STUCK = new ErrorCode("AUDIO_STUCK", 20, ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, "AUDIO_STUCK");
-            VIDEO_STUCK = new ErrorCode("VIDEO_STUCK", 21, 7002, "VIDEO_STUCK");
-            BAD_END_TO_END_DELAY = new ErrorCode("BAD_END_TO_END_DELAY", 22, 7003, "BAD_END_TO_END_DELAY");
-            ErrorCode errorCode = new ErrorCode("BAD_FIRST_FRAME_TIME", 23, 7004, "BAD_FIRST_FRAME_TIME");
+            AUDIO_STUCK = new ErrorCode("AUDIO_STUCK", 20, 7001, "AUDIO_STUCK");
+            VIDEO_STUCK = new ErrorCode("VIDEO_STUCK", 21, RecallSysMsg.MSG_TYPE, "VIDEO_STUCK");
+            BAD_END_TO_END_DELAY = new ErrorCode("BAD_END_TO_END_DELAY", 22, TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE, "BAD_END_TO_END_DELAY");
+            ErrorCode errorCode = new ErrorCode("BAD_FIRST_FRAME_TIME", 23, TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE, "BAD_FIRST_FRAME_TIME");
             BAD_FIRST_FRAME_TIME = errorCode;
             $VALUES = new ErrorCode[]{LOGIN_ERROR, LOGIN_TIMEOUT, SIGNAL_CHANNEL_CONNECTION_LOST, ROOM_LIVE_PUBLISH_FAIL, ANCHOR_LIVE_PUBLISH_FAIL, ROOM_LIVE_INTRERRUPT, ANCHOR_LIVE_INTRERRUPT, VIDEO_SENDING_MEDIA_FAILED, AUDIO_SENDING_MEDIA_FAILED, PEERCONNECTION_CREATE_ERROR, MEDIA_CHANNEL_CONNECTION_LOST, SO_LATER_DOWNLOADING_FAIL, SO_LATER_LOADING_FAIL, KEEPALIVE_TIMEOUT, USR_ALREADY_EXIST, HANG_UP, SET_EXTERNAL_SURFACE_ERROR, OTHER_ERROR, ENTER_FAILED, ENTER_TIMEOUT, AUDIO_STUCK, VIDEO_STUCK, BAD_END_TO_END_DELAY, errorCode};
         }
@@ -357,11 +356,11 @@ public class ErrorInfoReport {
                 jSONObject.put("env", this.env);
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("version", this.version);
-                jSONObject.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
+                jSONObject.put("device", RtcLogReport.getDeviceModel());
                 jSONObject.put("clientIp", this.clientIp);
                 jSONObject.put("serverIp", str2);
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.roomId);
+                jSONObject.put("roomId", this.roomId);
                 jSONObject.put("userId", this.userId);
                 if (j2 > 0) {
                     jSONObject.put("feedId", j2);

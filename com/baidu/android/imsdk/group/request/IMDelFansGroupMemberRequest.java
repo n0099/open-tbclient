@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
@@ -10,7 +9,6 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
@@ -31,6 +29,7 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
     public static final String TAG = "IMDelFansGroupMemberRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> mBuids;
+    public int mDelState;
     public String mGroupId;
     public String mKey;
 
@@ -112,7 +111,6 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
@@ -123,16 +121,16 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMDelFansGroupMemberRequest(Context context, String str, ArrayList<String> arrayList, String str2) {
+    public IMDelFansGroupMemberRequest(Context context, String str, ArrayList<String> arrayList, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, arrayList, str2};
+            Object[] objArr = {context, str, arrayList, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -142,6 +140,7 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
         this.mKey = str2;
         this.mGroupId = str;
         this.mBuids = arrayList;
+        this.mDelState = i;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -153,6 +152,8 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
             sb.append("method=delete_members");
             sb.append("&group_id=");
             sb.append(this.mGroupId);
+            sb.append("&add_blacklist=");
+            sb.append(this.mDelState);
             JSONArray jSONArray = new JSONArray();
             Iterator<String> it = this.mBuids.iterator();
             while (it.hasNext()) {

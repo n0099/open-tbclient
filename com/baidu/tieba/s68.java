@@ -1,33 +1,41 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<kn> a;
-    public TbPageContext b;
-    public HTypeListView c;
-    public q68 d;
-    public p68 e;
-    public o68 f;
+    public w68 a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<kn> e;
+    public View.OnClickListener f;
+    public ho g;
+    public boolean h;
+    public boolean i;
 
-    public s68(TbPageContext tbPageContext, HTypeListView hTypeListView) {
+    public s68(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, hTypeListView};
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,46 +45,103 @@ public class s68 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = tbPageContext;
-        this.c = hTypeListView;
-        a();
+        this.e = new ArrayList();
+        this.f = null;
+        this.h = false;
+        this.i = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
     }
 
-    public final void a() {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new q68(this.b, y55.d);
-            this.e = new p68(this.b, w68.b);
-            this.f = new o68(this.b.getPageActivity(), k68.d);
-            this.a.add(this.d);
-            this.a.add(this.e);
-            this.a.add(this.f);
-            this.c.a(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
+            this.d.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void b() {
-        HTypeListView hTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hTypeListView = this.c) != null && (hTypeListView.getAdapter() instanceof TypeAdapter)) {
-            ((TypeAdapter) this.c.getAdapter()).notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<xn> list) {
-        HTypeListView hTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (hTypeListView = this.c) != null) {
-            hTypeListView.setData(list);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            w68 w68Var = new w68(this.c, PostData.N0);
+            this.a = w68Var;
+            w68Var.e(this.f);
+            this.a.setOnAdapterItemClickListener(this.g);
+            this.a.setFromCDN(this.i);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, z68.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new x68(this.c, y68.a));
+            this.d.a(this.e);
         }
     }
 
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.d.u(onClickListener);
-            this.e.u(onClickListener);
+            this.f = onClickListener;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        w68 w68Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (w68Var = this.a) != null) {
+            w68Var.F(z);
+        }
+    }
+
+    public void j(TbRichTextView.y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, yVar) == null) {
+            this.a.n(yVar);
+        }
+    }
+
+    public void e(ThreadData threadData, List<xn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.H(threadData);
+            if (!xi.isEmpty(this.c.H3().z0())) {
+                this.a.G(this.c.H3().z0());
+            }
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.H3() != null) {
+                this.a.E(this.c.H3().U0());
+            }
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
         }
     }
 }

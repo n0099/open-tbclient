@@ -31,6 +31,7 @@ public class BdNetTypeUtil {
     public static final int NETWORK_CLASS_2_G = 1;
     public static final int NETWORK_CLASS_3_G = 2;
     public static final int NETWORK_CLASS_4_G = 3;
+    public static final int NETWORK_CLASS_5_G = 4;
     public static final int NETWORK_CLASS_UNKNOWN = 0;
     public static final int NETWORK_OPERATOR_MOBILE = 1;
     public static final int NETWORK_OPERATOR_TELECOM = 3;
@@ -56,11 +57,13 @@ public class BdNetTypeUtil {
     public static final String NET_TYPENAME_2G = "2g";
     public static final String NET_TYPENAME_3G = "3g";
     public static final String NET_TYPENAME_4G = "4g";
+    public static final String NET_TYPENAME_5G = "5g";
     public static final String NET_TYPENAME_UNAVAILABLE = "unreachable";
     public static final String NET_TYPENAME_WIFI = "wifi";
     public static final int NET_TYPE_2G = 2;
     public static final int NET_TYPE_3G = 3;
     public static final int NET_TYPE_4G = 4;
+    public static final int NET_TYPE_5G = 5;
     public static final int NET_TYPE_WIFI = 1;
     public static BdNetTypeUtil mInstance;
     public static Pattern mPattern;
@@ -215,12 +218,39 @@ public class BdNetTypeUtil {
         mInstance = null;
     }
 
+    public static String getNetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (!isNetWorkAvailable()) {
+                return "N";
+            }
+            if (isWifiNet()) {
+                return "WIFI";
+            }
+            if (is5GNet()) {
+                return "5G";
+            }
+            if (is4GNet()) {
+                return "4G";
+            }
+            if (is3GNet()) {
+                return "3G";
+            }
+            if (!is2GNet()) {
+                return "N";
+            }
+            return "2G";
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static int readNetworkOperatorType() {
         InterceptResult invokeV;
         String substring;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
             String j = aj.j();
             if (j.length() < 4 || xi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
                 return 0;
@@ -278,35 +308,11 @@ public class BdNetTypeUtil {
         this.mNetChangeRunnable = new a(this);
     }
 
-    public static String getNetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (!isNetWorkAvailable()) {
-                return "N";
-            }
-            if (isWifiNet()) {
-                return "WIFI";
-            }
-            if (is4GNet()) {
-                return "4G";
-            }
-            if (is3GNet()) {
-                return "3G";
-            }
-            if (!is2GNet()) {
-                return "N";
-            }
-            return "2G";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static boolean isNetworkAvailableForImmediately() {
         InterceptResult invokeV;
         NetworkInfo[] allNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity");
                 if (connectivityManager != null && (allNetworkInfo = connectivityManager.getAllNetworkInfo()) != null && allNetworkInfo.length > 0) {
@@ -326,7 +332,7 @@ public class BdNetTypeUtil {
     public static boolean isWap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             NetworkInfo activeNetworkInfo = getInstance().getActiveNetworkInfo();
             if (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) {
                 return false;
@@ -339,7 +345,7 @@ public class BdNetTypeUtil {
     public static int netType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
             if (isWifiNet()) {
                 return 1;
             }
@@ -349,7 +355,13 @@ public class BdNetTypeUtil {
             if (is3GNet()) {
                 return 3;
             }
-            if (is4GNet() || isNetWorkAvailable()) {
+            if (is4GNet()) {
+                return 4;
+            }
+            if (is5GNet()) {
+                return 5;
+            }
+            if (isNetWorkAvailable()) {
                 return 4;
             }
             return 0;
@@ -360,13 +372,16 @@ public class BdNetTypeUtil {
     public static String netTypeNameInLowerCase() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             int netType = netType();
             if (netType != 1) {
                 if (netType != 2) {
                     if (netType != 3) {
                         if (netType != 4) {
-                            return NET_TYPENAME_UNAVAILABLE;
+                            if (netType != 5) {
+                                return NET_TYPENAME_UNAVAILABLE;
+                            }
+                            return "5g";
                         }
                         return "4g";
                     }
@@ -513,10 +528,22 @@ public class BdNetTypeUtil {
         return invokeV.booleanValue;
     }
 
-    public static boolean isMobileNet() {
+    public static boolean is5GNet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            if (4 == getInstance().getCurMobileNetClassify()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMobileNet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
             return getInstance().isMobile();
         }
         return invokeV.booleanValue;
@@ -525,7 +552,7 @@ public class BdNetTypeUtil {
     public static boolean isNetWorkAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             return getInstance().isNetAvailable();
         }
         return invokeV.booleanValue;
@@ -534,7 +561,7 @@ public class BdNetTypeUtil {
     public static boolean isOpenNetChangedMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
             return getInstance().isOpenNetChangedMessage();
         }
         return invokeV.booleanValue;
@@ -543,7 +570,7 @@ public class BdNetTypeUtil {
     public static boolean isPorxyUsed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
             if (getInstance().isWifi || readNetworkOperatorType() == 1 || xi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
                 return false;
             }
@@ -555,7 +582,7 @@ public class BdNetTypeUtil {
     public static boolean isSupportWap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
             return mSupportWap;
         }
         return invokeV.booleanValue;
@@ -564,7 +591,7 @@ public class BdNetTypeUtil {
     public static boolean isWifiNet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
             return getInstance().isWifi();
         }
         return invokeV.booleanValue;
@@ -573,7 +600,7 @@ public class BdNetTypeUtil {
     public static String netTypeNameInUpperCase() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             String netTypeNameInLowerCase = netTypeNameInLowerCase();
             if (netTypeNameInLowerCase != null) {
                 return netTypeNameInLowerCase.toUpperCase();
@@ -715,7 +742,7 @@ public class BdNetTypeUtil {
     public static boolean isWap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
             return mPattern.matcher(str).find();
         }
         return invokeL.booleanValue;
@@ -723,21 +750,21 @@ public class BdNetTypeUtil {
 
     private void setNetChangedTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65571, this, j) == null) {
             this.mNetChangedTime = j;
         }
     }
 
     public static void setNetWorkChangedTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65571, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65572, null, j) == null) {
             getInstance().setNetChangedTime(j);
         }
     }
 
     public static void setSupportWap(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65572, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65573, null, z) == null) {
             mSupportWap = z;
         }
     }

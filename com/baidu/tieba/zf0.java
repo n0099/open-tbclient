@@ -1,72 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class zf0 {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
+/* loaded from: classes7.dex */
+public final class zf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public static void a(File file, File file2) throws ZipException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
+        if (interceptable == null || interceptable.invokeLL(65536, null, file, file2) == null) {
+            if (!file2.exists()) {
+                file2.mkdirs();
             }
-            if (i >= 21) {
-                return c(context);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                String[] strArr = Build.SUPPORTED_ABIS;
-                if (strArr.length > 0) {
-                    str = strArr[0];
-                } else {
-                    str = null;
+            String absolutePath = file2.getAbsolutePath();
+            ZipFile zipFile = new ZipFile(file);
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                String name = nextElement.getName();
+                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
+                    InputStream inputStream = zipFile.getInputStream(nextElement);
+                    File file3 = new File(absolutePath + File.separator + name);
+                    if (!file3.exists()) {
+                        File parentFile = file3.getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        file3.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    inputStream.close();
+                    fileOutputStream.close();
                 }
-            } else {
-                str = Build.CPU_ABI;
-            }
-            if (str == null || !str.contains("arm64")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                Object invoke = ClassLoader.class.getDeclaredMethod("findLibrary", String.class).invoke(context.getClassLoader(), "art");
-                if (invoke == null) {
-                    return false;
-                }
-                return ((String) invoke).contains("lib64");
-            } catch (Exception unused) {
-                return b();
             }
         }
-        return invokeL.booleanValue;
     }
 }

@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"KotlinPropertyAccess"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UniversalPlayer extends BDVideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UniversalPlayer";
@@ -102,7 +102,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DELAY_TIME = 1000;

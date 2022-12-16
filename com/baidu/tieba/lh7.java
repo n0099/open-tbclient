@@ -4,61 +4,104 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
-import com.baidu.tbadk.data.LiveRemindNormalConfigData;
-import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
-import com.baidu.tieba.image.liveroom.LiveRoomRecommendListAdapter;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class lh7 implements ImagePagerAdapter.a {
+/* loaded from: classes5.dex */
+public class lh7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveRoomRecommendListAdapter a;
-    public int b;
-    public TbPageContext c;
-    public LiveRemindNormalConfigData d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public List<String> i;
-    public CustomMessageListener j;
+    public final TbPageContext<?> a;
+    public b b;
+    public List<ChatRoomInfoData> c;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(View view2, ChatRoomInfoData chatRoomInfoData);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lh7 a;
+        public HeadImageView a;
+        public TextView b;
+        public TbRichTextView c;
+        public ChatRoomInfoData d;
+        public final CustomMessageListener e;
 
-        public a(lh7 lh7Var) {
+        /* loaded from: classes5.dex */
+        public class a extends CustomMessageListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public a(c cVar, int i) {
+                super(i);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
+                    this.a.c(TbadkCoreApplication.getInst().getSkinType());
+                }
+            }
+        }
+
+        public c(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lh7Var};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,101 +111,107 @@ public class lh7 implements ImagePagerAdapter.a {
                     return;
                 }
             }
-            this.a = lh7Var;
+            this.e = new a(this, 2001304);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090622);
+            this.a = headImageView;
+            headImageView.setIsRound(true);
+            this.a.setPlaceHolder(1);
+            this.a.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.L_X04));
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090629);
+            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f09061c);
+            this.c = tbRichTextView;
+            tbRichTextView.setMaxLines(1);
+            this.c.setTextEllipsize(TextUtils.TruncateAt.END);
+            this.c.setAddTruncateListener(true);
+            this.c.setClickable(false);
+        }
+
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a.setSkinType(i);
+                this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0211));
+                rw4 d = rw4.d(this.b);
+                d.A(R.string.F_X02);
+                d.z(R.dimen.T_X06);
+                d.v(R.color.CAM_X0105);
+                rw4.d(this.c).A(R.string.F_X01);
+                this.c.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X08));
+                this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+                this.c.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            }
+        }
+
+        public ChatRoomInfoData b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.d;
+            }
+            return (ChatRoomInfoData) invokeV.objValue;
+        }
+
+        public void d(TbPageContext<?> tbPageContext, @NonNull ChatRoomInfoData chatRoomInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, chatRoomInfoData) == null) {
+                ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+                ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
+                if (chatroomInfoBasicData != null && chatroomMEMsgInfoData != null) {
+                    this.d = chatRoomInfoData;
+                    this.a.K(chatroomInfoBasicData.getAvatar(), 10, false);
+                    this.b.setText(chatroomInfoBasicData.getName());
+                    if (!StringUtils.isNull(chatroomMEMsgInfoData.getFromName()) && !StringUtils.isNull(chatroomMEMsgInfoData.getContent())) {
+                        this.c.setVisibility(0);
+                        this.c.setText(new TbRichText(xa7.c(chatroomMEMsgInfoData.getFromName() + tbPageContext.getString(R.string.obfuscated_res_0x7f0f03b6) + chatroomMEMsgInfoData.getContent(), 1)));
+                        return;
+                    }
+                    this.c.setVisibility(8);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ lh7 b;
+
+        public a(lh7 lh7Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lh7Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lh7Var;
+            this.a = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                dh7.c(2, this.a.e, this.a.g, TbadkCoreApplication.getCurrentAccount(), this.a.f, null);
-                this.a.h();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.b != null) {
+                this.b.b.a(view2, this.a.b());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends StaggeredGridLayoutManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // androidx.recyclerview.widget.StaggeredGridLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public boolean canScrollVertically() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(lh7 lh7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lh7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<lh7> a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(lh7 lh7Var) {
-            super(2921733);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lh7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(lh7Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            lh7 lh7Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (lh7Var = this.a.get()) == null || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921733 || customResponsedMessage.hasError() || customResponsedMessage.getError() != 0) {
-                return;
-            }
-            lh7Var.d = dy4.a().b;
-        }
-    }
-
-    public lh7(List<String> list, TbPageContext tbPageContext, String str, String str2, String str3) {
+    public lh7(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, tbPageContext, str, str2, str3};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -172,110 +221,89 @@ public class lh7 implements ImagePagerAdapter.a {
                 return;
             }
         }
-        this.b = 0;
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.j = new c(this);
-        this.i = list;
-        this.c = tbPageContext;
-        this.a = new LiveRoomRecommendListAdapter(tbPageContext, str, str2, str3);
-        this.d = dy4.a().b;
-        this.g = str2;
-        this.e = str;
-        this.f = str3;
+        this.c = new ArrayList();
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public void c(ViewGroup viewGroup, int i) {
+    public final void b(List<ChatRoomInfoData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i) == null) {
-            MessageManager.getInstance().unRegisterListener(this.j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (int i = 0; i < 10; i++) {
+                this.c.add(new ChatRoomInfoData());
+            }
+            this.c.set(0, list.get(0));
+            notifyDataSetChanged();
         }
     }
 
-    public void i(int i) {
+    public void c(List<ChatRoomInfoData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-            this.a.i(i);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (ListUtils.isEmpty(this.c)) {
+            b(list);
+        } else {
+            this.c.set(0, list.get(0));
         }
     }
 
-    public void j(boolean z) {
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 
-    public void k(List<kh7> list) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.a.j(list);
-        }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public View a(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (!this.h) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            List<ChatRoomInfoData> list = this.c;
+            if (list == null) {
                 return null;
             }
-            String str = (String) ListUtils.getItem(this.i, i);
-            if (!TextUtils.isEmpty(str) && !str.startsWith("####mLiveRoomPageProvider")) {
-                return null;
-            }
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0783, viewGroup, false);
-            WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09039f), R.drawable.obfuscated_res_0x7f08095e, R.color.CAM_X0101, null);
-            qw4 d = qw4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a0));
-            d.v(R.color.CAM_X0101);
-            d.z(R.dimen.T_X08);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09039e).setOnClickListener(new a(this));
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0903a2);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
-            layoutParams.topMargin = this.b;
-            linearLayout.setLayoutParams(layoutParams);
-            viewGroup.addView(inflate);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a5);
-            bdRecyclerView.setLayoutManager(new b(this, 2, 1));
-            bdRecyclerView.addItemDecoration(new LiveRoomRecommendListAdapter.LiveRoomItemDecoration());
-            bdRecyclerView.setAdapter(this.a);
-            MessageManager.getInstance().registerListener(this.j);
-            return inflate;
+            return list.get(i);
         }
-        return (View) invokeLI.objValue;
+        return invokeI.objValue;
     }
 
-    public final void g(String str) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                if (StringUtils.isNull(str)) {
-                    new AlaTabFeedActivityConfig(this.c.getPageActivity()).start();
-                    return;
-                } else {
-                    UrlManager.getInstance().dealOneLink(this.c, new String[]{str}, true);
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!ListUtils.isEmpty(this.c)) {
+                return this.c.size();
             }
-            LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
-            liveStartClickDataEvent.viewTag = str;
-            ub5.i(liveStartClickDataEvent);
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public void h() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LiveRemindNormalConfigData liveRemindNormalConfigData = this.d;
-            if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                g(h35.a(this.d.getNormalIconScheme(), 4));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c8, viewGroup, false);
+                cVar = new c(view2);
+                view2.setTag(cVar);
             } else {
-                g("");
+                cVar = (c) view2.getTag();
+                MessageManager.getInstance().unRegisterListener(cVar.e);
             }
+            if (!ListUtils.isEmpty(this.c)) {
+                cVar.d(this.a, this.c.get(0));
+            }
+            MessageManager.getInstance().registerListener(cVar.e);
+            cVar.c(TbadkCoreApplication.getInst().getSkinType());
+            view2.setOnClickListener(new a(this, cVar));
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

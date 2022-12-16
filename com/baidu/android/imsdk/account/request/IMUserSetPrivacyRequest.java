@@ -1,14 +1,12 @@
 package com.baidu.android.imsdk.account.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatuser.request.IMUserBaseHttpRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,8 +77,8 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        String str;
         int i2;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str2 = new String(bArr);
@@ -96,9 +94,8 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
                 }
             } catch (JSONException e) {
                 LogUtils.e("IMUserSetPrivacyRequest", "JSONException", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
+                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             AccountManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, i2, str, this.mPrivacy);
         }

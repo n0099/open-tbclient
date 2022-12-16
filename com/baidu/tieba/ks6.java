@@ -1,48 +1,164 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
+import android.content.res.Resources;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ks6 {
+import java.util.ArrayList;
+import tbclient.ApkDetail;
+import tbclient.ItemInfo;
+/* loaded from: classes5.dex */
+public class ks6 extends vr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nj6 a;
-    public final FrsFragment b;
-    public final fw6 c;
-    public final zv6 d;
-    public final FrsModelController e;
-    public final tk6 f;
-    public final ds6 g;
+    public ArrayList<ps6> a;
 
-    public ks6(FrsFragment frsFragment) {
+    @Override // com.baidu.tieba.vr4
+    public rt4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (rt4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vr4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923707, "Lcom/baidu/tieba/ks6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947923707, "Lcom/baidu/tieba/ks6;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public ks6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (frsFragment != null) {
-            this.b = frsFragment;
-            this.d = frsFragment.n0();
-            this.a = this.b.j1();
-            this.c = this.b.E3();
-            this.e = this.b.J0();
-            this.f = this.b.z3();
-            this.g = this.b.Z0();
-            return;
+        setSupportType(BaseCardInfo.SupportType.FULL);
+    }
+
+    public ArrayList<ps6> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        throw new NullPointerException("FrsActivity is NullPointerException");
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !ListUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void g(ItemInfo itemInfo) {
+        ApkDetail apkDetail;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
+            }
+            this.a.clear();
+            if (itemInfo != null && (apkDetail = itemInfo.apk_detail) != null) {
+                if (!xi.isEmpty(apkDetail.developer)) {
+                    this.a.add(new ps6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04ff), itemInfo.apk_detail.developer, null));
+                }
+                if (!xi.isEmpty(itemInfo.apk_detail.publisher)) {
+                    this.a.add(new ps6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fc4), itemInfo.apk_detail.publisher, null));
+                }
+                if (!xi.isEmpty(itemInfo.apk_detail.version)) {
+                    this.a.add(new ps6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0496), itemInfo.apk_detail.version, null));
+                }
+                if (!xi.isEmpty(itemInfo.apk_detail.update_time)) {
+                    this.a.add(new ps6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1564), itemInfo.apk_detail.update_time, null));
+                }
+                if (xg.g(itemInfo.apk_detail.size, 0L) > 0) {
+                    this.a.add(new ps6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f063c), StringHelper.getFormatSize(xg.g(itemInfo.apk_detail.size, 0L)), null));
+                }
+                int intValue = itemInfo.apk_detail.need_network.intValue();
+                int i2 = R.string.editor_dialog_yes;
+                if (intValue > 0) {
+                    ArrayList<ps6> arrayList = this.a;
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09e5);
+                    Resources resources = TbadkCoreApplication.getInst().getResources();
+                    if (itemInfo.apk_detail.need_network.intValue() == 1) {
+                        i = R.string.editor_dialog_yes;
+                    } else {
+                        i = R.string.editor_dialog_no;
+                    }
+                    arrayList.add(new ps6(string, resources.getString(i), null));
+                }
+                if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
+                    ArrayList<ps6> arrayList2 = this.a;
+                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0887);
+                    Resources resources2 = TbadkCoreApplication.getInst().getResources();
+                    if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
+                        i2 = R.string.editor_dialog_no;
+                    }
+                    arrayList2.add(new ps6(string2, resources2.getString(i2), null));
+                }
+                if (!xi.isEmpty(itemInfo.apk_detail.authority_url)) {
+                    this.a.add(new ps6(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
+                }
+                if (!xi.isEmpty(itemInfo.apk_detail.privacy_url)) {
+                    this.a.add(new ps6(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
+                }
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
@@ -38,7 +39,7 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
         this.count = 0;
         this.paListener = iGetPaInfosListener;
         this.maxCount = i;
-        this.result = new ArrayList();
+        this.result = Collections.synchronizedList(new ArrayList());
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener

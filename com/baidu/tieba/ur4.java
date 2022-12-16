@@ -1,30 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.RomTypeUtil;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.ActInfo;
 /* loaded from: classes6.dex */
 public class ur4 {
     public static /* synthetic */ Interceptable $ic;
+    public static ur4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public int f;
-    public boolean g;
-    public int h;
-    public int i;
-    public ru4 j;
+    public Runnable a;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ur4 a;
+
+        public a(ur4 ur4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ur4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ur4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d(0);
+            }
+        }
+    }
 
     public ur4() {
         Interceptable interceptable = $ic;
@@ -39,176 +67,59 @@ public class ur4 {
                 return;
             }
         }
-        this.h = 1;
-        this.i = 1;
+        this.a = new a(this);
     }
 
-    public int a() {
+    public static ur4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ur4.class) {
+                    if (b == null) {
+                        b = new ur4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ur4) invokeV.objValue;
+    }
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            if (RomTypeUtil.check("EMUI")) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("activity_type");
-            this.b = jSONObject.optInt("status");
-            this.c = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
-            this.d = jSONObject.optInt("end_time");
-            this.e = jSONObject.optString("url");
-            this.f = jSONObject.optInt("total_num");
-            jSONObject.optInt("activity_id");
-            jSONObject.optInt("award_act_id");
-            jSONObject.optInt("component_id");
-            this.g = jSONObject.optBoolean("is_senior");
-            jSONObject.optString("banner_img");
-            jSONObject.optInt("show_total_num");
-            String optString = jSONObject.optString("banner_img_size");
-            if (!xi.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                this.h = xg.e(split[0], 1);
-                this.i = xg.e(split[1], 1);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (a() || DeviceInfoUtil.isHonor()) {
+                d(1);
+                ah.a().postDelayed(this.a, 500L);
             }
-            if (this.h <= 0) {
-                this.h = 1;
-            }
-            if (this.i <= 0) {
-                this.i = 1;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
         }
     }
 
-    public void i(ActInfo actInfo) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) != null) || actInfo == null) {
-            return;
-        }
-        Integer num = actInfo.activity_type;
-        int i5 = -1;
-        if (num != null) {
-            i = num.intValue();
-        } else {
-            i = -1;
-        }
-        this.a = i;
-        Integer num2 = actInfo.status;
-        if (num2 != null) {
-            i2 = num2.intValue();
-        } else {
-            i2 = -1;
-        }
-        this.b = i2;
-        Integer num3 = actInfo.begin_time;
-        if (num3 != null) {
-            i3 = num3.intValue();
-        } else {
-            i3 = -1;
-        }
-        this.c = i3;
-        Integer num4 = actInfo.end_time;
-        if (num4 != null) {
-            i4 = num4.intValue();
-        } else {
-            i4 = -1;
-        }
-        this.d = i4;
-        this.e = actInfo.url;
-        Integer num5 = actInfo.total_num;
-        if (num5 != null) {
-            i5 = num5.intValue();
-        }
-        this.f = i5;
-        actInfo.activity_id.intValue();
-        actInfo.award_act_id.intValue();
-        actInfo.component_id.intValue();
-        this.g = actInfo.is_senior.booleanValue();
-        String str = actInfo.banner_img;
-        actInfo.show_total_num.intValue();
-        String str2 = actInfo.banner_img_size;
-        if (!xi.isEmpty(str2)) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             try {
-                String[] split = str2.split(",");
-                this.h = xg.e(split[0], 1);
-                this.i = xg.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                Bundle bundle = new Bundle();
+                bundle.putString("package", "com.baidu.tieba");
+                bundle.putString(DealIntentService.KEY_CLASS, SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
+                bundle.putInt("badgenumber", i);
+                TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
+            } catch (Throwable th) {
+                Log.i("huawei_corner", th.getMessage());
             }
         }
-        if (this.h <= 0) {
-            this.h = 1;
-        }
-        if (this.i <= 0) {
-            this.i = 1;
-        }
-        ru4 ru4Var = new ru4();
-        this.j = ru4Var;
-        ru4Var.a(actInfo.lottery_senior);
     }
 }

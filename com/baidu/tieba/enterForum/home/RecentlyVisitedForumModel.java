@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.home;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tieba.pb6;
+import com.baidu.tieba.kc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -38,17 +38,17 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         }
     }
 
-    public void A() {
+    public void H() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pb6.n().C();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            kc6.n().C();
         }
     }
 
-    public void B() {
+    public void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pb6.n().u();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            kc6.n().u();
             loadData();
         }
     }
@@ -57,8 +57,8 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            pb6.n().q();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            kc6.n().q();
             return true;
         }
         return invokeV.booleanValue;
@@ -66,29 +66,29 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pb6.n().z(null);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            kc6.n().z(null);
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            pb6.n().r();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            kc6.n().r();
         }
     }
 
-    public void C(pb6.f fVar) {
+    public void G(VisitedForumData visitedForumData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            pb6.n().z(fVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, visitedForumData) == null) {
+            kc6.n().i(visitedForumData);
         }
     }
 
-    public void z(VisitedForumData visitedForumData) {
+    public void J(kc6.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, visitedForumData) == null) {
-            pb6.n().i(visitedForumData);
+        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+            kc6.n().z(fVar);
         }
     }
 }

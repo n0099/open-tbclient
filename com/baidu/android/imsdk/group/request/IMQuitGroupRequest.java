@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -13,7 +12,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,18 +79,25 @@ public class IMQuitGroupRequest extends FansGroupBaseHttpRequest {
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
             int i;
-            String str;
+            String optString;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = "";
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");
-                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    if (this.this$0.mIsFansGroup && jSONObject.has("tips")) {
+                        optString = jSONObject.optString("tips");
+                    } else {
+                        optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    }
+                    str = optString;
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                    if (!this.this$0.mIsFansGroup) {
+                        str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                    }
                 }
                 if (i == 0) {
                     GroupInfoDAOImpl.quitGroup(this.this$0.mContext, this.this$0.mGroupId);
@@ -101,7 +106,6 @@ public class IMQuitGroupRequest extends FansGroupBaseHttpRequest {
                         DialogRecordDBManager.getInstance(this.this$0.mContext).delete(1, Long.valueOf(this.this$0.mGroupId).longValue());
                     } catch (NumberFormatException e2) {
                         LogUtils.e(IMQuitGroupRequest.TAG, "groupid " + this.this$0.mGroupId, e2);
-                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     }
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);

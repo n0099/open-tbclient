@@ -1,101 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.kv4;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v56 {
+public class v56 extends w56 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId O0;
+    public static final BdUniqueId P0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements kv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public a(TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948191826, "Lcom/baidu/tieba/v56;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948191826, "Lcom/baidu/tieba/v56;");
+                return;
             }
         }
+        O0 = BdUniqueId.gen();
+        P0 = BdUniqueId.gen();
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements kv4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.kv4.e
-        public void onClick(kv4 kv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kv4Var) == null) {
-                kv4Var.dismiss();
-            }
-        }
-    }
-
-    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
-        Uri uri;
+    @Override // com.baidu.tieba.w56, com.baidu.tieba.o56, com.baidu.tieba.vr4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, intent, tbPageContext, i) != null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        String queryParameter = uri.getQueryParameter("portrait");
-        if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-            kv4 kv4Var = new kv4(tbPageContext.getPageActivity());
-            kv4Var.setContentViewSize(1);
-            kv4Var.setMessage(tbPageContext.getString(R.string.obfuscated_res_0x7f0f007b));
-            kv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0394, new a(tbPageContext, i));
-            kv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0cde, new b());
-            kv4Var.create(tbPageContext).show();
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.w56, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData != null && threadData.getThreadType() == 67) {
+                return P0;
+            }
+            return O0;
         }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public v56(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = threadData;
+    }
+
+    public StatisticItem Z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            StatisticItem f = f(str);
+            f.delete("obj_type");
+            f.delete("obj_type");
+            f.param("obj_type", 3);
+            return f;
+        }
+        return (StatisticItem) invokeL.objValue;
+    }
+
+    public static boolean W(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            if (threadData.getThreadType() == 49 || threadData.getThreadType() == 69) {
+                return true;
+            }
+            if (threadData.getThreadType() != 67 || threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().friendRoomStatus != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

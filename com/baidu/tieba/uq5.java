@@ -1,306 +1,229 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.AbsoluteSizeSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+import kotlin.text.StringsKt__StringsKt;
+@JvmName(name = "PrivacyPolicyDialogUtil")
 /* loaded from: classes6.dex */
-public class uq5 {
+public final class uq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uq5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsDataRecorder a;
-    public String b;
-    public String c;
-    public Stack<HashMap<AbsDataRecorder.Scene, AbsDataRecorder>> d;
-    public boolean e;
-    public Map<String, Integer> f;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static final class a extends tq5 {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-366662989, "Lcom/baidu/tieba/uq5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-366662989, "Lcom/baidu/tieba/uq5$a;");
+        public a(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            this.a = context;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View widget) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
+                Intrinsics.checkNotNullParameter(widget, "widget");
+                sp4.l(this.a, Intrinsics.stringPlus(TbConfig.TIEBA_ADDRESS, "tb/mobile/wisemainstatic/secretright.html"));
             }
         }
     }
 
-    public uq5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        if (this.d == null) {
-            this.d = new Stack<>();
-        }
-        this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-        this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
-    }
+    /* loaded from: classes6.dex */
+    public static final class b extends tq5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            a();
-            b();
-            if (TbadkCoreApplication.isLogin()) {
-                this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-                this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
-            } else {
-                rq5.e().a();
-            }
-            this.a.a();
-        }
-    }
-
-    public static uq5 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g == null) {
-                synchronized (uq5.class) {
-                    if (g == null) {
-                        g = new uq5();
-                    }
+        public b(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return g;
+            this.a = context;
         }
-        return (uq5) invokeV.objValue;
-    }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qy4.k().D(this.b);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qy4.k().D(this.c);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> hashMap = new HashMap<>();
-            hashMap.put(AbsDataRecorder.Scene.FRS_HOT, null);
-            hashMap.put(AbsDataRecorder.Scene.FRS_NEW, null);
-            this.d.push(hashMap);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.d.isEmpty()) {
-            this.d.pop();
-        }
-    }
-
-    public final AbsDataRecorder f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == null) {
-                this.a = new vq5();
-            }
-            return this.a;
-        }
-        return (AbsDataRecorder) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (TbadkCoreApplication.isLogin() && TbadkCoreApplication.getCurrentMemberType() == 0 && rq5.e().i()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qy4.k().w(this.b, qy4.k().l(this.b, 0) + 1);
-            qy4.k().x(this.c, System.currentTimeMillis());
-        }
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TimeHelper.isSameDay(qy4.k().m(this.c, 0L), System.currentTimeMillis())) {
-                a();
-            }
-            return qy4.k().l(this.b, 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public AbsDataRecorder g(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i != 2 && i != 3) {
-                    return null;
-                }
-                return i(scene);
-            }
-            return f();
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            Map<String, Integer> map = this.f;
-            if (map != null && map.get(str) != null) {
-                return this.f.get(str).intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean l(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
-            if (!mr5.i().p(scene) && n() && g(scene) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final AbsDataRecorder i(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
-            if (!this.d.isEmpty()) {
-                HashMap<AbsDataRecorder.Scene, AbsDataRecorder> peek = this.d.peek();
-                if (peek.get(scene) == null) {
-                    if (scene == AbsDataRecorder.Scene.FRS_HOT) {
-                        peek.put(scene, new sq5());
-                    } else if (scene == AbsDataRecorder.Scene.FRS_NEW) {
-                        peek.put(scene, new tq5());
-                    }
-                }
-                return peek.get(scene);
-            }
-            return null;
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public void p(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
-            if (this.f == null) {
-                this.f = new HashMap();
-            }
-            if (this.f.get(str) == null) {
-                this.f.put(str, Integer.valueOf(i));
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View widget) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
+                Intrinsics.checkNotNullParameter(widget, "widget");
+                sp4.l(this.a, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
             }
         }
     }
 
-    public boolean r(int i, AbsDataRecorder.Scene scene) {
-        InterceptResult invokeIL;
+    public static final lv4 a(TbPageContext<?> tbPageContext, View.OnClickListener listener, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, scene)) == null) {
-            if (!mr5.i().q() && n() && i >= rq5.e().f(AbsDataRecorder.Scene.PB) && h() < rq5.e().d()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65536, null, tbPageContext, listener, i, i2)) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d077d, (ViewGroup) null);
+            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922d4);
+            eMTextView.setText(R.string.secret_hint_head);
+            rw4 d = rw4.d(eMTextView);
+            d.A(R.string.F_X02);
+            d.z(R.dimen.T_X05);
+            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09070d);
+            eMTextView2.setHighlightColor(0);
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = tbPageContext.getString(i);
+            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(contentTestResId)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.privacy_policy_text), tbPageContext.getString(R.string.user_protocol_text)}, 2));
+            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
+            Activity pageActivity = tbPageContext.getPageActivity();
+            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
+            SpannableString d2 = d(pageActivity, format);
+            eMTextView2.setMovementMethod(LinkMovementMethod.getInstance());
+            eMTextView2.setText(d2);
+            rw4.d(eMTextView2).z(R.dimen.T_X07);
+            EMTextView eMTextView3 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090427);
+            eMTextView3.setText(i2);
+            rw4.d(eMTextView3).z(R.dimen.T_X08);
+            eMTextView3.setOnClickListener(listener);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092799);
+            tBSpecificationBtn.setText(tbPageContext.getString(R.string.secret_hint_agree_and_go_on));
+            tBSpecificationBtn.setTextSize(R.dimen.T_X07);
+            pz4 pz4Var = new pz4();
+            pz4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
+            tBSpecificationBtn.setConfig(pz4Var);
+            tBSpecificationBtn.setOnClickListener(listener);
+            lv4 lv4Var = new lv4(tbPageContext.getPageActivity());
+            lv4Var.setContentView(inflate);
+            lv4Var.setContentViewSize(8);
+            lv4Var.setAutoNight(false);
+            lv4Var.setCanceledOnTouchOutside(false);
+            lv4Var.setCancelable(false);
+            lv4Var.create(tbPageContext);
+            return lv4Var;
         }
-        return invokeIL.booleanValue;
+        return (lv4) invokeLLII.objValue;
     }
 
-    public boolean s(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
+    public static final lv4 b(TbPageContext<?> tbPageContext, View.OnClickListener listener) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, scene)) == null) {
-            AbsDataRecorder g2 = g(scene);
-            if (g2 == null || !l(scene) || g2.c() < rq5.e().f(scene) || h() >= rq5.e().d()) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, listener)) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d077e, (ViewGroup) null);
+            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…rivate_hint_dialog, null)");
+            ((TextView) inflate.findViewById(R.id.private_title)).setText(R.string.secret_hint_head);
+            inflate.findViewById(R.id.protocol_layout).setVisibility(0);
+            TextView textView = (TextView) inflate.findViewById(R.id.protocol_scrollable_textview);
+            textView.setHighlightColor(0);
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = tbPageContext.getString(R.string.secret_hint_format);
+            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(…tring.secret_hint_format)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.secret_hint_footer), tbPageContext.getString(R.string.secret_hint_title), tbPageContext.getString(R.string.secret_hint_content_1), tbPageContext.getString(R.string.secret_hint_content_2), tbPageContext.getString(R.string.secret_hint_content_3), tbPageContext.getString(R.string.secret_hint_content_4), tbPageContext.getString(R.string.secret_hint_content_5)}, 7));
+            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
+            Activity pageActivity = tbPageContext.getPageActivity();
+            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
+            SpannableString d = d(pageActivity, format);
+            Matcher matcher = Pattern.compile("\n\n").matcher(format);
+            while (matcher.find()) {
+                d.setSpan(new AbsoluteSizeSpan(2, true), matcher.start() + 1, matcher.end(), 33);
             }
-            return true;
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+            textView.setText(d);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.private_no);
+            textView2.setOnClickListener(listener);
+            SkinManager.setViewTextColorSelector(textView2, R.color.CAM_X0110, R.color.CAM_X0110, 0);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.private_yes);
+            textView3.setOnClickListener(listener);
+            rw4 d2 = rw4.d(textView3);
+            d2.n(R.string.J_X01);
+            d2.f(R.color.CAM_X0303);
+            SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
+            lv4 lv4Var = new lv4(tbPageContext.getPageActivity());
+            lv4Var.setContentView(inflate);
+            lv4Var.setContentViewSize(7);
+            lv4Var.setCanceledOnTouchOutside(false);
+            lv4Var.setAutoNight(false);
+            lv4Var.setCancelable(false);
+            lv4Var.create(tbPageContext);
+            return lv4Var;
         }
-        return invokeL.booleanValue;
+        return (lv4) invokeLL.objValue;
+    }
+
+    public static final int[] c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            String string = TbadkCoreApplication.getInst().getString(i);
+            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(patternTextResId)");
+            int[] iArr = {StringsKt__StringsKt.indexOf$default((CharSequence) str, string, 0, false, 6, (Object) null), iArr[0] + string.length()};
+            return iArr;
+        }
+        return (int[]) invokeLI.objValue;
+    }
+
+    public static final SpannableString d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            int[] c = c(str, R.string.privacy_policy_text);
+            if (c[0] != -1) {
+                spannableString.setSpan(new a(context), c[0], c[1], 18);
+            }
+            int[] c2 = c(str, R.string.user_protocol_text);
+            if (c2[0] != -1) {
+                spannableString.setSpan(new b(context), c2[0], c2[1], 18);
+            }
+            return spannableString;
+        }
+        return (SpannableString) invokeLL.objValue;
     }
 }

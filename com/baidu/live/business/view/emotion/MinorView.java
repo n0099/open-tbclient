@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.ma0;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.la0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class MinorView extends LinearLayout {
     public AppCompatTextView b;
     public AppCompatTextView c;
     public AppCompatTextView d;
-    public ma0 e;
+    public la0 e;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -56,8 +56,8 @@ public class MinorView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!ea0.f(this.a.getContext())) {
-                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a26, 1).show();
+                if (!da0.f(this.a.getContext())) {
+                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a5c, 1).show();
                 } else if (this.a.e != null) {
                     this.a.e.a(view2);
                 }
@@ -126,20 +126,20 @@ public class MinorView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0553, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0563, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091576);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091578);
-        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091575);
-        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0909d0);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0915d8);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0915da);
+        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0915d7);
+        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0909ea);
         b();
     }
 
-    public void setActionCallback(ma0 ma0Var) {
+    public void setActionCallback(la0 la0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ma0Var) == null) {
-            this.e = ma0Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, la0Var) == null) {
+            this.e = la0Var;
         }
     }
 
@@ -168,13 +168,13 @@ public class MinorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = ea0.b(getContext(), EmotionStrategy.getInstance().minorWidth);
-            layoutParams.height = ea0.b(getContext(), EmotionStrategy.getInstance().minorHeight);
+            layoutParams.width = da0.b(getContext(), EmotionStrategy.getInstance().minorWidth);
+            layoutParams.height = da0.b(getContext(), EmotionStrategy.getInstance().minorHeight);
             this.a.setLayoutParams(layoutParams);
-            setImageResource(vc0.f().i(str));
-            this.b.setTextColor(vc0.f().a(getContext(), str, "color_8585853"));
-            this.c.setTextColor(vc0.f().a(getContext(), str, "color_B8B8B8"));
-            this.d.setTextColor(vc0.f().a(getContext(), str, "color_4367B4"));
+            setImageResource(uc0.f().i(str));
+            this.b.setTextColor(uc0.f().a(getContext(), str, "color_8585853"));
+            this.c.setTextColor(uc0.f().a(getContext(), str, "color_B8B8B8"));
+            this.d.setTextColor(uc0.f().a(getContext(), str, "color_4367B4"));
         }
     }
 

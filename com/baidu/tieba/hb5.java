@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.TreeSet;
 /* loaded from: classes4.dex */
-public interface hb5 extends ya5 {
-    public static final String a = "com.baidu.tieba.hb5";
-
-    @NonNull
-    gb5 b(@NonNull TbPageContext tbPageContext);
+public interface hb5 {
+    void a(int i, long j, @NonNull TreeSet<ChatMsg> treeSet);
 }

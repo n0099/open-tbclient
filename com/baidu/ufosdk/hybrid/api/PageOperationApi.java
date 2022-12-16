@@ -16,7 +16,7 @@ import com.baidu.ufosdk.q1;
 import com.baidu.ufosdk.ui.BdShimmerView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PageOperationApi implements IBridgeApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

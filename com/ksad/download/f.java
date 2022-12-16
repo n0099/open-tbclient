@@ -1,7 +1,7 @@
 package com.ksad.download;
 
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface f {
     void a(DownloadTask downloadTask, boolean z);
 

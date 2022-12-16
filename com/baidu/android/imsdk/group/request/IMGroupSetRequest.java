@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -11,7 +10,6 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,8 +98,8 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        String str;
         int i2;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             try {
@@ -115,9 +113,8 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
                 }
             } catch (JSONException e) {
                 LogUtils.e("IMUserSetRequest", "JSONException", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
+                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {

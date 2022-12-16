@@ -1,261 +1,250 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes5.dex */
 public class pk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static TextView a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint a;
-    public final Paint b;
-    public final Paint c;
-    public final View d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public float l;
-    public final Paint m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public float[] u;
-    public int v;
 
-    public pk5(View view2) {
+    public static boolean f(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.e = 16;
-        this.f = 16;
-        this.g = -1;
-        this.h = DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR;
-        this.i = 20;
-        this.j = 20;
-        this.k = 36;
-        this.l = 0.0f;
-        this.m = new Paint();
-        this.n = 3;
-        this.o = R.color.CAM_X0101;
-        this.p = R.color.CAM_X0305;
-        this.q = 20;
-        this.r = 20;
-        this.s = 36;
-        this.t = 0;
-        this.v = 0;
-        this.d = view2;
-        int color = getContext().getResources().getColor(R.color.black_alpha40);
-        this.h = color;
-        this.b.setColor(color);
-        this.b.setAntiAlias(true);
-        this.i = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        int color2 = getContext().getResources().getColor(R.color.CAM_X0101);
-        this.g = color2;
-        this.a.setColor(color2);
-        this.a.setTextSize(this.i);
-        this.a.setAntiAlias(true);
-        this.a.setTypeface(ow4.I(ow4.F(R.string.F_X02)));
-        this.e = yi.g(getContext(), R.dimen.tbds16);
-        this.f = yi.g(getContext(), R.dimen.tbds16);
-        this.j = yi.g(getContext(), R.dimen.tbds22);
-        this.k = yi.g(getContext(), R.dimen.tbds40);
-        this.l = ow4.z(R.string.J_X01)[0];
-        int dimension = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        this.q = dimension;
-        this.c.setTextSize(dimension);
-        this.a.setAntiAlias(true);
-        this.m.setAntiAlias(true);
-        this.r = yi.g(getContext(), R.dimen.tbds16);
-        this.s = yi.g(getContext(), R.dimen.tbds22);
-        this.t = yi.g(getContext(), R.dimen.tbds5);
-        this.v = yi.g(getContext(), R.dimen.M_W_X006);
-        yi.g(getContext(), R.dimen.M_H_X004);
-        i(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    private Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            View view2 = this.d;
-            if (view2 != null && view2.getContext() != null) {
-                return this.d.getContext();
-            }
-            return TbadkCoreApplication.getInst().getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final void e() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (view2 = this.d) != null) {
-            view2.invalidate();
-        }
-    }
-
-    public void a(Canvas canvas, String str, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
-            int save = canvas.save();
-            this.d.getPaddingLeft();
-            int paddingRight = this.d.getPaddingRight();
-            this.d.getPaddingTop();
-            int paddingBottom = this.d.getPaddingBottom();
-            int left = this.d.getLeft();
-            int right = this.d.getRight();
-            int top = this.d.getTop();
-            int bottom = this.d.getBottom();
-            float measureText = this.a.measureText(str);
-            Paint.FontMetrics fontMetrics = this.a.getFontMetrics();
-            if (z) {
-                if (this.u == null) {
-                    this.u = ow4.C(R.array.S_O_X001);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'a' || c > 'z') {
+                if (c < 'A' || c > 'Z') {
+                    return (c >= '0' && c <= '9') || c == ' ';
                 }
-                float[] fArr = this.u;
-                if (fArr != null && fArr.length >= 4) {
-                    i = save;
-                    this.a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
+                return true;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean g(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
+    }
+
+    public static int a(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (f(c)) {
+                return 1;
+            }
+            return 2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (f(str.charAt(i2))) {
+                    i++;
                 } else {
-                    i = save;
+                    i += 2;
                 }
-                int i2 = this.v;
-                canvas.drawText(str, (((right - left) - paddingRight) - i2) - measureText, (((bottom - top) - paddingBottom) - i2) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
-            } else {
-                i = save;
-                float f = this.k + measureText;
-                float f2 = this.i + this.j;
-                canvas.translate((((right - left) - paddingRight) - f) - this.f, (((bottom - top) - paddingBottom) - f2) - this.e);
-                RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-                float f3 = this.l;
-                if (f3 < 1.0f) {
-                    this.l = f3 * f2;
-                }
-                float f4 = this.l;
-                canvas.drawRoundRect(rectF, f4, f4, this.b);
-                this.a.clearShadowLayer();
-                canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
             }
-            int i3 = i;
-            if (i3 >= 1 && i3 <= canvas.getSaveCount()) {
-                canvas.restoreToCount(i3);
-            }
+            return i;
         }
+        return invokeL.intValue;
     }
 
-    public void b(Canvas canvas, String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
-            if (i != 0) {
-                this.p = i;
-                this.m.setColor(SkinManager.getColor(i));
-            }
-            int save = canvas.save();
-            int paddingLeft = this.d.getPaddingLeft();
-            this.d.getPaddingRight();
-            int paddingTop = this.d.getPaddingTop();
-            this.d.getPaddingBottom();
-            float measureText = this.c.measureText(str);
-            canvas.translate(paddingLeft, paddingTop);
-            RectF rectF = new RectF(0.0f, 0.0f, this.s + measureText, this.q + this.r);
-            int i2 = this.t;
-            canvas.drawRoundRect(rectF, i2, i2, this.m);
-            Paint.FontMetrics fontMetrics = this.c.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.c);
-            if (save >= 1 && save <= canvas.getSaveCount()) {
-                canvas.restoreToCount(save);
-            }
-        }
-    }
-
-    public float c(String str) {
+    public static int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return yi.G(this.a, str).height() + this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int codePointCount = str.codePointCount(0, str.length());
+            int i = 0;
+            for (int i2 = 1; i2 <= codePointCount; i2++) {
+                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
+                i++;
+            }
+            return i;
         }
-        return invokeL.floatValue;
+        return invokeL.intValue;
     }
 
-    public float d(String str) {
+    public static int i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return yi.H(this.a, str) + this.k;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (' ' == str.charAt(i2)) {
+                    i++;
+                }
+            }
+            return i;
         }
-        return invokeL.floatValue;
+        return invokeL.intValue;
     }
 
-    public void g(int i) {
+    public static int d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.g = i;
-            this.a.setColor(i);
-            e();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int codePointCount = str.codePointCount(0, str.length());
+            int i = 0;
+            for (int i2 = 1; i2 <= codePointCount; i2++) {
+                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
+                if (substring.length() >= 2) {
+                    i += 2;
+                } else {
+                    i += b(substring);
+                }
+            }
+            return i;
         }
+        return invokeL.intValue;
     }
 
-    public void h(int i) {
+    public static String e(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.i = i;
-            this.a.setTextSize(i);
-            e();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            if (b(str) > i) {
+                return j(str, 0, i - 2) + StringHelper.STRING_MORE;
+            }
+            return str;
         }
+        return (String) invokeLI.objValue;
     }
 
-    public void i(int i) {
+    public static String k(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.n == i) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i)) == null) {
+            int codePointCount = str.codePointCount(0, str.length());
+            int i2 = 1;
+            String str2 = str;
+            while (i2 <= codePointCount) {
+                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+                if (c(substring) > i) {
+                    break;
+                }
+                i2++;
+                str2 = substring;
+            }
+            return str2;
         }
-        this.n = i;
-        this.c.setColor(SkinManager.getColor(i, this.o));
-        this.m.setColor(SkinManager.getColor(i, this.p));
+        return (String) invokeLI.objValue;
     }
 
-    public void f(int i, int i2) {
+    public static String l(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.f = i;
-            this.e = i2;
-            e();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
+            int codePointCount = str.codePointCount(0, str.length());
+            int i2 = 1;
+            String str2 = str;
+            while (i2 <= codePointCount) {
+                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+                if (d(substring) > i) {
+                    break;
+                }
+                i2++;
+                str2 = substring;
+            }
+            return str2;
         }
+        return (String) invokeLI.objValue;
+    }
+
+    public static Pair<Integer, Integer> h(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i, i2)) == null) {
+            try {
+                if (a == null) {
+                    a = new TextView(TbadkCoreApplication.getInst().getContext());
+                }
+                TextView textView = a;
+                if (textView.getLayoutParams() == null) {
+                    textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+                }
+                textView.setText(str);
+                textView.setTextSize(0, i);
+                textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+                return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Pair) invokeLII.objValue;
+    }
+
+    public static String j(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, str, i, i2)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(str) && i <= i2) {
+                if (i >= 0 && i2 >= 0) {
+                    int i3 = 0;
+                    for (int i4 = 0; i4 < str.length(); i4++) {
+                        char charAt = str.charAt(i4);
+                        if (i3 >= i2) {
+                            if (i3 == i2) {
+                                if (g(sb.charAt(sb.length() - 1))) {
+                                    sb.append(charAt);
+                                    return sb.toString();
+                                }
+                                return sb.toString();
+                            } else if (sb.length() > 2 && g(sb.charAt(sb.length() - 2))) {
+                                return sb.toString();
+                            } else {
+                                return sb.deleteCharAt(sb.length() - 1).toString();
+                            }
+                        }
+                        if (i3 >= i) {
+                            sb.append(charAt);
+                        }
+                        if (f(charAt)) {
+                            i3++;
+                        } else {
+                            i3 += 2;
+                        }
+                    }
+                }
+                return sb.toString();
+            }
+            return sb.toString();
+        }
+        return (String) invokeLII.objValue;
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel;
-import com.baidu.tieba.sf5;
-import com.baidu.tieba.w67;
-import com.baidu.tieba.z67;
+import com.baidu.tieba.kg5;
+import com.baidu.tieba.u77;
+import com.baidu.tieba.x77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel k;
-    public w67 l;
+    public u77 l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void Z0() {
@@ -54,10 +54,10 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
-        public void a(z67 z67Var) {
+        public void a(x77 x77Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, z67Var) == null) && this.a.l != null) {
-                this.a.l.q(z67Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, x77Var) == null) && this.a.l != null) {
+                this.a.l.q(x77Var);
             }
         }
 
@@ -122,9 +122,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            w67 w67Var = this.l;
-            if (w67Var != null) {
-                w67Var.onDestroy();
+            u77 u77Var = this.l;
+            if (u77Var != null) {
+                u77Var.onDestroy();
             }
         }
     }
@@ -134,23 +134,23 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            w67 w67Var = this.l;
-            if (w67Var != null) {
-                w67Var.n(i);
+            u77 u77Var = this.l;
+            if (u77Var != null) {
+                u77Var.o(i);
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public sf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public kg5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            w67 w67Var = new w67(getPageContext(), linearLayout, navigationBar, new b(this));
-            this.l = w67Var;
-            return w67Var;
+            u77 u77Var = new u77(getPageContext(), linearLayout, navigationBar, new b(this));
+            this.l = u77Var;
+            return u77Var;
         }
-        return (sf5) invokeLL.objValue;
+        return (kg5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -161,7 +161,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
             this.l.k(getIntent());
             LocalChannelTopicListModel localChannelTopicListModel = new LocalChannelTopicListModel(getPageContext());
             this.k = localChannelTopicListModel;
-            localChannelTopicListModel.A(new a(this));
+            localChannelTopicListModel.H(new a(this));
             this.k.loadData();
         }
     }

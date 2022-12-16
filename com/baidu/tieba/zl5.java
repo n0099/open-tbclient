@@ -1,9 +1,15 @@
 package com.baidu.tieba;
-
-import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface zl5 {
-    void a();
+    String a();
 
-    void b(List<String> list);
+    void b(String str);
+
+    String c();
+
+    String d();
+
+    boolean e();
+
+    boolean isValid();
 }

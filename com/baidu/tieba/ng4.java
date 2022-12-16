@@ -7,15 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ng4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ng4 a;
+    public static volatile ng4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     public ng4() {
         Interceptable interceptable = $ic;
@@ -35,95 +33,51 @@ public class ng4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
+            if (b == null) {
                 synchronized (ng4.class) {
-                    if (a == null) {
-                        a = new ng4();
+                    if (b == null) {
+                        b = new ng4();
                     }
                 }
             }
-            return a;
+            return b;
         }
         return (ng4) invokeV.objValue;
     }
 
-    public static String c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return qb4.b().i().getString("web_mode_version", "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                this.a = pb4.b().i().getString("extract_js_url", null);
+            }
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public static boolean d() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (qb4.b().i().getInt("web_mode_switch", 1) == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return pb4.b().i().getString("tts_node_version", "0");
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String string = qb4.b().i().getString("web_mode_degrade_list", "");
-            JSONArray jSONArray = null;
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONArray = new JSONArray(string);
-            } catch (JSONException unused) {
-            }
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (jSONArray != null && jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(jSONArray.optString(i));
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final String e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
-            if (optJSONArray != null) {
-                return optJSONArray.toString();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void f(JSONObject jSONObject) {
+    public void d(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
             return;
         }
-        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
-        String e = e(optJSONObject);
-        ob4 b = qb4.b();
-        if (b == null) {
-            return;
-        }
-        hk4 i = b.i();
-        i.putInt("web_mode_switch", optInt);
-        i.putString("web_mode_degrade_list", e);
-        i.putString("web_mode_version", optString);
+        String optString2 = optJSONObject.optString("extract_js_url");
+        pb4.b().i().putString("tts_node_version", optString);
+        pb4.b().i().putString("extract_js_url", optString2);
     }
 }

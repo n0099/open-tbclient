@@ -1,87 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class z86 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z86 a;
-    public static final s0 b;
-    public static final Class<? extends b76>[] c;
-    public static final s0 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313873, "Lcom/baidu/tieba/z86;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final e86 a(p0 p0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (e86) p0Var.d(e86.class);
+        }
+        return (e86) invokeL.objValue;
+    }
+
+    public static final b86 b(p0 p0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (b86) p0Var.d(b86.class);
+        }
+        return (b86) invokeL.objValue;
+    }
+
+    public static final long c(p0 p0Var) {
+        InterceptResult invokeL;
+        p76 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            b86 b = b(p0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948313873, "Lcom/baidu/tieba/z86;");
-                return;
+            return a.g();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final a86 d(p0 p0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (a86) p0Var.d(a86.class);
+        }
+        return (a86) invokeL.objValue;
+    }
+
+    public static final c86 e(p0 p0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (c86) p0Var.d(c86.class);
+        }
+        return (c86) invokeL.objValue;
+    }
+
+    public static final long f(p0 p0Var) {
+        InterceptResult invokeL;
+        p76 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            b86 b = b(p0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
+            return a.j();
         }
-        a = new z86();
-        s0 b2 = s0.d(g76.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{g76.class, f76.class};
-        s0.b d2 = s0.d(g76.class, f76.class);
-        d2.c(h76.class, j76.class);
-        s0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
+        return invokeL.longValue;
     }
 
-    public z86() {
+    public static final boolean g(p0 p0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, p0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            if (j - f(p0Var) < 0) {
+                return true;
             }
+            return false;
         }
+        return invokeLJ.booleanValue;
     }
 
-    public final s0 a() {
-        InterceptResult invokeV;
+    public static final boolean h(p0 p0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, p0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            if (j - f(p0Var) > c(p0Var)) {
+                return true;
+            }
+            return false;
         }
-        return (s0) invokeV.objValue;
-    }
-
-    public final Class<? extends b76>[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c;
-        }
-        return (Class[]) invokeV.objValue;
-    }
-
-    public final s0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return d;
-        }
-        return (s0) invokeV.objValue;
+        return invokeLJ.booleanValue;
     }
 }

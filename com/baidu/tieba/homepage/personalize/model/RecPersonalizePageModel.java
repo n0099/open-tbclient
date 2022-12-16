@@ -17,18 +17,18 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d80;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.fy4;
+import com.baidu.tieba.c80;
+import com.baidu.tieba.gy4;
 import com.baidu.tieba.homepage.personalize.data.RecPersonalizeHttpResponse;
 import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
 import com.baidu.tieba.homepage.personalize.data.RecPersonalizeSocketResponse;
-import com.baidu.tieba.j07;
+import com.baidu.tieba.j17;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.og5;
 import com.baidu.tieba.qb;
+import com.baidu.tieba.tr8;
 import com.baidu.tieba.ua;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.ve5;
-import com.baidu.tieba.wf5;
+import com.baidu.tieba.wi5;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -65,14 +65,14 @@ public class RecPersonalizePageModel {
 
         /* renamed from: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0293a implements MessageQueue.IdleHandler {
+        public class C0301a implements MessageQueue.IdleHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResponsedMessage a;
             public final /* synthetic */ boolean b;
             public final /* synthetic */ a c;
 
-            public C0293a(a aVar, ResponsedMessage responsedMessage, boolean z) {
+            public C0301a(a aVar, ResponsedMessage responsedMessage, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public class RecPersonalizePageModel {
                     z2 = false;
                     if (responsedMessage.getError() != 0) {
                         if (TbSingleton.getInstance().needUploadMoreLog()) {
-                            fy4.a("homePage", -1L, responsedMessage.getCmd(), "rec_personalized_error", responsedMessage.getError(), responsedMessage.getErrorString(), new Object[0]);
+                            gy4.a("homePage", -1L, responsedMessage.getCmd(), "rec_personalized_error", responsedMessage.getError(), responsedMessage.getErrorString(), new Object[0]);
                         }
                         this.a.a.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
                     } else {
@@ -171,7 +171,7 @@ public class RecPersonalizePageModel {
                         this.a.a.a(dataRes, z, z2);
                     }
                     if (responsedMessage instanceof RecPersonalizeSocketResponse) {
-                        Looper.myQueue().addIdleHandler(new C0293a(this, responsedMessage, z));
+                        Looper.myQueue().addIdleHandler(new C0301a(this, responsedMessage, z));
                     } else if (!(responsedMessage instanceof RecPersonalizeHttpResponse)) {
                     } else {
                         this.a.i(responsedMessage, z);
@@ -209,11 +209,11 @@ public class RecPersonalizePageModel {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            wf5 wf5Var = new wf5(309264);
-            wf5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
-            wf5Var.g(true);
-            wf5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(wf5Var);
+            og5 og5Var = new og5(309264);
+            og5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            og5Var.g(true);
+            og5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(og5Var);
         }
     }
 
@@ -253,15 +253,15 @@ public class RecPersonalizePageModel {
         }
     }
 
-    public final RecPersonalizeRequest f(int i, int i2, @NonNull ei5 ei5Var, int i3, int i4) {
+    public final RecPersonalizeRequest f(int i, int i2, @NonNull wi5 wi5Var, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), ei5Var, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wi5Var, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             RecPersonalizeRequest recPersonalizeRequest = new RecPersonalizeRequest();
             recPersonalizeRequest.setLoadType(i);
             recPersonalizeRequest.setThreadCount(i2);
-            recPersonalizeRequest.setPreAdThreadCount(ei5Var.a);
-            recPersonalizeRequest.setAdFloorInfo(ei5Var.b);
+            recPersonalizeRequest.setPreAdThreadCount(wi5Var.a);
+            recPersonalizeRequest.setAdFloorInfo(wi5Var.b);
             recPersonalizeRequest.setPn(i3);
             recPersonalizeRequest.setSuggestCount(i4);
             recPersonalizeRequest.setNeedForumlist(0);
@@ -301,7 +301,7 @@ public class RecPersonalizePageModel {
                             return false;
                         }
                         if (TbSingleton.getInstance().needUploadMoreLog()) {
-                            fy4.a("homePage", -1L, socketResponsedMessage.getCmd(), "rec_personalized_transform", socketResponsedMessage.getError(), "transform socket to http", new Object[0]);
+                            gy4.a("homePage", -1L, socketResponsedMessage.getCmd(), "rec_personalized_transform", socketResponsedMessage.getError(), "transform socket to http", new Object[0]);
                             return true;
                         }
                         return true;
@@ -322,28 +322,28 @@ public class RecPersonalizePageModel {
         return (RecPersonalizeRequest) invokeCommon.objValue;
     }
 
-    public void g(int i, int i2, @NonNull ei5 ei5Var, int i3, int i4) {
+    public void g(int i, int i2, @NonNull wi5 wi5Var, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), ei5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            MessageManager.getInstance().sendMessage(f(i, i2, ei5Var, i3, i4));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wi5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            MessageManager.getInstance().sendMessage(f(i, i2, wi5Var, i3, i4));
         }
     }
 
     public void h(int i, boolean z, ResponsedMessage<?> responsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), responsedMessage}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && j07.d().b() > 0) {
-            long f2 = j07.d().f(1);
-            long b2 = j07.d().b();
-            long c = j07.d().c(1);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), responsedMessage}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && j17.d().b() > 0) {
+            long f2 = j17.d().f(1);
+            long b2 = j17.d().b();
+            long c = j17.d().c(1);
             long j = f2 + b2;
-            long a2 = j07.d().a(1);
+            long a2 = j17.d().a(1);
             if (a2 > 0) {
                 j = System.currentTimeMillis() - a2;
             }
-            ve5 ve5Var = new ve5(1005, z, responsedMessage, 0L, b2, c, false, j);
-            ve5Var.F = i;
-            ve5Var.c();
-            j07.d().h(0L);
+            nf5 nf5Var = new nf5(1005, z, responsedMessage, 0L, b2, c, false, j);
+            nf5Var.F = i;
+            nf5Var.c();
+            j17.d().h(0L);
         }
     }
 
@@ -352,17 +352,17 @@ public class RecPersonalizePageModel {
         if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), responsedMessage}) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
             return;
         }
-        long f2 = j07.d().f(1);
-        long b2 = j07.d().b();
-        ve5 ve5Var = new ve5(1005, z2, responsedMessage, 0L, b2, j07.d().c(1), false, f2 + b2);
-        ve5Var.F = 1;
+        long f2 = j17.d().f(1);
+        long b2 = j17.d().b();
+        nf5 nf5Var = new nf5(1005, z2, responsedMessage, 0L, b2, j17.d().c(1), false, f2 + b2);
+        nf5Var.F = 1;
         if (z) {
-            ve5Var.C = f2;
-            ve5Var.e(false);
+            nf5Var.C = f2;
+            nf5Var.e(false);
             return;
         }
-        ve5Var.B = f2;
-        ve5Var.e(true);
+        nf5Var.B = f2;
+        nf5Var.e(true);
     }
 
     public final void i(ResponsedMessage<?> responsedMessage, boolean z) {
@@ -387,19 +387,19 @@ public class RecPersonalizePageModel {
         }
     }
 
-    public void m(int i, int i2, @NonNull ei5 ei5Var, int i3, int i4) {
+    public void m(int i, int i2, @NonNull wi5 wi5Var, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), ei5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            RecPersonalizeRequest f2 = f(1, 0, ei5Var, 1, 0);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wi5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            RecPersonalizeRequest f2 = f(1, 0, wi5Var, 1, 0);
             f2.setNetType(NetMessage.NetType.HTTP);
-            d80.e(f2.getHttpMessage(), this.d);
+            c80.e(f2.getHttpMessage(), this.d);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, uo8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, tr8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             this.d = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             this.d.setResponsedClass(RecPersonalizeHttpResponse.class);

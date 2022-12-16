@@ -23,13 +23,13 @@ import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.KsSplashScreenAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler mHandler;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,13 +57,13 @@ public final class b {
     }
 
     /* renamed from: com.kwad.components.ad.splashscreen.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0562b {
+    /* loaded from: classes8.dex */
+    public static class C0579b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean xs;
 
-        public C0562b() {
+        public C0579b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public final class b {
             this.xs = false;
         }
 
-        public /* synthetic */ C0562b(byte b) {
+        public /* synthetic */ C0579b(byte b) {
             this();
         }
     }
@@ -111,7 +111,7 @@ public final class b {
             ksScene.setAdNum(5);
             com.kwad.sdk.core.e.b.d("KsAdSplashScreenLoadManager", "loadSplashScreenCache ");
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0582a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(false).a(new com.kwad.components.core.k.c(elapsedRealtime) { // from class: com.kwad.components.ad.splashscreen.b.4
+            KsAdLoadManager.a(new a.C0599a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(false).a(new com.kwad.components.core.k.c(elapsedRealtime) { // from class: com.kwad.components.ad.splashscreen.b.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long xq;
@@ -170,7 +170,7 @@ public final class b {
             aVar.xr = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
             com.kwad.components.core.k.kwai.b bVar = new com.kwad.components.core.k.kwai.b(ksScene);
-            C0562b c0562b = new C0562b((byte) 0);
+            C0579b c0579b = new C0579b((byte) 0);
             com.kwad.components.core.j.a.og().oh();
             mHandler.postDelayed(new Runnable(ksScene) { // from class: com.kwad.components.ad.splashscreen.b.1
                 public static /* synthetic */ Interceptable $ic;
@@ -203,10 +203,10 @@ public final class b {
                     }
                 }
             }, 15000L);
-            Runnable runnable = new Runnable(c0562b, splashScreenAdListener) { // from class: com.kwad.components.ad.splashscreen.b.2
+            Runnable runnable = new Runnable(c0579b, splashScreenAdListener) { // from class: com.kwad.components.ad.splashscreen.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0562b xk;
+                public final /* synthetic */ C0579b xk;
                 public final /* synthetic */ KsLoadManager.SplashScreenAdListener xl;
 
                 {
@@ -214,7 +214,7 @@ public final class b {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0562b, splashScreenAdListener};
+                        Object[] objArr = {c0579b, splashScreenAdListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -224,7 +224,7 @@ public final class b {
                             return;
                         }
                     }
-                    this.xk = c0562b;
+                    this.xk = c0579b;
                     this.xl = splashScreenAdListener;
                 }
 
@@ -248,12 +248,12 @@ public final class b {
             com.kwad.components.splash.monitor.a.qG();
             com.kwad.components.splash.monitor.a.qH();
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0582a().c(bVar).aw(true).ax(a2).a(new com.kwad.components.core.k.c(c0562b, runnable, aVar, splashScreenAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.splashscreen.b.3
+            KsAdLoadManager.a(new a.C0599a().c(bVar).aw(true).ax(a2).a(new com.kwad.components.core.k.c(c0579b, runnable, aVar, splashScreenAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.splashscreen.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;
                 public final /* synthetic */ long ef;
-                public final /* synthetic */ C0562b xk;
+                public final /* synthetic */ C0579b xk;
                 public final /* synthetic */ KsLoadManager.SplashScreenAdListener xl;
                 public final /* synthetic */ Runnable xm;
                 public final /* synthetic */ a xn;
@@ -263,7 +263,7 @@ public final class b {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0562b, runnable, aVar, splashScreenAdListener, Long.valueOf(elapsedRealtime), ksScene};
+                        Object[] objArr = {c0579b, runnable, aVar, splashScreenAdListener, Long.valueOf(elapsedRealtime), ksScene};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -273,7 +273,7 @@ public final class b {
                             return;
                         }
                     }
-                    this.xk = c0562b;
+                    this.xk = c0579b;
                     this.xm = runnable;
                     this.xn = aVar;
                     this.xl = splashScreenAdListener;

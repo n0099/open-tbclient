@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class lh {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;

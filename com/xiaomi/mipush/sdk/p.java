@@ -18,7 +18,7 @@ public final class p extends al.a {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ii f85a;
+    public final /* synthetic */ ii f108a;
 
     public p(ii iiVar, Context context) {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public final class p extends al.a {
                 return;
             }
         }
-        this.f85a = iiVar;
+        this.f108a = iiVar;
         this.a = context;
     }
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo217a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -51,10 +51,10 @@ public final class p extends al.a {
     public void run() {
         ii iiVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iiVar = this.f85a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iiVar = this.f108a) == null) {
             return;
         }
         iiVar.a(bd.a());
-        ao.a(this.a.getApplicationContext()).a((ao) this.f85a, hj.i, true, (hw) null, true);
+        ao.a(this.a.getApplicationContext()).a((ao) this.f108a, hj.i, true, (hw) null, true);
     }
 }

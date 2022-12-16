@@ -27,13 +27,13 @@ public class ce {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) {
-            if (cif.m473b()) {
+            if (cif.m483b()) {
                 return null;
             }
-            byte[] m471a = cif.m471a();
-            iu a = a(cif.a(), cif.f634b);
+            byte[] m481a = cif.m481a();
+            iu a = a(cif.a(), cif.f657b);
             if (a != null) {
-                it.a(a, m471a);
+                it.a(a, m481a);
             }
             return a;
         }

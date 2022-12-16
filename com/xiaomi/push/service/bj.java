@@ -47,11 +47,11 @@ public class bj extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             bg a = bg.a();
-            bg.b bVar = this.a.f941a;
-            if (a.a(bVar.g, bVar.f937b).f928a == null) {
-                XMPushService xMPushService = this.a.b.f930a;
-                bg.b bVar2 = this.a.f941a;
-                xMPushService.a(bVar2.g, bVar2.f937b, 2, null, null);
+            bg.b bVar = this.a.f964a;
+            if (a.a(bVar.g, bVar.f960b).f951a == null) {
+                XMPushService xMPushService = this.a.b.f953a;
+                bg.b bVar2 = this.a.f964a;
+                xMPushService.a(bVar2.g, bVar2.f960b, 2, null, null);
             }
         }
     }

@@ -67,12 +67,12 @@ public abstract class a extends Activity {
 
     /* renamed from: com.baidu.bdtask.ui.components.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class View$OnClickListenerC0081a implements View.OnClickListener {
+    public static final class View$OnClickListenerC0095a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public View$OnClickListenerC0081a(a aVar) {
+        public View$OnClickListenerC0095a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -230,7 +230,7 @@ public abstract class a extends Activity {
             if (!TextUtils.isEmpty(str)) {
                 textView.setVisibility(0);
                 imageView.setVisibility(8);
-                textView.setTextColor(ov.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060af8)));
+                textView.setTextColor(ov.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setText(str);
                 textView.setOnClickListener(new b(function0));
                 c(str3, textView);
@@ -322,19 +322,19 @@ public abstract class a extends Activity {
         Serializable serializable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907ce);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.dialog_btn_content);
             frameLayout.removeAllViews();
             getLayoutInflater().inflate(e(), frameLayout);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907d5);
+            View findViewById = findViewById(R.id.dialog_content_img);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.dialog_content_img)");
             this.b = (ImageView) findViewById;
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0907d2);
+            View findViewById2 = findViewById(R.id.dialog_close);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.dialog_close)");
             this.a = findViewById2;
             if (findViewById2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("closeBtn");
             }
-            findViewById2.setOnClickListener(new View$OnClickListenerC0081a(this));
+            findViewById2.setOnClickListener(new View$OnClickListenerC0095a(this));
             Intent intent = getIntent();
             Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
             Bundle extras = intent.getExtras();
@@ -362,7 +362,7 @@ public abstract class a extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07af);
+            setContentView(R.layout.sdk_activity_dialog);
             getWindow().setLayout(-1, -1);
             j();
         }

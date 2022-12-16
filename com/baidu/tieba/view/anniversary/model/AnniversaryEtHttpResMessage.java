@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.p19;
+import com.baidu.tieba.y49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p19 resultData;
+    public y49 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtHttpResMessage() {
@@ -36,13 +36,15 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public p19 getResultData() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public y49 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.resultData;
         }
-        return (p19) invokeV.objValue;
+        return (y49) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +59,9 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
                 setErrorString(videoTemplateResIdl.error.usermsg);
             }
             if (videoTemplateResIdl.data != null) {
-                p19 p19Var = new p19();
-                this.resultData = p19Var;
-                p19Var.g(videoTemplateResIdl.data);
+                y49 y49Var = new y49();
+                this.resultData = y49Var;
+                y49Var.g(videoTemplateResIdl.data);
             }
         }
     }

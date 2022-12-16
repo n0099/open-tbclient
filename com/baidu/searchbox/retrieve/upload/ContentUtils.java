@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.rl9;
+import com.baidu.tieba.ap9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ContentUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -203,7 +203,7 @@ public class ContentUtils {
                     stringBuffer.append((String) entry.getValue());
                 }
                 stringBuffer.append(str);
-                return rl9.c(stringBuffer.toString().getBytes(), false);
+                return ap9.c(stringBuffer.toString().getBytes(), false);
             }
             return "";
         }

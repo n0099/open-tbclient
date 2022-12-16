@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -24,7 +25,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class RouteSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,23 +38,24 @@ public final class RouteSelector {
     public List<Proxy> proxies;
     public final RouteDatabase routeDatabase;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Selection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int ipv4Size;
         public int nextRouteIndex;
         public final List<Route> routes;
 
-        public Selection(List<Route> list) {
+        public Selection(List<Route> list, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {list};
+                Object[] objArr = {list, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,6 +63,7 @@ public final class RouteSelector {
             }
             this.nextRouteIndex = 0;
             this.routes = list;
+            this.ipv4Size = i;
         }
 
         public List<Route> getAll() {
@@ -72,10 +75,19 @@ public final class RouteSelector {
             return (List) invokeV.objValue;
         }
 
-        public boolean hasNext() {
+        public int getIPv4Size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.ipv4Size;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (this.nextRouteIndex < this.routes.size()) {
                     return true;
                 }
@@ -87,7 +99,7 @@ public final class RouteSelector {
         public Route next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 if (hasNext()) {
                     List<Route> list = this.routes;
                     int i = this.nextRouteIndex;
@@ -95,6 +107,23 @@ public final class RouteSelector {
                     return list.get(i);
                 }
                 throw new NoSuchElementException();
+            }
+            return (Route) invokeV.objValue;
+        }
+
+        public Route markNextIPv4() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                for (int i = this.nextRouteIndex; i < this.routes.size(); i++) {
+                    if (this.routes.get(i).socketAddress().getAddress() instanceof Inet4Address) {
+                        this.nextRouteIndex = i;
+                        List<Route> list = this.routes;
+                        this.nextRouteIndex = i + 1;
+                        return list.get(i);
+                    }
+                }
+                return null;
             }
             return (Route) invokeV.objValue;
         }
@@ -254,15 +283,19 @@ public final class RouteSelector {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (hasNext()) {
                 ArrayList arrayList = new ArrayList();
+                int i = 0;
                 while (hasNextProxy()) {
                     Proxy nextProxy = nextProxy();
                     int size = this.inetSocketAddresses.size();
-                    for (int i = 0; i < size; i++) {
-                        Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i));
+                    for (int i2 = 0; i2 < size; i2++) {
+                        Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i2), i2);
                         if (this.routeDatabase.shouldPostpone(route)) {
                             this.postponedRoutes.add(route);
                         } else {
                             arrayList.add(route);
+                        }
+                        if (this.inetSocketAddresses.get(i2).getAddress() instanceof Inet4Address) {
+                            i++;
                         }
                     }
                     if (!arrayList.isEmpty()) {
@@ -273,7 +306,7 @@ public final class RouteSelector {
                     arrayList.addAll(this.postponedRoutes);
                     this.postponedRoutes.clear();
                 }
-                return new Selection(arrayList);
+                return new Selection(arrayList, i);
             }
             throw new NoSuchElementException();
         }

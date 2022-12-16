@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.MalformedURLException;
 import java.net.URL;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UrlWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

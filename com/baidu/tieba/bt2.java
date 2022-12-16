@@ -2,6 +2,8 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -13,13 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bt2 extends ht2 {
+public class bt2 extends gt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +34,7 @@ public class bt2 extends ht2 {
                 return;
             }
         }
-        b = pk1.a;
+        boolean z = ok1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,44 +57,43 @@ public class bt2 extends ht2 {
         }
     }
 
-    public final int d(HashMap<String, String> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            String str = hashMap.get("params");
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return new JSONObject(str).optInt("direction", -1);
-            } catch (JSONException e) {
-                if (!b) {
-                    return -1;
-                }
-                e.printStackTrace();
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.ht2
-    public boolean a(xs2 xs2Var, zs2 zs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, f43 f43Var) {
+    @Override // com.baidu.tieba.gt2
+    public boolean a(ws2 ws2Var, ys2 ys2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{xs2Var, zs2Var, context, unitedSchemeEntity, callbackHandler, f43Var})) == null) {
-            f12.i("video", "fullscreen, video id:" + zs2Var.j + " slave id: " + zs2Var.c);
-            e(xs2Var, zs2Var.s, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ws2Var, ys2Var, context, unitedSchemeEntity, callbackHandler, e43Var})) == null) {
+            e12.i("video", "open, video id:" + ys2Var.j + " slave id: " + ys2Var.c);
+            ws2Var.l();
+            d(ws2Var, ys2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final void e(xs2 xs2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        HashMap<String, String> params;
+    @Override // com.baidu.tieba.gt2
+    public ws2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{xs2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty()) {
-            xs2Var.u(z, d(params));
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            cr2 f = dr2.f(str, str2, str3);
+            if (f == null) {
+                return new ws2(context, ys2.h(jSONObject, new ys2()));
+            }
+            if (!(f.i() instanceof ws2)) {
+                return null;
+            }
+            return (ws2) f.i();
+        }
+        return (ws2) invokeLLLLL.objValue;
+    }
+
+    public final void d(ws2 ws2Var, ys2 ys2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, ws2Var, ys2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ws2Var.o(ys2Var);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

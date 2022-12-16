@@ -1,58 +1,139 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wa6 {
+public class wa6 extends va6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ScaleGestureDetector h;
+    public b i;
 
-    public static void a(View view2, tr4 tr4Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, view2, tr4Var, str) == null) && tr4Var != null && tr4Var.getThreadData() != null) {
-            ThreadData threadData = tr4Var.getThreadData();
-            if (threadData.isVideoThreadType()) {
-                TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
-                return;
-            }
-            int id = view2.getId();
-            if (view2.getId() != R.id.obfuscated_res_0x7f0921dd && id != R.id.obfuscated_res_0x7f0921f1) {
-                if (id == R.id.obfuscated_res_0x7f0924d7) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f092505) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f090aad) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f0921f1) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-                    return;
-                } else if (view2 instanceof TbImageView) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
-                    return;
-                } else {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ wa6 b;
+
+        public c(wa6 wa6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wa6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+            this.b = wa6Var;
+            this.a = false;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
+                this.a = false;
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
+                this.a = true;
+            }
+        }
+
+        public /* synthetic */ c(wa6 wa6Var, a aVar) {
+            this(wa6Var);
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
+                if (scaleGestureDetector != null && this.b.i != null) {
+                    float scaleFactor = scaleGestureDetector.getScaleFactor();
+                    if (!this.a && scaleFactor > 1.0f) {
+                        this.a = true;
+                        this.b.i.a(true);
+                    } else if (!this.a && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                        this.a = true;
+                        this.b.i.a(false);
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public static void b(tr4 tr4Var, String str) {
+    public wa6(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, tr4Var, str) == null) && tr4Var != null && tr4Var.getThreadData() != null) {
-            if (tr4Var.getThreadData().isVideoThreadType()) {
-                f46.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(tr4Var.getThreadData(), str));
-            } else {
-                f46.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(tr4Var.getThreadData(), str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.h = new ScaleGestureDetector(context, new c(this, null));
+    }
+
+    @Override // com.baidu.tieba.va6
+    public boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            try {
+                this.h.onTouchEvent(motionEvent);
+                return super.c(motionEvent);
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.i = bVar;
         }
     }
 }

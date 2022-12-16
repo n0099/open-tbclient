@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.widget.ComplianceTextView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910ba);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09111c);
         }
     }
 }

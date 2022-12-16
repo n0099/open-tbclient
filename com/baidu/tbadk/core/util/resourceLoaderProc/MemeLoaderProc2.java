@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
-import com.baidu.tieba.cr4;
+import com.baidu.tieba.dr4;
 import com.baidu.tieba.in;
-import com.baidu.tieba.l95;
 import com.baidu.tieba.lc;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.pc;
+import com.baidu.tieba.qj5;
 import com.baidu.tieba.rg;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.xi5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class MemeLoaderProc2 implements ug<in> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public in m49decodeToResource(byte[] bArr, Object... objArr) {
+    public in m50decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bArr, objArr)) == null) {
@@ -93,7 +93,7 @@ public class MemeLoaderProc2 implements ug<in> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return cr4.c().g();
+            return dr4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -172,7 +172,7 @@ public class MemeLoaderProc2 implements ug<in> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            in checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, l95.k().m(str), i, i2);
+            in checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, m95.k().m(str), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
@@ -206,13 +206,13 @@ public class MemeLoaderProc2 implements ug<in> {
                 i4 = i2;
             }
             if (!this.isShare) {
-                xi5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d = xi5.d(str);
+                qj5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d = qj5.d(str);
                 if (((Boolean) d.first).booleanValue()) {
                     str3 = (String) d.second;
                 }
             } else {
-                xi5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                qj5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();
@@ -224,7 +224,7 @@ public class MemeLoaderProc2 implements ug<in> {
             if (downloadImageBytes == null && !webClient.getResponse().a) {
                 return null;
             }
-            l95 k = l95.k();
+            m95 k = m95.k();
             int pbImageSize = TbConfig.getPbImageSize();
             boolean z = false;
             if (downloadImageBytes != null) {
@@ -281,7 +281,7 @@ public class MemeLoaderProc2 implements ug<in> {
             if (inVar.u()) {
                 inVar.A(i);
                 inVar.z(i2);
-                l95.k().d(str, inVar);
+                m95.k().d(str, inVar);
             }
         }
     }

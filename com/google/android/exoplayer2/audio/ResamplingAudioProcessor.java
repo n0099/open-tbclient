@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.audio;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -205,7 +206,7 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
                             } else {
                                 while (position < limit) {
                                     this.buffer.put((byte) 0);
-                                    this.buffer.put((byte) ((byteBuffer.get(position) & 255) - 128));
+                                    this.buffer.put((byte) ((byteBuffer.get(position) & 255) + a.g));
                                     position++;
                                 }
                             }

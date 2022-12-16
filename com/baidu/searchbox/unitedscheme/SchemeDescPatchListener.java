@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

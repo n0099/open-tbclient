@@ -1,80 +1,376 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hk9;
+import com.baidu.tieba.ik9;
+import com.baidu.tieba.jk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class ok9 extends lk9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String h = "XMUnionID";
-    public static boolean i;
+public class ok9 implements ik9, jk9.a, hk9.a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bk9 a;
+    public ek9 b;
+    public Executor c;
+    public String d;
+    public zj9 e;
+    public ik9.a f;
+    public int g;
+    public kk9 h;
+    public jk9 i;
+    public List<hk9> j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948035276, "Lcom/baidu/tieba/ok9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948035276, "Lcom/baidu/tieba/ok9;");
-                return;
-            }
-        }
-        i = dk9.e();
-    }
-
-    @Override // com.baidu.tieba.kk9
-    public kk9 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.c = uu9.b();
-                this.d = uu9.a(this.a);
-                this.g = 0;
-            } catch (Exception e) {
-                if (i) {
-                    Log.e(h, "xiaomi init4UnionId error", e);
-                }
-            }
-            return this;
-        }
-        return (kk9) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ok9(Context context) {
-        super(context);
+    public ok9(bk9 bk9Var, ek9 ek9Var, Executor executor, String str, zj9 zj9Var, ik9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {bk9Var, ek9Var, executor, str, zj9Var, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i) {
-            Log.e(h, "xiaomi XMUnionID !!");
+        this.a = bk9Var;
+        this.b = ek9Var;
+        this.c = executor;
+        this.d = str;
+        this.e = zj9Var;
+        this.f = aVar;
+        g();
+    }
+
+    @Override // com.baidu.tieba.hk9.a
+    public void a(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) && k()) {
+            this.g = 108;
+            this.b.a(downloadException);
+            m();
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
-        this.g = -200;
+    }
+
+    @Override // com.baidu.tieba.hk9.a
+    public void onDownloadCompleted(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && j()) {
+            this.g = 105;
+            this.b.onDownloadCompleted(str);
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.jk9.a
+    public void b(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            if (this.i.isCanceled()) {
+                onConnectCanceled();
+            } else if (this.i.isPaused()) {
+                onDownloadPaused();
+            } else {
+                this.g = 108;
+                this.b.b(downloadException);
+                m();
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            File file = new File(this.h.a(), this.h.d());
+            if (file.exists() && file.isFile()) {
+                file.delete();
+            }
+        }
+    }
+
+    public final sk9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new sk9(0, this.d, this.a.c(), 0L);
+        }
+        return (sk9) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            for (hk9 hk9Var : this.j) {
+                if (hk9Var.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ik9
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int i = this.g;
+            if (i != 101 && i != 102 && i != 103 && i != 104) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            for (hk9 hk9Var : this.j) {
+                if (!hk9Var.isComplete()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            for (hk9 hk9Var : this.j) {
+                if (hk9Var.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            for (hk9 hk9Var : this.j) {
+                if (hk9Var.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.f.a(this.d, this);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            pk9 pk9Var = new pk9(this.a.c(), this);
+            this.i = pk9Var;
+            this.c.execute(pk9Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.jk9.a
+    public void onConnectCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            c();
+            this.g = 107;
+            this.b.onConnectCanceled();
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.jk9.a
+    public void onConnectPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            onDownloadPaused();
+        }
+    }
+
+    @Override // com.baidu.tieba.jk9.a
+    public void onConnecting() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.g = 102;
+            this.b.onConnecting();
+        }
+    }
+
+    @Override // com.baidu.tieba.hk9.a
+    public void onDownloadCanceled() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && i()) {
+            c();
+            this.g = 107;
+            this.b.onDownloadCanceled();
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.hk9.a
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && l()) {
+            this.g = 106;
+            this.b.onDownloadPaused();
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.ik9
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.g = 101;
+            this.b.onStarted();
+            n();
+        }
+    }
+
+    @Override // com.baidu.tieba.ik9
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            jk9 jk9Var = this.i;
+            if (jk9Var != null) {
+                jk9Var.cancel();
+            }
+            for (hk9 hk9Var : this.j) {
+                hk9Var.cancel();
+            }
+            if (this.g != 104) {
+                onDownloadCanceled();
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.h = new kk9(this.a.b().toString(), this.a.c(), this.a.a());
+            this.j = new LinkedList();
+        }
+    }
+
+    @Override // com.baidu.tieba.ik9
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            jk9 jk9Var = this.i;
+            if (jk9Var != null) {
+                jk9Var.pause();
+            }
+            for (hk9 hk9Var : this.j) {
+                hk9Var.pause();
+            }
+            if (this.g != 104) {
+                onDownloadPaused();
+            }
+        }
+    }
+
+    public final void d(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.g = 104;
+            h(j, z);
+            for (hk9 hk9Var : this.j) {
+                this.c.execute(hk9Var);
+            }
+        }
+    }
+
+    public final List<sk9> e(long j) {
+        InterceptResult invokeJ;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int b = this.e.b();
+            for (int i = 0; i < b; i++) {
+                long j3 = j / b;
+                long j4 = j3 * i;
+                if (i == b - 1) {
+                    j2 = j;
+                } else {
+                    j2 = (j3 + j4) - 1;
+                }
+                arrayList.add(new sk9(i, this.d, this.a.c(), j4, j2, 0L));
+            }
+            return arrayList;
+        }
+        return (List) invokeJ.objValue;
+    }
+
+    public final void h(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.j.clear();
+            if (z) {
+                List<sk9> e = e(j);
+                int i = 0;
+                for (sk9 sk9Var : e) {
+                    i = (int) (i + sk9Var.b());
+                }
+                this.h.f(i);
+                for (sk9 sk9Var2 : e) {
+                    this.j.add(new qk9(this.h, sk9Var2, this));
+                }
+                return;
+            }
+            this.j.add(new rk9(this.h, f(), this));
+        }
+    }
+
+    @Override // com.baidu.tieba.jk9.a
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            if (this.i.isCanceled()) {
+                onConnectCanceled();
+                return;
+            }
+            this.g = 103;
+            this.b.onConnected(j, j2, z);
+            this.h.e(z);
+            this.h.g(j2);
+            d(j2, z);
+        }
+    }
+
+    @Override // com.baidu.tieba.hk9.a
+    public void onDownloadProgress(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.b.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
+        }
     }
 }

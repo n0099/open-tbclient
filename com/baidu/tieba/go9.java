@@ -1,162 +1,366 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.fo9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class go9 implements PidLoaderCreator {
+public class go9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean n;
+    public static volatile go9 o;
     public transient /* synthetic */ FieldHolder $fh;
+    public File a;
+    public File b;
+    public boolean c;
+    public boolean d;
+    public long e;
+    public int f;
+    public int g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public int l;
+    public HashMap<String, fo9> m;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947800792, "Lcom/baidu/tieba/go9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947800792, "Lcom/baidu/tieba/go9;");
+                return;
+            }
+        }
+        n = AppConfig.isDebug();
+    }
 
     public go9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        n();
+    }
+
+    public static go9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (o == null) {
+                synchronized (go9.class) {
+                    if (o == null) {
+                        o = new go9();
+                    }
+                }
+            }
+            return o;
+        }
+        return (go9) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return invokeV.longValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return invokeV.longValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        fo9 fo9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.c;
+            }
+            HashMap<String, fo9> hashMap = this.m;
+            if (hashMap != null && (fo9Var = hashMap.get(str)) != null) {
+                return fo9Var.e();
+            }
+            return this.c;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public long b(String str) {
+        InterceptResult invokeL;
+        fo9 fo9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.i;
+            }
+            HashMap<String, fo9> hashMap = this.m;
+            if (hashMap != null && (fo9Var = hashMap.get(str)) != null) {
+                return fo9Var.a();
+            }
+            return this.i;
+        }
+        return invokeL.longValue;
+    }
+
+    public int c(String str) {
+        InterceptResult invokeL;
+        fo9 fo9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.l;
+            }
+            HashMap<String, fo9> hashMap = this.m;
+            if (hashMap != null && (fo9Var = hashMap.get(str)) != null) {
+                return fo9Var.b();
+            }
+            return this.l;
+        }
+        return invokeL.intValue;
+    }
+
+    public long d(String str) {
+        InterceptResult invokeL;
+        fo9 fo9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.h;
+            }
+            HashMap<String, fo9> hashMap = this.m;
+            if (hashMap != null && (fo9Var = hashMap.get(str)) != null) {
+                return fo9Var.d();
+            }
+            return this.h;
+        }
+        return invokeL.longValue;
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        fo9 fo9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.g;
+            }
+            HashMap<String, fo9> hashMap = this.m;
+            if (hashMap != null && (fo9Var = hashMap.get(str)) != null) {
+                return fo9Var.c();
+            }
+            return this.g;
+        }
+        return invokeL.intValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
+            this.b = file;
+            if (!file.exists()) {
+                this.b.mkdirs();
+            }
+            File file2 = new File(this.b, "voyager_config.txt");
+            this.a = file2;
+            if (file2.exists()) {
+                q();
+            } else {
+                r();
             }
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -2105157443:
-                    if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1412451668:
-                    if (str.equals(FunAdType.CSJ_INTERSITIAL_2)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1263692214:
-                    if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1071311851:
-                    if (str.equals(FunAdType.CSJ_DRAW_NATIVE)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -950004865:
-                    if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 347930415:
-                    if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 556489085:
-                    if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1168375858:
-                    if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1319012390:
-                    if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1328722634:
-                    if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1922685617:
-                    if (str.equals(FunAdType.CSJ_NATIVE)) {
-                        c = '\n';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2079438081:
-                    if (str.equals(FunAdType.CSJ_SPLASH)) {
-                        c = 11;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.c = ho9.a;
+            this.d = ho9.c;
+            this.e = ho9.e;
+            this.f = ho9.f;
+            this.i = ho9.g;
+            this.k = ho9.i;
+            this.j = ho9.h;
+            this.g = ho9.j;
+            this.h = ho9.k;
+            this.l = ho9.l;
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            String f = zo9.f(this.a);
+            if (n) {
+                Log.d("VoyagerConfig", "read from local: " + f);
             }
-            switch (c) {
-                case 0:
-                    return new ap9(pid);
-                case 1:
-                    return new lp9(pid);
-                case 2:
-                    return new mp9(pid);
-                case 3:
-                    return new wo9(pid);
-                case 4:
-                    return new qp9(pid);
-                case 5:
-                    return new io9(pid);
-                case 6:
-                    return new po9(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
-                case 7:
-                    return new wp9(pid);
-                case '\b':
-                    return new gp9(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid);
-                case '\t':
-                    return new jo9(pid);
-                case '\n':
-                    return new vp9(pid);
-                case 11:
-                    return new ko9(pid);
-                default:
-                    LogPrinter.e("Not supported pid.type:%s", pid.type);
-                    return null;
+            if (TextUtils.isEmpty(f)) {
+                r();
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(f);
+                this.c = jSONObject.optBoolean("en", ho9.a);
+                this.d = jSONObject.optBoolean("c", ho9.c);
+                this.e = jSONObject.optLong(TaskUIData.key, ho9.e);
+                this.f = jSONObject.optInt("utc", ho9.f);
+                this.i = jSONObject.optLong("et", ho9.g);
+                this.k = jSONObject.optInt("mfc", ho9.i);
+                this.j = jSONObject.optLong("mfs", ho9.h);
+                this.l = jSONObject.optInt(com.alipay.sdk.sys.a.r, ho9.l);
+                this.g = jSONObject.optInt("stmc", ho9.j);
+                this.h = jSONObject.optLong("stms", ho9.k);
+                JSONObject optJSONObject = jSONObject.optJSONObject("set");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                        if (optJSONObject2 != null && optJSONObject2.length() != 0) {
+                            fo9 g = new fo9.b(next).g();
+                            if (optJSONObject2.optInt("en") != ho9.n) {
+                                g.f(ho9.a);
+                            } else {
+                                g.f(ho9.b);
+                            }
+                            long optInt = optJSONObject2.optInt("et", 0);
+                            if (optInt > 0) {
+                                g.g(optInt);
+                            } else {
+                                g.g(this.i);
+                            }
+                            int optInt2 = optJSONObject2.optInt("stmc", 0);
+                            if (optInt2 > 0) {
+                                g.i(optInt2);
+                            } else {
+                                g.i(this.g);
+                            }
+                            long optLong = optJSONObject2.optLong("stms", 0L);
+                            if (optLong > 0) {
+                                g.j(optLong);
+                            } else {
+                                g.j(this.h);
+                            }
+                            if (optJSONObject2.optInt(com.alipay.sdk.sys.a.r) != ho9.m) {
+                                g.h(ho9.l);
+                            } else {
+                                g.h(ho9.m);
+                            }
+                            if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
+                                if (this.m == null) {
+                                    this.m = new HashMap<>();
+                                }
+                                this.m.put(next, g);
+                            }
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
+                }
             }
         }
-        return (PidLoader) invokeL.objValue;
     }
 }

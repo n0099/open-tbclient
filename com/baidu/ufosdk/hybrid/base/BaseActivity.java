@@ -21,7 +21,7 @@ import com.baidu.ufosdk.b;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public abstract class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
             if (this.a) {
-                overridePendingTransition(R.anim.ufo_slide_in_from_left, R.anim.ufo_slide_out_to_right);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010147, R.anim.obfuscated_res_0x7f01014b);
             }
         }
     }
@@ -116,7 +116,7 @@ public abstract class BaseActivity extends Activity {
                         i = 0;
                     }
                     Log.d(com.sina.weibo.sdk.share.BaseActivity.TAG, "onSetDefaultStatusBarColor: " + i);
-                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.webload_titlebar);
+                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09271b);
                     if (viewGroup != null && i > 0) {
                         if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
                             ((ViewGroup) viewGroup.getParent()).setPadding(0, i, 0, 0);
@@ -135,9 +135,9 @@ public abstract class BaseActivity extends Activity {
                                 window.getDecorView().setSystemUiVisibility(9216);
                             }
                         }
-                        window.setStatusBarColor(getResources().getColor(R.color.common_transparent));
+                        window.setStatusBarColor(getResources().getColor(R.color.obfuscated_res_0x7f060635));
                     } else {
-                        int color = getResources().getColor(R.color.common_transparent);
+                        int color = getResources().getColor(R.color.obfuscated_res_0x7f060635);
                         if (Build.VERSION.SDK_INT >= 21) {
                             Window window2 = getWindow();
                             window2.addFlags(Integer.MIN_VALUE);

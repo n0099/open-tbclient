@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,21 +45,36 @@ public class GroupChatView extends CommonGroupMsglistView {
         }
     }
 
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.setVisibility(8);
+            ry4.l().v("has_shown_group_btn_dot", true);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !ry4.l().i("has_shown_group_btn_dot", false)) {
+            this.b.setVisibility(0);
+        }
+    }
+
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, talkableActivity, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
             this.c = (GroupChatActivity) talkableActivity;
-            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b2d);
+            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b63);
             if (string != null) {
                 String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
-                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0387, talkableActivity);
+                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0392, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
-                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090d2c);
+                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090d78);
                 this.a = textView;
                 textView.setText(string);
-                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091c0a);
+                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091c75);
                 this.b = imageView;
                 imageView.setVisibility(8);
                 if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -71,21 +86,6 @@ public class GroupChatView extends CommonGroupMsglistView {
                     this.mBtnGroupInfo.setVisibility(0);
                 }
             }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.setVisibility(8);
-            qy4.k().u("has_shown_group_btn_dot", true);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !qy4.k().h("has_shown_group_btn_dot", false)) {
-            this.b.setVisibility(0);
         }
     }
 

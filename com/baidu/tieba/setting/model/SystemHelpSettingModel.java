@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public Context c;
     public BaseActivity.LoadDataCallBack d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,7 +178,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long j2 = directorySize + directorySize3 + fileSize + directorySize2 + j;
                 float f = ((float) j2) + 0.0f;
                 if (j2 >= 10485.76d && this.a.get() != null) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0ae0);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0b16);
                 }
                 return "";
             }
@@ -224,21 +224,21 @@ public class SystemHelpSettingModel extends BdBaseModel {
         this.c = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void F(boolean z) {
+    public void M(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             TbadkCoreApplication.getInst().setHeadsetModeOn(z);
         }
     }
 
-    public void G(BaseActivity.LoadDataCallBack loadDataCallBack) {
+    public void N(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
             this.d = loadDataCallBack;
         }
     }
 
-    public void C() {
+    public void J() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
             b bVar = new b(this, null);
@@ -247,7 +247,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void D() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -257,7 +257,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void E() {
+    public void L() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null) {
             c cVar = new c(this, this.c);

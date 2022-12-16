@@ -1,83 +1,113 @@
 package com.baidu.tieba;
 
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.NativeExpressADView;
+import com.qq.e.ads.nativ.NativeExpressMediaListener;
+import com.qq.e.comm.util.AdError;
 /* loaded from: classes6.dex */
-public class wt9 {
+public class wt9 implements NativeExpressMediaListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282253, "Lcom/baidu/tieba/wt9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282253, "Lcom/baidu/tieba/wt9;");
-                return;
-            }
-        }
-        wt9.class.getClassLoader();
-    }
-
-    public wt9() {
+    public wt9(vt9 vt9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vt9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
-        InterceptResult invokeLL;
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoCached(NativeExpressADView nativeExpressADView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
-            if (parcel.readInt() == 0) {
-                return null;
-            }
-            return creator.createFromParcel(parcel);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void b(Parcel parcel, IInterface iInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, parcel, iInterface) == null) {
-            if (iInterface == null) {
-                parcel.writeStrongBinder(null);
-            } else {
-                parcel.writeStrongBinder(iInterface.asBinder());
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
+            LogPrinter.d();
         }
     }
 
-    public static void c(Parcel parcel, Parcelable parcelable) {
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoComplete(NativeExpressADView nativeExpressADView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
-            if (parcelable == null) {
-                parcel.writeInt(0);
-                return;
-            }
-            parcel.writeInt(1);
-            parcelable.writeToParcel(parcel, 0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoError(NativeExpressADView nativeExpressADView, AdError adError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView, adError) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoInit(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoLoading(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoPageClose(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoPageOpen(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoPause(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoReady(NativeExpressADView nativeExpressADView, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView, j) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoStart(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
+            LogPrinter.d();
         }
     }
 }

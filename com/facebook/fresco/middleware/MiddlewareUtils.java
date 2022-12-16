@@ -37,23 +37,23 @@ public class MiddlewareUtils {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{map, map2, map3, rect, str, pointF, map4, obj, uri})) == null) {
             ControllerListener2.Extras extras = new ControllerListener2.Extras();
             HashMap hashMap = new HashMap();
-            extras.f1069view = hashMap;
+            extras.f1094view = hashMap;
             hashMap.putAll(map);
             if (rect != null) {
-                extras.f1069view.put("viewport_width", Integer.valueOf(rect.width()));
-                extras.f1069view.put("viewport_height", Integer.valueOf(rect.height()));
+                extras.f1094view.put("viewport_width", Integer.valueOf(rect.width()));
+                extras.f1094view.put("viewport_height", Integer.valueOf(rect.height()));
             } else {
-                extras.f1069view.put("viewport_width", -1);
-                extras.f1069view.put("viewport_height", -1);
+                extras.f1094view.put("viewport_width", -1);
+                extras.f1094view.put("viewport_height", -1);
             }
-            extras.f1069view.put("scale_type", str);
+            extras.f1094view.put("scale_type", str);
             if (pointF != null) {
-                extras.f1069view.put("focus_point_x", Float.valueOf(pointF.x));
-                extras.f1069view.put("focus_point_y", Float.valueOf(pointF.y));
+                extras.f1094view.put("focus_point_x", Float.valueOf(pointF.x));
+                extras.f1094view.put("focus_point_y", Float.valueOf(pointF.y));
             }
-            extras.f1069view.put("caller_context", obj);
+            extras.f1094view.put("caller_context", obj);
             if (uri != null) {
-                extras.f1069view.put("uri_main", uri);
+                extras.f1094view.put("uri_main", uri);
             }
             if (map3 != null) {
                 extras.pipe = map3;
@@ -62,7 +62,7 @@ public class MiddlewareUtils {
                 }
             } else {
                 extras.pipe = map4;
-                extras.f1069view.putAll(map2);
+                extras.f1094view.putAll(map2);
             }
             return extras;
         }

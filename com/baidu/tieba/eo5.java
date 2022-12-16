@@ -1,78 +1,212 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import java.util.Calendar;
 /* loaded from: classes4.dex */
-public final class eo5 extends TimerTask {
+public class eo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public final WheelView d;
+    public fo5 a;
 
-    public eo5(WheelView wheelView, int i) {
+    public eo5(Context context, lo5 lo5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView, Integer.valueOf(i)};
+            Object[] objArr = {context, lo5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = wheelView;
-        this.c = i;
-        this.a = Integer.MAX_VALUE;
-        this.b = 0;
+        fo5 fo5Var = new fo5(2);
+        this.a = fo5Var;
+        fo5Var.A = context;
+        fo5Var.a = lo5Var;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public qo5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == Integer.MAX_VALUE) {
-                this.a = this.c;
-            }
-            int i = this.a;
-            int i2 = (int) (i * 0.1f);
-            this.b = i2;
-            if (i2 == 0) {
-                if (i < 0) {
-                    this.b = -1;
-                } else {
-                    this.b = 1;
-                }
-            }
-            if (Math.abs(this.a) <= 1) {
-                this.d.b();
-                this.d.getHandler().sendEmptyMessage(3000);
-                return;
-            }
-            WheelView wheelView = this.d;
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.b);
-            if (!this.d.i()) {
-                float itemHeight = this.d.getItemHeight();
-                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
-                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
-                    WheelView wheelView2 = this.d;
-                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.b);
-                    this.d.b();
-                    this.d.getHandler().sendEmptyMessage(3000);
-                    return;
-                }
-            }
-            this.d.getHandler().sendEmptyMessage(1000);
-            this.a -= this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new qo5(this.a);
         }
+        return (qo5) invokeV.objValue;
+    }
+
+    public eo5 b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.a.T = z;
+            return this;
+        }
+        return (eo5) invokeZ.objValue;
+    }
+
+    public eo5 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a.R = z;
+            return this;
+        }
+        return (eo5) invokeZ.objValue;
+    }
+
+    public eo5 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.a.P = i;
+            return this;
+        }
+        return (eo5) invokeI.objValue;
+    }
+
+    public eo5 e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.a.H = i;
+            return this;
+        }
+        return (eo5) invokeI.objValue;
+    }
+
+    public eo5 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a.L = i;
+            return this;
+        }
+        return (eo5) invokeI.objValue;
+    }
+
+    public eo5 g(Calendar calendar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
+            this.a.e = calendar;
+            return this;
+        }
+        return (eo5) invokeL.objValue;
+    }
+
+    public eo5 h(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            this.a.y = viewGroup;
+            return this;
+        }
+        return (eo5) invokeL.objValue;
+    }
+
+    public eo5 i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.a.O = i;
+            return this;
+        }
+        return (eo5) invokeI.objValue;
+    }
+
+    public eo5 l(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.a.Q = f;
+            return this;
+        }
+        return (eo5) invokeF.objValue;
+    }
+
+    public eo5 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.N = i;
+            return this;
+        }
+        return (eo5) invokeI.objValue;
+    }
+
+    public eo5 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.a.M = i;
+            return this;
+        }
+        return (eo5) invokeI.objValue;
+    }
+
+    public eo5 p(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
+            this.a.d = zArr;
+            return this;
+        }
+        return (eo5) invokeL.objValue;
+    }
+
+    public eo5 j(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            fo5 fo5Var = this.a;
+            fo5Var.l = str;
+            fo5Var.m = str2;
+            fo5Var.n = str3;
+            fo5Var.o = str4;
+            fo5Var.p = str5;
+            fo5Var.q = str6;
+            return this;
+        }
+        return (eo5) invokeCommon.objValue;
+    }
+
+    public eo5 k(int i, go5 go5Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, go5Var)) == null) {
+            fo5 fo5Var = this.a;
+            fo5Var.x = i;
+            fo5Var.c = go5Var;
+            return this;
+        }
+        return (eo5) invokeIL.objValue;
+    }
+
+    public eo5 o(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            fo5 fo5Var = this.a;
+            fo5Var.r = i;
+            fo5Var.s = i2;
+            fo5Var.t = i3;
+            fo5Var.u = i4;
+            fo5Var.v = i5;
+            fo5Var.w = i6;
+            return this;
+        }
+        return (eo5) invokeCommon.objValue;
     }
 }

@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.jni.MiniGzip;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
@@ -53,7 +52,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
@@ -435,8 +434,8 @@ public final class DownloadManager {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00a9  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00da  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00dd  */
     /* JADX WARN: Removed duplicated region for block: B:57:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -562,11 +561,11 @@ public final class DownloadManager {
                         try {
                             try {
                                 httpURLConnection = (HttpURLConnection) new URL(this.val$mUrl).openConnection();
-                            } catch (Exception e) {
-                                e = e;
+                            } catch (Throwable th) {
+                                th = th;
                             }
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (Exception e) {
+                            e = e;
                         }
                         try {
                             httpURLConnection.setConnectTimeout(5000);
@@ -927,16 +926,16 @@ public final class DownloadManager {
             d dVar = this.mLogUtils;
             String c = this.mBaiduParamManager.c();
             String b = this.mBaiduParamManager.b();
-            dVar.a(c, "0", b, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, str);
+            dVar.a(c, "0", b, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", "RSA", str);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x018b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x018c */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x019c  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x01e7  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0209  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x019d  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x01e8  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x020a  */
     /* JADX WARN: Type inference failed for: r7v10 */
     /* JADX WARN: Type inference failed for: r7v11 */
     /* JADX WARN: Type inference failed for: r7v13, types: [boolean] */
@@ -1199,7 +1198,7 @@ public final class DownloadManager {
                     LogUtil.logE("DownloadManager", "apk的md5值：" + a2);
                     if (str4.equals(a2)) {
                         LogUtil.logE("DownloadManager", "第一次RSA验证通过");
-                        this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, "");
+                        this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", "RSA", "");
                         j.a(this.mContext, this.privateApkFile);
                     } else if (this.isDownloadPublicKey.booleanValue()) {
                         LogUtil.logE("DownloadManager", "RSA验证失败，下载公钥重新验证");

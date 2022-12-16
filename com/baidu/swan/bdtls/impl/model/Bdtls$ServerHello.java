@@ -3,8 +3,8 @@ package com.baidu.swan.bdtls.impl.model;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
+import com.baidu.tieba.in3;
 import com.baidu.tieba.jn3;
-import com.baidu.tieba.kn3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -430,7 +430,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (jn3) null);
+                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (in3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -581,7 +581,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return (List) invokeV.objValue;
     }
 
-    public List<? extends kn3> getExtensionsOrBuilderList() {
+    public List<? extends jn3> getExtensionsOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -791,7 +791,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, jn3 jn3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, in3 in3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -817,7 +817,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, jn3 jn3Var) {
+    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, in3 in3Var) {
         this(builder);
     }
 
@@ -896,13 +896,13 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return (Bdtls$Extension) invokeI.objValue;
     }
 
-    public kn3 getExtensionsOrBuilder(int i) {
+    public jn3 getExtensionsOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             return this.extensions_.get(i);
         }
-        return (kn3) invokeI.objValue;
+        return (jn3) invokeI.objValue;
     }
 
     public static Bdtls$ServerHello parseFrom(CodedInputStream codedInputStream) throws IOException {

@@ -9,7 +9,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -34,10 +33,10 @@ import org.json.JSONObject;
 public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData o;
-    public Context p;
+    public ThreadData n;
+    public Context o;
+    public View.OnClickListener p;
     public View.OnClickListener q;
-    public View.OnClickListener r;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -72,29 +71,29 @@ public class HeadPendantClickableView extends HeadPendantView {
             boolean z;
             String str5;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.o != null && this.a.o.getAuthor() != null && !StringUtils.isNull(this.a.o.getAuthor().getName_show()) && !StringUtils.isNull(this.a.o.getAuthor().getUserId())) {
-                if (this.a.o.isFromHomPage) {
-                    if (this.a.o.getThreadType() == 69) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n != null && this.a.n.getAuthor() != null && !StringUtils.isNull(this.a.n.getAuthor().getName_show()) && !StringUtils.isNull(this.a.n.getAuthor().getUserId())) {
+                if (this.a.n.isFromHomPage) {
+                    if (this.a.n.getThreadType() == 69) {
                         str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
-                    } else if (this.a.o.getThreadType() == 40) {
+                    } else if (this.a.n.getThreadType() == 40) {
                         str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD;
                     } else {
                         str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
                     }
                     str = str5;
                     str2 = AddFriendActivityConfig.TYPE_HOME_HEAD;
-                } else if (this.a.o.isFromConcern()) {
-                    if (this.a.o.getThreadType() == 69) {
+                } else if (this.a.n.isFromConcern()) {
+                    if (this.a.n.getThreadType() == 69) {
                         str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
-                    } else if (this.a.o.getThreadType() == 40) {
+                    } else if (this.a.n.getThreadType() == 40) {
                         str4 = YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD;
                     } else {
                         str4 = YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
                     }
                     str = str4;
                     str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-                } else if (this.a.o.isFromFrs()) {
-                    if (this.a.o.getThreadType() == 69) {
+                } else if (this.a.n.isFromFrs()) {
+                    if (this.a.n.getThreadType() == 69) {
                         str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB;
                     } else {
                         str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
@@ -105,32 +104,32 @@ public class HeadPendantClickableView extends HeadPendantView {
                     str = YYLiveUtil.SOURCE_NOT_DEFINE;
                     str2 = "";
                 }
-                AlaInfoData alaInfo = this.a.o.getAuthor().getAlaInfo();
+                AlaInfoData alaInfo = this.a.n.getAuthor().getAlaInfo();
                 if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
                     TbPageContext tbPageContext = this.a.getTbPageContext();
                     YyExtData yyExtData = alaInfo.mYyExtData;
                     YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
                     HeadPendantClickableView headPendantClickableView = this.a;
-                    headPendantClickableView.t(headPendantClickableView.o.getTid(), String.valueOf(this.a.o.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                    headPendantClickableView.t(headPendantClickableView.n.getTid(), String.valueOf(this.a.n.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
                 } else {
-                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.p, this.a.o.getAuthor().getUserId(), this.a.o.getAuthor().getName_show(), this.a.o.getForum_name(), str2, this.a.o.getTid(), this.a.o.getNid());
-                    if (this.a.o.getThreadVideoInfo() != null) {
+                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.o, this.a.n.getAuthor().getUserId(), this.a.n.getAuthor().getName_show(), this.a.n.getForum_name(), str2, this.a.n.getTid(), this.a.n.getNid());
+                    if (this.a.n.getThreadVideoInfo() != null) {
                         z = true;
                     } else {
                         z = false;
                     }
                     personInfoActivityConfig.setIsVideoThread(z);
-                    if (this.a.o.getResource() == 1) {
+                    if (this.a.n.getResource() == 1) {
                         personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
-                    } else if (this.a.o.getResource() == 2) {
+                    } else if (this.a.n.getResource() == 2) {
                         personInfoActivityConfig.setVideoPersonFrom("frs");
-                    } else if (this.a.o.getResource() == 5) {
+                    } else if (this.a.n.getResource() == 5) {
                         personInfoActivityConfig.setVideoPersonFrom("topic_detail");
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                 }
-                if (this.a.q != null) {
-                    this.a.q.onClick(view2);
+                if (this.a.p != null) {
+                    this.a.p.onClick(view2);
                 }
             }
         }
@@ -155,8 +154,8 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
         }
         a aVar = new a(this);
-        this.r = aVar;
-        this.p = context;
+        this.q = aVar;
+        this.o = context;
         setOnClickListener(aVar);
     }
 
@@ -180,15 +179,15 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
         }
         a aVar = new a(this);
-        this.r = aVar;
-        this.p = context;
+        this.q = aVar;
+        this.o = context;
         setOnClickListener(aVar);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.q = onClickListener;
+            this.p = onClickListener;
         }
     }
 
@@ -235,14 +234,14 @@ public class HeadPendantClickableView extends HeadPendantView {
     public void setData(ThreadData threadData, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048581, this, threadData, z) == null) && threadData != null && threadData.getAuthor() != null) {
-            this.o = threadData;
+            this.n = threadData;
             MetaData author = threadData.getAuthor();
-            setContentDescription(author.getName_show() + this.p.getString(R.string.obfuscated_res_0x7f0f1205));
+            setContentDescription(author.getName_show() + this.o.getString(R.string.somebodys_portrait));
             getHeadView().setUserId(author.getUserId());
             getHeadView().setUserName(author.getUserName());
             getHeadView().setUrl(author.getAvater());
             if (author.isDefaultAvatar) {
-                getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080fa6), 24, false);
+                getHeadView().K(String.valueOf((int) R.drawable.pic_mask_pass_head), 24, false);
             } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
                 getHeadView().K(author.getAvater(), 10, false);
             } else if (z) {
@@ -264,7 +263,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                 if (TextUtils.equals("0", str3)) {
                     str3 = null;
                 }
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, str3);
+                jSONObject.put("roomId", str3);
                 if (TextUtils.equals("0", str4)) {
                     str4 = null;
                 }

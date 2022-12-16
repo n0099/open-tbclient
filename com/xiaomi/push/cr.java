@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ResultTB;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,17 +23,17 @@ public class cr {
     public double a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f181a;
+    public long f204a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f182a;
+    public String f205a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<da> f183a;
+    public ArrayList<da> f206a;
     public long b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f184b;
+    public String f207b;
     public String c;
     public String d;
     public String e;
@@ -59,27 +58,27 @@ public class cr {
                 return;
             }
         }
-        this.f182a = "";
-        this.f183a = new ArrayList<>();
+        this.f205a = "";
+        this.f206a = new ArrayList<>();
         this.a = 0.1d;
         this.j = "s.mi1.cc";
         this.b = 86400000L;
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f181a = System.currentTimeMillis();
-        this.f183a.add(new da(str, -1));
-        this.f182a = cv.m251a();
-        this.f184b = str;
+        this.f204a = System.currentTimeMillis();
+        this.f206a.add(new da(str, -1));
+        this.f205a = cv.m261a();
+        this.f207b = str;
     }
 
     private synchronized void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             synchronized (this) {
-                Iterator<da> it = this.f183a.iterator();
+                Iterator<da> it = this.f206a.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().f200a, str)) {
+                    if (TextUtils.equals(it.next().f223a, str)) {
                         it.remove();
                     }
                 }
@@ -92,16 +91,16 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             synchronized (this) {
-                this.f182a = jSONObject.optString("net");
-                this.b = jSONObject.getLong(ResultTB.TTL);
+                this.f205a = jSONObject.optString("net");
+                this.b = jSONObject.getLong("ttl");
                 this.a = jSONObject.getDouble("pct");
-                this.f181a = jSONObject.getLong("ts");
+                this.f204a = jSONObject.getLong("ts");
                 this.d = jSONObject.optString("city");
                 this.c = jSONObject.optString("prv");
                 this.g = jSONObject.optString(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
                 this.e = jSONObject.optString("isp");
                 this.f = jSONObject.optString("ip");
-                this.f184b = jSONObject.optString("host");
+                this.f207b = jSONObject.optString("host");
                 this.h = jSONObject.optString("xf");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
                 for (int i = 0; i < jSONArray.length(); i++) {
@@ -133,7 +132,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m242a() {
+    public synchronized ArrayList<String> m252a() {
         InterceptResult invokeV;
         ArrayList<String> a;
         Interceptable interceptable = $ic;
@@ -154,12 +153,12 @@ public class cr {
                 throw new IllegalArgumentException("the url is empty.");
             }
             URL url = new URL(str);
-            if (TextUtils.equals(url.getHost(), this.f184b)) {
+            if (TextUtils.equals(url.getHost(), this.f207b)) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 Iterator<String> it = a(true).iterator();
                 while (it.hasNext()) {
                     ct a = ct.a(it.next(), url.getPort());
-                    arrayList.add(new URL(url.getProtocol(), a.m250a(), a.a(), url.getFile()).toString());
+                    arrayList.add(new URL(url.getProtocol(), a.m260a(), a.a(), url.getFile()).toString());
                 }
                 return arrayList;
             }
@@ -175,18 +174,18 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             synchronized (this) {
-                int size = this.f183a.size();
+                int size = this.f206a.size();
                 da[] daVarArr = new da[size];
-                this.f183a.toArray(daVarArr);
+                this.f206a.toArray(daVarArr);
                 Arrays.sort(daVarArr);
                 arrayList = new ArrayList<>();
                 for (int i = 0; i < size; i++) {
                     da daVar = daVarArr[i];
                     if (z) {
-                        substring = daVar.f200a;
+                        substring = daVar.f223a;
                     } else {
-                        int indexOf = daVar.f200a.indexOf(":");
-                        substring = indexOf != -1 ? daVar.f200a.substring(0, indexOf) : daVar.f200a;
+                        int indexOf = daVar.f223a.indexOf(":");
+                        substring = indexOf != -1 ? daVar.f223a.substring(0, indexOf) : daVar.f223a;
                     }
                     arrayList.add(substring);
                 }
@@ -197,26 +196,26 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m243a() {
+    public synchronized JSONObject m253a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 jSONObject = new JSONObject();
-                jSONObject.put("net", this.f182a);
-                jSONObject.put(ResultTB.TTL, this.b);
+                jSONObject.put("net", this.f205a);
+                jSONObject.put("ttl", this.b);
                 jSONObject.put("pct", this.a);
-                jSONObject.put("ts", this.f181a);
+                jSONObject.put("ts", this.f204a);
                 jSONObject.put("city", this.d);
                 jSONObject.put("prv", this.c);
                 jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE, this.g);
                 jSONObject.put("isp", this.e);
                 jSONObject.put("ip", this.f);
-                jSONObject.put("host", this.f184b);
+                jSONObject.put("host", this.f207b);
                 jSONObject.put("xf", this.h);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<da> it = this.f183a.iterator();
+                Iterator<da> it = this.f206a.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().a());
                 }
@@ -249,14 +248,14 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, daVar) == null) {
             synchronized (this) {
-                c(daVar.f200a);
-                this.f183a.add(daVar);
+                c(daVar.f223a);
+                this.f206a.add(daVar);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m244a(String str) {
+    public synchronized void m254a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             synchronized (this) {
@@ -302,13 +301,13 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, cqVar) == null) {
             synchronized (this) {
-                Iterator<da> it = this.f183a.iterator();
+                Iterator<da> it = this.f206a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     da next = it.next();
-                    if (TextUtils.equals(str, next.f200a)) {
+                    if (TextUtils.equals(str, next.f223a)) {
                         break;
                     }
                 }
@@ -321,7 +320,7 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, strArr) == null) {
             synchronized (this) {
-                int size = this.f183a.size() - 1;
+                int size = this.f206a.size() - 1;
                 while (true) {
                     i = 0;
                     if (size < 0) {
@@ -330,8 +329,8 @@ public class cr {
                     int length = strArr.length;
                     while (true) {
                         if (i < length) {
-                            if (TextUtils.equals(this.f183a.get(size).f200a, strArr[i])) {
-                                this.f183a.remove(size);
+                            if (TextUtils.equals(this.f206a.get(size).f223a, strArr[i])) {
+                                this.f206a.remove(size);
                                 break;
                             }
                             i++;
@@ -339,7 +338,7 @@ public class cr {
                     }
                     size--;
                 }
-                Iterator<da> it = this.f183a.iterator();
+                Iterator<da> it = this.f206a.iterator();
                 int i2 = 0;
                 while (it.hasNext()) {
                     da next = it.next();
@@ -356,16 +355,16 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m245a() {
+    public boolean m255a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f182a, cv.m251a()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f205a, cv.m261a()) : invokeV.booleanValue;
     }
 
     public boolean a(cr crVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, crVar)) == null) ? TextUtils.equals(this.f182a, crVar.f182a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, crVar)) == null) ? TextUtils.equals(this.f205a, crVar.f205a) : invokeL.booleanValue;
     }
 
     public void b(String str) {
@@ -392,7 +391,7 @@ public class cr {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? System.currentTimeMillis() - this.f181a < this.b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? System.currentTimeMillis() - this.f204a < this.b : invokeV.booleanValue;
     }
 
     public boolean c() {
@@ -404,8 +403,8 @@ public class cr {
                 j = 864000000;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.f181a;
-            return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.b && this.f182a.startsWith("WIFI-"));
+            long j2 = this.f204a;
+            return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.b && this.f205a.startsWith("WIFI-"));
         }
         return invokeV.booleanValue;
     }
@@ -415,10 +414,10 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f182a);
+            sb.append(this.f205a);
             sb.append("\n");
             sb.append(a());
-            Iterator<da> it = this.f183a.iterator();
+            Iterator<da> it = this.f206a.iterator();
             while (it.hasNext()) {
                 sb.append("\n");
                 sb.append(it.next().toString());

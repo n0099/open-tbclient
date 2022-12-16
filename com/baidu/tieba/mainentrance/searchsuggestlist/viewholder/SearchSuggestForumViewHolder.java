@@ -39,12 +39,12 @@ public class SearchSuggestForumViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091cd5);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e3d);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e40);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e3e);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e3c);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e3f);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091e63);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091d42);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eaa);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ead);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eab);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea9);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eac);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091ed0);
     }
 }

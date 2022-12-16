@@ -291,7 +291,7 @@ public final class b {
     }
 
     private int s(int i, int i2) {
-        while ((i2 & (-128)) != 0) {
+        while ((i2 & com.alipay.sdk.encrypt.a.g) != 0) {
             this.apw[i] = (byte) ((i2 & 127) | 128);
             i2 >>>= 7;
             i++;

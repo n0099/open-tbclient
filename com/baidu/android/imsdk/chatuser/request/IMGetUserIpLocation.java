@@ -2,14 +2,12 @@ package com.baidu.android.imsdk.chatuser.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.chatuser.IpInfo;
 import com.baidu.android.imsdk.chatuser.db.IMUserManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +68,6 @@ public class IMGetUserIpLocation extends Message {
                         jSONObject.put("type", intExtra);
                     } catch (JSONException e) {
                         LogUtils.e(TAG, "Exception ", e);
-                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                     }
                     Message.saveCmdMessage(context, iMGetUserIpLocation, jSONObject.toString(), iMGetUserIpLocation.getPriority());
                     return iMGetUserIpLocation;
@@ -102,7 +99,6 @@ public class IMGetUserIpLocation extends Message {
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

@@ -3,115 +3,134 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
-/* loaded from: classes4.dex */
-public class kq9 implements AdEventListener {
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+/* loaded from: classes5.dex */
+public class kq9 extends fw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ NativeExpressADData2 c;
-    public final /* synthetic */ ExpressAdListenerWrapper d;
-    public final /* synthetic */ String e;
-    public final /* synthetic */ jq9 f;
+    public final Set<Ssp> a;
+    public final Set<ar9> b;
+    public final Set<yq9> c;
 
-    public kq9(jq9 jq9Var, NativeExpressADData2 nativeExpressADData2, ExpressAdListenerWrapper expressAdListenerWrapper, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kq9(int i, ObjectInput objectInput) {
+        super(i);
+        HashSet hashSet;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jq9Var, nativeExpressADData2, expressAdListenerWrapper, str};
+            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = jq9Var;
-        this.c = nativeExpressADData2;
-        this.d = expressAdListenerWrapper;
-        this.e = str;
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onAdClosed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClose(this.c);
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.e);
+        int readInt = objectInput.readInt();
+        HashSet hashSet2 = new HashSet(readInt);
+        HashMap hashMap = new HashMap();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
+            hashSet2.add(ssp);
+            for (Ssp.Pid pid : ssp.pids) {
+                hashMap.put(Long.valueOf(pid.id), pid);
             }
         }
+        int readInt2 = objectInput.readInt();
+        HashSet hashSet3 = new HashSet(readInt2);
+        for (int i5 = 0; i5 < readInt2; i5++) {
+            hashSet3.add(new ar9(objectInput.readInt(), objectInput, hashMap));
+        }
+        this.a = Collections.unmodifiableSet(hashSet2);
+        this.b = Collections.unmodifiableSet(hashSet3);
+        if (i == 1) {
+            int readInt3 = objectInput.readInt();
+            hashSet = new HashSet(readInt3);
+            for (int i6 = 0; i6 < readInt3; i6++) {
+                hashSet.add(new yq9(objectInput.readInt(), objectInput, hashMap));
+            }
+        } else {
+            hashSet = new HashSet();
+        }
+        this.c = Collections.unmodifiableSet(hashSet);
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onClick() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kq9(Set<Ssp> set, Set<ar9> set2, Set<yq9> set3) {
+        super(1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {set, set2, set3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = set;
+        this.b = set2;
+        this.c = set3;
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onExposed() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.e();
-            this.f.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
+            if (obj == null || kq9.class != obj.getClass()) {
+                return false;
+            }
+            kq9 kq9Var = (kq9) obj;
+            return Objects.equals(this.a, kq9Var.a) && Objects.equals(this.b, kq9Var.b);
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderFail() {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.f.onError(0, "RenderFail");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b) : invokeV.intValue;
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderSuccess() {
+    @Override // com.baidu.tieba.fw9
+    public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.f.e.put(this.c, this.d);
-            this.f.onAdLoaded((jq9) this.c);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (Ssp ssp : this.a) {
+                ssp.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.b.size());
+            for (ar9 ar9Var : this.b) {
+                ar9Var.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.c.size());
+            for (yq9 yq9Var : this.c) {
+                yq9Var.srzable(objectOutput);
+            }
         }
     }
 }

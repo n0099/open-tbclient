@@ -1,96 +1,107 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.f3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.CompositeException;
 /* loaded from: classes5.dex */
-public final class p4a {
+public final class p4a<T> implements f3a.c<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final f3a<T> a;
+    public final p3a<? super T> b;
+    public final p3a<Throwable> c;
 
     /* loaded from: classes5.dex */
-    public static final class a implements zz9 {
+    public static final class a<T> extends g3a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final g3a<? super T> b;
+        public final p3a<? super T> c;
+        public final p3a<Throwable> d;
 
-        @Override // com.baidu.tieba.zz9
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.zz9
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public a() {
+        public a(g3a<? super T> g3aVar, p3a<? super T> p3aVar, p3a<Throwable> p3aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g3aVar, p3aVar, p3aVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = g3aVar;
+            this.c = p3aVar;
+            this.d = p3aVar2;
+        }
+
+        @Override // com.baidu.tieba.g3a
+        public void b(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                try {
+                    this.d.call(th);
+                    this.b.b(th);
+                } catch (Throwable th2) {
+                    n3a.e(th2);
+                    this.b.b(new CompositeException(th, th2));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.g3a
+        public void c(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                try {
+                    this.c.call(t);
+                    this.b.c(t);
+                } catch (Throwable th) {
+                    n3a.h(th, this, t);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948013452, "Lcom/baidu/tieba/p4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948013452, "Lcom/baidu/tieba/p4a;");
+    public p4a(f3a<T> f3aVar, p3a<? super T> p3aVar, p3a<Throwable> p3aVar2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f3aVar, p3aVar, p3aVar2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+        this.a = f3aVar;
+        this.b = p3aVar;
+        this.c = p3aVar2;
     }
 
-    public static zz9 b() {
-        InterceptResult invokeV;
+    public void call(g3a<? super T> g3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return l4a.a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, g3aVar) == null) {
+            a aVar = new a(g3aVar, this.b, this.c);
+            g3aVar.a(aVar);
+            this.a.j(aVar);
         }
-        return (zz9) invokeV.objValue;
     }
 
-    public static zz9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return (zz9) invokeV.objValue;
-    }
-
-    public static zz9 a(f0a f0aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f0aVar)) == null) {
-            return l4a.b(f0aVar);
-        }
-        return (zz9) invokeL.objValue;
+    @Override // com.baidu.tieba.f3a.c, com.baidu.tieba.p3a
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((g3a) ((g3a) obj));
     }
 }

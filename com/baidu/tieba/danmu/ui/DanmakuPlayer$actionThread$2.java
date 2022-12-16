@@ -12,7 +12,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Landroid/os/HandlerThread;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DanmakuPlayer$actionThread$2 extends Lambda implements Function0<HandlerThread> {
     public static /* synthetic */ Interceptable $ic;
     public static final DanmakuPlayer$actionThread$2 INSTANCE;

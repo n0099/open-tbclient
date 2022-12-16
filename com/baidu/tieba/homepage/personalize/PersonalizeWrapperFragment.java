@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
@@ -20,45 +19,43 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.cf5;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.fw4;
+import com.baidu.tieba.gw4;
+import com.baidu.tieba.hl6;
 import com.baidu.tieba.homepage.framework.RecommendFrsControlFragment;
 import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
-import com.baidu.tieba.hw4;
-import com.baidu.tieba.j07;
-import com.baidu.tieba.k07;
-import com.baidu.tieba.m07;
-import com.baidu.tieba.m25;
-import com.baidu.tieba.mk6;
-import com.baidu.tieba.p57;
-import com.baidu.tieba.vr8;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.j17;
+import com.baidu.tieba.k17;
+import com.baidu.tieba.m17;
+import com.baidu.tieba.n67;
+import com.baidu.tieba.uf5;
+import com.baidu.tieba.uu8;
+import com.baidu.tieba.wi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Personalized.DataRes;
+import tbclient.Userlike.DataRes;
 /* loaded from: classes4.dex */
-public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
+public class PersonalizeWrapperFragment extends BaseFragment implements hl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalizeWrapperTabHost a;
-    public m07 b;
-    public k07 c;
+    public m17 b;
+    public k17 c;
 
-    @Override // com.baidu.tieba.mk6
-    public void W() {
+    @Override // com.baidu.tieba.hl6
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mk6
-    public void y() {
+    @Override // com.baidu.tieba.hl6
+    public void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
@@ -92,21 +89,35 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.t1(this.a);
+                this.b.A1(this.a);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements m07.d {
+    public class b implements m17.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalizeWrapperFragment a;
 
-        @Override // com.baidu.tieba.m07.d
-        public void e(boolean z, p57 p57Var, boolean z2, String str, String str2, boolean z3) {
+        @Override // com.baidu.tieba.m17.d
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), p57Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.m17.d
+        public void d(DataRes dataRes, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048579, this, dataRes, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.m17.d
+        public void e(boolean z, n67 n67Var, boolean z2, String str, String str2, boolean z3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), n67Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
             }
         }
 
@@ -128,52 +139,31 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
             this.a = personalizeWrapperFragment;
         }
 
-        @Override // com.baidu.tieba.m07.d
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.setShowConcernRedTip(z);
-            if (this.a.isPrimary() && z) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016325, Integer.valueOf(z ? 1 : 0)));
-        }
-
-        @Override // com.baidu.tieba.m07.d
-        public void b(DataRes dataRes, boolean z, boolean z2) {
+        @Override // com.baidu.tieba.m17.d
+        public void b(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.a.a.K(dataRes, z, z2);
+                this.a.a.G(dataRes, z, z2);
             }
         }
 
-        @Override // com.baidu.tieba.m07.d
+        @Override // com.baidu.tieba.m17.d
         public void c(String str, String str2, int i, boolean z, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) != null) || !this.a.a.w()) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) != null) || !this.a.a.v()) {
                 return;
             }
-            this.a.a.J(str2, i, i2);
-        }
-
-        @Override // com.baidu.tieba.m07.d
-        public void d(tbclient.Userlike.DataRes dataRes, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048579, this, dataRes, z) == null) {
-                this.a.a.I(dataRes, z);
-            }
+            this.a.a.F(str2, i, i2);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements k07 {
+    public class c implements k17 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalizeWrapperFragment a;
 
-        @Override // com.baidu.tieba.k07
+        @Override // com.baidu.tieba.k17
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -198,22 +188,22 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
             this.a = personalizeWrapperFragment;
         }
 
-        @Override // com.baidu.tieba.k07
-        public void c(int i, ei5 ei5Var, int i2) {
+        @Override // com.baidu.tieba.k17
+        public void c(int i, wi5 wi5Var, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), ei5Var, Integer.valueOf(i2)}) == null) {
-                this.a.b.i(1, i, ei5Var, 1, i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), wi5Var, Integer.valueOf(i2)}) == null) {
+                this.a.b.i(1, i, wi5Var, 1, i2);
                 if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 1));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.k07
-        public void d(int i, int i2, ei5 ei5Var, int i3) {
+        @Override // com.baidu.tieba.k17
+        public void d(int i, int i2, wi5 wi5Var, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), ei5Var, Integer.valueOf(i3)}) == null) {
-                this.a.b.i(2, i2, ei5Var, i, i3);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wi5Var, Integer.valueOf(i3)}) == null) {
+                this.a.b.i(2, i2, wi5Var, i, i3);
                 if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 2));
                 }
@@ -237,19 +227,19 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
         this.c = new c(this);
     }
 
-    @Override // com.baidu.tieba.mk6
-    public void b0() {
+    @Override // com.baidu.tieba.hl6
+    public void d0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.de5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ve5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
                 return personalizeWrapperTabHost.getCurrentPageKey();
@@ -262,11 +252,11 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
-                personalizeWrapperTabHost.D();
+                personalizeWrapperTabHost.B();
             }
         }
     }
@@ -274,44 +264,43 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
                 personalizeWrapperTabHost.setPrimary(isPrimary());
             }
-            hw4.n(fw4.g);
+            iw4.o(gw4.g);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onResume();
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
                 personalizeWrapperTabHost.setPrimary(isPrimary());
-                this.a.E();
             }
         }
     }
 
-    @Override // com.baidu.tieba.mk6
-    public void t() {
+    @Override // com.baidu.tieba.hl6
+    public void u() {
         PersonalizeWrapperTabHost personalizeWrapperTabHost;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (personalizeWrapperTabHost = this.a) != null) {
-            personalizeWrapperTabHost.F();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (personalizeWrapperTabHost = this.a) != null) {
+            personalizeWrapperTabHost.C();
         }
     }
 
-    public PersonalizeWrapperFragment(Context context, List<m25> list) {
+    public PersonalizeWrapperFragment(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -325,23 +314,47 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
         this.a = new PersonalizeWrapperTabHost(context);
     }
 
+    public void B1(String str) {
+        PersonalizeWrapperTabHost personalizeWrapperTabHost;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (personalizeWrapperTabHost = this.a) != null) {
+            personalizeWrapperTabHost.setCurrentTabByCode(str);
+        }
+    }
+
+    public void C1(String str) {
+        PersonalizeWrapperTabHost personalizeWrapperTabHost;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (personalizeWrapperTabHost = this.a) != null) {
+            personalizeWrapperTabHost.setCurrentTab(str);
+        }
+    }
+
+    public void D1(int i) {
+        PersonalizeWrapperTabHost personalizeWrapperTabHost;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (personalizeWrapperTabHost = this.a) != null) {
+            personalizeWrapperTabHost.setCurrentTab(i);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            vr8.b(new a(this, bundle), 3);
+            uu8.b(new a(this, bundle), 3);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
-                personalizeWrapperTabHost.C(i);
+                personalizeWrapperTabHost.A(i);
             }
         }
     }
@@ -349,90 +362,25 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
 
-    public void u1(String str) {
-        PersonalizeWrapperTabHost personalizeWrapperTabHost;
+    public void A1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && (personalizeWrapperTabHost = this.a) != null) {
-            personalizeWrapperTabHost.setCurrentTabByCode(str);
-        }
-    }
-
-    public void v1(String str) {
-        PersonalizeWrapperTabHost personalizeWrapperTabHost;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && (personalizeWrapperTabHost = this.a) != null) {
-            personalizeWrapperTabHost.setCurrentTab(str);
-        }
-    }
-
-    public void x1(int i) {
-        PersonalizeWrapperTabHost personalizeWrapperTabHost;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (personalizeWrapperTabHost = this.a) != null) {
-            personalizeWrapperTabHost.setCurrentTab(i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    @SuppressLint({"InflateParams"})
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.a == null) {
-                this.a = new PersonalizeWrapperTabHost(layoutInflater.getContext());
-            }
-            return this.a;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onPrimary();
-            PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
-            if (personalizeWrapperTabHost != null) {
-                personalizeWrapperTabHost.setPrimary(isPrimary());
-            }
-            if (getContext() != null && isPrimary()) {
-                hw4.o(getContext(), fw4.g);
-            } else {
-                hw4.n(fw4.g);
-            }
-        }
-    }
-
-    public final void s1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            m07 m07Var = new m07(getPageContext(), getUniqueId());
-            this.b = m07Var;
-            m07Var.k(new b(this));
-            MessageManager.getInstance().sendMessage(new RecommendFrsControlFragment.ControlModelMessage(this.b));
-        }
-    }
-
-    public void t1(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, bundle) != null) || getHost() == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bundle) != null) || getHost() == null) {
             return;
         }
         SpeedStatsManager.getInstance().addStatsTimeStamp(4014);
         SpeedStatsManager.getInstance().addStatsTimeStamp(4015);
-        s1();
+        z1();
         SpeedStatsManager.getInstance().addStatsTimeStamp(4016);
         SpeedStatsManager.getInstance().addStatsTimeStamp(4017);
-        this.a.y(getPageContext());
+        this.a.x(getPageContext());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_INIT_TABLE_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(4019);
-        this.a.z(getChildFragmentManager(), this.c, null);
+        this.a.y(getChildFragmentManager(), this.c, null);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_INIT_VIEW_PAPER_END_STAMP_KEY);
         boolean z = false;
         this.a.setScrollShadow(false);
@@ -449,13 +397,54 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mk6 {
                 z = true;
             }
         }
-        this.a.H(z);
+        this.a.E(z);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY);
-        j07.d().h(System.currentTimeMillis() - j07.d().a(1));
-        cf5.b().C(System.currentTimeMillis() - j07.d().a(1));
+        j17.d().h(System.currentTimeMillis() - j17.d().a(1));
+        uf5.b().C(System.currentTimeMillis() - j17.d().a(1));
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    @SuppressLint({"InflateParams"})
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (this.a == null) {
+                this.a = new PersonalizeWrapperTabHost(layoutInflater.getContext());
+            }
+            return this.a;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.onPrimary();
+            PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
+            if (personalizeWrapperTabHost != null) {
+                personalizeWrapperTabHost.setPrimary(isPrimary());
+            }
+            if (getContext() != null && isPrimary()) {
+                iw4.p(getContext(), gw4.g);
+            } else {
+                iw4.o(gw4.g);
+            }
+        }
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            m17 m17Var = new m17(getPageContext(), getUniqueId());
+            this.b = m17Var;
+            m17Var.k(new b(this));
+            MessageManager.getInstance().sendMessage(new RecommendFrsControlFragment.ControlModelMessage(this.b));
+        }
     }
 }

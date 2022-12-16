@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.personCenter.controller.ResponseHttpPersonMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.tr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class PersonCreatorModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -35,7 +35,7 @@ public class PersonCreatorModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -59,23 +59,23 @@ public class PersonCreatorModel extends BdBaseModel {
                 return;
             }
         }
-        z();
+        G();
     }
 
-    public void A(boolean z) {
+    public final void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tr8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpPersonMessage.class, true, true, true, true);
+        }
+    }
+
+    public void H(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE);
             httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             httpMessage.addParam("focus_tb_account", z ? 1 : 0);
             MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            uo8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpPersonMessage.class, true, true, true, true);
         }
     }
 }

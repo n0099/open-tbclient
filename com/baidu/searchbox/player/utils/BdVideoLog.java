@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BdVideoLog {
     public static /* synthetic */ Interceptable $ic;
     public static VideoLog sVideoLog;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultVideoLog extends VideoLog {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,40 +1,11 @@
 package com.baidu.tieba;
+/* loaded from: classes6.dex */
+public interface sh5<T> {
+    void a(int i, byte[] bArr) throws Exception;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.ah5;
-import com.baidu.tieba.zg5;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class sh5<Q extends zg5, P extends ah5> extends rh5 implements vh5<P> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    int getErrorCode();
 
-    public abstract void e();
+    String getErrorMsg();
 
-    public abstract void f();
-
-    public abstract void g();
-
-    public abstract void h();
-
-    public abstract void i(BdUniqueId bdUniqueId);
-
-    public abstract void j(zf5 zf5Var);
-
-    public sh5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    mh5 getPageInfo();
 }

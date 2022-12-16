@@ -1,48 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public final class hj5 {
+public class hj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(boolean z) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65536, null, z) != null) || z) {
-            return;
-        }
-        throw new IllegalArgumentException();
-    }
-
-    @NonNull
-    public static <T> T b(@Nullable T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
-            if (t != null) {
-                return t;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = a;
+            if (j > currentTimeMillis) {
+                a = currentTimeMillis;
+                return false;
+            } else if (currentTimeMillis - j < 500) {
+                return true;
+            } else {
+                a = currentTimeMillis;
+                return false;
             }
-            throw null;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            d(z, null);
-        }
-    }
-
-    public static void d(boolean z, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(65539, null, z, str) != null) || z) {
-            return;
-        }
-        throw new IllegalStateException(str);
+        return invokeV.booleanValue;
     }
 }

@@ -1,113 +1,41 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class y59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, int i2) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_type", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return str + ".jpg";
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b() {
+    public static String b(String str, long j, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (i == 0) {
+                return vm9.b(str);
             }
-            return true;
+            return vm9.b(str) + "_" + j;
         }
-        return invokeV.booleanValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TimeHelper.getDayDifference(System.currentTimeMillis(), qy4.k().m("key_check_is_question_thread_time", 0L)) > 7) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return str + File.separator + str2 + ".jpg";
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
-        }
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).closeLoadingDialog();
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).closeLoadingDialog();
-        }
-    }
-
-    public static void h(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
-            return;
-        }
-        String string = activity.getString(R.string.obfuscated_res_0x7f0f03c2);
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).showLoadingDialog(string);
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).showLoadingDialog(string);
-        }
+        return (String) invokeLL.objValue;
     }
 }

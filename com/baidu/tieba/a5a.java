@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.e3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import java.util.concurrent.ThreadFactory;
 /* loaded from: classes3.dex */
-public class a5a implements q4a {
+public final class a5a extends e3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MiddleRevenueConfig a;
+    public final ThreadFactory a;
 
-    public a5a(MiddleRevenueConfig middleRevenueConfig) {
+    public a5a(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig};
+            Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,162 +28,16 @@ public class a5a implements q4a {
                 return;
             }
         }
-        this.a = middleRevenueConfig;
+        this.a = threadFactory;
     }
 
-    @Override // com.baidu.tieba.q4a
-    public GetBannerConfigReqParams a() {
+    @Override // com.baidu.tieba.e3a
+    public e3a.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
-            getBannerConfigReqParams.setAppId(this.a.getAppId());
-            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getBannerConfigReqParams.setUid(this.a.getUid());
-            getBannerConfigReqParams.setToken(this.a.getToken());
-            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            return getBannerConfigReqParams;
+            return new b5a(this.a);
         }
-        return (GetBannerConfigReqParams) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "QueryParamsProviderImpl" + hashCode() + " revenueConfig:" + this.a.hashCode();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public QueryCurrencyReqParams b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            queryCurrencyReqParams.setReturnYb(true);
-            return queryCurrencyReqParams;
-        }
-        return (QueryCurrencyReqParams) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public t4a c(PayFlowType payFlowType, Map<String, String> map) {
-        InterceptResult invokeLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, payFlowType, map)) == null) {
-            t4a t4aVar = new t4a();
-            t4aVar.D(this.a.getUid());
-            t4aVar.A(this.a.getToken());
-            t4aVar.E(this.a.getUseChannel());
-            t4aVar.t(this.a.getCurrencyType());
-            t4aVar.B(this.a.getTokenCallback());
-            String deviceId = this.a.getDeviceId();
-            RLog.info("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
-            HashMap hashMap = new HashMap();
-            if (deviceId != null) {
-                hashMap.put("deviceId", deviceId);
-            } else {
-                RLog.error("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
-            }
-            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("chargeScene", str);
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
-            }
-            t4aVar.u(hashMap);
-            return t4aVar;
-        }
-        return (t4a) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public GetSplitOrderConfigReqParams d(int i, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
-            GetSplitOrderConfigReqParams getSplitOrderConfigReqParams = new GetSplitOrderConfigReqParams();
-            getSplitOrderConfigReqParams.setAppId(this.a.getAppId());
-            getSplitOrderConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getSplitOrderConfigReqParams.setUid(this.a.getUid());
-            getSplitOrderConfigReqParams.setToken(this.a.getToken());
-            getSplitOrderConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            getSplitOrderConfigReqParams.setCurrencyType(this.a.getCurrencyType());
-            getSplitOrderConfigReqParams.setOrderId(str);
-            getSplitOrderConfigReqParams.setType(i);
-            getSplitOrderConfigReqParams.setAmount(j);
-            return getSplitOrderConfigReqParams;
-        }
-        return (GetSplitOrderConfigReqParams) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public QueryCurrencyReqParams e(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            HashMap hashMap = new HashMap();
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
-            }
-            queryCurrencyReqParams.setExpandMap(hashMap);
-            return queryCurrencyReqParams;
-        }
-        return (QueryCurrencyReqParams) invokeL.objValue;
-    }
-
-    public final JSONObject f(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
-            JSONObject jSONObject = null;
-            if (map == null) {
-                return null;
-            }
-            try {
-                if (map.size() <= 0) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (entry.getKey() != null && entry.getValue() != null) {
-                            jSONObject2.put(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    return jSONObject2;
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject = jSONObject2;
-                    RLog.error("QueryParamsProviderImpl", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    return jSONObject;
-                }
-            } catch (JSONException e2) {
-                e = e2;
-            }
-        } else {
-            return (JSONObject) invokeL.objValue;
-        }
+        return (e3a.a) invokeV.objValue;
     }
 }

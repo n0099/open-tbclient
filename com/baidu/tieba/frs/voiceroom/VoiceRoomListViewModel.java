@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.tieba.hp4;
 import com.baidu.tieba.ip4;
-import com.baidu.tieba.jp4;
-import com.baidu.tieba.uw6;
+import com.baidu.tieba.rx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,11 +22,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VoiceRoomListViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uw6 a;
-    public final MutableLiveData<jp4<List<VoiceRoomWrapper>>> b;
+    public final rx6 a;
+    public final MutableLiveData<ip4<List<VoiceRoomWrapper>>> b;
 
     /* loaded from: classes4.dex */
-    public static final class a implements ip4<List<? extends VoiceRoomWrapper>> {
+    public static final class a implements hp4<List<? extends VoiceRoomWrapper>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceRoomListViewModel a;
@@ -49,9 +49,9 @@ public final class VoiceRoomListViewModel extends ViewModel {
             this.a = voiceRoomListViewModel;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.tieba.jp4<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
-        @Override // com.baidu.tieba.ip4
-        public void a(jp4<? extends List<? extends VoiceRoomWrapper>> result) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.tieba.ip4<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
+        @Override // com.baidu.tieba.hp4
+        public void a(ip4<? extends List<? extends VoiceRoomWrapper>> result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
@@ -73,11 +73,11 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new uw6();
+        this.a = new rx6();
         this.b = new MutableLiveData<>();
     }
 
-    public final LiveData<jp4<List<VoiceRoomWrapper>>> b() {
+    public final LiveData<ip4<List<VoiceRoomWrapper>>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

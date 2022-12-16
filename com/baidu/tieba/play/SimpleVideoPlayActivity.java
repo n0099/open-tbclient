@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pd8;
+import com.baidu.tieba.hg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public pd8 c;
+    public hg8 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -106,8 +106,8 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            y1();
-            x1(bundle);
+            x1();
+            v1(bundle);
             setContentView(this.d);
         }
     }
@@ -122,7 +122,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
     }
 
-    public final void x1(Bundle bundle) {
+    public final void v1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             if (bundle != null) {
@@ -136,7 +136,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
     }
 
-    public final void y1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             FrameLayout frameLayout = new FrameLayout(this);
@@ -147,9 +147,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            pd8 pd8Var = new pd8(this, frameLayout2);
-            this.c = pd8Var;
-            pd8Var.setStageType("2006");
+            hg8 hg8Var = new hg8(this, frameLayout2);
+            this.c = hg8Var;
+            hg8Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();
@@ -157,7 +157,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
             layoutParams2.gravity = 48;
             this.d.addView(this.e, layoutParams2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.obfuscated_res_0x7f0926cf), R.drawable.obfuscated_res_0x7f08062e, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

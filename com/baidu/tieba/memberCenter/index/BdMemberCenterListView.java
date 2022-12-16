@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aq5;
+import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +120,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aq5.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vq5.ExpandListView);
         this.T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }

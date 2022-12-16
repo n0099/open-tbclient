@@ -1,105 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class dk5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes4.dex */
+public class dk5<KEY> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayMap<KEY, Long> a;
+    public final long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947707451, "Lcom/baidu/tieba/dk5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public dk5(int i, @NonNull TimeUnit timeUnit) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947707451, "Lcom/baidu/tieba/dk5;");
-        }
-    }
-
-    public static void a(int i, int i2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            int i3 = 1;
-            if (ProfileVirtualImageInfo.getInstance().isDisplayVirtual() && ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
-                z = true;
-            } else {
-                z = false;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), timeUnit};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StatisticItem statisticItem = new StatisticItem("c10605");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!z) {
-                i3 = 2;
+        }
+        this.a = new ArrayMap<>();
+        this.b = timeUnit.toMillis(i);
+    }
+
+    public static <T> dk5<T> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new dk5<>(1000, TimeUnit.MILLISECONDS);
+        }
+        return (dk5) invokeV.objValue;
+    }
+
+    public synchronized boolean a(@NonNull KEY key) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                Long l = this.a.get(key);
+                long uptimeMillis = SystemClock.uptimeMillis();
+                if (l == null) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else if (uptimeMillis - l.longValue() > this.b) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            statisticItem.param("obj_id", i3);
-            if (z) {
-                statisticItem.param("obj_locate", i);
-            } else {
-                statisticItem.param("obj_param1", i2);
-            }
-            TiebaStatic.log(statisticItem);
         }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
-            int i = 1;
-            a = true;
-            StatisticItem statisticItem = new StatisticItem("c14994");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!ProfileVirtualImageInfo.getInstance().isDisplayVirtual()) {
-                i = 2;
-            }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 1);
-            TiebaStatic.log(statisticItem);
-        }
+        return invokeL.booleanValue;
     }
 }

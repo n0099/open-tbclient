@@ -6,7 +6,6 @@ import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.sapi2.SapiOptions;
-import com.baidu.sapi2.views.logindialog.QuickLoginDialog;
 import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +22,6 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.DateHelper;
 import com.googlecode.mp4parser.util.Matrix;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.nio.ByteBuffer;
 import java.util.Date;
 import org.aspectj.lang.JoinPoint;
@@ -285,7 +283,7 @@ public class TrackHeaderBox extends AbstractFullBox {
         ajc$tjp_10 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getContent", "com.coremedia.iso.boxes.TrackHeaderBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 138);
         ajc$tjp_11 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "java.lang.String"), TTAdConstant.IMAGE_MODE_LIVE);
         ajc$tjp_12 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCreationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "java.util.Date", "creationTime", "", "void"), 192);
-        ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setModificationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "java.util.Date", "modificationTime", "", "void"), 199);
+        ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setModificationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "java.util.Date", "modificationTime", "", "void"), Constants.METHOD_IM_DEL_BUSINESS_SESSION_MSG);
         ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTrackId", "com.coremedia.iso.boxes.TrackHeaderBox", "long", "trackId", "", "void"), 207);
         ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDuration", "com.coremedia.iso.boxes.TrackHeaderBox", "long", "duration", "", "void"), 211);
         ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setLayer", "com.coremedia.iso.boxes.TrackHeaderBox", "int", "layer", "", "void"), 218);
@@ -294,7 +292,7 @@ public class TrackHeaderBox extends AbstractFullBox {
         ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setMatrix", "com.coremedia.iso.boxes.TrackHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTrackId", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "long"), 68);
         ajc$tjp_20 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setWidth", "com.coremedia.iso.boxes.TrackHeaderBox", "double", "width", "", "void"), 234);
-        ajc$tjp_21 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setHeight", "com.coremedia.iso.boxes.TrackHeaderBox", "double", "height", "", "void"), QuickLoginDialog.HEIGHT_ONEKEY);
+        ajc$tjp_21 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setHeight", "com.coremedia.iso.boxes.TrackHeaderBox", "double", "height", "", "void"), 238);
         ajc$tjp_22 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isEnabled", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 243);
         ajc$tjp_23 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isInMovie", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), GDiffPatcher.DATA_USHORT);
         ajc$tjp_24 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isInPreview", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 251);
@@ -515,7 +513,7 @@ public class TrackHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this));
-            return "TrackHeaderBox[creationTime=" + getCreationTime() + ParamableElem.DIVIDE_PARAM + "modificationTime=" + getModificationTime() + ParamableElem.DIVIDE_PARAM + "trackId=" + getTrackId() + ParamableElem.DIVIDE_PARAM + "duration=" + getDuration() + ParamableElem.DIVIDE_PARAM + "layer=" + getLayer() + ParamableElem.DIVIDE_PARAM + "alternateGroup=" + getAlternateGroup() + ParamableElem.DIVIDE_PARAM + "volume=" + getVolume() + ParamableElem.DIVIDE_PARAM + "matrix=" + this.matrix + ParamableElem.DIVIDE_PARAM + BigImageLoaderProc.NCDN_PER + getWidth() + ParamableElem.DIVIDE_PARAM + "height=" + getHeight() + PreferencesUtil.RIGHT_MOUNT;
+            return "TrackHeaderBox[creationTime=" + getCreationTime() + ";modificationTime=" + getModificationTime() + ";trackId=" + getTrackId() + ";duration=" + getDuration() + ";layer=" + getLayer() + ";alternateGroup=" + getAlternateGroup() + ";volume=" + getVolume() + ";matrix=" + this.matrix + ";" + BigImageLoaderProc.NCDN_PER + getWidth() + ";height=" + getHeight() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

@@ -64,13 +64,13 @@ public final class a {
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "run"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.repo.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class RunnableC0073a implements Runnable {
+        public static final class RunnableC0087a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
             public final /* synthetic */ Exception b;
 
-            public RunnableC0073a(b bVar, Exception exc) {
+            public RunnableC0087a(b bVar, Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,20 +96,20 @@ public final class a {
                     DebugTrace.a.c(new TaskRepo$finishReq$5$onFail$1$1(this));
                     wq wqVar = this.a.a;
                     Exception exc = this.b;
-                    wqVar.c((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
+                    wqVar.a((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
                 }
             }
         }
 
         /* renamed from: com.baidu.bdtask.ctrl.repo.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class RunnableC0074b implements Runnable {
+        public static final class RunnableC0088b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
             public final /* synthetic */ xq b;
 
-            public RunnableC0074b(b bVar, xq xqVar) {
+            public RunnableC0088b(b bVar, xq xqVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,10 +140,10 @@ public final class a {
                         taskResponseData = null;
                     }
                     if (taskResponseData == null) {
-                        this.a.a.c("task complete request failed", 301);
+                        this.a.a.a("task complete request failed", 301);
                     } else if (!this.b.a()) {
                         wq wqVar = this.a.a;
-                        wqVar.c("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
+                        wqVar.a("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
                     } else {
                         this.a.a.a(this.b.d());
                     }
@@ -173,7 +173,7 @@ public final class a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                lt.c(new RunnableC0073a(this, exc));
+                lt.c(new RunnableC0087a(this, exc));
             }
         }
 
@@ -207,7 +207,7 @@ public final class a {
         public void onSuccess(xq xqVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xqVar, i) == null) {
-                lt.c(new RunnableC0074b(this, xqVar));
+                lt.c(new RunnableC0088b(this, xqVar));
             }
         }
     }
@@ -288,7 +288,7 @@ public final class a {
                 DebugTrace.a.c(new TaskRepo$finishReq$4(objectRef));
                 csVar.j(a(str2, i), (String) objectRef.element, new b(wqVar));
             } catch (Exception e) {
-                wqVar.c("task request serialize failed  : " + e.getMessage(), 202);
+                wqVar.a("task request serialize failed  : " + e.getMessage(), 202);
             }
         }
     }

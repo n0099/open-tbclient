@@ -60,9 +60,9 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089b, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921e5);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
+            this.a = (TextView) inflate.findViewById(R.id.thread_view_num);
+            this.b = (TextView) inflate.findViewById(R.id.thread_comment_num);
             this.c = context;
         }
     }
@@ -109,7 +109,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         }
         if (threadData.getReply_num() >= 0) {
             this.b.setVisibility(0);
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f041a), StringHelper.numberUniformFormat(threadData.getReply_num())));
+            this.b.setText(String.format(this.c.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(threadData.getReply_num())));
             return;
         }
         this.b.setVisibility(8);
@@ -125,7 +125,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
             } else {
                 i = 0;
             }
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0eb7), StringHelper.numberUniformFormat(i)));
+            this.b.setText(String.format(this.c.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat(i)));
         }
     }
 
@@ -136,7 +136,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         }
         if (threadData.getView_num() >= 0) {
             this.a.setVisibility(0);
-            this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0eba), StringHelper.numberUniformFormat(threadData.getView_num())));
+            this.a.setText(String.format(this.c.getString(R.string.person_view_num), StringHelper.numberUniformFormat(threadData.getView_num())));
             return;
         }
         this.a.setVisibility(8);
@@ -146,7 +146,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) && this.a != null && threadData != null && this.f && threadData.getThreadAlaInfo() != null && threadData.isSharedLiveThread()) {
             this.a.setVisibility(0);
-            this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0eb8), StringHelper.numberUniformFormat(threadData.getThreadAlaInfo().audience_count)));
+            this.a.setText(String.format(this.c.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(threadData.getThreadAlaInfo().audience_count)));
         }
     }
 
@@ -154,7 +154,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) && this.b != null && threadData != null && this.g && threadData.isSharedLiveThread()) {
             this.b.setVisibility(0);
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0eb9), StringHelper.numberUniformFormat(threadData.getAgreeNum())));
+            this.b.setText(String.format(this.c.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(threadData.getAgreeNum())));
         }
     }
 

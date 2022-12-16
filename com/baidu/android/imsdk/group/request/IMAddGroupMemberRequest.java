@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.group.request;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
@@ -40,6 +40,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     public long mGroupId;
     public String mKey;
     public ArrayList<String> mMembers;
+    public String requestParameter;
 
     static {
         InterceptResult invokeClinit;
@@ -107,11 +108,19 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str2 = "";
                 ArrayList arrayList = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");
-                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    if (!jSONObject.has("tips")) {
+                        str = "";
+                    } else {
+                        str = jSONObject.getString("tips");
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                    }
                     if (i == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("members");
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -121,48 +130,44 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
                             long optLong2 = jSONObject2.optLong(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
                             long optLong3 = jSONObject2.optLong("uk");
                             int optInt2 = jSONObject2.optInt("status", -1);
-                            GroupMember groupMember = new GroupMember(String.valueOf(this.this$0.mGroupId), optLong3, "", optLong, optInt, optLong2);
-                            groupMember.setAddStatus(optInt2);
-                            arrayList.add(groupMember);
-                        }
-                        ArrayList arrayList2 = new ArrayList();
-                        Iterator it = arrayList.iterator();
-                        while (it.hasNext()) {
-                            GroupMember groupMember2 = (GroupMember) it.next();
-                            if (groupMember2.getAddStatus() == 0) {
-                                arrayList2.add(groupMember2);
+                            if (optInt2 == 0) {
+                                String optString = jSONObject2.optString(DBTableDefine.GroupMemberColumns.COLUMN_AVATAR_EXT, "");
+                                GroupMember groupMember = new GroupMember(String.valueOf(this.this$0.mGroupId), optLong3, "", optLong, optInt, optLong2);
+                                groupMember.setAddStatus(optInt2);
+                                groupMember.setAvatarExt(optString);
+                                arrayList.add(groupMember);
                             }
                         }
-                        String str2 = IMAddGroupMemberRequest.TAG;
-                        LogUtils.d(str2, "FXF add group member " + arrayList.size());
+                        String str3 = IMAddGroupMemberRequest.TAG;
+                        LogUtils.d(str3, "FXF add group member " + arrayList.size());
                         GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, String.valueOf(this.this$0.mGroupId), arrayList);
                     }
+                    str2 = str;
                 } catch (JSONException e) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 if (i == 0) {
                     if (this.this$0.isCreateGroup) {
-                        ArrayList arrayList3 = new ArrayList();
-                        arrayList3.add(String.valueOf(this.this$0.mGroupId));
-                        IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(this.this$0.mContext, this.this$0.mKey, this.this$0.mAppid, arrayList3, true, arrayList);
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(String.valueOf(this.this$0.mGroupId));
+                        IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(this.this$0.mContext, this.this$0.mKey, this.this$0.mAppid, arrayList2, true, arrayList);
                         HttpHelper.executor(this.this$0.mContext, iMQueryGroupRequest, iMQueryGroupRequest);
                         return;
                     }
-                    ((BIMValueCallBack) ListenerManager.getInstance().removeListener(this.this$0.mKey)).onResult(0, str, arrayList);
+                    ((BIMValueCallBack) ListenerManager.getInstance().removeListener(this.this$0.mKey)).onResult(0, str2, arrayList);
                     return;
                 }
+                this.this$0.uploadFailRequestInfo(i, this.mJson);
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
                 if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                     if (this.this$0.isCreateGroup) {
                         CreateResultInfo createResultInfo = new CreateResultInfo();
                         createResultInfo.groupid = String.valueOf(this.this$0.mGroupId);
-                        ((BIMValueCallBack) removeListener).onResult(0, str, createResultInfo);
+                        ((BIMValueCallBack) removeListener).onResult(0, str2, createResultInfo);
                         return;
                     }
-                    ((BIMValueCallBack) removeListener).onResult(i, str, null);
+                    ((BIMValueCallBack) removeListener).onResult(i, str2, null);
                 }
             }
         }
@@ -184,12 +189,26 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
             }
         }
         this.isCreateGroup = false;
+        this.requestParameter = "";
         this.mContext = context;
         this.mAppid = j;
         this.mKey = str;
         this.mMembers = arrayList;
         this.mGroupId = j2;
         this.isCreateGroup = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void uploadFailRequestInfo(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65546, this, i, str) == null) {
+            CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+            debugInfo.curClassName = TAG;
+            debugInfo.extInfo = "IMAddGroupMemberRequest error for request error";
+            debugInfo.extInfo += ",request param = " + this.requestParameter;
+            debugInfo.extInfo += ",response = " + str;
+            CaseUbc.debugUbc(this.mContext, "addGroupMembers", i, "", debugInfo);
+        }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -219,7 +238,9 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
                 sb.append("&members=");
                 sb.append(jSONArray.toString());
             }
-            return sb.toString().getBytes();
+            String sb2 = sb.toString();
+            this.requestParameter = sb2;
+            return sb2.getBytes();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -229,6 +250,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
             Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            uploadFailRequestInfo(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                 if (this.isCreateGroup) {

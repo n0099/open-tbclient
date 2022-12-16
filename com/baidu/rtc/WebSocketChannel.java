@@ -6,8 +6,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.rtc.BaiduRtcRoom;
@@ -15,6 +15,7 @@ import com.baidu.rtc.internal.BaiduRtcRoomImp;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -999,14 +1000,14 @@ public class WebSocketChannel {
                             this.delegate.onUserKickOff(this.mUserId);
                         }
                     }
-                } else if (optString.equals(IMTrackDatabase.AckEnum.TABLE_NAME)) {
+                } else if (optString.equals("ack")) {
                     String optString5 = jSONObject.optString("transaction");
                     JanusTransaction janusTransaction3 = this.ackTransactions.get(optString5);
                     if (janusTransaction3 != null && janusTransaction3.success != null) {
                         janusTransaction3.success.success(jSONObject);
                     }
                     this.ackTransactions.remove(optString5);
-                } else if (optString.equals("timeout")) {
+                } else if (optString.equals(a.O)) {
                     this.mHandler.removeCallbacks(this.fireKeepAlive);
                     this.keepAliveTimer.removeCallbacks(this.serverKeepAliveTimeout);
                     if (this.mIsEnableErrorInfoMonitor) {
@@ -1166,7 +1167,7 @@ public class WebSocketChannel {
                             }
                         }
                         String optString10 = optJSONObject7.optString("leaving");
-                        if (!TextUtils.isEmpty(optString10) && !optString10.equals("ok")) {
+                        if (!TextUtils.isEmpty(optString10) && !optString10.equals(DnsModel.MSG_OK)) {
                             this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString10));
                             JanusHandle janusHandle2 = this.feeds.get(new BigInteger(optString10));
                             if (janusHandle2 != null && janusHandle2.onLeaving != null) {
@@ -1175,7 +1176,7 @@ public class WebSocketChannel {
                         }
                         String optString11 = optJSONObject7.optString("unpublished");
                         if (!TextUtils.isEmpty(optString11)) {
-                            if (!optString11.equals("ok") && !optString11.equals("self")) {
+                            if (!optString11.equals(DnsModel.MSG_OK) && !optString11.equals("self")) {
                                 this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString11));
                                 JanusHandle janusHandle3 = this.feeds.get(new BigInteger(optString11));
                                 if (janusHandle3 != null && janusHandle3.onLeaving != null) {

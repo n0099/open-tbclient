@@ -1,280 +1,207 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tbadk.widget.viewpager.VerticalViewPager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class k39 extends BaseAdapter {
+/* loaded from: classes5.dex */
+public class k39 implements View.OnClickListener, Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<QmStickerItem> a;
-    public RecordEffectLayout.i b;
+    public final TBLottieAnimationView a;
+    public final VerticalViewPager b;
+    public boolean c;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || interceptable.invokeL(1048586, this, animator) == null) {
         }
-        return invokeI.longValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ k39 b;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, animator) == null) {
+        }
+    }
 
-        public a(k39 k39Var, int i) {
-            Interceptable interceptable = $ic;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, animator) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862296, "Lcom/baidu/tieba/k39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k39Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = k39Var;
-            this.a = i;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862296, "Lcom/baidu/tieba/k39;");
+                return;
+            }
         }
+        d = ry4.l().i("key_video_guide_up_slide_animated", false);
+        e = ry4.l().i("key_video_guide_left_slide_animated", false);
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((QmStickerItem) this.b.a.get(this.a * 2)).isSelect && this.b.b != null) {
-                this.b.b.a((QmStickerItem) this.b.a.get(this.a * 2));
-            }
+    public void c() {
+        TBLottieAnimationView tBLottieAnimationView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (tBLottieAnimationView = this.a) != null && this.b != null && !this.c && d && !e && !tBLottieAnimationView.isAnimating()) {
+            this.a.setImageAssetsFolder("lottie_video_guide_left");
+            k(R.raw.lottie_video_guide_left);
+            e = true;
+            this.c = true;
+            ry4.l().v("key_video_guide_left_slide_animated", true);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ k39 b;
-
-        public b(k39 k39Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k39Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = k39Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((QmStickerItem) this.b.a.get((this.a * 2) + 1)).isSelect && this.b.b != null) {
-                this.b.b.a((QmStickerItem) this.b.a.get((this.a * 2) + 1));
-            }
+    public void d() {
+        TBLottieAnimationView tBLottieAnimationView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (tBLottieAnimationView = this.a) != null && this.b != null && !this.c && !d && !tBLottieAnimationView.isAnimating()) {
+            this.a.setImageAssetsFolder("lottie_video_guide_up");
+            k(R.raw.lottie_video_guide_up);
+            d = true;
+            this.c = true;
+            ry4.l().v("key_video_guide_up_slide_animated", true);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public RelativeLayout a;
-        public RelativeLayout b;
-        public TbImageView c;
-        public TbImageView d;
-        public TbImageView e;
-        public TbImageView f;
-        public ProgressBar g;
-        public ProgressBar h;
-        public ImageView i;
-
-        public c(k39 k39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public k39() {
+    public k39(TBLottieAnimationView tBLottieAnimationView, VerticalViewPager verticalViewPager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tBLottieAnimationView, verticalViewPager};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.c = false;
+        this.a = tBLottieAnimationView;
+        this.b = verticalViewPager;
+        f();
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            e = true;
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
-                return 0;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.a.isAnimating()) {
+                this.a.pauseAnimation();
             }
-            return (int) Math.ceil(this.a.size() / 2.0d);
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public QmStickerItem getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (QmStickerItem) ListUtils.getItem(this.a, i);
-        }
-        return (QmStickerItem) invokeI.objValue;
-    }
-
-    public void d(List<QmStickerItem> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+            this.a.setVisibility(8);
         }
     }
 
-    public void e(RecordEffectLayout.i iVar) {
+    public final void f() {
+        TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.b = iVar;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (tBLottieAnimationView = this.a) != null && this.b != null) {
+            tBLottieAnimationView.setOnClickListener(this);
+            this.a.addAnimatorUpdateListener(this);
+            this.a.addAnimatorListener(this);
+            this.a.setRepeatCount(2);
+            this.a.setRepeatMode(1);
         }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0176, (ViewGroup) null);
-                cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922fd);
-                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090410);
-                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922e3);
-                cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09171c);
-                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903f6);
-                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922fa);
-                cVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090408);
-                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0922fc);
-                cVar.h = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09040c);
-                view2.setTag(cVar);
-            } else {
-                cVar = (c) view2.getTag();
-            }
-            cVar.c.setAutoChangeStyle(false);
-            cVar.d.setAutoChangeStyle(false);
-            cVar.e.setAutoChangeStyle(false);
-            cVar.f.setAutoChangeStyle(false);
-            cVar.c.setGifIconSupport(false);
-            cVar.d.setGifIconSupport(false);
-            int i2 = i * 2;
-            if (ListUtils.getItem(this.a, i2) instanceof QmStickerItem) {
-                cVar.a.setVisibility(0);
-                if (this.a.get(i2).id == -1) {
-                    cVar.i.setVisibility(0);
-                    cVar.c.setVisibility(8);
-                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080b5c);
-                } else {
-                    cVar.i.setVisibility(8);
-                    cVar.c.setVisibility(0);
-                    cVar.c.K(this.a.get(i2).bgurl, 10, true);
-                }
-                cVar.a.setOnClickListener(new a(this, i));
-                if (this.a.get(i2).isDownLoading) {
-                    cVar.g.setVisibility(0);
-                    cVar.e.setVisibility(8);
-                } else {
-                    cVar.g.setVisibility(8);
-                    if (this.a.get(i2).isLocalSource) {
-                        cVar.e.setVisibility(8);
-                    } else {
-                        cVar.e.setVisibility(0);
-                    }
-                }
-                if (this.a.get(i2).isSelect) {
-                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810f6);
-                } else {
-                    cVar.a.setBackgroundResource(R.color.transparent);
-                }
-            } else {
-                cVar.a.setVisibility(8);
-            }
-            int i3 = i2 + 1;
-            if (ListUtils.getItem(this.a, i3) instanceof QmStickerItem) {
-                cVar.b.setVisibility(0);
-                cVar.d.K(this.a.get(i3).bgurl, 10, true);
-                cVar.b.setOnClickListener(new b(this, i));
-                if (this.a.get(i3).isDownLoading) {
-                    cVar.h.setVisibility(0);
-                    cVar.f.setVisibility(8);
-                } else {
-                    cVar.h.setVisibility(8);
-                    if (this.a.get(i3).isLocalSource) {
-                        cVar.f.setVisibility(8);
-                    } else {
-                        cVar.f.setVisibility(0);
-                    }
-                }
-                if (this.a.get(i3).isSelect) {
-                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810f6);
-                } else {
-                    cVar.b.setBackgroundResource(R.color.transparent);
-                }
-            } else {
-                cVar.b.setVisibility(8);
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = false;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.b != null) {
+            e();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.setVisibility(0);
+            this.a.playAnimation();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            b(this.b);
+        }
+    }
+
+    public final void b(VerticalViewPager verticalViewPager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, verticalViewPager) == null) {
+            verticalViewPager.setCurrentItem(verticalViewPager.getCurrentItem() + 1, true);
+        }
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a.setAnimation(i);
+            i();
+        }
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, animator) == null) && this.a != null && this.b != null) {
+            e();
+        }
+    }
+
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        TBLottieAnimationView tBLottieAnimationView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, valueAnimator) == null) && (tBLottieAnimationView = this.a) != null && this.b != null && tBLottieAnimationView.isAnimating() && !e && d) {
+            valueAnimator.getAnimatedFraction();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
+            e();
+        }
     }
 }

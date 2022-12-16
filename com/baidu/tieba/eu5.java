@@ -1,33 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
+import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class eu5 extends ActivityDelegation implements rk1 {
+public class eu5 {
     public static /* synthetic */ Interceptable $ic;
+    public static eu5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public hu5 b;
-    public Activity c;
-    public Map<String, String> d;
-    public CustomMessageListener e;
+    public b a;
+    public final HttpMessageListener b;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public interface b {
+        void a(String str);
+
+        void b(String str);
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/downloadstatistics" : (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ eu5 a;
@@ -55,116 +73,78 @@ public class eu5 extends ActivityDelegation implements rk1 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (!(data instanceof oe5)) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage instanceof SplashHttpResponse) {
+                    SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
+                    if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
+                        if (this.a.a != null) {
+                            this.a.a.b(splashHttpResponse.getResultMsg());
+                            return;
+                        }
+                        return;
+                    }
+                    BdLog.e("Response of splash has error");
+                    if (this.a.a != null) {
+                        this.a.a.a(splashHttpResponse.getResultMsg());
+                        return;
+                    }
                     return;
                 }
-                oe5 oe5Var = (oe5) data;
-                if (getTag() != oe5Var.a && !oe5Var.g) {
-                    return;
-                }
-                this.a.mResult.putInt("result_code", oe5Var.b);
-                this.a.mResult.putString("result_msg", oe5Var.c);
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.mResult);
-                }
-                this.a.finish();
+                BdLog.e("Not response of splash request");
             }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746852, "Lcom/baidu/tieba/eu5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746852, "Lcom/baidu/tieba/eu5;");
+                return;
+            }
+        }
+        c = new eu5();
     }
 
     public eu5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.e = new a(this, 2921393);
+        this.b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            MessageManager.getInstance().unRegisterListener(this.e);
-            super.finish();
-        }
-    }
-
-    public void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.c = activity;
-        }
-    }
-
-    public void e(hu5 hu5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hu5Var) == null) {
-            this.b = hu5Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.rk1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            this.mResult.putString("result_msg", "");
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public static eu5 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-            int i = this.mParams.getInt("type");
-            String string = this.mParams.getString("orderInfo");
-            oe5 oe5Var = new oe5();
-            oe5Var.a = this.a;
-            oe5Var.b = i;
-            oe5Var.c = string;
-            oe5Var.e = (Map) this.mParams.getSerializable("params");
-            oe5Var.f = this.d;
-            if (getAgent() != null) {
-                oe5Var.d = getAgent();
-            } else {
-                Activity activity = this.c;
-                if (activity != null) {
-                    oe5Var.d = activity;
-                } else {
-                    oe5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
-                }
-            }
-            CustomMessage customMessage = new CustomMessage(2921393, oe5Var);
-            customMessage.setTag(this.a);
-            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-            Bundle bundle = this.mResult;
-            int i2 = 1;
-            if (sendMessage) {
-                i2 = 0;
-            }
-            bundle.putInt("result_code", i2);
-            Bundle bundle2 = this.mResult;
-            bundle2.putString("result_msg", "" + sendMessage);
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c;
         }
-        return invokeV.booleanValue;
+        return (eu5) invokeV.objValue;
+    }
+
+    public void e(TbPageContext<?> tbPageContext, b bVar, AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, bVar, adInfo) == null) {
+            this.a = bVar;
+            this.b.setTag(tbPageContext.getUniqueId());
+            MessageManager.getInstance().registerListener(this.b);
+            SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
+        }
     }
 }

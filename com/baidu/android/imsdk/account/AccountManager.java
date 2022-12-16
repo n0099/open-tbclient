@@ -247,10 +247,10 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static void setNofityPaid(Context context, long j) {
+    public static void setUK(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65562, null, context, j) == null) {
-            AccountManagerImpl.getInstance(context).setNotifyPaid(j);
+        if (interceptable == null || interceptable.invokeLJ(65563, null, context, j) == null) {
+            AccountManagerImpl.getInstance(context).setUK(j);
         }
     }
 
@@ -289,7 +289,7 @@ public class AccountManager extends BaseManager {
 
     public static void setNotificationPrivacy(Context context, int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65563, null, context, i, iSetNotificationPrivacyListener) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65562, null, context, i, iSetNotificationPrivacyListener) == null) {
             if (BaseManager.isNullContext(context)) {
                 if (iSetNotificationPrivacyListener != null) {
                     iSetNotificationPrivacyListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
@@ -348,17 +348,6 @@ public class AccountManager extends BaseManager {
                 return;
             }
             AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i, i2, iSetMsgSettingSwitchListener);
-        }
-    }
-
-    public static void setZhidaAppid(Context context, long j, String str, ISwitchZhidaListener iSwitchZhidaListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, Long.valueOf(j), str, iSwitchZhidaListener}) == null) {
-            if (!BaseManager.isNullContext(context) && j >= 0) {
-                AccountManagerImpl.getInstance(context).setZhidaAppid(j, str, iSwitchZhidaListener);
-            } else if (iSwitchZhidaListener != null) {
-                iSwitchZhidaListener.onSwitchZhidaResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
-            }
         }
     }
 }

@@ -2,12 +2,10 @@ package com.baidu.android.imsdk.mcast;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +76,6 @@ public class IMQuitCastMsg extends Message {
                 this.mBody = jSONObject.toString();
             } catch (JSONException e) {
                 LogUtils.e(IMQuitCastMsg.class.getSimpleName(), "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public class ry1 extends lx1 {
+/* loaded from: classes6.dex */
+public class ry1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx1 a;
+    public Paint.Align a;
 
     public ry1() {
         Interceptable interceptable = $ic;
@@ -27,26 +29,35 @@ public class ry1 extends lx1 {
         }
     }
 
-    @Override // com.baidu.tieba.lx1
-    public void a(mx1 mx1Var, Canvas canvas) {
-        tx1 tx1Var;
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
+        Paint.Align align;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, mx1Var, canvas) == null) && (tx1Var = this.a) != null && tx1Var.d()) {
-            if (this.a.c()) {
-                mx1Var.c.setShader(this.a.b());
-                return;
-            }
-            mx1Var.m = this.a.a();
-            mx1Var.c.setColor(this.a.a());
-            mx1Var.b.setShader(null);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && (align = this.a) != null) {
+            lx1Var.e.setTextAlign(align);
         }
     }
 
-    @Override // com.baidu.tieba.lx1
+    @Override // com.baidu.tieba.kx1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new tx1(jSONArray);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "left")) {
+                        this.a = Paint.Align.LEFT;
+                    } else if (TextUtils.equals(optString, "center")) {
+                        this.a = Paint.Align.CENTER;
+                    } else if (TextUtils.equals(optString, "right")) {
+                        this.a = Paint.Align.RIGHT;
+                    }
+                }
+            } catch (Exception e) {
+                if (ok1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

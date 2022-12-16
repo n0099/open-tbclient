@@ -1,19 +1,22 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.f32;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes4.dex */
 public interface ho1 {
-    void a(String str, mr2 mr2Var);
+    int a();
 
-    int getDuration();
+    VideoPlayerFactory b();
 
-    boolean isPlaying();
+    int c();
 
-    void onRelease();
+    void d(boolean z);
 
-    void pause();
+    boolean e();
 
-    void play();
+    boolean f();
 
-    void seek(int i);
+    void g(int i);
 
-    void stop();
+    void h(f32.c cVar);
 }

@@ -8,7 +8,7 @@ import com.baidu.util.LogUtil;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

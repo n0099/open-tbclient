@@ -1,60 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes3.dex */
-public class ek9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Integer> a;
-    public static String b;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.ugc.download.exception.DownloadException;
+/* loaded from: classes4.dex */
+public interface ek9 {
+    void a(DownloadException downloadException);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947737366, "Lcom/baidu/tieba/ek9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947737366, "Lcom/baidu/tieba/ek9;");
-                return;
-            }
-        }
-        ArrayList<Integer> arrayList = new ArrayList<>(4);
-        a = arrayList;
-        arrayList.add(10000);
-        a.add(10001);
-        a.add(10002);
-        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
-        a.add(-1);
-    }
+    void b(DownloadException downloadException);
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = sk9.a();
-            }
-            if (TextUtils.isEmpty(b)) {
-                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
-            }
-            if (b.toUpperCase().contains("HUAWEI")) {
-                return 10001;
-            }
-            if (!b.toUpperCase().contains("XIAOMI")) {
-                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
-            }
-            return 10002;
-        }
-        return invokeV.intValue;
-    }
+    void onConnectCanceled();
+
+    void onConnected(long j, long j2, boolean z);
+
+    void onConnecting();
+
+    void onDownloadCanceled();
+
+    void onDownloadCompleted(String str);
+
+    void onDownloadPaused();
+
+    void onDownloadProgress(long j, long j2, int i);
+
+    void onStarted();
 }

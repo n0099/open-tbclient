@@ -5,18 +5,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cf5;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.o35;
-import com.baidu.tieba.v35;
-import com.baidu.tieba.x45;
-import com.baidu.tieba.xi5;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.qj5;
+import com.baidu.tieba.uf5;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.y45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InitAppSettingTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +57,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            xi5.c();
-            cf5.b().r(System.currentTimeMillis() - currentTimeMillis);
+            qj5.c();
+            uf5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -71,8 +71,8 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            o35.d().p();
-            cf5.b().y(System.currentTimeMillis() - currentTimeMillis);
+            p35.d().q();
+            uf5.b().y(System.currentTimeMillis() - currentTimeMillis);
             n9.g().s(20);
         }
     }
@@ -82,18 +82,18 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
             if (!TextUtils.isEmpty(loadString)) {
-                v35 v35Var = new v35();
-                v35Var.e(loadString);
-                x45 a = x45.a();
+                w35 w35Var = new w35();
+                w35Var.e(loadString);
+                y45 a = y45.a();
                 boolean z = true;
-                if (v35Var.b() != 1) {
+                if (w35Var.b() != 1) {
                     z = false;
                 }
                 a.g(z);
-                a.h(v35Var.c());
-                a.i(v35Var.d() * 1000);
-                if (v35Var.a() != null) {
-                    a.j(v35Var.a());
+                a.h(w35Var.c());
+                a.i(w35Var.d() * 1000);
+                if (w35Var.a() != null) {
+                    a.j(w35Var.a());
                 }
             }
         }

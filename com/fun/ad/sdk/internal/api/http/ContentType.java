@@ -1,5 +1,6 @@
 package com.fun.ad.sdk.internal.api.http;
 
+import com.baidu.searchbox.dns.transmit.transmitter.HttpDataTransmitter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ public class ContentType {
                 return;
             }
         }
-        FORMED = new ContentType("application/x-www-form-urlencoded;charset=UTF-8");
+        FORMED = new ContentType(HttpDataTransmitter.CONTENT_TYPE);
         JSON = new ContentType("application/json;charset=UTF-8");
         TEXT_PLAIN = new ContentType("text/plain;charset=UTF-8");
     }

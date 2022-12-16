@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.widget.DownloadProgressView;
 import com.kwad.components.core.widget.ComplianceTextView;
 import com.kwad.components.core.widget.KsLogoView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,15 +42,15 @@ public final class c extends a {
     public final void M(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0459, this);
-            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f09117d);
-            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117b);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09117c);
-            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f091176);
-            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f091177);
-            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f091174);
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09117e);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091175);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0468, this);
+            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f0911dc);
+            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911da);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911db);
+            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911d5);
+            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d6);
+            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d3);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0911dd);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0911d4);
         }
     }
 }

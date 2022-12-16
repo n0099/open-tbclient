@@ -1,124 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.video.record.StickerItem;
-import com.baidu.tieba.video.record.VideoEffectLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.BlockPopInfo;
 /* loaded from: classes4.dex */
-public class hz8 extends BaseAdapter {
+public class hz8 {
     public static /* synthetic */ Interceptable $ic;
+    public static BlockPopInfo d;
+    public static BlockPopInfo e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StickerItem> a;
-    public VideoEffectLayout.h b;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
+    public TbPageContext a;
+    public lv4 b;
+    public CustomMessageListener c;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ hz8 b;
 
-        public a(hz8 hz8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hz8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = hz8Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((StickerItem) this.b.a.get(this.a * 2)).isSelect && this.b.b != null) {
-                this.b.b.u1((StickerItem) this.b.a.get(this.a * 2));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ hz8 b;
-
-        public b(hz8 hz8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hz8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = hz8Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((StickerItem) this.b.a.get((this.a * 2) + 1)).isSelect && this.b.b != null) {
-                this.b.b.u1((StickerItem) this.b.a.get((this.a * 2) + 1));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public RelativeLayout a;
-        public RelativeLayout b;
-        public TbImageView c;
-        public TbImageView d;
-        public ProgressBar e;
-        public ProgressBar f;
-        public ImageView g;
-
-        public c(hz8 hz8Var) {
+        public a(hz8 hz8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,131 +43,204 @@ public class hz8 extends BaseAdapter {
                 }
             }
         }
+
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
+            }
+        }
     }
 
-    public hz8() {
+    /* loaded from: classes4.dex */
+    public class b implements lv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BlockPopInfo a;
+        public final /* synthetic */ hz8 b;
+
+        public b(hz8 hz8Var, BlockPopInfo blockPopInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hz8Var, blockPopInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hz8Var;
+            this.a = blockPopInfo;
+        }
+
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                this.b.e(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(hz8 hz8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hz8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
+            }
+            hz8.h(null);
+            hz8.g(null);
+        }
+    }
+
+    public hz8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        c cVar = new c(this, 2005016);
+        this.c = cVar;
+        this.a = tbPageContext;
+        tbPageContext.registerListener(cVar);
+    }
+
+    public static void g(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
+            e = blockPopInfo;
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static void h(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
+            d = blockPopInfo;
+        }
+    }
+
+    public final void e(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, blockPopInfo) != null) || blockPopInfo == null) {
+            return;
+        }
+        AntiHelper.p(this.a.getPageActivity(), blockPopInfo.ahead_url);
+    }
+
+    public final boolean b(BlockPopInfo blockPopInfo) {
+        InterceptResult invokeL;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, blockPopInfo)) == null) {
+            if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
+                BdToast b2 = BdToast.b(this.a.getPageActivity(), blockPopInfo.appeal_msg);
+                b2.f(BdToast.ToastIcon.FAILURE);
+                b2.c(3000);
+                b2.i();
+                return true;
+            } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0) {
+                if ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1) {
+                    if (blockPopInfo.ahead_type.intValue() == 1) {
+                        String str = blockPopInfo.block_info;
+                        String str2 = blockPopInfo.ok_info;
+                        if (!xi.isEmpty(str) && !xi.isEmpty(str2)) {
+                            i(blockPopInfo);
+                        } else {
+                            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.hanpen_error));
+                            b3.f(BdToast.ToastIcon.FAILURE);
+                            b3.c(3000);
+                            b3.i();
+                        }
+                    } else if (blockPopInfo.ahead_type.intValue() == 2) {
+                        e(blockPopInfo);
+                    }
+                    return true;
+                }
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
-                return 0;
-            }
-            return (int) Math.ceil(this.a.size() / 2.0d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b(e);
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public StickerItem getItem(int i) {
-        InterceptResult invokeI;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (StickerItem) ListUtils.getItem(this.a, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b(d);
         }
-        return (StickerItem) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(List<StickerItem> list) {
+    public void f() {
+        lv4 lv4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a != null && (lv4Var = this.b) != null && lv4Var.isShowing()) {
+            this.b.autoChangeSkinType(this.a);
         }
     }
 
-    public void e(VideoEffectLayout.h hVar) {
+    public final void i(BlockPopInfo blockPopInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
-            this.b = hVar;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, blockPopInfo) != null) || blockPopInfo == null) {
+            return;
         }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d053d, (ViewGroup) null);
-                cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922fd);
-                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090410);
-                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922e3);
-                cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09171c);
-                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903f6);
-                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0922fc);
-                cVar.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09040c);
-                view2.setTag(cVar);
-            } else {
-                cVar = (c) view2.getTag();
-            }
-            cVar.c.setAutoChangeStyle(false);
-            cVar.d.setAutoChangeStyle(false);
-            cVar.c.setGifIconSupport(false);
-            cVar.d.setGifIconSupport(false);
-            int i2 = i * 2;
-            if (ListUtils.getItem(this.a, i2) instanceof StickerItem) {
-                cVar.a.setVisibility(0);
-                if (this.a.get(i2).id == -1) {
-                    cVar.g.setVisibility(0);
-                    cVar.c.setVisibility(8);
-                    cVar.g.setImageResource(R.drawable.obfuscated_res_0x7f080b5c);
-                } else {
-                    cVar.g.setVisibility(8);
-                    cVar.c.setVisibility(0);
-                    cVar.c.K(this.a.get(i2).img, 10, true);
-                }
-                cVar.a.setOnClickListener(new a(this, i));
-                if (this.a.get(i2).isDownLoading) {
-                    cVar.e.setVisibility(0);
-                } else {
-                    cVar.e.setVisibility(8);
-                }
-                if (this.a.get(i2).isSelect) {
-                    SkinManager.setBackgroundResource(cVar.a, R.drawable.obfuscated_res_0x7f0802e2);
-                } else {
-                    cVar.a.setBackgroundResource(R.color.transparent);
-                }
-            } else {
-                cVar.a.setVisibility(8);
-            }
-            int i3 = i2 + 1;
-            if (ListUtils.getItem(this.a, i3) instanceof StickerItem) {
-                cVar.b.setVisibility(0);
-                cVar.d.K(this.a.get(i3).img, 10, true);
-                cVar.b.setOnClickListener(new b(this, i));
-                if (this.a.get(i3).isDownLoading) {
-                    cVar.f.setVisibility(0);
-                } else {
-                    cVar.f.setVisibility(8);
-                }
-                if (this.a.get(i3).isSelect) {
-                    SkinManager.setBackgroundResource(cVar.b, R.drawable.obfuscated_res_0x7f0802e2);
-                } else {
-                    cVar.b.setBackgroundResource(R.color.transparent);
-                }
-            } else {
-                cVar.b.setVisibility(8);
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        lv4 lv4Var = new lv4(this.a.getPageActivity());
+        this.b = lv4Var;
+        lv4Var.setMessage(blockPopInfo.block_info);
+        this.b.setNegativeButton(blockPopInfo.ok_info, new a(this));
+        this.b.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
+        this.b.create(this.a).show();
     }
 }

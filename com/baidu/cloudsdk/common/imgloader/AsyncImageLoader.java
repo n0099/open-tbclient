@@ -21,7 +21,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -30,12 +30,12 @@ public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
     public IAsyncImageLoaderListener mListener;
     public int mMaxNumOfPixels;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface IAsyncImageLoaderListener {
         void onComplete(Bitmap bitmap);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class FlushedInputStream extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 /* loaded from: classes5.dex */
 public interface pv0 {
-    boolean e(@NonNull nu0 nu0Var);
+    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
 
-    ov0 getInterceptorLayer();
+    void b(BdThumbSeekBar bdThumbSeekBar);
+
+    void c(BdThumbSeekBar bdThumbSeekBar);
 }

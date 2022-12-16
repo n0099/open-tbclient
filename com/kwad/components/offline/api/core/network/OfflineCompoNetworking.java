@@ -16,7 +16,7 @@ import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResult
 import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.core.network.m;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class OfflineCompoNetworking<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> implements IOfflineCompoNetworking<R, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

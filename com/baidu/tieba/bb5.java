@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: IMSdkService.java */
 /* loaded from: classes3.dex */
-public interface bb5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
+public final /* synthetic */ class bb5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(boolean z, boolean z2);
-
-        void b(boolean z);
+    public static cb5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new db5(b());
+        }
+        return (cb5) invokeV.objValue;
     }
 
-    void a();
-
-    void b(@Nullable a aVar);
-
-    void c();
-
-    @NonNull
-    Fragment d(@NonNull String str);
-
-    void hide();
-
-    void show();
+    public static cb5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (cb5) ServiceManager.getService(cb5.a);
+        }
+        return (cb5) invokeV.objValue;
+    }
 }

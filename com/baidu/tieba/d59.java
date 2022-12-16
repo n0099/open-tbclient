@@ -1,20 +1,34 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes3.dex */
-public interface d59 {
-    void a(boolean z);
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes4.dex */
+public class d59 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final l09 b;
+    public static boolean c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(WebView webView, String str);
-
-    void c(NewWriteModel.d dVar);
-
-    void d();
-
-    void e(boolean z, String str);
-
-    void onDestroy();
-
-    void onPageFinished(WebView webView, String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655681, "Lcom/baidu/tieba/d59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947655681, "Lcom/baidu/tieba/d59;");
+                return;
+            }
+        }
+        a = TimeUnit.DAYS.toMillis(5L);
+        b = new l09("camera_last_api", 0, "camera_last_api_stamp");
+        c = "Lenovo K520".equals(aj.g());
+    }
 }

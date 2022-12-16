@@ -2,10 +2,9 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.dj5;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,15 +48,10 @@ public class HotTopicTabRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            if (UbsABTestHelper.isNewHomeHotTopicTab()) {
-                builder.tab_id = "3";
-                builder.tab_code = "all";
-            } else {
-                builder.tab_id = "1";
-                builder.tab_code = this.tabCode;
-            }
+            builder.tab_id = "3";
+            builder.tab_code = "all";
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                dj5.a(builder, true);
+                wj5.a(builder, true);
             }
             HotThreadListReqIdl.Builder builder2 = new HotThreadListReqIdl.Builder();
             builder2.data = builder.build(false);

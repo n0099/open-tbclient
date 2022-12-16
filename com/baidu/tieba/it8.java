@@ -1,51 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
-import com.baidu.tieba.im.model.IMUserListModel;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class it8 extends CustomMessageListener {
+public class it8 {
     public static /* synthetic */ Interceptable $ic;
+    public static it8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public IMUserListModel a;
+    public LocationData a;
+    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public it8(MainTabActivity mainTabActivity) {
-        super(2016003);
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        }
+    }
+
+    public it8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new IMUserListModel(mainTabActivity.getPageContext(), mainTabActivity.getUniqueId());
+        this.b = ry4.l().i("no_longer_show_address", false);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MemoryModifyLastMsgMessage.a data;
+    public static it8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null && zb7.f().g(data.a, 2) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(data.a);
-            this.a.request(false, arrayList);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (it8.class) {
+                    if (c == null) {
+                        c = new it8();
+                    }
+                }
+            }
+            return c;
+        }
+        return (it8) invokeV.objValue;
+    }
+
+    public LocationData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (LocationData) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(LocationData locationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationData) == null) {
+            this.a = locationData;
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
     }
 }

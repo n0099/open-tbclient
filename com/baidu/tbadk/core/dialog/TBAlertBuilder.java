@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,6 +59,7 @@ public class TBAlertBuilder {
     public View.OnClickListener p;
     public View.OnClickListener q;
     public boolean r;
+    public LinearLayout s;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -187,10 +188,10 @@ public class TBAlertBuilder {
         this.a = new AlertDialog.Builder(activity);
     }
 
-    public TBAlertBuilder r(TBAlertConfig.a... aVarArr) {
+    public TBAlertBuilder t(TBAlertConfig.a... aVarArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, aVarArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, aVarArr)) == null) {
             int length = aVarArr.length;
             if (length != 1) {
                 if (length != 2) {
@@ -208,7 +209,7 @@ public class TBAlertBuilder {
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public static void d(@NonNull Dialog dialog) {
+    public static void e(@NonNull Dialog dialog) {
         Window window;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, null, dialog) != null) || (window = dialog.getWindow()) == null) {
@@ -217,7 +218,7 @@ public class TBAlertBuilder {
         window.setBackgroundDrawableResource(17170445);
     }
 
-    public static void e(@NonNull Dialog dialog) {
+    public static void f(@NonNull Dialog dialog) {
         Window window;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dialog) != null) || (window = dialog.getWindow()) == null) {
@@ -225,12 +226,12 @@ public class TBAlertBuilder {
         }
         Context context = dialog.getContext();
         WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = f(context);
+        attributes.width = h(context);
         window.getDecorView().setPadding(0, 0, 0, 0);
         window.setAttributes(attributes);
     }
 
-    public static int f(Context context) {
+    public static int h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -245,156 +246,178 @@ public class TBAlertBuilder {
         return invokeL.intValue;
     }
 
-    public TBAlertBuilder h(boolean z) {
+    public TBAlertBuilder j(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
             this.a.setCancelable(z);
             return this;
         }
         return (TBAlertBuilder) invokeZ.objValue;
     }
 
-    public TBAlertBuilder i(View view2) {
+    public TBAlertBuilder k(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
             this.l = view2;
             return this;
         }
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public TBAlertBuilder j(View view2) {
+    public TBAlertBuilder l(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view2)) == null) {
             this.e = view2;
             return this;
         }
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public TBAlertBuilder k(@StringRes int i) {
+    public TBAlertBuilder m(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             this.h = TbadkCoreApplication.getInst().getResources().getString(i);
             return this;
         }
         return (TBAlertBuilder) invokeI.objValue;
     }
 
-    public TBAlertBuilder l(int i) {
+    public TBAlertBuilder n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
             this.i = i;
             return this;
         }
         return (TBAlertBuilder) invokeI.objValue;
     }
 
-    public TBAlertBuilder m(boolean z) {
+    public TBAlertBuilder o(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
             this.j = z;
             return this;
         }
         return (TBAlertBuilder) invokeZ.objValue;
     }
 
-    public TBAlertBuilder n(MovementMethod movementMethod) {
+    public TBAlertBuilder p(MovementMethod movementMethod) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, movementMethod)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, movementMethod)) == null) {
             this.k = movementMethod;
             return this;
         }
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public TBAlertBuilder o(CharSequence charSequence) {
+    public TBAlertBuilder q(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, charSequence)) == null) {
             this.h = charSequence;
             return this;
         }
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public TBAlertBuilder p(boolean z) {
+    public TBAlertBuilder r(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
             this.r = z;
             return this;
         }
         return (TBAlertBuilder) invokeZ.objValue;
     }
 
-    public TBAlertBuilder q(DialogInterface.OnDismissListener onDismissListener) {
+    public TBAlertBuilder s(DialogInterface.OnDismissListener onDismissListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, onDismissListener)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, onDismissListener)) == null) {
             this.a.setOnDismissListener(onDismissListener);
             return this;
         }
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public TBAlertBuilder s(boolean z) {
+    public TBAlertBuilder u(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
             this.n = z;
             return this;
         }
         return (TBAlertBuilder) invokeZ.objValue;
     }
 
-    public TBAlertBuilder t(@StringRes int i) {
+    public TBAlertBuilder v(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
             this.f = TbadkCoreApplication.getInst().getResources().getString(i);
             return this;
         }
         return (TBAlertBuilder) invokeI.objValue;
     }
 
-    public TBAlertBuilder u(CharSequence charSequence) {
+    public TBAlertBuilder w(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charSequence)) == null) {
             this.f = charSequence;
             return this;
         }
         return (TBAlertBuilder) invokeL.objValue;
     }
 
-    public AlertDialog x(AlertDialog alertDialog) {
+    public AlertDialog z(AlertDialog alertDialog) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, alertDialog)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, alertDialog)) == null) {
             GreyUtil.grey(alertDialog);
             alertDialog.show();
-            d(alertDialog);
             e(alertDialog);
+            f(alertDialog);
             return alertDialog;
         }
         return (AlertDialog) invokeL.objValue;
     }
 
-    public AlertDialog c() {
+    public final void c(View view2, boolean z) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
+            rw4 d = rw4.d(view2);
+            if (this.e == null) {
+                i = 0;
+            } else {
+                i = 2;
+            }
+            d.m(i);
+            d.n(R.string.J_X06);
+            if (z) {
+                i2 = R.color.transparent;
+            } else {
+                i2 = R.color.CAM_X0205;
+            }
+            d.f(i2);
+        }
+    }
+
+    public AlertDialog d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!this.c) {
                 this.c = true;
-                v();
+                x();
                 this.d = this.a.create();
             }
             return this.d;
@@ -406,35 +429,43 @@ public class TBAlertBuilder {
     public void dismiss() {
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.d) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (alertDialog = this.d) != null) {
             alertDialog.dismiss();
         }
     }
 
-    public TBAlertBuilder g() {
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(this.s, this.r);
+            zv4.g();
+        }
+    }
+
+    public TBAlertBuilder i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             this.o = true;
             return this;
         }
         return (TBAlertBuilder) invokeV.objValue;
     }
 
-    public AlertDialog w() {
+    public AlertDialog y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            AlertDialog c2 = c();
-            x(c2);
-            return c2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            AlertDialog d = d();
+            z(d);
+            return d;
         }
         return (AlertDialog) invokeV.objValue;
     }
 
-    public final void v() {
+    public final void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             LinearLayout linearLayout = new LinearLayout(this.b);
             linearLayout.setOrientation(1);
             linearLayout.setGravity(17);
@@ -448,48 +479,32 @@ public class TBAlertBuilder {
                 }
             }
             LinearLayout linearLayout2 = new LinearLayout(this.b);
+            this.s = linearLayout2;
             linearLayout2.setOrientation(1);
-            linearLayout2.setGravity(17);
-            linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            int i = 2;
-            if (this.r) {
-                qw4 d = qw4.d(linearLayout2);
-                if (this.e == null) {
-                    i = 0;
-                }
-                d.m(i);
-                d.n(R.string.J_X06);
-                d.f(R.color.transparent);
-            } else {
-                qw4 d2 = qw4.d(linearLayout2);
-                if (this.e == null) {
-                    i = 0;
-                }
-                d2.m(i);
-                d2.n(R.string.J_X06);
-                d2.f(R.color.CAM_X0205);
-            }
+            this.s.setGravity(17);
+            this.s.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            c(this.s, this.r);
             if (!TextUtils.isEmpty(this.f)) {
-                TextView k = yv4.k(this.b);
-                k.setText(this.f);
-                k.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
-                linearLayout2.addView(k);
+                TextView l = zv4.l(this.b);
+                l.setText(this.f);
+                l.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
+                this.s.addView(l);
                 CharSequence charSequence = this.g;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
-                    k.setPadding(k.getPaddingLeft(), k.getPaddingTop(), k.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView k2 = yv4.k(this.b);
-                    k2.setText(this.g);
-                    k2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
-                    linearLayout2.addView(k2);
+                    l.setPadding(l.getPaddingLeft(), l.getPaddingTop(), l.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+                    TextView l2 = zv4.l(this.b);
+                    l2.setText(this.g);
+                    l2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
+                    this.s.addView(l2);
                 }
             }
             if (!TextUtils.isEmpty(this.h)) {
                 RelativeLayout relativeLayout = new RelativeLayout(this.b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = yv4.b(this.b, this.j);
+                TextView b2 = zv4.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f0907af);
+                b2.setId(R.id.obfuscated_res_0x7f0907c7);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -497,30 +512,30 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0907af);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0907c7);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
-                linearLayout2.addView(relativeLayout);
+                this.s.addView(relativeLayout);
                 b2.post(new a(this, b2, view3));
             }
             View view4 = this.l;
             if (view4 != null) {
                 if (view4.getLayoutParams() == null) {
-                    linearLayout2.addView(this.l, new ViewGroup.LayoutParams(-1, -2));
+                    this.s.addView(this.l, new ViewGroup.LayoutParams(-1, -2));
                 } else {
-                    linearLayout2.addView(this.l);
+                    this.s.addView(this.l);
                 }
             }
             if (this.m != null) {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                linearLayout2.addView(yv4.i(this.b, this.m, this.p));
+                this.s.addView(zv4.j(this.b, this.m, this.p));
             }
-            linearLayout.addView(linearLayout2, new ViewGroup.LayoutParams(-1, -2));
+            linearLayout.addView(this.s, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {
                 ImageView imageView = new ImageView(this.b);
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080825);
+                imageView.setImageResource(R.drawable.icon_mask_pop_close);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
                 layoutParams2.setMargins(0, yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
                 imageView.setOnClickListener(new c(this));

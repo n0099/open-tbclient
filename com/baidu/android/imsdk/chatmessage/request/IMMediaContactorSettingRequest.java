@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.chatmessage.IMediaContactorSettingListener;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.media.db.MediaMessageDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
@@ -132,12 +133,13 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
                 }
                 jSONObject.put("sign", generateSign(jSONObject));
+                LogUtils.d(TAG, "request body = " + jSONObject.toString());
             } catch (JSONException e) {
                 LogUtils.e(TAG, "getRequestParameter Exception ", e);
             }
@@ -163,6 +165,8 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
     public void onSuccess(int i, byte[] bArr) {
         int i2;
         String str;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
@@ -176,12 +180,20 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            if (i2 == 0 && this.mContactorType == 2) {
-                int i3 = this.mOperation;
-                if (i3 == 1) {
-                    GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, this.mContacter, 0, System.currentTimeMillis() / 1000);
-                } else if (i3 == 2) {
-                    GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, this.mContacter, 1, System.currentTimeMillis() / 1000);
+            if (i2 == 0 && ((i3 = this.mOperation) == 1 || i3 == 2)) {
+                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                if (this.mOperation == 2) {
+                    i4 = 1;
+                } else {
+                    i4 = 0;
+                }
+                int i5 = this.mContactorType;
+                if (i5 == 2) {
+                    GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, this.mContacter, i4, currentTimeMillis);
+                } else if (i5 == 1) {
+                    MediaMessageDBManager.getInstance(this.mContext).updateChatSessionMarkTopBybduid(0, this.mContacter, i4, currentTimeMillis);
+                } else if (this.mContactorPauid > 0) {
+                    MediaMessageDBManager.getInstance(this.mContext).updateChatSessionMarkTop(0, this.mContactorPauid, i4, currentTimeMillis);
                 }
             }
             IMediaContactorSettingListener iMediaContactorSettingListener = (IMediaContactorSettingListener) ListenerManager.getInstance().removeListener(this.mKey);

@@ -254,20 +254,20 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                         if (view2 == null || view2.getId() != 1) {
                             View inflate = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                             inflate.setId(1);
-                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092263)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003c));
+                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922d4)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003d));
                             return inflate;
                         }
                         return view2;
                     }
                     throw new IllegalArgumentException();
                 }
-                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f09135f) {
+                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f0913c0) {
                     view2 = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                 }
                 PackageManager packageManager = this.this$0.getContext().getPackageManager();
                 ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
-                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e46)).setImageDrawable(resolveInfo.loadIcon(packageManager));
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092263)).setText(resolveInfo.loadLabel(packageManager));
+                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e96)).setImageDrawable(resolveInfo.loadIcon(packageManager));
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d4)).setText(resolveInfo.loadLabel(packageManager));
                 if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
                     view2.setActivated(true);
                 } else {
@@ -629,12 +629,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         View findViewById = findViewById(R.id.obfuscated_res_0x7f090074);
         this.mActivityChooserContent = findViewById;
         this.mActivityChooserContentBackground = findViewById.getBackground();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090795);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907ad);
         this.mDefaultActivityButton = frameLayout;
         frameLayout.setOnClickListener(this.mCallbacks);
         this.mDefaultActivityButton.setOnLongClickListener(this.mCallbacks);
-        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090eba);
-        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09096e);
+        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090f14);
+        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090988);
         frameLayout2.setOnClickListener(this.mCallbacks);
         frameLayout2.setAccessibilityDelegate(new View.AccessibilityDelegate(this) { // from class: androidx.appcompat.widget.ActivityChooserView.3
             public static /* synthetic */ Interceptable $ic;
@@ -727,7 +727,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         });
         this.mExpandActivityOverflowButton = frameLayout2;
-        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090eba);
+        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090f14);
         this.mExpandActivityOverflowButtonImage = imageView;
         imageView.setImageDrawable(drawable);
         ActivityChooserViewAdapter activityChooserViewAdapter = new ActivityChooserViewAdapter(this);
@@ -952,7 +952,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v17 */
     /* JADX WARN: Type inference failed for: r0v8 */
-    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
     public void showPopupUnchecked(int i) {
         ?? r0;
         Interceptable interceptable = $ic;
@@ -985,7 +985,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     if (actionProvider != null) {
                         actionProvider.subUiVisibilityChanged(true);
                     }
-                    listPopupWindow.getListView().setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f003d));
+                    listPopupWindow.getListView().setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f003e));
                     listPopupWindow.getListView().setSelector(new ColorDrawable(0));
                     return;
                 }

@@ -3,6 +3,7 @@ package com.baidu.cyberplayer.sdk.config;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a {
@@ -24,13 +24,13 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.cyberplayer.sdk.config.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class EnumC0090a {
+    public static final class EnumC0104a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0090a a;
-        public static final EnumC0090a b;
-        public static final EnumC0090a c;
-        public static final EnumC0090a d;
-        public static final /* synthetic */ EnumC0090a[] e;
+        public static final EnumC0104a a;
+        public static final EnumC0104a b;
+        public static final EnumC0104a c;
+        public static final EnumC0104a d;
+        public static final /* synthetic */ EnumC0104a[] e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,15 +46,15 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0090a("FAILED", 0);
-            b = new EnumC0090a("AND_NEED_CHECK_NEXT", 1);
-            c = new EnumC0090a("OR_NEED_CHECK_NEXT", 2);
-            EnumC0090a enumC0090a = new EnumC0090a("SUCCESS", 3);
-            d = enumC0090a;
-            e = new EnumC0090a[]{a, b, c, enumC0090a};
+            a = new EnumC0104a("FAILED", 0);
+            b = new EnumC0104a("AND_NEED_CHECK_NEXT", 1);
+            c = new EnumC0104a("OR_NEED_CHECK_NEXT", 2);
+            EnumC0104a enumC0104a = new EnumC0104a(c.p, 3);
+            d = enumC0104a;
+            e = new EnumC0104a[]{a, b, c, enumC0104a};
         }
 
-        public EnumC0090a(String str, int i) {
+        public EnumC0104a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,16 +73,16 @@ public class a {
             }
         }
 
-        public static EnumC0090a valueOf(String str) {
+        public static EnumC0104a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0090a) Enum.valueOf(EnumC0090a.class, str) : (EnumC0090a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0104a) Enum.valueOf(EnumC0104a.class, str) : (EnumC0104a) invokeL.objValue;
         }
 
-        public static EnumC0090a[] values() {
+        public static EnumC0104a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0090a[]) e.clone() : (EnumC0090a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0104a[]) e.clone() : (EnumC0104a[]) invokeV.objValue;
         }
     }
 
@@ -230,17 +230,17 @@ public class a {
             return invokeLLLL.booleanValue;
         }
 
-        public EnumC0090a b(String str) {
+        public EnumC0104a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 if (this.d) {
-                    return EnumC0090a.a;
+                    return EnumC0104a.a;
                 }
                 boolean a = a(str);
-                return this.b ? a ? EnumC0090a.b : EnumC0090a.a : a ? EnumC0090a.d : EnumC0090a.c;
+                return this.b ? a ? EnumC0104a.b : EnumC0104a.a : a ? EnumC0104a.d : EnumC0104a.c;
             }
-            return (EnumC0090a) invokeL.objValue;
+            return (EnumC0104a) invokeL.objValue;
         }
     }
 
@@ -251,9 +251,9 @@ public class a {
             b bVar = new b();
             boolean z = false;
             bVar.a(0);
-            bVar.a(str, "|", ParamableElem.DIVIDE_PARAM);
-            EnumC0090a b2 = bVar.b(str2);
-            return Boolean.valueOf((b2 == EnumC0090a.d || b2 == EnumC0090a.b) ? true : true);
+            bVar.a(str, "|", ";");
+            EnumC0104a b2 = bVar.b(str2);
+            return Boolean.valueOf((b2 == EnumC0104a.d || b2 == EnumC0104a.b) ? true : true);
         }
         return (Boolean) invokeLL.objValue;
     }

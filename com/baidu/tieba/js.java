@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class js {
     public static /* synthetic */ Interceptable $ic;
     public static final js b;
@@ -22,7 +22,7 @@ public final class js {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (js) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

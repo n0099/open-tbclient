@@ -1,26 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface mz8 {
-    String a();
+public class mz8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final List<String> a;
+    public final String b;
 
-    void b(Intent intent);
-
-    String c();
-
-    String d();
-
-    void e(BdUniqueId bdUniqueId);
-
-    String f();
-
-    String g();
-
-    String getVideoUrl();
-
-    String h();
-
-    String i();
+    public mz8(List<String> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (list != null) {
+            this.a = new ArrayList(list);
+        } else {
+            this.a = new ArrayList();
+        }
+        this.b = str;
+    }
 }

@@ -20,7 +20,7 @@ import io.reactivex.internal.schedulers.TrampolineScheduler;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -35,7 +35,7 @@ public final class Schedulers {
     public static final Scheduler TRAMPOLINE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ComputationHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -72,7 +72,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ComputationTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class IOTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class IoHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -173,7 +173,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class NewThreadHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -210,7 +210,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class NewThreadTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +242,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SingleHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -279,7 +279,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SingleTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

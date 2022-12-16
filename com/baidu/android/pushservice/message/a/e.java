@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
@@ -58,7 +59,7 @@ public class e {
             intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
             intent.putExtra("message_id", str);
             intent.putExtra("app_id", str2);
-            intent.putExtra("notify_id", i2);
+            intent.putExtra(Constants.EXTRA_NOTIFY_ID, i2);
             intent.putExtra("widget_badge_info", str3);
             intent.putExtra("baidu_message_type", i);
             if (m.g(context, publicMsg.mPkgName) > 45) {

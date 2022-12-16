@@ -6,18 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class br2 implements eu2 {
+public class br2 implements du2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<yq2> a;
+    public int a;
     public int b;
-    public float c;
-    public boolean d;
+    public int c;
+    public int d;
 
     public br2() {
         Interceptable interceptable = $ic;
@@ -32,18 +30,18 @@ public class br2 implements eu2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
+        this.a = Integer.MIN_VALUE;
+        this.b = Integer.MIN_VALUE;
+        this.c = -1;
+        this.d = -1;
     }
 
-    @Override // com.baidu.tieba.eu2
+    @Override // com.baidu.tieba.du2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<yq2> arrayList = this.a;
-            if (arrayList != null && arrayList.size() > 0) {
+            if (this.a != Integer.MIN_VALUE && this.b != Integer.MIN_VALUE) {
                 return true;
             }
             return false;
@@ -51,41 +49,24 @@ public class br2 implements eu2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.eu2
+    @Override // com.baidu.tieba.du2
     public void a(JSONObject jSONObject) throws JSONException {
-        int length;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    yq2 yq2Var = new yq2();
-                    yq2Var.a(optJSONObject);
-                    if (yq2Var.isValid()) {
-                        this.a.add(yq2Var);
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
+            this.a = vh3.g(jSONObject.optInt("left"));
+            this.b = vh3.g(jSONObject.optInt("top"));
+            int i2 = -1;
+            if (jSONObject.has("width")) {
+                i = Math.abs(vh3.g(jSONObject.optInt("width")));
+            } else {
+                i = -1;
             }
-        }
-        ArrayList<yq2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = sq2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(sq2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            sq2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(sq2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+            this.c = i;
+            if (jSONObject.has("height")) {
+                i2 = Math.abs(vh3.g(jSONObject.optInt("height")));
+            }
+            this.d = i2;
         }
     }
 }

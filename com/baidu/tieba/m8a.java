@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes5.dex */
 public final class m8a {
     public static /* synthetic */ Interceptable $ic;
-    public static final m8a a;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,59 +30,44 @@ public final class m8a {
                 return;
             }
         }
-        a = new m8a();
+        a = new a(null);
     }
 
-    public m8a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return themeResId.intValue();
             }
-            return R.style.obfuscated_res_0x7f10014f;
         }
-        return invokeL.intValue;
-    }
 
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
-            } else {
-                num = null;
-            }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f10014f) {
-                return true;
-            }
-            return false;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return invokeL.booleanValue;
+
+        public final <T> T a(Class<T> cls, int i, int i2, Context context, PayUIKitConfig payUIKitConfig, x8a x8aVar) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{cls, Integer.valueOf(i), Integer.valueOf(i2), context, payUIKitConfig, x8aVar})) == null) {
+                try {
+                    return (T) cls.getClassLoader().loadClass(cls.getCanonicalName() + "$$Factory").getMethod("createInstance", Integer.TYPE, Integer.TYPE, Context.class, PayUIKitConfig.class, x8a.class).invoke(null, Integer.valueOf(i), Integer.valueOf(i2), context, payUIKitConfig, x8aVar);
+                } catch (Exception e) {
+                    RLog.error("ApiInstanceCreator", "getApiInstance error " + e, new Object[0]);
+                    return null;
+                }
+            }
+            return (T) invokeCommon.objValue;
+        }
     }
 }

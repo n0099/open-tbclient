@@ -1,78 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
-import com.baidu.tieba.frs.ResponseIncrForumAccessCountSocketMessage;
-import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
-import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class js6 {
+/* loaded from: classes5.dex */
+public class js6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public static final BdUniqueId d;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893916, "Lcom/baidu/tieba/js6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947893916, "Lcom/baidu/tieba/js6;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
+        e = BdUniqueId.gen();
+    }
 
     public js6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        a();
-        b();
     }
 
-    public final void a() {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wf5 h = uo8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
-            h.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
-            h.g(true);
-            h.h(false);
-            h.f(SocketMessageTask.DupLicateMode.NONE);
-            MessageManager.getInstance().registerTask(h);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, uo8.a(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ResponseIncrForumAccessCountHttpMessage.class);
-            tbHttpMessageTask.setIsImm(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPositionInFrsItemTab() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (isSupportTop()) {
+                return c;
+            }
+            if (isSupportBottom()) {
+                return d;
+            }
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public final void b() {
+    public void setPositionInFrsItemTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wf5 h = uo8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
-            h.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
-            h.g(true);
-            h.h(false);
-            h.f(SocketMessageTask.DupLicateMode.NONE);
-            MessageManager.getInstance().registerTask(h);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, uo8.a(TbConfig.SET_COMMON_FORUM_STATE, 309365));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ResponseSetCommForumStateHttpMessage.class);
-            tbHttpMessageTask.setIsImm(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
     }
 }

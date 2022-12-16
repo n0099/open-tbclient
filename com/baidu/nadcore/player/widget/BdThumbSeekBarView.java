@@ -14,8 +14,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sz0;
-import com.baidu.tieba.wz0;
+import com.baidu.tieba.rz0;
+import com.baidu.tieba.vz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -358,22 +358,22 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.b = paint;
         paint.setAntiAlias(true);
-        this.b.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06081e));
+        this.b.setColor(getResources().getColor(R.color.nad_bdvideoplayer_seek_bar_bg_color));
         Paint paint2 = new Paint();
         this.o = paint2;
         paint2.setAntiAlias(true);
-        this.o.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060820));
+        this.o.setColor(getResources().getColor(R.color.nad_bdvideoplayer_seek_bar_played_color));
         Paint paint3 = new Paint();
         this.p = paint3;
         paint3.setAntiAlias(true);
-        this.p.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06081f));
+        this.p.setColor(getResources().getColor(R.color.nad_bdvideoplayer_seek_bar_buffered_color));
         this.l = 100.0f;
         this.m = 0.0f;
         this.n = 0;
         if (this.h == null) {
-            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080dd0);
+            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.nad_bdvideoplayer_seekbar_thumb);
         }
-        this.i = sz0.a(this, 0.0f);
+        this.i = rz0.a(this, 0.0f);
         if (this.j == null) {
             d(1.5f);
         }
@@ -384,7 +384,7 @@ public class BdThumbSeekBarView extends View {
         this.e = (int) ((i2 * f) + 0.5d);
         this.f = (int) (50.0f * f);
         this.g = (int) (f * 3.0f);
-        wz0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
+        vz0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

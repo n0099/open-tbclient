@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj5;
-import com.baidu.tieba.si5;
+import com.baidu.tieba.lj5;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -108,7 +108,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int g = yi.g(context, R.dimen.tbds22);
         layoutParams.rightMargin = g;
         textView.setTag(recommendTopicListData);
-        textView.setText(si5.a(recommendTopicListData.getTopicName()));
+        textView.setText(lj5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
         textView.setTextSize(0, yi.g(context, R.dimen.tbds33));
         textView.setGravity(17);
@@ -125,10 +125,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
             TbPageContext tbPageContext = this.b;
-            if (tbPageContext != null && !si5.c(tbPageContext, false, true)) {
+            if (tbPageContext != null && !lj5.c(tbPageContext, false, true)) {
                 if (recommendTopicListData.getIsVideoTopicInt() != 1 && NewWebHotTopicPageSwitch.isOn()) {
                     TbPageContext tbPageContext2 = this.b;
-                    fj5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
+                    yj5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
                     return;
                 }
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());

@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import com.bytedance.pangle.util.MethodUtils;
 @Keep
@@ -78,7 +79,7 @@ public class ZeusProviderTransform {
                 return ContentProviderManager.getInstance().update((ContentResolver) obj, uri, contentValues, str, strArr, str2);
             }
             try {
-                return ((Integer) MethodUtils.invokeMethod(obj, "update", new Object[]{uri, contentValues, str, strArr}, new Class[]{Uri.class, ContentValues.class, String.class, String[].class})).intValue();
+                return ((Integer) MethodUtils.invokeMethod(obj, StickerDataChangeType.UPDATE, new Object[]{uri, contentValues, str, strArr}, new Class[]{Uri.class, ContentValues.class, String.class, String[].class})).intValue();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -174,7 +175,7 @@ public class ZeusProviderTransform {
                 return ContentProviderManager.getInstance().update((ContentResolver) obj, uri, contentValues, bundle, str);
             }
             try {
-                return ((Integer) MethodUtils.invokeMethod(obj, "update", new Object[]{uri, contentValues, bundle}, new Class[]{Uri.class, ContentValues.class, Bundle.class})).intValue();
+                return ((Integer) MethodUtils.invokeMethod(obj, StickerDataChangeType.UPDATE, new Object[]{uri, contentValues, bundle}, new Class[]{Uri.class, ContentValues.class, Bundle.class})).intValue();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

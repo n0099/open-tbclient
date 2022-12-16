@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.oz4;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,9 +103,9 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             setGravity(1);
             setLayoutParams(layoutParams);
             if (UbsABTestHelper.isPushPermissionDialogBtnBottom()) {
-                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0778, this);
+                LinearLayout.inflate(context, R.layout.push_premission_dialog_view_v2_btn_bottom, this);
             } else {
-                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0777, this);
+                LinearLayout.inflate(context, R.layout.push_premission_dialog_view_v2, this);
             }
             c();
         }
@@ -178,30 +178,30 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
             setBackgroundDrawable(gradientDrawable);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092263);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922d4);
             this.a = textView;
             if (textView != null) {
-                qw4 d = qw4.d(textView);
+                rw4 d = rw4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X05);
                 d.A(R.string.F_X02);
             }
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907bb);
+            TextView textView2 = (TextView) findViewById(R.id.description);
             this.b = textView2;
             if (textView2 != null) {
-                qw4 d2 = qw4.d(textView2);
+                rw4 d2 = rw4.d(textView2);
                 d2.v(R.color.CAM_X0108);
                 d2.z(R.dimen.T_X07);
                 d2.A(R.string.F_X01);
             }
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908c6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b66);
-            this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080928));
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b68);
+            this.c = (ImageView) findViewById(R.id.emotion_img);
+            this.d = (TextView) findViewById(R.id.push_permission_dialog_cancel_button);
+            this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_popwindow_message_144_n));
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.push_permission_dialog_confirm_button);
             this.e = tBSpecificationBtn;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-                this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3));
+                this.e.setText(TbadkCoreApplication.getInst().getString(R.string.push_permission_dialog_confirm_button_text_2));
                 this.e.setConfig(new oz4());
             }
             this.f = skinType;

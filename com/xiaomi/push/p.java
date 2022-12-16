@@ -14,7 +14,7 @@ public final class p implements Runnable {
     public final /* synthetic */ ComponentName a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f821a;
+    public final /* synthetic */ Context f844a;
 
     public p(Context context, ComponentName componentName) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class p implements Runnable {
                 return;
             }
         }
-        this.f821a = context;
+        this.f844a = context;
         this.a = componentName;
     }
 
@@ -40,12 +40,12 @@ public final class p implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                PackageManager packageManager = this.f821a.getPackageManager();
+                PackageManager packageManager = this.f844a.getPackageManager();
                 if (packageManager.getComponentEnabledSetting(this.a) != 2) {
                     packageManager.setComponentEnabledSetting(this.a, 2, 1);
                 }
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("close static register of network status receiver failed:" + th);
+                com.xiaomi.channel.commonutils.logger.b.m99a("close static register of network status receiver failed:" + th);
             }
         }
     }

@@ -96,7 +96,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mListenerKey = str;
     }
 
-    /* JADX WARN: Type inference failed for: r7v2, types: [T, java.lang.Long] */
+    /* JADX WARN: Type inference failed for: r7v1, types: [T, java.lang.Long] */
     private void parserMsg(List<ChatMsg> list, JSONArray jSONArray, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65538, this, list, jSONArray, i) == null) {
@@ -109,22 +109,22 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                 String transBDUK2 = Utility.transBDUK(jSONObject.optString("to_pass_uk", ""));
                 Type type = new Type();
                 type.t = 0L;
-                ChatMsg parserMessage = MessageParser.parserMessage(this.mContext, jSONObject, type, true);
-                if (parserMessage != null) {
-                    parserMessage.setMsgId(((Long) type.t).longValue());
-                    parserMessage.setFromUser(optLong2);
-                    parserMessage.setContacter(optLong);
-                    parserMessage.setContacterBduid(transBDUK2);
-                    parserMessage.setSenderUid(transBDUK);
-                    parserMessage.setIsClicked(true);
-                    parserMessage.setMsgReaded(1);
-                    LogUtils.d(TAG, "BC> msg=" + parserMessage.toString());
-                    parserMessage.setMediaRoleMsg(true);
-                    parserMessage.setStatus(0);
-                    list.add(parserMessage);
+                ChatMsg realParserMessage = MessageParser.realParserMessage(this.mContext, jSONObject, type, true, false);
+                if (realParserMessage != null) {
+                    realParserMessage.setMsgId(((Long) type.t).longValue());
+                    realParserMessage.setFromUser(optLong2);
+                    realParserMessage.setContacter(optLong);
+                    realParserMessage.setContacterBduid(transBDUK2);
+                    realParserMessage.setSenderUid(transBDUK);
+                    realParserMessage.setIsClicked(true);
+                    realParserMessage.setMsgReaded(1);
+                    LogUtils.d(TAG, "BC> msg=" + realParserMessage.toString());
+                    realParserMessage.setMediaRoleMsg(true);
+                    realParserMessage.setStatus(0);
+                    list.add(realParserMessage);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                LogUtils.e(TAG, "parserMsg exception", e);
             }
         }
     }
@@ -172,7 +172,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_type", this.mContactorType);
                 }
                 if (this.mContactorPauid > 0) {
-                    jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+                    jSONObject.put(RequestContants.EXTRA_CONTACTER_PA_UID, this.mContactorPauid);
                 }
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);

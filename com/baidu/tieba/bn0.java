@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.pyramid.annotation.Singleton;
@@ -9,16 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
 public interface bn0 {
+    float getLaunchSpeedScore();
 
-    /* loaded from: classes3.dex */
-    public interface a {
-    }
-
-    void a(@Nullable String str, @Nullable String str2, @Nullable a aVar);
+    float getStaticDeviceScore();
 
     @Autowired
     /* loaded from: classes3.dex */
-    public static class b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +24,7 @@ public interface bn0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return jw0.a();
+                return gw0.a();
             }
             return (bn0) invokeV.objValue;
         }

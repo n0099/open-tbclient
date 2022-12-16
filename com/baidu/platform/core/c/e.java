@@ -14,9 +14,7 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,12 +181,12 @@ public class e extends com.baidu.platform.base.d {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONObject, reverseGeoCodeResult)) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT)) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
                 return false;
             }
             reverseGeoCodeResult.setCityCode(optJSONObject.optInt("cityCode"));
             reverseGeoCodeResult.setAddress(optJSONObject.optString("formatted_address"));
-            reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString(Constant.KEY_BUSINESS));
+            reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString("business"));
             ReverseGeoCodeResult.AddressComponent b = b(optJSONObject, "addressComponent");
             reverseGeoCodeResult.setAddressDetail(b);
             reverseGeoCodeResult.setLocation(e(optJSONObject, "location"));

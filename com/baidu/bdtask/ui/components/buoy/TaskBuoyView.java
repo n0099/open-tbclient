@@ -92,7 +92,7 @@ public class TaskBuoyView extends op implements cv {
     public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d07b4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.sdk_task_buoy_view : invokeV.intValue;
     }
 
     public boolean R() {
@@ -134,12 +134,12 @@ public class TaskBuoyView extends op implements cv {
 
         /* renamed from: com.baidu.bdtask.ui.components.buoy.TaskBuoyView$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0080a implements ValueAnimator.AnimatorUpdateListener {
+        public static final class C0094a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0080a(a aVar) {
+            public C0094a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -258,7 +258,7 @@ public class TaskBuoyView extends op implements cv {
             }
             ValueAnimator valueAnimator3 = this.a.w;
             if (valueAnimator3 != null) {
-                valueAnimator3.addUpdateListener(new C0080a(this));
+                valueAnimator3.addUpdateListener(new C0094a(this));
             }
             ValueAnimator valueAnimator4 = this.a.w;
             if (valueAnimator4 != null) {
@@ -399,27 +399,27 @@ public class TaskBuoyView extends op implements cv {
         View inflate = LayoutInflater.from(this.B.getApplicationContext()).inflate(K(), this.c);
         this.d = inflate;
         if (inflate != null) {
-            relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090496);
+            relativeLayout = (RelativeLayout) inflate.findViewById(R.id.buoy_container);
         } else {
             relativeLayout = null;
         }
         this.e = relativeLayout;
         View view2 = this.d;
         if (view2 != null) {
-            imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090495);
+            imageView = (ImageView) view2.findViewById(R.id.buoy_close);
         } else {
             imageView = null;
         }
         this.f = imageView;
         View view3 = this.d;
         if (view3 != null) {
-            textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09212b);
+            textView = (TextView) view3.findViewById(R.id.task_buoy_message);
         } else {
             textView = null;
         }
         this.g = textView;
         View view4 = this.d;
-        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f092131) : null;
+        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.task_tip_process) : null;
         this.i = new dv();
         this.k = new ConcurrentLinkedQueue();
         this.l = 1000;
@@ -731,7 +731,7 @@ public class TaskBuoyView extends op implements cv {
             }
             iu v = BDPTask.m.v();
             if (v != null && (h = v.h()) != null && (appContext = h.getAppContext()) != null && (resources = appContext.getResources()) != null) {
-                pv.a(this.d, this.f, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062e));
+                pv.a(this.d, this.f, resources.getDimensionPixelSize(R.dimen.sdk_buoy_close_expend_size));
                 getContentView().setVisibility(4);
             }
         }
@@ -767,7 +767,7 @@ public class TaskBuoyView extends op implements cv {
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (v = BDPTask.m.v()) != null && (h = v.h()) != null && (appContext = h.getAppContext()) != null && (resources = appContext.getResources()) != null && (textView = this.g) != null) {
-            textView.setTextColor(ov.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060af8)));
+            textView.setTextColor(ov.a.a(str, resources.getColor(R.color.task_sdk_text_color_default)));
         }
     }
 
@@ -793,12 +793,12 @@ public class TaskBuoyView extends op implements cv {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 Drawable drawable2 = layerDrawable.getDrawable(0);
                 if (drawable2 != null) {
-                    ((GradientDrawable) drawable2).setColor(ov.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060af5)));
+                    ((GradientDrawable) drawable2).setColor(ov.a.a(str, resources.getColor(R.color.task_sdk_process_back_color_default)));
                     Drawable drawable3 = layerDrawable.getDrawable(1);
                     if (drawable3 != null) {
                         Drawable drawable4 = ((ScaleDrawable) drawable3).getDrawable();
                         if (drawable4 != null) {
-                            ((GradientDrawable) drawable4).setColor(ov.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060af6)));
+                            ((GradientDrawable) drawable4).setColor(ov.a.a(str2, resources.getColor(R.color.task_sdk_process_force_color_default)));
                             ProgressBar progressBar2 = this.h;
                             if (progressBar2 != null) {
                                 progressBar2.setProgressDrawable(layerDrawable);

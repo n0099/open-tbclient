@@ -19,11 +19,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.ki5;
-import com.baidu.tieba.ob5;
-import com.baidu.tieba.qi5;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.ub5;
+import com.baidu.tieba.c09;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.gc5;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.jj5;
+import com.baidu.tieba.mc5;
+import com.baidu.tieba.mj5;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.yz8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,9 +42,10 @@ import com.kuaishou.weapon.p0.h;
 public class PermissionUtil {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isAgreePrivacyPolicy;
+    public static boolean isBrowseMode;
     public static boolean isSdkInited;
     public static String localMacAddress;
-    public static ob5 mAgreePrivacyPolicyEventListener;
+    public static gc5 mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +61,7 @@ public class PermissionUtil {
                 return;
             }
         }
-        mAgreePrivacyPolicyEventListener = new ob5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
+        mAgreePrivacyPolicyEventListener = new gc5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,7 +80,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ob5
+            @Override // com.baidu.tieba.gc5
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -114,21 +120,90 @@ public class PermissionUtil {
 
     public static void doApplicationInit() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
             TbadkCoreApplication.getInst().doBeforeSuperOnCreate();
             TbadkCoreApplication.getInst().doAfterSuperOnCreate();
+        }
+    }
+
+    public static void doBrowseModeAgreePrivacy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            mk5.b(new ik5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.baidu.tieba.ik5
+                public Object doInBackground() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        c09.b();
+                        return null;
+                    }
+                    return invokeV.objValue;
+                }
+            }, new mj5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.baidu.tieba.mj5
+                public void onReturnDataInUI(Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        PermissionUtil.setIsAgreePrivacyPolicy(true);
+                        yz8.b(true);
+                    }
+                }
+            });
+        }
+    }
+
+    public static void doBrowseModeInit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
+            setIsBrowseMode(true);
+            doApplicationInit();
         }
     }
 
     public static boolean isAgreePrivacyPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             if (isAgreePrivacyPolicy) {
                 return true;
             }
             try {
-                isAgreePrivacyPolicy = qy4.k().h("key_secret_is_show_new", false);
+                isAgreePrivacyPolicy = ry4.l().i("key_secret_is_show_new", false);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -137,17 +212,26 @@ public class PermissionUtil {
         return invokeV.booleanValue;
     }
 
+    public static boolean isBrowseMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            return isBrowseMode;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void registerMutiProcessPrivacyPolicy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            ub5.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
+        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
+            mc5.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
         }
     }
 
     public static boolean checkCamera(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -167,7 +251,7 @@ public class PermissionUtil {
     public static boolean checkLocation(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             return checkLocationForGoogle(context);
         }
         return invokeL.booleanValue;
@@ -176,7 +260,7 @@ public class PermissionUtil {
     public static boolean checkReadPhoneState(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -196,7 +280,7 @@ public class PermissionUtil {
     public static boolean checkReadWifiState(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -216,7 +300,7 @@ public class PermissionUtil {
     public static boolean checkRecodeAudio(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -236,7 +320,7 @@ public class PermissionUtil {
     public static boolean checkWriteExternalStorage(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -256,12 +340,12 @@ public class PermissionUtil {
     public static String getLocalMacAddress(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             if (!isAgreePrivacyPolicy()) {
                 return "";
             }
             if (localMacAddress == null) {
-                localMacAddress = ki5.c().d(context);
+                localMacAddress = cj5.c().d(context);
             }
             return localMacAddress;
         }
@@ -271,7 +355,7 @@ public class PermissionUtil {
     public static Context providerContext(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             if (context == null) {
                 return TbadkCoreApplication.getInst().getContext();
             }
@@ -280,12 +364,27 @@ public class PermissionUtil {
         return (Context) invokeL.objValue;
     }
 
+    public static void setIsAgreePrivacyPolicy(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65570, null, z) == null) {
+            isAgreePrivacyPolicy = z;
+            ry4.l().v("key_secret_is_show_new", z);
+        }
+    }
+
+    public static void setIsBrowseMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65571, null, z) == null) {
+            isBrowseMode = z;
+        }
+    }
+
     public static boolean checkLocationForBaiduLocation(Context context) {
         InterceptResult invokeL;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -319,7 +418,7 @@ public class PermissionUtil {
     public static boolean checkLocationForGoogle(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -345,7 +444,7 @@ public class PermissionUtil {
     public static boolean checkLocationForTieba(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -370,21 +469,21 @@ public class PermissionUtil {
     public static String getLastCachedOid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
             if (!isAgreePrivacyPolicy()) {
                 return "";
             }
-            String q = qy4.k().q("key_last_cached_oid", "");
+            String r = ry4.l().r("key_last_cached_oid", "");
             try {
-                if (TextUtils.isEmpty(q)) {
-                    q = aj.i();
-                    qy4.k().y("key_last_cached_oid", q);
-                    return q;
+                if (TextUtils.isEmpty(r)) {
+                    r = aj.i();
+                    ry4.l().z("key_last_cached_oid", r);
+                    return r;
                 }
-                return q;
+                return r;
             } catch (Exception e) {
                 e.printStackTrace();
-                return q;
+                return r;
             }
         }
         return (String) invokeL.objValue;
@@ -393,7 +492,7 @@ public class PermissionUtil {
     public static boolean checkPermission(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
             if (!ApiUtil.shouldCheckPermission()) {
                 return true;
             }
@@ -412,7 +511,7 @@ public class PermissionUtil {
 
     public static void requestWriteExternalStorage(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65560, null, activity, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65565, null, activity, i) == null) {
             try {
                 ActivityCompat.requestPermissions(activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, i);
             } catch (Exception e) {
@@ -424,7 +523,7 @@ public class PermissionUtil {
     public static boolean requestWriteExternalStorgePermission(Activity activity, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, activity, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65567, null, activity, i)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             if (!checkWriteExternalStorage(activity.getApplicationContext())) {
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -436,7 +535,7 @@ public class PermissionUtil {
 
     public static void reuqestBaiduLocationPermission(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65563, null, activity, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65568, null, activity, i) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.appendRequestPermission(activity, h.c);
             permissionJudgePolicy.appendRequestPermission(activity, h.h);
@@ -448,7 +547,7 @@ public class PermissionUtil {
     public static boolean reuqestLocation(Activity activity, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, null, activity, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65569, null, activity, i)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.appendRequestPermission(activity, h.h);
             permissionJudgePolicy.appendRequestPermission(activity, h.g);
@@ -457,10 +556,28 @@ public class PermissionUtil {
         return invokeLI.booleanValue;
     }
 
+    public static void doAgreePrivacyInit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+            setIsAgreePrivacyPolicy(true);
+            doApplicationInit();
+            if (TbadkCoreApplication.getIntent() != null) {
+                String dataString = TbadkCoreApplication.getIntent().getDataString();
+                if (!TextUtils.isEmpty(dataString)) {
+                    TbSingleton.getInstance().setFirstOpenScheme(Uri.parse(dataString));
+                }
+            }
+            GrowthStatsUtil.statisticActivity();
+            mc5.f().g(TbadkCoreApplication.getInst());
+            mc5.i(new PrivacyPolicyEvent(Boolean.valueOf(isAgreePrivacyPolicy())));
+            jj5.g().s();
+        }
+    }
+
     public static boolean requestLocation(Activity activity, int i, PermissionJudgePolicy.OnPermissionsGrantedListener onPermissionsGrantedListener) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65559, null, activity, i, onPermissionsGrantedListener)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65564, null, activity, i, onPermissionsGrantedListener)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, h.h);
             permissionJudgePolicy.appendRequestPermissionWithoutGrantedCheck(activity, h.g);
@@ -473,7 +590,7 @@ public class PermissionUtil {
     public static boolean requestWriteExternalStorgeAndCameraPermission(Activity activity, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, activity, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65566, null, activity, i)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             if (!checkWriteExternalStorage(activity.getApplicationContext())) {
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -490,7 +607,7 @@ public class PermissionUtil {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, strArr, iArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, strArr, iArr)) == null) {
             if (strArr != null && strArr.length != 0 && iArr != null && iArr.length != 0) {
                 ArrayMap<String, Boolean> arrayMap = new ArrayMap<>(strArr.length);
                 for (int i = 0; i < strArr.length && i < iArr.length; i++) {
@@ -509,29 +626,10 @@ public class PermissionUtil {
         return (ArrayMap) invokeLL.objValue;
     }
 
-    public static void setIsAgreePrivacyPolicy(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65565, null, z) == null) {
-            isAgreePrivacyPolicy = z;
-            qy4.k().u("key_secret_is_show_new", z);
-            doApplicationInit();
-            if (TbadkCoreApplication.getIntent() != null) {
-                String dataString = TbadkCoreApplication.getIntent().getDataString();
-                if (!TextUtils.isEmpty(dataString)) {
-                    TbSingleton.getInstance().setFirstOpenScheme(Uri.parse(dataString));
-                }
-            }
-            GrowthStatsUtil.statisticActivity();
-            ub5.f().g(TbadkCoreApplication.getInst());
-            ub5.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
-            qi5.g().s();
-        }
-    }
-
     public static void starMainTabActivity(Context context, int i) {
         Class<?> cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65566, null, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65572, null, context, i) == null) {
             try {
                 cls = Class.forName(SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
             } catch (Exception e) {

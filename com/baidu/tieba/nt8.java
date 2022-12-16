@@ -1,62 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nt8 extends CustomMessageListener {
+public class nt8 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final as8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nt8(MainTabActivity mainTabActivity, as8 as8Var) {
-        super(2921728);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, as8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948014103, "Lcom/baidu/tieba/nt8;")) == null) {
+            return;
         }
-        this.a = mainTabActivity;
-        this.b = as8Var;
-        setPriority(1);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948014103, "Lcom/baidu/tieba/nt8;");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        as8 as8Var;
-        MainTabActivity mainTabActivity;
-        hu8 Y0;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && (as8Var = this.b) != null && as8Var.B() != null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && (mainTabActivity = this.a) != null && (Y0 = mainTabActivity.Y0()) != null) {
-                Y0.a();
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a = false;
         }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = true;
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
     }
 }

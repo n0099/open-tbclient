@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -217,11 +217,11 @@ public class NormalItemCell extends ConstraintLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d067d, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f090836);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09081d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ff9);
+            LayoutInflater.from(context).inflate(R.layout.normal_item_cell_layout, this);
+            this.a = findViewById(R.id.divider_top);
+            this.b = findViewById(R.id.divider_bottom);
+            this.c = (TextView) findViewById(R.id.main_title);
+            this.d = (TextView) findViewById(R.id.sub_title);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c9);
         }
     }
@@ -244,7 +244,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar2 = this.f;
             if (aVar2 != null && aVar2.a != -1) {
-                qw4 d = qw4.d(this.d);
+                rw4 d = rw4.d(this.d);
                 d.n(R.string.J_X06);
                 d.f(this.f.a);
             }

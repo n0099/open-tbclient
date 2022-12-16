@@ -4,147 +4,175 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.TreeSet;
-/* loaded from: classes6.dex */
-public abstract class zu2 {
+/* loaded from: classes7.dex */
+public class zu2 extends yu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public Set<Integer> b;
 
-    public abstract boolean a(Bitmap bitmap, Rect rect);
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static zu2 a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                return b(str, 0.5d);
-            }
-            return (zu2) invokeL.objValue;
-        }
-
-        public static zu2 b(String str, double d) {
-            InterceptResult invokeCommon;
-            char c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d)})) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode != -2129978548) {
-                    if (hashCode != -585839565) {
-                        if (hashCode == 544848403 && str.equals("hsv_parser")) {
-                            c = 1;
-                        }
-                        c = 65535;
-                    } else {
-                        if (str.equals("solid_parser")) {
-                            c = 2;
-                        }
-                        c = 65535;
-                    }
-                } else {
-                    if (str.equals("simple_parser")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            return new bv2();
-                        }
-                        return new cv2();
-                    }
-                    return new av2(d);
-                }
-                return new bv2();
-            }
-            return (zu2) invokeCommon.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948372370, "Lcom/baidu/tieba/zu2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948372370, "Lcom/baidu/tieba/zu2;");
-                return;
-            }
-        }
-        c = pk1.a;
-    }
-
-    public zu2() {
+    public zu2(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Double.valueOf(d)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 1.0d;
+        this.a = d;
     }
 
-    public boolean b(Bitmap bitmap, Rect rect) {
+    @Override // com.baidu.tieba.yu2
+    public boolean a(Bitmap bitmap, Rect rect) {
         InterceptResult invokeLL;
+        Rect rect2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (bitmap == null || rect == null || rect.top < 0 || rect.bottom < 0 || rect.left < 0 || rect.right < 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (yu2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
                 return false;
             }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = rect.top;
-            int i2 = rect.bottom;
-            if (i >= i2 || i2 > height) {
-                return false;
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            } else {
+                rect2 = rect;
             }
-            int i3 = rect.left;
-            int i4 = rect.right;
-            if (i3 >= i4 || i4 > width) {
-                return false;
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            int i4 = height / i3;
+            int ceil = (int) Math.ceil(i4 * 3 * this.a);
+            int i5 = 0;
+            int i6 = 0;
+            while (i6 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i6 * i3) + 1 + i7;
+                if (i6 == 2) {
+                    i = width + 1;
+                } else {
+                    i = ((i6 + 1) * i3) + i7;
+                }
+                int i9 = i;
+                int i10 = i5;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        int i15 = i10 + 1;
+                        if (i15 >= ceil) {
+                            return true;
+                        }
+                        i10 = i15;
+                    }
+                    i11 = i14 + 1;
+                }
+                i6++;
+                i5 = i10;
             }
-            return true;
+            return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public void c(int i) {
+    public double d(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        Rect rect2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Set<Integer> set = this.b;
-            if (set == null) {
-                this.b = new TreeSet();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
+            if (yu2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return 0.0d;
+            }
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
             } else {
-                set.clear();
+                rect2 = rect;
             }
-            if (c) {
-                Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            if (i3 == 0) {
+                return 0.0d;
             }
-            this.b.add(Integer.valueOf(i));
+            int i4 = height / i3;
+            int i5 = 0;
+            int i6 = 0;
+            while (i5 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i5 * i3) + 1 + i7;
+                if (i5 == 2) {
+                    i = width + 1;
+                } else {
+                    i = ((i5 + 1) * i3) + i7;
+                }
+                int i9 = i;
+                int i10 = i6;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        i10++;
+                    }
+                    i11 = i14 + 1;
+                }
+                i5++;
+                i6 = i10;
+            }
+            return i6 / (i4 * 3);
         }
+        return invokeLL.doubleValue;
+    }
+
+    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
+                return false;
+            }
+            int pixel = bitmap.getPixel(i, i2);
+            while (i <= i3) {
+                for (int i5 = i2; i5 <= i4; i5++) {
+                    if (pixel != bitmap.getPixel(i, i5)) {
+                        return false;
+                    }
+                }
+                i++;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

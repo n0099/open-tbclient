@@ -1,177 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.RemoveFansController;
-import com.baidu.tieba.d19;
-import com.baidu.tieba.og6;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class pg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public RemoveFansController b;
-    public og6 c;
-    public l68 d;
-    public d19 e;
-    public e f;
+    public r9 a;
+    public BdTypeListView b;
+    public final List<kn> c;
+    public EmotionCategoryAdapter d;
+    public EmotionHorizontalAdapter e;
+    public List<xn> f;
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a();
-
-        void b(int i, String str, boolean z, int i2, long j);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements og6.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg6 a;
-
-        public a(pg6 pg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pg6Var;
-        }
-
-        @Override // com.baidu.tieba.og6.b
-        public void a(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 0, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements RemoveFansController.IResultCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg6 a;
-
-        public b(pg6 pg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pg6Var;
-        }
-
-        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
-        public void onResultCallBack(int i, String str, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 1, j);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements d19.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg6 a;
-
-        public c(pg6 pg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pg6Var;
-        }
-
-        @Override // com.baidu.tieba.d19.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.dismiss();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.c.d();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements d19.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg6 a;
-
-        public d(pg6 pg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pg6Var;
-        }
-
-        @Override // com.baidu.tieba.d19.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
-                return;
-            }
-            this.a.d.dismiss();
-        }
-    }
-
-    public pg6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public pg6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,62 +40,74 @@ public class pg6 {
                 return;
             }
         }
+        this.c = new ArrayList();
+        this.f = new ArrayList();
         this.a = tbPageContext;
-        og6 og6Var = new og6(tbPageContext, bdUniqueId);
-        this.c = og6Var;
-        og6Var.e(new a(this));
-        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.b = removeFansController;
-        removeFansController.setResultCallBack(new b(this));
+        this.b = bdTypeListView;
+        b();
     }
 
-    public void f(long j) {
+    public void a(List<xn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.b.removeFans(j);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        c();
     }
 
-    public void g(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f = eVar;
-        }
-    }
-
-    public void d() {
-        d19 d19Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (d19Var = this.e) != null) {
-            d19Var.e();
-        }
-    }
-
-    public void e() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
+            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, qg6.a);
+            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, rg6.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.b.a(this.c);
         }
     }
 
-    public final void h() {
+    public void c() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d == null) {
-                d19 d19Var = new d19(this.a.getContext());
-                this.e = d19Var;
-                d19Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f0446));
-                ArrayList arrayList = new ArrayList();
-                d19.b bVar = new d19.b(this.a.getString(R.string.obfuscated_res_0x7f0f0440), this.e);
-                bVar.h(new c(this));
-                arrayList.add(bVar);
-                this.e.g(new d(this));
-                this.e.f(arrayList);
-                l68 l68Var = new l68(this.a.getPageActivity(), this.e.b());
-                this.d = l68Var;
-                l68Var.a(0.7f);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void d(List<xn> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        c();
+    }
+
+    public void e(EmotionPackageData emotionPackageData) {
+        rg6 rg6Var;
+        EmotionPackageData emotionPackageData2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, emotionPackageData) != null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (xn xnVar : this.f) {
+            if ((xnVar instanceof rg6) && (rg6Var = (rg6) xnVar) != null && (emotionPackageData2 = rg6Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
+                emotionPackageData2.download = emotionPackageData.download;
+                emotionPackageData2.share = emotionPackageData.share;
+                c();
+                return;
             }
-            this.d.show();
         }
     }
 }

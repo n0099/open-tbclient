@@ -1,9 +1,9 @@
 package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdExtendListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.request.MessageExt;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -47,6 +46,8 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public long mContacter;
     public int mCount;
     public long mEndid;
+    public int mFromAction;
+    public boolean mIsChatRoom;
     public boolean mIsReliable;
     public String mKey;
     public long mUk;
@@ -69,7 +70,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public boolean shouldAbort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -131,7 +132,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                         str = Constants.URL_HTTP_QA;
                     }
                 } else {
-                    str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
+                    str = Constants.URL_HTTP_RD_8111;
                 }
             }
             return str + "imsapi/1.0/fetchmsg/liveshow";
@@ -163,6 +164,10 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             sb.append(this.mContacter);
             sb.append("&uk=");
             sb.append(this.mUk);
+            if (this.mIsChatRoom) {
+                sb.append("&from_action=");
+                sb.append(this.mFromAction);
+            }
             if (4 == this.mCategory && (json = MessageExt.getInstance().toJson()) != null && json.length() > 0) {
                 sb.append("&ext_info=");
                 sb.append(URLEncoder.encode(json.toString()));
@@ -195,18 +200,17 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00f9  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x011e  */
-    /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00e7  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x010d  */
+    /* JADX WARN: Type inference failed for: r7v1, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
         boolean z;
-        int i2;
-        ArrayList<ChatMsg> arrayList;
         String str;
+        int i2;
         boolean z2;
         int i3;
         IMListener removeListener;
@@ -216,14 +220,14 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             String str2 = "";
             String str3 = new String(bArr);
             LogUtils.d(TAG, GlideException.IndentedAppendable.INDENT + str3);
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             Type type = new Type();
             type.t = 0L;
             int i5 = 0;
-            ArrayList<ChatMsg> arrayList2 = null;
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 int i6 = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
-                String optString = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG, "");
+                str = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG, "");
                 str2 = jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "0");
                 z = jSONObject.optBoolean("has_more", false);
                 if (i6 == 0) {
@@ -236,16 +240,14 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                                 i4 = 0;
                             }
                             try {
-                                arrayList2 = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
+                                arrayList = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
                                 i5 = i4;
                             } catch (Exception e) {
                                 e = e;
                                 i5 = i4;
                                 LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                i2 = i5;
-                                arrayList = null;
                                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                                i2 = i5;
                                 z2 = z;
                                 i3 = 1010;
                                 LogUtils.d(TAG, "requestid : " + str2 + " , resultCode: " + i3 + " , resultMsg : " + str);
@@ -295,11 +297,9 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                         e = e2;
                     }
                 }
-                i2 = i5;
-                arrayList = arrayList2;
-                str = optString;
-                z2 = z;
                 i3 = i6;
+                i2 = i5;
+                z2 = z;
             } catch (Exception e3) {
                 e = e3;
                 z = false;
@@ -347,9 +347,22 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                 ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList, z2);
                 LogUtils.d(TAG, "IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
             } else if (removeListener instanceof IFetchMsgByIdListener) {
-                ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
+                IFetchMsgByIdListener iFetchMsgByIdListener = (IFetchMsgByIdListener) removeListener;
+                if (this.mIsChatRoom) {
+                    iFetchMsgByIdListener.onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), MessageParser.parseChatRoomMsg(this.mContext, arrayList));
+                } else {
+                    iFetchMsgByIdListener.onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
+                }
                 LogUtils.d(TAG, "IFetchMsgByIdListener.onFetchMsgByIdResult");
             }
+        }
+    }
+
+    public void setIsChatRoom(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            this.mIsChatRoom = z;
+            this.mFromAction = i;
         }
     }
 }

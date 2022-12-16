@@ -1,31 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.rh5;
+import com.baidu.tieba.sh5;
 /* loaded from: classes6.dex */
-public abstract class th5 implements wh5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface th5<Q extends rh5, P extends sh5> {
+    int a();
 
-    public abstract void a();
+    Q b();
 
-    public abstract void b();
+    String c();
 
-    public abstract void c();
+    P d();
 
-    public th5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int e();
 }

@@ -3,14 +3,14 @@ package rx.internal.operators;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.b3a;
-import com.baidu.tieba.g2a;
-import com.baidu.tieba.n0a;
-import com.baidu.tieba.p3a;
-import com.baidu.tieba.sz9;
-import com.baidu.tieba.tz9;
-import com.baidu.tieba.uz9;
-import com.baidu.tieba.yz9;
-import com.baidu.tieba.zz9;
+import com.baidu.tieba.c3a;
+import com.baidu.tieba.d3a;
+import com.baidu.tieba.h3a;
+import com.baidu.tieba.i3a;
+import com.baidu.tieba.k6a;
+import com.baidu.tieba.p5a;
+import com.baidu.tieba.w3a;
+import com.baidu.tieba.y6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
-public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements sz9.a<T>, tz9<T>, zz9 {
+public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements b3a.a<T>, c3a<T>, i3a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final PublishProducer<?>[] EMPTY;
     public static final PublishProducer<?>[] TERMINATED;
@@ -35,25 +35,25 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public Throwable error;
     public final a<T> parent;
     public final int prefetch;
-    public volatile uz9 producer;
+    public volatile d3a producer;
     public final Queue<T> queue;
     public volatile PublishProducer<T>[] subscribers;
 
     /* loaded from: classes9.dex */
-    public static final class PublishProducer<T> extends AtomicLong implements uz9, zz9 {
+    public static final class PublishProducer<T> extends AtomicLong implements d3a, i3a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 960704844171597367L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final yz9<? super T> actual;
+        public final h3a<? super T> actual;
         public final AtomicBoolean once;
         public final OnSubscribePublishMulticast<T> parent;
 
-        public PublishProducer(yz9<? super T> yz9Var, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
+        public PublishProducer(h3a<? super T> h3aVar, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yz9Var, onSubscribePublishMulticast};
+                Object[] objArr = {h3aVar, onSubscribePublishMulticast};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,12 +63,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     return;
                 }
             }
-            this.actual = yz9Var;
+            this.actual = h3aVar;
             this.parent = onSubscribePublishMulticast;
             this.once = new AtomicBoolean();
         }
 
-        @Override // com.baidu.tieba.zz9
+        @Override // com.baidu.tieba.i3a
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.zz9
+        @Override // com.baidu.tieba.i3a
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.once.compareAndSet(false, true)) {
@@ -86,14 +86,14 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
         }
 
-        @Override // com.baidu.tieba.uz9
+        @Override // com.baidu.tieba.d3a
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                 if (i >= 0) {
                     if (i != 0) {
-                        n0a.b(this, j);
+                        w3a.b(this, j);
                         this.parent.drain();
                         return;
                     }
@@ -105,7 +105,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* loaded from: classes9.dex */
-    public static final class a<T> extends yz9<T> {
+    public static final class a<T> extends h3a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final OnSubscribePublishMulticast<T> e;
@@ -128,15 +128,15 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             this.e = onSubscribePublishMulticast;
         }
 
-        @Override // com.baidu.tieba.yz9
-        public void f(uz9 uz9Var) {
+        @Override // com.baidu.tieba.h3a
+        public void f(d3a d3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, uz9Var) == null) {
-                this.e.setProducer(uz9Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, d3aVar) == null) {
+                this.e.setProducer(d3aVar);
             }
         }
 
-        @Override // com.baidu.tieba.tz9
+        @Override // com.baidu.tieba.c3a
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -144,7 +144,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
         }
 
-        @Override // com.baidu.tieba.tz9
+        @Override // com.baidu.tieba.c3a
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -152,7 +152,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
         }
 
-        @Override // com.baidu.tieba.tz9
+        @Override // com.baidu.tieba.c3a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -178,7 +178,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         TERMINATED = new PublishProducer[0];
     }
 
-    @Override // com.baidu.tieba.zz9
+    @Override // com.baidu.tieba.i3a
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tz9
+    @Override // com.baidu.tieba.c3a
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -197,13 +197,13 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    public yz9<T> subscriber() {
+    public h3a<T> subscriber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.parent;
         }
-        return (yz9) invokeV.objValue;
+        return (h3a) invokeV.objValue;
     }
 
     public PublishProducer<T>[] terminate() {
@@ -224,7 +224,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         return (PublishProducer[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zz9
+    @Override // com.baidu.tieba.i3a
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -250,10 +250,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         if (i > 0) {
             this.prefetch = i;
             this.delayError = z;
-            if (p3a.b()) {
-                this.queue = new b3a(i);
+            if (y6a.b()) {
+                this.queue = new k6a(i);
             } else {
-                this.queue = new g2a(i);
+                this.queue = new p5a(i);
             }
             this.subscribers = (PublishProducer<T>[]) EMPTY;
             this.parent = new a<>(this);
@@ -337,12 +337,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         return invokeL.booleanValue;
     }
 
-    public void call(yz9<? super T> yz9Var) {
+    public void call(h3a<? super T> h3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz9Var) == null) {
-            PublishProducer<T> publishProducer = new PublishProducer<>(yz9Var, this);
-            yz9Var.b(publishProducer);
-            yz9Var.f(publishProducer);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h3aVar) == null) {
+            PublishProducer<T> publishProducer = new PublishProducer<>(h3aVar, this);
+            h3aVar.b(publishProducer);
+            h3aVar.f(publishProducer);
             if (add(publishProducer)) {
                 if (publishProducer.isUnsubscribed()) {
                     remove(publishProducer);
@@ -354,19 +354,19 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
             Throwable th = this.error;
             if (th != null) {
-                yz9Var.onError(th);
+                h3aVar.onError(th);
             } else {
-                yz9Var.onCompleted();
+                h3aVar.onCompleted();
             }
         }
     }
 
-    @Override // com.baidu.tieba.sz9.a, com.baidu.tieba.g0a
+    @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yz9) ((yz9) obj));
+        call((h3a) ((h3a) obj));
     }
 
-    @Override // com.baidu.tieba.tz9
+    @Override // com.baidu.tieba.c3a
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
@@ -376,7 +376,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    @Override // com.baidu.tieba.tz9
+    @Override // com.baidu.tieba.c3a
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
@@ -389,11 +389,11 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    public void setProducer(uz9 uz9Var) {
+    public void setProducer(d3a d3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, uz9Var) == null) {
-            this.producer = uz9Var;
-            uz9Var.request(this.prefetch);
+        if (interceptable == null || interceptable.invokeL(1048586, this, d3aVar) == null) {
+            this.producer = d3aVar;
+            d3aVar.request(this.prefetch);
         }
     }
 
@@ -442,12 +442,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     return;
                 }
                 if (j2 != 0) {
-                    uz9 uz9Var = this.producer;
-                    if (uz9Var != null) {
-                        uz9Var.request(j2);
+                    d3a d3aVar = this.producer;
+                    if (d3aVar != null) {
+                        d3aVar.request(j2);
                     }
                     for (PublishProducer<T> publishProducer3 : publishProducerArr) {
-                        n0a.g(publishProducer3, j2);
+                        w3a.g(publishProducer3, j2);
                     }
                 }
             }

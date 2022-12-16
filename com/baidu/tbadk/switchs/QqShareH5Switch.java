@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.kf;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +88,7 @@ public class QqShareH5Switch extends kf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (qy4.k().l("key_qq_share_h5_enable", 0) != 1) {
+            if (ry4.l().m("key_qq_share_h5_enable", 0) != 1) {
                 return false;
             }
             return true;

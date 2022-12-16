@@ -22,13 +22,13 @@ public class bl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public int f143a;
+        public int f166a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f144a;
+        public Object f167a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f145a;
+        public String f168a;
 
         static {
             InterceptResult invokeClinit;
@@ -61,8 +61,8 @@ public class bl {
                     return;
                 }
             }
-            this.f143a = i;
-            this.f144a = obj;
+            this.f166a = i;
+            this.f167a = obj;
         }
     }
 
@@ -89,7 +89,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m199a() {
+    private void m209a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
             return;
@@ -98,7 +98,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m200a() {
+    public synchronized int m210a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m201a() {
+    public synchronized LinkedList<a> m211a() {
         InterceptResult invokeV;
         LinkedList<a> linkedList;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class bl {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
                 this.a.add(new a(0, obj));
-                m199a();
+                m209a();
             }
         }
     }

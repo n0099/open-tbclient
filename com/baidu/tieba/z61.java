@@ -1,45 +1,79 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
+/* loaded from: classes7.dex */
 public class z61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
+    /* loaded from: classes7.dex */
+    public static class a implements m71 {
         public static /* synthetic */ Interceptable $ic;
-        public static final f71 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-278124137, "Lcom/baidu/tieba/z61$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-278124137, "Lcom/baidu/tieba/z61$a;");
-                    return;
+        @Override // com.baidu.tieba.m71
+        public Drawable a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return null;
+            }
+            return (Drawable) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.m71
+        public Drawable b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (Drawable) invokeL.objValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new f71();
         }
     }
 
-    public static h71<ImageView> a() {
+    public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a.a;
+            return zi0.b();
         }
-        return (h71) invokeV.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    @NonNull
+    @Inject(force = false)
+    public static m71 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new a();
+        }
+        return (m71) invokeV.objValue;
     }
 }

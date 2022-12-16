@@ -116,6 +116,7 @@ public class CmdConfigHttp {
     public static final int CMD_GAME_VIDEO = 1003443;
     public static final int CMD_GET_ACCELERATOR_INFO = 1003524;
     public static final int CMD_GET_AD_FREE_TIME = 1003548;
+    public static final int CMD_GET_ALI_AUTH_INFO = 1003556;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BIGDAY_INFO = 1003408;
     public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;
@@ -141,6 +142,8 @@ public class CmdConfigHttp {
     public static final int CMD_GET_GAME_CODE = 1003516;
     public static final int CMD_GET_GAME_RECOMMEND_TAB_INFO = 1003401;
     public static final int CMD_GET_GOD_RECOMMEND = 1003375;
+    public static final int CMD_GET_GROUP_CHAT_LIMIT_MESSAGE = 1003554;
+    public static final int CMD_GET_GROUP_CHAT_ROLLBACK_MESSAGE = 1003555;
     public static final int CMD_GET_HISTORY_FORUM = 1003394;
     public static final int CMD_GET_HOT_THREAD = 1003005;
     public static final int CMD_GET_ICE_BREAK_EMOTIONS = 1003530;
@@ -179,6 +182,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_STICKET_LIST = 1003341;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
     public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
+    public static final int CMD_GET_SUBSCRIBE_GROUP_CHAT_LIST = 1003551;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_SUGGEST_EMOTION = 1003329;
     public static final int CMD_GET_SYNC_ICON_TASK = 1003525;
@@ -208,13 +212,18 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
     public static final int CMD_HOT_TOPIC_TAB = 1003463;
     public static final int CMD_HOT_USER_RANK = 1003455;
+    public static final int CMD_HTTP_CHAT_GROUP_ROOM_LIST = 1003552;
+    public static final int CMD_HTTP_CHAT_ROOM_DETAIL = 1003550;
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
     public static final int CMD_HTTP_ET_VIDEO = 1003519;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
     public static final int CMD_HTTP_GET_MSG_REC_FORUM_LIST = 1003507;
+    public static final int CMD_HTTP_GROUP_MESSAGE = 1003549;
+    public static final int CMD_HTTP_ONEKEY_DELETION_HISTORY = 1003557;
     public static final int CMD_HTTP_POLLING_INTERFACE = 1003540;
+    public static final int CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP = 1003553;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
     public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;

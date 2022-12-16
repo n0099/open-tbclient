@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsFragmentManager {
     @Keep
     public static final int POP_BACK_STACK_INCLUSIVE = 1;
@@ -23,7 +23,7 @@ public class KsFragmentManager {
 
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class FragmentLifecycleCallbacks {
         public FragmentManager.FragmentLifecycleCallbacks mBase;
 

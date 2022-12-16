@@ -33,7 +33,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MP3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BIT_RATE;
@@ -66,7 +66,7 @@ public class MP3TrackImpl extends AbstractTrack {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "MP3TrackImpl" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class MP3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

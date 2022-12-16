@@ -20,10 +20,10 @@ public class a extends SQLiteOpenHelper {
     public static int a = 1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f824a;
+    public static final Object f847a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f825a;
+    public static final String[] f848a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        f824a = new Object();
-        f825a = new String[]{"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", BaseStatisContent.IMSI, "TEXT"};
+        f847a = new Object();
+        f848a = new String[]{"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", BaseStatisContent.IMSI, "TEXT"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,13 +68,13 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
             StringBuilder sb = new StringBuilder("CREATE TABLE traffic(_id INTEGER  PRIMARY KEY ,");
-            for (int i = 0; i < f825a.length - 1; i += 2) {
+            for (int i = 0; i < f848a.length - 1; i += 2) {
                 if (i != 0) {
                     sb.append(",");
                 }
-                sb.append(f825a[i]);
+                sb.append(f848a[i]);
                 sb.append(" ");
-                sb.append(f825a[i + 1]);
+                sb.append(f848a[i + 1]);
             }
             sb.append(");");
             sQLiteDatabase.execSQL(sb.toString());
@@ -85,7 +85,7 @@ public class a extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            synchronized (f824a) {
+            synchronized (f847a) {
                 try {
                     a(sQLiteDatabase);
                 } catch (SQLException e) {

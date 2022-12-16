@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class dy extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,11 +45,11 @@ public class dy extends hx {
         v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    public final boolean w(tr4 tr4Var) {
+    public final boolean w(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().isVideoThreadType() && tr4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().isVideoThreadType() && vr4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -75,11 +75,11 @@ public class dy extends hx {
         }
     }
 
-    public final boolean x(tr4 tr4Var) {
+    public final boolean x(vr4 vr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tr4Var)) == null) {
-            if (tr4Var != null && tr4Var.getThreadData() != null && tr4Var.getThreadData().getPollData() != null && tr4Var.getThreadData().getPollData().getOptions() != null && tr4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vr4Var)) == null) {
+            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getPollData() != null && vr4Var.getThreadData().getPollData().getOptions() != null && vr4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -90,11 +90,11 @@ public class dy extends hx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: y */
-    public void a(tr4 tr4Var) {
+    public void a(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tr4Var) == null) {
-            if (!x(tr4Var) && !w(tr4Var) && tr4Var != null && tr4Var.getThreadData() != null && ((!ListUtils.isEmpty(tr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(tr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(tr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(tr4Var.getThreadData().getGoodsDataList()) > 1))) {
-                this.h.a(tr4Var.getThreadData().getLinkDataList(), tr4Var.getThreadData().getGoodsDataList());
+        if (interceptable == null || interceptable.invokeL(1048581, this, vr4Var) == null) {
+            if (!x(vr4Var) && !w(vr4Var) && vr4Var != null && vr4Var.getThreadData() != null && ((!ListUtils.isEmpty(vr4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(vr4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(vr4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(vr4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(vr4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(vr4Var.getThreadData().getGoodsDataList()) > 1))) {
+                this.h.a(vr4Var.getThreadData().getLinkDataList(), vr4Var.getThreadData().getGoodsDataList());
                 this.h.setVisibility(0);
                 return;
             }

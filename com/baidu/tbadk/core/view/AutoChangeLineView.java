@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sr8;
+import com.baidu.tieba.ru8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,12 +31,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class AutoChangeLineView extends ViewGroup implements View.OnClickListener, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: D */
-    public static final int obfuscated = 2131304623;
-
-    /* renamed from: E */
-    public static final int obfuscated = 2131304624;
+    public static final int D = 2131304733;
+    public static final int E = 2131304734;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -393,8 +389,8 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             eMTextView.setGravity(this.g);
             eMTextView.setTextColor(this.b);
             eMTextView.setBackgroundDrawable(this.d.getConstantState().newDrawable());
-            eMTextView.setTag(obfuscated, t);
-            eMTextView.setTag(obfuscated, Integer.valueOf(i));
+            eMTextView.setTag(D, t);
+            eMTextView.setTag(E, Integer.valueOf(i));
             eMTextView.setOnClickListener(this);
             eMTextView.setOnLongClickListener(this);
             eMTextView.getPaint().setFakeBoldText(this.t);
@@ -635,7 +631,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             ArrayList arrayList = new ArrayList();
             int size = this.w.size();
             for (int i = 0; i < size; i++) {
-                Object tag = getChildAt(this.w.get(i).intValue()).getTag(obfuscated);
+                Object tag = getChildAt(this.w.get(i).intValue()).getTag(D);
                 if (tag != null) {
                     arrayList.add(tag);
                 }
@@ -649,7 +645,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sr8.AutoChangeLineView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ru8.AutoChangeLineView);
             this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
             this.o = obtainStyledAttributes.getInteger(16, 0);
             this.p = obtainStyledAttributes.getInteger(17, 0);
@@ -687,7 +683,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                     this.d = new ColorDrawable(obtainStyledAttributes.getColor(2, 0));
                 }
             } else {
-                this.d = getResources().getDrawable(R.drawable.obfuscated_res_0x7f08026a);
+                this.d = getResources().getDrawable(R.drawable.bg_default_tag);
             }
             this.s = obtainStyledAttributes.getBoolean(19, false);
             this.t = obtainStyledAttributes.getBoolean(1, false);
@@ -962,13 +958,13 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         if ((interceptable == null || interceptable.invokeLZ(1048604, this, textView, z) == null) && textView.isSelected() != z) {
             textView.setSelected(z);
             if (z) {
-                this.w.add((Integer) textView.getTag(obfuscated));
+                this.w.add((Integer) textView.getTag(E));
             } else {
-                this.w.remove((Integer) textView.getTag(obfuscated));
+                this.w.remove((Integer) textView.getTag(E));
             }
             e eVar = this.B;
             if (eVar != null) {
-                eVar.a(textView, textView.getTag(obfuscated), z, ((Integer) textView.getTag(obfuscated)).intValue());
+                eVar.a(textView, textView.getTag(D), z, ((Integer) textView.getTag(E)).intValue());
             }
         }
     }
@@ -1014,7 +1010,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, textView)) == null) {
             f fVar = this.C;
-            if (fVar != null && fVar.a(textView, textView.getTag(obfuscated), textView.isSelected(), !textView.isSelected(), ((Integer) textView.getTag(obfuscated)).intValue())) {
+            if (fVar != null && fVar.a(textView, textView.getTag(D), textView.isSelected(), !textView.isSelected(), ((Integer) textView.getTag(E)).intValue())) {
                 return true;
             }
             return false;
@@ -1031,7 +1027,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 TextView textView = (TextView) view2;
                 d dVar = this.A;
                 if (dVar != null) {
-                    return dVar.a(textView, textView.getTag(obfuscated), ((Integer) textView.getTag(obfuscated)).intValue());
+                    return dVar.a(textView, textView.getTag(D), ((Integer) textView.getTag(E)).intValue());
                 }
                 return false;
             }
@@ -1066,7 +1062,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             if (!this.u && this.n != SelectType.NONE) {
                 boolean z3 = true;
                 if (textView.isSelected()) {
-                    if (this.n == SelectType.MULTI && this.x.contains((Integer) textView.getTag(obfuscated))) {
+                    if (this.n == SelectType.MULTI && this.x.contains((Integer) textView.getTag(E))) {
                         z = true;
                     } else {
                         z = false;
@@ -1096,7 +1092,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             }
             c cVar = this.z;
             if (cVar != null) {
-                cVar.a(textView, textView.getTag(obfuscated), ((Integer) textView.getTag(obfuscated)).intValue());
+                cVar.a(textView, textView.getTag(D), ((Integer) textView.getTag(E)).intValue());
             }
         }
     }

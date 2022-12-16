@@ -1,89 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class ee5 {
+/* loaded from: classes4.dex */
+public abstract class ee5<D, S extends zd5> extends he5<D, S> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int e;
 
-    public abstract int b();
-
-    public abstract boolean c();
-
-    public ee5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ee5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view2, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = qy4.k().h("page_stay_duration_switch", false);
     }
 
-    public boolean a(ge5 ge5Var) {
-        InterceptResult invokeL;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ge5Var)) == null) {
-            if (ge5Var != null && !ge5Var.p()) {
-                if (ge5Var.a) {
-                    ge5Var.x(fe5.b(ge5Var.h(), 6));
-                } else {
-                    if (b() > he5.b().c()) {
-                        b = he5.b().c();
-                    } else {
-                        b = b();
-                    }
-                    if (b > 5) {
-                        b = 5;
-                    }
-                    ge5Var.x(fe5.b(ge5Var.h(), b));
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d() {
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return this.a;
-            }
-            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-                e(false);
-                return false;
-            } else if (!he5.b().f()) {
-                e(false);
-                return false;
-            } else {
-                e(true);
-                return true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a != z) {
-            qy4.k().u("page_stay_duration_switch", true);
-            this.a = z;
-        }
+        return invokeV.intValue;
     }
 }

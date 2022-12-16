@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.webview.kwai;
 
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -20,7 +19,7 @@ public final class f implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.putValue(jSONObject, TiebaStatic.LogFields.RESULT, this.result);
+        r.putValue(jSONObject, "result", this.result);
         r.a(jSONObject, "data", this.agl);
         return jSONObject;
     }

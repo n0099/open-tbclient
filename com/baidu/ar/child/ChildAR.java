@@ -415,7 +415,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             }
             a aVar = this.lz;
             if (aVar != null && !this.lC) {
-                aVar.a((a.InterfaceC0057a) null);
+                aVar.a((a.InterfaceC0071a) null);
                 this.lz.cQ();
                 this.lz = null;
             }
@@ -444,7 +444,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             this.bD = (String) hashMap.get("ability_name");
             this.lz = new a(this.mInputWidth, this.mInputHeight);
             this.lB = new com.baidu.ar.child.b.b();
-            this.lz.a(new a.InterfaceC0057a(this) { // from class: com.baidu.ar.child.ChildAR.2
+            this.lz.a(new a.InterfaceC0071a(this) { // from class: com.baidu.ar.child.ChildAR.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChildAR lF;
@@ -467,7 +467,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                     this.lF = this;
                 }
 
-                @Override // com.baidu.ar.child.a.InterfaceC0057a
+                @Override // com.baidu.ar.child.a.InterfaceC0071a
                 public void a(long j, byte[] bArr, int i) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i)}) == null) || bArr == null || bArr.length <= 0) {

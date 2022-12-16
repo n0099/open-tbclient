@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.tieba.lj4;
+import com.baidu.tieba.kj4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ public class OpenStatisticIPCManager {
                     InterceptResult invokeLLI;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) {
-                        return lj4.e(str, str2, i);
+                        return kj4.e(str, str2, i);
                     }
                     return (Flow) invokeLLI.objValue;
                 }
@@ -78,7 +78,7 @@ public class OpenStatisticIPCManager {
                 public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(1048585, this, str, str2, i) == null) {
-                        lj4.i(str, str2, i);
+                        kj4.i(str, str2, i);
                     }
                 }
 

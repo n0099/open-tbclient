@@ -17,7 +17,6 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.o;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1572,7 +1571,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048667, this) == null) {
-            a(1, IntentConfig.STOP);
+            a(1, "stop");
             a(false);
             pauseRender();
             HashMap<String, String> hashMap = this.ae;

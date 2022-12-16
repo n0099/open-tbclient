@@ -29,19 +29,19 @@ public class cj {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f163a;
+    public Context f186a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ci f164a;
+    public ci f187a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<a> f165a;
+    public final ArrayList<a> f188a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final HashMap<String, ch> f166a;
+    public final HashMap<String, ch> f189a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ThreadPoolExecutor f167a;
+    public ThreadPoolExecutor f190a;
 
     /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
@@ -50,19 +50,19 @@ public class cj {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public ch f168a;
+        public ch f191a;
 
         /* renamed from: a  reason: collision with other field name */
-        public a f169a;
+        public a f192a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f170a;
+        public String f193a;
 
         /* renamed from: a  reason: collision with other field name */
-        public WeakReference<Context> f171a;
+        public WeakReference<Context> f194a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Random f172a;
+        public Random f195a;
         public String b;
 
         public a(String str) {
@@ -80,20 +80,20 @@ public class cj {
                     return;
                 }
             }
-            this.f168a = null;
-            this.f172a = new Random();
+            this.f191a = null;
+            this.f195a = new Random();
             this.a = 0;
-            this.f170a = str;
+            this.f193a = str;
         }
 
         public SQLiteDatabase a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f168a.getWritableDatabase() : (SQLiteDatabase) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f191a.getWritableDatabase() : (SQLiteDatabase) invokeV.objValue;
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public Object m238a() {
+        public Object m248a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -103,18 +103,18 @@ public class cj {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public String m239a() {
+        public String m249a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f170a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f193a : (String) invokeV.objValue;
         }
 
         public void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-                a aVar = this.f169a;
+                a aVar = this.f192a;
                 if (aVar != null) {
-                    aVar.a(context, m238a());
+                    aVar.a(context, m248a());
                 }
                 b(context);
             }
@@ -132,24 +132,24 @@ public class cj {
         public void a(ch chVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, chVar, context) == null) {
-                this.f168a = chVar;
+                this.f191a = chVar;
                 this.b = chVar.a();
-                this.f171a = new WeakReference<>(context);
+                this.f194a = new WeakReference<>(context);
             }
         }
 
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-                this.f169a = aVar;
+                this.f192a = aVar;
             }
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m240a() {
+        public boolean m250a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f168a == null || TextUtils.isEmpty(this.b) || this.f171a == null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f191a == null || TextUtils.isEmpty(this.b) || this.f194a == null : invokeV.booleanValue;
         }
 
         public void b(Context context) {
@@ -163,10 +163,10 @@ public class cj {
             WeakReference<Context> weakReference;
             Context context;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (weakReference = this.f171a) == null || (context = weakReference.get()) == null || context.getFilesDir() == null || this.f168a == null || TextUtils.isEmpty(this.f170a)) {
+            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (weakReference = this.f194a) == null || (context = weakReference.get()) == null || context.getFilesDir() == null || this.f191a == null || TextUtils.isEmpty(this.f193a)) {
                 return;
             }
-            File file = new File(this.f170a);
+            File file = new File(this.f193a);
             y.a(context, new File(file.getParentFile(), bo.b(file.getAbsolutePath())), new cl(this, context));
         }
     }
@@ -178,13 +178,13 @@ public class cj {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f173a;
+        public String f196a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List<String> f174a;
+        public List<String> f197a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String[] f175a;
+        public String[] f198a;
         public List<T> b;
         public String c;
         public String d;
@@ -209,9 +209,9 @@ public class cj {
                 }
             }
             this.b = new ArrayList();
-            this.f174a = list;
-            this.f173a = str2;
-            this.f175a = strArr;
+            this.f197a = list;
+            this.f196a = str2;
+            this.f198a = strArr;
             this.c = str3;
             this.d = str4;
             this.e = str5;
@@ -222,7 +222,7 @@ public class cj {
         public SQLiteDatabase a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((a) this).f168a.getReadableDatabase() : (SQLiteDatabase) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((a) this).f191a.getReadableDatabase() : (SQLiteDatabase) invokeV.objValue;
         }
 
         public abstract T a(Context context, Cursor cursor);
@@ -233,16 +233,16 @@ public class cj {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sQLiteDatabase) == null) {
                 this.b.clear();
-                List<String> list = this.f174a;
+                List<String> list = this.f197a;
                 if (list == null || list.size() <= 0) {
                     strArr = null;
                 } else {
-                    String[] strArr2 = new String[this.f174a.size()];
-                    this.f174a.toArray(strArr2);
+                    String[] strArr2 = new String[this.f197a.size()];
+                    this.f197a.toArray(strArr2);
                     strArr = strArr2;
                 }
                 int i = this.a;
-                Cursor query = sQLiteDatabase.query(super.b, strArr, this.f173a, this.f175a, this.c, this.d, this.e, i > 0 ? String.valueOf(i) : null);
+                Cursor query = sQLiteDatabase.query(super.b, strArr, this.f196a, this.f198a, this.c, this.d, this.e, i > 0 ? String.valueOf(i) : null);
                 if (query != null && query.moveToFirst()) {
                     do {
                         T a = a(context, query);
@@ -325,7 +325,7 @@ public class cj {
         public String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String[] f176a;
+        public String[] f199a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(String str, String str2, String[] strArr) {
@@ -346,14 +346,14 @@ public class cj {
                 }
             }
             this.a = str2;
-            this.f176a = strArr;
+            this.f199a = strArr;
         }
 
         @Override // com.xiaomi.push.cj.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.delete(this.b, this.a, this.f176a);
+                sQLiteDatabase.delete(this.b, this.a, this.f199a);
             }
         }
     }
@@ -409,22 +409,22 @@ public class cj {
                 return;
             }
         }
-        this.f166a = new HashMap<>();
-        this.f167a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f165a = new ArrayList<>();
-        this.f163a = context;
+        this.f189a = new HashMap<>();
+        this.f190a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f188a = new ArrayList<>();
+        this.f186a = context;
     }
 
     private ch a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            ch chVar = this.f166a.get(str);
+            ch chVar = this.f189a.get(str);
             if (chVar == null) {
-                synchronized (this.f166a) {
+                synchronized (this.f189a) {
                     if (chVar == null) {
-                        chVar = this.f164a.a(this.f163a, str);
-                        this.f166a.put(str, chVar);
+                        chVar = this.f187a.a(this.f186a, str);
+                        this.f189a.put(str, chVar);
                     }
                 }
             }
@@ -452,12 +452,12 @@ public class cj {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            al.a(this.f163a).b(new ck(this), com.xiaomi.push.service.ba.a(this.f163a).a(ho.bm.a(), 5));
+            al.a(this.f186a).b(new ck(this), com.xiaomi.push.service.ba.a(this.f186a).a(ho.bm.a(), 5));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m237a(String str) {
+    public String m247a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? a(str).a() : (String) invokeL.objValue;
@@ -469,55 +469,55 @@ public class cj {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (this.f164a == null) {
+        if (this.f187a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m239a = aVar.m239a();
-        synchronized (this.f166a) {
-            chVar = this.f166a.get(m239a);
+        String m249a = aVar.m249a();
+        synchronized (this.f189a) {
+            chVar = this.f189a.get(m249a);
             if (chVar == null) {
-                chVar = this.f164a.a(this.f163a, m239a);
-                this.f166a.put(m239a, chVar);
+                chVar = this.f187a.a(this.f186a, m249a);
+                this.f189a.put(m249a, chVar);
             }
         }
-        if (this.f167a.isShutdown()) {
+        if (this.f190a.isShutdown()) {
             return;
         }
-        aVar.a(chVar, this.f163a);
-        synchronized (this.f165a) {
-            this.f165a.add(aVar);
+        aVar.a(chVar, this.f186a);
+        synchronized (this.f188a) {
+            this.f188a.add(aVar);
             a();
         }
     }
 
     public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || this.f167a.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || this.f190a.isShutdown()) {
             return;
         }
-        this.f167a.execute(runnable);
+        this.f190a.execute(runnable);
     }
 
     public void a(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            if (this.f164a == null) {
+            if (this.f187a == null) {
                 throw new IllegalStateException("should exec setDbHelperFactory method first!");
             }
             HashMap hashMap = new HashMap();
-            if (this.f167a.isShutdown()) {
+            if (this.f190a.isShutdown()) {
                 return;
             }
             Iterator<a> it = arrayList.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next.m240a()) {
-                    next.a(a(next.m239a()), this.f163a);
+                if (next.m250a()) {
+                    next.a(a(next.m249a()), this.f186a);
                 }
-                ArrayList arrayList2 = (ArrayList) hashMap.get(next.m239a());
+                ArrayList arrayList2 = (ArrayList) hashMap.get(next.m249a());
                 if (arrayList2 == null) {
                     arrayList2 = new ArrayList();
-                    hashMap.put(next.m239a(), arrayList2);
+                    hashMap.put(next.m249a(), arrayList2);
                 }
                 arrayList2.add(next);
             }
@@ -525,8 +525,8 @@ public class cj {
                 ArrayList arrayList3 = (ArrayList) hashMap.get(str);
                 if (arrayList3 != null && arrayList3.size() > 0) {
                     c cVar = new c(str, arrayList3);
-                    cVar.a(((a) arrayList3.get(0)).f168a, this.f163a);
-                    this.f167a.execute(cVar);
+                    cVar.a(((a) arrayList3.get(0)).f191a, this.f186a);
+                    this.f190a.execute(cVar);
                 }
             }
         }
@@ -538,21 +538,21 @@ public class cj {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (this.f164a == null) {
+        if (this.f187a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m239a = aVar.m239a();
-        synchronized (this.f166a) {
-            chVar = this.f166a.get(m239a);
+        String m249a = aVar.m249a();
+        synchronized (this.f189a) {
+            chVar = this.f189a.get(m249a);
             if (chVar == null) {
-                chVar = this.f164a.a(this.f163a, m239a);
-                this.f166a.put(m239a, chVar);
+                chVar = this.f187a.a(this.f186a, m249a);
+                this.f189a.put(m249a, chVar);
             }
         }
-        if (this.f167a.isShutdown()) {
+        if (this.f190a.isShutdown()) {
             return;
         }
-        aVar.a(chVar, this.f163a);
+        aVar.a(chVar, this.f186a);
         a((Runnable) aVar);
     }
 }

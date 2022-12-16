@@ -1,93 +1,127 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.message.GameLaunchMessage;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class r48 extends g08<s48, GodReplyMoreViewHolder> {
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class r48 {
     public static /* synthetic */ Interceptable $ic;
+    public static r48 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r48(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071763, "Lcom/baidu/tieba/r48;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948071763, "Lcom/baidu/tieba/r48;");
+        }
+    }
+
+    public r48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((a58) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: u */
-    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static r48 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (r48.class) {
+                    if (a == null) {
+                        a = new r48();
+                    }
+                }
+            }
+            return a;
+        }
+        return (r48) invokeV.objValue;
+    }
+
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06dc, viewGroup, false));
-        }
-        return (GodReplyMoreViewHolder) invokeL.objValue;
-    }
-
-    public void w(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.g08, com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (s48) obj, (GodReplyMoreViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, s48 s48Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
-        InterceptResult invokeCommon;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s48Var, godReplyMoreViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, s48Var, godReplyMoreViewHolder);
-            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
-                View.OnClickListener onClickListener = this.g;
-                if (onClickListener != null) {
-                    textView.setOnClickListener(onClickListener);
-                }
-                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
-                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
-                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && str.contains("bookcover:")) {
+                return true;
             }
-            return view2;
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || !str.contains("xiaoying.tv")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        Map<String, String> paramPair;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null) {
+                return false;
+            }
+            String str2 = paramPair.get("url");
+            if (!TextUtils.isEmpty(str2)) {
+                return b(xi.getUrlDecode(str2));
+            }
+            String str3 = paramPair.get("tbgametype");
+            if (TextUtils.isEmpty(str3) || !str3.equals("1")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) != null) || tbPageContext == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        str.contains("is_native_app=1");
+        if (b(str)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
+        } else if (d(str)) {
+            UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+        } else {
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        }
     }
 }

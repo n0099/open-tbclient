@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
+import java.nio.channels.ReadableByteChannel;
 import okhttp3.ResponseBody;
 /* loaded from: classes6.dex */
-public class xd4 implements be4 {
+public class xd4 implements zd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Response a;
+    public final ResponseBody a;
 
-    public xd4(@NonNull Response response) {
+    public xd4(@NonNull ResponseBody responseBody) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {response};
+            Object[] objArr = {responseBody};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,39 +30,26 @@ public class xd4 implements be4 {
                 return;
             }
         }
-        this.a = response;
+        this.a = responseBody;
     }
 
-    @Override // com.baidu.tieba.be4
-    @Nullable
-    public ae4 body() {
+    @Override // com.baidu.tieba.zd4
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ResponseBody body = this.a.body();
-            if (body == null) {
-                return null;
-            }
-            return new yd4(body);
+            return this.a.contentLength();
         }
-        return (ae4) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.close();
-        }
-    }
-
-    @Override // com.baidu.tieba.be4
-    public int code() {
+    @Override // com.baidu.tieba.zd4
+    public ReadableByteChannel source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.code();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.source();
         }
-        return invokeV.intValue;
+        return (ReadableByteChannel) invokeV.objValue;
     }
 }

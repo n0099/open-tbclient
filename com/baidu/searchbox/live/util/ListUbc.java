@@ -3,7 +3,10 @@ package com.baidu.searchbox.live.util;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,9 +57,34 @@ public class ListUbc {
         return (ListUbc) invokeV.objValue;
     }
 
+    public void doEnterUbcByRequestEnter(String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, str5) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", "live");
+                jSONObject.put("type", "enter_live");
+                jSONObject.put("value", str2);
+                jSONObject.put("source", str5);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(MixYYFakeShell.ROOM_ID_YY, str);
+                jSONObject2.put("status", str3);
+                jSONObject2.put("useCache", 0);
+                jSONObject2.put("error", 0);
+                if (str4 != null) {
+                    jSONObject2.put(StatConstants.KEY_EXT_ERR_MSG, str4);
+                }
+                jSONObject.put("ext", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            this.ubc.onEvent("5153", jSONObject);
+        }
+    }
+
     public void reportReachEvent(@NonNull String str, @NonNull String str2, String str3, String str4, String str5, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, str5, jSONObject}) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 if (TextUtils.isEmpty(str5)) {

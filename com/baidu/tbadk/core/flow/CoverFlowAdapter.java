@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej6;
-import com.baidu.tieba.ig8;
+import com.baidu.tieba.aj8;
 import com.baidu.tieba.uw4;
-import com.baidu.tieba.vs4;
 import com.baidu.tieba.vw4;
+import com.baidu.tieba.xs4;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -163,15 +163,15 @@ public class CoverFlowAdapter<T extends vw4> extends PagerAdapter {
                     this.f.get(i);
                 }
                 if (this.b.get(i) != null && tbImageView != null) {
-                    if (this.b.get(i) instanceof ej6) {
+                    if (this.b.get(i) instanceof zj6) {
                         tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     } else {
                         tbImageView.K(this.b.get(i).getPicUrl(), 10, false);
                     }
                     tbImageView.setOnClickListener(this.d);
-                    if ((this.b.get(i) instanceof vs4) && !((vs4) this.b.get(i)).n()) {
-                        vs4 vs4Var = (vs4) this.b.get(i);
-                        ig8.k(vs4Var.j(), tbImageView2, vs4Var.k(), yi.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                    if ((this.b.get(i) instanceof xs4) && !((xs4) this.b.get(i)).n()) {
+                        xs4 xs4Var = (xs4) this.b.get(i);
+                        aj8.k(xs4Var.j(), tbImageView2, xs4Var.k(), yi.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }
@@ -205,7 +205,7 @@ public class CoverFlowAdapter<T extends vw4> extends PagerAdapter {
             if (tbImageView == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if ((ListUtils.getItem(this.b, i) instanceof vs4) && !((vs4) ListUtils.getItem(this.b, i)).n()) {
+            if ((ListUtils.getItem(this.b, i) instanceof xs4) && !((xs4) ListUtils.getItem(this.b, i)).n()) {
                 RelativeLayout relativeLayout = (RelativeLayout) ListUtils.getItem(this.f, i);
                 TbImageView tbImageView2 = (TbImageView) ListUtils.getItem(this.e, i);
                 relativeLayout.removeView(tbImageView2);

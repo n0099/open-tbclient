@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -66,8 +67,8 @@ public class BdToast {
                     return;
                 }
             }
-            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f080a21, true);
-            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f080a1f, true);
+            SUCCESS = new ToastIcon(c.p, 0, R.drawable.icon_pure_toast_succeed40_svg, true);
+            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.icon_pure_toast_mistake40_svg, true);
             ToastIcon toastIcon = new ToastIcon("NOT", 2, 0, false);
             NOT = toastIcon;
             $VALUES = new ToastIcon[]{SUCCESS, FAILURE, toastIcon};
@@ -133,10 +134,10 @@ public class BdToast {
         this.h = false;
         this.i = 0;
         this.a = context;
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0228, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_bdtoast, (ViewGroup) null);
         this.c = viewGroup;
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922c1);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922c4);
+        this.d = (ImageView) viewGroup.findViewById(R.id.toast_icon);
+        this.e = (TextView) this.c.findViewById(R.id.toast_message);
         GreyUtil.grey(this.c);
     }
 

@@ -195,7 +195,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
                 this.category = jSONObject.getInt("category");
                 this.fromUid = jSONObject.getLong("from_uid");
                 this.operatedMaxMsgid = jSONObject.optLong("msgid", -1L);
-                this.paid = jSONObject.optLong("pa_uid", -1L);
+                this.paid = jSONObject.optLong(Constants.EXTRA_PAUID_TYPE, -1L);
                 return true;
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "parseJsonString", e);

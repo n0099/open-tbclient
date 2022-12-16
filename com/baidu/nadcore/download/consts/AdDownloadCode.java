@@ -1,5 +1,6 @@
 package com.baidu.nadcore.download.consts;
 
+import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +35,7 @@ public final class AdDownloadCode {
                 return;
             }
         }
-        SUCCESS = new AdDownloadCode("SUCCESS", 0, 0);
+        SUCCESS = new AdDownloadCode(c.p, 0, 0);
         ERROR_START_FAIL = new AdDownloadCode("ERROR_START_FAIL", 1, 1);
         ERROR_CONNECT_TIMEOUT = new AdDownloadCode("ERROR_CONNECT_TIMEOUT", 2, 2);
         ERROR_FAST_CLICK = new AdDownloadCode("ERROR_FAST_CLICK", 3, 3);

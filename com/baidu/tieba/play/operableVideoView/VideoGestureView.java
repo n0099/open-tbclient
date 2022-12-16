@@ -137,11 +137,11 @@ public class VideoGestureView extends RelativeLayout {
             }
             int i3 = this.l;
             if (i3 <= 43) {
-                i = R.drawable.obfuscated_res_0x7f080632;
+                i = R.drawable.ic_icon_pure_video_dark16_svg;
             } else if (i3 <= 128) {
-                i = R.drawable.obfuscated_res_0x7f080642;
+                i = R.drawable.ic_icon_pure_video_weaklight16_svg;
             } else {
-                i = R.drawable.obfuscated_res_0x7f080636;
+                i = R.drawable.ic_icon_pure_video_highlight16_svg;
             }
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i, R.color.CAM_X0622, null);
             Window window = ((Activity) context).getWindow();
@@ -166,9 +166,9 @@ public class VideoGestureView extends RelativeLayout {
             SvgManager svgManager = SvgManager.getInstance();
             ImageView imageView = this.e;
             if (z) {
-                i = R.drawable.obfuscated_res_0x7f08063a;
+                i = R.drawable.ic_icon_pure_video_rewind44_svg;
             } else {
-                i = R.drawable.obfuscated_res_0x7f080634;
+                i = R.drawable.ic_icon_pure_video_forward44_svg;
             }
             svgManager.setPureDrawableWithDayNightModeAutoChange(imageView, i, R.color.CAM_X0622, null);
         }
@@ -210,11 +210,11 @@ public class VideoGestureView extends RelativeLayout {
             int i5 = this.k;
             this.i = (int) (i5 / this.j);
             if (i5 == 0) {
-                i2 = R.drawable.obfuscated_res_0x7f08063b;
+                i2 = R.drawable.ic_icon_pure_video_silent16_svg;
             } else if (i5 < 50) {
-                i2 = R.drawable.obfuscated_res_0x7f080640;
+                i2 = R.drawable.ic_icon_pure_video_sound_small16_svg;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f08063f;
+                i2 = R.drawable.ic_icon_pure_video_sound_big16_svg;
             }
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i2, R.color.CAM_X0622, null);
             this.g.setStreamVolume(3, this.i, 0);
@@ -225,13 +225,13 @@ public class VideoGestureView extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d06a9, this);
-            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09257a);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f092579);
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092578);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092577);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092575);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092576);
+            RelativeLayout.inflate(getContext(), R.layout.operable_video_gesture, this);
+            this.a = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
+            this.b = (ImageView) findViewById(R.id.video_gesture_progress_icon);
+            this.c = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
+            this.d = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
+            this.e = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
+            this.f = (TextView) findViewById(R.id.video_gesture_ffrew_txt);
             this.a.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
             AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
             this.g = audioManager;

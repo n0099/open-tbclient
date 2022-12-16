@@ -19,13 +19,13 @@ import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CallServerInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean forWebSocket;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CountingSink extends ForwardingSink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,15 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public interface kf9 {
-    void a();
-
-    void b(int i);
-
-    void c();
-
-    void d(String str);
-
-    void e(String str);
-
-    void f();
+    void setUBCConfigStatisticData(JSONObject jSONObject);
 }

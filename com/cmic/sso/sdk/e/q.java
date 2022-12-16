@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.security.SecureRandom;
 import java.util.UUID;
 /* loaded from: classes7.dex */
@@ -60,7 +59,7 @@ public class q {
                 aVar.a("interfaceType", str);
                 return;
             }
-            aVar.a("interfaceType", aVar.b("interfaceType") + ParamableElem.DIVIDE_PARAM + str);
+            aVar.a("interfaceType", aVar.b("interfaceType") + ";" + str);
         }
     }
 
@@ -71,7 +70,7 @@ public class q {
                 aVar.a("interfaceCode", str);
                 return;
             }
-            aVar.a("interfaceCode", aVar.b("interfaceCode") + ParamableElem.DIVIDE_PARAM + str);
+            aVar.a("interfaceCode", aVar.b("interfaceCode") + ";" + str);
         }
     }
 
@@ -82,7 +81,7 @@ public class q {
                 aVar.a("interfaceElasped", str);
                 return;
             }
-            aVar.a("interfaceElasped", aVar.b("interfaceElasped") + ParamableElem.DIVIDE_PARAM + str);
+            aVar.a("interfaceElasped", aVar.b("interfaceElasped") + ";" + str);
         }
     }
 

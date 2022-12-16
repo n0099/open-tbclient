@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.Cancelable;
 import com.baidu.searchbox.network.outback.ConnectManager;
@@ -34,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Request {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUESTFROM_FEED = 1;
@@ -64,7 +65,7 @@ public class Request {
     public final UrlWrapper url;
     public int writeTimeout;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder<R extends Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -414,7 +415,7 @@ public class Request {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.connectionTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
+                this.connectionTimeout = Util.checkDuration(a.O, i, TimeUnit.MILLISECONDS);
                 return this;
             }
             return (R) invokeI.objValue;
@@ -510,7 +511,7 @@ public class Request {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-                this.readTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
+                this.readTimeout = Util.checkDuration(a.O, i, TimeUnit.MILLISECONDS);
                 return this;
             }
             return (R) invokeI.objValue;
