@@ -45,12 +45,12 @@ public class z53 extends b63 {
 
         /* renamed from: com.baidu.tieba.z53$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0502a implements Runnable {
+        public class RunnableC0501a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0502a(a aVar) {
+            public RunnableC0501a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class z53 extends b63 {
                     c93.q(h93Var, this.a, this.b);
                     return;
                 }
-                yg3.k(new RunnableC0502a(this), "SaveImageAction");
+                yg3.k(new RunnableC0501a(this), "SaveImageAction");
             }
         }
     }

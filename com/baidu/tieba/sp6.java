@@ -358,12 +358,12 @@ public class sp6 {
             this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                i79.l(this.i, R.drawable.edittext_cursor);
-                i79.l(this.j, R.drawable.edittext_cursor);
+                j79.l(this.i, R.drawable.edittext_cursor);
+                j79.l(this.j, R.drawable.edittext_cursor);
                 return;
             }
-            i79.l(this.i, R.drawable.edittext_cursor_1);
-            i79.l(this.j, R.drawable.edittext_cursor_1);
+            j79.l(this.i, R.drawable.edittext_cursor_1);
+            j79.l(this.j, R.drawable.edittext_cursor_1);
         }
     }
 

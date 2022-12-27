@@ -49,7 +49,7 @@ public class go4 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof ku8) && ((ku8) data).b) {
+            if ((data instanceof lu8) && ((lu8) data).b) {
                 ho4.f().a("717");
             }
         }

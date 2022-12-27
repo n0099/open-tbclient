@@ -20,11 +20,11 @@ public class xl1 implements qn1 {
 
         /* renamed from: com.baidu.tieba.xl1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0485a implements yi3<Bundle> {
+        public class C0487a implements yi3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0485a(a aVar) {
+            public C0487a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class xl1 implements qn1 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                return (Bundle) vi3.b(new C0485a(this));
+                return (Bundle) vi3.b(new C0487a(this));
             }
             return (Bundle) invokeL.objValue;
         }

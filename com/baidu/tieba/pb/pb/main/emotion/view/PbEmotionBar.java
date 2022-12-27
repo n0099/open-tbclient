@@ -32,10 +32,10 @@ import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
 import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.l58;
 import com.baidu.tieba.m58;
 import com.baidu.tieba.n58;
 import com.baidu.tieba.nf6;
+import com.baidu.tieba.o58;
 import com.baidu.tieba.pk5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public SearchEmotionModel.b B;
     public RelativeLayout a;
     public HListView b;
-    public m58 c;
+    public n58 c;
     public float d;
     public float e;
     public float f;
@@ -65,7 +65,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int m;
     public int n;
     public j o;
-    public l58 p;
+    public m58 p;
     public RelativeLayout q;
     public EditText r;
     public ImageView s;
@@ -75,7 +75,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int w;
     public boolean x;
     public boolean y;
-    public n58 z;
+    public o58 z;
 
     /* loaded from: classes5.dex */
     public interface i {
@@ -249,7 +249,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                 return;
             }
             if (this.a.z == null) {
-                this.a.z = new n58();
+                this.a.z = new o58();
                 this.a.z.g(this.a.B);
             }
             this.a.z.f(trim);
@@ -596,10 +596,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     }
 
     public void setOnEmotionClickListener(i iVar) {
-        m58 m58Var;
+        n58 n58Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, iVar) == null) && iVar != null && (m58Var = this.c) != null) {
-            m58Var.g(new h(this, iVar));
+        if ((interceptable == null || interceptable.invokeL(1048591, this, iVar) == null) && iVar != null && (n58Var = this.c) != null) {
+            n58Var.g(new h(this, iVar));
         }
     }
 
@@ -652,10 +652,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     }
 
     public void s() {
-        n58 n58Var;
+        o58 o58Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (n58Var = this.z) != null) {
-            n58Var.e();
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (o58Var = this.z) != null) {
+            o58Var.e();
         }
     }
 
@@ -665,9 +665,9 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0105);
             this.r.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            m58 m58Var = this.c;
-            if (m58Var != null) {
-                m58Var.notifyDataSetChanged();
+            n58 n58Var = this.c;
+            if (n58Var != null) {
+                n58Var.notifyDataSetChanged();
             }
         }
     }
@@ -675,9 +675,9 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            m58 m58Var = this.c;
-            if (m58Var != null) {
-                m58Var.d();
+            n58 n58Var = this.c;
+            if (n58Var != null) {
+                n58Var.d();
             }
             s();
         }
@@ -848,9 +848,9 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             setOrientation(1);
             setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
             this.b = (HListView) findViewById(R.id.obfuscated_res_0x7f091505);
-            m58 m58Var = new m58();
-            this.c = m58Var;
-            m58Var.f(this);
+            n58 n58Var = new n58();
+            this.c = n58Var;
+            n58Var.f(this);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setDividerWidth(yi.g(getContext(), R.dimen.obfuscated_res_0x7f0702f6));
             this.b.setSelector(getResources().getDrawable(R.drawable.transparent_bg));

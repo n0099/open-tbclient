@@ -24,14 +24,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rh8;
+import com.baidu.tieba.sh8;
 import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ScanBoxView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,29 +115,29 @@ public class ScanBoxView extends View {
         this.j = paint;
         paint.setAntiAlias(true);
         this.l = Color.parseColor("#33FFFFFF");
-        this.m = rh8.b(context, 20.0f);
-        this.n = rh8.b(context, 3.0f);
-        this.s = rh8.b(context, 1.0f);
+        this.m = sh8.b(context, 20.0f);
+        this.n = sh8.b(context, 3.0f);
+        this.s = sh8.b(context, 1.0f);
         this.t = -1;
-        this.r = rh8.b(context, 90.0f);
-        this.o = rh8.b(context, 200.0f);
-        this.q = rh8.b(context, 140.0f);
+        this.r = sh8.b(context, 90.0f);
+        this.o = sh8.b(context, 200.0f);
+        this.q = sh8.b(context, 140.0f);
         this.u = 0;
         this.v = false;
         this.w = null;
         this.x = null;
-        this.y = rh8.b(context, 1.0f);
+        this.y = sh8.b(context, 1.0f);
         this.z = -1;
         this.A = 1000;
         this.B = false;
         this.C = 0;
         this.D = false;
-        this.e = rh8.b(context, 2.0f);
+        this.e = sh8.b(context, 2.0f);
         this.G = null;
-        this.H = rh8.f(context, 14.0f);
+        this.H = sh8.f(context, 14.0f);
         this.I = -1;
         this.J = false;
-        this.K = rh8.b(context, 20.0f);
+        this.K = sh8.b(context, 20.0f);
         this.L = false;
         this.M = Color.parseColor("#22000000");
         this.N = false;
@@ -146,7 +146,7 @@ public class ScanBoxView extends View {
         TextPaint textPaint = new TextPaint();
         this.k = textPaint;
         textPaint.setAntiAlias(true);
-        this.d0 = rh8.b(context, 4.0f);
+        this.d0 = sh8.b(context, 4.0f);
         this.e0 = false;
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setScale(1.5f, 1.5f, 1.5f, 1.0f);
@@ -184,13 +184,13 @@ public class ScanBoxView extends View {
             }
             if (!TextUtils.isEmpty(this.G)) {
                 if (this.L) {
-                    this.c0 = new StaticLayout(this.G, this.k, rh8.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                    this.c0 = new StaticLayout(this.G, this.k, sh8.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 } else {
                     this.c0 = new StaticLayout(this.G, this.k, this.o - (this.d0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 }
             }
             if (this.B) {
-                int i2 = rh8.d(getContext()).y;
+                int i2 = sh8.d(getContext()).y;
                 int i3 = this.C;
                 if (i3 == 0) {
                     this.r = (i2 - this.p) / 2;
@@ -512,13 +512,13 @@ public class ScanBoxView extends View {
             if (this.W == null) {
                 Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080f59);
                 this.W = decodeResource;
-                this.W = rh8.e(decodeResource, this.t);
+                this.W = sh8.e(decodeResource, this.t);
             }
-            Bitmap a = rh8.a(this.W, 90);
+            Bitmap a = sh8.a(this.W, 90);
             this.a0 = a;
-            Bitmap a2 = rh8.a(a, 90);
+            Bitmap a2 = sh8.a(a, 90);
             this.a0 = a2;
-            this.a0 = rh8.a(a2, 90);
+            this.a0 = sh8.a(a2, 90);
             Drawable drawable2 = this.w;
             if (drawable2 != null) {
                 this.U = ((BitmapDrawable) drawable2).getBitmap();
@@ -526,9 +526,9 @@ public class ScanBoxView extends View {
             if (this.U == null) {
                 Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080f59);
                 this.U = decodeResource2;
-                this.U = rh8.e(decodeResource2, this.t);
+                this.U = sh8.e(decodeResource2, this.t);
             }
-            this.V = rh8.a(this.U, 90);
+            this.V = sh8.a(this.U, 90);
             this.b0 = (this.n * 1.0f) / 2.0f;
             this.k.setTextSize(this.H);
             this.k.setColor(this.I);

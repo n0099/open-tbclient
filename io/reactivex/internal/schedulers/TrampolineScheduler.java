@@ -18,13 +18,13 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TrampolineScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final TrampolineScheduler INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TrampolineWorker extends Scheduler.Worker implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class TrampolineScheduler extends Scheduler {
         public final PriorityBlockingQueue<TimedRunnable> queue;
         public final AtomicInteger wip;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public final class AppendToQueueTask implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public final class TrampolineScheduler extends Scheduler {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SleepingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +209,7 @@ public final class TrampolineScheduler extends Scheduler {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TimedRunnable implements Comparable<TimedRunnable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -54,12 +54,12 @@ public class ue3 extends hs1 {
 
         /* renamed from: com.baidu.tieba.ue3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0448a implements xi3<ef3<df3>> {
+        public class C0450a implements xi3<ef3<df3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0448a(a aVar) {
+            public C0450a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class ue3 extends hs1 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                bf3.s(this.a).a(this.b, new C0448a(this));
+                bf3.s(this.a).a(this.b, new C0450a(this));
             }
         }
 

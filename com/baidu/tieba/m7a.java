@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,46 +8,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public class m7a {
     public static /* synthetic */ Interceptable $ic;
-    public static final m7a a;
+    public static final m7a f;
+    public static final i7a g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicReference<i7a> a;
+    public final AtomicReference<k7a> b;
+    public final AtomicReference<o7a> c;
+    public final AtomicReference<h7a> d;
+    public final AtomicReference<n7a> e;
 
-    public e3a g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+    /* loaded from: classes5.dex */
+    public static class a extends i7a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (e3a) invokeV.objValue;
     }
 
-    public e3a i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (e3a) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class b extends h7a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public e3a j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        public b(m7a m7aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m7aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (e3a) invokeV.objValue;
-    }
-
-    @Deprecated
-    public o3a k(o3a o3aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, o3aVar)) == null) ? o3aVar : (o3a) invokeL.objValue;
     }
 
     static {
@@ -64,7 +79,18 @@ public class m7a {
                 return;
             }
         }
-        a = new m7a();
+        f = new m7a();
+        g = new a();
+    }
+
+    @Deprecated
+    public static m7a c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
+        }
+        return (m7a) invokeV.objValue;
     }
 
     public m7a() {
@@ -77,79 +103,142 @@ public class m7a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>();
+        this.b = new AtomicReference<>();
+        this.c = new AtomicReference<>();
+        this.d = new AtomicReference<>();
+        this.e = new AtomicReference<>();
     }
 
-    public static e3a a() {
+    public h7a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b(new RxThreadFactory("RxComputationScheduler-"));
-        }
-        return (e3a) invokeV.objValue;
-    }
-
-    public static e3a c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d(new RxThreadFactory("RxIoScheduler-"));
-        }
-        return (e3a) invokeV.objValue;
-    }
-
-    public static e3a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return f(new RxThreadFactory("RxNewThreadScheduler-"));
-        }
-        return (e3a) invokeV.objValue;
-    }
-
-    public static m7a h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return a;
-        }
-        return (m7a) invokeV.objValue;
-    }
-
-    public static e3a b(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new w4a(threadFactory);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d.get() == null) {
+                Object e = e(h7a.class, System.getProperties());
+                if (e == null) {
+                    this.d.compareAndSet(null, new b(this));
+                } else {
+                    this.d.compareAndSet(null, (h7a) e);
+                }
             }
-            throw new NullPointerException("threadFactory == null");
+            return this.d.get();
         }
-        return (e3a) invokeL.objValue;
+        return (h7a) invokeV.objValue;
     }
 
-    public static e3a d(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
+    public i7a b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new v4a(threadFactory);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() == null) {
+                Object e = e(i7a.class, System.getProperties());
+                if (e == null) {
+                    this.a.compareAndSet(null, g);
+                } else {
+                    this.a.compareAndSet(null, (i7a) e);
+                }
             }
-            throw new NullPointerException("threadFactory == null");
+            return this.a.get();
         }
-        return (e3a) invokeL.objValue;
+        return (i7a) invokeV.objValue;
     }
 
-    public static e3a f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
+    public k7a d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new a5a(threadFactory);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.get() == null) {
+                Object e = e(k7a.class, System.getProperties());
+                if (e == null) {
+                    this.b.compareAndSet(null, l7a.f());
+                } else {
+                    this.b.compareAndSet(null, (k7a) e);
+                }
             }
-            throw new NullPointerException("threadFactory == null");
+            return this.b.get();
         }
-        return (e3a) invokeL.objValue;
+        return (k7a) invokeV.objValue;
+    }
+
+    public n7a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.e.get() == null) {
+                Object e = e(n7a.class, System.getProperties());
+                if (e == null) {
+                    this.e.compareAndSet(null, n7a.h());
+                } else {
+                    this.e.compareAndSet(null, (n7a) e);
+                }
+            }
+            return this.e.get();
+        }
+        return (n7a) invokeV.objValue;
+    }
+
+    public o7a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c.get() == null) {
+                Object e = e(o7a.class, System.getProperties());
+                if (e == null) {
+                    this.c.compareAndSet(null, p7a.e());
+                } else {
+                    this.c.compareAndSet(null, (o7a) e);
+                }
+            }
+            return this.c.get();
+        }
+        return (o7a) invokeV.objValue;
+    }
+
+    public static Object e(Class<?> cls, Properties properties) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, properties)) == null) {
+            Properties properties2 = (Properties) properties.clone();
+            String simpleName = cls.getSimpleName();
+            String property = properties2.getProperty("rxjava.plugin." + simpleName + ".implementation");
+            if (property == null) {
+                Iterator it = properties2.entrySet().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    Map.Entry entry = (Map.Entry) it.next();
+                    String obj = entry.getKey().toString();
+                    if (obj.startsWith("rxjava.plugin.") && obj.endsWith(".class") && simpleName.equals(entry.getValue().toString())) {
+                        String str = "rxjava.plugin." + obj.substring(0, obj.length() - 6).substring(14) + ".impl";
+                        String property2 = properties2.getProperty(str);
+                        if (property2 != null) {
+                            property = property2;
+                        } else {
+                            throw new IllegalStateException("Implementing class declaration for " + simpleName + " missing: " + str);
+                        }
+                    }
+                }
+            }
+            if (property != null) {
+                try {
+                    return Class.forName(property).asSubclass(cls).newInstance();
+                } catch (ClassCastException e) {
+                    throw new IllegalStateException(simpleName + " implementation is not an instance of " + simpleName + ": " + property, e);
+                } catch (ClassNotFoundException e2) {
+                    throw new IllegalStateException(simpleName + " implementation class not found: " + property, e2);
+                } catch (IllegalAccessException e3) {
+                    throw new IllegalStateException(simpleName + " implementation not able to be accessed: " + property, e3);
+                } catch (InstantiationException e4) {
+                    throw new IllegalStateException(simpleName + " implementation not able to be instantiated: " + property, e4);
+                }
+            }
+            return null;
+        }
+        return invokeLL.objValue;
     }
 }

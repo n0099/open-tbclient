@@ -73,7 +73,7 @@ public class kr4 {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    yz8.b(true);
+                    zz8.b(true);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class kr4 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
                     n35.h0().X(true);
                     NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    or8.x("");
+                    pr8.x("");
                     fr4.s().f(currentAccount, false);
                     BdCacheService.n().a(currentAccount);
                     ry4.l().e(currentAccount);

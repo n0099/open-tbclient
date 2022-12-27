@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ct8;
+import com.baidu.tieba.dt8;
 import com.baidu.tieba.video.VideoConvertUtil;
-import com.baidu.tieba.xs8;
+import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public final class AliAuthHttpProxy {
     public transient /* synthetic */ FieldHolder $fh;
     public final WebView a;
     public final BdUniqueId b;
-    public xs8 c;
+    public ys8 c;
     public final Handler d;
 
     /* loaded from: classes3.dex */
@@ -229,10 +229,10 @@ public final class AliAuthHttpProxy {
         MessageManager.getInstance().registerListener(bVar);
     }
 
-    public void m(xs8 xs8Var) {
+    public void m(ys8 ys8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xs8Var) == null) {
-            this.c = xs8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ys8Var) == null) {
+            this.c = ys8Var;
         }
     }
 
@@ -317,15 +317,15 @@ public final class AliAuthHttpProxy {
         return (HttpMessage) invokeL.objValue;
     }
 
-    public ct8 l() {
+    public dt8 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ct8 ct8Var = new ct8();
-            ct8Var.x(0);
+            dt8 dt8Var = new dt8();
+            dt8Var.x(0);
             Activity activityByView = TbPageExtraHelper.getActivityByView(this.a);
             if (activityByView == null) {
-                return ct8Var;
+                return dt8Var;
             }
             new OpenAuthTask(activityByView).execute("__tb_account_auth__", OpenAuthTask.BizType.AccountAuth, new HashMap<String, String>(this) { // from class: com.baidu.tbadk.browser.auth.AliAuthHttpProxy.3
                 public static /* synthetic */ Interceptable $ic;
@@ -351,8 +351,8 @@ public final class AliAuthHttpProxy {
                     put("url", "https://authweb.alipay.com/auth?auth_type=PURE_OAUTH_SDK&app_id=2021003145680066&scope=auth_user&state=init");
                 }
             }, new c(this), true);
-            return ct8Var;
+            return dt8Var;
         }
-        return (ct8) invokeV.objValue;
+        return (dt8) invokeV.objValue;
     }
 }

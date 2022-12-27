@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ix9;
-import com.baidu.tieba.nx9;
+import com.baidu.tieba.jx9;
+import com.baidu.tieba.ox9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class Session {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public final Object b;
-    public final nx9 c;
+    public final ox9 c;
 
     private native long[] nativeAcquireAllAnchors(long j);
 
@@ -360,7 +360,7 @@ public class Session {
         public final int b;
         public final Class<?> h;
 
-        public abstract ix9 a(long j, Session session);
+        public abstract jx9 a(long j, Session session);
 
         static {
             InterceptResult invokeClinit;
@@ -375,7 +375,7 @@ public class Session {
                     return;
                 }
             }
-            c = new ad("BASE_TRACKABLE", 0, 1095893248, ix9.class);
+            c = new ad("BASE_TRACKABLE", 0, 1095893248, jx9.class);
             a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
             d = new af("PLANE", 2, 1095893249, Plane.class);
             e = new ag("POINT", 3, 1095893250, Point.class);
@@ -411,7 +411,7 @@ public class Session {
             this(str, i2, i3, cls);
         }
 
-        public static c a(Class<? extends ix9> cls) {
+        public static c a(Class<? extends jx9> cls) {
             InterceptResult invokeL;
             c[] values;
             Interceptable interceptable = $ic;
@@ -451,7 +451,7 @@ public class Session {
             }
         }
         this.b = new Object();
-        this.c = new nx9();
+        this.c = new ox9();
         this.a = 0L;
     }
 

@@ -53,8 +53,8 @@ public class xl5 implements jg5 {
     public boolean j;
     public boolean k;
     public String l;
-    public final xs8 m;
-    public final zs8 n;
+    public final ys8 m;
+    public final at8 n;
 
     @Override // com.baidu.tieba.kg5
     public boolean J0() {
@@ -91,7 +91,7 @@ public class xl5 implements jg5 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements zs8 {
+    public class a implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xl5 a;
@@ -114,7 +114,7 @@ public class xl5 implements jg5 {
             this.a = xl5Var;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -349,9 +349,9 @@ public class xl5 implements jg5 {
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_float_web_content_view, (ViewGroup) linearLayout, true);
         this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092716);
         this.e = (FrameLayout) inflate.findViewById(R.id.load_state_container);
-        xs8 xs8Var = new xs8();
-        this.m = xs8Var;
-        xs8Var.a(new CommonTbJsBridge(context));
+        ys8 ys8Var = new ys8();
+        this.m = ys8Var;
+        ys8Var.a(new CommonTbJsBridge(context));
         this.m.a(new UegTbJsBridge(context));
         sp4.g(context);
         y();
@@ -402,17 +402,17 @@ public class xl5 implements jg5 {
             e.printStackTrace();
         }
         r(MissionEvent.MESSAGE_PAUSE);
-        xs8 xs8Var = this.m;
-        if (xs8Var != null) {
-            xs8Var.h(this.d, CommonTbJsBridge.RE_HIDE, null);
+        ys8 ys8Var = this.m;
+        if (ys8Var != null) {
+            ys8Var.h(this.d, CommonTbJsBridge.RE_HIDE, null);
         }
     }
 
     public void onDestroy() {
-        xs8 xs8Var;
+        ys8 ys8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (xs8Var = this.m) != null) {
-            xs8Var.g();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (ys8Var = this.m) != null) {
+            ys8Var.g();
         }
     }
 
@@ -502,9 +502,9 @@ public class xl5 implements jg5 {
             e.printStackTrace();
         }
         r("onResume");
-        xs8 xs8Var = this.m;
-        if (xs8Var != null) {
-            xs8Var.h(this.d, CommonTbJsBridge.RE_SHOW, null);
+        ys8 ys8Var = this.m;
+        if (ys8Var != null) {
+            ys8Var.h(this.d, CommonTbJsBridge.RE_SHOW, null);
             if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
                 this.m.h(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
             }

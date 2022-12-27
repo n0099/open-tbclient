@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,270 +24,314 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bj8 implements xi8 {
+public class bj8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AdvertAppInfo> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947647001, "Lcom/baidu/tieba/bj8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947647001, "Lcom/baidu/tieba/bj8;");
+        }
+    }
+
+    public static boolean h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            switch (i) {
+                case 1000:
+                case 1001:
+                case 1002:
+                case 1003:
+                case 1004:
+                case 1005:
+                case 1006:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        return invokeI.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public static class a implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbImageView a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ float c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-916992132, "Lcom/baidu/tieba/bj8$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-916992132, "Lcom/baidu/tieba/bj8$a;");
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public a(TbImageView tbImageView, int i, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbImageView, Integer.valueOf(i), Float.valueOf(f)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
-            a = iArr;
-            try {
-                iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+            this.a = tbImageView;
+            this.b = i;
+            this.c = f;
         }
-    }
 
-    public bj8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xi8
-    public si8 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return hi8.t();
-        }
-        return (si8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xi8
-    public ni8 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return sr5.l();
-        }
-        return (ni8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xi8
-    public void e() {
-        List<AdvertAppInfo> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (list = this.a) != null) {
-            StringUtils.string(Integer.valueOf(list.size()));
-        }
-    }
-
-    @Override // com.baidu.tieba.xi8
-    public List<AdvertAppInfo> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xi8
-    public ui8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return hi8.t();
-        }
-        return (ui8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xi8
-    public kn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.z) {
-                return new hj8(baseFragmentActivity, bdUniqueId);
-            }
-            if (bdUniqueId != AdvertAppInfo.x) {
-                return null;
-            }
-            return new gj8(baseFragmentActivity, bdUniqueId);
-        }
-        return (kn) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xi8
-    public kn<?, ?> d(wi8 wi8Var, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, wi8Var, bdUniqueId)) == null) {
-            if (wi8Var == null || bdUniqueId == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.w) {
-                return new ej8(wi8Var, bdUniqueId);
-            }
-            return new fj8(wi8Var, bdUniqueId, null);
-        }
-        return (kn) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xi8
-    @Nullable
-    public IAdBaseAsyncController h(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, type, aVar)) == null) {
-            int i = a.a[type.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void a(String str, boolean z) {
+            ViewGroup.LayoutParams layoutParams;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && (layoutParams = this.a.getLayoutParams()) != null) {
+                layoutParams.height = this.b;
+                float f = this.c;
+                if (f <= 0.0f) {
+                    f = 2.0f;
                 }
-                return new tk8(aVar);
+                layoutParams.width = (int) (layoutParams.height * f);
+                this.a.setLayoutParams(layoutParams);
+                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                    this.a.setAlpha(0.8f);
+                }
             }
-            return new jk8(aVar);
         }
-        return (IAdBaseAsyncController) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.xi8
-    public kn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+    public static int a(Context context, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, str3, str4)) == null) {
+            if (!TextUtils.isEmpty(str4) && rr5.a(str4)) {
+                return 1;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, str2);
+            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, str3);
+            if (str.startsWith("tieba://deeplink?")) {
+                Uri parse = Uri.parse(str);
+                int m = m(parse, context);
+                if (m == 1000) {
+                    return 1000;
+                }
+                if (!e(context, parse.getQueryParameter("wap"), bundle)) {
+                    return 0;
+                }
+                return m;
+            }
+            return e(context, str, bundle) ? 1 : 0;
+        }
+        return invokeLLLLL.intValue;
+    }
+
+    public static int b(TbPageContext tbPageContext, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, str, str2, str3, str4)) == null) {
+            if (tbPageContext != null && !TextUtils.isEmpty(str)) {
+                return a(tbPageContext.getPageActivity(), str, str2, str3, str4);
+            }
+            return 0;
+        }
+        return invokeLLLLL.intValue;
+    }
+
+    public static int c(Context context, String str, AdvertAppInfo advertAppInfo, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, str, advertAppInfo, str2)) == null) {
+            if (!TextUtils.isEmpty(str2)) {
+                aj8.l().j(advertAppInfo);
+                return rr5.a(str2) ? 1 : 0;
+            }
+            return 0;
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public static boolean d(Context context, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, hashMap)) == null) {
+            if (context != null && hashMap != null) {
+                aj8.l().k(hashMap, context);
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean l(String str, @NonNull Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, context)) == null) {
+            if (TextUtils.isEmpty(str) || UrlSchemaJumpHelper.isHitBlackList(str) || j(context, Uri.parse(str)) != 1000) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int m(Uri uri, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, uri, context)) == null) {
+            try {
+                String queryParameter = uri.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                if (TextUtils.isEmpty(queryParameter)) {
+                    return 1003;
+                }
+                return j(context, Uri.parse(queryParameter));
+            } catch (Exception unused) {
+                return 1003;
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean e(@NonNull Context context, String str, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, bdUniqueId, str)) == null) {
-            if (bdUniqueId == AdvertAppInfo.y) {
-                return new cj8(tbPageContext, bdUniqueId, str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, bundle)) == null) {
+            String[] strArr = {str};
+            oi8 c = aj8.l().c();
+            if (c == null) {
+                return false;
             }
-            if (bdUniqueId != null) {
-                return new dj8(tbPageContext, bdUniqueId, str);
+            if (c.a(str)) {
+                c.b(context, strArr, true, bundle);
+                return true;
             }
-            return null;
+            return c.c(context, strArr, bundle);
         }
-        return (kn) invokeLLL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xi8
-    public void j(AdvertAppInfo advertAppInfo) {
+    public static void f(String str, TbImageView tbImageView, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, advertAppInfo) == null) {
-            AdWebVideoActivity.c2(advertAppInfo, 0, "DETAIL");
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{str, tbImageView, Float.valueOf(f), Integer.valueOf(i)}) != null) || tbImageView == null) {
+            return;
         }
+        if (TextUtils.isEmpty(str)) {
+            tbImageView.setVisibility(8);
+            return;
+        }
+        tbImageView.setDefaultResource(0);
+        tbImageView.setDefaultBgResource(0);
+        tbImageView.K(str, 10, false);
+        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+        if (layoutParams != null) {
+            layoutParams.height = i;
+            if (f <= 0.0f) {
+                f = 2.0f;
+            }
+            layoutParams.width = (int) (layoutParams.height * f);
+            tbImageView.setLayoutParams(layoutParams);
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                tbImageView.setAlpha(0.8f);
+            }
+        }
+        tbImageView.setVisibility(0);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r5v14 */
-    @Override // com.baidu.tieba.xi8
-    public void k(@NonNull HashMap<String, String> hashMap, Context context) {
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        JSONObject jSONObject3;
+    public static boolean g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, hashMap, context) == null) {
-            Bundle bundle = new Bundle();
-            JSONObject jSONObject4 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.startsWith("tieba://deeplink?");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 8192) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int j(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, uri)) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(uri);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             try {
-                if (hashMap.get(WriteActivityConfig.VIDEO_INFO) != null) {
-                    jSONObject = new JSONObject(hashMap.get(WriteActivityConfig.VIDEO_INFO));
-                } else {
-                    jSONObject = null;
+                if (context.getPackageManager().resolveActivity(intent, 65536) == null) {
+                    return 1004;
                 }
-                if (jSONObject != null) {
-                    bundle.putString("video_url", jSONObject.optString("video_url", ""));
-                    bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, jSONObject.optString("poster_image", ""));
-                    float floatValue = Float.valueOf(jSONObject.optString("video_aspect_ratio", "1")).floatValue();
-                    bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, floatValue);
-                    if (floatValue < 1.0f) {
-                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 14);
-                    } else {
-                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
-                    }
-                    bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, jSONObject.optInt("duration", 0));
-                    bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, jSONObject.optString("page_url", ""));
-                    String str = hashMap.get("url");
-                    try {
-                        if (TextUtils.isEmpty(str)) {
-                            str = jSONObject.optString("page_url", "");
-                        }
-                        if (jSONObject.get(AdWebVideoActivityConfig.KEY_TAIL_FRAME) != null) {
-                            jSONObject2 = new JSONObject(jSONObject.optString(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
-                        } else {
-                            jSONObject2 = null;
-                        }
-                        if (hashMap.get("download") != null) {
-                            jSONObject3 = new JSONObject(hashMap.get("download"));
-                        } else {
-                            jSONObject3 = null;
-                        }
-                        if (jSONObject3 != null) {
-                            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, jSONObject3.optString("key", ""));
-                            jSONObject4 = new JSONObject();
-                            jSONObject4.put("pkgname", jSONObject3.optString("key", ""));
-                            jSONObject4.put("download_url", jSONObject3.optString("download_url", ""));
-                        }
-                        if (jSONObject2 != null) {
-                            jSONObject2.put("style", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                            jSONObject2.put("button_scheme", jSONObject2.optString("button_scheme", ""));
-                            jSONObject2.put("scheme", jSONObject.optString("page_url", ""));
-                            jSONObject2.put("ext_data", jSONObject4);
-                            if (jSONObject3 != null) {
-                                jSONObject2.put("pkgname", jSONObject3.optString("key", ""));
-                                jSONObject2.put("style", "apk_download");
-                            }
-                        }
-                        ck8 ck8Var = new ck8();
-                        ck8Var.b(jSONObject2);
-                        bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, ck8Var.d());
-                        jSONObject4 = str;
-                    } catch (JSONException e) {
-                        e = e;
-                        jSONObject4 = str;
-                        e.printStackTrace();
-                        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
-                        AdWebVideoActivity.b2(new AdWebVideoActivityConfig(context, "", jSONObject4, true, true, true, bundle));
-                    }
-                }
-            } catch (JSONException e2) {
-                e = e2;
+                context.startActivity(intent);
+                return 1000;
+            } catch (Exception unused) {
+                return 1006;
             }
-            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
-            AdWebVideoActivity.b2(new AdWebVideoActivityConfig(context, "", jSONObject4, true, true, true, bundle));
+        }
+        return invokeLL.intValue;
+    }
+
+    public static void k(String str, TbImageView tbImageView, float f, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65547, null, new Object[]{str, tbImageView, Float.valueOf(f), Integer.valueOf(i)}) != null) || tbImageView == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            tbImageView.setVisibility(8);
+            return;
+        }
+        tbImageView.setDefaultResource(0);
+        tbImageView.setDefaultBgResource(0);
+        tbImageView.K(str, 10, false);
+        tbImageView.setEvent(new a(tbImageView, i, f));
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && !gp5.a().o() && !a) {
+            AdvertAppInfo.v.set(true);
+            a = true;
+            String[] strArr = {"com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic"};
+            for (int i = 0; i < 2; i++) {
+                try {
+                    Class.forName(strArr[i]);
+                } catch (Throwable unused) {
+                }
+            }
         }
     }
 }

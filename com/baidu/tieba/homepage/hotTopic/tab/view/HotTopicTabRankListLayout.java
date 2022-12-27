@@ -28,7 +28,7 @@ import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lq4;
 import com.baidu.tieba.rw4;
-import com.baidu.tieba.wz8;
+import com.baidu.tieba.xz8;
 import com.baidu.tieba.y27;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yj5;
@@ -93,7 +93,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    wz8.b();
+                    xz8.b();
                     if (this.b.j != null) {
                         int adapterPosition = this.b.getAdapterPosition();
                         this.b.j.c(view2, this.a, adapterPosition, adapterPosition);

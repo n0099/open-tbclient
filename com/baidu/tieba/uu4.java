@@ -111,12 +111,12 @@ public class uu4 {
             ThemeColorInfo themeColorInfo = this.j;
             if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
-                arrayList.add(Integer.valueOf(fm7.b(this.j.day.light_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.j.day.dark_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.j.night.light_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.j.night.dark_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.j.dark.light_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.j.dark.dark_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.j.day.light_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.j.day.dark_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.j.night.light_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.j.night.dark_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.j.dark.light_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.j.dark.dark_color)));
                 return arrayList;
             }
             return null;

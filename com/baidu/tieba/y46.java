@@ -278,7 +278,7 @@ public class y46 extends h46<CardPersonDynamicThreadData> {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends r49 {
+    public class e extends s49 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ y46 b;
@@ -301,7 +301,7 @@ public class y46 extends h46<CardPersonDynamicThreadData> {
             this.b = y46Var;
         }
 
-        @Override // com.baidu.tieba.r49
+        @Override // com.baidu.tieba.s49
         public void a(TextPaint textPaint, boolean z) {
             int color;
             Interceptable interceptable = $ic;
@@ -1134,7 +1134,7 @@ public class y46 extends h46<CardPersonDynamicThreadData> {
             SpannableStringBuilder parseTitleOrAbstractForFrs = threadData.parseTitleOrAbstractForFrs(false, true, this.R);
             if (parseTitleOrAbstractForFrs != null && !StringUtils.isNull(parseTitleOrAbstractForFrs.toString())) {
                 this.w.setVisibility(0);
-                this.w.setOnTouchListener(new t49(parseTitleOrAbstractForFrs));
+                this.w.setOnTouchListener(new u49(parseTitleOrAbstractForFrs));
                 this.w.setText(parseTitleOrAbstractForFrs);
                 if (!H()) {
                     s46.l(this.w, cardPersonDynamicThreadData.b, R.color.CAM_X0105, R.color.CAM_X0109);

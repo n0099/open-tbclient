@@ -3,12 +3,12 @@ package com.baidu.tieba.themeCenter.bubble.group;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.ly8;
-import com.baidu.tieba.ny8;
+import com.baidu.tieba.az8;
+import com.baidu.tieba.my8;
 import com.baidu.tieba.oy8;
+import com.baidu.tieba.py8;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
 import com.baidu.tieba.ye5;
-import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,8 +20,8 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel a;
-    public oy8 b;
-    public ly8 c;
+    public py8 b;
+    public my8 c;
     public BubbleGroupModel.c d;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ve5
@@ -56,9 +56,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i, String str, zy8 zy8Var, List<ny8> list) {
+        public void a(int i, String str, az8 az8Var, List<oy8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, zy8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, az8Var, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.b.d());
                 this.a.b.i();
@@ -67,7 +67,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     this.a.b.j();
                     return;
                 }
-                this.a.b.k(zy8Var, list, this.a.a.N());
+                this.a.b.k(az8Var, list, this.a.a.N());
             }
         }
     }
@@ -112,10 +112,10 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        oy8 oy8Var;
+        py8 py8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (oy8Var = this.b) != null) {
-            showLoadingView(oy8Var.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (py8Var = this.b) != null) {
+            showLoadingView(py8Var.d());
             this.a.loadData();
         }
     }
@@ -125,9 +125,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            oy8 oy8Var = this.b;
-            if (oy8Var != null) {
-                oy8Var.f();
+            py8 py8Var = this.b;
+            if (py8Var != null) {
+                py8Var.f();
             }
         }
     }
@@ -140,11 +140,11 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.a = bubbleGroupModel;
             bubbleGroupModel.Q(this.d);
-            ly8 ly8Var = new ly8(getPageContext());
-            this.c = ly8Var;
-            oy8 oy8Var = new oy8(this, ly8Var);
-            this.b = oy8Var;
-            oy8Var.e();
+            my8 my8Var = new my8(getPageContext());
+            this.c = my8Var;
+            py8 py8Var = new py8(this, my8Var);
+            this.b = py8Var;
+            py8Var.e();
             showLoadingView(this.b.d());
             this.a.loadData();
         }

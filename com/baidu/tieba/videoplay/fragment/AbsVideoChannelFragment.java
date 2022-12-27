@@ -42,7 +42,7 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.c49;
+import com.baidu.tieba.d49;
 import com.baidu.tieba.ho4;
 import com.baidu.tieba.i35;
 import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
@@ -64,7 +64,7 @@ import java.util.List;
 import java.util.Map;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes6.dex */
-public abstract class AbsVideoChannelFragment extends LazyBaseFragment implements c49 {
+public abstract class AbsVideoChannelFragment extends LazyBaseFragment implements d49 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean E;
     public transient /* synthetic */ FieldHolder $fh;
@@ -961,21 +961,21 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         }
     }
 
-    @Override // com.baidu.tieba.c49
+    @Override // com.baidu.tieba.d49
     public void D0() {
-        c49 O1;
+        d49 O1;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (O1 = O1()) != null) {
             O1.D0();
         }
     }
 
-    @Override // com.baidu.tieba.c49
+    @Override // com.baidu.tieba.d49
     public long H0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c49 O1 = O1();
+            d49 O1 = O1();
             if (O1 != null) {
                 return O1.H0();
             }
@@ -1009,12 +1009,12 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c49
+    @Override // com.baidu.tieba.d49
     public boolean o1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            c49 O1 = O1();
+            d49 O1 = O1();
             if (O1 != null) {
                 return O1.o1();
             }
@@ -1112,21 +1112,21 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         }
     }
 
-    public final c49 O1() {
+    public final d49 O1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             FragmentAdapter fragmentAdapter = this.m;
             if (fragmentAdapter != null && fragmentAdapter.b != -1) {
                 Fragment item = this.m.getItem(this.m.b);
-                if (item instanceof c49) {
-                    return (c49) item;
+                if (item instanceof d49) {
+                    return (d49) item;
                 }
                 return null;
             }
             return null;
         }
-        return (c49) invokeV.objValue;
+        return (d49) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1215,9 +1215,9 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         }
     }
 
-    @Override // com.baidu.tieba.c49
+    @Override // com.baidu.tieba.d49
     public void f1(int i2, int i3, Intent intent) {
-        c49 O1;
+        d49 O1;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048592, this, i2, i3, intent) == null) && (O1 = O1()) != null) {
             O1.f1(i2, i3, intent);

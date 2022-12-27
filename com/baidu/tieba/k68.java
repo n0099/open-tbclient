@@ -2,24 +2,22 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.tieba.pb.pb.sub.SubPbModel;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -31,15 +29,15 @@ public class k68 {
     public static class a implements um5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ DetailInfoAndReplyFragment b;
+        public final /* synthetic */ r68 a;
+        public final /* synthetic */ SubPbModel b;
 
-        public a(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+        public a(r68 r68Var, SubPbModel subPbModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, detailInfoAndReplyFragment};
+                Object[] objArr = {r68Var, subPbModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,44 +47,57 @@ public class k68 {
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = detailInfoAndReplyFragment;
+            this.a = r68Var;
+            this.b = subPbModel;
         }
 
         @Override // com.baidu.tieba.um5
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.r2(false);
+                this.a.E0(false);
             }
         }
 
         @Override // com.baidu.tieba.um5
         public void b(List<String> list) {
+            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.l1() == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || !(this.a.B() instanceof BdTypeListView)) {
                 return;
             }
-            ArrayList<PostData> H = this.a.l1().H();
-            if (!ListUtils.isEmpty(H) && !ListUtils.isEmpty(list)) {
-                Iterator<PostData> it = H.iterator();
-                while (it.hasNext()) {
-                    PostData next = it.next();
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            break;
-                        } else if (TextUtils.equals(list.get(i), next.M())) {
-                            it.remove();
-                            if (this.a.l1().Q() != null) {
-                                this.a.l1().Q().setReply_num(this.a.l1().Q().getReply_num() - 1);
+            List<xn> data = ((BdTypeListView) this.a.B()).getData();
+            if (!ListUtils.isEmpty(data) && !ListUtils.isEmpty(list)) {
+                Iterator<xn> it = data.iterator();
+                while (true) {
+                    i = 0;
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    xn next = it.next();
+                    if (next instanceof PostData) {
+                        while (true) {
+                            if (i >= list.size()) {
+                                break;
+                            } else if (TextUtils.equals(list.get(i), ((PostData) next).M())) {
+                                it.remove();
+                                if (this.b.t0() != null) {
+                                    this.b.t0().F(this.b.t0().m() - 1);
+                                }
+                            } else {
+                                i++;
                             }
-                        } else {
-                            i++;
                         }
                     }
                 }
-                this.b.Z1();
+                while (i < data.size()) {
+                    if (data.get(i) instanceof a78) {
+                        ((a78) data.get(i)).b(this.b.t0().m());
+                    }
+                    i++;
+                }
+                ((BdTypeListView) this.a.B()).setData(data);
+                this.a.T();
             }
         }
     }
@@ -98,42 +109,36 @@ public class k68 {
         }
     }
 
-    public static wm5 b(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+    public static wm5 b(SubPbModel subPbModel, r68 r68Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, detailInfoAndReplyFragment)) == null) {
-            if (detailInfoAndReplyFragment != null && pbModel != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, subPbModel, r68Var)) == null) {
+            if (subPbModel != null && r68Var != null) {
                 wm5 wm5Var = new wm5();
-                if (pbModel.l1() != null && pbModel.l1().l() != null) {
-                    if (pbModel.l1().l().getDeletedReasonInfo() != null) {
-                        wm5Var.p(pbModel.l1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                        wm5Var.o(pbModel.l1().l().getDeletedReasonInfo().is_boomgrow.intValue());
-                    }
-                    wm5Var.l(pbModel.l1().l().getId());
-                    wm5Var.m(pbModel.l1().l().getName());
-                    wm5Var.k(pbModel.l1().l().getImage_url());
-                    wm5Var.t(pbModel.l1().l().getUser_level());
+                wm5Var.p(subPbModel.v0());
+                wm5Var.o(subPbModel.u0());
+                wm5Var.n(subPbModel.y0());
+                if (subPbModel.t0() != null && subPbModel.t0().d() != null) {
+                    wm5Var.l(subPbModel.t0().d().getId());
+                    wm5Var.m(subPbModel.t0().d().getName());
+                    wm5Var.k(subPbModel.t0().d().getImage_url());
+                    wm5Var.t(subPbModel.t0().d().getUser_level());
                 }
-                if (pbModel.l1() != null && pbModel.l1().o() != null) {
-                    wm5Var.n(pbModel.l1().o().has_forum_rule.intValue());
-                }
-                if (pbModel.l1() != null && pbModel.l1().X() != null) {
-                    wm5Var.s(pbModel.l1().X());
-                }
-                wm5Var.q(new a(pbModel, detailInfoAndReplyFragment));
-                if (pbModel.l1() != null) {
-                    AntiData d = pbModel.l1().d();
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    if (d != null && d.getDelThreadInfoList() != null) {
-                        List<DeleteThreadInfo> delThreadInfoList = d.getDelThreadInfoList();
-                        for (int i = 0; i < delThreadInfoList.size(); i++) {
-                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                            }
+                UserData userData = new UserData();
+                userData.setIsManager(subPbModel.A0());
+                wm5Var.s(userData);
+                wm5Var.q(new a(r68Var, subPbModel));
+                AntiData r0 = subPbModel.r0();
+                SparseArray<String> sparseArray = new SparseArray<>();
+                if (r0 != null && r0.getDelThreadInfoList() != null) {
+                    List<DeleteThreadInfo> delThreadInfoList = r0.getDelThreadInfoList();
+                    for (int i = 0; i < delThreadInfoList.size(); i++) {
+                        if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                            sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
                         }
                     }
-                    wm5Var.r(sparseArray);
                 }
+                wm5Var.r(sparseArray);
                 return wm5Var;
             }
             return null;
@@ -141,16 +146,14 @@ public class k68 {
         return (wm5) invokeLL.objValue;
     }
 
-    public static boolean c(h08 h08Var, PostData postData) {
+    public static boolean c(y08 y08Var, PostData postData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, h08Var, postData)) == null) {
-            if (h08Var != null && postData != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, y08Var, postData)) == null) {
+            if (y08Var != null && postData != null && y08Var.d() != null && y08Var.l() != null) {
                 ym5 ym5Var = new ym5();
-                ym5Var.d(postData.I() + "");
-                if (h08Var.Q() != null) {
-                    ym5Var.f(h08Var.Q().getId());
-                }
+                ym5Var.d(y08Var.d().getId());
+                ym5Var.f(y08Var.l().getId());
                 ym5Var.e(postData.M());
                 return tm5.b().c(ym5Var);
             }
@@ -159,11 +162,11 @@ public class k68 {
         return invokeLL.booleanValue;
     }
 
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment, View view2) {
+    public static void d(TbPageContext tbPageContext, SubPbModel subPbModel, r68 r68Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65539, null, tbPageContext, pbModel, detailInfoAndReplyFragment, view2) == null) && tbPageContext != null && pbModel != null && detailInfoAndReplyFragment != null && detailInfoAndReplyFragment.getView() != null) {
-            tm5.b().e(tbPageContext, (ViewGroup) view2, b(pbModel, detailInfoAndReplyFragment));
-            tm5.b().d(2);
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, subPbModel, r68Var) == null) && tbPageContext != null && r68Var != null && r68Var.u() != null && subPbModel != null) {
+            tm5.b().e(tbPageContext, (ViewGroup) r68Var.u(), b(subPbModel, r68Var));
+            tm5.b().d(3);
         }
     }
 

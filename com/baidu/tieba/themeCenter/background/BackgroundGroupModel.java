@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.cy8;
+import com.baidu.tieba.az8;
+import com.baidu.tieba.dy8;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.tr8;
-import com.baidu.tieba.vx8;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.wx8;
-import com.baidu.tieba.zy8;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,8 +32,8 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundGroupActivity a;
-    public zy8 b;
-    public List<cy8> c;
+    public az8 b;
+    public List<dy8> c;
     public c d;
     public boolean e;
     public qb f;
@@ -41,7 +41,7 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, zy8 zy8Var, List<cy8> list);
+        void a(int i, String str, az8 az8Var, List<dy8> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -159,9 +159,9 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                 if (responsedMessage.getError() == 2270014) {
                     return;
                 }
-                int i = wx8.b;
-                if (responsedMessage.getError() == wx8.c) {
-                    i = wx8.a;
+                int i = xx8.b;
+                if (responsedMessage.getError() == xx8.c) {
+                    i = xx8.a;
                 }
                 boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                 if (fromDetail) {
@@ -222,11 +222,11 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<cy8> list = this.c;
+            List<dy8> list = this.c;
             if (list != null && list.size() > 0) {
-                for (cy8 cy8Var : this.c) {
-                    if (cy8Var != null && cy8Var.a() != null) {
-                        for (DressItemData dressItemData : cy8Var.a()) {
+                for (dy8 dy8Var : this.c) {
+                    if (dy8Var != null && dy8Var.a() != null) {
+                        for (DressItemData dressItemData : dy8Var.a()) {
                             if (dressItemData != null && dressItemData.getPropsId() == i) {
                                 return dressItemData;
                             }
@@ -241,12 +241,12 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     }
 
     public final void U(int i) {
-        List<cy8> list;
+        List<dy8> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (cy8 cy8Var : this.c) {
-                if (cy8Var != null && cy8Var.a() != null) {
-                    for (DressItemData dressItemData : cy8Var.a()) {
+            for (dy8 dy8Var : this.c) {
+                if (dy8Var != null && dy8Var.a() != null) {
+                    for (DressItemData dressItemData : dy8Var.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);
@@ -272,16 +272,16 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            tr8.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
-            tr8.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
+            ur8.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
+            ur8.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            tr8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            tr8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            ur8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            ur8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -308,20 +308,20 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             }
             if (!StringUtils.isNull(str)) {
                 int i4 = 4;
-                if (i == wx8.a) {
+                if (i == xx8.a) {
                     TbPageContext<BackgroundGroupActivity> pageContext = this.a.getPageContext();
                     if (z) {
                         i3 = 4;
                     } else {
                         i3 = 2;
                     }
-                    vx8.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-                } else if (i == wx8.b) {
+                    wx8.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+                } else if (i == xx8.b) {
                     TbPageContext<BackgroundGroupActivity> pageContext2 = this.a.getPageContext();
                     if (!z) {
                         i4 = 2;
                     }
-                    vx8.c(pageContext2, i4, str, i2);
+                    wx8.c(pageContext2, i4, str, i2);
                 }
             }
         }

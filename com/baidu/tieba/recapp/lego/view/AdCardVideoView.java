@@ -9,12 +9,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.as4;
-import com.baidu.tieba.bk8;
-import com.baidu.tieba.dk8;
-import com.baidu.tieba.pi8;
+import com.baidu.tieba.ck8;
+import com.baidu.tieba.ek8;
+import com.baidu.tieba.qi8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
-import com.baidu.tieba.ti8;
+import com.baidu.tieba.ui8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class AdCardVideoView extends AdCardBaseView implements ti8 {
+public class AdCardVideoView extends AdCardBaseView implements ui8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView b0;
@@ -131,22 +131,22 @@ public class AdCardVideoView extends AdCardBaseView implements ti8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ti8
-    public pi8 getVideoOrVrView() {
+    @Override // com.baidu.tieba.ui8
+    public qi8 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b0;
         }
-        return (pi8) invokeV.objValue;
+        return (qi8) invokeV.objValue;
     }
 
     public boolean q0(AdCard adCard) {
         InterceptResult invokeL;
-        bk8 bk8Var;
+        ck8 ck8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (bk8Var = adCard.verticalVideoStyle) == null || !bk8Var.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (ck8Var = adCard.verticalVideoStyle) == null || !ck8Var.a()) {
                 return false;
             }
             return true;
@@ -192,11 +192,11 @@ public class AdCardVideoView extends AdCardBaseView implements ti8 {
             if (adCard.goodsStyle == 14) {
                 int i = this.B / 2;
                 this.d0 = i;
-                this.e0 = dk8.b(i);
+                this.e0 = ek8.b(i);
             } else {
                 int i2 = this.B;
                 this.d0 = i2;
-                this.e0 = dk8.a(i2);
+                this.e0 = ek8.a(i2);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b0.getLayoutParams();
             layoutParams.height = this.e0;
@@ -204,11 +204,11 @@ public class AdCardVideoView extends AdCardBaseView implements ti8 {
             if (adCard.goodsStyle == 14 && !q0(adCard)) {
                 int i3 = this.B / 2;
                 this.f0 = i3;
-                this.g0 = dk8.b(i3);
+                this.g0 = ek8.b(i3);
             } else {
                 int i4 = this.B;
                 this.f0 = i4;
-                this.g0 = dk8.a(i4);
+                this.g0 = ek8.a(i4);
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams2.width = this.f0;

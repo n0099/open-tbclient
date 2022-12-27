@@ -33,8 +33,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ku5;
 import com.baidu.tieba.le5;
-import com.baidu.tieba.sa8;
 import com.baidu.tieba.sp4;
+import com.baidu.tieba.ta8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.xo4;
 import com.baidu.tieba.yi;
@@ -49,7 +49,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
     public TextView b;
-    public sa8 c;
+    public ta8 c;
     public boolean d;
 
     /* loaded from: classes5.dex */
@@ -183,12 +183,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         b(context);
     }
 
-    public void a(sa8 sa8Var) {
+    public void a(ta8 ta8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sa8Var) == null) {
-            this.c = sa8Var;
-            this.a.setImageResource(sa8Var.b);
-            this.b.setText(sa8Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ta8Var) == null) {
+            this.c = ta8Var;
+            this.a.setImageResource(ta8Var.b);
+            this.b.setText(ta8Var.e);
             int i = this.c.a;
         }
     }
@@ -202,12 +202,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        sa8 sa8Var;
+        ta8 ta8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (sa8Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (ta8Var = this.c) == null) {
             return;
         }
-        int i = sa8Var.a;
+        int i = ta8Var.a;
         if (this.d) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
@@ -239,12 +239,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        sa8 sa8Var;
+        ta8 ta8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || (sa8Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || (ta8Var = this.c) == null) {
             return;
         }
-        int i = sa8Var.a;
+        int i = ta8Var.a;
         String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         String displayName = currentAccountInfo.getDisplayName();

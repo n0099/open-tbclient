@@ -184,7 +184,7 @@ public class rq5 {
                     this.a.e.remove(bVar);
                     if (this.a.D && this.a.r != null) {
                         this.a.r.setClickable(false);
-                        this.a.r.setTextColor(qq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                        this.a.r.setTextColor(rq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     }
                 }
             }
@@ -642,7 +642,7 @@ public class rq5 {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColorSelector(this.q, R.color.CAM_X0105);
             if (this.D) {
-                this.r.setTextColor(qq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.r.setTextColor(rq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                 this.r.setClickable(false);
             } else {
                 rw4.d(this.r).v(R.color.CAM_X0302);

@@ -46,11 +46,11 @@ public class y93 {
 
         /* renamed from: com.baidu.tieba.y93$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class RunnableC0489a implements Runnable {
+        public static class RunnableC0493a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0489a() {
+            public RunnableC0493a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class y93 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0489a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0493a(), "V8SoCleaner", 3);
             }
         }
     }

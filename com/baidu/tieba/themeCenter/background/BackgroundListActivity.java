@@ -7,11 +7,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.az4;
-import com.baidu.tieba.ey8;
-import com.baidu.tieba.gy8;
+import com.baidu.tieba.az8;
+import com.baidu.tieba.fy8;
+import com.baidu.tieba.hy8;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
 import com.baidu.tieba.ye5;
-import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,8 +24,8 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundListModel b;
-    public gy8 c;
-    public ey8 d;
+    public hy8 c;
+    public fy8 d;
     public BackgroundListModel.c e;
     public BdListView.p f;
     public final az4.g g;
@@ -62,9 +62,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
-        public void a(int i, String str, zy8 zy8Var, List<DressItemData> list) {
+        public void a(int i, String str, az8 az8Var, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, zy8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, az8Var, list}) == null) {
                 this.a.c.j();
                 BackgroundListActivity backgroundListActivity = this.a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.c.c());
@@ -73,7 +73,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     this.a.c.h();
                     return;
                 }
-                this.a.c.i(zy8Var, list, this.a.b.Z());
+                this.a.c.i(az8Var, list, this.a.b.Z());
             }
         }
     }
@@ -180,9 +180,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            gy8 gy8Var = this.c;
-            if (gy8Var != null) {
-                gy8Var.d();
+            hy8 hy8Var = this.c;
+            if (hy8Var != null) {
+                hy8Var.d();
             }
         }
     }
@@ -215,10 +215,10 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        gy8 gy8Var;
+        hy8 hy8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (gy8Var = this.c) != null) {
-            showLoadingView(gy8Var.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (hy8Var = this.c) != null) {
+            showLoadingView(hy8Var.c());
             this.b.loadData();
         }
     }
@@ -242,12 +242,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             BackgroundListModel backgroundListModel = new BackgroundListModel(this);
             this.b = backgroundListModel;
             backgroundListModel.b0(this.e);
-            ey8 ey8Var = new ey8(this.a, this.b.getUniqueId());
-            this.d = ey8Var;
-            ey8Var.c(0);
-            gy8 gy8Var = new gy8(this, this.d);
-            this.c = gy8Var;
-            gy8Var.g(this.f, this.g);
+            fy8 fy8Var = new fy8(this.a, this.b.getUniqueId());
+            this.d = fy8Var;
+            fy8Var.c(0);
+            hy8 hy8Var = new hy8(this, this.d);
+            this.c = hy8Var;
+            hy8Var.g(this.f, this.g);
             showLoadingView(this.c.c());
             this.b.loadData();
         }

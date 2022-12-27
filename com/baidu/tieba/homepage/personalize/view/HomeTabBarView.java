@@ -39,7 +39,7 @@ import com.baidu.tieba.in;
 import com.baidu.tieba.k25;
 import com.baidu.tieba.m55;
 import com.baidu.tieba.o67;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tg;
 import com.baidu.tieba.yi;
@@ -815,7 +815,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
             m55 f3 = o67.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f3 != null) {
-                setBackgroundColor(qq8.a(qq8.f(o67.d(f3)), f2));
+                setBackgroundColor(rq8.a(rq8.f(o67.d(f3)), f2));
             } else {
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, f2, TbadkCoreApplication.getInst().getSkinType());
             }

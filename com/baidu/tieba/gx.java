@@ -56,12 +56,12 @@ public class gx extends wy {
     }
 
     @Override // com.baidu.tieba.wy
-    public dg8 t() {
+    public eg8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new eg8(this.b, this.i, this.y);
+            return new fg8(this.b, this.i, this.y);
         }
-        return (dg8) invokeV.objValue;
+        return (eg8) invokeV.objValue;
     }
 }

@@ -31,7 +31,7 @@ public class gm1 implements jo1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new uz9(inputStream);
+            return new vz9(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

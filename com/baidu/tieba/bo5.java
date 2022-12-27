@@ -27,12 +27,12 @@ public class bo5 {
 
         /* renamed from: com.baidu.tieba.bo5$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0227a implements View.OnClickListener {
+        public class View$OnClickListenerC0230a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0227a(a aVar) {
+            public View$OnClickListenerC0230a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class bo5 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
                 TextView textView = (TextView) view2.findViewById(R.id.person_constellation_cancle);
-                textView.setOnClickListener(new View$OnClickListenerC0227a(this));
+                textView.setOnClickListener(new View$OnClickListenerC0230a(this));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
                 TextView textView2 = (TextView) view2.findViewById(R.id.person_constellation_birthday_complete);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());

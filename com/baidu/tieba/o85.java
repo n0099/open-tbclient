@@ -55,7 +55,7 @@ import com.baidu.tbadk.editortools.pb.ImageModel;
 import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.or8;
+import com.baidu.tieba.pr8;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +67,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class o85 extends q65 implements or8.g {
+public class o85 extends q65 implements pr8.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -136,12 +136,12 @@ public class o85 extends q65 implements or8.g {
                     this.a.R(true);
                     WriteData Y = this.a.g.Y();
                     this.a.L();
-                    or8.y(this.a.l, null);
+                    pr8.y(this.a.l, null);
                     if (Y == null) {
                         return;
                     }
                     if (Y.getType() == 2) {
-                        or8.o(Y.getThreadId(), this.a);
+                        pr8.o(Y.getThreadId(), this.a);
                     }
                 } else if (writeData != null && d35Var != null && !TextUtils.isEmpty(d35Var.d())) {
                     writeData.setVcodeMD5(d35Var.b());
@@ -518,7 +518,7 @@ public class o85 extends q65 implements or8.g {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
-            or8.o(str, this);
+            pr8.o(str, this);
         }
     }
 
@@ -820,7 +820,7 @@ public class o85 extends q65 implements or8.g {
                     this.e = null;
                     this.s = null;
                     if (!TextUtils.isEmpty(this.l)) {
-                        or8.y(this.l, null);
+                        pr8.y(this.l, null);
                     }
                     R(true);
                     NewWriteModel.d dVar = this.u;
@@ -1109,7 +1109,7 @@ public class o85 extends q65 implements or8.g {
             Y.setContent(this.c);
             Y.setVideoInfo(this.s);
             Y.setVoiceModel(this.e);
-            or8.y(str, Y);
+            pr8.y(str, Y);
         }
     }
 
@@ -1186,7 +1186,7 @@ public class o85 extends q65 implements or8.g {
         }
     }
 
-    @Override // com.baidu.tieba.or8.g
+    @Override // com.baidu.tieba.pr8.g
     public void a(WriteData writeData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048602, this, writeData) != null) || writeData == null) {

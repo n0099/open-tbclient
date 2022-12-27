@@ -27,12 +27,12 @@ public class re2 {
 
         /* renamed from: com.baidu.tieba.re2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0428a implements xi3<Exception> {
+        public class C0431a implements xi3<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0428a(a aVar) {
+            public C0431a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class re2 {
                     return;
                 }
                 e12.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                jd3.o(this.b, new C0428a(this));
+                jd3.o(this.b, new C0431a(this));
             }
         }
     }

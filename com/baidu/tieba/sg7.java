@@ -363,10 +363,10 @@ public class sg7 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001266 && (customResponsedMessage.getData() instanceof lr8)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001266 && (customResponsedMessage.getData() instanceof mr8)) {
                 sg7 sg7Var = this.a;
                 boolean z = true;
-                if (((lr8) customResponsedMessage.getData()).m() != 1) {
+                if (((mr8) customResponsedMessage.getData()).m() != 1) {
                     z = false;
                 }
                 sg7Var.y = z;

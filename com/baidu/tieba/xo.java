@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xo implements cu8 {
+public class xo implements du8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public oj a;
@@ -83,13 +83,13 @@ public class xo implements cu8 {
 
         /* renamed from: com.baidu.tieba.xo$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0486b implements Runnable {
+        public class RunnableC0488b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0486b(b bVar, String str) {
+            public RunnableC0488b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,7 +149,7 @@ public class xo implements cu8 {
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0486b(this, d));
+                        this.c.b.post(new RunnableC0488b(this, d));
                     }
                 }
             }
@@ -383,7 +383,7 @@ public class xo implements cu8 {
         return (xo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -391,7 +391,7 @@ public class xo implements cu8 {
         }
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -411,7 +411,7 @@ public class xo implements cu8 {
         }
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -444,7 +444,7 @@ public class xo implements cu8 {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -463,7 +463,7 @@ public class xo implements cu8 {
         }
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -471,7 +471,7 @@ public class xo implements cu8 {
         }
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -489,7 +489,7 @@ public class xo implements cu8 {
         }
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -498,7 +498,7 @@ public class xo implements cu8 {
         }
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public void e(oj ojVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, ojVar) == null) {
@@ -521,7 +521,7 @@ public class xo implements cu8 {
         }
     }
 
-    @Override // com.baidu.tieba.cu8
+    @Override // com.baidu.tieba.du8
     public boolean c(oj ojVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;

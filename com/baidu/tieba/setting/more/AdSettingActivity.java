@@ -25,8 +25,8 @@ import com.baidu.tieba.qb;
 import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
-import com.baidu.tieba.tl8;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.ul8;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,7 +42,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int f = 1;
     public static int g = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public tl8 a;
+    public ul8 a;
     public int b;
     public uy4 c;
     public qb d;
@@ -251,7 +251,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new tl8(this);
+            this.a = new ul8(this);
             A1();
             registerListener(this.d);
         }
@@ -273,8 +273,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tr8.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            tr8.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            ur8.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            ur8.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 

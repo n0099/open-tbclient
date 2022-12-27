@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface s3a<R> extends Object {
-    R call();
+public interface s3a {
+    void cancel() throws Exception;
 }

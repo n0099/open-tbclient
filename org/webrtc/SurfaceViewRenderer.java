@@ -309,7 +309,7 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
             if (i3 == 0 || i3 == 180) {
                 i = i2;
             }
-            postOrRun(new Runnable() { // from class: com.baidu.tieba.h2a
+            postOrRun(new Runnable() { // from class: com.baidu.tieba.i2a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

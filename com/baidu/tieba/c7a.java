@@ -3,128 +3,103 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 import rx.exceptions.CompositeException;
 import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.UnsubscribeFailedException;
 /* loaded from: classes3.dex */
-public class c7a<T> extends h3a<T> {
+public final class c7a implements b3a, j3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h3a<? super T> e;
-    public boolean f;
+    public final b3a a;
+    public j3a b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c7a(h3a<? super T> h3aVar) {
-        super(h3aVar);
+    public c7a(b3a b3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h3aVar};
+            Object[] objArr = {b3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((h3a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = h3aVar;
+        this.a = b3aVar;
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void g(Throwable th) {
+    @Override // com.baidu.tieba.b3a
+    public void onSubscribe(j3a j3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            l7a.c().b().a(th);
+        if (interceptable == null || interceptable.invokeL(1048579, this, j3aVar) == null) {
+            this.b = j3aVar;
             try {
-                this.e.onError(th);
-                try {
-                    unsubscribe();
-                } catch (Throwable th2) {
-                    i7a.j(th2);
-                    throw new OnErrorFailedException(th2);
-                }
-            } catch (OnErrorNotImplementedException e) {
-                try {
-                    unsubscribe();
-                    throw e;
-                } catch (Throwable th3) {
-                    i7a.j(th3);
-                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
-                }
-            } catch (Throwable th4) {
-                i7a.j(th4);
-                try {
-                    unsubscribe();
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
-                } catch (Throwable th5) {
-                    i7a.j(th5);
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // com.baidu.tieba.c3a
-    public void onCompleted() {
-        UnsubscribeFailedException unsubscribeFailedException;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f) {
-            this.f = true;
-            try {
-                this.e.onCompleted();
-                try {
-                    unsubscribe();
-                } finally {
-                }
+                this.a.onSubscribe(this);
             } catch (Throwable th) {
-                try {
-                    n3a.e(th);
-                    i7a.j(th);
-                    throw new OnCompletedFailedException(th.getMessage(), th);
-                } catch (Throwable th2) {
-                    try {
-                        unsubscribe();
-                        throw th2;
-                    } finally {
-                    }
-                }
+                o3a.e(th);
+                j3aVar.unsubscribe();
+                onError(th);
             }
         }
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.j3a
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.c && !this.b.isUnsubscribed()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.b3a
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
+        }
+        this.c = true;
+        try {
+            this.a.onCompleted();
+        } catch (Throwable th) {
+            o3a.e(th);
+            throw new OnCompletedFailedException(th);
+        }
+    }
+
+    @Override // com.baidu.tieba.j3a
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.unsubscribe();
+        }
+    }
+
+    @Override // com.baidu.tieba.b3a
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            n3a.e(th);
-            if (!this.f) {
-                this.f = true;
-                g(th);
+            j7a.j(th);
+            if (this.c) {
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.c3a
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.c = true;
             try {
-                if (!this.f) {
-                    this.e.onNext(t);
-                }
-            } catch (Throwable th) {
-                n3a.f(th, this);
+                this.a.onError(th);
+            } catch (Throwable th2) {
+                o3a.e(th2);
+                throw new OnErrorFailedException(new CompositeException(th, th2));
             }
         }
     }

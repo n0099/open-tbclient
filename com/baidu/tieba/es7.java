@@ -8,11 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes4.dex */
 public class es7 implements xn {
     public static /* synthetic */ Interceptable $ic;
@@ -35,6 +30,20 @@ public class es7 implements xn {
         a = BdUniqueId.gen();
     }
 
+    public es7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     @Override // com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
@@ -43,53 +52,5 @@ public class es7 implements xn {
             return a;
         }
         return (BdUniqueId) invokeV.objValue;
-    }
-
-    public es7(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUser.card_id;
-            String str2 = vipUser.total_scores_link;
-            String str3 = vipUser.speed_link;
-            String str4 = vipUser.task_scores_link;
-            vipUser.task_scores.intValue();
-            String str5 = vipUser.name;
-            vipUser.id.longValue();
-            String str6 = vipUser.portrait;
-            String str7 = vipUser.name_show;
-            String str8 = vipUser.vip_link;
-            VipInfo vipInfo = vipUser.vipInfo;
-            if (vipInfo != null) {
-                String str9 = vipInfo.icon_url;
-                vipInfo.s_time.intValue();
-                vipUser.vipInfo.e_time.intValue();
-                vipUser.now_time.intValue();
-                vipUser.vipInfo.v_status.intValue();
-                vipUser.vipInfo.v_level.intValue();
-                vipUser.vipInfo.ext_score.intValue();
-                vipUser.vipInfo.a_score.intValue();
-                vipUser.vipInfo.n_score.intValue();
-            }
-            dataRes.today_get_score.intValue();
-            dataRes.today_unget_score.intValue();
-            vipUpgrade.normal.intValue();
-            vipUpgrade.pay.intValue();
-            AutoPayInfo autoPayInfo = dataRes.autopay_info;
-        }
     }
 }

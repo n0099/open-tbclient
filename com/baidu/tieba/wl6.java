@@ -68,7 +68,7 @@ public class wl6 implements gl6 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == nr8.d) {
+            if (bdUniqueId == or8.d) {
                 return new pn6(tbPageContext, bdUniqueId, z);
             }
             if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class wy extends ax<vr4> implements if8 {
+public abstract class wy extends ax<vr4> implements jf8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static int u;
@@ -40,7 +40,7 @@ public abstract class wy extends ax<vr4> implements if8 {
     public TextView g;
     public vr4 h;
     public RoundCornerFrameLayout i;
-    public dg8 j;
+    public eg8 j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -51,7 +51,7 @@ public abstract class wy extends ax<vr4> implements if8 {
     public final View.OnClickListener r;
     public zy.b s;
 
-    public abstract dg8 t();
+    public abstract eg8 t();
 
     public void v() {
         Interceptable interceptable = $ic;
@@ -247,23 +247,23 @@ public abstract class wy extends ax<vr4> implements if8 {
                     s46.l(wyVar.g, wyVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    dg8 dg8Var = this.a.j;
-                    if (dg8Var != null) {
-                        dg8Var.onScroll();
+                    eg8 eg8Var = this.a.j;
+                    if (eg8Var != null) {
+                        eg8Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    dg8 dg8Var2 = this.a.j;
-                    if (dg8Var2 != null) {
-                        dg8Var2.onVolumeUp();
+                    eg8 eg8Var2 = this.a.j;
+                    if (eg8Var2 != null) {
+                        eg8Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    dg8 dg8Var3 = this.a.j;
-                    if (dg8Var3 != null) {
-                        return dg8Var3.onBackPress();
+                    eg8 eg8Var3 = this.a.j;
+                    if (eg8Var3 != null) {
+                        return eg8Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -342,18 +342,18 @@ public abstract class wy extends ax<vr4> implements if8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.l = str;
-            dg8 dg8Var = this.j;
-            if (dg8Var != null) {
-                dg8Var.setStageType(str);
+            eg8 eg8Var = this.j;
+            if (eg8Var != null) {
+                eg8Var.setStageType(str);
             }
         }
     }
 
-    public void C(yf8 yf8Var) {
-        dg8 dg8Var;
+    public void C(zf8 zf8Var) {
+        eg8 eg8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yf8Var) == null) && (dg8Var = this.j) != null) {
-            dg8Var.setStatistic(yf8Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zf8Var) == null) && (eg8Var = this.j) != null) {
+            eg8Var.setStatistic(zf8Var);
         }
     }
 
@@ -361,9 +361,9 @@ public abstract class wy extends ax<vr4> implements if8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.k = str;
-            dg8 dg8Var = this.j;
-            if (dg8Var != null) {
-                dg8Var.setFrom(str);
+            eg8 eg8Var = this.j;
+            if (eg8Var != null) {
+                eg8Var.setFrom(str);
             }
         }
     }
@@ -382,7 +382,7 @@ public abstract class wy extends ax<vr4> implements if8 {
         }
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -392,7 +392,7 @@ public abstract class wy extends ax<vr4> implements if8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -406,7 +406,7 @@ public abstract class wy extends ax<vr4> implements if8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -416,21 +416,21 @@ public abstract class wy extends ax<vr4> implements if8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            dg8 dg8Var = this.j;
-            if (dg8Var == null) {
+            eg8 eg8Var = this.j;
+            if (eg8Var == null) {
                 return false;
             }
-            return dg8Var.isFullScreen();
+            return eg8Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -440,7 +440,7 @@ public abstract class wy extends ax<vr4> implements if8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,16 +450,16 @@ public abstract class wy extends ax<vr4> implements if8 {
         return invokeV.booleanValue;
     }
 
-    public dg8 s() {
+    public eg8 s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.j;
         }
-        return (dg8) invokeV.objValue;
+        return (eg8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -470,7 +470,7 @@ public abstract class wy extends ax<vr4> implements if8 {
         }
     }
 
-    @Override // com.baidu.tieba.if8
+    @Override // com.baidu.tieba.jf8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -491,7 +491,7 @@ public abstract class wy extends ax<vr4> implements if8 {
                 }
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
-                dg8 t2 = t();
+                eg8 t2 = t();
                 this.j = t2;
                 t2.setUniqueId(this.m);
                 this.j.setFrom(this.k);

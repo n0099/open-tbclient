@@ -70,12 +70,12 @@ public final class g42 {
 
         /* renamed from: com.baidu.tieba.g42$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0285b implements xi3<String> {
+        public class C0287b implements xi3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ xi3 a;
 
-            public C0285b(b bVar, xi3 xi3Var) {
+            public C0287b(b bVar, xi3 xi3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class g42 {
         public void e(@NonNull xi3<String> xi3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xi3Var) == null) {
-                this.e.e(new C0285b(this, xi3Var));
+                this.e.e(new C0287b(this, xi3Var));
             }
         }
 

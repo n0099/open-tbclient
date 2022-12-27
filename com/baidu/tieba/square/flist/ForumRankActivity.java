@@ -25,7 +25,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az4;
 import com.baidu.tieba.bz4;
-import com.baidu.tieba.mp8;
+import com.baidu.tieba.np8;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.tieba.tbadkCore.LikeModel;
@@ -40,7 +40,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public ForumRankModel b;
-    public mp8 c;
+    public np8 c;
     public NavigationBar d;
     public TbImageView e;
     public LikeModel f;
@@ -168,11 +168,11 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                             this.a.j = forumRankData.pic_url;
                         }
                         this.a.c.f(forumRankData.forumsquare_list);
-                        mp8 mp8Var = this.a.c;
+                        np8 np8Var = this.a.c;
                         if (forumRankData.is_order == 0) {
                             z = false;
                         }
-                        mp8Var.h(Boolean.valueOf(z));
+                        np8Var.h(Boolean.valueOf(z));
                         this.a.d.setTitleText(forumRankData.title);
                         ForumInfoData[] forumInfoDataArr = forumRankData.forumsquare_list;
                         if (forumInfoDataArr != null && forumInfoDataArr.length > 100 && this.a.a.getAdapter2().l() <= 0) {
@@ -306,9 +306,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.k = true;
             this.b.setLoadDataCallBack(this.l);
-            mp8 mp8Var = new mp8(getPageContext(), 0);
-            this.c = mp8Var;
-            mp8Var.e(100);
+            np8 np8Var = new np8(getPageContext(), 0);
+            this.c = np8Var;
+            np8Var.e(100);
             this.c.h(Boolean.TRUE);
             this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.a.setAdapter((ListAdapter) this.c);

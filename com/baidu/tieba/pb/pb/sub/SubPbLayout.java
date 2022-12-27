@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r68;
 import com.baidu.tieba.rw4;
+import com.baidu.tieba.s68;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public r68 d;
+    public s68 d;
     public int e;
     public PostData f;
     public View g;
@@ -288,8 +288,8 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(-3, this.n.get(-3));
                         sparseArray.put(-4, this.n.get(-4));
                     }
-                    r68.b bVar = (r68.b) sparseArray.get(R.id.tag_holder);
-                    r68 r68Var = this.d;
+                    s68.b bVar = (s68.b) sparseArray.get(R.id.tag_holder);
+                    s68 s68Var = this.d;
                     PostData postData2 = list.get(i4);
                     if (this.f.d0() <= list.size() && list.size() - i4 <= 1) {
                         z = false;
@@ -301,7 +301,7 @@ public class SubPbLayout extends ViewGroup {
                     } else {
                         z2 = false;
                     }
-                    r68Var.c(bVar, postData2, z, z2, false);
+                    s68Var.c(bVar, postData2, z, z2, false);
                     bVar.e.setPadding(0, 0, 0, yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     if (UbsABTestHelper.isPBPlanA()) {
                         f();
@@ -416,10 +416,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(r68 r68Var) {
+    public void setSubPbAdapter(s68 s68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, r68Var) == null) {
-            this.d = r68Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, s68Var) == null) {
+            this.d = s68Var;
         }
     }
 

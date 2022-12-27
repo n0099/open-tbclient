@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class MultiFinderPatternFinder extends FinderPatternFinder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DIFF_MODSIZE_CUTOFF = 0.5f;
@@ -32,13 +32,13 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.multi.qrcode.detector.MultiFinderPatternFinder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ModuleSizeComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

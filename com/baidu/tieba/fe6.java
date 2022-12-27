@@ -112,11 +112,11 @@ public class fe6 extends ee5<dc6, zb6> implements ub6 {
 
         /* renamed from: com.baidu.tieba.fe6$c$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0271c implements lv4.e {
+        public class C0272c implements lv4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0271c(c cVar) {
+            public C0272c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -202,7 +202,7 @@ public class fe6 extends ee5<dc6, zb6> implements ub6 {
                                 string = b2.G();
                             }
                         }
-                        k45.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0a07), null, new C0271c(this), null).show();
+                        k45.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0a07), null, new C0272c(this), null).show();
                     }
                 }
             }
@@ -346,7 +346,7 @@ public class fe6 extends ee5<dc6, zb6> implements ub6 {
         }
     }
 
-    @Override // com.baidu.tieba.ir8
+    @Override // com.baidu.tieba.jr8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

@@ -162,9 +162,9 @@ public class ng6 {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
                 if (i2 > 0) {
                     BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
-                    pw7.v(System.currentTimeMillis());
+                    qw7.v(System.currentTimeMillis());
                 }
-                pw7.o().x(false);
+                qw7.o().x(false);
             }
         }
     }
@@ -189,7 +189,7 @@ public class ng6 {
     public final void g(List<DiyEmotionData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            mw7.a("【表情云同步】：5 - DIY表情：根据云端数据进行排序");
+            nw7.a("【表情云同步】：5 - DIY表情：根据云端数据进行排序");
             this.a.r(list, false, new c(this));
         }
     }
@@ -204,7 +204,7 @@ public class ng6 {
                 }
             }
             if (!arrayList.isEmpty()) {
-                mw7.a("【表情云同步】：4 - DIY表情：下载本地没有的表情");
+                nw7.a("【表情云同步】：4 - DIY表情：下载本地没有的表情");
                 ArrayList arrayList2 = new ArrayList();
                 for (DiyEmotionData diyEmotionData2 : arrayList) {
                     q95 q95Var = new q95();
@@ -235,7 +235,7 @@ public class ng6 {
                 }
             }
             if (!arrayList.isEmpty()) {
-                mw7.a("【表情云同步】：4 - DIY表情：删除云端没有的表情");
+                nw7.a("【表情云同步】：4 - DIY表情：删除云端没有的表情");
                 this.a.t(arrayList, false, new a(this, list, h));
                 return;
             }

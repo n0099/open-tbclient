@@ -20,8 +20,8 @@ import com.baidu.tieba.o06;
 import com.baidu.tieba.p06;
 import com.baidu.tieba.q06;
 import com.baidu.tieba.s06;
-import com.baidu.tieba.tq8;
 import com.baidu.tieba.uq8;
+import com.baidu.tieba.vq8;
 import com.baidu.tieba.yk6;
 import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -71,8 +71,8 @@ public class Static {
                 absDelegateAdapterList.add(new n06(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
                 absDelegateAdapterList.add(new q06(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new l06(null, tq8.c, null));
-                absDelegateAdapterList.add(new o06(null, uq8.b, null));
+                absDelegateAdapterList.add(new l06(null, uq8.c, null));
+                absDelegateAdapterList.add(new o06(null, vq8.b, null));
             }
         }
     }
@@ -111,7 +111,7 @@ public class Static {
                 absDelegateAdapterList.add(new n06(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
                 absDelegateAdapterList.add(new p06(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new p06(null, uq8.b, null));
+                absDelegateAdapterList.add(new p06(null, vq8.b, null));
             }
         }
     }

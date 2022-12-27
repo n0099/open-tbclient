@@ -55,7 +55,7 @@ import com.baidu.tieba.f95;
 import com.baidu.tieba.g95;
 import com.baidu.tieba.gr4;
 import com.baidu.tieba.gy4;
-import com.baidu.tieba.iz8;
+import com.baidu.tieba.jz8;
 import com.baidu.tieba.my4;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.qb;
@@ -66,9 +66,9 @@ import com.baidu.tieba.setting.model.MoreDiscoveryModel;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
 import com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel;
-import com.baidu.tieba.vl8;
 import com.baidu.tieba.wl8;
-import com.baidu.tieba.xf8;
+import com.baidu.tieba.xl8;
+import com.baidu.tieba.yf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +80,7 @@ import java.util.List;
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wl8 a;
+    public xl8 a;
     public MoreModel b;
     public MoreDiscoveryModel c;
     public g d;
@@ -229,7 +229,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* loaded from: classes6.dex */
-    public class d implements vl8 {
+    public class d implements wl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreActivity a;
@@ -252,7 +252,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             this.a = moreActivity;
         }
 
-        @Override // com.baidu.tieba.vl8
+        @Override // com.baidu.tieba.wl8
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.b2(i)) {
@@ -288,7 +288,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
                 da5.b(0, 0, 0, 2, 12);
                 BdSocketLinkService.close("exit app");
-                xf8.d().b();
+                yf8.d().b();
                 my4.g(this.a.getPageContext().getPageActivity(), 12, false);
             } else if (i == 13) {
                 this.a.R1();
@@ -483,7 +483,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 BdLog.e(e2);
             }
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-            startActivity(iz8.a());
+            startActivity(jz8.a());
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SUGGEST_FEEDBACK_CLICK);
             statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -573,7 +573,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new wl8(this, O1());
+            this.a = new xl8(this, O1());
             a2(bundle);
             e2();
             registerListener(this.g);
@@ -599,22 +599,22 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 if (this.k != null) {
                     this.k = new GetImageWatermarkTypeModel(this);
                 }
-                wl8 wl8Var = this.a;
-                if (wl8Var != null) {
-                    wl8Var.N();
+                xl8 xl8Var = this.a;
+                if (xl8Var != null) {
+                    xl8Var.N();
                     this.a.P();
                 }
             }
         }
     }
 
-    public final vl8 O1() {
+    public final wl8 O1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return new d(this);
         }
-        return (vl8) invokeV.objValue;
+        return (wl8) invokeV.objValue;
     }
 
     public final void P1() {
@@ -702,9 +702,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onDestroy();
             f2();
-            wl8 wl8Var = this.a;
-            if (wl8Var != null) {
-                wl8Var.z();
+            xl8 xl8Var = this.a;
+            if (xl8Var != null) {
+                xl8Var.z();
             }
         }
     }
@@ -723,9 +723,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onResume();
-            wl8 wl8Var = this.a;
-            if (wl8Var != null) {
-                wl8Var.K();
+            xl8 xl8Var = this.a;
+            if (xl8Var != null) {
+                xl8Var.K();
                 this.a.H();
             }
         }
@@ -799,12 +799,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void e0(View view2, BdSwitchView.SwitchState switchState) {
-        wl8 wl8Var;
+        xl8 xl8Var;
         boolean z;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048594, this, view2, switchState) == null) && view2 != null && (wl8Var = this.a) != null) {
-            if (view2 == wl8Var.B()) {
+        if ((interceptable == null || interceptable.invokeLL(1048594, this, view2, switchState) == null) && view2 != null && (xl8Var = this.a) != null) {
+            if (view2 == xl8Var.B()) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     UtilHelper.showSkinChangeAnimation(this);
                     UtilHelper.setNavigationBarBackground(this, getResources().getColor(R.color.CAM_X0201_1));

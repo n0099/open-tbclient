@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j89;
+import com.baidu.tieba.k89;
 import com.baidu.tieba.kg5;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.yi;
@@ -437,7 +437,7 @@ public class SelectTagListView extends LinearLayout implements kg5, View.OnClick
     }
 
     /* loaded from: classes6.dex */
-    public class g implements j89.c {
+    public class g implements k89.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagListView a;
@@ -460,7 +460,7 @@ public class SelectTagListView extends LinearLayout implements kg5, View.OnClick
             this.a = selectTagListView;
         }
 
-        @Override // com.baidu.tieba.j89.c
+        @Override // com.baidu.tieba.k89.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -785,7 +785,7 @@ public class SelectTagListView extends LinearLayout implements kg5, View.OnClick
             if (list != null && list.size() != 0) {
                 rw4.d(this.c).x(R.color.CAM_X0302);
             } else {
-                this.c.setTextColor(qq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.c.setTextColor(rq8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -829,7 +829,7 @@ public class SelectTagListView extends LinearLayout implements kg5, View.OnClick
             this.p.setOnClickListener(new d(this));
             this.p.setOnEditorActionListener(new e(this));
             this.p.addTextChangedListener(new f(this));
-            this.p.setFilters(new InputFilter[]{new j89.a(this.u, new g(this))});
+            this.p.setFilters(new InputFilter[]{new k89.a(this.u, new g(this))});
             this.r.setOnClickListener(new h(this));
             rw4 d2 = rw4.d(this.j);
             d2.n(R.string.J_X07);

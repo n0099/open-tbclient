@@ -70,15 +70,15 @@ public class up6 {
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ lr8 a;
+            public final /* synthetic */ mr8 a;
             public final /* synthetic */ d b;
 
-            public a(d dVar, lr8 lr8Var) {
+            public a(d dVar, mr8 mr8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, lr8Var};
+                    Object[] objArr = {dVar, mr8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class up6 {
                     }
                 }
                 this.b = dVar;
-                this.a = lr8Var;
+                this.a = mr8Var;
             }
 
             @Override // java.lang.Runnable
@@ -141,8 +141,8 @@ public class up6 {
                 if (AntiHelper.m(this.a.k.getErrorCode(), this.a.k.getErrorString())) {
                     AntiHelper.u(this.a.a.getPageActivity(), this.a.k.getErrorString());
                 } else if (obj != null) {
-                    lr8 lr8Var = (lr8) obj;
-                    if (ListUtils.getCount(this.a.j) > 0 && lr8Var != null) {
+                    mr8 mr8Var = (mr8) obj;
+                    if (ListUtils.getCount(this.a.j) > 0 && mr8Var != null) {
                         Iterator it = this.a.i.iterator();
                         while (true) {
                             if (!it.hasNext()) {
@@ -150,14 +150,14 @@ public class up6 {
                             }
                             vp6 vp6Var = (vp6) it.next();
                             FeedForumData feedForumData = (FeedForumData) vp6Var.f.getTag();
-                            if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(lr8Var.g())) {
+                            if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(mr8Var.g())) {
                                 feedForumData.setIsLike(1);
                                 this.a.l(vp6Var);
                                 break;
                             }
                         }
                         if (this.a.m == 1) {
-                            this.a.l.postDelayed(new a(this, lr8Var), 1000L);
+                            this.a.l.postDelayed(new a(this, mr8Var), 1000L);
                         }
                     }
                 } else if (!StringUtils.isNull(this.a.k.getErrorString())) {

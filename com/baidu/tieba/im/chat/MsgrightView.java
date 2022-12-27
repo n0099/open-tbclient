@@ -25,7 +25,7 @@ import com.baidu.tieba.cb7;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
 import com.baidu.tieba.md7;
-import com.baidu.tieba.o68;
+import com.baidu.tieba.p68;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
@@ -50,7 +50,7 @@ public class MsgrightView extends cb7 {
     public TextView N;
     public CenterTextView O;
     public RelativeLayout P;
-    public o68 Q;
+    public p68 Q;
 
     static {
         InterceptResult invokeClinit;
@@ -132,9 +132,9 @@ public class MsgrightView extends cb7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (str.contains(TbConfig.URL_UEG_REPORT)) {
-                    o68 o68Var = this.b.Q;
-                    if (o68Var != null) {
-                        o68Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                    p68 p68Var = this.b.Q;
+                    if (p68Var != null) {
+                        p68Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                         return;
                     }
                     return;
@@ -182,13 +182,13 @@ public class MsgrightView extends cb7 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, o68 o68Var) {
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, p68 p68Var) {
         super(tbPageContext, R.layout.msg_msgright_view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, o68Var};
+            Object[] objArr = {tbPageContext, p68Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -201,7 +201,7 @@ public class MsgrightView extends cb7 {
             }
         }
         this.Q = null;
-        this.Q = o68Var;
+        this.Q = p68Var;
         t();
         this.J = (TextView) g(R.id.img_msgitem_progressbar);
         this.H = (ProgressBar) g(R.id.obfuscated_res_0x7f091b72);

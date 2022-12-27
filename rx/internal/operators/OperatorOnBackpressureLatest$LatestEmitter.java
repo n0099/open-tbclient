@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c3a;
 import com.baidu.tieba.d3a;
-import com.baidu.tieba.h3a;
+import com.baidu.tieba.e3a;
 import com.baidu.tieba.i3a;
-import com.baidu.tieba.j4a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.k4a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,17 +16,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements d3a, i3a, c3a<T> {
+public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements e3a, j3a, d3a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object EMPTY;
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long serialVersionUID = -1364393685005146274L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h3a<? super T> child;
+    public final i3a<? super T> child;
     public volatile boolean done;
     public boolean emitting;
     public boolean missed;
-    public j4a<? super T> parent;
+    public k4a<? super T> parent;
     public Throwable terminal;
     public final AtomicReference<Object> value;
 
@@ -46,7 +46,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         EMPTY = new Object();
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -68,7 +68,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && get() >= 0) {
@@ -76,12 +76,12 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    public OperatorOnBackpressureLatest$LatestEmitter(h3a<? super T> h3aVar) {
+    public OperatorOnBackpressureLatest$LatestEmitter(i3a<? super T> i3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h3aVar};
+            Object[] objArr = {i3aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,12 +91,12 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
                 return;
             }
         }
-        this.child = h3aVar;
+        this.child = i3aVar;
         this.value = new AtomicReference<>(EMPTY);
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void request(long j) {
         long j2;
         int i;
@@ -195,7 +195,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
@@ -205,7 +205,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {

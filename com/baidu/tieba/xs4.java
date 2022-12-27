@@ -35,7 +35,7 @@ public class xs4 implements vw4 {
     public String m;
     public float n;
     public List<String> o;
-    public mr8 p;
+    public nr8 p;
 
     /* loaded from: classes6.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -121,13 +121,13 @@ public class xs4 implements vw4 {
         return (String) invokeV.objValue;
     }
 
-    public mr8 f() {
+    public nr8 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (mr8) invokeV.objValue;
+        return (nr8) invokeV.objValue;
     }
 
     public String g() {
@@ -308,9 +308,9 @@ public class xs4 implements vw4 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        mr8 mr8Var = new mr8();
-        this.p = mr8Var;
-        mr8Var.d(headImgs);
+        nr8 nr8Var = new nr8();
+        this.p = nr8Var;
+        nr8Var.d(headImgs);
     }
 
     public void p(String str) {

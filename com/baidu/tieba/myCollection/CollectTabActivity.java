@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av7;
+import com.baidu.tieba.bv7;
 import com.baidu.tieba.dn4;
 import com.baidu.tieba.qq4;
 import com.baidu.tieba.ra5;
-import com.baidu.tieba.yu7;
 import com.baidu.tieba.zu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ import java.util.Map;
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yu7 a;
+    public zu7 a;
     public CustomMessageListener b;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ve5
@@ -118,7 +118,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            zu7.b().f(false);
+            av7.b().f(false);
         }
     }
 
@@ -137,7 +137,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2 == this.a.e()) {
             boolean z = !this.a.j();
             if (z) {
-                av7.a("c14067");
+                bv7.a("c14067");
             }
             this.a.c(z);
             setSwipeBackEnabled(!z);
@@ -150,7 +150,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d01e8);
-            this.a = new yu7(this);
+            this.a = new zu7(this);
             registerListener(this.b);
             O0();
             N0(getIntent());
@@ -223,9 +223,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            av7.a("c14061");
-            zu7.b().f(true);
-            zu7.b().e(false);
+            bv7.a("c14061");
+            av7.b().f(true);
+            av7.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }

@@ -20,7 +20,7 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj8;
+import com.baidu.tieba.bj8;
 import com.baidu.tieba.vq5;
 import com.baidu.tieba.xr4;
 import com.baidu.tieba.yi;
@@ -168,7 +168,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                aj8.a(this.a.getContext(), str3, null, null, str);
+                bj8.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

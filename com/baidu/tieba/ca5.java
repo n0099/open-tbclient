@@ -27,7 +27,7 @@ public class ca5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
             a05.a(downloadData, 400);
-            qj8.l().g(downloadData.getUrl(), downloadData.getId());
+            rj8.l().g(downloadData.getUrl(), downloadData.getId());
         }
     }
 
@@ -35,7 +35,7 @@ public class ca5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return qj8.l().p(str);
+            return rj8.l().p(str);
         }
         return invokeL.booleanValue;
     }
@@ -61,7 +61,7 @@ public class ca5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int i = qj8.l().i(downloadData.getId(), downloadData.getName());
+            int i = rj8.l().i(downloadData.getId(), downloadData.getName());
             if (i >= 0 && i <= 100) {
                 return i;
             }
@@ -88,7 +88,7 @@ public class ca5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
             if (yi.F()) {
-                return qj8.l().s(downloadData);
+                return rj8.l().s(downloadData);
             }
             e65.b(downloadData);
             return false;
@@ -100,13 +100,13 @@ public class ca5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (qj8.l().o(downloadData.getId())) {
+            if (rj8.l().o(downloadData.getId())) {
                 return 5;
             }
-            if (qj8.l().q(downloadData.getId())) {
+            if (rj8.l().q(downloadData.getId())) {
                 return 1;
             }
-            if (qj8.l().n(downloadData.getId(), downloadData.getName())) {
+            if (rj8.l().n(downloadData.getId(), downloadData.getName())) {
                 return 7;
             }
             return 6;
@@ -186,7 +186,7 @@ public class ca5 {
             downloadData.setId(str);
             downloadData.setName(itemData.mTitle);
             downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(qj8.m(str).intValue());
+            downloadData.setNotifyId(rj8.m(str).intValue());
             downloadData.setNeedInvokeApk(true);
             downloadData.setNeedNotify(false);
             ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());

@@ -26,8 +26,8 @@ import com.baidu.tieba.j17;
 import com.baidu.tieba.nf5;
 import com.baidu.tieba.og5;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.tr8;
 import com.baidu.tieba.ua;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.wi5;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.zb;
@@ -399,7 +399,7 @@ public class RecPersonalizePageModel {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, tr8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, ur8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             this.d = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             this.d.setResponsedClass(RecPersonalizeHttpResponse.class);

@@ -51,7 +51,7 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.cl5;
-import com.baidu.tieba.cu8;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.g25;
 import com.baidu.tieba.gg7;
 import com.baidu.tieba.ik5;
@@ -72,9 +72,9 @@ import com.baidu.tieba.nb5;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.vh7;
 import com.baidu.tieba.wh7;
 import com.baidu.tieba.x65;
+import com.baidu.tieba.xh7;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.y65;
 import com.baidu.tieba.yi;
@@ -838,13 +838,13 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
         }
     }
 
-    public void X(@NonNull VoiceMsg voiceMsg, @NonNull vh7 vh7Var) {
+    public void X(@NonNull VoiceMsg voiceMsg, @NonNull wh7 wh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, voiceMsg, vh7Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048598, this, voiceMsg, wh7Var) == null) {
             String path = voiceMsg.getPath();
-            wh7 wh7Var = new wh7(this.a, voiceMsg, path, "audio/amr");
-            wh7Var.b(vh7Var);
-            BIMManager.audioTrans(this.a, path, "audio/amr", "amr", 12, wh7Var);
+            xh7 xh7Var = new xh7(this.a, voiceMsg, path, "audio/amr");
+            xh7Var.b(wh7Var);
+            BIMManager.audioTrans(this.a, path, "audio/amr", "amr", 12, xh7Var);
         }
     }
 
@@ -890,7 +890,7 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
         }
     }
 
-    public cu8 A() {
+    public du8 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -900,7 +900,7 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
             }
             return null;
         }
-        return (cu8) invokeV.objValue;
+        return (du8) invokeV.objValue;
     }
 
     public final void B() {

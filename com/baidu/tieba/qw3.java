@@ -35,11 +35,11 @@ public class qw3 {
 
         /* renamed from: com.baidu.tieba.qw3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0421a extends TypeToken<ResultData<ReservationGameResultData>> {
+        public class C0423a extends TypeToken<ResultData<ReservationGameResultData>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0421a(a aVar) {
+            public C0423a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class qw3 {
         public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && !TextUtils.isEmpty(str) && this.a != null) {
-                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0421a(this).getType());
+                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0423a(this).getType());
                 if (resultData == null) {
                     this.a.onFail("result is null");
                 } else if (resultData.errno == 0) {

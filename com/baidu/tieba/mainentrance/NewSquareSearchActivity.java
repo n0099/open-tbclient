@@ -30,9 +30,9 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.cp7;
-import com.baidu.tieba.eo7;
+import com.baidu.tieba.dp7;
 import com.baidu.tieba.fo7;
+import com.baidu.tieba.go7;
 import com.baidu.tieba.mainentrance.HotForumModel;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListNetMessage;
@@ -59,7 +59,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public boolean b;
     public boolean c;
     public HotForumModel d;
-    public cp7 e;
+    public dp7 e;
     public boolean f;
     public final qb g;
     public CustomMessageListener h;
@@ -347,9 +347,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            cp7 cp7Var = this.e;
-            if (cp7Var != null) {
-                cp7Var.s();
+            dp7 dp7Var = this.e;
+            if (dp7Var != null) {
+                dp7Var.s();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
@@ -464,7 +464,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             addGlobalLayoutListener();
             registerListener(this.g);
             registerListener(this.h);
-            this.e = new cp7(this, this.c);
+            this.e = new dp7(this, this.c);
             B1();
             this.d = new HotForumModel(getPageContext(), this);
             C1();
@@ -505,9 +505,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            cp7 cp7Var = this.e;
-            if (cp7Var != null) {
-                cp7Var.t();
+            dp7 dp7Var = this.e;
+            if (dp7Var != null) {
+                dp7Var.t();
             }
             registerGetShareContentTask();
             TbSingleton.getInstance().setFromWhichSearchSource("");
@@ -533,7 +533,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void r(List<eo7> list, List<fo7> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void r(List<fo7> list, List<go7> list2, HotSearchInfoData hotSearchInfoData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048593, this, list, list2, hotSearchInfoData, str) == null) {
             D1(hotSearchInfoData);

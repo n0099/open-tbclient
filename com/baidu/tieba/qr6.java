@@ -274,8 +274,8 @@ public class qr6 {
             for (kn knVar : this.d) {
                 if (knVar instanceof ck6) {
                     ((ck6) knVar).v();
-                } else if (knVar instanceof qi8) {
-                    ((qi8) knVar).onDestroy();
+                } else if (knVar instanceof ri8) {
+                    ((ri8) knVar).onDestroy();
                 }
             }
         }

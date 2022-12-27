@@ -1,18 +1,9 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes9.dex */
 public final class GroupInfo extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final Integer DEFAULT_ACTIVEDAY;
     public static final String DEFAULT_ALBUM = "";
     public static final Long DEFAULT_AUTHORID;
@@ -24,11 +15,9 @@ public final class GroupInfo extends Message {
     public static final Integer DEFAULT_CREATETIME;
     public static final Integer DEFAULT_DISTANCE;
     public static final Integer DEFAULT_FLAG;
-    public static final Integer DEFAULT_FORUMID;
     public static final String DEFAULT_FORUMNAME = "";
     public static final String DEFAULT_FORUMSHOWNAME = "";
     public static final Integer DEFAULT_GRADE;
-    public static final Long DEFAULT_GROUPID;
     public static final Integer DEFAULT_GROUPTYPE;
     public static final String DEFAULT_INTRO = "";
     public static final Integer DEFAULT_ISGROUPMANAGER;
@@ -48,7 +37,6 @@ public final class GroupInfo extends Message {
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
     public static final Integer DEFAULT_STATUS;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 27, type = Message.Datatype.INT32)
     public final Integer activeDay;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
@@ -119,17 +107,11 @@ public final class GroupInfo extends Message {
     public final String position;
     @ProtoField(tag = 12, type = Message.Datatype.INT32)
     public final Integer status;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Long DEFAULT_GROUPID = 0L;
+    public static final Integer DEFAULT_FORUMID = 0;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<GroupInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Integer activeDay;
         public String album;
         public Long authorId;
@@ -167,37 +149,10 @@ public final class GroupInfo extends Message {
         public Integer status;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(GroupInfo groupInfo) {
             super(groupInfo);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {groupInfo};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (groupInfo == null) {
                 return;
             }
@@ -241,30 +196,11 @@ public final class GroupInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GroupInfo build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new GroupInfo(this, z, null);
-            }
-            return (GroupInfo) invokeZ.objValue;
+            return new GroupInfo(this, z);
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(252195686, "Lprotobuf/GroupInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(252195686, "Lprotobuf/GroupInfo;");
-                return;
-            }
-        }
-        DEFAULT_GROUPID = 0L;
-        DEFAULT_FORUMID = 0;
         Double valueOf = Double.valueOf(0.0d);
         DEFAULT_LNG = valueOf;
         DEFAULT_LAT = valueOf;
@@ -288,24 +224,8 @@ public final class GroupInfo extends Message {
         DEFAULT_ISMEMBERGROUP = 0;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupInfo(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Long l = builder.groupId;
             if (l == null) {
@@ -555,9 +475,5 @@ public final class GroupInfo extends Message {
         this.isRecentlyReply = builder.isRecentlyReply;
         this.isMemberGroup = builder.isMemberGroup;
         this.authorNameShow = builder.authorNameShow;
-    }
-
-    public /* synthetic */ GroupInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

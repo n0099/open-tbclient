@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.qs8;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,7 +68,7 @@ public class lw6 {
                     for (xn xnVar : list2) {
                         for (xn xnVar2 : list) {
                             if (xnVar == xnVar2 && (xnVar2 instanceof ThreadData)) {
-                                qs8.c cVar = new qs8.c();
+                                rs8.c cVar = new rs8.c();
                                 ((ThreadData) xnVar2).getTid();
                                 arrayList.add(cVar);
                             }
@@ -80,7 +80,7 @@ public class lw6 {
                             ThreadData threadData2 = (ThreadData) xnVar3;
                             if (threadData2.showStatus == 1 && !TextUtils.isEmpty(threadData2.getTid())) {
                                 threadData2.showStatus = 2;
-                                qs8.c cVar2 = new qs8.c();
+                                rs8.c cVar2 = new rs8.c();
                                 threadData2.getTid();
                                 arrayList.add(cVar2);
                             }
@@ -108,7 +108,7 @@ public class lw6 {
         String b = wu4Var.b();
         String c = wu4Var.c();
         String i = wu4Var.i();
-        qs8.c("frs", "CLICK", b, c, i, "tieba.baidu.com/p/" + wu4Var.i(), str);
+        rs8.c("frs", "CLICK", b, c, i, "tieba.baidu.com/p/" + wu4Var.i(), str);
     }
 
     public static void d(FrsFragment frsFragment, FrsViewData frsViewData, ThreadData threadData) {

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz8;
+import com.baidu.tieba.cz8;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ShareGridLayout extends ViewGroup implements bz8 {
+public class ShareGridLayout extends ViewGroup implements cz8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,14 +28,14 @@ public class ShareGridLayout extends ViewGroup implements bz8 {
     public int d;
     public int e;
 
-    @Override // com.baidu.tieba.bz8
+    @Override // com.baidu.tieba.cz8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.bz8
+    @Override // com.baidu.tieba.cz8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -124,7 +124,7 @@ public class ShareGridLayout extends ViewGroup implements bz8 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.bz8
+    @Override // com.baidu.tieba.cz8
     public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
@@ -132,7 +132,7 @@ public class ShareGridLayout extends ViewGroup implements bz8 {
         }
     }
 
-    @Override // com.baidu.tieba.bz8
+    @Override // com.baidu.tieba.cz8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {

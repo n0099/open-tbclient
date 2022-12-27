@@ -174,19 +174,19 @@ public class ys6 {
         }
     }
 
-    public ArrayList<xn> c(boolean z, boolean z2, ArrayList<xn> arrayList, cs8 cs8Var, boolean z3, int i, List<AdMixFloor> list) {
+    public ArrayList<xn> c(boolean z, boolean z2, ArrayList<xn> arrayList, ds8 ds8Var, boolean z3, int i, List<AdMixFloor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, cs8Var, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) {
-            return d(z, z2, arrayList, cs8Var, false, z3, i, list);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, ds8Var, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) {
+            return d(z, z2, arrayList, ds8Var, false, z3, i, list);
         }
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList<xn> d(boolean z, boolean z2, ArrayList<xn> arrayList, cs8 cs8Var, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
+    public ArrayList<xn> d(boolean z, boolean z2, ArrayList<xn> arrayList, ds8 ds8Var, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, cs8Var, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, ds8Var, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
             if (this.d == null) {
                 return arrayList;
             }
@@ -194,7 +194,7 @@ public class ys6 {
             if (this.d.E0()) {
                 return this.c.I(z, D0, arrayList, z3, z4, i, list);
             }
-            return this.b.N(z, D0, z2, arrayList, cs8Var, list, i);
+            return this.b.N(z, D0, z2, arrayList, ds8Var, list, i);
         }
         return (ArrayList) invokeCommon.objValue;
     }
@@ -288,7 +288,7 @@ public class ys6 {
                             this.b.setSortType(this.d.l0());
                             long g = xg.g(str2, 0L);
                             if (this.d.o0() != null) {
-                                str3 = di8.e(this.d.o0().getThreadList(), false);
+                                str3 = ei8.e(this.d.o0().getThreadList(), false);
                             } else {
                                 str3 = "";
                             }

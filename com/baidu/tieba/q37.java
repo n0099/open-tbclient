@@ -168,41 +168,41 @@ public class q37 extends i37<yu4, AutoVideoCardViewHolder<ThreadData>> {
         this.f = new a(this);
     }
 
-    public final yf8 A(ThreadData threadData) {
+    public final zf8 A(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
             if (threadData != null) {
-                yf8 yf8Var = new yf8();
-                yf8Var.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
-                yf8Var.c = threadData.tid;
-                yf8Var.f = threadData.mRecomSource;
-                yf8Var.g = threadData.mRecomAbTag;
-                yf8Var.h = threadData.mRecomWeight;
-                yf8Var.i = "14";
-                yf8Var.q = String.valueOf(threadData.statFloor);
+                zf8 zf8Var = new zf8();
+                zf8Var.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
+                zf8Var.c = threadData.tid;
+                zf8Var.f = threadData.mRecomSource;
+                zf8Var.g = threadData.mRecomAbTag;
+                zf8Var.h = threadData.mRecomWeight;
+                zf8Var.i = "14";
+                zf8Var.q = String.valueOf(threadData.statFloor);
                 if (threadData.getThreadVideoChannelInfo() != null) {
-                    yf8Var.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
+                    zf8Var.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
                 }
                 if (threadData.getThreadData() != null) {
-                    yf8Var.d = String.valueOf(threadData.getThreadData().getFid());
-                    yf8Var.v = threadData.getThreadData().getNid();
+                    zf8Var.d = String.valueOf(threadData.getThreadData().getFid());
+                    zf8Var.v = threadData.getThreadData().getNid();
                     if (threadData.getThreadData().getThreadVideoInfo() != null) {
-                        yf8Var.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
-                        yf8Var.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
+                        zf8Var.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
+                        zf8Var.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
                     }
                 }
-                yf8Var.e = TbadkCoreApplication.getCurrentAccount();
+                zf8Var.e = TbadkCoreApplication.getCurrentAccount();
                 if (threadData.getThreadData() != null && threadData.getThreadData().getBaijiahaoData() != null) {
-                    yf8Var.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
-                    yf8Var.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
-                    return yf8Var;
+                    zf8Var.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
+                    zf8Var.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
+                    return zf8Var;
                 }
-                return yf8Var;
+                return zf8Var;
             }
             return null;
         }
-        return (yf8) invokeL.objValue;
+        return (zf8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -3,9 +3,9 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sx9;
 import com.baidu.tieba.tx9;
-import com.baidu.tieba.xx9;
+import com.baidu.tieba.ux9;
+import com.baidu.tieba.yx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ public final class x extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ xx9 b;
+    public final /* synthetic */ yx9 b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -33,12 +33,12 @@ public final class x extends com.google.a.b.a.a.a.e {
         }
     }
 
-    public x(xx9 xx9Var, AtomicBoolean atomicBoolean) {
+    public x(yx9 yx9Var, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xx9Var, atomicBoolean};
+            Object[] objArr = {yx9Var, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,7 +48,7 @@ public final class x extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.b = xx9Var;
+        this.b = yx9Var;
         this.a = atomicBoolean;
     }
 
@@ -68,13 +68,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            xx9 xx9Var = this.b;
-            sx9 sx9Var = xx9Var.c;
-            sx9.n(xx9Var.a, xx9Var.b);
+            yx9 yx9Var = this.b;
+            tx9 tx9Var = yx9Var.c;
+            tx9.n(yx9Var.a, yx9Var.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            xx9 xx9Var2 = this.b;
-            sx9 sx9Var2 = xx9Var2.c;
-            sx9.b(xx9Var2.a, bundle, xx9Var2.b);
+            yx9 yx9Var2 = this.b;
+            tx9 tx9Var2 = yx9Var2.c;
+            tx9.b(yx9Var2.a, bundle, yx9Var2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -92,11 +92,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.b);
                     return;
                 default:
-                    tx9 tx9Var = this.b.b;
+                    ux9 ux9Var = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    tx9Var.b(new FatalException(sb2.toString()));
+                    ux9Var.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

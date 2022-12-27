@@ -16,7 +16,7 @@ import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.mj5;
 import com.baidu.tieba.mk5;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.xk8;
+import com.baidu.tieba.yk8;
 import com.baidu.tieba.zc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class SelectPrivateMsgPageDispatcher implements xk8 {
+public class SelectPrivateMsgPageDispatcher implements yk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +135,7 @@ public class SelectPrivateMsgPageDispatcher implements xk8 {
         }
     }
 
-    @Override // com.baidu.tieba.xk8
+    @Override // com.baidu.tieba.yk8
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;

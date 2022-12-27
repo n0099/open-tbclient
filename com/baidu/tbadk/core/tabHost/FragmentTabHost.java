@@ -38,8 +38,8 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qa5;
-import com.baidu.tieba.uu8;
 import com.baidu.tieba.va5;
+import com.baidu.tieba.vu8;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -776,7 +776,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             CustomViewPager customViewPager2 = new CustomViewPager(this.a);
             this.i = customViewPager2;
             customViewPager2.setId(R.id.tab_content);
-            uu8.c(this.i, 2);
+            vu8.c(this.i, 2);
             e(i);
             addView(this.i);
             removeView(this.l);

@@ -282,7 +282,7 @@ public class ge6 extends ee5<ts4, zb6> {
         }
     }
 
-    @Override // com.baidu.tieba.ir8
+    @Override // com.baidu.tieba.jr8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

@@ -42,14 +42,14 @@ public class s26 {
 
         /* renamed from: com.baidu.tieba.s26$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0432a extends BdAsyncTask {
+        public class C0435a extends BdAsyncTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
             public final /* synthetic */ HttpResponsedMessage b;
             public final /* synthetic */ a c;
 
-            public C0432a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
+            public C0435a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class s26 {
                     this.a.b.a(alaGetEnterEffectResponsedMessage);
                     return;
                 }
-                this.a.c = new C0432a(this, effectList, httpResponsedMessage).execute(new Object[0]);
+                this.a.c = new C0435a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }

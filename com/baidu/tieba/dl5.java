@@ -88,9 +88,9 @@ public class dl5 {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                gu8.k().h(true, postWriteCallBackData, b, c, d);
+                hu8.k().h(true, postWriteCallBackData, b, c, d);
             } else {
-                gu8.k().h(false, a, null, c, d);
+                hu8.k().h(false, a, null, c, d);
             }
             a = null;
             b = null;

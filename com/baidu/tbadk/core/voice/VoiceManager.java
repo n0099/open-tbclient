@@ -34,7 +34,7 @@ import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aj;
 import com.baidu.tieba.ch;
-import com.baidu.tieba.cu8;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.ec5;
 import com.baidu.tieba.jj;
 import com.baidu.tieba.lj;
@@ -90,7 +90,7 @@ public class VoiceManager extends BroadcastReceiver {
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public k mPlayCall;
-    public CustomResponsedMessage<cu8> mRecorderManagerRespMsg;
+    public CustomResponsedMessage<du8> mRecorderManagerRespMsg;
     public sg<z05> mResourceCall;
     public l mSensorListener;
     public final BroadcastReceiver mVoicePlayerReceiver;
@@ -909,7 +909,7 @@ public class VoiceManager extends BroadcastReceiver {
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = !isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, cu8.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, du8.class);
         this.mSensorListener = new l(this, null);
     }
 
@@ -1279,19 +1279,19 @@ public class VoiceManager extends BroadcastReceiver {
         return (VoiceData.VoiceModel) invokeV.objValue;
     }
 
-    public cu8 getRecorderManager() {
+    public du8 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CustomResponsedMessage<cu8> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<du8> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                cu8 data = this.mRecorderManagerRespMsg.getData();
+                du8 data = this.mRecorderManagerRespMsg.getData();
                 data.a(this.context);
                 return data;
             }
             return null;
         }
-        return (cu8) invokeV.objValue;
+        return (du8) invokeV.objValue;
     }
 
     public boolean isPlaying() {

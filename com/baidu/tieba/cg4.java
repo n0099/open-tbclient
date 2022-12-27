@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class cg4 {
     public static /* synthetic */ Interceptable $ic;
     public static cg4 d;
@@ -22,7 +22,7 @@ public class cg4 {
     public String b;
     public String c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends ok4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

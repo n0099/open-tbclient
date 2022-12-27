@@ -25,7 +25,7 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.ua5;
@@ -575,7 +575,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && this.k != null) {
             String dynamicTextColor = getDynamicTextColor();
             if (StringUtils.isNotNull(dynamicTextColor)) {
-                this.k.setTextColor(qq8.f(dynamicTextColor));
+                this.k.setTextColor(rq8.f(dynamicTextColor));
             }
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.k.getLayoutParams();
             marginLayoutParams.topMargin = -yi.g(getContext(), R.dimen.L_X04);

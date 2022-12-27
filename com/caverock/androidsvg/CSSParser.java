@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.rp9;
+import com.baidu.tieba.sp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            rp9 rp9Var;
+            sp9 sp9Var;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        rp9 c = rp9.c(this.a, this.b, this.c, false);
+                        sp9 c = sp9.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            rp9Var = c;
+                            sp9Var = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new rp9(1L, this.b);
+                                c = new sp9(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                rp9Var = rp9.c(this.a, this.b, this.c, false);
-                                if (rp9Var != null) {
-                                    this.b = rp9Var.a();
+                                sp9Var = sp9.c(this.a, this.b, this.c, false);
+                                if (sp9Var != null) {
+                                    this.b = sp9Var.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                rp9Var = null;
+                                sp9Var = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (rp9Var != null) {
-                            i4 = i * rp9Var.d();
+                        if (sp9Var != null) {
+                            i4 = i * sp9Var.d();
                         }
                         aVar = new a(d, i4);
                     }

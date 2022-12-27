@@ -83,16 +83,16 @@ public class jy6 {
         c(vipAdFreeGuideLayout, str, str2, str3);
     }
 
-    public static void e(js8 js8Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
+    public static void e(ks8 ks8Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
         int f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{js8Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{ks8Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
             VipAdFreeGuideLayout vipAdFreeGuideLayout = funAdNativeViewHolder.d().getVipAdFreeGuideLayout();
-            if (js8Var != null && vipAdFreeGuideLayout != null) {
+            if (ks8Var != null && vipAdFreeGuideLayout != null) {
                 if ("personalize".equals(str2)) {
-                    f = pr5.k().j(js8Var.g());
+                    f = pr5.k().j(ks8Var.g());
                 } else {
-                    f = js8Var.f();
+                    f = ks8Var.f();
                 }
                 if (f == 1) {
                     vipAdFreeGuideLayout.setVisibility(8);
@@ -102,16 +102,16 @@ public class jy6 {
                     d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
                     pr5.k().c();
                     if ("personalize".equals(str2)) {
-                        pr5.k().p(js8Var.g(), 2);
+                        pr5.k().p(ks8Var.g(), 2);
                     } else {
-                        js8Var.q(2);
+                        ks8Var.q(2);
                     }
                 } else {
                     vipAdFreeGuideLayout.setVisibility(8);
                     if ("personalize".equals(str2)) {
-                        pr5.k().p(js8Var.g(), 1);
+                        pr5.k().p(ks8Var.g(), 1);
                     } else {
-                        js8Var.q(1);
+                        ks8Var.q(1);
                     }
                 }
             }

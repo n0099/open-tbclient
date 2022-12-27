@@ -34,7 +34,7 @@ public class VideoDecoderWrapper {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new VideoDecoder.Callback() { // from class: com.baidu.tieba.j2a
+            return new VideoDecoder.Callback() { // from class: com.baidu.tieba.k2a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

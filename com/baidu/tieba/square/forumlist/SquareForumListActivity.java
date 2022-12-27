@@ -32,7 +32,7 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az4;
 import com.baidu.tieba.bz4;
-import com.baidu.tieba.op8;
+import com.baidu.tieba.pp8;
 import com.baidu.tieba.sb;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.yi;
@@ -63,7 +63,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
     public boolean mHasMore;
     public boolean mIsLoading;
     public CustomMessageListener mLikeForumListener;
-    public op8 mListAdapter;
+    public pp8 mListAdapter;
     public final List<ForumSpaceForumInfo> mListData;
     public View mListFooter;
     public NavigationBar mNavigationBar;
@@ -449,9 +449,9 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             this.mListFooter.setOnClickListener(new g(this));
             this.mForumListView.addFooterView(this.mListFooter);
             this.mListFooter.setVisibility(8);
-            op8 op8Var = new op8(getPageContext(), this.mPageType);
-            this.mListAdapter = op8Var;
-            this.mForumListView.setAdapter((ListAdapter) op8Var);
+            pp8 pp8Var = new pp8(getPageContext(), this.mPageType);
+            this.mListAdapter = pp8Var;
+            this.mForumListView.setAdapter((ListAdapter) pp8Var);
         }
     }
 

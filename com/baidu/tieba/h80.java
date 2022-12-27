@@ -166,7 +166,7 @@ public final class h80 {
                                 copyOnWriteArrayList.add(g(str, new JSONObject(str2)));
                             }
                         }
-                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, m90.e(context))).setSdkName("lcp").setSdkVersion(2300016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
+                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, m90.e(context))).setSdkName("lcp").setSdkVersion(2310016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

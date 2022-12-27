@@ -24,7 +24,7 @@ import com.baidu.tieba.ra5;
 import com.baidu.tieba.sa5;
 import com.baidu.tieba.ta5;
 import com.baidu.tieba.xa5;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,7 +135,7 @@ public class ImMessageCenterDelegateStatic extends qa5 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return yk8.a(tbPageContext, strArr);
+                return zk8.a(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }

@@ -73,7 +73,7 @@ public class vx6 {
 
         void n(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar);
 
-        u09 o(Object obj);
+        v09 o(Object obj);
     }
 
     /* loaded from: classes6.dex */
@@ -639,7 +639,7 @@ public class vx6 {
         return invokeL.booleanValue;
     }
 
-    public u09 I(Object obj) {
+    public v09 I(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
@@ -649,7 +649,7 @@ public class vx6 {
             }
             return fVar.o(obj);
         }
-        return (u09) invokeL.objValue;
+        return (v09) invokeL.objValue;
     }
 
     public void c(String str) {

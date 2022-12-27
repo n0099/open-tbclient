@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
-import com.baidu.tieba.be9;
+import com.baidu.tieba.ce9;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.sb;
@@ -47,11 +47,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0495a implements Runnable {
+        public class RunnableC0499a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0495a(a aVar) {
+            public RunnableC0499a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class PushStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
                 return;
             }
-            new Thread(new RunnableC0495a(this)).start();
+            new Thread(new RunnableC0499a(this)).start();
         }
     }
 
@@ -542,7 +542,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, be9.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, ce9.a(context, Constants.API_KEY));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
         }

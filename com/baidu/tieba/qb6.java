@@ -44,12 +44,12 @@ public class qb6 {
 
         /* renamed from: com.baidu.tieba.qb6$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0418a implements b75.a {
+        public class C0420a implements b75.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0418a(a aVar) {
+            public C0420a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class qb6 {
             }
             this.c = qb6Var;
             this.a = new ArrayList<>();
-            this.b = new C0418a(this);
+            this.b = new C0420a(this);
             setPriority(4);
             setParallel(qb6.d);
         }

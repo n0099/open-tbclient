@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.m89;
+import com.baidu.tieba.n89;
 import com.baidu.tieba.uy4;
 import com.baidu.tieba.wy4;
 import com.baidu.tieba.xg;
@@ -33,7 +33,7 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public m89 c;
+    public n89 c;
     public BaseWebView d;
     public View e;
     public uy4 f;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(m89 m89Var) {
+    public void setPresenter(n89 n89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, m89Var) == null) {
-            this.c = m89Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, n89Var) == null) {
+            this.c = n89Var;
             this.i = false;
         }
     }

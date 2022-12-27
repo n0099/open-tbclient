@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ai6;
-import com.baidu.tieba.lr8;
+import com.baidu.tieba.mr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public lr8 mUserInfo;
+    public mr8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberSocketResponseMessage() {
@@ -90,9 +90,9 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 DataRes dataRes = getMemberInfoResIdl.data;
                 if (dataRes != null) {
                     if (dataRes.forum_member_info != null) {
-                        lr8 lr8Var = new lr8();
-                        this.mUserInfo = lr8Var;
-                        lr8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        mr8 mr8Var = new mr8();
+                        this.mUserInfo = mr8Var;
+                        mr8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.t(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.y(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -159,13 +159,13 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public lr8 getUserInfo() {
+    public mr8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mUserInfo;
         }
-        return (lr8) invokeV.objValue;
+        return (mr8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

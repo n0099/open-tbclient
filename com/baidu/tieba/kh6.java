@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.RemoveFansController;
 import com.baidu.tieba.jh6;
-import com.baidu.tieba.m49;
+import com.baidu.tieba.n49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,8 +18,8 @@ public class kh6 {
     public TbPageContext a;
     public RemoveFansController b;
     public jh6 c;
-    public d98 d;
-    public m49 e;
+    public e98 d;
+    public n49 e;
     public e f;
 
     /* loaded from: classes5.dex */
@@ -96,7 +96,7 @@ public class kh6 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements m49.d {
+    public class c implements n49.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kh6 a;
@@ -119,7 +119,7 @@ public class kh6 {
             this.a = kh6Var;
         }
 
-        @Override // com.baidu.tieba.m49.d
+        @Override // com.baidu.tieba.n49.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -133,7 +133,7 @@ public class kh6 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements m49.c {
+    public class d implements n49.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kh6 a;
@@ -156,7 +156,7 @@ public class kh6 {
             this.a = kh6Var;
         }
 
-        @Override // com.baidu.tieba.m49.c
+        @Override // com.baidu.tieba.n49.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
@@ -205,10 +205,10 @@ public class kh6 {
     }
 
     public void d() {
-        m49 m49Var;
+        n49 n49Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (m49Var = this.e) != null) {
-            m49Var.e();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (n49Var = this.e) != null) {
+            n49Var.e();
         }
     }
 
@@ -223,18 +223,18 @@ public class kh6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.d == null) {
-                m49 m49Var = new m49(this.a.getContext());
-                this.e = m49Var;
-                m49Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f044c));
+                n49 n49Var = new n49(this.a.getContext());
+                this.e = n49Var;
+                n49Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f044c));
                 ArrayList arrayList = new ArrayList();
-                m49.b bVar = new m49.b(this.a.getString(R.string.obfuscated_res_0x7f0f0446), this.e);
+                n49.b bVar = new n49.b(this.a.getString(R.string.obfuscated_res_0x7f0f0446), this.e);
                 bVar.h(new c(this));
                 arrayList.add(bVar);
                 this.e.g(new d(this));
                 this.e.f(arrayList);
-                d98 d98Var = new d98(this.a.getPageActivity(), this.e.b());
-                this.d = d98Var;
-                d98Var.a(0.7f);
+                e98 e98Var = new e98(this.a.getPageActivity(), this.e.b());
+                this.d = e98Var;
+                e98Var.a(0.7f);
             }
             this.d.show();
         }

@@ -1,36 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.content.res.Configuration;
 /* loaded from: classes6.dex */
 public interface ro8 {
-    void a(boolean z);
+    void a();
 
-    void b(int i);
+    boolean b();
 
-    void c();
-
-    boolean d();
-
-    void e();
-
-    boolean f();
-
-    int g();
-
-    @NonNull
-    BaseFragmentActivity getActivity();
-
-    int getAdSource();
-
-    @NonNull
-    ViewGroup getRootView();
-
-    BdUniqueId getUniqueId();
-
-    boolean h();
-
-    long i();
+    void onConfigurationChanged(Configuration configuration);
 }

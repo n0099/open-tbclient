@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -100,7 +100,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             n = 0.3f;
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_virtual_image_tip);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, qq8.a(qq8.f(str), n));
+                DrawableCompat.setTint(drawable, rq8.a(rq8.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(j, 0, k, 0);
             }
@@ -286,7 +286,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             n = 0.8f;
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_virtual_image_tip_right);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, qq8.a(qq8.f(str), n));
+                DrawableCompat.setTint(drawable, rq8.a(rq8.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X009), 0);
             }

@@ -25,7 +25,7 @@ import com.baidu.tieba.lv4;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.vr8;
+import com.baidu.tieba.wr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,12 +39,12 @@ public class uw6 {
     public FrsFragment a;
     public List<TBSpecificationBtn> b;
     public LikeModel c;
-    public vr8 d;
+    public wr8 d;
     public boolean e;
     public AntiHelper.k f;
     public CustomMessageListener g;
     public q9 h;
-    public vr8.a i;
+    public wr8.a i;
 
     /* loaded from: classes6.dex */
     public class a implements AntiHelper.k {
@@ -115,7 +115,7 @@ public class uw6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lr8)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof mr8)) {
                 this.a.f(customResponsedMessage.getData());
             }
         }
@@ -156,12 +156,12 @@ public class uw6 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements vr8.a {
+    public class d implements wr8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uw6 a;
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -186,7 +186,7 @@ public class uw6 {
             this.a = uw6Var;
         }
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void b(String str, long j) {
             FrsViewData S0;
             Interceptable interceptable = $ic;
@@ -205,10 +205,10 @@ public class uw6 {
                     this.a.a.e5(Boolean.TRUE);
                     this.a.l(false, id);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2003004, id));
-                    lr8 lr8Var = new lr8();
-                    lr8Var.x(0);
-                    lr8Var.u(id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, lr8Var));
+                    mr8 mr8Var = new mr8();
+                    mr8Var.x(0);
+                    mr8Var.u(id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, mr8Var));
                 }
             }
         }
@@ -378,36 +378,36 @@ public class uw6 {
             }
             String name = S0.getForum().getName();
             String id = S0.getForum().getId();
-            lr8 lr8Var = null;
-            if (obj instanceof lr8) {
-                lr8Var = (lr8) obj;
+            mr8 mr8Var = null;
+            if (obj instanceof mr8) {
+                mr8Var = (mr8) obj;
             }
             boolean z2 = false;
-            if (lr8Var != null && this.c.getErrorCode() == 0) {
+            if (mr8Var != null && this.c.getErrorCode() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (lr8Var.d() == 3250013) {
-                BdToast b2 = BdToast.b(TbadkCoreApplication.getInst().getContext(), lr8Var.e());
+            if (mr8Var.d() == 3250013) {
+                BdToast b2 = BdToast.b(TbadkCoreApplication.getInst().getContext(), mr8Var.e());
                 b2.f(BdToast.ToastIcon.FAILURE);
                 b2.c(3000);
                 b2.i();
             } else {
                 z2 = z;
             }
-            if (lr8Var != null && z2) {
+            if (mr8Var != null && z2) {
                 ww6 q0 = this.a.q0();
                 if (q0 != null) {
                     q0.c0(name);
                 }
-                lr8Var.x(1);
-                S0.updateLikeData(lr8Var);
-                S0.setLikeFeedForumDataList(lr8Var.f());
+                mr8Var.x(1);
+                S0.updateLikeData(mr8Var);
+                S0.setLikeFeedForumDataList(mr8Var.f());
                 if (q0 != null) {
                     q0.k0(S0, this.e);
-                    if (!ListUtils.isEmpty(lr8Var.k())) {
-                        q0.w0(lr8Var.k());
+                    if (!ListUtils.isEmpty(mr8Var.k())) {
+                        q0.w0(mr8Var.k());
                     }
                 }
                 this.e = true;
@@ -416,7 +416,7 @@ public class uw6 {
                     ((FrsActivity) this.a.getActivity()).P0().d(id);
                 }
                 l(true, id);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, lr8Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, mr8Var));
                 e();
             } else if (this.c.getErrorCode() == 22) {
                 FrsFragment frsFragment3 = this.a;
@@ -474,9 +474,9 @@ public class uw6 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            vr8 vr8Var = new vr8();
-            this.d = vr8Var;
-            vr8Var.a("from_frs");
+            wr8 wr8Var = new wr8();
+            this.d = wr8Var;
+            wr8Var.a("from_frs");
             this.d.b(this.i);
         }
     }

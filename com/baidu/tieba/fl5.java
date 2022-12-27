@@ -39,18 +39,18 @@ public class fl5 {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements zs8 {
+    public class a implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xs8 a;
+        public final /* synthetic */ ys8 a;
         public final /* synthetic */ WebView b;
 
-        public a(fl5 fl5Var, xs8 xs8Var, WebView webView) {
+        public a(fl5 fl5Var, ys8 ys8Var, WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fl5Var, xs8Var, webView};
+                Object[] objArr = {fl5Var, ys8Var, webView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,18 +60,18 @@ public class fl5 {
                     return;
                 }
             }
-            this.a = xs8Var;
+            this.a = ys8Var;
             this.b = webView;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                xs8 xs8Var = this.a;
-                if (xs8Var != null) {
-                    return xs8Var.b(this.b, str, jsPromptResult);
+                ys8 ys8Var = this.a;
+                if (ys8Var != null) {
+                    return ys8Var.b(this.b, str, jsPromptResult);
                 }
                 return false;
             }
@@ -122,10 +122,10 @@ public class fl5 {
             BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
             bridgeWebView.setBackgroundColor(R.color.transparent);
             gl5.b(bridgeWebView);
-            xs8 xs8Var = new xs8();
-            xs8Var.a(new CommonTbJsBridge(context, bridgeWebView));
+            ys8 ys8Var = new ys8();
+            ys8Var.a(new CommonTbJsBridge(context, bridgeWebView));
             zp4 zp4Var = new zp4();
-            zp4Var.b(new a(this, xs8Var, bridgeWebView));
+            zp4Var.b(new a(this, ys8Var, bridgeWebView));
             bridgeWebView.setWebChromeClient(zp4Var);
             el5Var.a = bridgeWebView;
             el5Var.b = str;

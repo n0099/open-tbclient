@@ -3,17 +3,17 @@ package rx.internal.util;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.b3a;
-import com.baidu.tieba.d3a;
+import com.baidu.tieba.c3a;
 import com.baidu.tieba.e3a;
-import com.baidu.tieba.f7a;
-import com.baidu.tieba.h3a;
+import com.baidu.tieba.f3a;
+import com.baidu.tieba.g7a;
 import com.baidu.tieba.i3a;
-import com.baidu.tieba.i7a;
-import com.baidu.tieba.n3a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.j7a;
 import com.baidu.tieba.o3a;
-import com.baidu.tieba.t3a;
-import com.baidu.tieba.w4a;
+import com.baidu.tieba.p3a;
+import com.baidu.tieba.u3a;
+import com.baidu.tieba.x4a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,31 +24,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes9.dex */
-public final class ScalarSynchronousObservable<T> extends b3a<T> {
+public final class ScalarSynchronousObservable<T> extends c3a<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
     public final T b;
 
     /* loaded from: classes9.dex */
-    public class b implements t3a<o3a, i3a> {
+    public class b implements u3a<p3a, j3a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e3a a;
+        public final /* synthetic */ f3a a;
 
         /* loaded from: classes9.dex */
-        public class a implements o3a {
+        public class a implements p3a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ o3a a;
-            public final /* synthetic */ e3a.a b;
+            public final /* synthetic */ p3a a;
+            public final /* synthetic */ f3a.a b;
 
-            public a(b bVar, o3a o3aVar, e3a.a aVar) {
+            public a(b bVar, p3a p3aVar, f3a.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, o3aVar, aVar};
+                    Object[] objArr = {bVar, p3aVar, aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -58,11 +58,11 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                         return;
                     }
                 }
-                this.a = o3aVar;
+                this.a = p3aVar;
                 this.b = aVar;
             }
 
-            @Override // com.baidu.tieba.o3a
+            @Override // com.baidu.tieba.p3a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -75,12 +75,12 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
             }
         }
 
-        public b(ScalarSynchronousObservable scalarSynchronousObservable, e3a e3aVar) {
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, f3a f3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scalarSynchronousObservable, e3aVar};
+                Object[] objArr = {scalarSynchronousObservable, f3aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,38 +90,38 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                     return;
                 }
             }
-            this.a = e3aVar;
+            this.a = f3aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t3a
-        public i3a call(o3a o3aVar) {
+        @Override // com.baidu.tieba.u3a
+        public j3a call(p3a p3aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o3aVar)) == null) {
-                e3a.a createWorker = this.a.createWorker();
-                createWorker.b(new a(this, o3aVar, createWorker));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p3aVar)) == null) {
+                f3a.a createWorker = this.a.createWorker();
+                createWorker.b(new a(this, p3aVar, createWorker));
                 return createWorker;
             }
-            return (i3a) invokeL.objValue;
+            return (j3a) invokeL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements d3a, o3a {
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements e3a, p3a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2466317989629281651L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final h3a<? super T> actual;
-        public final t3a<o3a, i3a> onSchedule;
+        public final i3a<? super T> actual;
+        public final u3a<p3a, j3a> onSchedule;
         public final T value;
 
-        public ScalarAsyncProducer(h3a<? super T> h3aVar, T t, t3a<o3a, i3a> t3aVar) {
+        public ScalarAsyncProducer(i3a<? super T> i3aVar, T t, u3a<p3a, j3a> u3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h3aVar, t, t3aVar};
+                Object[] objArr = {i3aVar, t, u3aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -131,33 +131,33 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                     return;
                 }
             }
-            this.actual = h3aVar;
+            this.actual = i3aVar;
             this.value = t;
-            this.onSchedule = t3aVar;
+            this.onSchedule = u3aVar;
         }
 
-        @Override // com.baidu.tieba.o3a
+        @Override // com.baidu.tieba.p3a
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h3a<? super T> h3aVar = this.actual;
-                if (h3aVar.isUnsubscribed()) {
+                i3a<? super T> i3aVar = this.actual;
+                if (i3aVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.value;
                 try {
-                    h3aVar.onNext(obj);
-                    if (h3aVar.isUnsubscribed()) {
+                    i3aVar.onNext(obj);
+                    if (i3aVar.isUnsubscribed()) {
                         return;
                     }
-                    h3aVar.onCompleted();
+                    i3aVar.onCompleted();
                 } catch (Throwable th) {
-                    n3a.g(th, h3aVar, obj);
+                    o3a.g(th, i3aVar, obj);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.e3a
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -185,17 +185,17 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
     }
 
     /* loaded from: classes9.dex */
-    public class a implements t3a<o3a, i3a> {
+    public class a implements u3a<p3a, j3a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w4a a;
+        public final /* synthetic */ x4a a;
 
-        public a(ScalarSynchronousObservable scalarSynchronousObservable, w4a w4aVar) {
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, x4a x4aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scalarSynchronousObservable, w4aVar};
+                Object[] objArr = {scalarSynchronousObservable, x4aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -205,34 +205,34 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                     return;
                 }
             }
-            this.a = w4aVar;
+            this.a = x4aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t3a
-        public i3a call(o3a o3aVar) {
+        @Override // com.baidu.tieba.u3a
+        public j3a call(p3a p3aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o3aVar)) == null) {
-                return this.a.a(o3aVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p3aVar)) == null) {
+                return this.a.a(p3aVar);
             }
-            return (i3a) invokeL.objValue;
+            return (j3a) invokeL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements b3a.a<R> {
+    public class c implements c3a.a<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t3a a;
+        public final /* synthetic */ u3a a;
         public final /* synthetic */ ScalarSynchronousObservable b;
 
-        public c(ScalarSynchronousObservable scalarSynchronousObservable, t3a t3aVar) {
+        public c(ScalarSynchronousObservable scalarSynchronousObservable, u3a u3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scalarSynchronousObservable, t3aVar};
+                Object[] objArr = {scalarSynchronousObservable, u3aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -243,26 +243,26 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                 }
             }
             this.b = scalarSynchronousObservable;
-            this.a = t3aVar;
+            this.a = u3aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
-        public void call(h3a<? super R> h3aVar) {
+        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
+        public void call(i3a<? super R> i3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h3aVar) == null) {
-                b3a b3aVar = (b3a) this.a.call(this.b.b);
-                if (b3aVar instanceof ScalarSynchronousObservable) {
-                    h3aVar.f(ScalarSynchronousObservable.D(h3aVar, ((ScalarSynchronousObservable) b3aVar).b));
+            if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
+                c3a c3aVar = (c3a) this.a.call(this.b.b);
+                if (c3aVar instanceof ScalarSynchronousObservable) {
+                    i3aVar.f(ScalarSynchronousObservable.D(i3aVar, ((ScalarSynchronousObservable) c3aVar).b));
                 } else {
-                    b3aVar.B(f7a.c(h3aVar));
+                    c3aVar.B(g7a.c(i3aVar));
                 }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class d<T> implements b3a.a<T> {
+    public static final class d<T> implements c3a.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final T a;
@@ -285,32 +285,32 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
             this.a = t;
         }
 
-        public void call(h3a<? super T> h3aVar) {
+        public void call(i3a<? super T> i3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h3aVar) == null) {
-                h3aVar.f(ScalarSynchronousObservable.D(h3aVar, this.a));
+            if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
+                i3aVar.f(ScalarSynchronousObservable.D(i3aVar, this.a));
             }
         }
 
-        @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((h3a) ((h3a) obj));
+            call((i3a) ((i3a) obj));
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class e<T> implements b3a.a<T> {
+    public static final class e<T> implements c3a.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final T a;
-        public final t3a<o3a, i3a> b;
+        public final u3a<p3a, j3a> b;
 
-        public e(T t, t3a<o3a, i3a> t3aVar) {
+        public e(T t, u3a<p3a, j3a> u3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, t3aVar};
+                Object[] objArr = {t, u3aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -321,36 +321,36 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                 }
             }
             this.a = t;
-            this.b = t3aVar;
+            this.b = u3aVar;
         }
 
-        public void call(h3a<? super T> h3aVar) {
+        public void call(i3a<? super T> i3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h3aVar) == null) {
-                h3aVar.f(new ScalarAsyncProducer(h3aVar, this.a, this.b));
+            if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
+                i3aVar.f(new ScalarAsyncProducer(i3aVar, this.a, this.b));
             }
         }
 
-        @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((h3a) ((h3a) obj));
+            call((i3a) ((i3a) obj));
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class f<T> implements d3a {
+    public static final class f<T> implements e3a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final h3a<? super T> a;
+        public final i3a<? super T> a;
         public final T b;
         public boolean c;
 
-        public f(h3a<? super T> h3aVar, T t) {
+        public f(i3a<? super T> i3aVar, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h3aVar, t};
+                Object[] objArr = {i3aVar, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -360,11 +360,11 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                     return;
                 }
             }
-            this.a = h3aVar;
+            this.a = i3aVar;
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.e3a
         public void request(long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || this.c) {
@@ -376,20 +376,20 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
                     return;
                 }
                 this.c = true;
-                h3a<? super T> h3aVar = this.a;
-                if (h3aVar.isUnsubscribed()) {
+                i3a<? super T> i3aVar = this.a;
+                if (i3aVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.b;
                 try {
-                    h3aVar.onNext(obj);
-                    if (h3aVar.isUnsubscribed()) {
+                    i3aVar.onNext(obj);
+                    if (i3aVar.isUnsubscribed()) {
                         return;
                     }
-                    h3aVar.onCompleted();
+                    i3aVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    n3a.g(th, h3aVar, obj);
+                    o3a.g(th, i3aVar, obj);
                     return;
                 }
             }
@@ -424,7 +424,7 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScalarSynchronousObservable(T t) {
-        super(i7a.h(new d(t)));
+        super(j7a.h(new d(t)));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -434,7 +434,7 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b3a.a) newInitContext.callArgs[0]);
+                super((c3a.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -452,39 +452,39 @@ public final class ScalarSynchronousObservable<T> extends b3a<T> {
         return (ScalarSynchronousObservable) invokeL.objValue;
     }
 
-    public <R> b3a<R> F(t3a<? super T, ? extends b3a<? extends R>> t3aVar) {
+    public <R> c3a<R> F(u3a<? super T, ? extends c3a<? extends R>> u3aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t3aVar)) == null) {
-            return b3a.a(new c(this, t3aVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u3aVar)) == null) {
+            return c3a.a(new c(this, u3aVar));
         }
-        return (b3a) invokeL.objValue;
+        return (c3a) invokeL.objValue;
     }
 
-    public b3a<T> G(e3a e3aVar) {
+    public c3a<T> G(f3a f3aVar) {
         InterceptResult invokeL;
-        t3a bVar;
+        u3a bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e3aVar)) == null) {
-            if (e3aVar instanceof w4a) {
-                bVar = new a(this, (w4a) e3aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f3aVar)) == null) {
+            if (f3aVar instanceof x4a) {
+                bVar = new a(this, (x4a) f3aVar);
             } else {
-                bVar = new b(this, e3aVar);
+                bVar = new b(this, f3aVar);
             }
-            return b3a.a(new e(this.b, bVar));
+            return c3a.a(new e(this.b, bVar));
         }
-        return (b3a) invokeL.objValue;
+        return (c3a) invokeL.objValue;
     }
 
-    public static <T> d3a D(h3a<? super T> h3aVar, T t) {
+    public static <T> e3a D(i3a<? super T> i3aVar, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, h3aVar, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, i3aVar, t)) == null) {
             if (c) {
-                return new SingleProducer(h3aVar, t);
+                return new SingleProducer(i3aVar, t);
             }
-            return new f(h3aVar, t);
+            return new f(i3aVar, t);
         }
-        return (d3a) invokeLL.objValue;
+        return (e3a) invokeLL.objValue;
     }
 }

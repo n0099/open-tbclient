@@ -34,7 +34,6 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a56;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.gu8;
 import com.baidu.tieba.hl6;
 import com.baidu.tieba.ho4;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
@@ -43,6 +42,7 @@ import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.channel.model.ChannelTabNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.model.TabFeedNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedView;
+import com.baidu.tieba.hu8;
 import com.baidu.tieba.i17;
 import com.baidu.tieba.o67;
 import com.baidu.tieba.q67;
@@ -210,7 +210,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements s67, hl6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = xg.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = xg.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = xg.g(gu8.k().l(), 0L);
+                long g3 = xg.g(hu8.k().l(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     ah.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 }
@@ -1078,8 +1078,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements s67, hl6 {
                 if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                     builder.author = builder2.build(true);
                 }
-                builder.fname = gu8.k().m();
-                builder.fid = Long.valueOf(xg.g(gu8.k().m(), 0L));
+                builder.fname = hu8.k().m();
+                builder.fid = Long.valueOf(xg.g(hu8.k().m(), 0L));
                 st4Var.parserProtobuf(builder.build(true));
                 this.e.m(st4Var);
             }

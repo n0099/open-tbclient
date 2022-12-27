@@ -1,6 +1,6 @@
 package rx.schedulers;
 
-import com.baidu.tieba.e3a;
+import com.baidu.tieba.f3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes9.dex */
-public final class ImmediateScheduler extends e3a {
+public final class ImmediateScheduler extends f3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.e3a
-    public e3a.a createWorker() {
+    @Override // com.baidu.tieba.f3a
+    public f3a.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (e3a.a) invokeV.objValue;
+        return (f3a.a) invokeV.objValue;
     }
 
     public ImmediateScheduler() {

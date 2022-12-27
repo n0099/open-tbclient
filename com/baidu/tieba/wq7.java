@@ -1,467 +1,83 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
+import android.util.Log;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.Button;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.rtc.RTCCommStatesReport;
-import com.baidu.rtc.RTCLoadManager;
-import com.baidu.rtc.player.BRTCPlayer;
-import com.baidu.rtc.player.BRTCPlayerEvents;
-import com.baidu.rtc.player.PlayTimeStatistician;
-import com.baidu.searchbox.live.interfaces.player.BuildParams;
-import com.baidu.searchbox.live.interfaces.player.IPlayerViewable;
 import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
-import com.baidu.searchbox.player.callback.UniversalPlayerCallbackManager;
-import com.baidu.searchbox.player.event.VideoEvent;
-import com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.medialive.player.bdrtc.TbBRTCPlayerView;
+import com.baidu.searchbox.player.constants.PlayerConstant;
+import com.baidu.searchbox.player.context.IPlayerContext;
+import com.baidu.searchbox.player.helper.OrientationHelper;
+import com.baidu.searchbox.player.helper.VideoSystemHelper;
+import com.baidu.searchbox.player.kernel.AbsVideoKernel;
+import com.baidu.searchbox.player.layer.BaseKernelLayer;
+import com.baidu.searchbox.player.utils.BdActivityUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wq7 extends vq7 implements LivePlayer, IPlayerViewable {
+public class wq7 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbBRTCPlayerView o;
-    public boolean p;
-    public BuildParams q;
-    public RTCCommStatesReport r;
-    public UniversalPlayerCallbackManager s;
-    public String t;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public HashMap<Class, IPlayerContext> d;
+    public IVideoPlayerCallback e;
+    public List<LivePlayer.OnInfoListener> f;
+    public List<LivePlayer.OnProgressChangeListener> g;
+    public String h;
+    public ViewGroup i;
+    public OrientationHelper j;
+    public boolean k;
+    public BaseKernelLayer l;
+    public Button m;
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948279308, "Lcom/baidu/tieba/wq7;")) == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void imCloseTimeStatistics() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isComplete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isIdle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isReverseLandscape() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isStop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isUseCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isUseLivePreStartPlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void mute(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void prePlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void prepare() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void removePlayerListener(@Nullable IVideoPlayerCallback iVideoPlayerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, iVideoPlayerCallback) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void requestPlayerAudioFocus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void resetDefaultSwitchHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void saveProgressToDb() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void seekTo(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void seekTo(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048615, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void sendEvent(VideoEvent videoEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, videoEvent) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void setAcceptVolumeChange(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void setExtInfoStatistics(@Nullable HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, hashMap) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void setOnAudioFocusChangedListener(LivePlayer.OnAudioFocusChangedListener onAudioFocusChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, onAudioFocusChangedListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void setSpeed(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048621, this, f) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void setStyleSwitchHelper(IPlayerStyleSwitchHelper iPlayerStyleSwitchHelper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, iPlayerStyleSwitchHelper) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void setUseLivePreStartPlayerState(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void setUserAgent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void setVideoRotation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void setVideoScalingMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void stopTimeStatistics() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void updateVideoInfo(@Nullable HashMap<Integer, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, hashMap) == null) {
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948279308, "Lcom/baidu/tieba/wq7;");
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements BRTCPlayerEvents {
+    public class a implements OrientationHelper.IOrientationChange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wq7 a;
+        public Activity a;
+        public boolean b;
+        public boolean c;
+        public long d;
+        public final /* synthetic */ wq7 e;
 
-        /* renamed from: com.baidu.tieba.wq7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0474a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ a c;
-
-            public RunnableC0474a(a aVar, int i, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = i;
-                this.b = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                IVideoPlayerCallback iVideoPlayerCallback;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iVideoPlayerCallback = this.c.a.e) != null) {
-                    int i = this.a;
-                    iVideoPlayerCallback.onError(i, 0, this.b + this.c.a.t);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                IVideoPlayerCallback iVideoPlayerCallback;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iVideoPlayerCallback = this.a.a.e) != null) {
-                    iVideoPlayerCallback.onInfo(904, 0);
-                    this.a.a.e.onInfo(3, 0);
-                    this.a.a.e.onInfo(910, 0);
-                    this.a.a.e.onInfo(702, 0);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ Object b;
-            public final /* synthetic */ a c;
-
-            public c(a aVar, int i, Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), obj};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = i;
-                this.b = obj;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                IVideoPlayerCallback iVideoPlayerCallback;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iVideoPlayerCallback = this.c.a.e) != null) {
-                    iVideoPlayerCallback.onInfo(this.a, 0);
-                    if (this.a == 1003 && this.c.a.o.l()) {
-                        Object obj = this.b;
-                        if (obj instanceof RTCCommStatesReport) {
-                            this.c.a.r = (RTCCommStatesReport) obj;
-                        }
-                        this.c.a.e.onInfo(910, 0);
-                        return;
-                    }
-                    int i = this.a;
-                    if (i == 1004) {
-                        this.c.a.e.onBufferStart();
-                        this.c.a.e.onInfo(701, 0);
-                    } else if (i == 1005) {
-                        this.c.a.e.onBufferEnd();
-                        this.c.a.e.onInfo(702, 0);
-                    } else if (i != 1008) {
-                    } else {
-                        this.c.a.j(this.b);
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class d implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ int b;
-            public final /* synthetic */ a c;
-
-            public d(a aVar, int i, int i2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = i;
-                this.b = i2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                IVideoPlayerCallback iVideoPlayerCallback;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iVideoPlayerCallback = this.c.a.e) != null) {
-                    iVideoPlayerCallback.onVideoSizeChanged(this.a, this.b);
-                }
-            }
-        }
-
-        public a(wq7 wq7Var) {
+        public a(wq7 wq7Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wq7Var};
+                Object[] objArr = {wq7Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -471,499 +87,333 @@ public class wq7 extends vq7 implements LivePlayer, IPlayerViewable {
                     return;
                 }
             }
-            this.a = wq7Var;
+            this.e = wq7Var;
+            this.d = 0L;
+            this.a = activity;
         }
 
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onPlayerStateChanged(BRTCPlayer.PlayerState playerState) {
+        @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
+        public void onOrientationChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, playerState) == null) {
-                wq7 wq7Var = this.a;
-                wq7Var.f("onPlayerStateChanged " + playerState.name());
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || !this.e.k || wq7.n || OrientationHelper.isSystemOrientationLocked(this.a)) {
+                return;
             }
-        }
-
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onRemoteData(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-                wq7 wq7Var = this.a;
-                wq7Var.f("onRemoteData " + byteBuffer);
-            }
-        }
-
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onSEIRecv(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, byteBuffer) == null) {
-                wq7 wq7Var = this.a;
-                wq7Var.f("onSEIRecv " + byteBuffer);
-                this.a.e(10103, 0, byteBuffer);
-            }
-        }
-
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onError(int i, String str) {
-            wq7 wq7Var;
-            TbBRTCPlayerView tbBRTCPlayerView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (tbBRTCPlayerView = (wq7Var = this.a).o) != null && wq7Var.e != null) {
-                tbBRTCPlayerView.post(new RunnableC0474a(this, i, str));
-            }
-        }
-
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onFirstFrameRendered() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.a("onFirstFrameRendered invoked");
-                wq7 wq7Var = this.a;
-                TbBRTCPlayerView tbBRTCPlayerView = wq7Var.o;
-                if (tbBRTCPlayerView != null && wq7Var.e != null) {
-                    tbBRTCPlayerView.post(new b(this));
+            if (!this.e.d()) {
+                this.b = false;
+                if (OrientationHelper.isPortrait(i)) {
+                    this.c = true;
                 }
-            }
-        }
-
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onInfoUpdated(int i, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) {
-                wq7 wq7Var = this.a;
-                wq7Var.f("onInfoUpdated i= " + i + " s= " + obj);
-                wq7 wq7Var2 = this.a;
-                TbBRTCPlayerView tbBRTCPlayerView = wq7Var2.o;
-                if (tbBRTCPlayerView != null && wq7Var2.e != null) {
-                    tbBRTCPlayerView.post(new c(this, i, obj));
+                if (this.c && System.currentTimeMillis() - this.d > 1000) {
+                    if (OrientationHelper.isReverseLandscape(i)) {
+                        this.b = true;
+                        BdActivityUtils.requestLandscape(this.a, true);
+                        return;
+                    } else if (OrientationHelper.isLandscape(i)) {
+                        this.b = true;
+                        BdActivityUtils.requestLandscape(this.a, false);
+                        return;
+                    } else {
+                        return;
+                    }
                 }
+                return;
             }
-        }
-
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onResolutionChanged(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-                wq7 wq7Var = this.a;
-                wq7Var.f("onResolutionChanged " + i + " " + i2);
-                wq7 wq7Var2 = this.a;
-                TbBRTCPlayerView tbBRTCPlayerView = wq7Var2.o;
-                if (tbBRTCPlayerView != null && wq7Var2.e != null) {
-                    tbBRTCPlayerView.post(new d(this, i, i2));
-                }
-            }
-        }
-
-        @Override // com.baidu.rtc.player.BRTCPlayerEvents
-        public void onRemoteStreamStats(boolean z, boolean z2, BigInteger bigInteger) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), bigInteger}) == null) {
-                wq7 wq7Var = this.a;
-                wq7Var.f("onRemoteStreamStats hasVideo: " + z + "hasAudio: " + z2 + " handleID: " + bigInteger);
+            this.c = false;
+            if (OrientationHelper.isReverseLandscape(i)) {
+                this.b = true;
+                BdActivityUtils.requestLandscape(this.a, true);
+            } else if (OrientationHelper.isLandscape(i)) {
+                this.b = true;
+                BdActivityUtils.requestLandscape(this.a, false);
+            } else if (OrientationHelper.isPortrait(i) && this.b && System.currentTimeMillis() - this.d > 1000) {
+                this.d = System.currentTimeMillis();
+                this.b = false;
+                BdActivityUtils.requestPortrait(this.a);
             }
         }
     }
 
-    public wq7(BuildParams buildParams) {
+    public wq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {buildParams};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.p = false;
-        this.q = buildParams;
-        this.s = new UniversalPlayerCallbackManager();
-        k();
-        l();
+        this.a = false;
+        this.b = false;
+        this.c = "lp_bdrtc";
+        this.d = new HashMap<>();
+        this.f = new ArrayList();
+        this.g = new ArrayList();
+        this.h = PlayerConstant.HALF_MODE;
+        this.k = true;
+        this.l = null;
     }
 
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void setVideoUrl(String str) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
-            a("BRTCPlayer setVideoUrl url= " + str);
-            if (this.o != null && !TextUtils.isEmpty(str)) {
-                this.o.setVideoUrl(str);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.b) {
+            Log.d("lp_bdrtc", str);
+        }
+    }
+
+    public void addOnInfoListener(LivePlayer.OnInfoListener onInfoListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onInfoListener) == null) && onInfoListener != null && !this.f.contains(onInfoListener)) {
+            this.f.add(onInfoListener);
+        }
+    }
+
+    public void addProgressListener(LivePlayer.OnProgressChangeListener onProgressChangeListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onProgressChangeListener) == null) && onProgressChangeListener != null && !this.g.contains(onProgressChangeListener)) {
+            this.g.add(onProgressChangeListener);
+        }
+    }
+
+    public void attachKernelLayer(BaseKernelLayer baseKernelLayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, baseKernelLayer) == null) {
+            a("attachKernelLayer " + baseKernelLayer);
+            this.l = baseKernelLayer;
+            detachKernelLayer();
+        }
+    }
+
+    public void attachToContainer(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) {
+            this.i = viewGroup;
+        }
+    }
+
+    public void b(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            boolean z2 = true;
+            if (i >= 3) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.IPlayerViewable
-    public void attachKernelView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            if (view2 instanceof TbBRTCPlayerView) {
-                this.o = (TbBRTCPlayerView) view2;
+            this.b = z;
+            if (i < 2) {
+                z2 = false;
             }
-            attachToContainer(this.i);
+            this.a = z2;
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void pauseInternal(boolean z) {
+    public boolean checkMode(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            a("pauseInternal isUserClick= " + z);
-            this.p = z;
-            pause();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return TextUtils.equals(this.h, str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && this.a) {
+            Log.v(this.c, str);
         }
     }
 
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void play(String str) {
+    public void goBackOrForeground(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            a("BRTCPlayer play");
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                tbBRTCPlayerView.n(str);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void resume(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            a("resume isForce= $isForce");
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             if (z) {
-                resume();
-            } else if (!this.p) {
-                resume();
+                enableOrientationEventHelper();
+            } else {
+                disableOrientationEventHelper();
+            }
+            ViewGroup viewGroup = this.i;
+            if (viewGroup != null && (viewGroup.getContext() instanceof Activity)) {
+                VideoSystemHelper.setKeepScreenOnOff((Activity) this.i.getContext(), z);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void resumePlayer(boolean z) {
-        TbBRTCPlayerView tbBRTCPlayerView;
+    public void removeOnInfoListener(LivePlayer.OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && (tbBRTCPlayerView = this.o) != null) {
-            tbBRTCPlayerView.r();
+        if ((interceptable == null || interceptable.invokeL(1048597, this, onInfoListener) == null) && onInfoListener != null) {
+            this.f.remove(onInfoListener);
         }
     }
 
-    @Override // com.baidu.tieba.vq7, com.baidu.searchbox.live.interfaces.player.LivePlayer
+    public void removeProgressListener(LivePlayer.OnProgressChangeListener onProgressChangeListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, onProgressChangeListener) == null) && onProgressChangeListener != null) {
+            this.g.remove(onProgressChangeListener);
+        }
+    }
+
+    public void setMode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            a("setMode mode= " + str);
+            this.h = str;
+        }
+    }
+
     public void setOrientationLock(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
-            super.setOrientationLock(z);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void setVideoBackground(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048625, this, drawable) == null) && drawable != null && this.o != null) {
-            a("setVideoBackground: " + drawable);
-            this.o.setBackground(drawable);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void setVideoInfo(@Nullable HashMap<Integer, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, hashMap) == null) {
-            a("setVideoInfo${videoInfo?.map " + hashMap);
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                tbBRTCPlayerView.setVideoInfo(hashMap);
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            n = z;
+            if (!z) {
+                enableOrientationEventHelper();
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void getKernalScreenshot(@NonNull LivePlayer.KernalScreenshotListener kernalScreenshotListener, float f) {
+    public void setPlayerListener(IVideoPlayerCallback iVideoPlayerCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLF(1048582, this, kernalScreenshotListener, f) == null) && kernalScreenshotListener != null) {
-            kernalScreenshotListener.onResult(null, 0, 0);
+        if (interceptable == null || interceptable.invokeL(1048601, this, iVideoPlayerCallback) == null) {
+            this.e = iVideoPlayerCallback;
         }
     }
 
-    public static void l() {
+    public void c(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            RTCLoadManager.getInstance(TbadkCoreApplication.getInst().getContext()).loadLibraries("armeabi", null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void detachFromContainer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a("detachFromContainer ");
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                tbBRTCPlayerView.h();
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            a("initHelper");
+            OrientationHelper orientationHelper = new OrientationHelper(context, 3);
+            this.j = orientationHelper;
+            if (orientationHelper.canDetectOrientation()) {
+                this.j.enableSensor();
+                this.j.setListener(new a(this, (Activity) context));
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.IPlayerViewable
-    @Nullable
-    public View detachKernelView() {
-        InterceptResult invokeV;
+    public <T extends IPlayerContext> T getPlayerContext(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            detachFromContainer();
-            return this.o;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cls)) == null) {
+            a("getPlayerContext " + cls);
+            T t = (T) this.d.get(cls);
+            if (t == null) {
+                return null;
+            }
+            return t;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public UniversalPlayerCallbackManager getPlayerCallbackManager() {
+    @PublicMethod
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.s;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return TextUtils.equals(this.h, PlayerConstant.FULL_MODE);
         }
-        return (UniversalPlayerCallbackManager) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    @Nullable
-    public String getServerIpInfo() {
+    public BaseKernelLayer detachKernelLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            RTCCommStatesReport rTCCommStatesReport = this.r;
-            if (rTCCommStatesReport != null) {
-                return rTCCommStatesReport.getRemoteAddr();
+            a("detachKernelLayer ");
+            getPlayerKernelLayer();
+            Button button = this.m;
+            if (button != null) {
+                ((ViewGroup) button.getParent()).removeView(this.m);
             }
-            return "";
+            return this.l;
+        }
+        return (BaseKernelLayer) invokeV.objValue;
+    }
+
+    public void disableOrientationEventHelper() {
+        OrientationHelper orientationHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (orientationHelper = this.j) != null) {
+            this.k = false;
+            orientationHelper.disable();
+        }
+    }
+
+    public void enableOrientationEventHelper() {
+        OrientationHelper orientationHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (orientationHelper = this.j) != null && orientationHelper.canDetectOrientation()) {
+            this.k = this.j.enableSensor();
+        }
+    }
+
+    @PublicMethod
+    public String getCurrentMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.h;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    @Nullable
-    public String getVideoUrl() {
+    @PublicMethod
+    public boolean isFloatingMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                return tbBRTCPlayerView.getVideoUrl();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                return tbBRTCPlayerView.j();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return TextUtils.equals(this.h, PlayerConstant.FLOATING_MODE);
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public boolean isPause() {
-        InterceptResult invokeV;
+    public void release() {
+        OrientationHelper orientationHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                return tbBRTCPlayerView.k();
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (orientationHelper = this.j) != null) {
+            orientationHelper.disable();
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public boolean isPlaying() {
+    public void switchToHalf() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && this.i != null && d() && (this.i.getContext() instanceof Activity)) {
+            BdActivityUtils.requestPortrait((Activity) this.i.getContext());
+        }
+    }
+
+    public void e(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, obj) == null) && this.f != null) {
+            for (int i3 = 0; i3 < this.f.size(); i3++) {
+                this.f.get(i3).onInfo(i, i2, obj);
+            }
+        }
+    }
+
+    public BaseKernelLayer getPlayerKernelLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null && tbBRTCPlayerView.l()) {
-                return true;
+            a("getPlayerKernelLayer ");
+            if (this.l == null && this.i != null) {
+                this.m = new Button(this.i.getContext());
+                this.l = new BaseKernelLayer(AbsVideoKernel.NORMAL_PLAYER);
             }
-            return false;
+            return this.l;
         }
-        return invokeV.booleanValue;
+        return (BaseKernelLayer) invokeV.objValue;
     }
 
-    public final void k() {
-        BuildParams buildParams;
+    public void registerContext(Class<? extends IPlayerContext> cls, IPlayerContext iPlayerContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (buildParams = this.q) != null) {
-            Object option = buildParams.getOption(BuildParams.K_DEBUG_LEVEL, 0);
-            if (option instanceof Integer) {
-                b(((Integer) option).intValue());
-            }
+        if (interceptable == null || interceptable.invokeLL(1048595, this, cls, iPlayerContext) == null) {
+            a("registerContext " + iPlayerContext);
+            this.d.put(cls, iPlayerContext);
         }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            a("BRTCPlayer pause");
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                tbBRTCPlayerView.m();
-                IVideoPlayerCallback iVideoPlayerCallback = this.e;
-                if (iVideoPlayerCallback != null) {
-                    iVideoPlayerCallback.onPause();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vq7, com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            super.release();
-            a("BRTCPlayer release");
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                this.e = null;
-                tbBRTCPlayerView.p();
-                this.o = null;
-            }
-            ViewGroup viewGroup = this.i;
-            if (viewGroup != null) {
-                viewGroup.removeAllViews();
-                this.i = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && isPause()) {
-            a("resume no force");
-            this.o.r();
-            IVideoPlayerCallback iVideoPlayerCallback = this.e;
-            if (iVideoPlayerCallback != null) {
-                iVideoPlayerCallback.onResume();
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void resumeFromError() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            a("BRTCPlayer resumeFromError");
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                tbBRTCPlayerView.s();
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            a("BRTCPlayer start");
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                tbBRTCPlayerView.t();
-                IVideoPlayerCallback iVideoPlayerCallback = this.e;
-                if (iVideoPlayerCallback != null) {
-                    iVideoPlayerCallback.onStart();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.IBVideoPlayer
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            a("BRTCPlayer stop ");
-            TbBRTCPlayerView tbBRTCPlayerView = this.o;
-            if (tbBRTCPlayerView != null) {
-                tbBRTCPlayerView.u();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vq7, com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void attachToContainer(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            a("attachToContainer " + viewGroup);
-            super.attachToContainer(viewGroup);
-            if (this.o == null) {
-                c(viewGroup.getContext());
-                TbBRTCPlayerView tbBRTCPlayerView = new TbBRTCPlayerView(viewGroup.getContext());
-                this.o = tbBRTCPlayerView;
-                tbBRTCPlayerView.setParams(this.q);
-                this.o.setBRTCPlayerEvents(new a(this));
-            }
-            TbBRTCPlayerView tbBRTCPlayerView2 = this.o;
-            if (tbBRTCPlayerView2 != null && tbBRTCPlayerView2.getParent() != viewGroup) {
-                this.o.f(viewGroup);
-            }
-        }
-    }
-
-    public final void j(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, obj) == null) && (obj instanceof PlayTimeStatistician)) {
-            a("time statistic updated ${timeStatistician?.toString()}\nmap: ${timeStatistician?.getTimeStepsMap()}");
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<PlayTimeStatistician.PlayStep, Long> entry : ((PlayTimeStatistician) obj).getTimeStepsMap().entrySet()) {
-                if (entry.getValue() != null) {
-                    try {
-                        jSONObject.put(entry.getKey().toString(), entry.getValue());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            this.t = jSONObject.toString();
-            a("json ${firtFrameTimePart}");
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
-    @Nullable
-    public Object getInfo(Object obj, @Nullable Object obj2, @Nullable LivePlayer.InfoCallback infoCallback) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, obj, obj2, infoCallback)) == null) {
-            if ("video_fps".equals(obj)) {
-                return Integer.valueOf(this.r.getVideoOutputFps());
-            }
-            if ("getUri".equals(obj)) {
-                return getVideoUrl();
-            }
-            if ("player_id".equals(obj)) {
-                TbBRTCPlayerView tbBRTCPlayerView = this.o;
-                if (tbBRTCPlayerView != null) {
-                    return Long.valueOf(tbBRTCPlayerView.getPlayerID());
-                }
-                return null;
-            } else if ("firtFrameTimePart".equals(obj)) {
-                return this.t;
-            } else {
-                return null;
-            }
-        }
-        return invokeLLL.objValue;
     }
 }

@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class z06 extends h46<uq8> implements f56 {
+public class z06 extends h46<vq8> implements f56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForbidParentSwipeBackRelativeLayout i;
@@ -43,7 +43,7 @@ public class z06 extends h46<uq8> implements f56 {
     public View n;
     public View o;
     public String p;
-    public uq8 q;
+    public vq8 q;
     public int r;
     public t06 s;
     public u06 t;
@@ -283,23 +283,23 @@ public class z06 extends h46<uq8> implements f56 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.h46
     /* renamed from: E */
-    public void i(uq8 uq8Var) {
+    public void i(vq8 vq8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, uq8Var) == null) && uq8Var != null && uq8Var.a != null) {
-            this.q = uq8Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, vq8Var) == null) && vq8Var != null && vq8Var.a != null) {
+            this.q = vq8Var;
             q(0);
             if (this.t == null) {
-                u06 u06Var = new u06(uq8Var.a, this.u, this.v);
+                u06 u06Var = new u06(vq8Var.a, this.u, this.v);
                 this.t = u06Var;
                 u06Var.i(2);
                 this.t.h(6);
                 this.t.g(1);
             }
-            this.t.j(uq8Var.a);
+            this.t.j(vq8Var.a);
             this.k.d(this.p);
             this.k.c(this.t.e(), this.z);
             this.j.setCurrentItem(this.t.d(), false);
-            if (uq8Var.a.size() >= 2) {
+            if (vq8Var.a.size() >= 2) {
                 this.l.setVisibility(0);
                 if (this.m.getCount() != this.t.b()) {
                     this.m.setCount(this.t.b());
@@ -309,8 +309,8 @@ public class z06 extends h46<uq8> implements f56 {
             } else {
                 this.l.setVisibility(8);
             }
-            if (uq8Var.a.size() > 0) {
-                this.s.b(uq8Var.a.get(0), "ala_frs_stage_live_feed_back_type");
+            if (vq8Var.a.size() > 0) {
+                this.s.b(vq8Var.a.get(0), "ala_frs_stage_live_feed_back_type");
             }
             B();
             j(g(), TbadkCoreApplication.getInst().getSkinType());
@@ -359,10 +359,10 @@ public class z06 extends h46<uq8> implements f56 {
     }
 
     public final void B() {
-        uq8 uq8Var;
+        vq8 vq8Var;
         int c2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (uq8Var = this.q) != null && ListUtils.isEmpty(uq8Var.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (vq8Var = this.q) != null && ListUtils.isEmpty(vq8Var.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
             CustomMessage customMessage = new CustomMessage(2921017);
             List<ThreadData> list = this.q.a;
             if (list != null && list.get(c2) != null) {
@@ -419,8 +419,8 @@ public class z06 extends h46<uq8> implements f56 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            uq8 uq8Var = this.q;
-            if (uq8Var != null && !ListUtils.isEmpty(uq8Var.a)) {
+            vq8 vq8Var = this.q;
+            if (vq8Var != null && !ListUtils.isEmpty(vq8Var.a)) {
                 for (ThreadData threadData2 : this.q.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(F(threadData2));
                 }

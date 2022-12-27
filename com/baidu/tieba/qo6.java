@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 /* loaded from: classes5.dex */
-public class qo6 extends ck6<fr8, FrsVideoActivityViewHolder> {
+public class qo6 extends ck6<gr8, FrsVideoActivityViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -28,15 +28,15 @@ public class qo6 extends ck6<fr8, FrsVideoActivityViewHolder> {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fr8 a;
+        public final /* synthetic */ gr8 a;
         public final /* synthetic */ qo6 b;
 
-        public a(qo6 qo6Var, fr8 fr8Var) {
+        public a(qo6 qo6Var, gr8 gr8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qo6Var, fr8Var};
+                Object[] objArr = {qo6Var, gr8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public class qo6 extends ck6<fr8, FrsVideoActivityViewHolder> {
                 }
             }
             this.b = qo6Var;
-            this.a = fr8Var;
+            this.a = gr8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -57,8 +57,8 @@ public class qo6 extends ck6<fr8, FrsVideoActivityViewHolder> {
                 TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.l));
                 ry4 l = ry4.l();
                 l.y("frs_video_activity_tip" + this.b.l, System.currentTimeMillis());
-                fr8 fr8Var = this.a;
-                if (fr8Var != null && !StringUtils.isNull(fr8Var.b)) {
+                gr8 gr8Var = this.a;
+                if (gr8Var != null && !StringUtils.isNull(gr8Var.b)) {
                     sp4.n(this.b.mContext, this.a.b);
                 }
             }
@@ -140,16 +140,16 @@ public class qo6 extends ck6<fr8, FrsVideoActivityViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ck6, com.baidu.tieba.kn
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fr8 fr8Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gr8 gr8Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
         InterceptResult invokeCommon;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fr8Var, frsVideoActivityViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gr8Var, frsVideoActivityViewHolder})) == null) {
             if (view2 != null && frsVideoActivityViewHolder != null) {
-                view2.setOnClickListener(new a(this, fr8Var));
+                view2.setOnClickListener(new a(this, gr8Var));
                 TextView textView = frsVideoActivityViewHolder.a;
-                if (fr8Var != null) {
-                    str = fr8Var.a;
+                if (gr8Var != null) {
+                    str = gr8Var.a;
                 } else {
                     str = "";
                 }

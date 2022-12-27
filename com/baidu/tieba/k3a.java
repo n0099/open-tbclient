@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,26 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public class k3a {
+public final class k3a {
     public static /* synthetic */ Interceptable $ic;
-    public static final k3a a;
+    public static final k3a b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public e3a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (e3a) invokeV.objValue;
-    }
-
-    public o3a c(o3a o3aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o3aVar)) == null) ? o3aVar : (o3a) invokeL.objValue;
-    }
+    public final AtomicReference<l3a> a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +28,7 @@ public class k3a {
                 return;
             }
         }
-        a = new k3a();
+        b = new k3a();
     }
 
     public k3a() {
@@ -55,16 +41,30 @@ public class k3a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>();
     }
 
     public static k3a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+            return b;
         }
         return (k3a) invokeV.objValue;
+    }
+
+    public l3a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == null) {
+                this.a.compareAndSet(null, l3a.a());
+            }
+            return this.a.get();
+        }
+        return (l3a) invokeV.objValue;
     }
 }

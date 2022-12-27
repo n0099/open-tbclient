@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lc8 extends kn<vd8, CardViewHolder<cf8>> {
+public class lc8 extends kn<vd8, CardViewHolder<xe8>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -44,11 +44,11 @@ public class lc8 extends kn<vd8, CardViewHolder<cf8>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: s */
-    public CardViewHolder<cf8> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<xe8> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new cf8(this.a));
+            return new CardViewHolder<>(new xe8(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -56,7 +56,7 @@ public class lc8 extends kn<vd8, CardViewHolder<cf8>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vd8 vd8Var, CardViewHolder<cf8> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vd8 vd8Var, CardViewHolder<xe8> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vd8Var, cardViewHolder})) == null) {

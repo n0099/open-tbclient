@@ -44,7 +44,6 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.am6;
 import com.baidu.tieba.bv6;
 import com.baidu.tieba.cx6;
-import com.baidu.tieba.fm7;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsAllThreadFragment;
 import com.baidu.tieba.frs.FrsFragment;
@@ -52,11 +51,12 @@ import com.baidu.tieba.frs.FrsTabViewPager;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.frs.tab.TabData;
 import com.baidu.tieba.fv6;
-import com.baidu.tieba.gu8;
+import com.baidu.tieba.gm7;
+import com.baidu.tieba.hu8;
 import com.baidu.tieba.jl6;
 import com.baidu.tieba.kw6;
 import com.baidu.tieba.ll6;
-import com.baidu.tieba.nt8;
+import com.baidu.tieba.ot8;
 import com.baidu.tieba.ou6;
 import com.baidu.tieba.qa5;
 import com.baidu.tieba.qu6;
@@ -521,7 +521,7 @@ public class FrsTabViewController implements cx6, TbTabLayout.c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PublishProgressData publishProgressData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !gu8.k().s() && gu8.k().i() != null && this.a.a != null && publishProgressData.isCurrentForum(this.a.a.l()) && this.a.q != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !hu8.k().s() && hu8.k().i() != null && this.a.a != null && publishProgressData.isCurrentForum(this.a.a.l()) && this.a.q != null) {
                 this.a.q.c(publishProgressData);
             }
         }
@@ -1015,15 +1015,15 @@ public class FrsTabViewController implements cx6, TbTabLayout.c {
             if (themeColorInfo != null) {
                 ThemeElement themeElement = themeColorInfo.dark;
                 if (themeElement != null && i2 == 4) {
-                    return fm7.b(themeElement.font_color);
+                    return gm7.b(themeElement.font_color);
                 }
                 ThemeElement themeElement2 = this.k.night;
                 if (themeElement2 != null && i2 == 1) {
-                    return fm7.b(themeElement2.font_color);
+                    return gm7.b(themeElement2.font_color);
                 }
                 ThemeElement themeElement3 = this.k.day;
                 if (themeElement3 != null && i2 == 0) {
-                    return fm7.b(themeElement3.font_color);
+                    return gm7.b(themeElement3.font_color);
                 }
                 return i3;
             }
@@ -1747,9 +1747,9 @@ public class FrsTabViewController implements cx6, TbTabLayout.c {
                                             if (next.tab_type == frsTabInfo.tab_type) {
                                                 kw6.i("503~" + str + str2, next.tab_id.intValue());
                                                 if (7 == h2) {
-                                                    nt8.b();
+                                                    ot8.b();
                                                 } else {
-                                                    nt8.a();
+                                                    ot8.a();
                                                 }
                                             }
                                         }

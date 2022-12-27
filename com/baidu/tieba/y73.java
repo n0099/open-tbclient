@@ -42,13 +42,13 @@ public class y73 extends b63 {
 
         /* renamed from: com.baidu.tieba.y73$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0488a implements Runnable {
+        public class RunnableC0492a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0488a(a aVar, Bitmap bitmap) {
+            public RunnableC0492a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class y73 extends b63 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    yg3.k(new RunnableC0488a(this, y), "savescreenshot");
+                    yg3.k(new RunnableC0492a(this, y), "savescreenshot");
                 }
             }
         }

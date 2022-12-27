@@ -26,9 +26,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hj5;
 import com.baidu.tieba.ku5;
 import com.baidu.tieba.la5;
-import com.baidu.tieba.pb8;
-import com.baidu.tieba.vb8;
+import com.baidu.tieba.qb8;
 import com.baidu.tieba.wb8;
+import com.baidu.tieba.xb8;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,17 +49,17 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public NoDataView f;
     public TextView g;
     public SmartAppBrowseHistoryAdapter h;
-    public vb8 i;
-    public wb8 j;
-    public vb8.b k;
-    public wb8.b l;
+    public wb8 i;
+    public xb8 j;
+    public wb8.b k;
+    public xb8.b l;
     public View.OnClickListener m;
     public View.OnLongClickListener n;
     public View.OnClickListener o;
     public View.OnClickListener p;
 
     /* loaded from: classes5.dex */
-    public class a implements vb8.b {
+    public class a implements wb8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmartAppBrowseHistoryActivity a;
@@ -82,17 +82,17 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.a = smartAppBrowseHistoryActivity;
         }
 
-        @Override // com.baidu.tieba.vb8.b
-        public void a(boolean z, pb8 pb8Var) {
+        @Override // com.baidu.tieba.wb8.b
+        public void a(boolean z, qb8 qb8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, pb8Var) == null) {
-                if (!z || pb8Var == null) {
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, qb8Var) == null) {
+                if (!z || qb8Var == null) {
                     this.a.H1(true);
                     this.a.I1(0);
                 } else if (this.a.h != null) {
-                    this.a.H1(ListUtils.isEmpty(pb8Var.a()));
-                    this.a.I1(ListUtils.getCount(pb8Var.a()));
-                    this.a.h.i(pb8Var.a());
+                    this.a.H1(ListUtils.isEmpty(qb8Var.a()));
+                    this.a.I1(ListUtils.getCount(qb8Var.a()));
+                    this.a.h.i(qb8Var.a());
                     this.a.h.notifyDataSetChanged();
                 }
             }
@@ -100,7 +100,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements wb8.b {
+    public class b implements xb8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmartAppBrowseHistoryActivity a;
@@ -123,7 +123,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.a = smartAppBrowseHistoryActivity;
         }
 
-        @Override // com.baidu.tieba.wb8.b
+        @Override // com.baidu.tieba.xb8.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.h != null) {
@@ -219,7 +219,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 if (view2.getTag() instanceof SmartApp) {
                     SmartApp smartApp = (SmartApp) view2.getTag();
                     if (this.a.j == null) {
-                        this.a.j = new wb8(this.a.getPageContext());
+                        this.a.j = new xb8(this.a.getPageContext());
                         this.a.j.e();
                         this.a.j.f(this.a.l);
                     }
@@ -421,9 +421,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.i == null) {
-                vb8 vb8Var = new vb8();
-                this.i = vb8Var;
-                vb8Var.h(this.k);
+                wb8 wb8Var = new wb8();
+                this.i = wb8Var;
+                wb8Var.h(this.k);
             }
             this.i.g();
         }
@@ -434,9 +434,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            vb8 vb8Var = this.i;
-            if (vb8Var != null) {
-                vb8Var.c();
+            wb8 wb8Var = this.i;
+            if (wb8Var != null) {
+                wb8Var.c();
             }
         }
     }

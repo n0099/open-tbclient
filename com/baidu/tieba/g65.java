@@ -22,7 +22,7 @@ public class g65 {
 
         /* renamed from: com.baidu.tieba.g65$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0286a implements h65 {
+        public class C0290a implements h65 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ af0 a;
@@ -37,7 +37,7 @@ public class g65 {
                 return invokeL.booleanValue;
             }
 
-            public C0286a(a aVar, af0 af0Var) {
+            public C0290a(a aVar, af0 af0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class g65 {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0286a(this, af0Var));
+                downloadData.setCallback(new C0290a(this, af0Var));
                 i65.k().l(downloadData);
             }
         }

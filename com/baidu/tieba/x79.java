@@ -1,121 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.write.editor.EditorInfoContainer;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x79 extends x65 {
+public class x79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context t;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x79(Context context, String str) {
-        super(context, (String) null, 15);
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends ik5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ik5
+        /* renamed from: a */
+        public Integer doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.a;
+                kv4.f();
+                df<String> g = kv4.g("tb.write_privacy_state_space" + this.b);
+                if (g != null) {
+                    i = xg.e(g.get(this.c), this.a);
+                }
+                return Integer.valueOf(i);
+            }
+            return (Integer) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements mj5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mj5
+        /* renamed from: a */
+        public void onReturnDataInUI(Integer num) {
+            c cVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, num) == null) && (cVar = this.a) != null) {
+                cVar.a(num.intValue());
+            }
+        }
+    }
+
+    public static void a(String str, int i, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) && !StringUtils.isNull(str) && cVar != null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(currentAccount)) {
                 return;
             }
-        }
-        this.o = false;
-        this.t = context;
-        this.n = 3;
-        this.m = new EditorInfoContainer(context, str);
-        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).i();
-            }
+            mk5.b(new a(i, currentAccount, str), new b(cVar));
         }
     }
 
-    public void h() {
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).j();
-            }
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || StringUtils.isNull(str)) {
+            return;
         }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).k();
-            }
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (StringUtils.isNull(currentAccount)) {
+            return;
         }
-    }
-
-    public void j(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).p(str, i);
-            }
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).q(i);
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).r(z);
-            }
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).setFrom(str);
-            }
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).v(z);
-            }
+        kv4.f();
+        df<String> g = kv4.g("tb.write_privacy_state_space" + currentAccount);
+        if (g != null) {
+            g.a(str, String.valueOf(i));
         }
     }
 }

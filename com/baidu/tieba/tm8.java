@@ -1,123 +1,76 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class tm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, ShareEntity shareEntity) {
+    public static synchronized String a(Context context) {
+        InterceptResult invokeL;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65536, null, i, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
-            int i2 = 6;
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 6) {
-                            if (i != 8) {
-                                i2 = 0;
-                            } else {
-                                i2 = 5;
-                            }
-                        }
-                    } else {
-                        i2 = 4;
-                    }
-                } else {
-                    i2 = 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            synchronized (tm8.class) {
+                try {
+                    string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
-            } else {
-                i2 = 3;
             }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                statisticItem.param("tid", stats.getString("tid"));
-                statisticItem.param("uid", stats.getString("uid"));
-                statisticItem.param("fid", stats.getString("fid"));
-            }
-            TiebaStatic.log(statisticItem);
+            return string;
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b(int i, ShareEntity shareEntity) {
+    public static boolean startActivity(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, shareEntity) == null) {
-            if (shareEntity != null && GroupInfoData.isValidGroup(shareEntity.groupData)) {
-                vf7.c(shareEntity.groupData, null, shareEntity.shareMediaType);
-            }
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-            int i2 = 6;
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 6) {
-                            if (i != 8) {
-                                i2 = 0;
-                            } else {
-                                i2 = 5;
-                            }
-                        }
-                    } else {
-                        i2 = 4;
-                    }
-                } else {
-                    i2 = 2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
+            try {
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
-            } else {
-                i2 = 3;
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
             }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                int i3 = stats.getInt("obj_param1");
-                if (i3 != 0) {
-                    statisticItem.param("obj_param1", i3);
-                    if (i3 == 2) {
-                        statisticItem.param("fid", stats.getString("fid"));
-                    } else if (i3 == 3) {
-                        int i4 = stats.getInt("obj_type");
-                        if (i4 != 0) {
-                            statisticItem.param("obj_type", i4);
-                        }
-                        statisticItem.param("tid", stats.getString("tid")).param("fid", stats.getString("fid"));
-                    }
-                }
-                String string = stats.getString(TiebaStatic.Params.OBJ_URL);
-                if (!xi.isEmpty(string)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_URL, string);
-                }
-                int i5 = stats.getInt("obj_locate");
-                int i6 = stats.getInt("source", 0);
-                if (i6 == 10 || i6 == 16 || i6 == 3) {
-                    i5 = i6;
-                }
-                statisticItem.param("obj_locate", i5);
-                if (i6 == 15) {
-                    return;
-                }
-            }
-            TiebaStatic.log(statisticItem);
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean startActivity(Context context, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, cls)) == null) {
+            try {
+                Intent intent = new Intent(context, cls);
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

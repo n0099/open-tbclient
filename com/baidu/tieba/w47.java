@@ -402,7 +402,7 @@ public class w47 extends kn<w56, ThreadCardViewHolder<w56>> implements hr5 {
     public final void w(ThreadData threadData, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048582, this, threadData, i) == null) && threadData != null && threadData.getSmartApp() != null) {
-            nq8.g().c(this.a, lq8.g(threadData, "a002", "common_click", 1, i, threadData.getSmartApp().id));
+            oq8.g().c(this.a, mq8.g(threadData, "a002", "common_click", 1, i, threadData.getSmartApp().id));
         }
     }
 
@@ -410,7 +410,7 @@ public class w47 extends kn<w56, ThreadCardViewHolder<w56>> implements hr5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, threadData, i) == null) && threadData != null && threadData.getSmartApp() != null) {
             String str = threadData.getSmartApp().id;
-            nq8.g().d(this.a, lq8.b(threadData.getTid(), "", str, null), lq8.h(threadData, "a002", "common_exp", i, str));
+            oq8.g().d(this.a, mq8.b(threadData.getTid(), "", str, null), mq8.h(threadData, "a002", "common_exp", i, str));
         }
     }
 

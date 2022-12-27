@@ -42,12 +42,12 @@ public class g76 implements e76 {
     public Runnable g;
 
     /* loaded from: classes4.dex */
-    public class c implements ti9 {
+    public class c implements ui9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g76 a;
 
-        @Override // com.baidu.tieba.ti9
+        @Override // com.baidu.tieba.ui9
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -135,37 +135,37 @@ public class g76 implements e76 {
             this.a = g76Var;
         }
 
-        @Override // com.baidu.tieba.ti9
+        @Override // com.baidu.tieba.ui9
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                en9.a().post(new a(this, new CustomResponsedMessage(2921584, Integer.valueOf(i))));
+                fn9.a().post(new a(this, new CustomResponsedMessage(2921584, Integer.valueOf(i))));
             }
         }
 
-        @Override // com.baidu.tieba.ti9
+        @Override // com.baidu.tieba.ui9
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                en9.a().post(this.a.g);
+                fn9.a().post(this.a.g);
                 if (this.a.c != null) {
                     this.a.c.c(str);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.ti9
+        @Override // com.baidu.tieba.ui9
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                en9.a().post(this.a.g);
+                fn9.a().post(this.a.g);
                 if (this.a.c != null) {
                     this.a.c.a();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.ti9
+        @Override // com.baidu.tieba.ui9
         public void f() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.c != null) {
@@ -173,12 +173,12 @@ public class g76 implements e76 {
             }
         }
 
-        @Override // com.baidu.tieba.ti9
+        @Override // com.baidu.tieba.ui9
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                en9.a().post(new b(this));
-                en9.a().post(this.a.g);
+                fn9.a().post(new b(this));
+                fn9.a().post(this.a.g);
                 if (this.a.c != null) {
                     this.a.c.a();
                 }
@@ -191,29 +191,29 @@ public class g76 implements e76 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<String> a;
-        public ll9 b;
+        public ml9 b;
         public final /* synthetic */ g76 c;
 
         /* loaded from: classes4.dex */
-        public class a implements ll9 {
+        public class a implements ml9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.ll9
+            @Override // com.baidu.tieba.ml9
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.ll9
+            @Override // com.baidu.tieba.ml9
             public void b(long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.ll9
+            @Override // com.baidu.tieba.ml9
             public void c(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -261,7 +261,7 @@ public class g76 implements e76 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:48:0x010d, code lost:
-            if (com.baidu.tieba.hn9.h(r6, r7[0], r1, r5.b) != false) goto L18;
+            if (com.baidu.tieba.in9.h(r6, r7[0], r1, r5.b) != false) goto L18;
          */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
         /* JADX WARN: Removed duplicated region for block: B:54:0x011d A[LOOP:0: B:52:0x0117->B:54:0x011d, LOOP_END] */
@@ -277,7 +277,7 @@ public class g76 implements e76 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sb, listArr)) == null) {
                 if (listArr[0] != null && listArr[0].size() != 0) {
-                    String str = q09.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+                    String str = r09.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
                     if (!StringUtils.isNull(str)) {
                         File file = new File(str);
                         if (!file.getParentFile().exists()) {
@@ -288,7 +288,7 @@ public class g76 implements e76 {
                     try {
                         if (listArr[0].size() == 1) {
                             try {
-                                z = b09.b(listArr[0].get(0), str, this.b);
+                                z = c09.b(listArr[0].get(0), str, this.b);
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 if (sb != null) {
@@ -407,7 +407,7 @@ public class g76 implements e76 {
                 this.a.addAll(listArr[0]);
                 Iterator<String> it = this.a.iterator();
                 while (it.hasNext()) {
-                    if (kl9.a(it.next()) <= 0) {
+                    if (ll9.a(it.next()) <= 0) {
                         return "";
                     }
                 }
@@ -422,9 +422,9 @@ public class g76 implements e76 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 super.onPostExecute((d) str);
-                ll9 ll9Var = this.b;
-                if (ll9Var != null) {
-                    ll9Var.a();
+                ml9 ml9Var = this.b;
+                if (ml9Var != null) {
+                    ml9Var.a();
                 }
                 if (this.c.c != null) {
                     this.c.c.c(str);
@@ -564,7 +564,7 @@ public class g76 implements e76 {
                 videoMuxerData.setMusicData(f76Var.d());
                 ArrayList arrayList2 = new ArrayList();
                 AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
-                AudioPlayData audioPlayData = new AudioPlayData(f76Var.d().localPath, 0, xm9.f(f76Var.d().localPath), 1.0f);
+                AudioPlayData audioPlayData = new AudioPlayData(f76Var.d().localPath, 0, ym9.f(f76Var.d().localPath), 1.0f);
                 ArrayList arrayList3 = new ArrayList();
                 audioPlayTrackData.mAudioPlayDataList = arrayList3;
                 arrayList3.add(audioPlayData);
@@ -636,7 +636,7 @@ public class g76 implements e76 {
             for (int i = 0; i < list.size(); i++) {
                 String str = list.get(i);
                 if (!TextUtils.isEmpty(str)) {
-                    f += xm9.f(str);
+                    f += ym9.f(str);
                 }
             }
             if (f < 3000.0f) {

@@ -182,13 +182,13 @@ public class pz6 {
                 return;
             }
             this.I = new ArrayList<>();
-            kn<?, ?> g = zi8.l().g(this.c, AdvertAppInfo.y, "CONCERN");
-            kn<?, ?> g2 = zi8.l().g(this.c, AdvertAppInfo.z, "CONCERN");
-            kn<?, ?> g3 = zi8.l().g(this.c, AdvertAppInfo.A, "CONCERN");
-            kn<?, ?> g4 = zi8.l().g(this.c, AdvertAppInfo.B, "CONCERN");
-            kn<?, ?> g5 = zi8.l().g(this.c, AdvertAppInfo.C, "CONCERN");
-            kn<?, ?> g6 = zi8.l().g(this.c, AdvertAppInfo.E, "CONCERN");
-            kn<?, ?> g7 = zi8.l().g(this.c, AdvertAppInfo.D, "CONCERN");
+            kn<?, ?> g = aj8.l().g(this.c, AdvertAppInfo.y, "CONCERN");
+            kn<?, ?> g2 = aj8.l().g(this.c, AdvertAppInfo.z, "CONCERN");
+            kn<?, ?> g3 = aj8.l().g(this.c, AdvertAppInfo.A, "CONCERN");
+            kn<?, ?> g4 = aj8.l().g(this.c, AdvertAppInfo.B, "CONCERN");
+            kn<?, ?> g5 = aj8.l().g(this.c, AdvertAppInfo.C, "CONCERN");
+            kn<?, ?> g6 = aj8.l().g(this.c, AdvertAppInfo.E, "CONCERN");
+            kn<?, ?> g7 = aj8.l().g(this.c, AdvertAppInfo.D, "CONCERN");
             this.I.add(g);
             this.I.add(g2);
             this.I.add(g3);
@@ -231,14 +231,14 @@ public class pz6 {
 
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || em7.e(this.J)) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || fm7.e(this.J)) {
             return;
         }
         Iterator<kn> it = this.I.iterator();
         while (it.hasNext()) {
             kn next = it.next();
-            if (next instanceof qi8) {
-                ((qi8) next).onDestroy();
+            if (next instanceof ri8) {
+                ((ri8) next).onDestroy();
             }
         }
     }

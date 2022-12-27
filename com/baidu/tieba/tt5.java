@@ -24,7 +24,7 @@ public class tt5 extends yf1<ej0> {
 
         /* renamed from: com.baidu.tieba.tt5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0443a implements gj0 {
+        public class C0446a implements gj0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a f;
@@ -67,7 +67,7 @@ public class tt5 extends yf1<ej0> {
                 return invokeV.booleanValue;
             }
 
-            public C0443a(a aVar) {
+            public C0446a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -271,7 +271,7 @@ public class tt5 extends yf1<ej0> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new C0443a(this);
+                return new C0446a(this);
             }
             return (gj0) invokeV.objValue;
         }

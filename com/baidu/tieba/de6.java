@@ -140,12 +140,12 @@ public class de6 implements EnterForumAdView.c {
 
             /* renamed from: com.baidu.tieba.de6$n$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class RunnableC0250a implements Runnable {
+            public class RunnableC0253a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0250a(a aVar) {
+                public RunnableC0253a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,7 +209,7 @@ public class de6 implements EnterForumAdView.c {
                     this.a.a.c.z();
                     this.a.a.d.z();
                     this.a.a.c.C(0, -this.a.a.c.p(), 0, 0);
-                    ah.a().postDelayed(new RunnableC0250a(this), 0L);
+                    ah.a().postDelayed(new RunnableC0253a(this), 0L);
                     this.a.a.d.setVisibility(0);
                 }
             }
@@ -258,12 +258,12 @@ public class de6 implements EnterForumAdView.c {
 
         /* renamed from: com.baidu.tieba.de6$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0249a implements Runnable {
+        public class RunnableC0252a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0249a(a aVar) {
+            public RunnableC0252a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -314,7 +314,7 @@ public class de6 implements EnterForumAdView.c {
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.P) {
                 return;
             }
-            nq8.g().j(this.a.b.getUniqueId());
+            oq8.g().j(this.a.b.getUniqueId());
             if (this.a.B != null) {
                 this.a.A = false;
                 this.a.B.e(z);
@@ -329,7 +329,7 @@ public class de6 implements EnterForumAdView.c {
                     this.a.p0();
                     return;
                 }
-                ah.a().post(new RunnableC0249a(this));
+                ah.a().post(new RunnableC0252a(this));
             }
         }
     }

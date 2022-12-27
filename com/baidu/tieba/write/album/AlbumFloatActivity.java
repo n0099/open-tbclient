@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.kg5;
-import com.baidu.tieba.p79;
+import com.baidu.tieba.q79;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p79 k;
+    public q79 k;
     public ViewGroup l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -76,9 +76,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            p79 p79Var = this.k;
-            if (p79Var != null) {
-                p79Var.onDestroy();
+            q79 q79Var = this.k;
+            if (q79Var != null) {
+                q79Var.onDestroy();
             }
         }
     }
@@ -87,9 +87,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            p79 p79Var = this.k;
-            if (p79Var != null) {
-                p79Var.E();
+            q79 q79Var = this.k;
+            if (q79Var != null) {
+                q79Var.E();
             }
             super.onPause();
         }
@@ -100,9 +100,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            p79 p79Var = this.k;
-            if (p79Var != null) {
-                p79Var.onResume();
+            q79 q79Var = this.k;
+            if (q79Var != null) {
+                q79Var.onResume();
             }
         }
     }
@@ -112,9 +112,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStart();
-            p79 p79Var = this.k;
-            if (p79Var != null) {
-                p79Var.H();
+            q79 q79Var = this.k;
+            if (q79Var != null) {
+                q79Var.H();
             }
         }
     }
@@ -124,9 +124,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onStop();
-            p79 p79Var = this.k;
-            if (p79Var != null) {
-                p79Var.J();
+            q79 q79Var = this.k;
+            if (q79Var != null) {
+                q79Var.J();
             }
         }
     }
@@ -137,9 +137,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                p79 p79Var = new p79(this, null, linearLayout.getId(), R.id.root_stub);
-                this.k = p79Var;
-                p79Var.S(navigationBar);
+                q79 q79Var = new q79(this, null, linearLayout.getId(), R.id.root_stub);
+                this.k = q79Var;
+                q79Var.S(navigationBar);
             }
             return this.k;
         }
@@ -230,19 +230,19 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048586, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            p79 p79Var = this.k;
-            if (p79Var != null) {
-                p79Var.F(i, strArr, iArr);
+            q79 q79Var = this.k;
+            if (q79Var != null) {
+                q79Var.F(i, strArr, iArr);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        p79 p79Var;
+        q79 q79Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (p79Var = this.k) != null) {
-            p79Var.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (q79Var = this.k) != null) {
+            q79Var.onClick(view2);
         }
     }
 

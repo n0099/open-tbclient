@@ -17,7 +17,7 @@ public class hy6 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FunAdButton a;
-    public final js8 b;
+    public final ks8 b;
     public ChannelNativeAds c;
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -27,12 +27,12 @@ public class hy6 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
         }
     }
 
-    public hy6(FunAdButton funAdButton, js8 js8Var, ChannelNativeAds channelNativeAds) {
+    public hy6(FunAdButton funAdButton, ks8 ks8Var, ChannelNativeAds channelNativeAds) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdButton, js8Var, channelNativeAds};
+            Object[] objArr = {funAdButton, ks8Var, channelNativeAds};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class hy6 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
             }
         }
         this.a = funAdButton;
-        this.b = js8Var;
+        this.b = ks8Var;
         this.c = channelNativeAds;
     }
 
@@ -54,9 +54,9 @@ public class hy6 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
             if (funAdButton != null && funAdButton.getTag() == this.b) {
                 this.a.setText(i);
             }
-            js8 js8Var = this.b;
-            if (js8Var != null) {
-                js8Var.l(TbadkApplication.getInst().getString(i));
+            ks8 ks8Var = this.b;
+            if (ks8Var != null) {
+                ks8Var.l(TbadkApplication.getInst().getString(i));
             }
         }
     }

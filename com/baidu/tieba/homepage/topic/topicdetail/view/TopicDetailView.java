@@ -49,9 +49,9 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a87;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.c79;
 import com.baidu.tieba.c87;
 import com.baidu.tieba.d35;
+import com.baidu.tieba.d79;
 import com.baidu.tieba.e87;
 import com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
@@ -109,7 +109,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public TextView r;
     public j87 s;
     public View t;
-    public c79 u;
+    public d79 u;
     public EditText v;
     public c87 w;
     public boolean x;
@@ -865,11 +865,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 } else {
                     this.v.setSelection(selectionEnd);
                 }
-                c79 c79Var = this.u;
-                if (c79Var.b() < 0) {
+                d79 d79Var = this.u;
+                if (d79Var.b() < 0) {
                     z2 = false;
                 }
-                c79Var.k(z2);
+                d79Var.k(z2);
             }
         }
     }
@@ -1000,7 +1000,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             addView(this.s.b(), layoutParams);
-            this.u = new c79();
+            this.u = new d79();
             this.t = findViewById(R.id.obfuscated_res_0x7f09007f);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090080);
             this.i = bdTypeRecyclerView;

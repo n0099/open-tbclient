@@ -1,21 +1,13 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes9.dex */
 public final class NativeApp extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DOWNLOADAND = "";
     public static final String DEFAULT_DOWNLOADIOS = "";
     public static final String DEFAULT_JUMPAND = "";
     public static final String DEFAULT_JUMPIOS = "";
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String downloadAnd;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -26,52 +18,17 @@ public final class NativeApp extends Message {
     public final String jumpIos;
 
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<NativeApp> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String downloadAnd;
         public String downloadIos;
         public String jumpAnd;
         public String jumpIos;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(NativeApp nativeApp) {
             super(nativeApp);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nativeApp};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (nativeApp == null) {
                 return;
             }
@@ -84,33 +41,12 @@ public final class NativeApp extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public NativeApp build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new NativeApp(this, z, null);
-            }
-            return (NativeApp) invokeZ.objValue;
+            return new NativeApp(this, z);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NativeApp(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (z) {
             String str = builder.jumpAnd;
             if (str == null) {
@@ -143,9 +79,5 @@ public final class NativeApp extends Message {
         this.jumpIos = builder.jumpIos;
         this.downloadAnd = builder.downloadAnd;
         this.downloadIos = builder.downloadIos;
-    }
-
-    public /* synthetic */ NativeApp(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

@@ -5,43 +5,60 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
 import tv.athena.revenue.RevenueManager;
 /* loaded from: classes3.dex */
 public class bba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IPayServiceStatistics a(int i, int i2) {
+    public static IPayEventStatistics a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
             IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
             if (revenue == null) {
-                RLog.error("MonitorReporter", "getMonitorReporter error revenue null", new Object[0]);
+                RLog.error("UIStatisticReporter", "getSDKReporter error revenue null", new Object[0]);
                 return null;
             }
-            return revenue.getPayServiceStatistics();
+            return revenue.getPayEventStatistic();
         }
-        return (IPayServiceStatistics) invokeII.objValue;
+        return (IPayEventStatistics) invokeII.objValue;
     }
 
-    public static void b(int i, int i2, int i3, String str) {
+    public static void b(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            IPayServiceStatistics a = a(i, i2);
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
+            IPayEventStatistics a = a(i, i2);
             if (a == null) {
-                RLog.error("MonitorReporter", "onShowPayFailResult error payReporter null", new Object[0]);
-                return;
+                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
+            } else {
+                a.reportUiEvent(str);
             }
-            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-            cReportResponse.mEventId = "6";
-            cReportResponse.mEventaliae = EventAlias.PayEventAlias.SHOW_PAY_RESULT;
-            cReportResponse.mErrCode = i3 + "";
-            cReportResponse.mErrMsg = str;
-            a.onShowPayResult(cReportResponse);
+        }
+    }
+
+    public static void c(int i, int i2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+            IPayEventStatistics a = a(i, i2);
+            if (a == null) {
+                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
+            } else {
+                a.reportUiEvent(str, str2);
+            }
+        }
+    }
+
+    public static void d(int i, int i2, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
+            IPayEventStatistics a = a(i, i2);
+            if (a == null) {
+                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
+            } else {
+                a.reportUvEvent(str, str2, str3, str4);
+            }
         }
     }
 }

@@ -131,7 +131,7 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 final Canvas canvas = this.$canvas;
                 final DefaultRenderer defaultRenderer = this.this$0;
                 final q76 q76Var = this.$danmakuItemData;
-                mf6.d(inst, d, new mf6.h() { // from class: com.baidu.tieba.h39
+                mf6.d(inst, d, new mf6.h() { // from class: com.baidu.tieba.i39
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

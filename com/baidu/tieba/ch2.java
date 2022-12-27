@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.view.KeyEvent;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface ch2 {
     void a();
 

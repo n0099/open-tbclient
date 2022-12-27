@@ -92,8 +92,8 @@ public class zs6 extends ft6 {
                         ys6Var.k(str);
                     }
                     this.a.a.H1(S0.getThreadList(), S0);
-                    if (rq8.i() != null) {
-                        rq8.i().n(this.a.b.g(), false);
+                    if (sq8.i() != null) {
+                        sq8.i().n(this.a.b.g(), false);
                     }
                     if (this.a.b != null) {
                         if (bk6.g()) {
@@ -166,7 +166,7 @@ public class zs6 extends ft6 {
                         this.a.d.W(S0);
                     }
                     if (TextUtils.equals(this.a.b.g(), str3)) {
-                        rq8.i().n(this.a.b.g(), false);
+                        sq8.i().n(this.a.b.g(), false);
                     }
                 }
             }

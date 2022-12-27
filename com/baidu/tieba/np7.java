@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.PayChannelService;
+import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class np7 extends yf1<PayChannelService> {
+public class np7 implements BrowserProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +26,13 @@ public class np7 extends yf1<PayChannelService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public PayChannelService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
+    public IBrowserView buildLightBrowserViewInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new op7();
+            return new lp7();
         }
-        return (PayChannelService) invokeV.objValue;
+        return (IBrowserView) invokeV.objValue;
     }
 }

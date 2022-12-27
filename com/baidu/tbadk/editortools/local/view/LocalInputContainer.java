@@ -30,7 +30,7 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g25;
-import com.baidu.tieba.i79;
+import com.baidu.tieba.j79;
 import com.baidu.tieba.lf6;
 import com.baidu.tieba.m65;
 import com.baidu.tieba.mf6;
@@ -613,9 +613,9 @@ public class LocalInputContainer extends RelativeLayout implements y65 {
             rw4.d(this).f(R.color.CAM_X0207);
             rw4.d(this.b).v(R.color.CAM_X0107);
             if (i == 0) {
-                i79.l(this.c, R.drawable.edittext_cursor);
+                j79.l(this.c, R.drawable.edittext_cursor);
             } else {
-                i79.l(this.c, R.drawable.edittext_cursor_1);
+                j79.l(this.c, R.drawable.edittext_cursor_1);
             }
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));

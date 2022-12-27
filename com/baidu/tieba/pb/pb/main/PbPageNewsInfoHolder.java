@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tq4;
-import com.baidu.tieba.v38;
+import com.baidu.tieba.w38;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yt4;
@@ -49,13 +49,13 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public yt4 q;
     public TbPageContext r;
     public int s;
-    public v38 t;
+    public w38 t;
     public b u;
     public View.OnClickListener v;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(v38 v38Var);
+        void a(w38 w38Var);
     }
 
     /* loaded from: classes5.dex */
@@ -172,16 +172,16 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(v38 v38Var) {
+    public void g(w38 w38Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, v38Var) != null) || v38Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, w38Var) != null) || w38Var == null) {
             return;
         }
-        this.t = v38Var;
-        yt4 yt4Var = v38Var.W0;
+        this.t = w38Var;
+        yt4 yt4Var = w38Var.W0;
         this.o = yt4Var;
-        this.p = v38Var.X0;
-        this.q = v38Var.Y0;
+        this.p = w38Var.X0;
+        this.q = w38Var.Y0;
         if (yt4Var != null) {
             this.d.K(yt4Var.d, 10, false);
             this.f.setText(this.o.b);
@@ -210,6 +210,6 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             this.m.setVisibility(8);
             this.m.setVisibility(8);
         }
-        this.a.setTag(v38Var);
+        this.a.setTag(w38Var);
     }
 }

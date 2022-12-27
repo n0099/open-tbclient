@@ -1,48 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.adapter.LegoDelegateAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ll7 {
+public class ll7 implements bn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, mo4> a;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ll7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-628883340, "Lcom/baidu/tieba/ll7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-628883340, "Lcom/baidu/tieba/ll7$b;");
-                    return;
-                }
-            }
-            a = new ll7(null);
-        }
-    }
 
     public ll7() {
         Interceptable interceptable = $ic;
@@ -54,45 +24,37 @@ public class ll7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public static ll7 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bn7
+    public tm7 a(xm7 xm7Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xm7Var)) == null) {
+            return new vm7(xm7Var);
         }
-        return (ll7) invokeV.objValue;
+        return (tm7) invokeL.objValue;
     }
 
-    public /* synthetic */ ll7(a aVar) {
-        this();
-    }
-
-    public void b(mo4 mo4Var) {
+    @Override // com.baidu.tieba.bn7
+    public xl7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mo4Var) == null) {
-            c(mo4Var.a(), mo4Var);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            return new LegoDelegateAdapter(tbPageContext, bdUniqueId, i);
         }
+        return (xl7) invokeLLI.objValue;
     }
 
-    public final void c(String str, mo4 mo4Var) {
+    @Override // com.baidu.tieba.bn7
+    public dn7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, mo4Var) == null) {
-            this.a.put(str, mo4Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            return new fn7(tbPageContext, bdUniqueId);
         }
-    }
-
-    public void d(String str, HashMap<String, String> hashMap, no4 no4Var) {
-        mo4 mo4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, no4Var) != null) || str == null || hashMap == null || hashMap.isEmpty() || no4Var == null || (mo4Var = this.a.get(str)) == null) {
-            return;
-        }
-        mo4Var.b(hashMap, no4Var);
+        return (dn7) invokeLL.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.hx9;
+import com.baidu.tieba.ix9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import java.util.Locale;
 public class Pose {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hx9 a;
+    public final ix9 a;
     public final float[] b;
 
     static {
@@ -27,7 +27,7 @@ public class Pose {
                 return;
             }
         }
-        hx9 hx9Var = hx9.e;
+        ix9 ix9Var = ix9.e;
     }
 
     public String toString() {

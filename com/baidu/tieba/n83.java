@@ -63,12 +63,12 @@ public class n83 extends f43 {
 
         /* renamed from: com.baidu.tieba.n83$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0368a implements xi3<h93<j93.e>> {
+        public class C0371a implements xi3<h93<j93.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0368a(a aVar) {
+            public C0371a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class n83 extends f43 {
                         z2 = true;
                     }
                     if (z2) {
-                        this.e.c(this.d, this.b, this.c, new C0368a(this));
+                        this.e.c(this.d, this.b, this.c, new C0371a(this));
                         return;
                     }
                     if (e93Var.j > 0) {

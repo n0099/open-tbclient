@@ -37,7 +37,7 @@ public class bi6 implements il6 {
     public BdUniqueId a;
     public String b;
     public String c;
-    public lr8 d;
+    public mr8 d;
     public List<MemberGroupInfo> e;
     public MemberGodInfo f;
     public ManagerApplyInfo g;
@@ -229,7 +229,7 @@ public class bi6 implements il6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lr8)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof mr8)) {
                 this.a.m.e = customResponsedMessage.getError();
                 this.a.m.f = customResponsedMessage.getErrorString();
                 this.a.m.g = false;
@@ -238,12 +238,12 @@ public class bi6 implements il6 {
                 this.a.m.b = this.a.b;
                 this.a.m.a = this.a.c;
                 this.a.m.c = 1;
-                lr8 lr8Var = (lr8) customResponsedMessage.getData();
-                if (lr8Var != null && lr8Var.m() == 0 && this.a.d != null) {
-                    lr8Var.t(this.a.d.c());
-                    lr8Var.w(this.a.d.i());
+                mr8 mr8Var = (mr8) customResponsedMessage.getData();
+                if (mr8Var != null && mr8Var.m() == 0 && this.a.d != null) {
+                    mr8Var.t(this.a.d.c());
+                    mr8Var.w(this.a.d.i());
                 }
-                this.a.d = lr8Var;
+                this.a.d = mr8Var;
                 if (this.a.k != null) {
                     ml6 ml6Var = this.a.k;
                     xl6 xl6Var = this.a.m;
@@ -404,9 +404,9 @@ public class bi6 implements il6 {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            tr8.h(301004, ForumMemberSocketResponseMessage.class, false, false);
-            tr8.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
-            tr8.b(2003009, ci6.class);
+            ur8.h(301004, ForumMemberSocketResponseMessage.class, false, false);
+            ur8.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
+            ur8.b(2003009, ci6.class);
         }
     }
 
@@ -475,17 +475,17 @@ public class bi6 implements il6 {
         }
     }
 
-    public ArrayList<xn> y(lr8 lr8Var, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
+    public ArrayList<xn> y(mr8 mr8Var, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{lr8Var, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
-            if (lr8Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{mr8Var, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
+            if (mr8Var == null) {
                 return null;
             }
             ArrayList<xn> arrayList = new ArrayList<>();
-            if (lr8Var.m() == 1) {
+            if (mr8Var.m() == 1) {
                 fi6 fi6Var = new fi6();
-                fi6Var.h(lr8Var);
+                fi6Var.h(mr8Var);
                 fi6Var.f(this.b);
                 fi6Var.g(this.c);
                 arrayList.add(fi6Var);

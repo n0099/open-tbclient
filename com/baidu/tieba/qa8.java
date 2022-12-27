@@ -10,12 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NamoaixudEntry;
 /* loaded from: classes5.dex */
 public class qa8 extends BaseCardInfo implements xn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public y55 a;
+    public NamoaixudEntry a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,13 +48,13 @@ public class qa8 extends BaseCardInfo implements xn {
         }
     }
 
-    public y55 c() {
+    public NamoaixudEntry c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (y55) invokeV.objValue;
+        return (NamoaixudEntry) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
@@ -66,10 +67,10 @@ public class qa8 extends BaseCardInfo implements xn {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void f(y55 y55Var) {
+    public void f(NamoaixudEntry namoaixudEntry) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y55Var) == null) {
-            this.a = y55Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namoaixudEntry) == null) {
+            this.a = namoaixudEntry;
         }
     }
 }

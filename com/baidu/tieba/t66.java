@@ -74,11 +74,15 @@ public class t66 {
     public void e(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, baseFragmentActivity) == null) && baseFragmentActivity != null) {
-            SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
-            this.a = new WeakReference<>(splashAdView);
-            ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.layout_root);
-            if (viewGroup != null) {
-                viewGroup.addView(splashAdView);
+            try {
+                SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
+                this.a = new WeakReference<>(splashAdView);
+                ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.layout_root);
+                if (viewGroup != null) {
+                    viewGroup.addView(splashAdView);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

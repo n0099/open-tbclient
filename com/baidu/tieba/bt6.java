@@ -152,7 +152,7 @@ public class bt6 {
         if (interceptable == null || interceptable.invokeLL(1048587, this, arrayList, frsViewData) == null) {
             t(frsViewData);
             s();
-            kr8.f(arrayList, 1);
+            lr8.f(arrayList, 1);
             i(arrayList);
             this.b.setData(arrayList);
             this.f = arrayList;
@@ -167,7 +167,7 @@ public class bt6 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdTypeRecyclerView)) == null) {
             if (this.a != null && bdTypeRecyclerView != null) {
                 this.c = new ArrayList();
-                ArrayList<BdUniqueId> g = kr8.g();
+                ArrayList<BdUniqueId> g = lr8.g();
                 if (g != null && g.size() > 0) {
                     int size = g.size();
                     for (int i = 0; i < size; i++) {
@@ -313,8 +313,8 @@ public class bt6 {
             jk6Var.A(bdTypeRecyclerView);
             kn<? extends yu4, ? extends TypeAdapter.ViewHolder> a2 = wj6.e().a(frsNewAreaFragment.getPageContext(), this.a.getUniqueId(), true);
             kn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = wj6.e().d(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
-            kn<?, ?> d2 = zi8.l().d(this.a, AdvertAppInfo.w);
-            kn<?, ?> d3 = zi8.l().d(this.a, AdvertAppInfo.z);
+            kn<?, ?> d2 = aj8.l().d(this.a, AdvertAppInfo.w);
+            kn<?, ?> d3 = aj8.l().d(this.a, AdvertAppInfo.z);
             ko6 ko6Var = new ko6(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_SHARE_THREAD, this.a.getUniqueId());
             ko6Var.A(bdTypeRecyclerView);
             qn6 qn6Var = new qn6(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId());
@@ -401,8 +401,8 @@ public class bt6 {
             for (kn knVar : this.d) {
                 if (knVar instanceof ck6) {
                     ((ck6) knVar).v();
-                } else if (knVar instanceof qi8) {
-                    ((qi8) knVar).onDestroy();
+                } else if (knVar instanceof ri8) {
+                    ((ri8) knVar).onDestroy();
                 }
             }
         }

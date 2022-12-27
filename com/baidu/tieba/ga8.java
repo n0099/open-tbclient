@@ -1,146 +1,102 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.personCenter.data.PersonVipCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class ga8 {
+public class ga8 extends kn<PersonVipCardData, CardViewHolder<ob8>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y98 a;
-    public v98 b;
-    public da8 c;
-    public ea8 d;
-    public z98 e;
-    public ca8 f;
-    public x98 g;
-    public aa8 h;
-    public ba8 i;
-    public BdTypeListView j;
-    public w98 k;
-    public fa8 l;
-    public List<kn> m;
+    public TbPageContext a;
+    public ob8 b;
 
-    public ga8(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ga8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = new ArrayList();
-        this.j = bdTypeListView;
-        a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.a = tbPageContext;
     }
 
-    public final void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public CardViewHolder<ob8> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdTypeListView, tbPageContext, bdUniqueId) == null) {
-            this.a = new y98(tbPageContext, ta8.b);
-            this.b = new v98(tbPageContext, na8.f);
-            this.c = new da8(tbPageContext, za8.b);
-            this.d = new ea8(tbPageContext, ab8.c);
-            this.e = new z98(tbPageContext, pa8.b);
-            this.f = new ca8(tbPageContext, qa8.b);
-            this.k = new w98(tbPageContext, ra8.c);
-            this.h = new aa8(tbPageContext, va8.b);
-            this.i = new ba8(tbPageContext, wa8.b);
-            this.g = new x98(tbPageContext, sa8.l);
-            this.l = new fa8(tbPageContext, PersonVipCardData.PERSON_VIP_CARD_DATA);
-            this.m.add(this.a);
-            this.m.add(this.l);
-            this.m.add(this.b);
-            this.m.add(this.e);
-            this.m.add(this.f);
-            this.m.add(this.c);
-            this.m.add(this.d);
-            this.m.add(this.h);
-            this.m.add(this.i);
-            this.m.add(this.g);
-            this.m.add(this.k);
-            bdTypeListView.a(this.m);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            this.b = new ob8(this.a);
+            return new CardViewHolder<>(this.b);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(boolean z) {
+        ob8 ob8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (ob8Var = this.b) != null) {
+            ob8Var.u(z);
         }
     }
 
-    public void b() {
-        BdTypeListView bdTypeListView;
+    public void onDestroy() {
+        ob8 ob8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.j) != null && (bdTypeListView.getAdapter2() instanceof on)) {
-            this.j.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ob8Var = this.b) != null) {
+            ob8Var.s();
         }
     }
 
-    public void c() {
-        fa8 fa8Var;
+    public void onPause() {
+        ob8 ob8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (fa8Var = this.l) != null) {
-            fa8Var.onDestroy();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ob8Var = this.b) != null) {
+            ob8Var.t();
         }
     }
 
-    public void d() {
-        fa8 fa8Var;
+    public void onResume() {
+        ob8 ob8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fa8Var = this.l) != null) {
-            fa8Var.onPause();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ob8Var = this.b) != null) {
+            ob8Var.v();
         }
     }
 
-    public void f() {
-        fa8 fa8Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonVipCardData personVipCardData, CardViewHolder<ob8> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (fa8Var = this.l) != null) {
-            fa8Var.onResume();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, personVipCardData, cardViewHolder})) == null) {
+            cardViewHolder.a().i(personVipCardData);
+            return cardViewHolder.getView();
         }
-    }
-
-    public void g() {
-        aa8 aa8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (aa8Var = this.h) != null) {
-            aa8Var.onScroll();
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            fa8 fa8Var = this.l;
-            if (fa8Var != null) {
-                fa8Var.u(z);
-            }
-            w98 w98Var = this.k;
-            if (w98Var != null) {
-                w98Var.v(z);
-            }
-            ca8 ca8Var = this.f;
-            if (ca8Var != null) {
-                ca8Var.u(z);
-            }
-        }
-    }
-
-    public void h(boolean z) {
-        w98 w98Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (w98Var = this.k) != null) {
-            w98Var.u(z);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

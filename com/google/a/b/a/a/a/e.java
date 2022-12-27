@@ -2,7 +2,7 @@ package com.google.a.b.a.a.a;
 
 import android.os.Bundle;
 import android.os.Parcel;
-import com.baidu.tieba.fx9;
+import com.baidu.tieba.gx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,13 +41,13 @@ public abstract class e extends com.google.a.a.b implements d {
                     if (i != 3) {
                         return false;
                     }
-                    fx9.a(parcel, Bundle.CREATOR);
+                    gx9.a(parcel, Bundle.CREATOR);
                     a();
                 } else {
-                    b((Bundle) fx9.a(parcel, Bundle.CREATOR));
+                    b((Bundle) gx9.a(parcel, Bundle.CREATOR));
                 }
             } else {
-                a((Bundle) fx9.a(parcel, Bundle.CREATOR));
+                a((Bundle) gx9.a(parcel, Bundle.CREATOR));
             }
             return true;
         }

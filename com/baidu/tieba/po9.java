@@ -1,40 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.os.IBinder;
+import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.VoyagerImpl;
+import com.baidu.voyager.impl.IVoyagerService;
 /* loaded from: classes5.dex */
-public class po9 extends yf1<wo9> {
+public class po9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile IVoyagerService b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068911, "Lcom/baidu/tieba/po9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948068911, "Lcom/baidu/tieba/po9;");
+                return;
+            }
+        }
+        a = AppConfig.isDebug();
+    }
 
     public po9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public wo9 createService() throws ServiceNotFoundException {
+    public static IVoyagerService b() {
         InterceptResult invokeV;
+        IBinder f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new VoyagerImpl();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (po9.class) {
+                    if (b == null && (f = IPCServiceManager.f("remote_voyager_service", true)) != null) {
+                        b = IVoyagerService.Stub.asInterface(f);
+                    }
+                }
+            }
+            return b;
         }
-        return (wo9) invokeV.objValue;
+        return (IVoyagerService) invokeV.objValue;
     }
 }

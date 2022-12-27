@@ -1395,32 +1395,32 @@ public class ey6 implements vx6.f {
     }
 
     @Override // com.baidu.tieba.vx6.f
-    public u09 o(Object obj) {
+    public v09 o(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, obj)) == null) {
-            u09 u09Var = null;
+            v09 v09Var = null;
             if (obj instanceof FunNativeAd2) {
                 FunNativeAd2 funNativeAd2 = (FunNativeAd2) obj;
                 int s = dy6.s(funNativeAd2);
                 if (s == -1) {
                     return null;
                 }
-                u09Var = new u09();
+                v09Var = new v09();
                 String c2 = dy6.c(funNativeAd2, s);
                 if (xi.isEmpty(c2)) {
                     c2 = "推广";
                 }
-                u09Var.k(c2);
-                u09Var.l(dy6.v(funNativeAd2, s));
-                u09Var.j(dy6.q(funNativeAd2, s));
-                u09Var.g(dy6.n(funNativeAd2));
-                u09Var.h(dy6.b(funNativeAd2));
-                u09Var.i(s);
+                v09Var.k(c2);
+                v09Var.l(dy6.v(funNativeAd2, s));
+                v09Var.j(dy6.q(funNativeAd2, s));
+                v09Var.g(dy6.n(funNativeAd2));
+                v09Var.h(dy6.b(funNativeAd2));
+                v09Var.i(s);
             }
-            return u09Var;
+            return v09Var;
         }
-        return (u09) invokeL.objValue;
+        return (v09) invokeL.objValue;
     }
 
     public final ModuleConfigKs.Builder w() {

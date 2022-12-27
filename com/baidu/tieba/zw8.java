@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +13,16 @@ public class zw8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final zu8 b;
+    public final av8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zw8(MainTabActivity mainTabActivity, zu8 zu8Var) {
-        super(2001304);
+    public zw8(MainTabActivity mainTabActivity, av8 av8Var) {
+        super(2001374);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zu8Var};
+            Object[] objArr = {mainTabActivity, av8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,37 +34,16 @@ public class zw8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = zu8Var;
+        this.b = av8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        zu8 zu8Var;
-        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (zu8Var = this.b) != null && zu8Var.x() != null) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-            boolean z2 = false;
-            if (intValue != 2 && oldSkinType != 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return;
-            }
-            if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-                z2 = true;
-            }
-            if (z2) {
-                this.b.x().e(1);
-            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-                this.b.x().e(2);
-            } else {
-                this.b.x().e(1);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || ((PostWriteCallBackData) customResponsedMessage.getData()).isDyamicCallback()) {
+            return;
         }
+        this.b.O((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

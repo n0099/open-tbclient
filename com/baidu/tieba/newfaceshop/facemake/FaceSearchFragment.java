@@ -21,7 +21,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx7;
+import com.baidu.tieba.ax7;
+import com.baidu.tieba.cx7;
 import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
@@ -31,7 +32,6 @@ import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
 import com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel;
 import com.baidu.tieba.nf6;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public View f;
     public AutoLineWrapLayout g;
     public BdListView h;
-    public bx7 i;
+    public cx7 i;
     public List<EmotionImageData> j;
     public SearchEmotionModel k;
     public GetHotWordsModel l;
@@ -62,7 +62,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public int n;
     public boolean o;
     public String p;
-    public zw7 q;
+    public ax7 q;
     public Activity r;
     public final SearchEmotionModel.b s;
     public final BdListView.p t;
@@ -299,9 +299,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bx7 bx7Var = this.i;
-            if (bx7Var != null) {
-                return bx7Var.i();
+            cx7 cx7Var = this.i;
+            if (cx7Var != null) {
+                return cx7Var.i();
             }
             return null;
         }
@@ -335,22 +335,22 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            bx7 bx7Var = this.i;
-            if (bx7Var != null) {
-                bx7Var.k();
+            cx7 cx7Var = this.i;
+            if (cx7Var != null) {
+                cx7Var.k();
             }
             this.k.cancelLoadData();
             this.l.cancelLoadData();
         }
     }
 
-    public void S1(zw7 zw7Var) {
+    public void S1(ax7 ax7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zw7Var) == null) {
-            this.q = zw7Var;
-            bx7 bx7Var = this.i;
-            if (bx7Var != null) {
-                bx7Var.l(zw7Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, ax7Var) == null) {
+            this.q = ax7Var;
+            cx7 cx7Var = this.i;
+            if (cx7Var != null) {
+                cx7Var.l(ax7Var);
             }
         }
     }
@@ -360,9 +360,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && str.length() == 0) {
             this.j.clear();
-            bx7 bx7Var = this.i;
-            if (bx7Var != null) {
-                bx7Var.notifyDataSetChanged();
+            cx7 cx7Var = this.i;
+            if (cx7Var != null) {
+                cx7Var.notifyDataSetChanged();
             }
             T1();
         }
@@ -436,9 +436,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             this.h = bdListView;
             bdListView.setOnSrollToBottomListener(this.t);
             this.j = new ArrayList();
-            bx7 bx7Var = new bx7(this.j, 10);
-            this.i = bx7Var;
-            bx7Var.l(this.q);
+            cx7 cx7Var = new cx7(this.j, 10);
+            this.i = cx7Var;
+            cx7Var.l(this.q);
             this.h.setAdapter((ListAdapter) this.i);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();

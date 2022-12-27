@@ -40,13 +40,13 @@ public class fg2 {
 
         /* renamed from: com.baidu.tieba.fg2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0272a implements Runnable {
+        public class RunnableC0273a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dg2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0272a(a aVar, dg2 dg2Var) {
+            public RunnableC0273a(a aVar, dg2 dg2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class fg2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0272a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0273a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

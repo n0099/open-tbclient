@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.gf8;
+import com.baidu.tieba.hf8;
 import com.baidu.tieba.xm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,8 +42,8 @@ public class sm6 extends h46<xm6> implements tm6 {
     public xm6 A;
     public int B;
     public ym6 C;
-    public yf8 D;
-    public yf8 E;
+    public zf8 D;
+    public zf8 E;
     public int F;
     public boolean G;
     public boolean H;
@@ -69,7 +69,7 @@ public class sm6 extends h46<xm6> implements tm6 {
     public ImageView v;
     public LinearLayout w;
     public LinearLayout x;
-    public gf8 y;
+    public hf8 y;
     public TbPageContext<?> z;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public class sm6 extends h46<xm6> implements tm6 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements gf8.t {
+    public class a implements hf8.t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sm6 a;
@@ -112,7 +112,7 @@ public class sm6 extends h46<xm6> implements tm6 {
             this.a = sm6Var;
         }
 
-        @Override // com.baidu.tieba.gf8.t
+        @Override // com.baidu.tieba.hf8.t
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.R0()) {
@@ -120,7 +120,7 @@ public class sm6 extends h46<xm6> implements tm6 {
             }
         }
 
-        @Override // com.baidu.tieba.gf8.t
+        @Override // com.baidu.tieba.hf8.t
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -135,7 +135,7 @@ public class sm6 extends h46<xm6> implements tm6 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements gf8.c0 {
+    public class b implements hf8.c0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sm6 a;
@@ -158,7 +158,7 @@ public class sm6 extends h46<xm6> implements tm6 {
             this.a = sm6Var;
         }
 
-        @Override // com.baidu.tieba.gf8.c0
+        @Override // com.baidu.tieba.hf8.c0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -168,7 +168,7 @@ public class sm6 extends h46<xm6> implements tm6 {
             }
         }
 
-        @Override // com.baidu.tieba.gf8.c0
+        @Override // com.baidu.tieba.hf8.c0
         public void b() {
             String str;
             Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public class sm6 extends h46<xm6> implements tm6 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements gf8.w {
+    public class c implements hf8.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sm6 a;
@@ -212,16 +212,16 @@ public class sm6 extends h46<xm6> implements tm6 {
             this.a = sm6Var;
         }
 
-        @Override // com.baidu.tieba.gf8.w
+        @Override // com.baidu.tieba.hf8.w
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
                     this.a.z.showToast(this.a.n.getText().toString());
                     sm6 sm6Var = this.a;
-                    gf8 gf8Var = sm6Var.y;
+                    hf8 hf8Var = sm6Var.y;
                     xm6 xm6Var = sm6Var.A;
-                    gf8Var.M1(xm6Var.n.d, xm6Var.b);
+                    hf8Var.M1(xm6Var.n.d, xm6Var.b);
                     this.a.l.setVisibility(8);
                     this.a.K("2");
                 } else {
@@ -234,7 +234,7 @@ public class sm6 extends h46<xm6> implements tm6 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements gf8.u {
+    public class d implements hf8.u {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sm6 a;
@@ -257,7 +257,7 @@ public class sm6 extends h46<xm6> implements tm6 {
             this.a = sm6Var;
         }
 
-        @Override // com.baidu.tieba.gf8.u
+        @Override // com.baidu.tieba.hf8.u
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -277,7 +277,7 @@ public class sm6 extends h46<xm6> implements tm6 {
             }
         }
 
-        @Override // com.baidu.tieba.gf8.u
+        @Override // com.baidu.tieba.hf8.u
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -382,7 +382,7 @@ public class sm6 extends h46<xm6> implements tm6 {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements gf8.z {
+    public class g implements hf8.z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sm6 a;
@@ -405,7 +405,7 @@ public class sm6 extends h46<xm6> implements tm6 {
             this.a = sm6Var;
         }
 
-        @Override // com.baidu.tieba.gf8.z
+        @Override // com.baidu.tieba.hf8.z
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -439,9 +439,9 @@ public class sm6 extends h46<xm6> implements tm6 {
         this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0925cc);
         FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.video_container);
         this.j = frameLayout;
-        gf8 gf8Var = new gf8(tbPageContext, frameLayout, false);
-        this.y = gf8Var;
-        gf8Var.z1("2005");
+        hf8 hf8Var = new hf8(tbPageContext, frameLayout, false);
+        this.y = hf8Var;
+        hf8Var.z1("2005");
         this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922d4);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090894);
         this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0915de);
@@ -568,16 +568,16 @@ public class sm6 extends h46<xm6> implements tm6 {
             this.y.u1(new b(this));
             this.y.p1(new c(this));
             this.y.i1(false);
-            yf8 yf8Var = new yf8();
-            this.D = yf8Var;
-            yf8Var.c = xm6Var.b;
-            yf8Var.d = xm6Var.a;
-            yf8Var.e = TbadkCoreApplication.getCurrentAccount();
-            yf8 yf8Var2 = new yf8();
-            this.E = yf8Var2;
-            yf8Var2.c = xm6Var.b;
-            yf8Var2.d = xm6Var.a;
-            yf8Var2.e = TbadkCoreApplication.getCurrentAccount();
+            zf8 zf8Var = new zf8();
+            this.D = zf8Var;
+            zf8Var.c = xm6Var.b;
+            zf8Var.d = xm6Var.a;
+            zf8Var.e = TbadkCoreApplication.getCurrentAccount();
+            zf8 zf8Var2 = new zf8();
+            this.E = zf8Var2;
+            zf8Var2.c = xm6Var.b;
+            zf8Var2.d = xm6Var.a;
+            zf8Var2.e = TbadkCoreApplication.getCurrentAccount();
             if (this.N) {
                 StatisticItem statisticItem = new StatisticItem("c12590");
                 statisticItem.param("tid", xm6Var.b);
@@ -588,27 +588,27 @@ public class sm6 extends h46<xm6> implements tm6 {
                 statisticItem.param("obj_locate", i);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
                 TiebaStatic.log(statisticItem);
-                yf8 yf8Var3 = this.D;
-                yf8Var3.g = "auto_midpage";
-                yf8Var3.a = "13";
-                yf8Var3.i = "1";
-                yf8 yf8Var4 = this.E;
-                yf8Var4.g = "auto_midpage";
-                yf8Var4.a = "auto_midpage";
-                yf8Var4.i = "1";
+                zf8 zf8Var3 = this.D;
+                zf8Var3.g = "auto_midpage";
+                zf8Var3.a = "13";
+                zf8Var3.i = "1";
+                zf8 zf8Var4 = this.E;
+                zf8Var4.g = "auto_midpage";
+                zf8Var4.a = "auto_midpage";
+                zf8Var4.i = "1";
             } else {
-                yf8 yf8Var5 = this.D;
-                yf8Var5.i = "frs_bavideotab";
-                yf8Var5.a = "12";
-                yf8 yf8Var6 = this.E;
-                yf8Var6.i = "frs_bavideotab";
-                yf8Var6.a = "frs_bavideotab";
+                zf8 zf8Var5 = this.D;
+                zf8Var5.i = "frs_bavideotab";
+                zf8Var5.a = "12";
+                zf8 zf8Var6 = this.E;
+                zf8Var6.i = "frs_bavideotab";
+                zf8Var6.a = "frs_bavideotab";
             }
             xm6.c cVar = xm6Var.n;
             if (cVar != null) {
-                yf8 yf8Var7 = this.D;
+                zf8 zf8Var7 = this.D;
                 String str = cVar.c;
-                yf8Var7.m = str;
+                zf8Var7.m = str;
                 this.E.m = str;
             }
             this.y.H0().setVideoStatData(this.D);
@@ -727,9 +727,9 @@ public class sm6 extends h46<xm6> implements tm6 {
                         if (xm6Var != null && xm6Var.n != null) {
                             this.m.setVisibility(8);
                             this.y.f1();
-                            gf8 gf8Var = this.y;
+                            hf8 hf8Var = this.y;
                             xm6 xm6Var2 = this.A;
-                            gf8Var.M1(xm6Var2.n.d, xm6Var2.b);
+                            hf8Var.M1(xm6Var2.n.d, xm6Var2.b);
                             K("2");
                             return;
                         }
@@ -796,10 +796,10 @@ public class sm6 extends h46<xm6> implements tm6 {
     }
 
     public void J() {
-        gf8 gf8Var;
+        hf8 hf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (gf8Var = this.y) != null) {
-            gf8Var.v0();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (hf8Var = this.y) != null) {
+            hf8Var.v0();
         }
     }
 
@@ -833,7 +833,7 @@ public class sm6 extends h46<xm6> implements tm6 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && (xm6Var = this.A) != null && xm6Var.n != null) {
             if ("1".equals(str) || "2".equals(str)) {
-                nf8.e(this.A.n.c, "", str, this.E, this.y.H0().getPcdnState());
+                of8.e(this.A.n.c, "", str, this.E, this.y.H0().getPcdnState());
             }
         }
     }

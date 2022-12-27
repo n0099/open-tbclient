@@ -42,18 +42,18 @@ public class m17 {
         void e(boolean z, n67 n67Var, boolean z2, String str, String str2, boolean z3);
     }
 
-    public cn7 d() {
+    public dn7 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (cn7) invokeV.objValue;
+        return (dn7) invokeV.objValue;
     }
 
-    public void j(cn7 cn7Var) {
+    public void j(dn7 dn7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cn7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dn7Var) == null) {
         }
     }
 

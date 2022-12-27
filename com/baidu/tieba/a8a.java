@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
-import java.util.List;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.Map;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes3.dex */
 public interface a8a {
-    void addLogDelegate(IRLogDelegate iRLogDelegate);
+    GetBannerConfigReqParams a();
 
-    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
+    QueryCurrencyReqParams b();
 
-    List<IRevenue> getAllRevenue();
+    d8a c(PayFlowType payFlowType, Map<String, String> map);
 
-    IMiddleRevenue getMiddleRevenue(int i, int i2);
+    GetSplitOrderConfigReqParams d(int i, String str, long j);
 
-    IRevenue getRevenue(int i, int i2);
-
-    b8a getYYPayMiddleService(int i, int i2);
-
-    void removeRevenueConfig(int i, int i2);
-
-    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
+    QueryCurrencyReqParams e(Map<String, String> map);
 }

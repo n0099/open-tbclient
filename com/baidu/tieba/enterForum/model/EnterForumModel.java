@@ -32,9 +32,9 @@ import com.baidu.tieba.ik5;
 import com.baidu.tieba.kv4;
 import com.baidu.tieba.mk5;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rs8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.sb6;
+import com.baidu.tieba.ss8;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +61,7 @@ public class EnterForumModel extends BdBaseModel {
     public ac6 a;
     public RecentlyVisitedForumData b;
     public f c;
-    public rs8 d;
+    public ss8 d;
     public long e;
     public long f;
     public long g;
@@ -496,10 +496,10 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public final void T() {
-        rs8 rs8Var;
+        ss8 ss8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (rs8Var = this.d) != null) {
-            rs8Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (ss8Var = this.d) != null) {
+            ss8Var.a();
             this.d = null;
         }
     }
@@ -577,7 +577,7 @@ public class EnterForumModel extends BdBaseModel {
             forumGuideRequestMessage.setSortType(Integer.valueOf(i2));
             this.e = System.currentTimeMillis();
             if (this.d == null) {
-                this.d = new rs8("forumrecommendStat");
+                this.d = new ss8("forumrecommendStat");
             }
             sendMessage(forumGuideRequestMessage);
             return true;
@@ -675,9 +675,9 @@ public class EnterForumModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             e eVar = new e(this);
             boolean z3 = !z;
-            rs8 rs8Var = this.d;
-            if (rs8Var != null) {
-                rs8Var.b(z2, z3, i, str, i2, j, j2);
+            ss8 ss8Var = this.d;
+            if (ss8Var != null) {
+                ss8Var.b(z2, z3, i, str, i2, j, j2);
                 this.d = null;
             }
             if (!z && this.a.h()) {

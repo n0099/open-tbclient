@@ -73,7 +73,7 @@ public class lc6 implements l95, wd5 {
     public de6 b;
     public EnterForumModel c;
     public RecentlyVisitedForumModel d;
-    public hz8 e;
+    public iz8 e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -914,7 +914,7 @@ public class lc6 implements l95, wd5 {
         this.t = new hd6();
         this.d = new RecentlyVisitedForumModel();
         this.m = new LikeModel(this.j.getPageContext());
-        this.e = new hz8(this.j.getPageContext());
+        this.e = new iz8(this.j.getPageContext());
         this.m.setLoadDataCallBack(this.y);
         this.c.f0(this.z);
         ry4.l().v("enter_forum_edit_mode", false);
@@ -970,7 +970,7 @@ public class lc6 implements l95, wd5 {
                 TbadkCoreApplication.getInst().clearSignedForum();
                 String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount2 != null && currentAccount2.length() > 0) {
-                    jt8.g(currentAccount2);
+                    kt8.g(currentAccount2);
                 }
                 this.b.c0(this.c.P());
             }

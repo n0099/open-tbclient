@@ -72,21 +72,21 @@ public class as4 {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(as4Var.d).s(as4Var.e).t(as4Var.c).w(String.valueOf(as4Var.b)).p(advertAppInfo.g);
             z01.b(clogBuilder);
-            zl7.b(zl7.a(advertAppInfo));
+            am7.b(am7.a(advertAppInfo));
             as4Var.h = true;
             i.add(as4Var.g);
         }
     }
 
-    public static void f(ks8 ks8Var) {
+    public static void f(ls8 ls8Var) {
         as4 as4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, ks8Var) == null) && ks8Var != null && ks8Var.getAdvertAppInfo() != null && (as4Var = ks8Var.getAdvertAppInfo().i) != null && !as4Var.h && !a(as4Var.g)) {
-            ks8Var.Z0 = as4Var.d;
-            ks8Var.a1 = as4Var.e;
-            ks8Var.Y0 = as4Var.c;
+        if ((interceptable == null || interceptable.invokeL(65543, null, ls8Var) == null) && ls8Var != null && ls8Var.getAdvertAppInfo() != null && (as4Var = ls8Var.getAdvertAppInfo().i) != null && !as4Var.h && !a(as4Var.g)) {
+            ls8Var.Z0 = as4Var.d;
+            ls8Var.a1 = as4Var.e;
+            ls8Var.Y0 = as4Var.c;
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(ks8Var.e1 + 1)).w(String.valueOf(ks8Var.c1)).v(as4Var.a).r(as4Var.d).s(as4Var.e).t(as4Var.c).p(as4Var.g);
+            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(ls8Var.e1 + 1)).w(String.valueOf(ls8Var.c1)).v(as4Var.a).r(as4Var.d).s(as4Var.e).t(as4Var.c).p(as4Var.g);
             z01.b(clogBuilder);
             as4Var.h = true;
             i.add(as4Var.g);
@@ -164,7 +164,7 @@ public class as4 {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.SHOW).v(q56Var.c().j).q(String.valueOf(q56Var.c().position + 1)).w(String.valueOf(q56Var.c().i.b)).p(q56Var.c().i.g);
             z01.b(clogBuilder);
-            zl7.b(zl7.a(q56Var.c()));
+            am7.b(am7.a(q56Var.c()));
             q56Var.c().i.h = true;
             i.add(q56Var.c().i.g);
         }

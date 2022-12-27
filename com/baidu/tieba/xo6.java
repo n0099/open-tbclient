@@ -76,9 +76,9 @@ public class xo6 {
                         this.a.f = i;
                         if (this.a.f != 7) {
                             ek5.c();
-                            nt8.a();
+                            ot8.a();
                         } else {
-                            nt8.b();
+                            ot8.b();
                         }
                         this.a.b.N0().V0(this.a.d.w(this.a.f));
                         if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {

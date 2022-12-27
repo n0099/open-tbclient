@@ -109,7 +109,7 @@ public abstract class fu6 implements hu6 {
                 return;
             }
         }
-        qq8.b();
+        rq8.b();
     }
 
     @Override // com.baidu.tieba.hu6

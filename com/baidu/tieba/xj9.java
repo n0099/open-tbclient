@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import java.lang.reflect.Type;
+import android.media.MediaFormat;
 /* loaded from: classes6.dex */
 public interface xj9 {
-    String a(Object obj);
-
-    <T> T b(String str, Class<T> cls);
-
-    <T> T c(String str, Type type);
+    void a(MediaFormat mediaFormat);
 }

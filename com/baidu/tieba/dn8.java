@@ -1,57 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.ArrayMap;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.BdNetSwitch;
-import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class dn8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Long> a;
+    public static volatile cn8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947710427, "Lcom/baidu/tieba/dn8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947710427, "Lcom/baidu/tieba/dn8;");
-                return;
-            }
-        }
-        a = new ArrayMap();
-    }
-
-    public static void a(String str, boolean z) {
-        Long remove;
+    public static synchronized cn8 a() {
+        InterceptResult invokeV;
+        cn8 cn8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (dn8.class) {
+                if (a == null) {
+                    a = new cn8();
+                }
+                cn8Var = a;
+            }
+            return cn8Var;
         }
-        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType());
-        StatisticItem addParam2 = addParam.addParam("obj_source", BdNetSwitch.getIsOn() + " " + PBCacheBlockSwitch.getIsOn());
-        StringBuilder sb = new StringBuilder();
-        sb.append(z);
-        sb.append("");
-        TiebaStatic.log(addParam2.addParam("obj_param1", sb.toString()).addParam(TiebaStatic.Params.OBJ_PARAM2, System.currentTimeMillis() - remove.longValue()));
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.put(str, Long.valueOf(System.currentTimeMillis()));
-        }
+        return (cn8) invokeV.objValue;
     }
 }

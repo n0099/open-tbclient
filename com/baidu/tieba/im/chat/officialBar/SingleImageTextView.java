@@ -41,9 +41,9 @@ import com.baidu.tieba.eg7;
 import com.baidu.tieba.oc7;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.sf;
-import com.baidu.tieba.t49;
 import com.baidu.tieba.td7;
 import com.baidu.tieba.tn5;
+import com.baidu.tieba.u49;
 import com.baidu.tieba.vy4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -629,7 +629,7 @@ public class SingleImageTextView extends RelativeLayout {
             int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0946));
             SpannableString spannableString = new SpannableString(aVar.b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
-            this.c.setOnTouchListener(new t49(spannableString));
+            this.c.setOnTouchListener(new u49(spannableString));
             this.c.setText(spannableString);
             this.f.setText(R.string.obfuscated_res_0x7f0f02ff);
         } else {

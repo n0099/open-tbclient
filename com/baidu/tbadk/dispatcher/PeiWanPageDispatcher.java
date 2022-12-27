@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.xk8;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Objects;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class PeiWanPageDispatcher implements xk8 {
+public class PeiWanPageDispatcher implements yk8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_HALF = "1";
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class PeiWanPageDispatcher implements xk8 {
         }
     }
 
-    @Override // com.baidu.tieba.xk8
+    @Override // com.baidu.tieba.yk8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

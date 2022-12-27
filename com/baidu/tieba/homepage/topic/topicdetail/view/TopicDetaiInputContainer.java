@@ -24,7 +24,7 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g25;
 import com.baidu.tieba.h75;
-import com.baidu.tieba.i79;
+import com.baidu.tieba.j79;
 import com.baidu.tieba.lf6;
 import com.baidu.tieba.m65;
 import com.baidu.tieba.mf6;
@@ -579,7 +579,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements y65, View.
             this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            i79.l(this.b, R.drawable.edittext_cursor);
+            j79.l(this.b, R.drawable.edittext_cursor);
             this.b.setPadding(0, yi.g(context, R.dimen.obfuscated_res_0x7f0701e8), yi.g(context, R.dimen.obfuscated_res_0x7f0702da), yi.g(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
@@ -644,10 +644,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements y65, View.
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
             if (i == 0) {
-                i79.l(this.b, R.drawable.edittext_cursor);
+                j79.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
             } else {
-                i79.l(this.b, R.drawable.edittext_cursor_1);
+                j79.l(this.b, R.drawable.edittext_cursor_1);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0110));
             }
             SkinManager.setBackgroundResource(this.c, R.drawable.topic_discuss_send_bg);

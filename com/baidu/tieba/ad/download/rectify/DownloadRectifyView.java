@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj8;
+import com.baidu.tieba.bj8;
 import com.baidu.tieba.cs5;
 import com.baidu.tieba.xr4;
 import com.baidu.tieba.yi;
@@ -69,7 +69,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 xr4.b bVar = this.a;
-                aj8.a(context, bVar.b, null, null, bVar.c);
+                bj8.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -106,7 +106,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 xr4.a aVar = this.a;
-                aj8.a(context, aVar.b, null, null, aVar.c);
+                bj8.a(context, aVar.b, null, null, aVar.c);
             }
         }
     }

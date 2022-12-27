@@ -18,7 +18,7 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g25;
-import com.baidu.tieba.i79;
+import com.baidu.tieba.j79;
 import com.baidu.tieba.lf6;
 import com.baidu.tieba.m65;
 import com.baidu.tieba.mf6;
@@ -263,7 +263,7 @@ public class InputView extends EditText implements y65 {
         if (z) {
             setHint(context.getString(R.string.im_msg_input_hint));
         }
-        i79.l(this, R.drawable.edittext_cursor);
+        j79.l(this, R.drawable.edittext_cursor);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
@@ -307,9 +307,9 @@ public class InputView extends EditText implements y65 {
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                i79.l(this, R.drawable.edittext_cursor);
+                j79.l(this, R.drawable.edittext_cursor);
             } else {
-                i79.l(this, R.drawable.edittext_cursor_1);
+                j79.l(this, R.drawable.edittext_cursor_1);
             }
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }

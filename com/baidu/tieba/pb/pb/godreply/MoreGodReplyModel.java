@@ -4,11 +4,11 @@ import android.util.Log;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.a18;
-import com.baidu.tieba.h08;
+import com.baidu.tieba.b18;
+import com.baidu.tieba.i08;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.r38;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.s38;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,8 +26,8 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
     public boolean b;
     public int c;
     public int d;
-    public r38.b e;
-    public final r38.b f;
+    public s38.b e;
+    public final s38.b f;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -40,7 +40,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements r38.b {
+    public class a implements s38.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreGodReplyModel a;
@@ -63,7 +63,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             this.a = moreGodReplyModel;
         }
 
-        @Override // com.baidu.tieba.r38.b
+        @Override // com.baidu.tieba.s38.b
         public void a(int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
@@ -74,9 +74,9 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             }
         }
 
-        @Override // com.baidu.tieba.r38.b
+        @Override // com.baidu.tieba.s38.b
         public void onSuccess(List<PostData> list) {
-            a18 V;
+            b18 V;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.a.b = false;
@@ -129,7 +129,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             return;
         }
         this.a = pbModel;
-        r38 h1 = pbModel.h1();
+        s38 h1 = pbModel.h1();
         if (h1 != null) {
             h1.f(this.f);
         }
@@ -157,7 +157,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
         return invokeLL.booleanValue;
     }
 
-    public void S(r38.b bVar) {
+    public void S(s38.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.e = bVar;
@@ -174,9 +174,9 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             if (pbModel == null) {
                 return null;
             }
-            h08 l1 = pbModel.l1();
+            i08 l1 = pbModel.l1();
             if (l1 != null && l1.V() != null && !ListUtils.isEmpty(l1.V().a)) {
-                a18 V = l1.V();
+                b18 V = l1.V();
                 arrayList = new ArrayList();
                 List<PostData> list = V.a;
                 int size = list.size();
@@ -229,8 +229,8 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
 
     public boolean P() {
         InterceptResult invokeV;
-        h08 l1;
-        a18 V;
+        i08 l1;
+        b18 V;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             PbModel pbModel = this.a;
@@ -250,10 +250,10 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
 
     public boolean R() {
         InterceptResult invokeV;
-        a18 V;
+        b18 V;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            h08 l1 = this.a.l1();
+            i08 l1 = this.a.l1();
             if (l1 == null || (V = l1.V()) == null) {
                 return false;
             }

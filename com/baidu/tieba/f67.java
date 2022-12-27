@@ -141,7 +141,7 @@ public class f67 {
             z = false;
             i3 = 0;
         }
-        StatisticItem c = lq8.c(threadData, "a002", "common_click", i2, i, z, str, null, i3);
+        StatisticItem c = mq8.c(threadData, "a002", "common_click", i2, i, z, str, null, i3);
         if (c == null) {
             return;
         }
@@ -171,7 +171,7 @@ public class f67 {
         if (PermissionUtil.isBrowseMode()) {
             c.param(TiebaStatic.Params.PURE_BROWSING, 1);
         }
-        nq8.g().c(bdUniqueId, c);
+        oq8.g().c(bdUniqueId, c);
         g(threadData, i2);
         e(threadData, i2);
     }
@@ -202,10 +202,10 @@ public class f67 {
                 if (i != 9) {
                     k = null;
                 } else {
-                    k = lq8.k("c13693", threadData, 1);
+                    k = mq8.k("c13693", threadData, 1);
                 }
             } else {
-                k = lq8.k("c13692", threadData, 1);
+                k = mq8.k("c13692", threadData, 1);
             }
             TiebaStatic.log(k);
         }
@@ -283,8 +283,8 @@ public class f67 {
             z = false;
             i2 = 0;
         }
-        String b = lq8.b(threadData.getTid(), str, "", threadData.getBaijiahaoData());
-        StatisticItem d = lq8.d(threadData, "a002", "common_exp", i, z, str, null, i2);
+        String b = mq8.b(threadData.getTid(), str, "", threadData.getBaijiahaoData());
+        StatisticItem d = mq8.d(threadData, "a002", "common_exp", i, z, str, null, i2);
         if (d == null) {
             return;
         }
@@ -306,7 +306,7 @@ public class f67 {
         if (PermissionUtil.isBrowseMode()) {
             d.param(TiebaStatic.Params.PURE_BROWSING, 1);
         }
-        nq8.g().d(bdUniqueId, b, d);
+        oq8.g().d(bdUniqueId, b, d);
         if (e47.d()) {
             e47.c(b);
             if (e47.b() >= 10) {

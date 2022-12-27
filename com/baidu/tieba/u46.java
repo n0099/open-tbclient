@@ -76,7 +76,7 @@ public class u46 extends h46<a66> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                wz8.b();
+                xz8.b();
             }
         }
     }

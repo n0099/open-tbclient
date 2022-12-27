@@ -12,9 +12,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.sk7;
 import com.baidu.tieba.tk7;
-import com.baidu.tieba.vk7;
+import com.baidu.tieba.uk7;
+import com.baidu.tieba.wk7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public vk7 b;
+    public wk7 b;
     public int c;
-    public tk7 d;
+    public uk7 d;
 
     /* loaded from: classes4.dex */
-    public class a implements tk7 {
+    public class a implements uk7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,10 +56,10 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.baidu.tieba.tk7
-        public void a(LabelRequestEnum labelRequestEnum, sk7 sk7Var, int i) {
+        @Override // com.baidu.tieba.uk7
+        public void a(LabelRequestEnum labelRequestEnum, tk7 tk7Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, sk7Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, tk7Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
@@ -72,10 +72,10 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (sk7Var != null && !ListUtils.isEmpty(sk7Var.b()) && !ListUtils.isEmpty(sk7Var.a())) {
+                if (tk7Var != null && !ListUtils.isEmpty(tk7Var.b()) && !ListUtils.isEmpty(tk7Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(sk7Var);
+                    this.a.b.j(tk7Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
@@ -168,9 +168,9 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            vk7 vk7Var = new vk7(this);
-            this.b = vk7Var;
-            vk7Var.k(this);
+            wk7 wk7Var = new wk7(this);
+            this.b = wk7Var;
+            wk7Var.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
             this.a = labelSettingModel;
             labelSettingModel.N(this.d);

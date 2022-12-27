@@ -13,7 +13,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.disposables.Disposables;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ImmediateThinScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final Disposable DISPOSED;
@@ -21,7 +21,7 @@ public final class ImmediateThinScheduler extends Scheduler {
     public static final Scheduler.Worker WORKER;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ImmediateThinWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

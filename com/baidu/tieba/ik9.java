@@ -1,17 +1,27 @@
 package com.baidu.tieba;
+
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes4.dex */
-public interface ik9 {
+public interface ik9 extends Runnable {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(String str, ik9 ik9Var);
+        void a(DownloadException downloadException);
+
+        void onDownloadCanceled();
+
+        void onDownloadCompleted(String str);
+
+        void onDownloadPaused();
+
+        void onDownloadProgress(long j, long j2);
     }
 
     void cancel();
 
-    boolean isRunning();
+    boolean isComplete();
+
+    boolean isDownloading();
 
     void pause();
-
-    void start();
 }

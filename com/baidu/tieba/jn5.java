@@ -12,15 +12,15 @@ public class jn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, mr8 mr8Var) {
+    public static boolean a(Context context, nr8 nr8Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, mr8Var)) == null) {
-            if (context == null || mr8Var == null || !mr8Var.b()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, nr8Var)) == null) {
+            if (context == null || nr8Var == null || !nr8Var.b()) {
                 return false;
             }
             TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
-            TiebaPlusInfo a = mr8Var.a();
+            TiebaPlusInfo a = nr8Var.a();
             if (a == null) {
                 return false;
             }

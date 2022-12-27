@@ -21,7 +21,7 @@ public class dc8 extends kn<od8, CardViewHolder<re8>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dc8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), od8.d);
+        super(tbPageContext.getPageActivity(), od8.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,8 +60,8 @@ public class dc8 extends kn<od8, CardViewHolder<re8>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, od8Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(od8Var);
             cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().i(od8Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

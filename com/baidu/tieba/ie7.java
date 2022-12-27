@@ -68,12 +68,12 @@ public class ie7 {
 
         /* renamed from: com.baidu.tieba.ie7$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0308a extends ik5<Boolean> {
+        public class C0311a extends ik5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupChatMessage a;
 
-            public C0308a(a aVar, CommonGroupChatMessage commonGroupChatMessage) {
+            public C0311a(a aVar, CommonGroupChatMessage commonGroupChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -354,7 +354,7 @@ public class ie7 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                     if (chatMessage instanceof CommonGroupChatMessage) {
                         CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                        mk5.c(new C0308a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
+                        mk5.c(new C0311a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
                     } else if (chatMessage instanceof PersonalChatMessage) {
                         PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
                         mk5.c(new c(this, personalChatMessage), new d(this, personalChatMessage));

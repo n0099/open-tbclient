@@ -35,7 +35,7 @@ import com.baidu.tieba.m65;
 import com.baidu.tieba.mj5;
 import com.baidu.tieba.mk5;
 import com.baidu.tieba.n65;
-import com.baidu.tieba.pi7;
+import com.baidu.tieba.qi7;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.RoundRelativeLayout;
@@ -319,10 +319,10 @@ public class GamePersonalChatView extends PersonalChatView {
                 this.a.u.h(gc7Var);
                 this.a.r.K = false;
                 this.a.v0(gc7Var);
-                pi7.h(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
+                qi7.h(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
             }
             if (i != 1) {
-                pi7.e(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
+                qi7.e(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
             }
         }
     }
@@ -355,7 +355,7 @@ public class GamePersonalChatView extends PersonalChatView {
         public void a(@NonNull gc7 gc7Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gc7Var) == null) {
-                pi7.a(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
+                qi7.a(this.a.B, this.a.A, gc7Var.d(), gc7Var.b(), gc7Var.e());
                 if (gc7Var.e()) {
                     if (this.a.r.a1() != null && !TextUtils.isEmpty(this.a.z)) {
                         this.a.r.a1().sendTextMessage(this.a.z);
@@ -496,7 +496,7 @@ public class GamePersonalChatView extends PersonalChatView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, m65Var) == null) && m65Var != null && this.a.C != null) {
                 int i = m65Var.a;
                 if (i == 14) {
-                    pi7.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    qi7.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                     return;
                 }
                 int i2 = 1;
@@ -511,7 +511,7 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue) {
                             i2 = 2;
                         }
-                        pi7.f(str, str2, b, e, i2);
+                        qi7.f(str, str2, b, e, i2);
                     }
                 } else if (i == 62) {
                     Object obj2 = m65Var.c;
@@ -524,10 +524,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue2) {
                             i2 = 2;
                         }
-                        pi7.c(str3, str4, b2, e2, i2);
+                        qi7.c(str3, str4, b2, e2, i2);
                     }
                 } else if (i == 64) {
-                    pi7.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    qi7.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                 }
             }
         }

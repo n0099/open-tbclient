@@ -1,281 +1,191 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Abstract;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes5.dex */
 public class mk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static mk8 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, List<JSONObject>> a;
+    public ConcurrentHashMap<String, Integer> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947975663, "Lcom/baidu/tieba/mk8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public mk8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947975663, "Lcom/baidu/tieba/mk8;");
-        }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
     }
 
-    public static void a(ClogBuilder clogBuilder, int i) {
-        boolean z;
-        String str;
+    public static mk8 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, clogBuilder, i) == null) {
-            clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
-            if (i == 1000) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (mk8.class) {
+                    if (c == null) {
+                        c = new mk8();
+                    }
+                }
             }
-            if (z) {
-                str = "APP";
-            } else {
-                str = "URL";
-            }
-            clogBuilder.j(str);
-            if (!z) {
-                clogBuilder.l(String.valueOf(i));
-            }
-            clogBuilder.v("DEEPLINK");
+            return c;
         }
+        return (mk8) invokeV.objValue;
     }
 
-    public static String b(HashMap hashMap) {
+    public static JSONObject b(ThreadInfo threadInfo) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            if (hashMap != null) {
-                str = String.valueOf(hashMap.get("da_area"));
-            } else {
-                str = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadInfo)) == null) {
+            if (threadInfo == null) {
+                return null;
             }
-            if (TextUtils.isEmpty(str)) {
-                return "hotarea";
-            }
-            return str;
+            return c(threadInfo, threadInfo.fname);
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.put(str, new ArrayList());
+        }
+    }
+
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return g(this.a.get(str));
         }
         return (String) invokeL.objValue;
     }
 
-    public static void l(AdvertAppInfo advertAppInfo) {
+    public int e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, advertAppInfo) == null) {
-            m(advertAppInfo, 0, "");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Integer num = this.b.get(str);
+            if (num == null) {
+                return 0;
+            }
+            return num.intValue();
         }
+        return invokeL.intValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static JSONObject c(ThreadInfo threadInfo, String str) {
+        InterceptResult invokeLL;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) TbadkCoreApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, threadInfo, str)) == null) {
+            if (threadInfo == null) {
+                return null;
+            }
+            String str2 = "" + threadInfo.tid;
+            String str3 = "0";
+            if (StringUtils.isNull(str2) || "0".equals(str2)) {
+                str2 = "" + threadInfo.id;
+            }
+            if (threadInfo.video_info != null) {
+                str3 = "" + threadInfo.video_info.video_duration;
+            }
+            StringBuilder sb = new StringBuilder();
+            List<Abstract> list = threadInfo._abstract;
+            if (list != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    Abstract r6 = (Abstract) fm7.d(list, i);
+                    if (r6 != null && r6.type.intValue() == 0) {
+                        sb.append(r6.text);
                     }
                 }
-                return "GET_PROCESS_NAME_FAIL";
-            } catch (Exception unused) {
-                return "GET_PROCESS_NAME_FAIL";
             }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str, @NonNull String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, str4, str5, str6, str7, str8}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.z(String.valueOf(i2)).q(String.valueOf(i)).v(str).j(str3).k(str4).l(str5).m(str6).n(str7).o(str8).p(str2);
-            z01.b(clogBuilder);
-        }
-    }
-
-    public static void e(AdvertAppInfo advertAppInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, advertAppInfo, i) == null) {
-            f(advertAppInfo, 0, "", i);
-        }
-    }
-
-    public static void j(ks8 ks8Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, ks8Var, i) == null) {
-            k(ks8Var, i, -999, -999);
-        }
-    }
-
-    public static void f(AdvertAppInfo advertAppInfo, int i, String str, int i2) {
-        int i3;
-        ci0 ci0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || advertAppInfo == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
-        if (equals) {
-            i3 = -1;
-        } else {
-            i3 = advertAppInfo.position + 1;
-        }
-        ClogBuilder q = y.q(String.valueOf(i3));
-        if (equals) {
-            i = -1;
-        }
-        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-        if (advertAppInfo != null && (ci0Var = advertAppInfo.r) != null) {
-            clogBuilder.m(ci0Var.a());
-        }
-        z01.b(clogBuilder);
-        a(clogBuilder, i2);
-        z01.b(clogBuilder);
-    }
-
-    public static void g(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{advertAppInfo, Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
-            f(advertAppInfo, i, b(hashMap), i2);
-        }
-    }
-
-    public static void h(AdvertAppInfo advertAppInfo, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, null, advertAppInfo, i, i2) == null) {
-            i(advertAppInfo, i, i2, -999, -999);
-        }
-    }
-
-    public static void i(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && advertAppInfo != null && (i5 = advertAppInfo.c) != 1001 && i5 != -1001) {
-            boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i2));
-            if (equals) {
-                i6 = -1;
-            } else {
-                i6 = advertAppInfo.position + 1;
+            String sb2 = sb.toString();
+            String str4 = "" + threadInfo.author_id;
+            User user = threadInfo.author;
+            if (user != null && (l = user.id) != null && l.longValue() != 0) {
+                str4 = "" + threadInfo.author.id;
             }
-            ClogBuilder q = k.q(String.valueOf(i6));
-            if (equals) {
-                i = -1;
+            if (StringUtils.isNull(str)) {
+                str = threadInfo.fname;
             }
-            q.w(String.valueOf(i)).v(advertAppInfo.j).p(advertAppInfo.g);
-            if (i3 != -999) {
-                clogBuilder.l(String.valueOf(i3));
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("title", threadInfo.title);
+                jSONObject.put("tid", str2);
+                jSONObject.put("fname", str);
+                jSONObject.put("abstract", sb2);
+                jSONObject.put("author_id", str4);
+                jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if (i4 != -999) {
-                clogBuilder.m(String.valueOf(i4));
-            }
-            if (i2 == 31) {
-                if (TextUtils.isEmpty(a)) {
-                    a = c();
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final String g(List<JSONObject> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            try {
+                if (ListUtils.isEmpty(list)) {
+                    return "";
                 }
-                clogBuilder.o(a);
+                JSONArray jSONArray = new JSONArray();
+                for (JSONObject jSONObject : list) {
+                    if (jSONObject != null) {
+                        jSONArray.put(jSONObject);
+                    }
+                }
+                return qi.j(jSONArray.toString().getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return "";
             }
-            z01.b(clogBuilder);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void h(String str, List<JSONObject> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(list);
+            this.a.put(str, arrayList);
         }
     }
 
-    public static void k(ks8 ks8Var, int i, int i2, int i3) {
-        int i4;
+    public void i(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(65547, null, ks8Var, i, i2, i3) == null) && ks8Var != null && ks8Var.getAdvertAppInfo() != null && ks8Var.getAdvertAppInfo().c != 1001 && ks8Var.getAdvertAppInfo().c != -1001) {
-            AdvertAppInfo advertAppInfo = ks8Var.getAdvertAppInfo();
-            ClogBuilder clogBuilder = new ClogBuilder();
-            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i));
-            int i5 = -1;
-            if (ks8Var.X0) {
-                i4 = -1;
-            } else {
-                i4 = ks8Var.e1 + 1;
-            }
-            ClogBuilder q = k.q(String.valueOf(i4));
-            if (!ks8Var.X0) {
-                i5 = ks8Var.c1;
-            }
-            q.w(String.valueOf(i5)).v(ks8Var.o1()).r(ks8Var.Z0).s(ks8Var.a1).t(ks8Var.Y0).p(advertAppInfo.g);
-            if (i2 != -999) {
-                clogBuilder.l(String.valueOf(i2));
-            }
-            if (i3 != -999) {
-                clogBuilder.m(String.valueOf(i3));
-            }
-            z01.b(clogBuilder);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.b.put(str, Integer.valueOf(i));
         }
-    }
-
-    public static void m(AdvertAppInfo advertAppInfo, int i, String str) {
-        int i2;
-        ci0 ci0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65549, null, advertAppInfo, i, str) != null) || advertAppInfo == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
-        if (equals) {
-            i2 = -1;
-        } else {
-            i2 = advertAppInfo.position + 1;
-        }
-        ClogBuilder q = y.q(String.valueOf(i2));
-        if (equals) {
-            i = -1;
-        }
-        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-        if (advertAppInfo != null && (ci0Var = advertAppInfo.r) != null) {
-            clogBuilder.m(ci0Var.a());
-        }
-        z01.b(clogBuilder);
-    }
-
-    public static void n(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, hashMap}) == null) {
-            m(advertAppInfo, i, b(hashMap));
-        }
-    }
-
-    public static void o(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65551, null, advertAppInfo) != null) || advertAppInfo == null) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(-1)).v(advertAppInfo.j).p(advertAppInfo.g);
-        z01.b(clogBuilder);
     }
 }

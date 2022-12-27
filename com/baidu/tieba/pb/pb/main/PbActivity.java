@@ -19,9 +19,9 @@ import com.baidu.tieba.fx4;
 import com.baidu.tieba.gw4;
 import com.baidu.tieba.iw4;
 import com.baidu.tieba.ix4;
-import com.baidu.tieba.l48;
+import com.baidu.tieba.m48;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.y38;
+import com.baidu.tieba.z38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -236,9 +236,9 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void C1(int i, l48 l48Var) {
+    public void C1(int i, m48 m48Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, l48Var) == null) && !this.v && j1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, m48Var) == null) && !this.v && j1() != null) {
             int i2 = 1;
             this.v = true;
             if (j1() != null && j1().k1() == 7) {
@@ -249,7 +249,7 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            l48Var.j2(new b(this, i, i2));
+            m48Var.j2(new b(this, i, i2));
         }
     }
 
@@ -260,7 +260,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new y38(this));
+            registerListener(new z38(this));
             y1();
         }
     }

@@ -104,7 +104,7 @@ public class l19 {
                     this.c.b = null;
                 }
                 if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(q09.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.c.a.put(downloadData.getPath().substring(r09.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
                     this.a.c(this.b, downloadData.getPath());
                 }
             }
@@ -169,7 +169,7 @@ public class l19 {
             } else {
                 hashMap.clear();
             }
-            File file = new File(q09.h);
+            File file = new File(r09.a);
             if (file.exists()) {
                 for (File file2 : file.listFiles()) {
                     if (file2.isFile()) {
@@ -186,21 +186,25 @@ public class l19 {
         if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
             return;
         }
-        if (this.b != null) {
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
+                return;
+            }
             i65.k().h(this.b.getUrl(), true);
         }
-        File file = new File(q09.h);
+        File file = new File(r09.a);
         if (!file.exists()) {
             file.mkdirs();
         }
-        DownloadData downloadData = new DownloadData();
-        downloadData.setType(18);
-        downloadData.setId(str);
-        downloadData.setUrl(str2);
-        downloadData.setPath(q09.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData.setCallback(new a(this, bVar, str2));
-        this.b = downloadData;
-        i65.k().l(downloadData);
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(r09.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        i65.k().l(downloadData2);
     }
 
     public String f(String str) {

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import com.google.zxing.Dimension;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SymbolInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final SymbolInfo[] PROD_SYMBOLS;

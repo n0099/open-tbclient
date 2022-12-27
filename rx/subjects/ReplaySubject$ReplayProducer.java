@@ -1,10 +1,10 @@
 package rx.subjects;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d3a;
-import com.baidu.tieba.h3a;
+import com.baidu.tieba.e3a;
 import com.baidu.tieba.i3a;
-import com.baidu.tieba.w3a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.x3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements d3a, i3a {
+public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements e3a, j3a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5006209596735204567L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h3a<? super T> actual;
+    public final i3a<? super T> actual;
     public int index;
     public Object node;
     public final AtomicLong requested;
     public final ReplaySubject$ReplayState<T> state;
     public int tailIndex;
 
-    public ReplaySubject$ReplayProducer(h3a<? super T> h3aVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
+    public ReplaySubject$ReplayProducer(i3a<? super T> i3aVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h3aVar, replaySubject$ReplayState};
+            Object[] objArr = {i3aVar, replaySubject$ReplayState};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,12 +39,12 @@ public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger impleme
                 return;
             }
         }
-        this.actual = h3aVar;
+        this.actual = i3aVar;
         this.requested = new AtomicLong();
         this.state = replaySubject$ReplayState;
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger impleme
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -62,13 +62,13 @@ public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger impleme
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i > 0) {
-                w3a.b(this.requested, j);
+                x3a.b(this.requested, j);
                 this.state.buffer.a(this);
             } else if (i >= 0) {
             } else {

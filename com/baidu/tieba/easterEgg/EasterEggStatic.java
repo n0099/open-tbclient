@@ -30,11 +30,11 @@ public class EasterEggStatic {
 
         /* renamed from: com.baidu.tieba.easterEgg.EasterEggStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0259a implements MessageQueue.IdleHandler {
+        public class C0261a implements MessageQueue.IdleHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0259a(a aVar) {
+            public C0261a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class EasterEggStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Looper.myQueue().addIdleHandler(new C0259a(this));
+                Looper.myQueue().addIdleHandler(new C0261a(this));
             }
         }
     }

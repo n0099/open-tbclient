@@ -43,8 +43,8 @@ import com.baidu.tieba.ah;
 import com.baidu.tieba.jh7;
 import com.baidu.tieba.lh7;
 import com.baidu.tieba.rw4;
-import com.baidu.tieba.tz8;
 import com.baidu.tieba.ub5;
+import com.baidu.tieba.uz8;
 import com.baidu.tieba.vb5;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.xb5;
@@ -500,7 +500,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements ub5.b {
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (valueAnimator.getAnimatedValue() instanceof Integer) && ((Integer) valueAnimator.getAnimatedValue()).intValue() <= ChatFloatEntranceFragment.C && this.a.a.f.getVisibility() == 0) {
                 this.a.a.f.setVisibility(4);
                 if (this.a.a.l.getVisibility() != 0) {
-                    tz8.a(this.a.a.c, 10L, this.a.a.l, 10L);
+                    uz8.a(this.a.a.c, 10L, this.a.a.l, 10L);
                 }
             }
         }
@@ -819,7 +819,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements ub5.b {
             return;
         }
         k kVar = this.a;
-        tz8.a(kVar.l, 10L, kVar.c, 10L);
+        uz8.a(kVar.l, 10L, kVar.c, 10L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(ObjectAnimator.ofInt(this.a.c, "width", A, this.h), ObjectAnimator.ofInt(this.a.c, "height", A, this.i), ObjectAnimator.ofInt(this.a.c, "marginRight", B, this.g));
         animatorSet.addListener(new a(this));

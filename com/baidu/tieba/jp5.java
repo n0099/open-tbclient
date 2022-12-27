@@ -68,8 +68,8 @@ public class jp5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && zi8.l().i() != null) {
-                zi8.l().i().b();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && aj8.l().i() != null) {
+                aj8.l().i().b();
             }
         }
     }
@@ -270,8 +270,8 @@ public class jp5 {
         MessageManager.getInstance().registerListener(this.f);
         MessageManager.getInstance().registerListener(this.d);
         MessageManager.getInstance().registerListener(this.g);
-        if (zi8.l().i() != null) {
-            zi8.l().i().c();
+        if (aj8.l().i() != null) {
+            aj8.l().i().c();
         }
         kp5.b().c(new e(this));
     }
@@ -296,7 +296,7 @@ public class jp5 {
                 BaseVM.m(7);
                 return false;
             }
-            ui8 i3 = zi8.l().i();
+            vi8 i3 = aj8.l().i();
             if (i3 != null) {
                 i = i3.a();
             } else {

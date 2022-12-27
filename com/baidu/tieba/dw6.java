@@ -20,7 +20,7 @@ public class dw6 {
     public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) && !UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) && str2 != null) {
-            sz8.a(tbPageContext, str2);
+            tz8.a(tbPageContext, str2);
         }
     }
 }

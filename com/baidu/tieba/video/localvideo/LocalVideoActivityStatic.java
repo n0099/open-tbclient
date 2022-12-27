@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jm;
 import com.baidu.tieba.km;
-import com.baidu.tieba.p09;
-import com.baidu.tieba.p19;
+import com.baidu.tieba.q09;
+import com.baidu.tieba.q19;
 import com.baidu.tieba.r66;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
@@ -181,8 +181,8 @@ public class LocalVideoActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof p09)) {
-                    return new CustomResponsedMessage<>(2921466, new p19((p09) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof q09)) {
+                    return new CustomResponsedMessage<>(2921466, new q19((q09) customMessage.getData()));
                 }
                 return null;
             }

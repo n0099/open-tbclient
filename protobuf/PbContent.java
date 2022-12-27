@@ -1,55 +1,29 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes9.dex */
 public final class PbContent extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_BIGCDNSRC = "";
     public static final String DEFAULT_BIGSIZE = "";
     public static final String DEFAULT_BIGSRC = "";
     public static final String DEFAULT_BSIZE = "";
-    public static final Integer DEFAULT_BTNTYPE;
     public static final String DEFAULT_C = "";
     public static final String DEFAULT_CDNSRC = "";
     public static final String DEFAULT_CDNSRCACTIVE = "";
-    public static final Integer DEFAULT_COUNT;
-    public static final Integer DEFAULT_DURINGTIME;
     public static final String DEFAULT_DYNAMIC = "";
-    public static final Integer DEFAULT_ETYPE;
-    public static final Integer DEFAULT_HEIGHT;
     public static final String DEFAULT_IMGTYPE = "";
-    public static final Integer DEFAULT_ISLONGPIC;
-    public static final Integer DEFAULT_ISNATIVEAPP;
-    public static final Integer DEFAULT_ISSUB;
     public static final String DEFAULT_ITEMFORUMNAME = "";
-    public static final Long DEFAULT_ITEMID;
     public static final String DEFAULT_LINK = "";
     public static final String DEFAULT_MEDIASUBTITLE = "";
-    public static final Integer DEFAULT_ORIGINSIZE;
     public static final String DEFAULT_ORIGINSRC = "";
     public static final String DEFAULT_PACKETNAME = "";
     public static final String DEFAULT_PHONETYPE = "";
-    public static final Long DEFAULT_PICID;
-    public static final Integer DEFAULT_SHOWORIGINALBTN;
     public static final String DEFAULT_SRC = "";
     public static final String DEFAULT_STATIC = "";
     public static final String DEFAULT_TEXT = "";
     public static final String DEFAULT_TOPICSPECIALICON = "";
-    public static final Integer DEFAULT_TYPE;
-    public static final Long DEFAULT_UID;
-    public static final Integer DEFAULT_URLTYPE;
     public static final String DEFAULT_VOICEMD5 = "";
-    public static final Integer DEFAULT_WIDTH;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 17, type = Message.Datatype.STRING)
     public final String _static;
     @ProtoField(tag = 9, type = Message.Datatype.STRING)
@@ -134,17 +108,25 @@ public final class PbContent extends Message {
     public final String voiceMd5;
     @ProtoField(tag = 18, type = Message.Datatype.UINT32)
     public final Integer width;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Integer DEFAULT_TYPE = 0;
+    public static final Integer DEFAULT_DURINGTIME = 0;
+    public static final Integer DEFAULT_ISSUB = 0;
+    public static final Long DEFAULT_UID = 0L;
+    public static final Integer DEFAULT_WIDTH = 0;
+    public static final Integer DEFAULT_HEIGHT = 0;
+    public static final Integer DEFAULT_ISNATIVEAPP = 0;
+    public static final Integer DEFAULT_ETYPE = 0;
+    public static final Integer DEFAULT_BTNTYPE = 0;
+    public static final Integer DEFAULT_ORIGINSIZE = 0;
+    public static final Integer DEFAULT_COUNT = 0;
+    public static final Integer DEFAULT_URLTYPE = 0;
+    public static final Integer DEFAULT_ISLONGPIC = 0;
+    public static final Integer DEFAULT_SHOWORIGINALBTN = 0;
+    public static final Long DEFAULT_ITEMID = 0L;
+    public static final Long DEFAULT_PICID = 0L;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<PbContent> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String _static;
         public String bigCdnSrc;
         public String bigSize;
@@ -189,37 +171,10 @@ public final class PbContent extends Message {
         public Integer width;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(PbContent pbContent) {
             super(pbContent);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbContent};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (pbContent == null) {
                 return;
             }
@@ -270,64 +225,12 @@ public final class PbContent extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PbContent build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new PbContent(this, z, null);
-            }
-            return (PbContent) invokeZ.objValue;
+            return new PbContent(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1210936396, "Lprotobuf/PbContent;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1210936396, "Lprotobuf/PbContent;");
-                return;
-            }
-        }
-        DEFAULT_TYPE = 0;
-        DEFAULT_DURINGTIME = 0;
-        DEFAULT_ISSUB = 0;
-        DEFAULT_UID = 0L;
-        DEFAULT_WIDTH = 0;
-        DEFAULT_HEIGHT = 0;
-        DEFAULT_ISNATIVEAPP = 0;
-        DEFAULT_ETYPE = 0;
-        DEFAULT_BTNTYPE = 0;
-        DEFAULT_ORIGINSIZE = 0;
-        DEFAULT_COUNT = 0;
-        DEFAULT_URLTYPE = 0;
-        DEFAULT_ISLONGPIC = 0;
-        DEFAULT_SHOWORIGINALBTN = 0;
-        DEFAULT_ITEMID = 0L;
-        DEFAULT_PICID = 0L;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbContent(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Integer num = builder.type;
             if (num == null) {
@@ -596,9 +499,5 @@ public final class PbContent extends Message {
         this.tiebaplusInfo = builder.tiebaplusInfo;
         this.item = builder.item;
         this.picId = builder.picId;
-    }
-
-    public /* synthetic */ PbContent(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

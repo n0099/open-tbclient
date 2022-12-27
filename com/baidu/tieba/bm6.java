@@ -26,8 +26,8 @@ public class bm6 {
     public transient /* synthetic */ FieldHolder $fh;
     public FrsFragment a;
     public AcceleratorNetModel b;
-    public a79 c;
-    public z69 d;
+    public b79 c;
+    public a79 d;
     public AcceleratorNetModel.b e;
     public cm6 f;
     public wv4.e g;
@@ -37,19 +37,19 @@ public class bm6 {
     public boolean k;
 
     /* loaded from: classes3.dex */
-    public class a implements z69 {
+    public class a implements a79 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bm6 a;
 
         /* renamed from: com.baidu.tieba.bm6$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0226a implements View.OnClickListener {
+        public class View$OnClickListenerC0229a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0226a(a aVar) {
+            public View$OnClickListenerC0229a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class bm6 {
             this.a = bm6Var;
         }
 
-        @Override // com.baidu.tieba.z69
+        @Override // com.baidu.tieba.a79
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -139,11 +139,11 @@ public class bm6 {
             }
         }
 
-        @Override // com.baidu.tieba.z69
+        @Override // com.baidu.tieba.a79
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                nw6.h(this.a.a.getActivity(), new View$OnClickListenerC0226a(this), new b(this));
+                nw6.h(this.a.a.getActivity(), new View$OnClickListenerC0229a(this), new b(this));
             }
         }
     }
@@ -304,7 +304,7 @@ public class bm6 {
         this.i = 0;
         this.a = frsFragment;
         this.b = new AcceleratorNetModel();
-        this.c = a79.c(this.a);
+        this.c = b79.c(this.a);
         w();
         y();
     }
@@ -389,13 +389,13 @@ public class bm6 {
         }
     }
 
-    public a79 v() {
+    public b79 v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.c;
         }
-        return (a79) invokeV.objValue;
+        return (b79) invokeV.objValue;
     }
 
     public final void w() {

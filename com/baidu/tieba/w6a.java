@@ -8,10 +8,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class w6a<E> extends x6a<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public E[] d;
 
     public w6a() {
         Interceptable interceptable = $ic;

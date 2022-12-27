@@ -33,13 +33,13 @@ public class jk0 extends yf1<b51> {
 
         /* renamed from: com.baidu.tieba.jk0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0325a extends fm0<qk0> {
+        public class C0328a extends fm0<qk0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b51.b b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0325a(a aVar, Class cls, b51.b bVar) {
+            public C0328a(a aVar, Class cls, b51.b bVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -96,7 +96,7 @@ public class jk0 extends yf1<b51> {
         public void a(Object obj, b51.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-                bm0.a().b(obj, new C0325a(this, qk0.class, bVar));
+                bm0.a().b(obj, new C0328a(this, qk0.class, bVar));
             }
         }
 

@@ -55,7 +55,7 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cz;
 import com.baidu.tieba.ex;
-import com.baidu.tieba.ik8;
+import com.baidu.tieba.jk8;
 import com.baidu.tieba.nx;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.rw4;
@@ -1007,7 +1007,7 @@ public class CardUserInfoLayout extends RelativeLayout implements tx {
             }
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = ik8.e().c();
+                AppPosInfo c2 = jk8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {

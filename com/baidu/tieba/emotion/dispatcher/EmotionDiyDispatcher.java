@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.xk8;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class EmotionDiyDispatcher implements xk8 {
+public class EmotionDiyDispatcher implements yk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class EmotionDiyDispatcher implements xk8 {
         }
     }
 
-    @Override // com.baidu.tieba.xk8
+    @Override // com.baidu.tieba.yk8
     public void dispatch(JSONObject jSONObject, Context context) {
         String str;
         Interceptable interceptable = $ic;

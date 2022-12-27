@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.or8;
+import com.baidu.tieba.pr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,14 +71,14 @@ public class t75 {
         this.a = r75Var;
     }
 
-    public void d(or8.h hVar) {
+    public void d(pr8.h hVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, hVar) != null) || hVar == null) {
             return;
         }
         r75 r75Var = this.a;
         if (r75Var != null && r75Var.a() != null) {
-            or8.m(this.a.a().a, hVar);
+            pr8.m(this.a.a().a, hVar);
         } else {
             hVar.a(null);
         }
@@ -88,7 +88,7 @@ public class t75 {
         r75 r75Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (r75Var = this.a) != null && r75Var.a() != null) {
-            or8.w(this.a.a().a, str);
+            pr8.w(this.a.a().a, str);
         }
     }
 

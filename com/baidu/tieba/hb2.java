@@ -51,7 +51,7 @@ public class hb2 implements yd2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements p3a<Cursor> {
+    public static class a implements q3a<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s63.c a;
@@ -75,7 +75,7 @@ public class hb2 implements yd2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Cursor cursor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
@@ -93,7 +93,7 @@ public class hb2 implements yd2 {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements t3a<String, Cursor> {
+    public static class b implements u3a<String, Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,7 +112,7 @@ public class hb2 implements yd2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t3a
+        @Override // com.baidu.tieba.u3a
         public Cursor call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -625,7 +625,7 @@ public class hb2 implements yd2 {
         if ((interceptable != null && interceptable.invokeL(65546, null, cVar) != null) || cVar == null) {
             return;
         }
-        b3a.f("").y(Schedulers.io()).h(new b()).k(l3a.b()).w(new a(cVar));
+        c3a.f("").y(Schedulers.io()).h(new b()).k(m3a.b()).w(new a(cVar));
     }
 
     @NonNull

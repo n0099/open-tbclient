@@ -64,7 +64,7 @@ public class gq5 {
     public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (to8.a(this.c.getIntent())) {
+            if (uo8.a(this.c.getIntent())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             }
             if (bundle != null) {
@@ -108,10 +108,10 @@ public class gq5 {
                 return;
             }
             b(bundle);
-            if (!to8.a(this.c.getIntent()) && (to8.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
+            if (!uo8.a(this.c.getIntent()) && (uo8.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
                 a(this.c.getIntent());
             }
-            nq8.g().i(this.c.getUniqueId());
+            oq8.g().i(this.c.getUniqueId());
             hq5 hq5Var = new hq5(this.c);
             this.b = hq5Var;
             hq5Var.i(d);
@@ -121,7 +121,7 @@ public class gq5 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            nq8.g().k(this.c.getUniqueId());
+            oq8.g().k(this.c.getUniqueId());
             d = false;
             hq5 hq5Var = this.b;
             if (hq5Var != null) {

@@ -52,12 +52,12 @@ public class h22 implements Runnable {
 
         /* renamed from: com.baidu.tieba.h22$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0292a implements Runnable {
+        public class RunnableC0294a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0292a(a aVar) {
+            public RunnableC0294a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public class h22 implements Runnable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
                 this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0292a(this));
+                this.a.f.postOnJSThread(new RunnableC0294a(this));
             }
         }
 

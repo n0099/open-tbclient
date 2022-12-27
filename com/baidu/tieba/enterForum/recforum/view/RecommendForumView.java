@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bd6;
 import com.baidu.tieba.cd6;
-import com.baidu.tieba.fm7;
 import com.baidu.tieba.gd6;
+import com.baidu.tieba.gm7;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
@@ -449,26 +449,26 @@ public class RecommendForumView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, themeElement, themeElement2, themeElement3)) == null) {
             if (themeElement == null) {
-                b2 = fm7.b("#2BB8FF");
-                b3 = fm7.b("#2BB8FF");
+                b2 = gm7.b("#2BB8FF");
+                b3 = gm7.b("#2BB8FF");
             } else {
-                b2 = fm7.b(themeElement.common_color);
-                b3 = fm7.b(themeElement.common_color);
+                b2 = gm7.b(themeElement.common_color);
+                b3 = gm7.b(themeElement.common_color);
             }
             if (themeElement2 == null) {
-                i = fm7.b("#249BD6");
-                b4 = fm7.b("#246CD6");
+                i = gm7.b("#249BD6");
+                b4 = gm7.b("#246CD6");
             } else {
-                int b6 = fm7.b(themeElement2.common_color);
-                b4 = fm7.b(themeElement2.common_color);
+                int b6 = gm7.b(themeElement2.common_color);
+                b4 = gm7.b(themeElement2.common_color);
                 i = b6;
             }
             if (themeElement3 == null) {
-                i2 = fm7.b("#249BD6");
-                b5 = fm7.b("#246CD6");
+                i2 = gm7.b("#249BD6");
+                b5 = gm7.b("#246CD6");
             } else {
-                int b7 = fm7.b(themeElement3.common_color);
-                b5 = fm7.b(themeElement3.common_color);
+                int b7 = gm7.b(themeElement3.common_color);
+                b5 = gm7.b(themeElement3.common_color);
                 i2 = b7;
             }
             ArrayList<Integer> arrayList = new ArrayList<>();

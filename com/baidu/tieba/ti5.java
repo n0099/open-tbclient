@@ -401,22 +401,22 @@ public class ti5 {
 
     public static boolean p(Object obj) {
         InterceptResult invokeL;
-        js8 js8Var;
+        ks8 ks8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
             if (obj instanceof jt4) {
                 return true;
             }
             if (obj instanceof yu4) {
-                js8Var = ((yu4) obj).t.funAdData;
+                ks8Var = ((yu4) obj).t.funAdData;
             } else if (obj instanceof ThreadData) {
-                js8Var = ((ThreadData) obj).funAdData;
+                ks8Var = ((ThreadData) obj).funAdData;
             } else if (obj instanceof PostData) {
-                js8Var = ((PostData) obj).v0;
+                ks8Var = ((PostData) obj).v0;
             } else {
-                js8Var = null;
+                ks8Var = null;
             }
-            if (js8Var != null) {
+            if (ks8Var != null) {
                 return true;
             }
             return false;

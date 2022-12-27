@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.lego;
 
-import com.baidu.tieba.sl7;
-import com.baidu.tieba.uj8;
+import com.baidu.tieba.tl7;
+import com.baidu.tieba.vj8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class RecAppLegoStatic {
                 return;
             }
         }
-        sl7.h().g(new uj8());
+        tl7.h().g(new vj8());
     }
 
     public RecAppLegoStatic() {

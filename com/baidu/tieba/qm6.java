@@ -30,7 +30,7 @@ public class qm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public vq8 b;
+    public wq8 b;
     public ForumData c;
     public RoundAdapterLinearLayout d;
     public TextView e;
@@ -184,26 +184,26 @@ public class qm6 {
         }
     }
 
-    public void e(ForumData forumData, vq8 vq8Var, boolean z) {
+    public void e(ForumData forumData, wq8 wq8Var, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, vq8Var, z) != null) || vq8Var == null) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, wq8Var, z) != null) || wq8Var == null) {
             return;
         }
         this.c = forumData;
-        this.b = vq8Var;
-        this.e.setText(vq8Var.o());
-        if (vq8Var.getType() == 3) {
+        this.b = wq8Var;
+        this.e.setText(wq8Var.o());
+        if (wq8Var.getType() == 3) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0782, Integer.valueOf(this.b.h())));
-        } else if (vq8Var.getType() == 1) {
+        } else if (wq8Var.getType() == 1) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0784, Integer.valueOf(this.b.h())));
-        } else if (vq8Var.getType() == 2) {
+        } else if (wq8Var.getType() == 2) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0780, Integer.valueOf(this.b.h())));
-        } else if (vq8Var.getType() == 4) {
+        } else if (wq8Var.getType() == 4) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0781, Integer.valueOf(this.b.h())));
         }
         this.f.K(this.b.d(), 10, false);
-        vq8 vq8Var2 = this.b;
-        if (vq8Var2 != null && vq8Var2.f()) {
+        wq8 wq8Var2 = this.b;
+        if (wq8Var2 != null && wq8Var2.f()) {
             this.i.setVisibility(0);
         } else {
             this.i.setVisibility(8);

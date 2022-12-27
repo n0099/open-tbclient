@@ -52,7 +52,7 @@ public class t97 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sv7.h(this.a.a, "c14391");
+                tv7.h(this.a.a, "c14391");
                 this.a.c();
             }
         }

@@ -15,9 +15,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj5;
-import com.baidu.tieba.ec9;
 import com.baidu.tieba.fc9;
 import com.baidu.tieba.gc9;
+import com.baidu.tieba.hc9;
 import com.baidu.tieba.lk5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,16 +30,16 @@ public class StickerView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ec9 b;
+    public fc9 b;
     public Matrix c;
     public Matrix d;
     public PointF e;
-    public gc9 f;
+    public hc9 f;
     public Paint g;
     public int h;
     public boolean i;
     public boolean j;
-    public fc9 k;
+    public gc9 k;
     public long l;
     public float m;
     public float n;
@@ -72,7 +72,7 @@ public class StickerView extends ImageView {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
             setScaleType(ImageView.ScaleType.MATRIX);
-            this.f = new gc9(context);
+            this.f = new hc9(context);
             Paint paint = new Paint();
             this.g = paint;
             paint.setColor(-1);
@@ -130,23 +130,23 @@ public class StickerView extends ImageView {
         a(context);
     }
 
-    public final boolean b(ec9 ec9Var, MotionEvent motionEvent) {
+    public final boolean b(fc9 fc9Var, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ec9Var, motionEvent)) == null) {
-            return lk5.e(dj5.d(ec9Var.c(), ec9Var.b()), motionEvent.getX(), motionEvent.getY());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fc9Var, motionEvent)) == null) {
+            return lk5.e(dj5.d(fc9Var.c(), fc9Var.b()), motionEvent.getX(), motionEvent.getY());
         }
         return invokeLL.booleanValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        ec9 ec9Var;
+        fc9 fc9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) != null) || (ec9Var = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) != null) || (fc9Var = this.b) == null) {
             return;
         }
-        ec9Var.a(canvas);
+        fc9Var.a(canvas);
         float[] d = dj5.d(this.b.c(), this.b.b());
         float f = d[0];
         float f2 = d[1];
@@ -183,7 +183,7 @@ public class StickerView extends ImageView {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        fc9 fc9Var;
+        gc9 gc9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
@@ -237,12 +237,12 @@ public class StickerView extends ImageView {
                 }
                 this.h = 0;
                 this.e = null;
-                fc9 fc9Var2 = this.k;
-                if (fc9Var2 == null) {
+                gc9 gc9Var2 = this.k;
+                if (gc9Var2 == null) {
                     return true;
                 }
                 if (this.i) {
-                    fc9Var2.c(this);
+                    gc9Var2.c(this);
                 }
                 if (this.j) {
                     this.i = false;
@@ -258,16 +258,16 @@ public class StickerView extends ImageView {
             }
             if (this.j && this.f.b(motionEvent)) {
                 this.i = false;
-                fc9 fc9Var3 = this.k;
-                if (fc9Var3 == null) {
+                gc9 gc9Var3 = this.k;
+                if (gc9Var3 == null) {
                     return true;
                 }
-                fc9Var3.onDelete();
+                gc9Var3.onDelete();
                 return true;
             } else if (b(this.b, motionEvent)) {
                 this.i = true;
-                if (System.currentTimeMillis() - this.l <= 300 && (fc9Var = this.k) != null) {
-                    fc9Var.a(this);
+                if (System.currentTimeMillis() - this.l <= 300 && (gc9Var = this.k) != null) {
+                    gc9Var.a(this);
                     this.i = false;
                 }
                 this.l = System.currentTimeMillis();
@@ -276,9 +276,9 @@ public class StickerView extends ImageView {
                 return true;
             } else {
                 this.i = false;
-                fc9 fc9Var4 = this.k;
-                if (fc9Var4 != null) {
-                    fc9Var4.b(this, false);
+                gc9 gc9Var4 = this.k;
+                if (gc9Var4 != null) {
+                    gc9Var4.b(this, false);
                     invalidate();
                 }
                 return false;
@@ -299,7 +299,7 @@ public class StickerView extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bitmap) == null) {
-            this.b = new ec9(bitmap);
+            this.b = new fc9(bitmap);
         }
     }
 
@@ -307,7 +307,7 @@ public class StickerView extends ImageView {
     public void setImageResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = new ec9(BitmapHelper.getResBitmap(this.a, i));
+            this.b = new fc9(BitmapHelper.getResBitmap(this.a, i));
         }
     }
 
@@ -318,10 +318,10 @@ public class StickerView extends ImageView {
         }
     }
 
-    public void setmOnStickerActionListener(fc9 fc9Var) {
+    public void setmOnStickerActionListener(gc9 gc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, fc9Var) == null) {
-            this.k = fc9Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, gc9Var) == null) {
+            this.k = gc9Var;
         }
     }
 }

@@ -38,7 +38,7 @@ public class sk6 {
     public TextView f;
     public TextView g;
     public PermissionJudgePolicy h;
-    public q48 i;
+    public r48 i;
     public Bitmap j;
     public e k;
     public View l;
@@ -393,7 +393,7 @@ public class sk6 {
         statisticItem.param("obj_source", this.p);
         TiebaStatic.log(statisticItem);
         if (this.i == null) {
-            this.i = new q48(this.a);
+            this.i = new r48(this.a);
         }
         this.i.b(this.m, BitmapHelper.Bitmap2Bytes(bitmap, 100));
     }

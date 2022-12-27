@@ -52,7 +52,7 @@ public class z57 {
             if (app == null) {
                 return -1;
             }
-            return ei8.b(app);
+            return fi8.b(app);
         }
         return invokeL.intValue;
     }
@@ -226,7 +226,7 @@ public class z57 {
                 App app = builder.app.get(i);
                 if (app != null) {
                     App.Builder builder2 = new App.Builder(app);
-                    builder2.pos = Integer.valueOf(ei8.b(app));
+                    builder2.pos = Integer.valueOf(fi8.b(app));
                     App build = builder2.build(false);
                     builder.app.remove(i);
                     builder.app.add(i, build);
@@ -300,17 +300,17 @@ public class z57 {
             while (it.hasNext()) {
                 App next = it.next();
                 if (next != null) {
-                    int b = ei8.b(next);
+                    int b = fi8.b(next);
                     if (b <= 0) {
                         it.remove();
-                        mk8.h(l(next), 1, 23);
+                        nk8.h(l(next), 1, 23);
                     } else {
                         int i3 = i + i2 + 1;
                         if (b <= i3) {
                             i2++;
                         } else {
                             it.remove();
-                            mk8.i(l(next), 1, 2, b, i3);
+                            nk8.i(l(next), 1, 2, b, i3);
                         }
                     }
                 } else {
@@ -351,7 +351,7 @@ public class z57 {
                     }
                 }
             }
-            List<AdvertAppInfo> f = zi8.l().f();
+            List<AdvertAppInfo> f = aj8.l().f();
             if (f != null) {
                 f.clear();
             }
@@ -366,28 +366,28 @@ public class z57 {
                     }
                     AdvertAppInfo c = m57Var.c();
                     if (c == null) {
-                        mk8.h(m57Var.c(), 1, 100);
+                        nk8.h(m57Var.c(), 1, 100);
                     } else {
                         int m = c.m();
                         if (m != 0) {
-                            mk8.h(m57Var.c(), 1, m);
+                            nk8.h(m57Var.c(), 1, m);
                             if (m != 28 && m != 31) {
                                 c.c = -1001;
                             }
                         }
                         if (m57Var.getPosition() <= 0) {
-                            mk8.h(m57Var.c(), 1, 23);
+                            nk8.h(m57Var.c(), 1, 23);
                             c.c = -1001;
                         }
                         if (c.g()) {
                             try {
                                 if (TextUtils.isEmpty(c.p)) {
-                                    mk8.h(m57Var.c(), 1, 26);
-                                } else if (pr8.b(TbadkCoreApplication.getInst().getContext(), c.p) && gp5.a().p()) {
-                                    mk8.h(m57Var.c(), 1, 3);
+                                    nk8.h(m57Var.c(), 1, 26);
+                                } else if (qr8.b(TbadkCoreApplication.getInst().getContext(), c.p) && gp5.a().p()) {
+                                    nk8.h(m57Var.c(), 1, 3);
                                 }
                             } catch (Exception unused) {
-                                mk8.h(m57Var.c(), 1, 100);
+                                nk8.h(m57Var.c(), 1, 100);
                             }
                         }
                         linkedList.add(m57Var);
@@ -456,7 +456,7 @@ public class z57 {
                 App app = builder.app.get(i2);
                 if (app != null) {
                     App.Builder builder2 = new App.Builder(app);
-                    ei8.c(builder2, i);
+                    fi8.c(builder2, i);
                     App build = builder2.build(false);
                     builder.app.remove(i2);
                     builder.app.add(i2, build);
@@ -493,17 +493,17 @@ public class z57 {
                     while (it.hasNext()) {
                         App next = it.next();
                         if (next != null) {
-                            int b = ei8.b(next);
+                            int b = fi8.b(next);
                             if (b <= 0) {
                                 it.remove();
-                                mk8.h(l(next), 1, 23);
+                                nk8.h(l(next), 1, 23);
                             } else {
                                 int i7 = i4 + i6 + 1;
                                 if (b <= i7) {
                                     i6++;
                                 } else {
                                     it.remove();
-                                    mk8.i(l(next), 1, 2, b, i7);
+                                    nk8.i(l(next), 1, 2, b, i7);
                                 }
                             }
                         } else {
@@ -597,17 +597,17 @@ public class z57 {
                 while (it.hasNext()) {
                     App next = it.next();
                     if (next != null) {
-                        int b = ei8.b(next);
+                        int b = fi8.b(next);
                         if (b <= 0) {
                             it.remove();
-                            mk8.h(l(next), 1, 23);
+                            nk8.h(l(next), 1, 23);
                         } else {
                             int i3 = i + i2 + 1;
                             if (b <= i3) {
                                 i2++;
                             } else {
                                 it.remove();
-                                mk8.i(l(next), 1, 2, b, i3);
+                                nk8.i(l(next), 1, 2, b, i3);
                             }
                         }
                     } else {
@@ -648,27 +648,27 @@ public class z57 {
                 m57 m57Var = new m57();
                 m57Var.f(app);
                 if (app != null) {
-                    i = ei8.b(app);
+                    i = fi8.b(app);
                 } else {
                     i = -1;
                 }
                 if (i < 0) {
-                    mk8.h(m57Var.c(), 1, 33);
+                    nk8.h(m57Var.c(), 1, 33);
                     builder2.app.remove(size);
                 } else {
                     int i2 = count + size;
                     if (i > i2) {
-                        mk8.i(m57Var.u(), 1, 2, i, i2);
+                        nk8.i(m57Var.u(), 1, 2, i, i2);
                         builder2.app.remove(size);
                     } else {
                         AdvertAppInfo c = m57Var.c();
                         if (c == null) {
-                            mk8.h(m57Var.c(), 1, 100);
+                            nk8.h(m57Var.c(), 1, 100);
                             builder2.app.remove(size);
                         } else {
                             int m = c.m();
                             if (m != 0) {
-                                mk8.h(m57Var.c(), 1, m);
+                                nk8.h(m57Var.c(), 1, m);
                                 builder2.app.remove(size);
                             }
                         }

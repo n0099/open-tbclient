@@ -89,17 +89,17 @@ public class wf7 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!em7.e(this.a)) {
+            if (!fm7.e(this.a)) {
                 for (MetaData metaData : this.a) {
                     metaData.setItemType(1);
                 }
             }
-            if (!em7.e(this.c)) {
+            if (!fm7.e(this.c)) {
                 for (MetaData metaData2 : this.c) {
                     metaData2.setItemType(2);
                 }
             }
-            if (!em7.e(this.b)) {
+            if (!fm7.e(this.b)) {
                 for (MetaData metaData3 : this.b) {
                     metaData3.setItemType(3);
                 }
@@ -116,7 +116,7 @@ public class wf7 {
                     arrayList.add(metaData.getUserId());
                 }
             }
-            if (em7.e(this.c)) {
+            if (fm7.e(this.c)) {
                 return;
             }
             for (MetaData metaData2 : this.c) {
@@ -155,10 +155,10 @@ public class wf7 {
     public final void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (!em7.e(this.a)) {
+            if (!fm7.e(this.a)) {
                 this.d.addAll(this.a);
             }
-            if (z && !em7.e(this.b)) {
+            if (z && !fm7.e(this.b)) {
                 this.d.addAll(this.b);
             }
         }

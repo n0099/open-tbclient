@@ -1,69 +1,39 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tieba.bw4;
-import com.baidu.tieba.k35;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class mx8 extends bw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity c;
-    public LiveRemindRecommendData d;
-    public Map<String, Object> e;
-    public k35 f;
+    public final av8 d;
 
-    /* loaded from: classes5.dex */
-    public class a implements k35.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mx8 a;
-
-        public a(mx8 mx8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mx8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mx8Var;
-        }
-
-        @Override // com.baidu.tieba.k35.h
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
+    @Override // com.baidu.tieba.bw4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mx8(MainTabActivity mainTabActivity, zu8 zu8Var) {
+    public mx8(@NonNull MainTabActivity mainTabActivity, @NonNull av8 av8Var) {
         super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zu8Var};
+            Object[] objArr = {mainTabActivity, av8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -74,15 +44,30 @@ public class mx8 extends bw4 {
                 return;
             }
         }
+        this.d = av8Var;
         this.c = mainTabActivity;
     }
 
     @Override // com.baidu.tieba.bw4
-    public void b() {
-        k35 k35Var;
+    public void d(@NonNull bw4.a aVar) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (k35Var = this.f) != null) {
-            k35Var.t();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            boolean z2 = false;
+            if (this.d.x() != null && this.d.x().getCurrentTabType() != 2) {
+                aVar.a(false);
+                return;
+            }
+            boolean i = ry4.l().i(ry4.p("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (i && z) {
+                z2 = true;
+            }
+            aVar.a(z2);
         }
     }
 
@@ -90,57 +75,12 @@ public class mx8 extends bw4 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = l35.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
-            fy4.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-        }
-    }
-
-    @Override // com.baidu.tieba.bw4
-    public void d(bw4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (iw4.l()) {
-                aVar.a(false);
-                return;
-            }
-            LiveRemindRecommendData c = ey4.a().c(0);
-            this.d = c;
-            if (c != null && fy4.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
-                this.e = new HashMap();
-                int i = 3;
-                if (this.d.getRemindType() != 1) {
-                    if (this.d.getRemindType() == 2) {
-                        i = 4;
-                    } else if (this.d.getRemindType() == 3) {
-                        i = 2;
-                    } else {
-                        i = 0;
-                    }
-                }
-                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
-                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
-                this.e.put("view_top_params_user_name", this.d.getUserName());
-                this.e.put("view_top_params_key_desc", this.d.getDesc());
-                this.e.put("view_top_params_room_id", this.d.getRoomId());
-                this.e.put("view_top_params_btn_text", this.d.getBtnText());
-                this.e.put("view_top_params_key_title", this.d.getTitle());
-                this.e.put("view_top_params_key_nid", this.d.getFeedId());
-                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
-                this.e.put("view_top_params_key_type", Integer.valueOf(i));
-                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !l45.d()) {
-                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !l45.d()) {
-                        aVar.a(true);
-                        return;
-                    } else {
-                        aVar.a(false);
-                        return;
-                    }
-                }
-                aVar.a(false);
-                return;
-            }
-            aVar.a(false);
+            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.c, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
+            tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            tbWebViewActivityConfig.setWebDialogName("newGod");
+            this.c.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+            ry4.l().v(ry4.p("key_new_god_pop_is_show"), false);
+            iw4.n("newGod");
         }
     }
 }

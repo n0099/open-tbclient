@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
+    public int a;
     public int[] b;
+    public int[] c;
 
     public a0a() {
         Interceptable interceptable = $ic;
@@ -25,23 +26,25 @@ public final class a0a {
         }
     }
 
-    public static void a(a0a a0aVar, int i) {
+    public static void a(a0a a0aVar, uz9 uz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, a0aVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = a0aVar.b;
-                byte[] bArr = a0aVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
+        if (interceptable == null || interceptable.invokeLL(65537, null, a0aVar, uz9Var) == null) {
+            int length = a0aVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                a0aVar.c[i2] = i;
+                xz9.n(a0aVar.a, a0aVar.b, i, uz9Var);
+                i += 1080;
             }
         }
     }
 
-    public static void b(a0a a0aVar, byte[] bArr, int[] iArr) {
+    public static void b(a0a a0aVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, a0aVar, bArr, iArr) == null) {
-            a0aVar.a = bArr;
-            a0aVar.b = iArr;
+        if (interceptable == null || interceptable.invokeLII(65538, null, a0aVar, i, i2) == null) {
+            a0aVar.a = i;
+            a0aVar.b = new int[i2 * 1080];
+            a0aVar.c = new int[i2];
         }
     }
 }

@@ -103,7 +103,7 @@ public class ag1 {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            c("AlaLiveSdk", "IMSdkService", jn7.class);
+            c("AlaLiveSdk", "IMSdkService", kn7.class);
             c("AlaSquare", "SecondFloorService", fy5.class);
             c("Frs", "FrsService", rk6.class);
             c("HotTopic", "HotTopicRequest", lp5.class);
@@ -115,38 +115,38 @@ public class ag1 {
             c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
             c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
             c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
-            c("live", DI.AB_NAME, pp7.class);
-            c("live", DI.ACCOUNT, ep7.class);
-            c("live", DI.APP_INFO_NAME, gp7.class);
-            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, xp7.class);
-            c("live", DI.EXT.EXT_LIVE_LOG, eq7.class);
-            c("live", DI.FOLLOW_STATUS, vp7.class);
-            c("live", DI.LIGHTBROWSER_VIEW, lp7.class);
-            c("live", DI.LIVE_CUSTOM_SETTINGS, ar7.class);
-            c("live", DI.LIVE_EVENT_DISPATCHER, tp7.class);
-            c("live", DI.LIVE_LIKE, zp7.class);
-            c("live", DI.LIVE_LOCATION, cq7.class);
-            c("live", DI.LIVE_REAL_AUTH, ip7.class);
-            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, mq7.class);
-            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, rp7.class);
-            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, sp7.class);
+            c("live", DI.AB_NAME, qp7.class);
+            c("live", DI.ACCOUNT, fp7.class);
+            c("live", DI.APP_INFO_NAME, hp7.class);
+            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, yp7.class);
+            c("live", DI.EXT.EXT_LIVE_LOG, fq7.class);
+            c("live", DI.FOLLOW_STATUS, wp7.class);
+            c("live", DI.LIGHTBROWSER_VIEW, mp7.class);
+            c("live", DI.LIVE_CUSTOM_SETTINGS, br7.class);
+            c("live", DI.LIVE_EVENT_DISPATCHER, up7.class);
+            c("live", DI.LIVE_LIKE, aq7.class);
+            c("live", DI.LIVE_LOCATION, dq7.class);
+            c("live", DI.LIVE_REAL_AUTH, jp7.class);
+            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, nq7.class);
+            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, sp7.class);
+            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, tp7.class);
             c("live", DI.MINI_SHELL.MEDIA_2_YY, Media2YYServiceFetcher.class);
             c("live", "multi_plugin", MultiPluginManagerServiceFetcher.class);
-            c("live", "net", gq7.class);
-            c("live", DI.PAY_CHANNEL, np7.class);
-            c("live", DI.LIVE_PLAYER, tq7.class);
+            c("live", "net", hq7.class);
+            c("live", DI.PAY_CHANNEL, op7.class);
+            c("live", DI.LIVE_PLAYER, uq7.class);
             c("live", DI.MINI_SHELL.PLUGIN_MANAGER, PluginInvokeServiceFetcher.class);
             c("live", DI.LIVE_PRE_START_PLAYER, LivePreStartPlayServiceFetcher.class);
-            c("live", DI.ROUTER_NAME, yq7.class);
-            c("live", "share", er7.class);
-            c("live", DI.TB.SHARE_CHANNEL, cr7.class);
-            c("live", DI.THIRD_PART_ACCOUNT, gr7.class);
-            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, hr7.class);
-            c("live", DI.YY.THIRD_PART_WX_RECHARGE, jr7.class);
-            c("live", DI.TOAST_NAME, lr7.class);
+            c("live", DI.ROUTER_NAME, zq7.class);
+            c("live", "share", fr7.class);
+            c("live", DI.TB.SHARE_CHANNEL, dr7.class);
+            c("live", DI.THIRD_PART_ACCOUNT, hr7.class);
+            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, ir7.class);
+            c("live", DI.YY.THIRD_PART_WX_RECHARGE, kr7.class);
+            c("live", DI.TOAST_NAME, mr7.class);
             c("live", DI.MINI_SHELL.YY_2_MEDIA, YY2MediaServiceFetcher.class);
             c("live", DI.YY.YY_MULTI_PLUGIN_PROGRESS, YYPluginProgressInvokeServiceFetcher.class);
-            c("live", DI.YYPAY.YY_PAY, jq7.class);
+            c("live", DI.YYPAY.YY_PAY, kq7.class);
             c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
             c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
             c("nad.business", "rewardVideoLpTaskCenter", vn0.class);
@@ -174,9 +174,9 @@ public class ag1 {
             c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
             c("tbadkcore", "ISoProcess", hd5.class);
             c("tbadkcore", "tbadkcore", zq5.class);
-            c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, yf9.class);
-            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, po9.class);
-            c("yaLog", "yaLogConfig", mp9.class);
+            c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, zf9.class);
+            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, qo9.class);
+            c("yaLog", "yaLogConfig", np9.class);
         }
     }
 }

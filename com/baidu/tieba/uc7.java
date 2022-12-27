@@ -97,7 +97,7 @@ public class uc7 {
 
         /* renamed from: com.baidu.tieba.uc7$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0447b implements Runnable {
+        public class RunnableC0449b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -105,7 +105,7 @@ public class uc7 {
             public final /* synthetic */ int c;
             public final /* synthetic */ b d;
 
-            public RunnableC0447b(b bVar, int i, String str, int i2) {
+            public RunnableC0449b(b bVar, int i, String str, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -275,7 +275,7 @@ public class uc7 {
         public final void h(int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-                ah.a().post(new RunnableC0447b(this, i, str, i2));
+                ah.a().post(new RunnableC0449b(this, i, str, i2));
             }
         }
 

@@ -66,13 +66,13 @@ public class rw6 {
 
         /* renamed from: com.baidu.tieba.rw6$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0431b implements lv4.e {
+        public class C0434b implements lv4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PopInfo a;
             public final /* synthetic */ b b;
 
-            public C0431b(b bVar, PopInfo popInfo) {
+            public C0434b(b bVar, PopInfo popInfo) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -157,7 +157,7 @@ public class rw6 {
             lv4Var.setMessage(popInfo.v_title);
             lv4Var.isShowTitleAndMessage();
             lv4Var.setNegativeButton(popInfo.ok_info, new a(this));
-            lv4Var.setPositiveButton(popInfo.ahead_info, new C0431b(this, popInfo));
+            lv4Var.setPositiveButton(popInfo.ahead_info, new C0434b(this, popInfo));
             lv4Var.create(this.a.a.getPageContext()).show();
         }
     }

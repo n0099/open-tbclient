@@ -62,7 +62,7 @@ public class pu5 implements hl3 {
 
         /* renamed from: com.baidu.tieba.pu5$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class DialogInterface$OnClickListenerC0411b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0413b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -72,14 +72,14 @@ public class pu5 implements hl3 {
             public class a implements qk1 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0411b a;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0413b a;
 
-                public a(DialogInterface$OnClickListenerC0411b dialogInterface$OnClickListenerC0411b) {
+                public a(DialogInterface$OnClickListenerC0413b dialogInterface$OnClickListenerC0413b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0411b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC0413b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class pu5 implements hl3 {
                             return;
                         }
                     }
-                    this.a = dialogInterface$OnClickListenerC0411b;
+                    this.a = dialogInterface$OnClickListenerC0413b;
                 }
 
                 @Override // com.baidu.tieba.qk1
@@ -105,7 +105,7 @@ public class pu5 implements hl3 {
                 }
             }
 
-            public DialogInterface$OnClickListenerC0411b(b bVar) {
+            public DialogInterface$OnClickListenerC0413b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,7 +267,7 @@ public class pu5 implements hl3 {
                 i33.a aVar = new i33.a(this.b);
                 aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0079));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0411b(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC0413b(this));
                 aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0074), new a(this));
                 aVar.X();
             }

@@ -38,7 +38,7 @@ import com.baidu.tieba.ik5;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.mj5;
 import com.baidu.tieba.mk5;
-import com.baidu.tieba.q48;
+import com.baidu.tieba.r48;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView k;
     public TextView l;
     public PermissionJudgePolicy m;
-    public q48 n;
+    public r48 n;
     public TbPageContext o;
     public lv4 p;
     public Bitmap q;
@@ -658,7 +658,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.n == null) {
-            this.n = new q48(this.o);
+            this.n = new r48(this.o);
         }
         if (this.a.getParams() != null && !TextUtils.isEmpty(this.a.getParams().getUrl())) {
             this.n.b(this.a.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));

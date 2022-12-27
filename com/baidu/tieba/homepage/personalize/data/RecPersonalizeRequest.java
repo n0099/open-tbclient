@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.au4;
-import com.baidu.tieba.ik8;
-import com.baidu.tieba.lk8;
+import com.baidu.tieba.jk8;
+import com.baidu.tieba.mk8;
 import com.baidu.tieba.wj5;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
@@ -90,8 +90,8 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = lk8.f().d("HOME");
-            builder.app_pos = ik8.e().c();
+            builder.ad_context_list = mk8.f().d("HOME");
+            builder.app_pos = jk8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 au4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(xg.g(pbToHomeUpdateData.a, 0L));

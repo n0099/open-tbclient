@@ -64,15 +64,15 @@ import com.baidu.tieba.l17;
 import com.baidu.tieba.n17;
 import com.baidu.tieba.o17;
 import com.baidu.tieba.oz4;
-import com.baidu.tieba.qq8;
 import com.baidu.tieba.qz6;
 import com.baidu.tieba.r17;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.ta5;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.uu8;
 import com.baidu.tieba.vq4;
+import com.baidu.tieba.vu8;
 import com.baidu.tieba.x66;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1613,7 +1613,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements l17 {
                 }
                 if (TextUtils.isEmpty(str2)) {
                     this.N.setImageBackgroundVisibility(8);
-                    this.N.setBackgroundColor(qq8.f(j2));
+                    this.N.setBackgroundColor(rq8.f(j2));
                 } else {
                     this.N.setImageBackgroundVisibility(0);
                     tg.h().m(str2, 10, this.R, this.b.getUniqueId());
@@ -1901,11 +1901,11 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements l17 {
             FixedAppBarLayout fixedAppBarLayout = new FixedAppBarLayout(this.a);
             this.N = fixedAppBarLayout;
             addView(fixedAppBarLayout, 2);
-            uu8.c(this.N, 4);
+            vu8.c(this.N, 4);
             this.f = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090e2b);
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e29);
             this.m = frameLayout;
-            uu8.c(frameLayout, 5);
+            vu8.c(frameLayout, 5);
             CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f0920ed);
             this.n = customViewPager;
             customViewPager.setForm(1);

@@ -40,7 +40,7 @@ import org.json.JSONObject;
 public class x35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ce9 A;
+    public de9 A;
     public NewGodData B;
     public m25 C;
     public q15 D;
@@ -279,9 +279,9 @@ public class x35 {
             YYLiveConfig yYLiveConfig = new YYLiveConfig();
             this.z = yYLiveConfig;
             yYLiveConfig.parseJson(A(jSONObject, "yy_live_config"));
-            ce9 ce9Var = new ce9();
-            this.A = ce9Var;
-            ce9Var.b(z(jSONObject, "yy_live_tab"));
+            de9 de9Var = new de9();
+            this.A = de9Var;
+            de9Var.b(z(jSONObject, "yy_live_tab"));
             this.n.c(jSONObject.optJSONObject("hot_notify_config"));
             TbSingleton.getInstance().setHotNotifyConfig(this.n);
             qr4.b().f(this.x);
@@ -303,22 +303,22 @@ public class x35 {
             TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
             JSONArray z10 = z(jSONObject, "offpack");
             if (z10 != null && z10.length() > 0 && (jSONObject2 = z10.getJSONObject(0)) != null) {
-                ai8 ai8Var = new ai8();
-                ai8Var.e(jSONObject2.optString("mod_name"));
+                bi8 bi8Var = new bi8();
+                bi8Var.e(jSONObject2.optString("mod_name"));
                 if (jSONObject2.optInt("upload_offline_web_cache") == 1) {
                     z7 = true;
                 } else {
                     z7 = false;
                 }
-                ai8Var.f(z7);
+                bi8Var.f(z7);
                 if (jSONObject2.optInt("clear_offline_web_cache") == 1) {
                     z8 = true;
                 } else {
                     z8 = false;
                 }
-                ai8Var.d(z8);
-                if (!TextUtils.isEmpty(ai8Var.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(ai8Var);
+                bi8Var.d(z8);
+                if (!TextUtils.isEmpty(bi8Var.a())) {
+                    TbSingleton.getInstance().setUploadAndClearModule(bi8Var);
                 }
             }
             String optString2 = jSONObject.optString("proxy_ip");
@@ -358,16 +358,16 @@ public class x35 {
                 this.E.e(A);
                 TbSingleton.getInstance().setHomepageInterestConfig(this.E);
             }
-            pk7 pk7Var = new pk7();
+            qk7 qk7Var = new qk7();
             JSONObject optJSONObject5 = jSONObject.optJSONObject("recent_client_info");
             if (optJSONObject5 != null) {
-                pk7Var.d(RecentClientInfo.parseJson(optJSONObject5));
+                qk7Var.d(RecentClientInfo.parseJson(optJSONObject5));
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("new_user_interest_board_config");
             if (optJSONObject6 != null) {
-                pk7Var.c(nk7.e(optJSONObject6));
+                qk7Var.c(ok7.e(optJSONObject6));
             }
-            InterestPanelShowManager.a().c(pk7Var);
+            InterestPanelShowManager.a().c(qk7Var);
             JSONObject optJSONObject7 = jSONObject.optJSONObject("bottom_bubble_config");
             if (optJSONObject7 != null) {
                 xa5.d().i(optJSONObject7);
@@ -385,7 +385,7 @@ public class x35 {
             }
             tbSingleton3.showStampMissionDialog = z4;
             int optInt4 = jSONObject.optInt("afSearch_tab", 0);
-            fl8 d = fl8.d();
+            gl8 d = gl8.d();
             if (optInt4 == 1) {
                 z5 = true;
             } else {
@@ -401,16 +401,16 @@ public class x35 {
             }
             tbSingleton4.setIsNeedRemindLiveRoom(z6);
             JSONObject optJSONObject8 = jSONObject.optJSONObject("search_guide");
-            kz7.b().a();
+            lz7.b().a();
             if (optJSONObject8 != null && (optJSONObject = optJSONObject8.optJSONObject("pb")) != null) {
                 if (optJSONObject.optInt("is_show", 0) != 1) {
                     z9 = false;
                 }
                 int optInt6 = optJSONObject.optInt("pos", -1);
-                m08 m08Var = new m08();
-                m08Var.a = z9;
-                m08Var.b = optInt6;
-                kz7.b().d(m08Var);
+                n08 n08Var = new n08();
+                n08Var.a = z9;
+                n08Var.b = optInt6;
+                lz7.b().d(n08Var);
             }
             l65.g().a(AgreeMaterial.I(jSONObject.optJSONObject("agree_material")));
             JSONObject optJSONObject9 = jSONObject.optJSONObject("live_activity_guide");
@@ -673,13 +673,13 @@ public class x35 {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public ce9 x() {
+    public de9 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.A;
         }
-        return (ce9) invokeV.objValue;
+        return (de9) invokeV.objValue;
     }
 
     public String y() {

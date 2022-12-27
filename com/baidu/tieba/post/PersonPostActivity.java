@@ -37,15 +37,15 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bo;
-import com.baidu.tieba.mg8;
 import com.baidu.tieba.ng8;
 import com.baidu.tieba.og8;
 import com.baidu.tieba.personExtra.PersonExtraStatic;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
+import com.baidu.tieba.pg8;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.sg8;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.tg8;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -55,7 +55,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, og8, mg8 {
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, pg8, ng8 {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
@@ -274,8 +274,8 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public final void X0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            tr8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, tr8.a("c/u/feed/userpost", 303002));
+            ur8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, ur8.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -288,19 +288,19 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public bo onGetPreLoadListView() {
         InterceptResult invokeV;
-        sg8 sg8Var;
+        tg8 tg8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             PersonPostAdapter personPostAdapter = this.n;
             if (personPostAdapter != null) {
                 PersonThreadFragment c2 = personPostAdapter.c();
                 if (c2 != null) {
-                    sg8Var = c2.H1();
+                    tg8Var = c2.H1();
                 } else {
-                    sg8Var = null;
+                    tg8Var = null;
                 }
-                if (sg8Var != null && sg8Var.f() != null) {
-                    return sg8Var.f().getPreLoadHandle();
+                if (tg8Var != null && tg8Var.f() != null) {
+                    return tg8Var.f().getPreLoadHandle();
                 }
             }
             return null;
@@ -327,13 +327,13 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // com.baidu.tieba.og8
+    @Override // com.baidu.tieba.pg8
     public void p() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.n != null) {
             for (int i = 0; i < this.n.getCount(); i++) {
-                if (this.n.getItem(i) instanceof ng8) {
-                    ((ng8) this.n.getItem(i)).I0();
+                if (this.n.getItem(i) instanceof og8) {
+                    ((og8) this.n.getItem(i)).I0();
                 }
             }
         }
@@ -506,7 +506,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // com.baidu.tieba.mg8
+    @Override // com.baidu.tieba.ng8
     public void a0(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;

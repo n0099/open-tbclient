@@ -25,10 +25,10 @@ public class du6 {
         }
     }
 
-    public static void b(Context context, rr8 rr8Var) {
+    public static void b(Context context, sr8 sr8Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, rr8Var) != null) || rr8Var == null) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, sr8Var) != null) || sr8Var == null) {
             return;
         }
         TbPageContext<BaseFragmentActivity> tbPageContext = null;
@@ -40,89 +40,89 @@ public class du6 {
         if (tbPageContext == null) {
             return;
         }
-        sr8 sr8Var = rr8Var.f;
-        if (sr8Var != null) {
-            ku5.b(sr8Var.b, sr8Var.c, "1191003700000000", sr8Var.d);
+        tr8 tr8Var = sr8Var.f;
+        if (tr8Var != null) {
+            ku5.b(tr8Var.b, tr8Var.c, "1191003700000000", tr8Var.d);
         } else {
-            if (YYLiveUtil.isYYLiveLink(rr8Var.d)) {
-                str = rr8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            if (YYLiveUtil.isYYLiveLink(sr8Var.d)) {
+                str = sr8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
             } else {
-                str = rr8Var.d;
+                str = sr8Var.d;
             }
             UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        dw6.a(tbPageContext, rr8Var.e);
+        dw6.a(tbPageContext, sr8Var.e);
     }
 
-    public static void c(rr8 rr8Var) {
+    public static void c(sr8 sr8Var) {
         int i;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, rr8Var) != null) || rr8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, sr8Var) != null) || sr8Var == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", rr8Var.g);
-        if (rr8Var.f == null) {
+        statisticItem.param("fid", sr8Var.g);
+        if (sr8Var.f == null) {
             i = 1;
         } else {
             i = 2;
         }
         statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", rr8Var.h);
+        statisticItem.param("obj_locate", sr8Var.h);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        sr8 sr8Var = rr8Var.f;
-        if (sr8Var != null) {
-            str = sr8Var.c;
+        tr8 tr8Var = sr8Var.f;
+        if (tr8Var != null) {
+            str = tr8Var.c;
         } else {
-            str = rr8Var.d;
+            str = sr8Var.d;
         }
-        sr8 sr8Var2 = rr8Var.f;
-        if (sr8Var2 != null) {
-            String str2 = sr8Var2.a;
+        tr8 tr8Var2 = sr8Var.f;
+        if (tr8Var2 != null) {
+            String str2 = tr8Var2.a;
         } else {
-            String str3 = rr8Var.c;
+            String str3 = sr8Var.c;
         }
-        statisticItem.param("obj_name", rr8Var.c);
-        statisticItem.param("obj_param1", rr8Var.d);
+        statisticItem.param("obj_name", sr8Var.c);
+        statisticItem.param("obj_param1", sr8Var.d);
         a(statisticItem, str);
         TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(rr8Var.i, 1));
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(sr8Var.i, 1));
     }
 
-    public static void d(rr8 rr8Var) {
+    public static void d(sr8 sr8Var) {
         int i;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, rr8Var) != null) || rr8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, sr8Var) != null) || sr8Var == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", rr8Var.g);
-        if (rr8Var.f == null) {
+        statisticItem.param("fid", sr8Var.g);
+        if (sr8Var.f == null) {
             i = 1;
         } else {
             i = 2;
         }
         statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", rr8Var.h);
+        statisticItem.param("obj_locate", sr8Var.h);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        sr8 sr8Var = rr8Var.f;
-        if (sr8Var != null) {
-            str = sr8Var.c;
+        tr8 tr8Var = sr8Var.f;
+        if (tr8Var != null) {
+            str = tr8Var.c;
         } else {
-            str = rr8Var.d;
+            str = sr8Var.d;
         }
-        sr8 sr8Var2 = rr8Var.f;
-        if (sr8Var2 != null) {
-            String str2 = sr8Var2.a;
+        tr8 tr8Var2 = sr8Var.f;
+        if (tr8Var2 != null) {
+            String str2 = tr8Var2.a;
         } else {
-            String str3 = rr8Var.c;
+            String str3 = sr8Var.c;
         }
-        statisticItem.param("obj_name", rr8Var.c);
-        statisticItem.param("obj_param1", rr8Var.d);
+        statisticItem.param("obj_name", sr8Var.c);
+        statisticItem.param("obj_param1", sr8Var.d);
         a(statisticItem, str);
         TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(rr8Var.i, 0));
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(sr8Var.i, 0));
     }
 }

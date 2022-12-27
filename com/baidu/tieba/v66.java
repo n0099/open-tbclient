@@ -38,13 +38,13 @@ public class v66 extends x66 {
 
         /* renamed from: com.baidu.tieba.v66$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0455a implements View.OnClickListener {
+        public class View$OnClickListenerC0457a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0455a(a aVar, String str) {
+            public View$OnClickListenerC0457a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -234,7 +234,7 @@ public class v66 extends x66 {
                 if (onClickListener != null) {
                     textView.setOnClickListener(onClickListener);
                 } else {
-                    textView.setOnClickListener(new View$OnClickListenerC0455a(this, v66Var5.j.get("pop_params_key_link")));
+                    textView.setOnClickListener(new View$OnClickListenerC0457a(this, v66Var5.j.get("pop_params_key_link")));
                 }
                 return inflate;
             }

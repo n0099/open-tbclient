@@ -26,7 +26,7 @@ import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.je6;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.mc6;
-import com.baidu.tieba.pt8;
+import com.baidu.tieba.qt8;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public class tb6 extends BaseAdapter {
     public zb6 h;
     public de6 i;
     public HashSet<Long> j;
-    public pt8.c k;
+    public qt8.c k;
 
     /* loaded from: classes6.dex */
     public class e implements View.OnClickListener {
@@ -86,7 +86,7 @@ public class tb6 extends BaseAdapter {
             public void onClick(lv4 lv4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
-                    pt8.b(NetWorkErr.ERROR_UEG_BIND_MOBILE, "", this.a.a.k);
+                    qt8.b(NetWorkErr.ERROR_UEG_BIND_MOBILE, "", this.a.a.k);
                     lv4Var.dismiss();
                 }
             }
@@ -358,32 +358,32 @@ public class tb6 extends BaseAdapter {
     }
 
     /* loaded from: classes6.dex */
-    public class f extends pt8.c {
+    public class f extends qt8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.pt8.c
+        @Override // com.baidu.tieba.qt8.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.pt8.c
+        @Override // com.baidu.tieba.qt8.c
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.pt8.c
+        @Override // com.baidu.tieba.qt8.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.pt8.c
+        @Override // com.baidu.tieba.qt8.c
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

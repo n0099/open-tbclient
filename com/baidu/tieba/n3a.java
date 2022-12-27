@@ -1,140 +1,194 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.f3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes5.dex */
-public final class n3a {
+public class n3a extends f3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Handler a;
 
-    public static void a(Throwable th, Throwable th2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
+    /* loaded from: classes5.dex */
+    public static class a extends f3a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Handler a;
+        public final l3a b;
+        public volatile boolean c;
+
+        public a(Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
-                }
             }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
+            this.a = handler;
+            this.b = k3a.a().b();
+        }
+
+        @Override // com.baidu.tieba.f3a.a
+        public j3a b(p3a p3aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p3aVar)) == null) {
+                return c(p3aVar, 0L, TimeUnit.MILLISECONDS);
+            }
+            return (j3a) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.f3a.a
+        public j3a c(p3a p3aVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{p3aVar, Long.valueOf(j), timeUnit})) == null) {
+                if (this.c) {
+                    return z7a.c();
+                }
+                this.b.c(p3aVar);
+                b bVar = new b(p3aVar, this.a);
+                Message obtain = Message.obtain(this.a, bVar);
+                obtain.obj = this;
+                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
+                if (this.c) {
+                    this.a.removeCallbacks(bVar);
+                    return z7a.c();
+                }
+                return bVar;
+            }
+            return (j3a) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.j3a
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.j3a
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c = true;
+                this.a.removeCallbacksAndMessages(this);
             }
         }
     }
 
-    public static Throwable b(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
-                }
-                th = th.getCause();
-                i = i2;
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class b implements Runnable, j3a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final p3a a;
+        public final Handler b;
+        public volatile boolean c;
 
-    public static RuntimeException c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
+        public b(p3a p3aVar, Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p3aVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                throw new RuntimeException(th);
             }
-            throw ((RuntimeException) th);
+            this.a = p3aVar;
+            this.b = handler;
         }
-        return (RuntimeException) invokeL.objValue;
-    }
 
-    public static void d(List<? extends Throwable> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, list) == null) && list != null && !list.isEmpty()) {
-            if (list.size() == 1) {
-                Throwable th = list.get(0);
-                if (!(th instanceof RuntimeException)) {
-                    if (th instanceof Error) {
-                        throw ((Error) th);
+        @Override // com.baidu.tieba.j3a
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.j3a
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c = true;
+                this.b.removeCallbacks(this);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            IllegalStateException illegalStateException;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a.call();
+                } catch (Throwable th) {
+                    if (th instanceof OnErrorNotImplementedException) {
+                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
+                    } else {
+                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
                     }
-                    throw new RuntimeException(th);
+                    m7a.c().b().a(illegalStateException);
+                    Thread currentThread = Thread.currentThread();
+                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
                 }
-                throw ((RuntimeException) th);
             }
-            throw new CompositeException(list);
         }
     }
 
-    public static void e(Throwable th) {
+    public n3a(Looper looper) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (!(th instanceof LinkageError)) {
-                                    return;
-                                }
-                                throw ((LinkageError) th);
-                            }
-                            throw ((ThreadDeath) th);
-                        }
-                        throw ((VirtualMachineError) th);
-                    }
-                    throw ((OnCompletedFailedException) th);
-                }
-                throw ((OnErrorFailedException) th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw ((OnErrorNotImplementedException) th);
         }
+        this.a = new Handler(looper);
     }
 
-    public static void f(Throwable th, c3a<?> c3aVar) {
+    @Override // com.baidu.tieba.f3a
+    public f3a.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, c3aVar) == null) {
-            e(th);
-            c3aVar.onError(th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this.a);
         }
-    }
-
-    public static void g(Throwable th, c3a<?> c3aVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, c3aVar, obj) == null) {
-            e(th);
-            c3aVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
-    }
-
-    public static void h(Throwable th, g3a<?> g3aVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, g3aVar, obj) == null) {
-            e(th);
-            g3aVar.b(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
+        return (f3a.a) invokeV.objValue;
     }
 }

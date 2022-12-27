@@ -79,7 +79,7 @@ import com.baidu.tieba.ka5;
 import com.baidu.tieba.l17;
 import com.baidu.tieba.l57;
 import com.baidu.tieba.la5;
-import com.baidu.tieba.lq8;
+import com.baidu.tieba.mq8;
 import com.baidu.tieba.n9;
 import com.baidu.tieba.or4;
 import com.baidu.tieba.p15;
@@ -1005,7 +1005,7 @@ public class PersonalizePageView extends FrameLayout {
             }
             Object tag = view2.getTag();
             if (tag instanceof ThreadData) {
-                TiebaStatic.log(lq8.j("c13696", (ThreadData) tag));
+                TiebaStatic.log(mq8.j("c13696", (ThreadData) tag));
             }
         }
     }

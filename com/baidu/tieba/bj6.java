@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.forumSquare.ForumSquareActivity;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.vr8;
+import com.baidu.tieba.wr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class bj6 extends h46<yi6> {
     public String q;
     public yi6 r;
     public LikeModel s;
-    public vr8 t;
+    public wr8 t;
     public boolean u;
 
     @Override // com.baidu.tieba.h46
@@ -96,7 +96,7 @@ public class bj6 extends h46<yi6> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements vr8.a {
+    public class b implements wr8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bj6 a;
@@ -119,7 +119,7 @@ public class bj6 extends h46<yi6> {
             this.a = bj6Var;
         }
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -127,7 +127,7 @@ public class bj6 extends h46<yi6> {
             }
         }
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -291,9 +291,9 @@ public class bj6 extends h46<yi6> {
             return;
         }
         if (this.t == null) {
-            vr8 vr8Var = new vr8();
-            this.t = vr8Var;
-            vr8Var.b(new b(this));
+            wr8 wr8Var = new wr8();
+            this.t = wr8Var;
+            wr8Var.b(new b(this));
         }
         this.u = true;
         this.t.c(this.r.g(), this.r.f());

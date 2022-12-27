@@ -9,7 +9,7 @@ import com.baidu.tieba.sj5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.xk8;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements xk8 {
+public class VideoPlayDispatcher implements yk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +36,7 @@ public class VideoPlayDispatcher implements xk8 {
         }
     }
 
-    @Override // com.baidu.tieba.xk8
+    @Override // com.baidu.tieba.yk8
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         boolean z2;

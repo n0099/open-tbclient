@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wp6 extends ck6<yq8, FrsFeedItemViewHolder> {
+public class wp6 extends ck6<zq8, FrsFeedItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public up6 l;
@@ -56,13 +56,13 @@ public class wp6 extends ck6<yq8, FrsFeedItemViewHolder> {
         return (FrsFeedItemViewHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, yq8 yq8Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
+    public View F(int i, View view2, ViewGroup viewGroup, zq8 zq8Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yq8Var, frsFeedItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) yq8Var, (yq8) frsFeedItemViewHolder);
-            if (yq8Var != null) {
-                this.l.o(yq8Var.b(), yq8Var.a());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zq8Var, frsFeedItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) zq8Var, (zq8) frsFeedItemViewHolder);
+            if (zq8Var != null) {
+                this.l.o(zq8Var.b(), zq8Var.a());
             }
             return view2;
         }
@@ -71,7 +71,7 @@ public class wp6 extends ck6<yq8, FrsFeedItemViewHolder> {
 
     @Override // com.baidu.tieba.ck6, com.baidu.tieba.kn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (yq8) obj, (FrsFeedItemViewHolder) viewHolder);
+        F(i, view2, viewGroup, (zq8) obj, (FrsFeedItemViewHolder) viewHolder);
         return view2;
     }
 }

@@ -13,14 +13,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.ct8;
+import com.baidu.tieba.dt8;
 import com.baidu.tieba.ik5;
-import com.baidu.tieba.jt8;
+import com.baidu.tieba.kt8;
 import com.baidu.tieba.mj5;
 import com.baidu.tieba.mk5;
 import com.baidu.tieba.ro;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
-import com.baidu.tieba.ys8;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @ro
 /* loaded from: classes3.dex */
-public class SearchJsBridge implements ys8 {
+public class SearchJsBridge implements zs8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -94,7 +94,7 @@ public class SearchJsBridge implements ys8 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                jt8.h(this.a);
+                kt8.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -159,7 +159,7 @@ public class SearchJsBridge implements ys8 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                jt8.b();
+                kt8.b();
                 return null;
             }
             return invokeV.objValue;
@@ -218,26 +218,26 @@ public class SearchJsBridge implements ys8 {
         this.mHistoryDatas = new ArrayList();
     }
 
-    public ct8 deleteAllSearchHistory() {
+    public dt8 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ct8 ct8Var = new ct8();
+            dt8 dt8Var = new dt8();
             mk5.b(new c(this), new d(this));
-            return ct8Var;
+            return dt8Var;
         }
-        return (ct8) invokeV.objValue;
+        return (dt8) invokeV.objValue;
     }
 
-    public ct8 getSearchAdCookie() {
+    public dt8 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ct8 ct8Var = new ct8();
-            ct8Var.o(initCookies());
-            return ct8Var;
+            dt8 dt8Var = new dt8();
+            dt8Var.o(initCookies());
+            return dt8Var;
         }
-        return (ct8) invokeV.objValue;
+        return (dt8) invokeV.objValue;
     }
 
     public SearchJsBridge(List<String> list) {
@@ -259,15 +259,15 @@ public class SearchJsBridge implements ys8 {
         this.mHistoryDatas = list;
     }
 
-    public ct8 deleteSearchHistory(String str) {
+    public dt8 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ct8 ct8Var = new ct8();
+            dt8 dt8Var = new dt8();
             mk5.b(new a(this, str), new b(this));
-            return ct8Var;
+            return dt8Var;
         }
-        return (ct8) invokeL.objValue;
+        return (dt8) invokeL.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {
@@ -321,7 +321,7 @@ public class SearchJsBridge implements ys8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ys8
+    @Override // com.baidu.tieba.zs8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -361,31 +361,31 @@ public class SearchJsBridge implements ys8 {
         return invokeLLLL.booleanValue;
     }
 
-    public ct8 getSearchHistoryJson() {
+    public dt8 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ct8 ct8Var = new ct8();
+            dt8 dt8Var = new dt8();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                ct8Var.o("");
+                dt8Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            ct8Var.o(jSONArray.toString());
+            dt8Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return ct8Var;
+            return dt8Var;
         }
-        return (ct8) invokeV.objValue;
+        return (dt8) invokeV.objValue;
     }
 
-    public ct8 openSearchPage(String str, int i) {
+    public dt8 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            ct8 ct8Var = new ct8();
+            dt8 dt8Var = new dt8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -394,8 +394,8 @@ public class SearchJsBridge implements ys8 {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return ct8Var;
+            return dt8Var;
         }
-        return (ct8) invokeLI.objValue;
+        return (dt8) invokeLI.objValue;
     }
 }

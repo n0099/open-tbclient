@@ -23,9 +23,9 @@ import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessag
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 import com.baidu.tieba.message.RequestBlessMessage;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.qv7;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sv7;
+import com.baidu.tieba.rv7;
+import com.baidu.tieba.tv7;
 import com.baidu.tieba.u97;
 import com.baidu.tieba.vt4;
 import com.baidu.tieba.x97;
@@ -41,7 +41,7 @@ public class HotTopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public qv7 a;
+    public rv7 a;
     @Nullable
     public d b;
     public boolean c;
@@ -343,13 +343,13 @@ public class HotTopicDetailModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailModel(TbPageContext<?> tbPageContext, qv7 qv7Var) {
+    public HotTopicDetailModel(TbPageContext<?> tbPageContext, rv7 rv7Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, qv7Var};
+            Object[] objArr = {tbPageContext, rv7Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -364,14 +364,14 @@ public class HotTopicDetailModel extends BdBaseModel {
         this.j = yi.l(TbadkCoreApplication.getInst().getApp());
         this.k = yi.j(TbadkCoreApplication.getInst().getApp());
         Q();
-        this.a = qv7Var;
+        this.a = rv7Var;
         this.h = tbPageContext;
     }
 
     public void P(Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, intent) == null) && intent != null && intent.getIntExtra("extra_share_status", 2) == 1) {
-            sv7.f(this.h, "c14390");
+            tv7.f(this.h, "c14390");
         }
     }
 
@@ -501,7 +501,7 @@ public class HotTopicDetailModel extends BdBaseModel {
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            sv7.f(this.h, "c14392");
+            tv7.f(this.h, "c14392");
         }
     }
 

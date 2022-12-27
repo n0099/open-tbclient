@@ -22,8 +22,8 @@ import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pe5;
-import com.baidu.tieba.qq8;
 import com.baidu.tieba.qz4;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.sz4;
 import com.baidu.tieba.vy4;
@@ -206,7 +206,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             CardLinkInfoData cardLinkInfoData = this.b;
             if (cardLinkInfoData != null && !StringUtils.isNull(cardLinkInfoData.getTagColor()) && this.b.getTagColor().startsWith("CAM_")) {
-                i = qq8.d(this.a, this.b.getTagColor());
+                i = rq8.d(this.a, this.b.getTagColor());
             } else {
                 i = 0;
             }

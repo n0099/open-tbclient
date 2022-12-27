@@ -116,13 +116,13 @@ public class d45 {
             if (i != 3 && i != 2) {
                 if (i != 8 && i != 4) {
                     if (i == 6) {
-                        return pr8.b(context, "com.sina.weibo");
+                        return qr8.b(context, "com.sina.weibo");
                     }
                     return true;
                 }
-                return pr8.b(context, "com.tencent.mobileqq");
+                return qr8.b(context, "com.tencent.mobileqq");
             }
-            return pr8.b(context, "com.tencent.mm");
+            return qr8.b(context, "com.tencent.mm");
         }
         return invokeLI.booleanValue;
     }

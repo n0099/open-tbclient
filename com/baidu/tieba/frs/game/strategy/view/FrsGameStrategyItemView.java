@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h46;
-import com.baidu.tieba.mt8;
+import com.baidu.tieba.nt8;
 import com.baidu.tieba.yp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -131,7 +131,7 @@ public class FrsGameStrategyItemView extends h46<yp6> {
         if ((interceptable == null || interceptable.invokeL(1048581, this, yp6Var) == null) && yp6Var != null && yp6Var.getThreadData() != null) {
             ThreadData threadData = yp6Var.getThreadData();
             this.m.setText(threadData.getTitle());
-            mt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            nt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(threadData.getId())) {
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
             } else {

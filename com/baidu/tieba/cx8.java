@@ -11,17 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class cx8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final kv8 b;
+    public final lv8 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cx8(MainTabActivity mainTabActivity, zu8 zu8Var) {
-        super(2921579);
+    public cx8(MainTabActivity mainTabActivity) {
+        super(2921725);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zu8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,23 +31,22 @@ public class cx8 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.a = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        kv8 kv8Var;
+        lv8 lv8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (kv8Var = this.b) != null && kv8Var.g() != null) {
-            Runnable runnable = this.b.g().c;
-            ah.a().removeCallbacks(runnable);
-            int i = 0;
-            if (customResponsedMessage.getData() instanceof Integer) {
-                i = ((Integer) customResponsedMessage.getData()).intValue();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (lv8Var = this.a) != null && lv8Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.f().c;
+                ah.a().removeCallbacks(runnable);
+                ah.a().post(runnable);
+                return;
             }
-            ah.a().postDelayed(runnable, i * 1000);
+            ah.a().removeCallbacks(this.a.f().c);
         }
     }
 }

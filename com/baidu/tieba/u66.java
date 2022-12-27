@@ -33,11 +33,11 @@ public class u66 {
 
         /* renamed from: com.baidu.tieba.u66$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0446a extends ik5<Object> {
+        public class C0447a extends ik5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0446a(a aVar) {
+            public C0447a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public class u66 {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    c09.b();
+                    d09.b();
                     return null;
                 }
                 return invokeV.objValue;
@@ -127,20 +127,20 @@ public class u66 {
                     if (id == R.id.private_no) {
                         if (this.a.b.isShowing()) {
                             this.a.b.dismiss();
-                            ap8.a("1", "2");
+                            bp8.a("1", "2");
                         }
                         if (this.a.c == null) {
                             u66 u66Var = this.a;
                             u66Var.c = uq5.a(u66Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
                         }
                         this.a.c.show();
-                        ap8.b("2");
+                        bp8.b("2");
                         return;
                     } else if (id == R.id.obfuscated_res_0x7f090427) {
                         u66.g(this.a);
                         if (this.a.c.isShowing()) {
                             this.a.c.dismiss();
-                            ap8.a("2", "2");
+                            bp8.a("2", "2");
                             if (this.a.d == null) {
                                 u66 u66Var2 = this.a;
                                 TbPageContext<BaseFragmentActivity> pageContext = u66Var2.a.getPageContext();
@@ -152,12 +152,12 @@ public class u66 {
                                 }
                                 u66Var2.d = uq5.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
                                 this.a.d.show();
-                                ap8.b("3");
+                                bp8.b("3");
                             }
                         }
                         if (this.a.d.isShowing() && this.a.e == 2) {
                             this.a.d.dismiss();
-                            ap8.a("3", "2");
+                            bp8.a("3", "2");
                             if (TbBrowseModeSwitch.isOn()) {
                                 PermissionUtil.doBrowseModeInit();
                                 PermissionUtil.starMainTabActivity(this.a.a, 2);
@@ -170,7 +170,7 @@ public class u66 {
                         return;
                     }
                 }
-                mk5.b(new C0446a(this), new b(this));
+                mk5.b(new C0447a(this), new b(this));
             }
         }
     }
@@ -208,19 +208,19 @@ public class u66 {
             if (lv4Var != null && lv4Var.isShowing()) {
                 this.b.dismiss();
                 SmartLaunchStats.onConfirmPrivacy();
-                ap8.a("1", "1");
+                bp8.a("1", "1");
                 fx4.k("logoController", false);
             }
             lv4 lv4Var2 = this.c;
             if (lv4Var2 != null && lv4Var2.isShowing()) {
                 this.c.dismiss();
-                ap8.a("2", "1");
+                bp8.a("2", "1");
                 fx4.k("logoController", false);
             }
             lv4 lv4Var3 = this.d;
             if (lv4Var3 != null && lv4Var3.isShowing()) {
                 this.d.dismiss();
-                ap8.a("3", "1");
+                bp8.a("3", "1");
                 fx4.k("logoController", false);
             }
             ry4.l().y("key_first_enter_app_timestamp", System.currentTimeMillis());
@@ -236,7 +236,7 @@ public class u66 {
             lv4 b = uq5.b(this.a.getPageContext(), this.f);
             this.b = b;
             b.show();
-            ap8.b("1");
+            bp8.b("1");
             TbSingleton.setExceptInsertAdDiaShow(true);
             SmartLaunchStats.onPrivacyDialogShow();
         }

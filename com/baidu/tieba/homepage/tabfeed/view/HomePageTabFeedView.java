@@ -33,11 +33,11 @@ import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
 import com.baidu.tieba.m55;
 import com.baidu.tieba.o67;
 import com.baidu.tieba.o77;
-import com.baidu.tieba.of8;
 import com.baidu.tieba.p67;
+import com.baidu.tieba.pf8;
 import com.baidu.tieba.q67;
-import com.baidu.tieba.qq8;
 import com.baidu.tieba.r77;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.s67;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yi;
@@ -62,7 +62,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
     public bz4 g;
     public PublishProgressView h;
     public HomePageTabFeedHeaderView i;
-    public of8 j;
+    public pf8 j;
     public PostAnimateFloatView k;
     public p67 l;
     public String m;
@@ -374,9 +374,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            of8 of8Var = this.j;
-            if (of8Var != null) {
-                of8Var.h();
+            pf8 pf8Var = this.j;
+            if (pf8Var != null) {
+                pf8Var.h();
                 this.j.v(null);
             }
             bz4 bz4Var = this.g;
@@ -417,10 +417,10 @@ public class HomePageTabFeedView implements LifecycleObserver {
     }
 
     public void x() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (of8Var = this.j) != null) {
-            of8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (pf8Var = this.j) != null) {
+            pf8Var.z();
             this.j.r(false);
         }
     }
@@ -481,9 +481,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 bdSwipeRefreshLayout.setProgressView(this.g);
             }
             if (this.j == null) {
-                of8 of8Var = new of8(this.a.getPageContext(), this.e);
-                this.j = of8Var;
-                of8Var.p(2);
+                pf8 pf8Var = new pf8(this.a.getPageContext(), this.e);
+                this.j = pf8Var;
+                pf8Var.p(2);
                 this.j.u(this.a.getUniqueId());
             }
             this.p = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09219b);
@@ -538,9 +538,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 this.l.e(r77Var.a);
                 this.l.d();
                 q();
-                of8 of8Var = this.j;
-                if (of8Var != null) {
-                    of8Var.n(this.e.getFirstVisiblePosition(), this.e.getLastVisiblePosition(), false, true);
+                pf8 pf8Var = this.j;
+                if (pf8Var != null) {
+                    pf8Var.n(this.e.getFirstVisiblePosition(), this.e.getLastVisiblePosition(), false, true);
                 }
                 if ("local".equals(this.m) && (postAnimateFloatView = this.k) != null && postAnimateFloatView.getVisibility() != 0) {
                     this.k.setVisibility(0);
@@ -596,7 +596,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
             bz4Var.H(i);
             m55 f2 = o67.f(this.a.K1());
             if (f2 != null) {
-                this.g.K().setBackgroundColor(qq8.f(o67.d(f2)));
+                this.g.K().setBackgroundColor(rq8.f(o67.d(f2)));
             }
         }
         if (this.q != null && (f = o67.f(this.a.K1())) != null) {
@@ -632,10 +632,10 @@ public class HomePageTabFeedView implements LifecycleObserver {
     }
 
     public void z() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (of8Var = this.j) != null) {
-            of8Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (pf8Var = this.j) != null) {
+            pf8Var.r(true);
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 this.j.v(bdTypeRecyclerView);

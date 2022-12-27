@@ -1,34 +1,55 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public final class f0a {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i >= 12) {
-                return (i - 12) + 1;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711698, "Lcom/baidu/tieba/f0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 0;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947711698, "Lcom/baidu/tieba/f0a;");
+                return;
+            }
         }
-        return invokeI.intValue;
+        a = new byte[1024];
+        b = new int[1024];
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public static void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i <= 9) {
-                return (i - 1) + 1;
+        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(a, 0, bArr, i + i3, min);
+                i3 += min;
             }
-            return 0;
         }
-        return invokeI.intValue;
+    }
+
+    public static void b(int[] iArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(b, 0, iArr, i + i3, min);
+                i3 += min;
+            }
+        }
     }
 }

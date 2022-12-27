@@ -216,7 +216,7 @@ public class h17 {
         if (!StringUtils.isNull(c)) {
             view2.setVisibility(0);
             tbImageView.setVisibility(8);
-            view2.setBackgroundColor(qq8.f(c));
+            view2.setBackgroundColor(rq8.f(c));
         }
     }
 

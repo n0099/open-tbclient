@@ -43,12 +43,12 @@ public class cw2 extends dw2 {
 
         /* renamed from: com.baidu.tieba.cw2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0243a implements bw2 {
+        public class C0245a implements bw2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0243a(a aVar) {
+            public C0245a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class cw2 extends dw2 {
                     return;
                 }
                 e12.k("SwanAppUpdateManager", "has not scope set，required request from server");
-                aw2.g().update(new C0243a(this));
+                aw2.g().update(new C0245a(this));
             }
         }
     }

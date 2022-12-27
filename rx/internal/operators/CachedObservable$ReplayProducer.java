@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d3a;
-import com.baidu.tieba.h3a;
+import com.baidu.tieba.e3a;
 import com.baidu.tieba.i3a;
-import com.baidu.tieba.n3a;
-import com.baidu.tieba.x3a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.o3a;
+import com.baidu.tieba.y3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,24 +14,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes9.dex */
-public final class CachedObservable$ReplayProducer<T> extends AtomicLong implements d3a, i3a {
+public final class CachedObservable$ReplayProducer<T> extends AtomicLong implements e3a, j3a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2557562030197141021L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h3a<? super T> child;
+    public final i3a<? super T> child;
     public Object[] currentBuffer;
     public int currentIndexInBuffer;
     public boolean emitting;
     public int index;
     public boolean missed;
-    public final x3a<T> state;
+    public final y3a<T> state;
 
-    public CachedObservable$ReplayProducer(h3a<? super T> h3aVar, x3a<T> x3aVar) {
+    public CachedObservable$ReplayProducer(i3a<? super T> i3aVar, y3a<T> y3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h3aVar, x3aVar};
+            Object[] objArr = {i3aVar, y3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,11 +41,11 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                 return;
             }
         }
-        this.child = h3aVar;
-        this.state = x3aVar;
+        this.child = i3aVar;
+        this.state = y3aVar;
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && get() >= 0 && getAndSet(-1L) >= 0) {
@@ -75,7 +75,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         return invokeJ.longValue;
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void request(long j) {
         long j2;
         long j3;
@@ -111,7 +111,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                 }
                 this.emitting = true;
                 try {
-                    h3a<? super T> h3aVar = this.child;
+                    i3a<? super T> i3aVar = this.child;
                     while (true) {
                         long j = get();
                         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
@@ -132,18 +132,18 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                 if (i == 0) {
                                     Object obj = objArr[i3];
                                     if (NotificationLite.f(obj)) {
-                                        h3aVar.onCompleted();
+                                        i3aVar.onCompleted();
                                         unsubscribe();
                                         return;
                                     } else if (NotificationLite.g(obj)) {
-                                        h3aVar.onError(NotificationLite.d(obj));
+                                        i3aVar.onError(NotificationLite.d(obj));
                                         unsubscribe();
                                         return;
                                     }
                                 } else if (i > 0) {
                                     int i4 = 0;
                                     while (i2 < b && j > 0) {
-                                        if (h3aVar.isUnsubscribed()) {
+                                        if (i3aVar.isUnsubscribed()) {
                                             return;
                                         }
                                         if (i3 == length) {
@@ -152,7 +152,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                         }
                                         Object obj2 = objArr[i3];
                                         try {
-                                            if (NotificationLite.a(h3aVar, obj2)) {
+                                            if (NotificationLite.a(i3aVar, obj2)) {
                                                 try {
                                                     unsubscribe();
                                                     return;
@@ -160,10 +160,10 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                                     th = th;
                                                     z = true;
                                                     try {
-                                                        n3a.e(th);
+                                                        o3a.e(th);
                                                         unsubscribe();
                                                         if (!NotificationLite.g(obj2) && !NotificationLite.f(obj2)) {
-                                                            h3aVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj2)));
+                                                            i3aVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj2)));
                                                             return;
                                                         }
                                                         return;
@@ -187,7 +187,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                             z = false;
                                         }
                                     }
-                                    if (h3aVar.isUnsubscribed()) {
+                                    if (i3aVar.isUnsubscribed()) {
                                         return;
                                     }
                                     this.index = i2;

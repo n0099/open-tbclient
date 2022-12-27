@@ -104,7 +104,7 @@ public class if6 {
                     this.c.b = null;
                 }
                 if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(q09.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.c.a.put(downloadData.getPath().substring(r09.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
                     this.a.c(this.b, downloadData.getPath());
                 }
             }
@@ -176,7 +176,7 @@ public class if6 {
             } else {
                 hashMap.clear();
             }
-            File file = new File(q09.a);
+            File file = new File(r09.a);
             if (file.exists()) {
                 for (File file2 : file.listFiles()) {
                     if (file2.isFile()) {
@@ -200,7 +200,7 @@ public class if6 {
             }
             i65.k().h(this.b.getUrl(), true);
         }
-        File file = new File(q09.a);
+        File file = new File(r09.a);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -208,7 +208,7 @@ public class if6 {
         downloadData2.setType(17);
         downloadData2.setId(str);
         downloadData2.setUrl(str2);
-        downloadData2.setPath(q09.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setPath(r09.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
         downloadData2.setCallback(new a(this, bVar, str2));
         this.b = downloadData2;
         i65.k().l(downloadData2);

@@ -5,9 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class v6a<E> extends w6a<E> {
+public abstract class v6a<E> extends u6a<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long consumerIndex;
 
     public v6a() {
         Interceptable interceptable = $ic;

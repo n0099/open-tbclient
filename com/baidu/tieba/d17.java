@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tieba.b17;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.vr8;
+import com.baidu.tieba.wr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class d17 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     public b17 d;
     public boolean e;
     public LikeModel f;
-    public vr8 g;
+    public wr8 g;
     public b h;
     public pz4 i;
     public pz4 j;
@@ -65,7 +65,7 @@ public class d17 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     }
 
     /* loaded from: classes4.dex */
-    public class b extends q9 implements vr8.a {
+    public class b extends q9 implements wr8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b17.a a;
@@ -94,7 +94,7 @@ public class d17 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             this(d17Var);
         }
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -102,7 +102,7 @@ public class d17 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             }
         }
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -278,9 +278,9 @@ public class d17 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 this.h = new b(this, null);
             }
             if (this.g == null) {
-                vr8 vr8Var = new vr8();
-                this.g = vr8Var;
-                vr8Var.b(this.h);
+                wr8 wr8Var = new wr8();
+                this.g = wr8Var;
+                wr8Var.b(this.h);
             }
             this.h.d(followUserButton, aVar);
             this.e = true;

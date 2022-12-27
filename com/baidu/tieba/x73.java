@@ -42,14 +42,14 @@ public class x73 extends b63 {
 
         /* renamed from: com.baidu.tieba.x73$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0484a implements ja2.f {
+        public class C0486a implements ja2.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ja2.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0484a(a aVar, ja2.e eVar, JSONObject jSONObject) {
+            public C0486a(a aVar, ja2.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class x73 extends b63 {
                     str2 = "0";
                 }
                 q.D("preload", str2);
-                ja2.q(f, new C0484a(this, f, c2));
+                ja2.q(f, new C0486a(this, f, c2));
             }
         }
 

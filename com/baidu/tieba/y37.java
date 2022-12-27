@@ -218,7 +218,7 @@ public class y37 {
         this.d = tbPageContext;
         tbPageContext.registerListener(this.g);
         tbPageContext.registerListener(this.h);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, tr8.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, ur8.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

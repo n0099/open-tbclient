@@ -41,7 +41,7 @@ public class pi5<Q extends rh5, P extends ph5> extends ki5<Q, P> {
     public li5 k;
     public mi5<P> l;
     public BdListView.p m;
-    public of8 n;
+    public pf8 n;
     public View.OnClickListener o;
     public final BdListView.p p;
     public final RecyclerView.OnScrollListener q;
@@ -438,10 +438,10 @@ public class pi5<Q extends rh5, P extends ph5> extends ki5<Q, P> {
 
     public final void B(boolean z) {
         BdTypeRecyclerView bdTypeRecyclerView;
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (of8Var = this.n) != null) {
-            of8Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (pf8Var = this.n) != null) {
+            pf8Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
         }
     }
 
@@ -476,9 +476,9 @@ public class pi5<Q extends rh5, P extends ph5> extends ki5<Q, P> {
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
-            of8 of8Var = this.n;
-            if (of8Var != null) {
-                of8Var.u(bdUniqueId);
+            pf8 pf8Var = this.n;
+            if (pf8Var != null) {
+                pf8Var.u(bdUniqueId);
             }
             xh5 xh5Var = this.d;
             if (xh5Var != null) {
@@ -541,9 +541,9 @@ public class pi5<Q extends rh5, P extends ph5> extends ki5<Q, P> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             if (i == 1 || i == 0 || i == 2) {
-                of8 of8Var = new of8(this.f, this.h);
-                this.n = of8Var;
-                of8Var.p(i);
+                pf8 pf8Var = new pf8(this.f, this.h);
+                this.n = pf8Var;
+                pf8Var.p(i);
                 this.n.u(this.e);
             }
         }
@@ -559,10 +559,10 @@ public class pi5<Q extends rh5, P extends ph5> extends ki5<Q, P> {
     }
 
     public void A() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (of8Var = this.n) != null) {
-            of8Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pf8Var = this.n) != null) {
+            pf8Var.r(true);
             B(false);
         }
     }
@@ -621,10 +621,10 @@ public class pi5<Q extends rh5, P extends ph5> extends ki5<Q, P> {
 
     @Override // com.baidu.tieba.ki5
     public void e() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (of8Var = this.n) != null) {
-            of8Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (pf8Var = this.n) != null) {
+            pf8Var.h();
         }
     }
 
@@ -706,10 +706,10 @@ public class pi5<Q extends rh5, P extends ph5> extends ki5<Q, P> {
     }
 
     public final void y() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (of8Var = this.n) != null) {
-            of8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (pf8Var = this.n) != null) {
+            pf8Var.z();
             this.n.r(false);
         }
     }

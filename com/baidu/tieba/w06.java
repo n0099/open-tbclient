@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class w06 extends h46<tq8> implements f56 {
+public class w06 extends h46<uq8> implements f56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSkinView i;
@@ -48,7 +48,7 @@ public class w06 extends h46<tq8> implements f56 {
     public ParentDisallowInterceptHListView p;
     public m06 q;
     public boolean r;
-    public tq8 s;
+    public uq8 s;
     public String t;
     public AdapterView.d u;
 
@@ -217,14 +217,14 @@ public class w06 extends h46<tq8> implements f56 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.h46
     /* renamed from: x */
-    public void i(tq8 tq8Var) {
+    public void i(uq8 uq8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, tq8Var) != null) || tq8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, uq8Var) != null) || uq8Var == null) {
             return;
         }
-        this.s = tq8Var;
+        this.s = uq8Var;
         v();
-        this.q.b(tq8Var.a);
+        this.q.b(uq8Var.a);
         j(g(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -293,8 +293,8 @@ public class w06 extends h46<tq8> implements f56 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            tq8 tq8Var = this.s;
-            if (tq8Var != null && !ListUtils.isEmpty(tq8Var.a)) {
+            uq8 uq8Var = this.s;
+            if (uq8Var != null && !ListUtils.isEmpty(uq8Var.a)) {
                 for (ThreadData threadData2 : this.s.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(y(threadData2));
                 }

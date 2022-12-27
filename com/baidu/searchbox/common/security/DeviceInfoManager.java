@@ -16,7 +16,7 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.ln8;
+import com.baidu.tieba.mn8;
 import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -297,7 +297,7 @@ public final class DeviceInfoManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            return ln8.a();
+            return mn8.a();
         }
         return (IDeviceInfoAppHost) invokeV.objValue;
     }

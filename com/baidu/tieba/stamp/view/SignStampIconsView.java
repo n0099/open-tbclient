@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fq8;
+import com.baidu.tieba.gq8;
 import com.baidu.tieba.in;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.sg;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public fq8 b;
+    public gq8 b;
     public List<ImageView> c;
 
     /* loaded from: classes6.dex */
@@ -285,7 +285,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kq8
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -321,9 +321,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        fq8 fq8Var = this.b;
-        if (fq8Var != null) {
-            fq8Var.a(aVar);
+        gq8 gq8Var = this.b;
+        if (gq8Var != null) {
+            gq8Var.a(aVar);
         }
     }
 
@@ -401,10 +401,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(fq8 fq8Var) {
+    public void setSignStampIconClickListener(gq8 gq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fq8Var) == null) {
-            this.b = fq8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, gq8Var) == null) {
+            this.b = gq8Var;
         }
     }
 }

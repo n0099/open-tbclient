@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dl8;
+import com.baidu.tieba.el8;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public dl8 h;
+    public el8 h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -148,24 +148,24 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(dl8 dl8Var) {
+    public void d(el8 el8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dl8Var) == null) {
-            this.h = dl8Var;
-            this.a.setText(dl8Var.a);
-            this.d.setText(a(dl8Var.l));
-            this.e.setText(dl8Var.e);
-            this.f.setText(b(dl8Var.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, el8Var) == null) {
+            this.h = el8Var;
+            this.a.setText(el8Var.a);
+            this.d.setText(a(el8Var.l));
+            this.e.setText(el8Var.e);
+            this.f.setText(b(el8Var.i));
         }
     }
 
-    public dl8 getData() {
+    public el8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.h;
         }
-        return (dl8) invokeV.objValue;
+        return (el8) invokeV.objValue;
     }
 
     public View getEditText() {

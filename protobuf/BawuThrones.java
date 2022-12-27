@@ -1,27 +1,10 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes9.dex */
 public final class BawuThrones extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_BAZHULEVEL = "";
-    public static final Integer DEFAULT_HASSENDBCAST;
-    public static final Integer DEFAULT_NEWESTBCASTPUSHUSERCNT;
-    public static final Integer DEFAULT_NEWESTBCASTPV;
-    public static final Integer DEFAULT_TOTALBCASTCNT;
-    public static final Integer DEFAULT_TOTALRECOMMENDNUM;
-    public static final Integer DEFAULT_USEDBCASTCNT;
-    public static final Integer DEFAULT_USEDRECOMMENDNUM;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String bazhuLevel;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
@@ -38,17 +21,16 @@ public final class BawuThrones extends Message {
     public final Integer usedBcastCnt;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer usedRecommendNum;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Integer DEFAULT_TOTALRECOMMENDNUM = 0;
+    public static final Integer DEFAULT_USEDRECOMMENDNUM = 0;
+    public static final Integer DEFAULT_USEDBCASTCNT = 0;
+    public static final Integer DEFAULT_TOTALBCASTCNT = 0;
+    public static final Integer DEFAULT_NEWESTBCASTPV = 0;
+    public static final Integer DEFAULT_HASSENDBCAST = 0;
+    public static final Integer DEFAULT_NEWESTBCASTPUSHUSERCNT = 0;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<BawuThrones> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String bazhuLevel;
         public Integer hasSendBcast;
         public Integer newestBcastPushuserCnt;
@@ -59,37 +41,10 @@ public final class BawuThrones extends Message {
         public Integer usedRecommendNum;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(BawuThrones bawuThrones) {
             super(bawuThrones);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bawuThrones};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (bawuThrones == null) {
                 return;
             }
@@ -106,55 +61,12 @@ public final class BawuThrones extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public BawuThrones build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new BawuThrones(this, z, null);
-            }
-            return (BawuThrones) invokeZ.objValue;
+            return new BawuThrones(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(419369765, "Lprotobuf/BawuThrones;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(419369765, "Lprotobuf/BawuThrones;");
-                return;
-            }
-        }
-        DEFAULT_TOTALRECOMMENDNUM = 0;
-        DEFAULT_USEDRECOMMENDNUM = 0;
-        DEFAULT_USEDBCASTCNT = 0;
-        DEFAULT_TOTALBCASTCNT = 0;
-        DEFAULT_NEWESTBCASTPV = 0;
-        DEFAULT_HASSENDBCAST = 0;
-        DEFAULT_NEWESTBCASTPUSHUSERCNT = 0;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BawuThrones(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Integer num = builder.totalRecommendNum;
             if (num == null) {
@@ -215,9 +127,5 @@ public final class BawuThrones extends Message {
         this.newestBcastPv = builder.newestBcastPv;
         this.hasSendBcast = builder.hasSendBcast;
         this.newestBcastPushuserCnt = builder.newestBcastPushuserCnt;
-    }
-
-    public /* synthetic */ BawuThrones(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

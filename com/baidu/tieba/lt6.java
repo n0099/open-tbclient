@@ -67,7 +67,7 @@ public class lt6 extends PriorityOrganizer.Task {
             if (iw4.l()) {
                 return false;
             }
-            ar8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            br8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
             if (frsResponseData != null && frsResponseData.getEntelechyTabInfo() != null && frsResponseData.getEntelechyTabInfo().a != null) {
                 for (FrsTabInfo frsTabInfo : frsResponseData.getEntelechyTabInfo().a) {
                     if (frsTabInfo.tab_id.intValue() == 502 && ry4.l().i("first_into_tab_profession", true)) {

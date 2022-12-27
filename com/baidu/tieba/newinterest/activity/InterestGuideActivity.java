@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ky7;
+import com.baidu.tieba.ly7;
 import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ky7 a;
+    public ly7 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -96,9 +96,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             L0();
-            ky7 ky7Var = new ky7(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = ky7Var;
-            setContentView(ky7Var.d());
+            ly7 ly7Var = new ly7(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = ly7Var;
+            setContentView(ly7Var.d());
             N0();
         }
     }

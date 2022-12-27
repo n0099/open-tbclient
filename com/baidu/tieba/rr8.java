@@ -9,15 +9,8 @@ import java.util.List;
 public class rr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public sr8 f;
-    public String g;
-    public int h;
-    public List<String> i;
+    public int a;
+    public List<sr8> b;
 
     public rr8() {
         Interceptable interceptable = $ic;

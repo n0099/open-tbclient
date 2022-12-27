@@ -665,7 +665,7 @@ public class oy<T extends vr4> implements tx, gr5 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.a(t);
                 ax<T> axVar = this.g;
-                if (axVar instanceof x69) {
+                if (axVar instanceof y69) {
                     this.d.setTag(R.id.virtual_image_user_head, axVar);
                 }
             }

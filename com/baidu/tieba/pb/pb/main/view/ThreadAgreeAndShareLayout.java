@@ -34,9 +34,9 @@ import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bs4;
-import com.baidu.tieba.bs8;
-import com.baidu.tieba.h08;
-import com.baidu.tieba.h68;
+import com.baidu.tieba.cs8;
+import com.baidu.tieba.i08;
+import com.baidu.tieba.i68;
 import com.baidu.tieba.mc5;
 import com.baidu.tieba.pe5;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
@@ -57,9 +57,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     public d d;
     public d e;
     public d f;
-    public h08 g;
+    public i08 g;
     public AgreeData h;
-    public bs8 i;
+    public cs8 i;
     public bs4 j;
     public CustomMessageListener k;
     public CustomMessageListener l;
@@ -124,8 +124,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bs8)) {
-                AgreeData agreeData = ((bs8) customResponsedMessage.getData()).b;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof cs8)) {
+                AgreeData agreeData = ((cs8) customResponsedMessage.getData()).b;
                 if (this.a.h != null && agreeData != null && this.a.i != null && !this.a.h.isInPost && this.a.i.a != this.a.i.a) {
                     String str = agreeData.nid;
                     if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
@@ -177,10 +177,10 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bs8)) {
-                bs8 bs8Var = (bs8) customResponsedMessage.getData();
-                AgreeData agreeData = bs8Var.b;
-                if (this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread || this.a.i.a == bs8Var.a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof cs8)) {
+                cs8 cs8Var = (cs8) customResponsedMessage.getData();
+                AgreeData agreeData = cs8Var.b;
+                if (this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread || this.a.i.a == cs8Var.a) {
                     return;
                 }
                 this.a.o(agreeData);
@@ -376,9 +376,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         setOrientation(0);
         setGravity(17);
         this.b = context;
-        bs8 bs8Var = new bs8();
-        this.i = bs8Var;
-        bs8Var.a = getPageId();
+        cs8 cs8Var = new cs8();
+        this.i = cs8Var;
+        cs8Var.a = getPageId();
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds43);
         setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
         i();
@@ -428,15 +428,15 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
     }
 
-    public void setData(h08 h08Var, AgreeData agreeData) {
+    public void setData(i08 i08Var, AgreeData agreeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, h08Var, agreeData) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, i08Var, agreeData) == null) {
             if (agreeData == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = h08Var;
+            this.g = i08Var;
             this.h = agreeData;
             agreeData.isInThread = true;
             m();
@@ -520,9 +520,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             return;
         }
         int i2 = 0;
-        h08 h08Var = this.g;
+        i08 i08Var = this.g;
         String str6 = null;
-        if (h08Var != null && h08Var.Q() != null) {
+        if (i08Var != null && i08Var.Q() != null) {
             ThreadData Q = this.g.Q();
             if (Q.isBJHArticleThreadType()) {
                 i = 2;
@@ -606,21 +606,21 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     }
 
     public final void k(View view2) {
-        h08 h08Var;
+        i08 i08Var;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048583, this, view2) != null) || this.h == null || !ViewHelper.checkUpIsLogin(getContext())) {
             return;
         }
         if (view2 != this.c.e() && view2 != this.d.e()) {
             if (view2 == this.e.e()) {
-                h08 h08Var2 = this.g;
-                if (h08Var2 != null) {
-                    h68.n(this.b, h08Var2.Q(), 3);
+                i08 i08Var2 = this.g;
+                if (i08Var2 != null) {
+                    i68.n(this.b, i08Var2.Q(), 3);
                     return;
                 }
                 return;
-            } else if (view2 == this.f.e() && (h08Var = this.g) != null) {
-                h68.n(this.b, h08Var.Q(), 2);
+            } else if (view2 == this.f.e() && (i08Var = this.g) != null) {
+                i68.n(this.b, i08Var.Q(), 2);
                 return;
             } else {
                 return;
@@ -712,12 +712,12 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             }
             l(i);
         }
-        bs8 bs8Var = this.i;
+        cs8 cs8Var = this.i;
         AgreeData agreeData3 = this.h;
-        bs8Var.b = agreeData3;
+        cs8Var.b = agreeData3;
         if (agreeData3.isInThread) {
-            h08 h08Var3 = this.g;
-            if (h08Var3 != null && h08Var3.Q() != null && this.g.Q().getBaijiahaoData() != null) {
+            i08 i08Var3 = this.g;
+            if (i08Var3 != null && i08Var3.Q() != null && this.g.Q().getBaijiahaoData() != null) {
                 this.h.nid = this.g.Q().getBaijiahaoData().oriUgcNid;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.i));
@@ -753,8 +753,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         if (!TextUtils.isEmpty(this.h.postId)) {
             httpMessage.addParam("post_id", this.h.postId);
         }
-        h08 h08Var = this.g;
-        if (h08Var != null && h08Var.Q() != null && this.g.Q().getBaijiahaoData() != null) {
+        i08 i08Var = this.g;
+        if (i08Var != null && i08Var.Q() != null && this.g.Q().getBaijiahaoData() != null) {
             BaijiahaoData baijiahaoData = this.g.Q().getBaijiahaoData();
             httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
             httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
@@ -813,8 +813,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             e.setAlpha(1.0f);
             e2.setAlpha(1.0f);
         }
-        h08 h08Var = this.g;
-        if (h08Var != null && h08Var.Q() != null) {
+        i08 i08Var = this.g;
+        if (i08Var != null && i08Var.Q() != null) {
             if (this.g.Q().isUgcThreadType()) {
                 i = 8;
             } else {

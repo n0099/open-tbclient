@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g66;
 import com.baidu.tieba.rw4;
-import com.baidu.tieba.s78;
-import com.baidu.tieba.y28;
+import com.baidu.tieba.t78;
+import com.baidu.tieba.z28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbRecomChildTitleAdapter extends y28<g66, ViewHolder> {
+public class PbRecomChildTitleAdapter extends z28<g66, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder g;
@@ -82,19 +82,19 @@ public class PbRecomChildTitleAdapter extends y28<g66, ViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbRecomChildTitleAdapter(s78 s78Var, BdUniqueId bdUniqueId) {
-        super(s78Var, bdUniqueId);
+    public PbRecomChildTitleAdapter(t78 t78Var, BdUniqueId bdUniqueId) {
+        super(t78Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s78Var, bdUniqueId};
+            Object[] objArr = {t78Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((s78) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((t78) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -116,7 +116,7 @@ public class PbRecomChildTitleAdapter extends y28<g66, ViewHolder> {
         return (ViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y28, com.baidu.tieba.kn
+    @Override // com.baidu.tieba.z28, com.baidu.tieba.kn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         w(i, view2, viewGroup, (g66) obj, (ViewHolder) viewHolder);
         return view2;

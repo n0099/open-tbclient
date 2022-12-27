@@ -41,7 +41,7 @@ import com.google.zxing.common.BitMatrix;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BitMatrixParser {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] BITNR;

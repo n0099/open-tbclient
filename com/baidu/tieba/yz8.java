@@ -1,44 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Process;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
-public final class yz8 {
+public class yz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String packageName = j09.d().getPackageName();
-            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
-            return packageName;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return 2038;
+            }
+            return i;
         }
-        return (String) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    @JvmOverloads
-    public static final void b(boolean z) {
+    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            Intent launchIntentForPackage = j09.d().getPackageManager().getLaunchIntentForPackage(j09.d().getPackageName());
-            if (launchIntentForPackage != null) {
-                launchIntentForPackage.addFlags(335577088);
-            }
-            if (launchIntentForPackage != null) {
-                int h = j09.h();
-                j09.d().startActivity(launchIntentForPackage);
-                if (z && h > 0) {
-                    Process.killProcess(h);
-                    System.exit(0);
-                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
+        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
+            try {
+                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+                if (declaredField != null) {
+                    declaredField.set(layoutParams, Integer.valueOf(i));
+                    window.setAttributes(layoutParams);
                 }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e2) {
+                e2.printStackTrace();
             }
         }
     }

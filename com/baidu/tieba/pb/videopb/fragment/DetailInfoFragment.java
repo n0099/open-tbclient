@@ -24,16 +24,16 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h08;
-import com.baidu.tieba.ks8;
+import com.baidu.tieba.i08;
+import com.baidu.tieba.ls8;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbViewModel;
-import com.baidu.tieba.r78;
-import com.baidu.tieba.y78;
+import com.baidu.tieba.s78;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class DetailInfoFragment extends BaseFragment implements r78 {
+public class DetailInfoFragment extends BaseFragment implements s78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbsPbActivity a;
@@ -49,7 +49,7 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
     public BdTypeRecyclerView c;
     public PbListView d;
     public VideoPbViewModel e;
-    public y78 f;
+    public z78 f;
     public int g;
     public String h;
     public String i;
@@ -267,9 +267,9 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             super.onChangeSkinType(i);
-            y78 y78Var = this.f;
-            if (y78Var != null) {
-                y78Var.l();
+            z78 z78Var = this.f;
+            if (z78Var != null) {
+                z78Var.l();
             }
             PbListView pbListView = this.d;
             if (pbListView != null) {
@@ -282,17 +282,17 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
         }
     }
 
-    public final void D1(h08 h08Var) {
+    public final void D1(i08 i08Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, h08Var) != null) || this.e == null || h08Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, i08Var) != null) || this.e == null || i08Var == null) {
             return;
         }
-        M1(h08Var);
-        K1(h08Var);
-        this.f.n(h08Var);
+        M1(i08Var);
+        K1(i08Var);
+        this.f.n(i08Var);
         if (this.a instanceof PbActivity) {
             this.e.v(false);
-            ((PbActivity) this.a).B1(h08Var.g(), this.c);
+            ((PbActivity) this.a).B1(i08Var.g(), this.c);
         }
     }
 
@@ -301,23 +301,23 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        List<ks8> c0 = M().l1().c0();
-        for (ks8 ks8Var : c0) {
-            if (TextUtils.equals(str, ks8Var.n1())) {
-                c0.remove(ks8Var);
+        List<ls8> c0 = M().l1().c0();
+        for (ls8 ls8Var : c0) {
+            if (TextUtils.equals(str, ls8Var.n1())) {
+                c0.remove(ls8Var);
                 return;
             }
         }
     }
 
-    public final void K1(h08 h08Var) {
+    public final void K1(i08 i08Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, h08Var) != null) || h08Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, i08Var) != null) || i08Var == null) {
             return;
         }
         if (PermissionUtil.isBrowseMode()) {
             G1();
-        } else if (ListUtils.isEmpty(h08Var.f())) {
+        } else if (ListUtils.isEmpty(i08Var.f())) {
             Q1();
         } else {
             G1();
@@ -325,17 +325,17 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
         }
     }
 
-    public final void M1(h08 h08Var) {
+    public final void M1(i08 i08Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, h08Var) != null) || h08Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, i08Var) != null) || i08Var == null) {
             return;
         }
         String str2 = null;
-        if (h08Var.Q() != null) {
-            String S = h08Var.S();
-            if (h08Var.Q().getBaijiahaoData() != null) {
-                str2 = h08Var.Q().getBaijiahaoData().oriUgcNid;
+        if (i08Var.Q() != null) {
+            String S = i08Var.S();
+            if (i08Var.Q().getBaijiahaoData() != null) {
+                str2 = i08Var.Q().getBaijiahaoData().oriUgcNid;
             }
             str = str2;
             str2 = S;
@@ -367,7 +367,7 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
     }
 
     public void I1() {
-        h08 l1;
+        i08 l1;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (l1 = M().l1()) == null) {
             return;
@@ -395,7 +395,7 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
     public final void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h08 c2 = this.e.c();
+            i08 c2 = this.e.c();
             if (c2 == null) {
                 c2 = this.e.d();
             }
@@ -413,10 +413,10 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
     }
 
     public void O1() {
-        y78 y78Var;
+        z78 z78Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (y78Var = this.f) != null) {
-            y78Var.m();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (z78Var = this.f) != null) {
+            z78Var.m();
         }
     }
 
@@ -482,18 +482,18 @@ public class DetailInfoFragment extends BaseFragment implements r78 {
             this.d.v(yi.g(getContext(), R.dimen.tbds182));
             this.d.u();
             this.c.setNextPage(this.d);
-            this.f = new y78(this, this.c);
+            this.f = new z78(this, this.c);
             if (M() != null && !M().W1()) {
                 this.b.i5(8);
             }
         }
     }
 
-    @Override // com.baidu.tieba.r78
-    public void n1(boolean z, int i, int i2, int i3, h08 h08Var, String str, int i4) {
+    @Override // com.baidu.tieba.s78
+    public void n1(boolean z, int i, int i2, int i3, i08 i08Var, String str, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), h08Var, str, Integer.valueOf(i4)}) == null) && h08Var != null && getActivity() != null) {
-            D1(h08Var);
+        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), i08Var, str, Integer.valueOf(i4)}) == null) && i08Var != null && getActivity() != null) {
+            D1(i08Var);
         }
     }
 

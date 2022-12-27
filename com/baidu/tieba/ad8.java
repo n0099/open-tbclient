@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface ad8 {
-    df8 c();
+    void a(boolean z);
 
-    void e();
-
-    void f(String str);
+    void b(int i);
 }

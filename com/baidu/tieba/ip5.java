@@ -66,10 +66,10 @@ public class ip5 {
                         this.a.c.a(z2);
                     }
                     if (this.a.d != null) {
-                        hs8 hs8Var = new hs8();
-                        hs8Var.a = this.a.d.getThreadId();
-                        hs8Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, hs8Var));
+                        is8 is8Var = new is8();
+                        is8Var.a = this.a.d.getThreadId();
+                        is8Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, is8Var));
                         return;
                     }
                     return;

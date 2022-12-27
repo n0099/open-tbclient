@@ -44,7 +44,7 @@ public class en6 {
     public PbListView c;
     public dn6 d;
     public gn6 e;
-    public of8 f;
+    public pf8 f;
     public RelativeLayout g;
     public wo6 h;
     public boolean i;
@@ -295,7 +295,7 @@ public class en6 {
             this.d = new dn6(frsCommonTabFragment2, bdTypeRecyclerView3, frsViewData, z);
             x(false);
             if (this.f == null) {
-                this.f = new of8(this.a.getPageContext(), this.b);
+                this.f = new pf8(this.a.getPageContext(), this.b);
             }
             this.f.p(2);
             this.f.u(this.a.getUniqueId());
@@ -380,13 +380,13 @@ public class en6 {
         return invokeV.booleanValue;
     }
 
-    public of8 i() {
+    public pf8 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.f;
         }
-        return (of8) invokeV.objValue;
+        return (pf8) invokeV.objValue;
     }
 
     public BdTypeRecyclerView j() {
@@ -401,9 +401,9 @@ public class en6 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            of8 of8Var = this.f;
-            if (of8Var != null) {
-                of8Var.h();
+            pf8 pf8Var = this.f;
+            if (pf8Var != null) {
+                pf8Var.h();
             }
             dn6 dn6Var = this.d;
             if (dn6Var != null) {
@@ -419,10 +419,10 @@ public class en6 {
     }
 
     public void p() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (of8Var = this.f) != null) {
-            of8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (pf8Var = this.f) != null) {
+            pf8Var.z();
         }
     }
 
@@ -444,10 +444,10 @@ public class en6 {
     }
 
     public void s() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (of8Var = this.f) != null) {
-            of8Var.o();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (pf8Var = this.f) != null) {
+            pf8Var.o();
         }
     }
 

@@ -1,9 +1,27 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface qi8 {
-    void onDestroy();
+    void autoPlay(int i);
 
-    void onPause();
+    boolean canPlay();
 
-    void onResume();
+    long getCurrentPosition();
+
+    int getPlayStatus();
+
+    String getPlayUrl();
+
+    View getVideoContainer();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void release();
+
+    void startPlay();
+
+    void stopPlay();
 }

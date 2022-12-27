@@ -1,34 +1,14 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes9.dex */
 public final class PollInfo extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Integer DEFAULT_ENDTIME;
-    public static final Integer DEFAULT_ISMULTI;
-    public static final Integer DEFAULT_ISPOLLED;
-    public static final Integer DEFAULT_LASTTIME;
-    public static final List<PollOption> DEFAULT_OPTIONS;
-    public static final Integer DEFAULT_OPTIONSCOUNT;
     public static final String DEFAULT_POLLEDVALUE = "";
-    public static final Integer DEFAULT_STATUS;
     public static final String DEFAULT_TIPS = "";
     public static final String DEFAULT_TITLE = "";
-    public static final Long DEFAULT_TOTALNUM;
-    public static final Long DEFAULT_TOTALPOLL;
-    public static final Integer DEFAULT_TYPE;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 8, type = Message.Datatype.INT32)
     public final Integer endTime;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
@@ -55,17 +35,19 @@ public final class PollInfo extends Message {
     public final Long totalPoll;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer type;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Integer DEFAULT_TYPE = 0;
+    public static final Integer DEFAULT_ISMULTI = 0;
+    public static final Long DEFAULT_TOTALNUM = 0L;
+    public static final Integer DEFAULT_OPTIONSCOUNT = 0;
+    public static final Integer DEFAULT_ISPOLLED = 0;
+    public static final Integer DEFAULT_ENDTIME = 0;
+    public static final List<PollOption> DEFAULT_OPTIONS = Collections.emptyList();
+    public static final Integer DEFAULT_STATUS = 0;
+    public static final Long DEFAULT_TOTALPOLL = 0L;
+    public static final Integer DEFAULT_LASTTIME = 0;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<PollInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Integer endTime;
         public Integer isMulti;
         public Integer isPolled;
@@ -81,37 +63,10 @@ public final class PollInfo extends Message {
         public Integer type;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(PollInfo pollInfo) {
             super(pollInfo);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pollInfo};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (pollInfo == null) {
                 return;
             }
@@ -133,58 +88,12 @@ public final class PollInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PollInfo build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new PollInfo(this, z, null);
-            }
-            return (PollInfo) invokeZ.objValue;
+            return new PollInfo(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-612340618, "Lprotobuf/PollInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-612340618, "Lprotobuf/PollInfo;");
-                return;
-            }
-        }
-        DEFAULT_TYPE = 0;
-        DEFAULT_ISMULTI = 0;
-        DEFAULT_TOTALNUM = 0L;
-        DEFAULT_OPTIONSCOUNT = 0;
-        DEFAULT_ISPOLLED = 0;
-        DEFAULT_ENDTIME = 0;
-        DEFAULT_OPTIONS = Collections.emptyList();
-        DEFAULT_STATUS = 0;
-        DEFAULT_TOTALPOLL = 0L;
-        DEFAULT_LASTTIME = 0;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PollInfo(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Integer num = builder.type;
             if (num == null) {
@@ -280,9 +189,5 @@ public final class PollInfo extends Message {
         this.totalPoll = builder.totalPoll;
         this.title = builder.title;
         this.lastTime = builder.lastTime;
-    }
-
-    public /* synthetic */ PollInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

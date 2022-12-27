@@ -54,9 +54,9 @@ import com.baidu.tieba.lv4;
 import com.baidu.tieba.mr5;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.ts7;
 import com.baidu.tieba.us7;
 import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tieba.vs7;
 import com.baidu.tieba.ye5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -229,7 +229,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (responseMemberPayMessage.getMemberPayResult() != null) {
-                        ts7 memberPayResult = responseMemberPayMessage.getMemberPayResult();
+                        us7 memberPayResult = responseMemberPayMessage.getMemberPayResult();
                         this.a.k1(memberPayResult);
                         if (this.a.s != null) {
                             int count = this.a.s.getCount();
@@ -846,14 +846,14 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void k1(ts7 ts7Var) {
+    public final void k1(us7 us7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, ts7Var) != null) || this.v) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, us7Var) != null) || this.v) {
             return;
         }
         this.v = true;
-        if (ts7Var.a.a.a != 2 && this.a != 2) {
+        if (us7Var.a.a.a != 2 && this.a != 2) {
             z = false;
         } else {
             z = true;
@@ -868,7 +868,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         bundle.putString("member_fid", this.C);
         bundle.putString("member_pay_show_price", this.D);
         if (!z) {
-            ts7.c cVar = ts7Var.b;
+            us7.c cVar = us7Var.b;
             if (cVar.a != null) {
                 if (cVar.b == null) {
                     MemberPayFragment memberPayFragment = new MemberPayFragment();
@@ -987,7 +987,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             if (TbSingleton.getInstance().isUserBan()) {
                 bf5.a(this);
             }
-            us7.a(this.d, this.C);
+            vs7.a(this.d, this.C);
         }
     }
 

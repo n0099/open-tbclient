@@ -76,7 +76,7 @@ public class fr5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (xi.isEmpty(str) || (er5Var = this.c) == null || !er5Var.g()) {
-                bh9.d(str);
+                ch9.d(str);
             }
         }
     }
@@ -86,7 +86,7 @@ public class fr5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (xi.isEmpty(str) || (er5Var = this.c) == null || !er5Var.g()) {
-                bh9.e(str);
+                ch9.e(str);
             }
         }
     }
@@ -165,7 +165,7 @@ public class fr5 {
                     hashMap.put(str3, str4);
                 }
             }
-            bh9.c(str2 + statisticItem.getKey(), str, "", hashMap);
+            ch9.c(str2 + statisticItem.getKey(), str, "", hashMap);
         }
     }
 }

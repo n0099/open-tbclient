@@ -490,8 +490,8 @@ public class ww6 extends p9<BaseFragmentActivity> {
             int M = this.a.N0().e0().M();
             int J = this.a.N0().e0().J();
             int H = this.a.N0().e0().H();
-            rq8 i = rq8.i();
-            rq8.i().n(i.g("1~" + str, M, J, H), false);
+            sq8 i = sq8.i();
+            sq8.i().n(i.g("1~" + str, M, J, H), false);
         }
     }
 
@@ -665,7 +665,7 @@ public class ww6 extends p9<BaseFragmentActivity> {
         }
     }
 
-    public void w0(List<zq8> list) {
+    public void w0(List<ar8> list) {
         ex6 ex6Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048624, this, list) == null) && (ex6Var = this.c) != null) {

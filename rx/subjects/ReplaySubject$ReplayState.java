@@ -1,11 +1,11 @@
 package rx.subjects;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b3a;
 import com.baidu.tieba.c3a;
-import com.baidu.tieba.h3a;
-import com.baidu.tieba.n3a;
-import com.baidu.tieba.r7a;
+import com.baidu.tieba.d3a;
+import com.baidu.tieba.i3a;
+import com.baidu.tieba.o3a;
+import com.baidu.tieba.s7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements b3a.a<T>, c3a<T> {
+public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements c3a.a<T>, d3a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ReplaySubject$ReplayProducer[] EMPTY;
     public static final ReplaySubject$ReplayProducer[] TERMINATED;
     public static final long serialVersionUID = 5952362471246910544L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r7a<T> buffer;
+    public final s7a<T> buffer;
 
     static {
         InterceptResult invokeClinit;
@@ -53,24 +53,24 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            r7a<T> r7aVar = this.buffer;
-            r7aVar.complete();
+            s7a<T> s7aVar = this.buffer;
+            s7aVar.complete();
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
-                r7aVar.a(replaySubject$ReplayProducer);
+                s7aVar.a(replaySubject$ReplayProducer);
             }
         }
     }
 
-    public ReplaySubject$ReplayState(r7a<T> r7aVar) {
+    public ReplaySubject$ReplayState(s7a<T> s7aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r7aVar};
+            Object[] objArr = {s7aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,20 +80,20 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                 return;
             }
         }
-        this.buffer = r7aVar;
+        this.buffer = s7aVar;
         lazySet(EMPTY);
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-            r7a<T> r7aVar = this.buffer;
-            r7aVar.error(th);
+            s7a<T> s7aVar = this.buffer;
+            s7aVar.error(th);
             ArrayList arrayList = null;
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
                 try {
-                    r7aVar.a(replaySubject$ReplayProducer);
+                    s7aVar.a(replaySubject$ReplayProducer);
                 } catch (Throwable th2) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -101,7 +101,7 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                     arrayList.add(th2);
                 }
             }
-            n3a.d(arrayList);
+            o3a.d(arrayList);
         }
     }
 
@@ -126,12 +126,12 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return invokeL.booleanValue;
     }
 
-    public void call(h3a<? super T> h3aVar) {
+    public void call(i3a<? super T> i3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h3aVar) == null) {
-            ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(h3aVar, this);
-            h3aVar.b(replaySubject$ReplayProducer);
-            h3aVar.f(replaySubject$ReplayProducer);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3aVar) == null) {
+            ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(i3aVar, this);
+            i3aVar.b(replaySubject$ReplayProducer);
+            i3aVar.f(replaySubject$ReplayProducer);
             if (add(replaySubject$ReplayProducer) && replaySubject$ReplayProducer.isUnsubscribed()) {
                 remove(replaySubject$ReplayProducer);
             } else {
@@ -140,21 +140,21 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         }
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            r7a<T> r7aVar = this.buffer;
-            r7aVar.next(t);
+            s7a<T> s7aVar = this.buffer;
+            s7aVar.next(t);
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : get()) {
-                r7aVar.a(replaySubject$ReplayProducer);
+                s7aVar.a(replaySubject$ReplayProducer);
             }
         }
     }
 
-    @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
+    @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((h3a) ((h3a) obj));
+        call((i3a) ((i3a) obj));
     }
 
     public void remove(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer) {

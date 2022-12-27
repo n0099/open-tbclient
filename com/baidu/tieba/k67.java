@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class k67 extends eg8 {
+public class k67 extends fg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadData Q0;
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.hg8
     public int b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class k67 extends eg8 {
         m0(true);
     }
 
-    @Override // com.baidu.tieba.gg8, com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.hg8, com.baidu.tieba.eg8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class k67 extends eg8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.eg8, com.baidu.tieba.gg8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    @Override // com.baidu.tieba.fg8, com.baidu.tieba.hg8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -66,7 +66,7 @@ public class k67 extends eg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8, com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.hg8, com.baidu.tieba.eg8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -74,7 +74,7 @@ public class k67 extends eg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8, com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.hg8, com.baidu.tieba.eg8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -82,7 +82,7 @@ public class k67 extends eg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8, com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.hg8, com.baidu.tieba.eg8
     public boolean onBackground(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class k67 extends eg8 {
         return invokeZ.booleanValue;
     }
 
-    @Override // com.baidu.tieba.eg8, com.baidu.tieba.gg8, com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.fg8, com.baidu.tieba.hg8, com.baidu.tieba.eg8
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, threadData) != null) || threadData == null) {
@@ -103,7 +103,7 @@ public class k67 extends eg8 {
         this.Q0 = threadData;
     }
 
-    @Override // com.baidu.tieba.gg8, com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.hg8, com.baidu.tieba.eg8
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {

@@ -142,7 +142,7 @@ public class xj5 {
                 if (isNetWorkAvailable) {
                     if (BdNetTypeUtil.isWifiNet()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(true);
-                        ik8.e().f();
+                        jk8.e().f();
                     } else if (BdNetTypeUtil.isMobileNet()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(false);
                     }

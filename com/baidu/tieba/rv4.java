@@ -190,7 +190,7 @@ public class rv4 implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{fm7.b("#FF722B"), fm7.b("#FF2b5D")});
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{gm7.b("#FF722B"), gm7.b("#FF2b5D")});
             gradientDrawable.setCornerRadius(this.l);
             return gradientDrawable;
         }

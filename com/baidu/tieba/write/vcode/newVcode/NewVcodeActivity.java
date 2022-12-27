@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.d35;
-import com.baidu.tieba.l89;
 import com.baidu.tieba.m89;
 import com.baidu.tieba.n89;
 import com.baidu.tieba.o89;
+import com.baidu.tieba.p89;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.xg;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public m89 c;
+    public n89 c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -149,22 +149,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final m89 F1() {
+    public final n89 F1() {
         InterceptResult invokeV;
-        m89 n89Var;
+        n89 o89Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == xg.e("5", 0)) {
-                n89Var = new l89(this.b, this.a);
+                o89Var = new m89(this.b, this.a);
             } else if (this.e == xg.e("4", 0)) {
-                n89Var = new o89(this.b, this.a);
+                o89Var = new p89(this.b, this.a);
             } else {
-                n89Var = new n89(this.b, this.a);
+                o89Var = new o89(this.b, this.a);
             }
-            n89Var.c(this.f);
-            return n89Var;
+            o89Var.c(this.f);
+            return o89Var;
         }
-        return (m89) invokeV.objValue;
+        return (n89) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -214,7 +214,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.f0(z);
             }
-            m89 F1 = F1();
+            n89 F1 = F1();
             this.c = F1;
             this.b.setPresenter(F1);
             this.c.a(this.g);

@@ -249,7 +249,7 @@ public class rr4 extends PopupWindow {
         if (xi.isEmpty(nn4Var.p)) {
             this.b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
         } else {
-            this.b.setTextColor(fm7.b(nn4Var.p));
+            this.b.setTextColor(gm7.b(nn4Var.p));
         }
         if (xi.isEmpty(nn4Var.f)) {
             this.c.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f02d4));
@@ -259,10 +259,10 @@ public class rr4 extends PopupWindow {
         if (xi.isEmpty(nn4Var.q)) {
             this.c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
         } else {
-            this.c.setTextColor(fm7.b(nn4Var.q));
+            this.c.setTextColor(gm7.b(nn4Var.q));
         }
         if (!xi.isEmpty(nn4Var.o)) {
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(context, R.dimen.tbds120), fm7.b(nn4Var.o)));
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(context, R.dimen.tbds120), gm7.b(nn4Var.o)));
         }
         if (!xi.isEmpty(nn4Var.j)) {
             this.a.K(nn4Var.j, 10, false);

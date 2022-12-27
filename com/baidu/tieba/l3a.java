@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public final class l3a {
+public class l3a {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<l3a> b;
+    public static final l3a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e3a a;
+
+    public f3a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (f3a) invokeV.objValue;
+    }
+
+    public p3a c(p3a p3aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p3aVar)) == null) ? p3aVar : (p3a) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,33 +42,7 @@ public final class l3a {
                 return;
             }
         }
-        b = new AtomicReference<>();
-    }
-
-    public static l3a a() {
-        l3a l3aVar;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                l3a l3aVar2 = b.get();
-                if (l3aVar2 != null) {
-                    return l3aVar2;
-                }
-                l3aVar = new l3a();
-            } while (!b.compareAndSet(null, l3aVar));
-            return l3aVar;
-        }
-        return (l3a) invokeV.objValue;
-    }
-
-    public static e3a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a().a;
-        }
-        return (e3a) invokeV.objValue;
+        a = new l3a();
     }
 
     public l3a() {
@@ -68,14 +55,16 @@ public final class l3a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        e3a b2 = j3a.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new m3a(Looper.getMainLooper());
+    }
+
+    public static l3a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (l3a) invokeV.objValue;
     }
 }

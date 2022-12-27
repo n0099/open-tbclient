@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am8;
 import com.baidu.tieba.bm8;
+import com.baidu.tieba.cm8;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.setting.model.AboutModel;
-import com.baidu.tieba.sl8;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.tl8;
+import com.baidu.tieba.wl8;
 import com.baidu.tieba.x35;
-import com.baidu.tieba.yk7;
+import com.baidu.tieba.zk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,16 +35,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sl8 a;
+    public tl8 a;
     public AboutModel b;
     public c c;
     public String d;
-    public am8 e;
-    public bm8 f;
+    public bm8 e;
+    public cm8 f;
     public int g;
 
     /* loaded from: classes6.dex */
-    public class a implements vl8 {
+    public class a implements wl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -67,7 +67,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.vl8
+        @Override // com.baidu.tieba.wl8
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -98,7 +98,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 5) {
                     if (this.a.e == null) {
                         AboutActivity aboutActivity = this.a;
-                        aboutActivity.e = new am8(aboutActivity.getActivity());
+                        aboutActivity.e = new bm8(aboutActivity.getActivity());
                         this.a.e.create(this.a.getPageContext());
                     }
                     this.a.e.show();
@@ -206,7 +206,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yk7.b().a(true);
+            zk7.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
@@ -214,9 +214,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.b.K();
-            sl8 sl8Var = this.a;
-            if (sl8Var != null) {
-                sl8Var.B();
+            tl8 tl8Var = this.a;
+            if (tl8Var != null) {
+                tl8Var.B();
             }
         }
     }
@@ -231,17 +231,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            sl8 sl8Var = this.a;
-            if (sl8Var != null) {
-                sl8Var.C();
+            tl8 tl8Var = this.a;
+            if (tl8Var != null) {
+                tl8Var.C();
             }
-            am8 am8Var = this.e;
-            if (am8Var != null) {
-                am8Var.dismiss();
-            }
-            bm8 bm8Var = this.f;
+            bm8 bm8Var = this.e;
             if (bm8Var != null) {
-                bm8Var.i();
+                bm8Var.dismiss();
+            }
+            cm8 cm8Var = this.f;
+            if (cm8Var != null) {
+                cm8Var.i();
                 this.f = null;
             }
         }
@@ -252,9 +252,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            sl8 sl8Var = this.a;
-            if (sl8Var != null) {
-                sl8Var.J(i);
+            tl8 tl8Var = this.a;
+            if (tl8Var != null) {
+                tl8Var.J(i);
             }
         }
     }
@@ -264,10 +264,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new bm8(this);
-            sl8 sl8Var = new sl8(this, new a(this));
-            this.a = sl8Var;
-            sl8Var.G();
+            this.f = new cm8(this);
+            tl8 tl8Var = new tl8(this, new a(this));
+            this.a = tl8Var;
+            tl8Var.G();
             G1();
         }
     }
@@ -276,9 +276,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         x35 x35Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            sl8 sl8Var = this.a;
-            if (sl8Var != null) {
-                sl8Var.C();
+            tl8 tl8Var = this.a;
+            if (tl8Var != null) {
+                tl8Var.C();
             }
             if (obj != null) {
                 x35Var = (x35) obj;
@@ -298,9 +298,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                sl8 sl8Var2 = this.a;
-                if (sl8Var2 != null) {
-                    sl8Var2.G();
+                tl8 tl8Var2 = this.a;
+                if (tl8Var2 != null) {
+                    tl8Var2.G();
                     return;
                 }
                 return;
@@ -339,9 +339,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            sl8 sl8Var = this.a;
-            if (sl8Var != null) {
-                sl8Var.G();
+            tl8 tl8Var = this.a;
+            if (tl8Var != null) {
+                tl8Var.G();
             }
         }
     }

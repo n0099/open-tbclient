@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.rj7;
-import com.baidu.tieba.vi7;
+import com.baidu.tieba.sj7;
 import com.baidu.tieba.wd5;
+import com.baidu.tieba.wi7;
 import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public vi7 b;
+    public wi7 b;
     public ViewEventCenter c;
     public CustomMessageListener d;
     public CustomMessageListener e;
@@ -216,9 +216,9 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
             MessageManager.getInstance().unRegisterListener(this.e);
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.d);
-            vi7 vi7Var = this.b;
-            if (vi7Var != null) {
-                vi7Var.o0();
+            wi7 wi7Var = this.b;
+            if (wi7Var != null) {
+                wi7Var.o0();
             }
         }
     }
@@ -237,10 +237,10 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
     public void h(boolean z) {
-        vi7 vi7Var;
+        wi7 wi7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (vi7Var = this.b) != null) {
-            vi7Var.w0(z);
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (wi7Var = this.b) != null) {
+            wi7Var.w0(z);
         }
     }
 
@@ -249,16 +249,16 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            new rj7(this).c();
+            new sj7(this).c();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        vi7 vi7Var;
+        wi7 wi7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (vi7Var = this.b) != null) {
-            vi7Var.s0(getPageContext(), i);
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (wi7Var = this.b) != null) {
+            wi7Var.s0(getPageContext(), i);
         }
     }
 
@@ -283,10 +283,10 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
     }
 
     public void C1() {
-        vi7 vi7Var;
+        wi7 wi7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (vi7Var = this.b) != null) {
-            vi7Var.r0();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (wi7Var = this.b) != null) {
+            wi7Var.r0();
         }
     }
 
@@ -295,9 +295,9 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            vi7 vi7Var = this.b;
-            if (vi7Var != null) {
-                vi7Var.p0();
+            wi7 wi7Var = this.b;
+            if (wi7Var != null) {
+                wi7Var.p0();
             }
         }
     }
@@ -307,9 +307,9 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
-            vi7 vi7Var = this.b;
-            if (vi7Var != null) {
-                vi7Var.b0();
+            wi7 wi7Var = this.b;
+            if (wi7Var != null) {
+                wi7Var.b0();
                 this.b.d1(isPrimary());
             }
         }
@@ -320,18 +320,18 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
-            vi7 vi7Var = this.b;
-            if (vi7Var != null) {
-                vi7Var.q0();
+            wi7 wi7Var = this.b;
+            if (wi7Var != null) {
+                wi7Var.q0();
             }
         }
     }
 
     public void u() {
-        vi7 vi7Var;
+        wi7 wi7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (vi7Var = this.b) != null) {
-            vi7Var.N0();
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (wi7Var = this.b) != null) {
+            wi7Var.N0();
         }
     }
 
@@ -362,9 +362,9 @@ public class ChatAggregationFragment extends BaseFragment implements wd5, NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            vi7 vi7Var = new vi7(this);
-            this.b = vi7Var;
-            vi7Var.l0(bundle);
+            wi7 wi7Var = new wi7(this);
+            this.b = wi7Var;
+            wi7Var.l0(bundle);
             View u0 = this.b.u0();
             this.b.s0(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             A1().addEventDelegate(this);

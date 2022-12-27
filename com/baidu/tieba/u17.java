@@ -169,33 +169,33 @@ public class u17 extends kn<x56, AutoVideoCardViewHolder<x56>> {
         }
     }
 
-    public final yf8 u(x56 x56Var) {
+    public final zf8 u(x56 x56Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, x56Var)) == null) {
             if (x56Var != null) {
-                yf8 yf8Var = new yf8();
-                yf8Var.a = "17";
-                yf8Var.c = x56Var.g;
+                zf8 zf8Var = new zf8();
+                zf8Var.a = "17";
+                zf8Var.c = x56Var.g;
                 if (x56Var.getThreadData() != null) {
-                    yf8Var.d = String.valueOf(x56Var.getThreadData().getFid());
+                    zf8Var.d = String.valueOf(x56Var.getThreadData().getFid());
                     if (x56Var.getThreadData().getThreadVideoInfo() != null) {
-                        yf8Var.m = x56Var.getThreadData().getThreadVideoInfo().video_md5;
-                        yf8Var.p = String.valueOf(x56Var.getThreadData().getThreadVideoInfo().is_vertical);
+                        zf8Var.m = x56Var.getThreadData().getThreadVideoInfo().video_md5;
+                        zf8Var.p = String.valueOf(x56Var.getThreadData().getThreadVideoInfo().is_vertical);
                     }
                 }
-                yf8Var.k = x56Var.g();
-                yf8Var.f = x56Var.o();
-                yf8Var.l = x56Var.c();
-                yf8Var.h = x56Var.z();
-                yf8Var.e = TbadkCoreApplication.getCurrentAccount();
-                yf8Var.q = String.valueOf(x56Var.m());
-                yf8Var.r = String.valueOf(this.e);
-                return yf8Var;
+                zf8Var.k = x56Var.g();
+                zf8Var.f = x56Var.o();
+                zf8Var.l = x56Var.c();
+                zf8Var.h = x56Var.z();
+                zf8Var.e = TbadkCoreApplication.getCurrentAccount();
+                zf8Var.q = String.valueOf(x56Var.m());
+                zf8Var.r = String.valueOf(this.e);
+                return zf8Var;
             }
             return null;
         }
-        return (yf8) invokeL.objValue;
+        return (zf8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

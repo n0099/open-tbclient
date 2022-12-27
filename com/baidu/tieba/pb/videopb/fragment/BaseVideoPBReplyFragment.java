@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.videopb.fragment;
 
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.i88;
+import com.baidu.tieba.j88;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
@@ -20,7 +20,7 @@ public abstract class BaseVideoPBReplyFragment extends BaseFragment {
 
     public abstract AbsPbActivity R();
 
-    public abstract i88 x1();
+    public abstract j88 x1();
 
     public BaseVideoPBReplyFragment() {
         Interceptable interceptable = $ic;

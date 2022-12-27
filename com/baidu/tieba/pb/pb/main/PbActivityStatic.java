@@ -54,18 +54,18 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a38;
 import com.baidu.tieba.ab5;
 import com.baidu.tieba.al5;
 import com.baidu.tieba.bh;
 import com.baidu.tieba.bl5;
-import com.baidu.tieba.c48;
+import com.baidu.tieba.d48;
 import com.baidu.tieba.dn4;
-import com.baidu.tieba.ez8;
-import com.baidu.tieba.j48;
-import com.baidu.tieba.o68;
+import com.baidu.tieba.fz8;
+import com.baidu.tieba.k48;
 import com.baidu.tieba.ob5;
 import com.baidu.tieba.og5;
-import com.baidu.tieba.p48;
+import com.baidu.tieba.p68;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
@@ -73,13 +73,14 @@ import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
+import com.baidu.tieba.q48;
 import com.baidu.tieba.rj5;
-import com.baidu.tieba.s18;
 import com.baidu.tieba.t18;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.u18;
 import com.baidu.tieba.u55;
 import com.baidu.tieba.uo4;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.vo4;
 import com.baidu.tieba.w55;
@@ -87,7 +88,6 @@ import com.baidu.tieba.wo4;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.z28;
 import com.baidu.tieba.zb;
 import com.baidu.tieba.zb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -908,7 +908,7 @@ public class PbActivityStatic {
                                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
                                         return 0;
                                     } else if (!z3 && !TextUtils.isEmpty(c)) {
-                                        bh.startService(TbadkCoreApplication.getInst(), j48.n(TbadkCoreApplication.getInst(), c));
+                                        bh.startService(TbadkCoreApplication.getInst(), k48.n(TbadkCoreApplication.getInst(), c));
                                         StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", 3).param("obj_type", 2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
                                         dn4.a(param, lowerCase);
                                         TiebaStatic.log(param);
@@ -993,12 +993,12 @@ public class PbActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ez8> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<fz8> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2921343, new o68(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2921343, new p68(customMessage.getData()));
                 }
                 return null;
             }
@@ -1030,7 +1030,7 @@ public class PbActivityStatic {
         f();
         i();
         p();
-        SwitchManager.getInstance().registerSwitch(z28.class);
+        SwitchManager.getInstance().registerSwitch(a38.class);
         q();
         n();
         CustomMessageTask customMessageTask = new CustomMessageTask(2004001, new h());
@@ -1044,7 +1044,7 @@ public class PbActivityStatic {
         iVar.execute(new Void[0]);
         ItemCardHelper.t();
         ItemCardHelper.s();
-        ab5.a(zb5.a, new c48());
+        ab5.a(zb5.a, new d48());
     }
 
     public PbActivityStatic() {
@@ -1099,7 +1099,7 @@ public class PbActivityStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            tr8.b(2004003, p48.class);
+            ur8.b(2004003, q48.class);
         }
     }
 
@@ -1147,8 +1147,8 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            og5 h2 = tr8.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = tr8.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            og5 h2 = ur8.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = ur8.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
             h2.setParallel(a);
             c2.setParallel(a);
         }
@@ -1195,10 +1195,10 @@ public class PbActivityStatic {
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            tr8.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, tr8.a("c/f/pb/page", 302001));
-            t18.g = tbHttpMessageTask;
-            s18.i = tbHttpMessageTask;
+            ur8.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, ur8.a("c/f/pb/page", 302001));
+            u18.g = tbHttpMessageTask;
+            t18.i = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setTimeOut(zb.d().b());

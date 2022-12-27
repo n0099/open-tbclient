@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rk7;
+import com.baidu.tieba.sk7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -142,7 +142,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<rk7> list, boolean z) {
+    public void setData(List<sk7> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -156,19 +156,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            rk7 rk7Var = list.get(i2);
-            if (rk7Var != null && (getChildAt(i2) instanceof TextView)) {
+            sk7 sk7Var = list.get(i2);
+            if (sk7Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = rk7Var.b;
-                if (!StringUtils.isNull(str) && rk7Var.b.length() > 4) {
-                    str = rk7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = sk7Var.b;
+                if (!StringUtils.isNull(str) && sk7Var.b.length() > 4) {
+                    str = sk7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(rk7Var.c);
-                textView.setTag(rk7Var);
+                textView.setSelected(sk7Var.c);
+                textView.setTag(sk7Var);
             }
             i2++;
         }

@@ -2,9 +2,9 @@ package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.a3a;
-import com.baidu.tieba.h3a;
+import com.baidu.tieba.b3a;
 import com.baidu.tieba.i3a;
-import com.baidu.tieba.z2a;
+import com.baidu.tieba.j3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes9.dex */
-public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber extends h3a<z2a> {
+public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber extends i3a<a3a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SequentialSubscription e;
@@ -22,7 +22,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
     public abstract void h(Throwable th);
 
     /* loaded from: classes9.dex */
-    public final class ConcatInnerSubscriber extends AtomicInteger implements a3a {
+    public final class ConcatInnerSubscriber extends AtomicInteger implements b3a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7233503139645205620L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             this.this$0 = completableOnSubscribeConcat$CompletableConcatSubscriber;
         }
 
-        @Override // com.baidu.tieba.a3a
+        @Override // com.baidu.tieba.b3a
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -54,15 +54,15 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             }
         }
 
-        @Override // com.baidu.tieba.a3a
-        public void onSubscribe(i3a i3aVar) {
+        @Override // com.baidu.tieba.b3a
+        public void onSubscribe(j3a j3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i3aVar) == null) {
-                this.this$0.e.set(i3aVar);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j3aVar) == null) {
+                this.this$0.e.set(j3aVar);
             }
         }
 
-        @Override // com.baidu.tieba.a3a
+        @Override // com.baidu.tieba.b3a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

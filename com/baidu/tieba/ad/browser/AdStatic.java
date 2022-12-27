@@ -36,7 +36,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.al5;
 import com.baidu.tieba.lf;
-import com.baidu.tieba.ni8;
+import com.baidu.tieba.oi8;
 import com.baidu.tieba.sr5;
 import com.baidu.tieba.xr5;
 import com.baidu.tieba.yj5;
@@ -105,7 +105,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements ni8.c {
+    public static class b implements oi8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,8 +123,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ni8.c
-        public int a(Context context, String str, String str2, boolean z, ni8.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.baidu.tieba.oi8.c
+        public int a(Context context, String str, String str2, boolean z, oi8.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -140,7 +140,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements ni8.a {
+    public static class c implements oi8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,7 +158,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ni8.a
+        @Override // com.baidu.tieba.oi8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             String str;
@@ -253,7 +253,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements ni8.a {
+    public static class d implements oi8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -271,7 +271,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ni8.a
+        @Override // com.baidu.tieba.oi8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -366,7 +366,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements ni8.a {
+    public static class e implements oi8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -384,7 +384,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ni8.a
+        @Override // com.baidu.tieba.oi8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;

@@ -1,115 +1,65 @@
 package protobuf.PushMessage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
 /* loaded from: classes9.dex */
 public final class PushMessageResIdl extends Message {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Long DEFAULT_PUSHTIME = 0L;
     @ProtoField(tag = 2)
     public final DataRes data;
     @ProtoField(tag = 1)
     public final Error error;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    @ProtoField(tag = 4)
+    public final PushMsg msgs;
+    @ProtoField(tag = 3, type = Message.Datatype.INT64)
+    public final Long pushTime;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<PushMessageResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public DataRes data;
         public Error error;
+        public PushMsg msgs;
+        public Long pushTime;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(PushMessageResIdl pushMessageResIdl) {
             super(pushMessageResIdl);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pushMessageResIdl};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (pushMessageResIdl == null) {
                 return;
             }
             this.error = pushMessageResIdl.error;
             this.data = pushMessageResIdl.data;
+            this.pushTime = pushMessageResIdl.pushTime;
+            this.msgs = pushMessageResIdl.msgs;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PushMessageResIdl build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new PushMessageResIdl(this, z, null);
-            }
-            return (PushMessageResIdl) invokeZ.objValue;
+            return new PushMessageResIdl(this, z);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushMessageResIdl(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (z) {
             this.error = builder.error;
             this.data = builder.data;
+            Long l = builder.pushTime;
+            if (l == null) {
+                this.pushTime = DEFAULT_PUSHTIME;
+            } else {
+                this.pushTime = l;
+            }
+            this.msgs = builder.msgs;
             return;
         }
         this.error = builder.error;
         this.data = builder.data;
-    }
-
-    public /* synthetic */ PushMessageResIdl(Builder builder, boolean z, a aVar) {
-        this(builder, z);
+        this.pushTime = builder.pushTime;
+        this.msgs = builder.msgs;
     }
 }

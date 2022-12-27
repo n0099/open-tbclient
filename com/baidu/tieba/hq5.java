@@ -141,7 +141,7 @@ public class hq5 {
         if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
-        if (!to8.a(this.a.getIntent()) && !to8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
+        if (!uo8.a(this.a.getIntent()) && !uo8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
             this.a.finish();
         } else {
             h();

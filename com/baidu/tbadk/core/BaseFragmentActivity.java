@@ -94,10 +94,10 @@ import com.baidu.tieba.nc5;
 import com.baidu.tieba.pe5;
 import com.baidu.tieba.qs5;
 import com.baidu.tieba.rv4;
-import com.baidu.tieba.rx8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.se5;
 import com.baidu.tieba.sr4;
+import com.baidu.tieba.sx8;
 import com.baidu.tieba.ta5;
 import com.baidu.tieba.te5;
 import com.baidu.tieba.tq4;
@@ -2106,7 +2106,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             iw4.m(false);
             zm4.a(motionEvent, getPageId(), getMissionTid());
-            rx8.getInstance().behaviorRecordEvent(motionEvent, this);
+            sx8.getInstance().behaviorRecordEvent(motionEvent, this);
             qs5.K().H();
             try {
                 return super.dispatchTouchEvent(motionEvent);
@@ -2350,7 +2350,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
-            rx8.getInstance().onPause(this);
+            sx8.getInstance().onPause(this);
             super.onPause();
             if (PermissionUtil.isAgreePrivacyPolicy() && TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -2391,7 +2391,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            rx8.getInstance().onResume(this);
+            sx8.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {

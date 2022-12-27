@@ -1,39 +1,11 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.BigImgCard;
-import com.baidu.tieba.lego.card.model.ButtonCard;
-import com.baidu.tieba.lego.card.model.CardGroup;
-import com.baidu.tieba.lego.card.model.FocusListCard;
-import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.lego.card.model.LPBigImgCard;
-import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
-import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.lego.card.model.SingleLineCard;
-import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.lego.card.view.BaseCardView;
-import com.baidu.tieba.lego.card.view.BigImgView;
-import com.baidu.tieba.lego.card.view.ButtonCardView;
-import com.baidu.tieba.lego.card.view.FocusListCardView;
-import com.baidu.tieba.lego.card.view.HorRankCardView;
-import com.baidu.tieba.lego.card.view.ImmersiveVideoCardViewEx;
-import com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView;
-import com.baidu.tieba.lego.card.view.LPBigImgCardView;
-import com.baidu.tieba.lego.card.view.OnePicInfoCardView;
-import com.baidu.tieba.lego.card.view.PlayPicInfoCardView;
-import com.baidu.tieba.lego.card.view.RankDetailTrendCardView;
-import com.baidu.tieba.lego.card.view.RankScoreCardView;
-import com.baidu.tieba.lego.card.view.SingleLineCardView;
-import com.baidu.tieba.lego.card.view.WebViewCardView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,11 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tl7 extends ul7 {
+public class tl7 extends vl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<vl7> c;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -53,7 +29,14 @@ public class tl7 extends ul7 {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.ul7
+    @Override // com.baidu.tieba.vl7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vl7
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,11 +76,13 @@ public class tl7 extends ul7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList(4);
     }
 
-    public static tl7 f() {
+    public static tl7 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -110,189 +95,118 @@ public class tl7 extends ul7 {
         this();
     }
 
-    @Override // com.baidu.tieba.ul7
+    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            return h().b(jSONObject, jSONObject.optInt("card_type"));
+        }
+        return (ICardInfo) invokeL.objValue;
+    }
+
+    public synchronized void g(vl7 vl7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, vl7Var) == null) {
+            synchronized (this) {
+                this.c.add(vl7Var);
+            }
+        }
+    }
+
+    public static ICardInfo i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                ICardInfo j = j(new JSONObject(str));
+                if (j != null) {
+                    if (j.isValid()) {
+                        return j;
+                    }
+                }
+                return null;
+            } catch (CardParseException e) {
+                BdLog.detailException("CardFactory.getPageCardInfo", e);
+                return null;
+            } catch (JSONException e2) {
+                BdLog.detailException("CardFactory.getPageCardInfo", e2);
+                return null;
+            }
+        }
+        return (ICardInfo) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vl7
+    public <T> om7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
+            om7 e = e(tbPageContext, iCardInfo, i);
+            if (e != null) {
+                e.setBusinessType(i);
+            }
+            return e;
+        }
+        return (om7) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.vl7
     public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
         InterceptResult invokeLI;
-        ICardInfo playPicInfoCard;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 5) {
-                            if (i != 6) {
-                                if (i != 7) {
-                                    if (i != 8) {
-                                        if (i != 11) {
-                                            if (i != 28) {
-                                                if (i != 18) {
-                                                    if (i != 19) {
-                                                        switch (i) {
-                                                            case 21:
-                                                                playPicInfoCard = new LPBigImgCard(jSONObject);
-                                                                break;
-                                                            case 22:
-                                                                playPicInfoCard = new ImmersiveVideoCardEx(jSONObject);
-                                                                break;
-                                                            case 23:
-                                                                playPicInfoCard = new ImmersiveWebViewCard(jSONObject);
-                                                                break;
-                                                            default:
-                                                                return null;
-                                                        }
-                                                    } else {
-                                                        playPicInfoCard = new BigImgCard(jSONObject);
-                                                    }
-                                                } else {
-                                                    playPicInfoCard = new WebViewCard(jSONObject);
-                                                }
-                                            } else {
-                                                playPicInfoCard = new ButtonCard(jSONObject);
-                                            }
-                                        } else {
-                                            playPicInfoCard = new CardGroup(jSONObject);
-                                        }
-                                    } else {
-                                        playPicInfoCard = new RankScoreCard(jSONObject);
-                                    }
-                                } else {
-                                    playPicInfoCard = new RankDetailTrendCard(jSONObject);
-                                }
-                            } else {
-                                playPicInfoCard = new HorRankCard(jSONObject);
-                            }
-                        } else {
-                            playPicInfoCard = new FocusListCard(jSONObject);
-                        }
-                    } else {
-                        playPicInfoCard = new OnePicInfoCard(jSONObject);
-                    }
-                } else {
-                    playPicInfoCard = new SingleLineCard(jSONObject);
-                }
-            } else {
-                playPicInfoCard = new PlayPicInfoCard(jSONObject);
-            }
-            return playPicInfoCard;
+            return f(jSONObject, i);
         }
         return (ICardInfo) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.ul7
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = ul7.a;
-            sparseIntArray.put(1, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = ul7.a;
-            sparseIntArray2.put(2, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = ul7.a;
-            sparseIntArray3.put(3, sparseIntArray3.size() + 1);
-            SparseIntArray sparseIntArray4 = ul7.a;
-            sparseIntArray4.put(5, sparseIntArray4.size() + 1);
-            SparseIntArray sparseIntArray5 = ul7.a;
-            sparseIntArray5.put(6, sparseIntArray5.size() + 1);
-            SparseIntArray sparseIntArray6 = ul7.a;
-            sparseIntArray6.put(7, sparseIntArray6.size() + 1);
-            SparseIntArray sparseIntArray7 = ul7.a;
-            sparseIntArray7.put(8, sparseIntArray7.size() + 1);
-            SparseIntArray sparseIntArray8 = ul7.a;
-            sparseIntArray8.put(18, sparseIntArray8.size() + 1);
-            SparseIntArray sparseIntArray9 = ul7.a;
-            sparseIntArray9.put(19, sparseIntArray9.size() + 1);
-            SparseIntArray sparseIntArray10 = ul7.a;
-            sparseIntArray10.put(21, sparseIntArray10.size() + 1);
-            SparseIntArray sparseIntArray11 = ul7.a;
-            sparseIntArray11.put(22, sparseIntArray11.size() + 1);
-            SparseIntArray sparseIntArray12 = ul7.a;
-            sparseIntArray12.put(23, sparseIntArray12.size() + 1);
-            SparseIntArray sparseIntArray13 = ul7.a;
-            sparseIntArray13.put(28, sparseIntArray13.size() + 1);
-            ul7.b.put(1, BdUniqueId.gen());
-            ul7.b.put(2, BdUniqueId.gen());
-            ul7.b.put(3, BdUniqueId.gen());
-            ul7.b.put(5, BdUniqueId.gen());
-            ul7.b.put(6, BdUniqueId.gen());
-            ul7.b.put(7, BdUniqueId.gen());
-            ul7.b.put(8, BdUniqueId.gen());
-            ul7.b.put(18, BdUniqueId.gen());
-            ul7.b.put(19, BdUniqueId.gen());
-            ul7.b.put(21, BdUniqueId.gen());
-            ul7.b.put(22, BdUniqueId.gen());
-            ul7.b.put(23, BdUniqueId.gen());
-            ul7.b.put(28, BdUniqueId.gen());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ul7
-    /* renamed from: e */
-    public <T> BaseCardView a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+    public final <T> om7 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         InterceptResult invokeLLI;
         int cardType;
-        BaseCardView playPicInfoCardView;
+        om7 a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            for (vl7 vl7Var : this.c) {
+                try {
+                    a2 = vl7Var.a(tbPageContext, iCardInfo, i);
+                } catch (Throwable th) {
+                    BdLog.detailException("factory <" + vl7Var.d() + "> respond exception", th);
+                }
+                if (a2 != null) {
+                    return a2;
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("No card factory for card type ");
             if (iCardInfo == null) {
                 cardType = -1;
             } else {
                 cardType = iCardInfo.getCardType();
             }
-            if (cardType != 1) {
-                if (cardType != 2) {
-                    if (cardType != 3) {
-                        if (cardType != 5) {
-                            if (cardType != 6) {
-                                if (cardType != 7) {
-                                    if (cardType != 8) {
-                                        if (cardType != 18) {
-                                            if (cardType != 19) {
-                                                if (cardType != 28) {
-                                                    switch (cardType) {
-                                                        case 21:
-                                                            playPicInfoCardView = new LPBigImgCardView(tbPageContext);
-                                                            break;
-                                                        case 22:
-                                                            playPicInfoCardView = new ImmersiveVideoCardViewEx(tbPageContext);
-                                                            break;
-                                                        case 23:
-                                                            playPicInfoCardView = new ImmersiveWebViewCardView(tbPageContext);
-                                                            break;
-                                                        default:
-                                                            return null;
-                                                    }
-                                                } else {
-                                                    playPicInfoCardView = new ButtonCardView(tbPageContext);
-                                                }
-                                            } else {
-                                                playPicInfoCardView = new BigImgView(tbPageContext);
-                                            }
-                                        } else {
-                                            playPicInfoCardView = new WebViewCardView(tbPageContext);
-                                        }
-                                    } else {
-                                        playPicInfoCardView = new RankScoreCardView(tbPageContext);
-                                    }
-                                } else {
-                                    playPicInfoCardView = new RankDetailTrendCardView(tbPageContext);
-                                }
-                            } else {
-                                playPicInfoCardView = new HorRankCardView(tbPageContext);
-                            }
-                        } else {
-                            playPicInfoCardView = new FocusListCardView(tbPageContext);
-                        }
-                    } else {
-                        playPicInfoCardView = new OnePicInfoCardView(tbPageContext);
-                    }
-                } else {
-                    playPicInfoCardView = new SingleLineCardView(tbPageContext);
-                }
-            } else {
-                playPicInfoCardView = new PlayPicInfoCardView(tbPageContext);
-            }
-            return playPicInfoCardView;
+            sb.append(cardType);
+            BdLog.e(sb.toString());
+            return null;
         }
-        return (BaseCardView) invokeLLI.objValue;
+        return (om7) invokeLLI.objValue;
+    }
+
+    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
+            for (vl7 vl7Var : this.c) {
+                try {
+                    ICardInfo b2 = vl7Var.b(jSONObject, i);
+                    if (b2 != null) {
+                        return b2;
+                    }
+                } catch (Throwable th) {
+                    throw new CardParseException("Card type " + i + ", factory <" + vl7Var.d() + "> respond exception", th);
+                }
+            }
+            BdLog.e("No card factory for card type " + i);
+            return null;
+        }
+        return (ICardInfo) invokeLI.objValue;
     }
 }

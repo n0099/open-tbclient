@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class l06 extends ck6<tq8, FrsPageAlaInsertRecLiveHolder> implements f56 {
+public class l06 extends ck6<uq8, FrsPageAlaInsertRecLiveHolder> implements f56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -78,25 +78,25 @@ public class l06 extends ck6<tq8, FrsPageAlaInsertRecLiveHolder> implements f56 
         }
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, tq8 tq8Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
+    public View F(int i, View view2, ViewGroup viewGroup, uq8 uq8Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tq8Var, frsPageAlaInsertRecLiveHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) tq8Var, (tq8) frsPageAlaInsertRecLiveHolder);
-            if (tq8Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uq8Var, frsPageAlaInsertRecLiveHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) uq8Var, (uq8) frsPageAlaInsertRecLiveHolder);
+            if (uq8Var != null) {
                 FrsViewData frsViewData = this.b;
                 if (frsViewData != null) {
                     i2 = frsViewData.getTopThreadSize();
                 } else {
                     i2 = 0;
                 }
-                List<ThreadData> list = tq8Var.a;
+                List<ThreadData> list = uq8Var.a;
                 if (list != null && list.get(0) != null) {
-                    tq8Var.a.get(0).statFloor = (i + 1) - i2;
+                    uq8Var.a.get(0).statFloor = (i + 1) - i2;
                 }
                 frsPageAlaInsertRecLiveHolder.a.a(this.l);
-                frsPageAlaInsertRecLiveHolder.a.i(tq8Var);
+                frsPageAlaInsertRecLiveHolder.a.i(uq8Var);
             }
             return view2;
         }
@@ -105,7 +105,7 @@ public class l06 extends ck6<tq8, FrsPageAlaInsertRecLiveHolder> implements f56 
 
     @Override // com.baidu.tieba.ck6, com.baidu.tieba.kn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (tq8) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
+        F(i, view2, viewGroup, (uq8) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
         return view2;
     }
 }

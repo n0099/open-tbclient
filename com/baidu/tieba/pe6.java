@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.vr8;
+import com.baidu.tieba.wr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class pe6 {
     public String j;
     public iu4 k;
     public LikeModel l;
-    public vr8 m;
+    public wr8 m;
     public boolean n;
 
     /* loaded from: classes5.dex */
@@ -169,12 +169,12 @@ public class pe6 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements vr8.a {
+    public class d implements wr8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pe6 a;
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -199,7 +199,7 @@ public class pe6 {
             this.a = pe6Var;
         }
 
-        @Override // com.baidu.tieba.vr8.a
+        @Override // com.baidu.tieba.wr8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -327,7 +327,7 @@ public class pe6 {
                     return;
                 }
                 if (this.m == null) {
-                    this.m = new vr8();
+                    this.m = new wr8();
                 }
                 this.m.b(new d(this));
                 this.m.c(this.k.k(), this.k.i());

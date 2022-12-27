@@ -39,12 +39,13 @@ import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.switchs.PbPreloadSwitch;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.ag8;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.ai8;
-import com.baidu.tieba.ar8;
 import com.baidu.tieba.au4;
 import com.baidu.tieba.b35;
-import com.baidu.tieba.ce9;
+import com.baidu.tieba.bi8;
+import com.baidu.tieba.br8;
+import com.baidu.tieba.de9;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.tieba.e35;
@@ -74,7 +75,6 @@ import com.baidu.tieba.x35;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.y25;
 import com.baidu.tieba.z25;
-import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -190,7 +190,7 @@ public final class TbSingleton {
     public boolean mForceRefreshHomeRecommend;
     public boolean mFrsContentViewLoadingShow;
     public int mFrsCurTabType;
-    public ar8 mFrsResponseData;
+    public br8 mFrsResponseData;
     public boolean mFrsRootViewLoadingShow;
     public boolean mHasAgreeToPlay;
     public Map<String, Date> mHasShowFid;
@@ -228,7 +228,7 @@ public final class TbSingleton {
     public NewGodData mNewGodData;
     public NewUserRedPackageData mNewUserRedPackageData;
     public au4 mPbToHomeUpdateData;
-    public zf8 mPcdnConfigData;
+    public ag8 mPcdnConfigData;
     public String mProfileGameCenterKey;
     public String mPubEnvValue;
     public HashMap mRoomDraft;
@@ -246,14 +246,14 @@ public final class TbSingleton {
     public boolean mTipsAutoPlayInVideoChannel;
     public boolean mTipsAutoPlayInVideoMiddle;
     public JSONArray mUbsABTestJsonArray;
-    public ai8 mUploadAndClearModule;
+    public bi8 mUploadAndClearModule;
     public Bitmap mVideoCurrentFrame;
     public LinkedList<gp4> mVideoWatchTimeRecord;
     public String mWalletSignLink;
     public h35 mWlConfigData;
     public String mWorldCupSponsorFlag;
     public YYLiveConfig mYYLiveConfig;
-    public ce9 mYYLiveTabConfig;
+    public de9 mYYLiveTabConfig;
     public boolean needRefreshForumSquare;
     public JSONObject newGodDataJson;
     public boolean personalizedRecSwitchChanged;
@@ -811,13 +811,13 @@ public final class TbSingleton {
         return (Map) invokeV.objValue;
     }
 
-    public ar8 getFrsResponseData() {
+    public br8 getFrsResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return this.mFrsResponseData;
         }
-        return (ar8) invokeV.objValue;
+        return (br8) invokeV.objValue;
     }
 
     public Map<String, Date> getHasShowTip() {
@@ -1092,11 +1092,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            ai8 ai8Var = this.mUploadAndClearModule;
-            if (ai8Var == null) {
+            bi8 bi8Var = this.mUploadAndClearModule;
+            if (bi8Var == null) {
                 return null;
             }
-            return ai8Var.a();
+            return bi8Var.a();
         }
         return (String) invokeV.objValue;
     }
@@ -1150,13 +1150,13 @@ public final class TbSingleton {
         return (au4) invokeV.objValue;
     }
 
-    public zf8 getPcdnConfigData() {
+    public ag8 getPcdnConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
             return this.mPcdnConfigData;
         }
-        return (zf8) invokeV.objValue;
+        return (ag8) invokeV.objValue;
     }
 
     public int getPersonalizedRecSwitch() {
@@ -1486,13 +1486,13 @@ public final class TbSingleton {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public ce9 getYYLiveTabConfig() {
+    public de9 getYYLiveTabConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
             return this.mYYLiveTabConfig;
         }
-        return (ce9) invokeV.objValue;
+        return (de9) invokeV.objValue;
     }
 
     public boolean hasAgreeToPlay() {
@@ -1562,11 +1562,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
-            ai8 ai8Var = this.mUploadAndClearModule;
-            if (ai8Var == null) {
+            bi8 bi8Var = this.mUploadAndClearModule;
+            if (bi8Var == null) {
                 return false;
             }
-            return ai8Var.b();
+            return bi8Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -1810,11 +1810,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) {
-            ai8 ai8Var = this.mUploadAndClearModule;
-            if (ai8Var == null) {
+            bi8 bi8Var = this.mUploadAndClearModule;
+            if (bi8Var == null) {
                 return false;
             }
-            return ai8Var.c();
+            return bi8Var.c();
         }
         return invokeV.booleanValue;
     }
@@ -2737,7 +2737,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048825, this, jSONObject) == null) {
             if (this.mPcdnConfigData == null) {
-                this.mPcdnConfigData = new zf8();
+                this.mPcdnConfigData = new ag8();
             }
             this.mPcdnConfigData.d(jSONObject);
         }
@@ -2935,10 +2935,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setUploadAndClearModule(ai8 ai8Var) {
+    public void setUploadAndClearModule(bi8 bi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048855, this, ai8Var) == null) {
-            this.mUploadAndClearModule = ai8Var;
+        if (interceptable == null || interceptable.invokeL(1048855, this, bi8Var) == null) {
+            this.mUploadAndClearModule = bi8Var;
         }
     }
 
@@ -3059,10 +3059,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setYYLiveTabConfig(ce9 ce9Var) {
+    public void setYYLiveTabConfig(de9 de9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048875, this, ce9Var) == null) {
-            this.mYYLiveTabConfig = ce9Var;
+        if (interceptable == null || interceptable.invokeL(1048875, this, de9Var) == null) {
+            this.mYYLiveTabConfig = de9Var;
         }
     }
 
@@ -3477,15 +3477,15 @@ public final class TbSingleton {
         }
     }
 
-    public void setFrsResponseData(ar8 ar8Var) {
+    public void setFrsResponseData(br8 br8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048778, this, ar8Var) == null) {
-            this.mFrsResponseData = ar8Var;
-            if (ar8Var != null && ar8Var.getForum() != null && !TextUtils.isEmpty(ar8Var.getForum().getName())) {
-                if (ar8Var.itemInfo != null) {
-                    this.frsItemInfoCache.put(ar8Var.getForum().getName(), ar8Var.itemInfo);
+        if (interceptable == null || interceptable.invokeL(1048778, this, br8Var) == null) {
+            this.mFrsResponseData = br8Var;
+            if (br8Var != null && br8Var.getForum() != null && !TextUtils.isEmpty(br8Var.getForum().getName())) {
+                if (br8Var.itemInfo != null) {
+                    this.frsItemInfoCache.put(br8Var.getForum().getName(), br8Var.itemInfo);
                 } else {
-                    this.frsItemInfoCache.remove(ar8Var.getForum().getName());
+                    this.frsItemInfoCache.remove(br8Var.getForum().getName());
                 }
             }
         }

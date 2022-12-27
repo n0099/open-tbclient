@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.dr4;
 import com.baidu.tieba.m95;
 import com.baidu.tieba.uf5;
-import com.baidu.tieba.v09;
+import com.baidu.tieba.w09;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -139,7 +139,7 @@ public class InitViewConfigTask extends LaunchTask {
             TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
             TbDimenManager.getInstance().init(AppRuntime.getApplication());
-            v09.c();
+            w09.c();
             initCustomToastView();
         }
     }

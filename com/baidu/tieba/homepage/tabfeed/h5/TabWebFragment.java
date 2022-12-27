@@ -42,6 +42,7 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aq4;
+import com.baidu.tieba.at8;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.gw4;
 import com.baidu.tieba.hl6;
@@ -52,7 +53,6 @@ import com.baidu.tieba.sp4;
 import com.baidu.tieba.ta5;
 import com.baidu.tieba.vp4;
 import com.baidu.tieba.xa5;
-import com.baidu.tieba.xs8;
 import com.baidu.tieba.ye5;
 import com.baidu.tieba.ys8;
 import com.baidu.tieba.zs8;
@@ -78,12 +78,12 @@ public class TabWebFragment extends BaseWebViewFragment implements hl6 {
     public NestedScrollWebView j;
     public FrameLayout k;
     public ViewGroup l;
-    public xs8 m;
+    public ys8 m;
     public boolean n;
     public boolean o;
     public boolean p;
     public boolean q;
-    public zs8 r;
+    public at8 r;
     public CustomMessageListener s;
     public final CustomMessageListener t;
     public final View.OnClickListener u;
@@ -120,7 +120,7 @@ public class TabWebFragment extends BaseWebViewFragment implements hl6 {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements zs8 {
+    public class a implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TabWebFragment a;
@@ -143,7 +143,7 @@ public class TabWebFragment extends BaseWebViewFragment implements hl6 {
             this.a = tabWebFragment;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -685,9 +685,9 @@ public class TabWebFragment extends BaseWebViewFragment implements hl6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
-            xs8 xs8Var = this.m;
-            if (xs8Var != null) {
-                xs8Var.g();
+            ys8 ys8Var = this.m;
+            if (ys8Var != null) {
+                ys8Var.g();
             }
             ta5.e().b();
             g2();
@@ -752,17 +752,17 @@ public class TabWebFragment extends BaseWebViewFragment implements hl6 {
         }
     }
 
-    public final ys8 Y1() {
+    public final zs8 Y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, ys8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, zs8.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (ys8) runTask.getData();
+                return (zs8) runTask.getData();
             }
             return null;
         }
-        return (ys8) invokeV.objValue;
+        return (zs8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.hl6
@@ -849,9 +849,9 @@ public class TabWebFragment extends BaseWebViewFragment implements hl6 {
             }
             this.a = this.g;
             if (this.m == null) {
-                xs8 xs8Var = new xs8();
-                this.m = xs8Var;
-                xs8Var.a(new XiubaTbJsBridge(getPageContext()));
+                ys8 ys8Var = new ys8();
+                this.m = ys8Var;
+                ys8Var.a(new XiubaTbJsBridge(getPageContext()));
                 this.m.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
                 this.m.a(Y1());
             }
@@ -904,9 +904,9 @@ public class TabWebFragment extends BaseWebViewFragment implements hl6 {
                 }
                 e2();
                 this.j.reshow();
-                xs8 xs8Var = this.m;
-                if (xs8Var != null) {
-                    xs8Var.h(this.j, CommonTbJsBridge.RE_SHOW, null);
+                ys8 ys8Var = this.m;
+                if (ys8Var != null) {
+                    ys8Var.h(this.j, CommonTbJsBridge.RE_SHOW, null);
                 }
             } else {
                 MessageManager.getInstance().unRegisterTask(2016568);

@@ -116,7 +116,7 @@ public class p35 {
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            jt8.r();
+            kt8.r();
         }
     }
 
@@ -254,7 +254,7 @@ public class p35 {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            jt8.n();
+            kt8.n();
         }
     }
 

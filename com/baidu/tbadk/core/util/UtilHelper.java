@@ -129,7 +129,7 @@ import com.baidu.tbadk.switchs.VideoSquareMiddlePageSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.aj8;
+import com.baidu.tieba.bj8;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.tieba.ez4;
@@ -2901,7 +2901,7 @@ public class UtilHelper {
                         String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                         boolean z6 = intent.getExtras().getBoolean("is_ad", false);
                         if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                            aj8.a(TbadkCoreApplication.getInst(), string2, fj.c(string2), intent.getExtras().getString("ext_info", ""), null);
+                            bj8.a(TbadkCoreApplication.getInst(), string2, fj.c(string2), intent.getExtras().getString("ext_info", ""), null);
                         } else {
                             w9 c = x9.c(context);
                             if (c instanceof BaseActivity) {

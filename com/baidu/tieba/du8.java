@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class du8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface du8 {
+    void a(TbPageContext<?> tbPageContext);
 
-    public static VoiceManager a(Context context) {
-        InterceptResult invokeL;
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).r0();
-            }
-            if ((x9.a(context) instanceof r9) && (tbPageContext = (TbPageContext) x9.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).r0();
-            }
-            return null;
-        }
-        return (VoiceManager) invokeL.objValue;
-    }
+    void b(String str);
+
+    boolean c(oj ojVar, int i);
+
+    void cancelRecord();
+
+    void d(int i);
+
+    void e(oj ojVar);
+
+    boolean f();
+
+    void release();
+
+    void stopRecord();
 }

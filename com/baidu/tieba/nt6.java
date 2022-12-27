@@ -202,7 +202,7 @@ public class nt6 extends PriorityOrganizer.Task {
             if (iw4.l()) {
                 return false;
             }
-            ar8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            br8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
             FrsViewData frsViewData = new FrsViewData();
             frsViewData.receiveData(frsResponseData);
             if (frsViewData.getForum() != null) {

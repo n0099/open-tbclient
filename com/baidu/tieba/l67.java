@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l67 implements dg8 {
+public class l67 implements eg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public k67 a;
@@ -37,7 +37,7 @@ public class l67 implements dg8 {
     public String k;
     public View.OnClickListener l;
     public View.OnClickListener m;
-    public yf8 n;
+    public zf8 n;
     public int o;
 
     public l67(Context context, ViewGroup viewGroup) {
@@ -114,7 +114,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void changeRenderViewMode(int i) {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public boolean onBackground(boolean z) {
         InterceptResult invokeZ;
         k67 k67Var;
@@ -152,7 +152,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -164,7 +164,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void setFrom(String str) {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void setStageType(String str) {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -200,19 +200,19 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
-    public void setStatistic(yf8 yf8Var) {
+    @Override // com.baidu.tieba.eg8
+    public void setStatistic(zf8 zf8Var) {
         k67 k67Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, yf8Var) == null) {
-            this.n = yf8Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, zf8Var) == null) {
+            this.n = zf8Var;
             if (this.g && (k67Var = this.a) != null) {
-                k67Var.setStatistic(yf8Var);
+                k67Var.setStatistic(zf8Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void setUniqueId(BdUniqueId bdUniqueId) {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         k67 k67Var;
@@ -238,7 +238,7 @@ public class l67 implements dg8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public View getMainView() {
         InterceptResult invokeV;
         k67 k67Var;
@@ -252,7 +252,7 @@ public class l67 implements dg8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         k67 k67Var;
@@ -266,7 +266,7 @@ public class l67 implements dg8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public boolean isPlaying() {
         InterceptResult invokeV;
         k67 k67Var;
@@ -280,7 +280,7 @@ public class l67 implements dg8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public boolean onBackPress() {
         InterceptResult invokeV;
         k67 k67Var;
@@ -312,7 +312,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void onScroll() {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public boolean onVolumeUp() {
         InterceptResult invokeV;
         k67 k67Var;
@@ -353,7 +353,7 @@ public class l67 implements dg8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void startPlay() {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -365,7 +365,7 @@ public class l67 implements dg8 {
         }
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void stopPlay() {
         k67 k67Var;
         Interceptable interceptable = $ic;
@@ -402,7 +402,7 @@ public class l67 implements dg8 {
         return invokeIIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dg8
+    @Override // com.baidu.tieba.eg8
     public void setData(ThreadData threadData) {
         k67 k67Var;
         Interceptable interceptable = $ic;

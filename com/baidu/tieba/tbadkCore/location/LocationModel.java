@@ -10,13 +10,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.it8;
+import com.baidu.tieba.jt8;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.sb;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tf;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.ur8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -178,7 +178,7 @@ public class LocationModel extends BdBaseModel {
     public static void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            tr8.h(303017, LocationSocketResponsedMessage.class, false, false);
+            ur8.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -225,8 +225,8 @@ public class LocationModel extends BdBaseModel {
     public void O(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            it8.a().e(z);
-            ry4.l().v("no_longer_show_address", it8.a().c());
+            jt8.a().e(z);
+            ry4.l().v("no_longer_show_address", jt8.a().c());
         }
     }
 
@@ -240,7 +240,7 @@ public class LocationModel extends BdBaseModel {
     public void N(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = it8.a().b();
+            LocationData b2 = jt8.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -296,8 +296,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             J(locationData);
-            it8.a().f(System.currentTimeMillis());
-            it8.a().d(locationData);
+            jt8.a().f(System.currentTimeMillis());
+            jt8.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

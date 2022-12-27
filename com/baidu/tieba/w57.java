@@ -226,7 +226,7 @@ public class w57 {
             s(z, builder, builder2, i);
             List<ThreadInfo> t = t(builder, i, this.b);
             z57.n(builder);
-            List<AdvertAppInfo> f = zi8.l().f();
+            List<AdvertAppInfo> f = aj8.l().f();
             int i3 = 0;
             if (i != 0 && z && f != null) {
                 i2 = f.size();
@@ -804,9 +804,9 @@ public class w57 {
                         listIterator.add(this.k.get(i5));
                     } else {
                         ThreadData threadData = new ThreadData();
-                        js8 js8Var = new js8();
-                        js8Var.n(true);
-                        threadData.funAdData = js8Var;
+                        ks8 ks8Var = new ks8();
+                        ks8Var.n(true);
+                        threadData.funAdData = ks8Var;
                         listIterator.add(threadData);
                         this.k.add(threadData);
                     }
@@ -861,23 +861,23 @@ public class w57 {
         }
     }
 
-    public void m(List<xn> list, jl8 jl8Var, int i) {
+    public void m(List<xn> list, kl8 kl8Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048588, this, list, jl8Var, i) != null) || ListUtils.isEmpty(list) || jl8Var == null || i < 0) {
+        if ((interceptable != null && interceptable.invokeLLI(1048588, this, list, kl8Var, i) != null) || ListUtils.isEmpty(list) || kl8Var == null || i < 0) {
             return;
         }
         u(list);
         if (i == 0) {
-            l(list, z07.c(jl8Var), jl8Var.a);
+            l(list, z07.c(kl8Var), kl8Var.a);
             return;
         }
         while (i < list.size() && !(list.get(i) instanceof o56) && !(list.get(i) instanceof jt4)) {
             i++;
         }
         if (list.get(i) instanceof o56) {
-            l(list, z07.c(jl8Var), ((o56) list.get(i)).position + 2);
+            l(list, z07.c(kl8Var), ((o56) list.get(i)).position + 2);
         } else if (list.get(i) instanceof jt4) {
-            l(list, z07.c(jl8Var), ((jt4) list.get(i)).j() + 2);
+            l(list, z07.c(kl8Var), ((jt4) list.get(i)).j() + 2);
         }
     }
 
@@ -938,7 +938,7 @@ public class w57 {
                         }
                     } else if (threadInfo2 != null && (l3 = threadInfo2.tid) != null && !hashSet.contains(l3) && !hashSet3.contains(threadInfo2.tid)) {
                         list.add(threadInfo2);
-                        JSONObject b2 = lk8.b(threadInfo2);
+                        JSONObject b2 = mk8.b(threadInfo2);
                         if (b2 != null) {
                             arrayList.add(b2);
                         }
@@ -983,7 +983,7 @@ public class w57 {
                         }
                     } else if (threadInfo3 != null && (l = threadInfo3.tid) != null && ((!hashSet.contains(l) && !hashSet3.contains(threadInfo3.tid)) || threadInfo3.is_highlight.intValue() == 1)) {
                         list.add(0, threadInfo3);
-                        JSONObject b3 = lk8.b(threadInfo3);
+                        JSONObject b3 = mk8.b(threadInfo3);
                         if (b3 != null) {
                             arrayList.add(0, b3);
                         }
@@ -997,7 +997,7 @@ public class w57 {
                         App app = this.i.get(i2);
                         if (app != null) {
                             App.Builder builder4 = new App.Builder(app);
-                            ei8.c(builder4, count3);
+                            fi8.c(builder4, count3);
                             App build = builder4.build(false);
                             this.i.remove(i2);
                             this.i.add(i2, build);
@@ -1019,7 +1019,7 @@ public class w57 {
             int count4 = (ListUtils.getCount(list) + ListUtils.getCount(this.h)) - count;
             this.a.b = count4;
             this.c = count4;
-            lk8.f().h("HOME", arrayList);
+            mk8.f().h("HOME", arrayList);
         }
     }
 

@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ax7;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.tq4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements zw7 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements ax7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements zw7 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.zw7
+    @Override // com.baidu.tieba.ax7
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -188,7 +188,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements zw7 {
         }
     }
 
-    @Override // com.baidu.tieba.zw7
+    @Override // com.baidu.tieba.ax7
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements zw7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zw7
+    @Override // com.baidu.tieba.ax7
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {

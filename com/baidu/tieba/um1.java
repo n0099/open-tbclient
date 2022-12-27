@@ -26,7 +26,7 @@ public class um1 implements cp1 {
 
         /* renamed from: com.baidu.tieba.um1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0449a implements xi3<String> {
+        public class C0451a implements xi3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File a;
@@ -35,18 +35,18 @@ public class um1 implements cp1 {
 
             /* renamed from: com.baidu.tieba.um1$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0450a implements Runnable {
+            public class RunnableC0452a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ File a;
-                public final /* synthetic */ C0449a b;
+                public final /* synthetic */ C0451a b;
 
-                public RunnableC0450a(C0449a c0449a, File file) {
+                public RunnableC0452a(C0451a c0451a, File file) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0449a, file};
+                        Object[] objArr = {c0451a, file};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public class um1 implements cp1 {
                             return;
                         }
                     }
-                    this.b = c0449a;
+                    this.b = c0451a;
                     this.a = file;
                 }
 
@@ -69,7 +69,7 @@ public class um1 implements cp1 {
                 }
             }
 
-            public C0449a(a aVar, File file, String str) {
+            public C0451a(a aVar, File file, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class um1 implements cp1 {
                         ik4.j(file2);
                         ik4.X(file.getAbsolutePath(), file2.getAbsolutePath());
                         ik4.L(file);
-                        yh3.a0(new RunnableC0450a(this, file2));
+                        yh3.a0(new RunnableC0452a(this, file2));
                     } catch (Exception e) {
                         e12.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
                         w33.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f12f5)).G();
@@ -141,7 +141,7 @@ public class um1 implements cp1 {
                 } else if (!X2.exists() && !X2.mkdirs()) {
                     e12.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + X2.getAbsolutePath());
                 } else {
-                    xg3.i(this.a, new C0449a(this, X2, xg3.l(this.a) + "===== 启动信息 =====\n"));
+                    xg3.i(this.a, new C0451a(this, X2, xg3.l(this.a) + "===== 启动信息 =====\n"));
                 }
             }
         }

@@ -1,26 +1,14 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes9.dex */
 public final class PbLinkInfo extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_EXTTXT = "";
     public static final String DEFAULT_LINKFROM = "";
     public static final String DEFAULT_PICURL = "";
-    public static final Integer DEFAULT_SORT;
     public static final String DEFAULT_TITLE = "";
     public static final String DEFAULT_TOURL = "";
-    public static final Integer DEFAULT_URLTYPE;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String extTxt;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -35,17 +23,11 @@ public final class PbLinkInfo extends Message {
     public final String toUrl;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
     public final Integer urlType;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Integer DEFAULT_SORT = 0;
+    public static final Integer DEFAULT_URLTYPE = 0;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<PbLinkInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String extTxt;
         public String linkFrom;
         public String picUrl;
@@ -55,37 +37,10 @@ public final class PbLinkInfo extends Message {
         public Integer urlType;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(PbLinkInfo pbLinkInfo) {
             super(pbLinkInfo);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbLinkInfo};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (pbLinkInfo == null) {
                 return;
             }
@@ -101,50 +56,12 @@ public final class PbLinkInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PbLinkInfo build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new PbLinkInfo(this, z, null);
-            }
-            return (PbLinkInfo) invokeZ.objValue;
+            return new PbLinkInfo(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1941608777, "Lprotobuf/PbLinkInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1941608777, "Lprotobuf/PbLinkInfo;");
-                return;
-            }
-        }
-        DEFAULT_SORT = 0;
-        DEFAULT_URLTYPE = 0;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbLinkInfo(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             String str = builder.title;
             if (str == null) {
@@ -198,9 +115,5 @@ public final class PbLinkInfo extends Message {
         this.extTxt = builder.extTxt;
         this.sort = builder.sort;
         this.urlType = builder.urlType;
-    }
-
-    public /* synthetic */ PbLinkInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

@@ -33,7 +33,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerListener, se6 {
+public class ue6 implements re6, PreViewPickCoverView.c, q69, OnChangeStickerListener, se6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -45,7 +45,7 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
     public float g;
     public TbMultiMediaData h;
     public List<MultiMediaData> i;
-    public i09 j;
+    public j09 j;
     public MultiMediaData k;
     public MultiMediaData l;
     public TextWordsEntity m;
@@ -56,7 +56,7 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
     @Nullable
     public List<MultiMediaData> r;
 
-    @Override // com.baidu.tieba.p69
+    @Override // com.baidu.tieba.q69
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
@@ -167,10 +167,10 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null && this.a.b.isPaused()) {
                 if (this.a.l != null) {
-                    en9.a().post(new a(this, BitmapFactory.decodeFile(this.a.l.path)));
+                    fn9.a().post(new a(this, BitmapFactory.decodeFile(this.a.l.path)));
                     return;
                 }
-                en9.a().post(new b(this));
+                fn9.a().post(new b(this));
             }
         }
     }
@@ -352,9 +352,9 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
             if (vlogEditManager != null) {
                 vlogEditManager.deleteCoverStickerData(multiMediaData);
             }
-            i09 i09Var = this.j;
-            if (i09Var != null) {
-                i09Var.b(multiMediaData);
+            j09 j09Var = this.j;
+            if (j09Var != null) {
+                j09Var.b(multiMediaData);
             }
         }
     }
@@ -396,7 +396,7 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
         }
     }
 
-    @Override // com.baidu.tieba.p69
+    @Override // com.baidu.tieba.q69
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
@@ -470,7 +470,7 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
         }
     }
 
-    @Override // com.baidu.tieba.p69
+    @Override // com.baidu.tieba.q69
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -499,9 +499,9 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
             if (preViewPickCoverView != null) {
                 preViewPickCoverView.n();
             }
-            i09 i09Var = this.j;
-            if (i09Var != null) {
-                i09Var.e();
+            j09 j09Var = this.j;
+            if (j09Var != null) {
+                j09Var.e();
             }
         }
     }
@@ -556,14 +556,14 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == null) {
             return;
         }
-        int j = dn9.j(R.dimen.tbds32);
+        int j = en9.j(R.dimen.tbds32);
         if (this.d.getWidth() > this.d.getHeight()) {
-            j = dn9.j(R.dimen.tbds28);
+            j = en9.j(R.dimen.tbds28);
         }
-        e09.d().k((int) (j * 1.0f));
-        i09 i09Var = new i09(this.a.getPageActivity(), this.b);
-        this.j = i09Var;
-        i09Var.i("cover_sticker");
+        f09.d().k((int) (j * 1.0f));
+        j09 j09Var = new j09(this.a.getPageActivity(), this.b);
+        this.j = j09Var;
+        j09Var.i("cover_sticker");
         TbGLMediaPreviewView tbGLMediaPreviewView = this.d;
         if (tbGLMediaPreviewView != null) {
             this.j.j(tbGLMediaPreviewView.getWidth(), this.d.getHeight());
@@ -673,7 +673,7 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
             if (this.k == null) {
                 MultiMediaData multiMediaData = new MultiMediaData();
                 this.k = multiMediaData;
-                multiMediaData.setExt("text", dn9.l(R.string.obfuscated_res_0x7f0f1533));
+                multiMediaData.setExt("text", en9.l(R.string.obfuscated_res_0x7f0f1533));
                 this.i.add(this.k);
                 this.j.f(-1);
             } else {
@@ -718,9 +718,9 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
             }
             this.k = (MultiMediaData) arrayList.get(arrayList.size() - 1);
             this.i.addAll(arrayList);
-            i09 i09Var = this.j;
-            if (i09Var != null) {
-                i09Var.c(arrayList);
+            j09 j09Var = this.j;
+            if (j09Var != null) {
+                j09Var.c(arrayList);
             } else {
                 this.d.post(new b(this, arrayList));
             }
@@ -758,7 +758,7 @@ public class ue6 implements re6, PreViewPickCoverView.c, p69, OnChangeStickerLis
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{multiMediaData, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             MultiMediaData multiMediaData2 = this.k;
             if (multiMediaData2 != null) {
-                multiMediaData2.setExt("text", dn9.l(R.string.obfuscated_res_0x7f0f1533));
+                multiMediaData2.setExt("text", en9.l(R.string.obfuscated_res_0x7f0f1533));
             }
             this.k = null;
             this.e.h();

@@ -36,13 +36,13 @@ public class hv1 extends dv1 {
 
         /* renamed from: com.baidu.tieba.hv1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0303a implements xi3<h93<j93.e>> {
+        public class C0304a implements xi3<h93<j93.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gs1.b a;
             public final /* synthetic */ a b;
 
-            public C0303a(a aVar, gs1.b bVar) {
+            public C0304a(a aVar, gs1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class hv1 extends dv1 {
                 if (b0 == null) {
                     return new ew1(1001, "null swan runtime");
                 }
-                b0.e0().g(d43.K(), "mapp_i_get_common_sys_info", new C0303a(this, bVar));
+                b0.e0().g(d43.K(), "mapp_i_get_common_sys_info", new C0304a(this, bVar));
                 return new ew1(0);
             }
             return (ew1) invokeLL.objValue;

@@ -93,12 +93,12 @@ public class bf3 extends ye3 {
 
         /* renamed from: com.baidu.tieba.bf3$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0224b implements ve3 {
+        public class C0228b implements ve3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0224b(b bVar) {
+            public C0228b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -299,9 +299,9 @@ public class bf3 extends ye3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0224b c0224b = new C0224b(this);
-            this.g = c0224b;
-            bf3Var.c.setConnectListener(c0224b);
+            C0228b c0228b = new C0228b(this);
+            this.g = c0228b;
+            bf3Var.c.setConnectListener(c0228b);
         }
 
         @Override // com.baidu.tieba.ze3

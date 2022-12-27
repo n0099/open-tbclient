@@ -46,13 +46,13 @@ public class vi5 {
 
         /* renamed from: com.baidu.tieba.vi5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0458a implements Runnable {
+        public class RunnableC0460a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lk0 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0458a(a aVar, lk0 lk0Var) {
+            public RunnableC0460a(a aVar, lk0 lk0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +75,7 @@ public class vi5 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if ((this.b.a.b instanceof su8) && ((su8) this.b.a.b).d0().l()) {
+                    if ((this.b.a.b instanceof tu8) && ((tu8) this.b.a.b).d0().l()) {
                         return;
                     }
                     this.b.a.s(this.a);
@@ -115,7 +115,7 @@ public class vi5 {
                 if (TbSingleton.getExceptInsertAdDiaShow()) {
                     return null;
                 }
-                if ((this.a.b instanceof su8) && ((su8) this.a.b).d0().l()) {
+                if ((this.a.b instanceof tu8) && ((tu8) this.a.b).d0().l()) {
                     return null;
                 }
                 Iterator it = this.a.a.iterator();
@@ -125,7 +125,7 @@ public class vi5 {
                     }
                     lk0 lk0Var = (lk0) it.next();
                     if (lk0Var != null && lk0Var.p != null && lk0Var.c == AdDownloadStatus.COMPLETED && this.a.n(lk0Var)) {
-                        ah.a().post(new RunnableC0458a(this, lk0Var));
+                        ah.a().post(new RunnableC0460a(this, lk0Var));
                         break;
                     }
                 }

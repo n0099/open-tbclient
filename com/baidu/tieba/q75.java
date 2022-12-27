@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.tieba.h85;
-import com.baidu.tieba.or8;
+import com.baidu.tieba.pr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,11 +95,11 @@ public class q75 {
         if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (t75Var = this.e) == null) {
             return;
         }
-        t75Var.d(new or8.h() { // from class: com.baidu.tieba.o75
+        t75Var.d(new pr8.h() { // from class: com.baidu.tieba.o75
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.or8.h
+            @Override // com.baidu.tieba.pr8.h
             public final void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {

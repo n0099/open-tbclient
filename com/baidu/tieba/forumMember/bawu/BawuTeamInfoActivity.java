@@ -11,7 +11,7 @@ import com.baidu.tieba.ph6;
 import com.baidu.tieba.qh6;
 import com.baidu.tieba.rh6;
 import com.baidu.tieba.th6;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.ur8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -148,9 +148,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            tr8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            tr8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            tr8.b(2003005, qh6.class);
+            ur8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            ur8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            ur8.b(2003005, qh6.class);
         }
     }
 

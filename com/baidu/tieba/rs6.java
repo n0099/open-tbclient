@@ -59,7 +59,7 @@ public class rs6 extends ck6<ICardInfo, LegoItemHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            nm7 a = sl7.h().a(this.c, this.l, 1);
+            om7 a = tl7.h().a(this.c, this.l, 1);
             if (a == null) {
                 return null;
             }
@@ -79,7 +79,7 @@ public class rs6 extends ck6<ICardInfo, LegoItemHolder> {
             super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) iCardInfo, (ICardInfo) legoItemHolder);
             View view3 = legoItemHolder.getView();
             if (view3 != null && iCardInfo != null) {
-                ((nm7) view3).update(iCardInfo);
+                ((om7) view3).update(iCardInfo);
             }
             return view3;
         }

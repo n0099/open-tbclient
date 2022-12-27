@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.ab6;
+import com.baidu.tieba.at8;
 import com.baidu.tieba.bb6;
 import com.baidu.tieba.fb6;
 import com.baidu.tieba.gb6;
 import com.baidu.tieba.gy4;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.xs8;
+import com.baidu.tieba.ys8;
 import com.baidu.tieba.za6;
-import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ public class EasterEggH5Service extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public EasterEggBridge eggBridge;
     public Gson gson;
-    public xs8 jsBridge;
+    public ys8 jsBridge;
     public fb6 mHttpRule;
     public gb6 mSocketRule;
     public BdUniqueId mTag;
@@ -299,7 +299,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements zs8 {
+    public class f implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -322,7 +322,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -380,7 +380,7 @@ public class EasterEggH5Service extends Service {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
                 this.mWebView = new BaseWebView(this);
-                this.jsBridge = new xs8();
+                this.jsBridge = new ys8();
                 this.mWebView.initCommonJsBridge(this);
                 if (Build.VERSION.SDK_INT >= 21) {
                     this.mWebView.getSettings().setMixedContentMode(0);

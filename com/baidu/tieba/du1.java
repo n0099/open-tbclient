@@ -51,12 +51,12 @@ public class du1 extends bu1 {
 
         /* renamed from: com.baidu.tieba.du1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0255a implements xi3<h93<JSONObject>> {
+        public class C0257a implements xi3<h93<JSONObject>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gs1.b a;
 
-            public C0255a(a aVar, gs1.b bVar) {
+            public C0257a(a aVar, gs1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class du1 extends bu1 {
                     return new ew1(10002, "network_error");
                 }
                 m93 e = d43.K().x().a().b().e(this.e.getContext());
-                e.o(new C0255a(this, bVar));
+                e.o(new C0257a(this, bVar));
                 e.call();
                 return new ew1(0);
             }

@@ -23,13 +23,13 @@ public class wb1 {
 
         /* renamed from: com.baidu.tieba.wb1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0472a extends oc1 {
+        public class C0473a extends oc1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
             public final /* synthetic */ a b;
 
-            public C0472a(a aVar, JSONArray jSONArray) {
+            public C0473a(a aVar, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class wb1 {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (c = wb1.c()) == null) {
                 return;
             }
-            sb1.d(c, new C0472a(this, c));
+            sb1.d(c, new C0473a(this, c));
         }
     }
 

@@ -39,13 +39,13 @@ public class m34 extends k34 {
 
         /* renamed from: com.baidu.tieba.m34$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0350a implements Runnable {
+        public class RunnableC0351a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
             public final /* synthetic */ a b;
 
-            public RunnableC0350a(a aVar, JSONObject jSONObject) {
+            public RunnableC0351a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,7 +152,7 @@ public class m34 extends k34 {
                 if (k34.a) {
                     Log.d("OpenDataApi", "on success");
                 }
-                this.c.b.post(new RunnableC0350a(this, jSONObject));
+                this.c.b.post(new RunnableC0351a(this, jSONObject));
             }
         }
 
@@ -236,12 +236,12 @@ public class m34 extends k34 {
 
         /* renamed from: com.baidu.tieba.m34$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0351b implements Runnable {
+        public class RunnableC0352b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0351b(b bVar) {
+            public RunnableC0352b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -349,7 +349,7 @@ public class m34 extends k34 {
                     s34Var.errNo = "100";
                     s34Var.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
                 }
-                this.c.b.post(new RunnableC0351b(this));
+                this.c.b.post(new RunnableC0352b(this));
             }
         }
     }
