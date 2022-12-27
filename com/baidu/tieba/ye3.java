@@ -137,13 +137,13 @@ public abstract class ye3 implements ze3, af3 {
 
         /* renamed from: com.baidu.tieba.ye3$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0491c implements Runnable {
+        public class RunnableC0495c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ xi3 a;
             public final /* synthetic */ c b;
 
-            public RunnableC0491c(c cVar, xi3 xi3Var) {
+            public RunnableC0495c(c cVar, xi3 xi3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +268,7 @@ public abstract class ye3 implements ze3, af3 {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xi3Var) != null) || xi3Var == null) {
                 return;
             }
-            yg3.k(new RunnableC0491c(this, xi3Var), "wifiScan");
+            yg3.k(new RunnableC0495c(this, xi3Var), "wifiScan");
         }
 
         @Override // com.baidu.tieba.af3

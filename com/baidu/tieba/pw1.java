@@ -21,7 +21,7 @@ public class pw1 extends ow1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public h3a c;
+    public i3a c;
 
     /* loaded from: classes5.dex */
     public class a implements xi3<h93<j93.e>> {
@@ -174,7 +174,7 @@ public class pw1 extends ow1 {
                 return false;
             }
             yw1 yw1Var = (yw1) r(unitedSchemeEntity);
-            h3a w = new d02(context, yw1Var).w();
+            i3a w = new d02(context, yw1Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,12 +198,12 @@ public class pw1 extends ow1 {
                 String str = yw1Var.b;
                 ku2 ku2Var = yw1Var.h;
                 if (!TextUtils.isEmpty(str) && ku2Var != null && ku2Var.h()) {
-                    h3a h3aVar = this.c;
-                    if (h3aVar == null) {
+                    i3a i3aVar = this.c;
+                    if (i3aVar == null) {
                         x02.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    h3aVar.onCompleted();
+                    i3aVar.onCompleted();
                     e12.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

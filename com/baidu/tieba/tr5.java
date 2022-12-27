@@ -44,7 +44,7 @@ public class tr5 extends ji0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ni0Var, map, ri0Var)) == null) {
             super.b(context, ni0Var, map, ri0Var);
-            return aj8.d(context, ni0Var.d());
+            return bj8.d(context, ni0Var.d());
         }
         return invokeLLLL.booleanValue;
     }

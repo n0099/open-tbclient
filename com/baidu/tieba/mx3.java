@@ -48,7 +48,7 @@ public class mx3 extends EventTargetImpl implements jx3 {
 
         /* renamed from: com.baidu.tieba.mx3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0363a implements dj3 {
+        public class C0365a implements dj3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -60,7 +60,7 @@ public class mx3 extends EventTargetImpl implements jx3 {
                 }
             }
 
-            public C0363a(a aVar) {
+            public C0365a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class mx3 extends EventTargetImpl implements jx3 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0363a(this);
+                        this.a.k = new C0365a(this);
                         mx3.L(this.a.k);
                     }
                 } else if (this.a.e != null) {

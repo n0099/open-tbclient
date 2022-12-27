@@ -86,7 +86,7 @@ public class g27 {
     public RotateAnimation t;
     public boolean u;
     public boolean v;
-    public of8 w;
+    public pf8 w;
     public int x;
     public int y;
     public boolean z;
@@ -856,10 +856,10 @@ public class g27 {
     }
 
     public void N() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (of8Var = this.w) != null && this.A) {
-            of8Var.n(this.x, this.y, this.v, true);
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (pf8Var = this.w) != null && this.A) {
+            pf8Var.n(this.x, this.y, this.v, true);
         }
     }
 
@@ -907,10 +907,10 @@ public class g27 {
     }
 
     public void o0() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && (of8Var = this.w) != null) {
-            of8Var.y();
+        if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && (pf8Var = this.w) != null) {
+            pf8Var.y();
         }
     }
 
@@ -998,9 +998,9 @@ public class g27 {
             if (rotateAnimation2 != null) {
                 rotateAnimation2.cancel();
             }
-            of8 of8Var = this.w;
-            if (of8Var != null) {
-                of8Var.h();
+            pf8 pf8Var = this.w;
+            if (pf8Var != null) {
+                pf8Var.h();
             }
             u();
             MessageManager.getInstance().unRegisterListener(this.K);
@@ -1085,9 +1085,9 @@ public class g27 {
             }
             this.E.o(this.b);
             this.C = new va6();
-            of8 of8Var = new of8(this.b, this.d);
-            this.w = of8Var;
-            of8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            pf8 pf8Var = new pf8(this.b, this.d);
+            this.w = pf8Var;
+            pf8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.w.u(this.B);
             this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090cce);
             k57 k57Var = new k57(this.b);
@@ -1122,11 +1122,11 @@ public class g27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.z = z;
-            of8 of8Var = this.w;
-            if (of8Var == null) {
+            pf8 pf8Var = this.w;
+            if (pf8Var == null) {
                 return;
             }
-            of8Var.r(!z);
+            pf8Var.r(!z);
             ThreadCardViewHolder w = w();
             boolean z2 = false;
             if (w != null && w.a() != null) {
@@ -1319,8 +1319,8 @@ public class g27 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            of8 of8Var = this.w;
-            if (of8Var != null && of8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
+            pf8 pf8Var = this.w;
+            if (pf8Var != null && pf8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
                 return (ThreadCardViewHolder) this.w.j().getTag();
             }
             return null;

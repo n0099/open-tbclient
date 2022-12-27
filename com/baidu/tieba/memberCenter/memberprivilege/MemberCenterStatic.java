@@ -52,10 +52,10 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import com.baidu.tieba.pt7;
 import com.baidu.tieba.qt7;
-import com.baidu.tieba.rr7;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.rt7;
+import com.baidu.tieba.sr7;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.x65;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
@@ -99,7 +99,7 @@ public class MemberCenterStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001342, new qt7(customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001342, new rt7(customMessage.getData(), 1));
                 }
                 return null;
             }
@@ -132,7 +132,7 @@ public class MemberCenterStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001343, new pt7(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001343, new qt7(customMessage.getData()));
                 }
                 return null;
             }
@@ -248,7 +248,7 @@ public class MemberCenterStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001339, new rr7(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001339, new sr7(customMessage.getData()));
                 }
                 return null;
             }
@@ -611,8 +611,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            tr8.h(i3, cls2, false, false);
-            tr8.c(i3, i2, str, cls, false, false, false, false);
+            ur8.h(i3, cls2, false, false);
+            ur8.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

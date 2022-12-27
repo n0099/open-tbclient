@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -145,10 +144,10 @@ public class z18 extends kn<w56, ThreadCardViewHolder<w56>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             oy.b bVar = new oy.b(this.b.getPageActivity(), false);
             bVar.l().k(true);
-            by byVar = new by(this.b.getPageActivity());
-            byVar.u("pb");
-            byVar.v(this.c);
-            bVar.n(byVar);
+            yx yxVar = new yx(this.b.getPageActivity());
+            yxVar.w("pb");
+            yxVar.x(this.c);
+            bVar.n(yxVar);
             oy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.s(0);
             ThreadCardViewHolder<w56> threadCardViewHolder = new ThreadCardViewHolder<>(k);
@@ -172,14 +171,7 @@ public class z18 extends kn<w56, ThreadCardViewHolder<w56>> {
                 threadCardViewHolder.e(w56Var);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().q(this.e);
-                by byVar = (by) threadCardViewHolder.a().g();
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) byVar.f.d.getLayoutParams();
-                layoutParams.width = w56Var.j;
-                layoutParams.height = w56Var.k;
-                if (byVar.f.d.getVisibility() != 8) {
-                    byVar.f.d.setLayoutParams(layoutParams);
-                }
-                i78.n(w56Var, this.b);
+                j78.n(w56Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -191,11 +183,11 @@ public class z18 extends kn<w56, ThreadCardViewHolder<w56>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, w56Var) == null) {
             if (view2.getId() == R.id.thread_card_root) {
-                i78.m(w56Var, 1, this.b);
+                j78.m(w56Var, 1, this.b);
             } else if (view2 instanceof TbImageView) {
-                i78.m(w56Var, 3, this.b);
+                j78.m(w56Var, 3, this.b);
             } else if (view2.getId() == R.id.thread_card_title || view2.getId() == R.id.thread_card_abstract) {
-                i78.m(w56Var, 1, this.b);
+                j78.m(w56Var, 1, this.b);
             }
         }
     }

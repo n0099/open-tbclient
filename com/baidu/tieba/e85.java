@@ -41,7 +41,7 @@ public class e85 implements b85 {
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, ru8.KPSwitchPanelLayout);
+                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, su8.KPSwitchPanelLayout);
                 this.c = typedArray.getBoolean(0, false);
             } finally {
                 if (typedArray != null) {

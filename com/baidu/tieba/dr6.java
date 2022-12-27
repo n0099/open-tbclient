@@ -130,7 +130,7 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
     public FrsFragment b;
     public Runnable b0;
     public FrsTabHostFragment c;
-    public ar8 d;
+    public br8 d;
     public cl6 e;
     public boolean f;
     public final Handler g;
@@ -326,7 +326,7 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.a != null) {
-                    m18.a(this.b.a.a.getPageContext(), this.a).show();
+                    n18.a(this.b.a.a.getPageContext(), this.a).show();
                 }
             }
         }
@@ -465,10 +465,10 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ku8)) {
-                ku8 ku8Var = (ku8) customResponsedMessage.getData();
-                if (this.a.x != null && ku8Var != null && TbadkCoreApplication.isLogin()) {
-                    this.a.x.f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ku8Var.a));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lu8)) {
+                lu8 lu8Var = (lu8) customResponsedMessage.getData();
+                if (this.a.x != null && lu8Var != null && TbadkCoreApplication.isLogin()) {
+                    this.a.x.f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(lu8Var.a));
                 }
             }
         }
@@ -827,29 +827,29 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
 
         @Override // com.baidu.tieba.qb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ar8 ar8Var;
+            br8 br8Var;
             int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && !this.a.f && !responsedMessage.hasError() && responsedMessage.getError() == 0) {
                 if (responsedMessage instanceof FrsPageHttpResponseMessage) {
                     FrsPageHttpResponseMessage frsPageHttpResponseMessage = (FrsPageHttpResponseMessage) responsedMessage;
-                    ar8Var = frsPageHttpResponseMessage.getResponseData();
+                    br8Var = frsPageHttpResponseMessage.getResponseData();
                     i = frsPageHttpResponseMessage.getUpdateType();
                 } else if (responsedMessage instanceof FRSPageSocketResponsedMessage) {
                     FRSPageSocketResponsedMessage fRSPageSocketResponsedMessage = (FRSPageSocketResponsedMessage) responsedMessage;
-                    ar8Var = fRSPageSocketResponsedMessage.getResponseData();
+                    br8Var = fRSPageSocketResponsedMessage.getResponseData();
                     i = fRSPageSocketResponsedMessage.getUpdateType();
                 } else {
-                    ar8Var = null;
+                    br8Var = null;
                     i = -1;
                 }
-                if (ar8Var == null) {
+                if (br8Var == null) {
                     return;
                 }
                 this.a.f = true;
-                this.a.p0(ar8Var, true, i);
-                if (ar8Var != null && ar8Var.getForum() != null && !StringUtils.isNull(ar8Var.getForum().getId())) {
-                    qr4.b().l("2", ar8Var.getForum().getId());
+                this.a.p0(br8Var, true, i);
+                if (br8Var != null && br8Var.getForum() != null && !StringUtils.isNull(br8Var.getForum().getId())) {
+                    qr4.b().l("2", br8Var.getForum().getId());
                 }
             }
         }
@@ -886,12 +886,12 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
                 return;
             }
             if (i == 506) {
-                tz8.b(this.a.F, 800);
+                uz8.b(this.a.F, 800);
                 return;
             }
             this.a.F.setAlpha(1.0f);
             if (this.a.F.getVisibility() != 0) {
-                tz8.d(this.a.F, 800);
+                uz8.d(this.a.F, 800);
             }
         }
     }
@@ -1090,12 +1090,12 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !this.a.f && this.a.d == null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ar8)) {
-                ar8 ar8Var = (ar8) customResponsedMessage.getData();
-                if (ar8Var.getForum() == null || this.a.h == null || !this.a.h.equals(ar8Var.getForum().getName())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !this.a.f && this.a.d == null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof br8)) {
+                br8 br8Var = (br8) customResponsedMessage.getData();
+                if (br8Var.getForum() == null || this.a.h == null || !this.a.h.equals(br8Var.getForum().getName())) {
                     return;
                 }
-                this.a.p0(ar8Var, false, -1);
+                this.a.p0(br8Var, false, -1);
             }
         }
     }
@@ -1452,13 +1452,13 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
         return (FragmentTabHost) invokeV.objValue;
     }
 
-    public ar8 W() {
+    public br8 W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.d;
         }
-        return (ar8) invokeV.objValue;
+        return (br8) invokeV.objValue;
     }
 
     public boolean c0() {
@@ -1898,9 +1898,9 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
     }
 
     public void o0(String str) {
-        ar8 ar8Var;
+        br8 br8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048610, this, str) == null) && (ar8Var = this.d) != null && ar8Var.getForum() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048610, this, str) == null) && (br8Var = this.d) != null && br8Var.getForum() != null) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.d.getForum().getId()).param("obj_type", 2));
         }
     }
@@ -1950,11 +1950,11 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
     }
 
     public final void q0() {
-        ar8 ar8Var;
+        br8 br8Var;
         ThemeColorInfo themeColorInfo;
         ThemeElement themeElement;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && (ar8Var = this.d) != null && (themeColorInfo = ar8Var.getForum().getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
+        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && (br8Var = this.d) != null && (themeColorInfo = br8Var.getForum().getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 4) {
                 themeElement = themeColorInfo.dark;
@@ -2094,14 +2094,14 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
                     int intExtra = intent.getIntExtra("extra_share_status", 2);
                     int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
                     if (intExtra == 1) {
-                        ci8.g().m(this.a.getPageContext());
+                        di8.g().m(this.a.getPageContext());
                         ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                         if (shareItem != null && (str = shareItem.x) != null && (shareSuccessReplyToServerModel = this.m) != null) {
                             shareSuccessReplyToServerModel.G(str, intExtra2, new r(this));
                         }
                     }
                 } else if (i2 == 13011) {
-                    ci8.g().m(this.a.getPageContext());
+                    di8.g().m(this.a.getPageContext());
                 } else if (i2 == 25064) {
                     FrsTabHostFragment frsTabHostFragment2 = this.c;
                     if (frsTabHostFragment2 != null && frsTabHostFragment2.Y1() != null) {
@@ -2117,17 +2117,17 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
         }
     }
 
-    public final void p0(ar8 ar8Var, boolean z2, int i2) {
+    public final void p0(br8 br8Var, boolean z2, int i2) {
         FrsActivity frsActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{ar8Var, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) && ar8Var != null && ar8Var.getForum() != null && (frsActivity = this.a) != null && frsActivity.getPageContext() != null) {
-            this.d = ar8Var;
+        if ((interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{br8Var, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) && br8Var != null && br8Var.getForum() != null && (frsActivity = this.a) != null && frsActivity.getPageContext() != null) {
+            this.d = br8Var;
             gw6 gw6Var = this.E;
             if (gw6Var != null) {
-                gw6Var.c(ar8Var);
+                gw6Var.c(br8Var);
             }
-            TbSingleton.getInstance().setFrsResponseData(ar8Var);
-            ForumData forum = ar8Var.getForum();
+            TbSingleton.getInstance().setFrsResponseData(br8Var);
+            ForumData forum = br8Var.getForum();
             if (z2 && forum != null && !TextUtils.isEmpty(forum.getId())) {
                 FrsVideoTabPlayActivityConfig.addFrsPageCount(forum.getId());
             }
@@ -2141,7 +2141,7 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
                 this.w = true;
                 ah.a().postDelayed(new h(this), 30000L);
             }
-            if (ListUtils.getCount(ar8Var.getGameTabInfo()) > 0) {
+            if (ListUtils.getCount(br8Var.getGameTabInfo()) > 0) {
                 this.g.post(new i(this));
             } else if (c0()) {
                 this.g.post(new j(this));
@@ -2203,8 +2203,8 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
             if (zv6Var2 != null) {
                 zv6Var2.n();
             }
-            ar8 ar8Var = this.d;
-            if (ar8Var != null && ar8Var.getForum() != null && (zv6Var = this.x) != null) {
+            br8 br8Var = this.d;
+            if (br8Var != null && br8Var.getForum() != null && (zv6Var = this.x) != null) {
                 zv6Var.e(xg.g(this.d.getForum().getId(), 0L));
             }
             ah.a().removeCallbacks(this.b0);
@@ -2296,9 +2296,9 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
     }
 
     public final void x0() {
-        ar8 ar8Var;
+        br8 br8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && (ar8Var = this.d) != null && ar8Var.getEntelechyTabInfo() != null && this.d.getEntelechyTabInfo().a != null) {
+        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && (br8Var = this.d) != null && br8Var.getEntelechyTabInfo() != null && this.d.getEntelechyTabInfo().a != null) {
             if (this.a.getIntent() != null && FrsActivityConfig.FRS_FROM_ITEM.equals(this.a.getIntent().getStringExtra("from"))) {
                 return;
             }
@@ -2318,10 +2318,10 @@ public class dr6 implements wp5, VoiceManager.j, FrsCommonImageLayout.e {
     }
 
     public final void w0(Fragment fragment, int i2) {
-        ar8 ar8Var;
+        br8 br8Var;
         NavigationBar P0;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048618, this, fragment, i2) != null) || !(fragment instanceof kl6) || (ar8Var = this.d) == null || ar8Var.getForum() == null || (P0 = ((kl6) fragment).P0()) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048618, this, fragment, i2) != null) || !(fragment instanceof kl6) || (br8Var = this.d) == null || br8Var.getForum() == null || (P0 = ((kl6) fragment).P0()) == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();

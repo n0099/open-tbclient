@@ -633,7 +633,7 @@ public class ig6 {
                     q95Var.e = collectEmotionData.thumbnail;
                     q95Var.b = collectEmotionData.width;
                     q95Var.c = collectEmotionData.height;
-                    mw7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + q95Var.d);
+                    nw7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + q95Var.d);
                     new k(this.a, null).execute(q95Var);
                 }
             }
@@ -866,7 +866,7 @@ public class ig6 {
     public void h(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
-            if (pw7.o().p()) {
+            if (qw7.o().p()) {
                 yi.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0606);
                 return;
             }
@@ -933,7 +933,7 @@ public class ig6 {
             if (ListUtils.isEmpty(list) && lVar != null) {
                 lVar.onResult(4, 0, 0);
             }
-            if (pw7.o().p() && lVar != null) {
+            if (qw7.o().p() && lVar != null) {
                 yi.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0606);
                 lVar.onResult(4, 0, 0);
                 return;
@@ -1002,7 +1002,7 @@ public class ig6 {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
             List<CollectEmotionData> q = q();
             if (q != null && !q.isEmpty()) {
-                mw7.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
+                nw7.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
                 if (z) {
                     x(q, false, new i(this));
                 }

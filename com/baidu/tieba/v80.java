@@ -103,13 +103,13 @@ public final class v80 extends Observable {
 
         /* renamed from: com.baidu.tieba.v80$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0456a implements r80.d {
+        public class C0458a implements r80.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0456a(a aVar, long j) {
+            public C0458a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +183,7 @@ public final class v80 extends Observable {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 d80.h(this.d.p).g(601110).c("dns_begin", System.currentTimeMillis());
-                r80.c(this.d.p).b(this.a, new C0456a(this, currentTimeMillis));
+                r80.c(this.d.p).b(this.a, new C0458a(this, currentTimeMillis));
             }
         }
     }

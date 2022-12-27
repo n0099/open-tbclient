@@ -68,7 +68,7 @@ public class d76 implements b76 {
     public boolean n;
     public boolean o;
     public List<MultiMediaData> p;
-    public List<x59> q;
+    public List<y59> q;
     public d46 r;
     public a46 s;
     public boolean t;
@@ -159,7 +159,7 @@ public class d76 implements b76 {
                     }
                     layoutParams.height = (int) (layoutParams.width * this.a.a.i);
                     this.a.a.d.requestLayout();
-                    h09.h(this.a.a.a.getPageActivity().getIntent(), this.a.a.d);
+                    i09.h(this.a.a.a.getPageActivity().getIntent(), this.a.a.d);
                     ofFloat.start();
                 }
             }
@@ -239,12 +239,12 @@ public class d76 implements b76 {
 
         /* renamed from: com.baidu.tieba.d76$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0248a implements Runnable {
+        public class RunnableC0251a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0248a(a aVar) {
+            public RunnableC0251a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -303,7 +303,7 @@ public class d76 implements b76 {
                         this.a.o = true;
                     }
                 }
-                ah.a().postDelayed(new RunnableC0248a(this), 100L);
+                ah.a().postDelayed(new RunnableC0251a(this), 100L);
                 this.a.g.setLocalAlbumInfoData(this.a.b, this.a.p, false);
                 if (this.a.r != null) {
                     MultiMediaEditLayout multiMediaEditLayout = this.a.g;
@@ -320,54 +320,54 @@ public class d76 implements b76 {
     }
 
     /* loaded from: classes4.dex */
-    public class g implements v59 {
+    public class g implements w59 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d76 a;
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void b(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void d(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void f(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v59
-        public void j(int i, x59 x59Var) {
+        @Override // com.baidu.tieba.w59
+        public void j(int i, y59 y59Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048585, this, i, x59Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048585, this, i, y59Var) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -474,7 +474,7 @@ public class d76 implements b76 {
             this.a = d76Var;
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void c(double d) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) && this.a.b != null) {
@@ -482,7 +482,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void l(double d) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d)}) == null) && this.a.b != null) {
@@ -490,7 +490,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void e(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) && this.a.b != null && !ListUtils.isEmpty(this.a.p)) {
@@ -503,7 +503,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void g(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) && this.a.b != null) {
@@ -514,7 +514,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -526,7 +526,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void k() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.a.s == null) {
@@ -547,7 +547,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void m() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.a.r == null) {
@@ -569,7 +569,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void n(long j, long j2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.a.b != null) {
@@ -577,7 +577,7 @@ public class d76 implements b76 {
             }
         }
 
-        @Override // com.baidu.tieba.v59
+        @Override // com.baidu.tieba.w59
         public void o(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -939,22 +939,22 @@ public class d76 implements b76 {
     }
 
     /* loaded from: classes4.dex */
-    public class k implements qi9 {
+    public class k implements ri9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d76 a;
 
-        @Override // com.baidu.tieba.qi9
-        public xj9 c() {
+        @Override // com.baidu.tieba.ri9
+        public yj9 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (xj9) invokeV.objValue;
+            return (yj9) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.qi9
+        @Override // com.baidu.tieba.ri9
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -979,25 +979,25 @@ public class d76 implements b76 {
             this.a = d76Var;
         }
 
-        @Override // com.baidu.tieba.qi9
+        @Override // com.baidu.tieba.ri9
         public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new u59(this.a.a.getPageActivity());
+                return new v59(this.a.a.getPageActivity());
             }
             return (IMediaPlayer) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.qi9
+        @Override // com.baidu.tieba.ri9
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (this.a.t) {
-                    return q09.c;
+                    return r09.c;
                 }
-                return q09.d;
+                return r09.d;
             }
             return (String) invokeV.objValue;
         }
@@ -1092,7 +1092,7 @@ public class d76 implements b76 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!zz8.a()) {
+            if (!a09.a()) {
                 this.a.getPageActivity().finish();
                 return false;
             }
@@ -1107,9 +1107,9 @@ public class d76 implements b76 {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pi9.c().h(TbadkCoreApplication.getInst());
-            pi9.c().j(FileHelper.getCacheDir());
-            pi9.c().k(new k(this));
+            qi9.c().h(TbadkCoreApplication.getInst());
+            qi9.c().j(FileHelper.getCacheDir());
+            qi9.c().k(new k(this));
         }
     }
 
@@ -1127,7 +1127,7 @@ public class d76 implements b76 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            pi9.c().k(null);
+            qi9.c().k(null);
         }
     }
 

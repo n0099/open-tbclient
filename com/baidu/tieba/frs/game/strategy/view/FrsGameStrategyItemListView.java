@@ -38,7 +38,7 @@ import com.baidu.tieba.ho;
 import com.baidu.tieba.hq6;
 import com.baidu.tieba.ka5;
 import com.baidu.tieba.kq6;
-import com.baidu.tieba.mt8;
+import com.baidu.tieba.nt8;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.yp6;
@@ -84,12 +84,12 @@ public class FrsGameStrategyItemListView extends FrameLayout implements eq6 {
 
         /* renamed from: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0277a implements Runnable {
+        public class RunnableC0278a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
-            public RunnableC0277a(a aVar, String str) {
+            public RunnableC0278a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,14 +162,14 @@ public class FrsGameStrategyItemListView extends FrameLayout implements eq6 {
             if (threadData.getActInfoType() == 1 && !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                 return;
             }
-            mt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            nt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && !readThreadHistory.d(threadData.getId())) {
                 readThreadHistory.a(threadData.getId());
                 this.a.h.b();
             }
             String ad_url = threadData.getAd_url();
             if (ad_url != null && !ad_url.equals("")) {
-                new Thread(new RunnableC0277a(this, ad_url)).start();
+                new Thread(new RunnableC0278a(this, ad_url)).start();
                 z = true;
             } else {
                 z = false;

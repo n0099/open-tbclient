@@ -378,7 +378,7 @@ public class p46 extends g46<v56> implements gr5 {
                         String latitude = ((v56) this.k).a.getLatitude();
                         String longtitude = ((v56) this.k).a.getLongtitude();
                         if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c2 = ik8.e().c();
+                            AppPosInfo c2 = jk8.e().c();
                             String str2 = c2.latitude;
                             String str3 = c2.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && yi.h(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(longtitude)) <= 50.0d) {

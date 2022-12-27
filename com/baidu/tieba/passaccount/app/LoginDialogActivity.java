@@ -34,9 +34,9 @@ import com.baidu.tieba.kg5;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.sr4;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.ty7;
 import com.baidu.tieba.uy7;
 import com.baidu.tieba.vy7;
+import com.baidu.tieba.wy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class LoginDialogActivity extends SuspendedActivity implements kg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup k;
-    public ty7 l;
+    public uy7 l;
     public BdAsyncTask<?, ?, ?> m;
     public String n;
     public String o;
@@ -231,9 +231,9 @@ public class LoginDialogActivity extends SuspendedActivity implements kg5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ty7 ty7Var = this.l;
-            if (ty7Var != null) {
-                return ty7Var.getResultIntent();
+            uy7 uy7Var = this.l;
+            if (uy7Var != null) {
+                return uy7Var.getResultIntent();
             }
             return null;
         }
@@ -298,9 +298,9 @@ public class LoginDialogActivity extends SuspendedActivity implements kg5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.k.setBackgroundResource(R.color.transparent);
-            ty7 ty7Var = this.l;
-            if (ty7Var != null) {
-                ty7Var.o(i);
+            uy7 uy7Var = this.l;
+            if (uy7Var != null) {
+                uy7Var.o(i);
             }
         }
     }
@@ -318,9 +318,9 @@ public class LoginDialogActivity extends SuspendedActivity implements kg5 {
             }
             l1();
             if (TextUtils.isEmpty(this.n)) {
-                this.l = new uy7(this.o, this.p, this.q);
+                this.l = new vy7(this.o, this.p, this.q);
             } else {
-                this.l = new vy7(this.n);
+                this.l = new wy7(this.n);
             }
             this.l.a(this, linearLayout);
             return this;

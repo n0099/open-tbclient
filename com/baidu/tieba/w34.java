@@ -32,7 +32,7 @@ public class w34 extends e03 implements b13 {
     public int f;
 
     /* loaded from: classes6.dex */
-    public class a implements p3a<String> {
+    public class a implements q3a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class w34 extends e03 implements b13 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -168,7 +168,7 @@ public class w34 extends e03 implements b13 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            b3a.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
+            c3a.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
         }
     }
 }

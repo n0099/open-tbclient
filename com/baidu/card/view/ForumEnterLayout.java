@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lq8;
+import com.baidu.tieba.mq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.vr4;
 import com.baidu.tieba.yi;
@@ -270,7 +270,7 @@ public class ForumEnterLayout extends RelativeLayout {
             i = 2;
         }
         if (str != null && i > 0) {
-            TiebaStatic.log(lq8.k(str, threadData, i));
+            TiebaStatic.log(mq8.k(str, threadData, i));
         }
     }
 

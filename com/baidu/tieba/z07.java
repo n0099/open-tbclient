@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.b17;
-import com.baidu.tieba.jl8;
+import com.baidu.tieba.kl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,16 +90,16 @@ public class z07 extends vr4 {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public static z07 c(jl8 jl8Var) {
+    public static z07 c(kl8 kl8Var) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jl8Var)) == null) {
-            if (jl8Var != null && !ListUtils.isEmpty(jl8Var.b)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, kl8Var)) == null) {
+            if (kl8Var != null && !ListUtils.isEmpty(kl8Var.b)) {
                 z07 z07Var = new z07();
                 ArrayList arrayList = new ArrayList();
                 z07Var.k(arrayList);
-                for (jl8.b bVar : jl8Var.b) {
+                for (kl8.b bVar : kl8Var.b) {
                     if (!ListUtils.isEmpty(bVar.b)) {
                         b17 b17Var = new b17();
                         if (!StringUtils.isNull(bVar.a) && !z07Var.a) {

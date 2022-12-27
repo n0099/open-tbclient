@@ -1,63 +1,32 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes9.dex */
 public final class AlaLiveInfo extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Integer DEFAULT_AUDIENCECOUNT;
     public static final String DEFAULT_COVER = "";
     public static final String DEFAULT_COVERWIDE = "";
     public static final String DEFAULT_DESCRIPTION = "";
-    public static final List<DislikeInfo> DEFAULT_DISLIKEINFO;
-    public static final Long DEFAULT_DISTANCE;
-    public static final Integer DEFAULT_DURATION;
     public static final String DEFAULT_FIRSTHEADLINE = "";
     public static final String DEFAULT_FORUMUSERLIVEMSG = "";
-    public static final Integer DEFAULT_FRSTOPLIVEFORCE;
     public static final String DEFAULT_FRSTOPLIVEPIC = "";
-    public static final Integer DEFAULT_FRSTOPLIVETYPE;
-    public static final Long DEFAULT_GROUPID;
     public static final String DEFAULT_HLSURL = "";
     public static final String DEFAULT_LABELNAME = "";
-    public static final Integer DEFAULT_LIVEFROM;
-    public static final Long DEFAULT_LIVEID;
-    public static final Integer DEFAULT_LIVESTATUS;
-    public static final Integer DEFAULT_LIVETYPE;
     public static final String DEFAULT_MEDIAID = "";
     public static final String DEFAULT_MEDIAPIC = "";
     public static final String DEFAULT_MEDIASUBTITLE = "";
     public static final String DEFAULT_MEDIAURL = "";
-    public static final Integer DEFAULT_OPENRECOMDURATION;
-    public static final Integer DEFAULT_OPENRECOMFANS;
-    public static final Integer DEFAULT_OPENRECOMLOCATION;
-    public static final Integer DEFAULT_OPENRECOMREASON;
-    public static final Integer DEFAULT_PBDISPLAYTYPE;
     public static final String DEFAULT_RECOMREASON = "";
-    public static final Long DEFAULT_ROOMID;
     public static final String DEFAULT_ROOMNAME = "";
-    public static final Integer DEFAULT_ROOMSTATUS;
     public static final String DEFAULT_ROUTERTYPE = "";
     public static final String DEFAULT_RTMPURL = "";
-    public static final Integer DEFAULT_SCREENDIRECTION;
     public static final String DEFAULT_SECONDHEADLINE = "";
     public static final String DEFAULT_SESSIONID = "";
-    public static final List<AlaStageDislikeInfo> DEFAULT_STAGEDISLIKEINFO;
     public static final String DEFAULT_THIRDAPPID = "";
     public static final String DEFAULT_THIRDLIVETYPE = "";
     public static final String DEFAULT_THIRDROOMID = "";
-    public static final Long DEFAULT_THREADID;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 14, type = Message.Datatype.UINT32)
     public final Integer audienceCount;
     @ProtoField(tag = 25)
@@ -152,17 +121,30 @@ public final class AlaLiveInfo extends Message {
     public final AlaUserInfo userInfo;
     @ProtoField(tag = 49)
     public final YyExt yyExt;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Long DEFAULT_LIVEID = 0L;
+    public static final Long DEFAULT_GROUPID = 0L;
+    public static final Integer DEFAULT_DURATION = 0;
+    public static final Integer DEFAULT_AUDIENCECOUNT = 0;
+    public static final Integer DEFAULT_LIVETYPE = 0;
+    public static final Integer DEFAULT_SCREENDIRECTION = 0;
+    public static final Integer DEFAULT_LIVESTATUS = 0;
+    public static final Long DEFAULT_DISTANCE = 0L;
+    public static final Long DEFAULT_THREADID = 0L;
+    public static final List<AlaStageDislikeInfo> DEFAULT_STAGEDISLIKEINFO = Collections.emptyList();
+    public static final Integer DEFAULT_FRSTOPLIVETYPE = 0;
+    public static final Integer DEFAULT_FRSTOPLIVEFORCE = 0;
+    public static final Integer DEFAULT_LIVEFROM = 0;
+    public static final Integer DEFAULT_PBDISPLAYTYPE = 0;
+    public static final Integer DEFAULT_OPENRECOMREASON = 0;
+    public static final Integer DEFAULT_OPENRECOMLOCATION = 0;
+    public static final Integer DEFAULT_OPENRECOMFANS = 0;
+    public static final Integer DEFAULT_OPENRECOMDURATION = 0;
+    public static final List<DislikeInfo> DEFAULT_DISLIKEINFO = Collections.emptyList();
+    public static final Long DEFAULT_ROOMID = 0L;
+    public static final Integer DEFAULT_ROOMSTATUS = 0;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<AlaLiveInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Integer audienceCount;
         public AlaChallengeInfo challengeInfo;
         public String cover;
@@ -212,37 +194,10 @@ public final class AlaLiveInfo extends Message {
         public YyExt yyExt;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(AlaLiveInfo alaLiveInfo) {
             super(alaLiveInfo);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaLiveInfo};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (alaLiveInfo == null) {
                 return;
             }
@@ -298,69 +253,12 @@ public final class AlaLiveInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public AlaLiveInfo build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new AlaLiveInfo(this, z, null);
-            }
-            return (AlaLiveInfo) invokeZ.objValue;
+            return new AlaLiveInfo(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(195366435, "Lprotobuf/AlaLiveInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(195366435, "Lprotobuf/AlaLiveInfo;");
-                return;
-            }
-        }
-        DEFAULT_LIVEID = 0L;
-        DEFAULT_GROUPID = 0L;
-        DEFAULT_DURATION = 0;
-        DEFAULT_AUDIENCECOUNT = 0;
-        DEFAULT_LIVETYPE = 0;
-        DEFAULT_SCREENDIRECTION = 0;
-        DEFAULT_LIVESTATUS = 0;
-        DEFAULT_DISTANCE = 0L;
-        DEFAULT_THREADID = 0L;
-        DEFAULT_STAGEDISLIKEINFO = Collections.emptyList();
-        DEFAULT_FRSTOPLIVETYPE = 0;
-        DEFAULT_FRSTOPLIVEFORCE = 0;
-        DEFAULT_LIVEFROM = 0;
-        DEFAULT_PBDISPLAYTYPE = 0;
-        DEFAULT_OPENRECOMREASON = 0;
-        DEFAULT_OPENRECOMLOCATION = 0;
-        DEFAULT_OPENRECOMFANS = 0;
-        DEFAULT_OPENRECOMDURATION = 0;
-        DEFAULT_DISLIKEINFO = Collections.emptyList();
-        DEFAULT_ROOMID = 0L;
-        DEFAULT_ROOMSTATUS = 0;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaLiveInfo(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Long l = builder.liveId;
             if (l == null) {
@@ -668,9 +566,5 @@ public final class AlaLiveInfo extends Message {
         this.forumUserLiveMsg = builder.forumUserLiveMsg;
         this.coverWide = builder.coverWide;
         this.yyExt = builder.yyExt;
-    }
-
-    public /* synthetic */ AlaLiveInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

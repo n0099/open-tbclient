@@ -262,41 +262,41 @@ public class mo6 extends ck6<yu4, AutoVideoCardViewHolder<ThreadData>> implement
         }
     }
 
-    public final yf8 a0(ThreadData threadData) {
+    public final zf8 a0(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
             if (threadData == null) {
                 return null;
             }
-            yf8 yf8Var = new yf8();
+            zf8 zf8Var = new zf8();
             String str = "3";
             if (100 == t().tabType) {
                 if (!threadData.isFloor5Video()) {
                     str = "25";
                 }
-                yf8Var.a = str;
+                zf8Var.a = str;
             } else {
                 if (!threadData.isFloor5Video()) {
                     str = "2";
                 }
-                yf8Var.a = str;
+                zf8Var.a = str;
             }
             if (this.p.e == 501) {
-                yf8Var.a = "frs_tab";
+                zf8Var.a = "frs_tab";
             }
-            yf8Var.d = this.p.c;
-            yf8Var.c = threadData.getTid();
-            yf8Var.f = threadData.mRecomSource;
-            yf8Var.g = threadData.mRecomReason;
-            yf8Var.h = threadData.mRecomWeight;
-            yf8Var.l = threadData.mRecomAbTag;
+            zf8Var.d = this.p.c;
+            zf8Var.c = threadData.getTid();
+            zf8Var.f = threadData.mRecomSource;
+            zf8Var.g = threadData.mRecomReason;
+            zf8Var.h = threadData.mRecomWeight;
+            zf8Var.l = threadData.mRecomAbTag;
             if (threadData.getThreadVideoInfo() != null) {
-                yf8Var.m = threadData.getThreadVideoInfo().video_md5;
+                zf8Var.m = threadData.getThreadVideoInfo().video_md5;
             }
-            return yf8Var;
+            return zf8Var;
         }
-        return (yf8) invokeL.objValue;
+        return (zf8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

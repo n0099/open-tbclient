@@ -14,7 +14,7 @@ import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.tieba.external.music.data.MusicData;
 import com.baidu.tieba.external.music.model.SelectMusicModel;
 import com.baidu.tieba.if6;
-import com.baidu.tieba.s69;
+import com.baidu.tieba.t69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,17 +33,17 @@ public class hf6 implements ff6 {
     public boolean f;
     public TbPageContext g;
     public boolean h;
-    public mu7 i;
+    public nu7 i;
 
     /* loaded from: classes4.dex */
     public class a implements if6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s69.a a;
+        public final /* synthetic */ t69.a a;
         public final /* synthetic */ MusicData b;
         public final /* synthetic */ hf6 c;
 
-        public a(hf6 hf6Var, s69.a aVar, MusicData musicData) {
+        public a(hf6 hf6Var, t69.a aVar, MusicData musicData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,8 +226,8 @@ public class hf6 implements ff6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
                 if (this.a.i != null) {
-                    mu7 mu7Var = this.a.i;
-                    mu7Var.b(4, "what-->" + i + "  extra-->" + i2);
+                    nu7 nu7Var = this.a.i;
+                    nu7Var.b(4, "what-->" + i + "  extra-->" + i2);
                     return false;
                 }
                 return false;
@@ -237,7 +237,7 @@ public class hf6 implements ff6 {
     }
 
     public hf6(TbPageContext tbPageContext, gf6 gf6Var) {
-        qu7 qu7Var;
+        ru7 ru7Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -252,14 +252,14 @@ public class hf6 implements ff6 {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, qu7.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, ru7.class);
         if (runTask != null) {
-            qu7Var = (qu7) runTask.getData();
+            ru7Var = (ru7) runTask.getData();
         } else {
-            qu7Var = null;
+            ru7Var = null;
         }
-        if (qu7Var != null) {
-            this.i = qu7Var.get();
+        if (ru7Var != null) {
+            this.i = ru7Var.get();
         }
         this.g = tbPageContext;
         this.a = new SelectMusicModel(tbPageContext, gf6Var);
@@ -453,12 +453,12 @@ public class hf6 implements ff6 {
             this.h = false;
             String str = musicData.id;
             String g = if6.h().g(musicData.resource);
-            if (obj != null && (obj instanceof s69.a)) {
-                this.c = ((s69.a) obj).d;
+            if (obj != null && (obj instanceof t69.a)) {
+                this.c = ((t69.a) obj).d;
             }
             if (TextUtils.isEmpty(g)) {
-                if (obj instanceof s69.a) {
-                    s69.a aVar = (s69.a) obj;
+                if (obj instanceof t69.a) {
+                    t69.a aVar = (t69.a) obj;
                     aVar.b.setVisibility(0);
                     aVar.a.setDrawBorder(false);
                     aVar.a.invalidate();

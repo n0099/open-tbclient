@@ -43,8 +43,8 @@ import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.y48;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -665,7 +665,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
                 i = 0;
             }
             int i2 = g + i;
-            y48.i(i2);
+            z48.i(i2);
             this.A.addView(this.w, 0, new LinearLayout.LayoutParams(-1, i2));
         }
     }

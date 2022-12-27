@@ -23,9 +23,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.aq8;
-import com.baidu.tieba.fq8;
+import com.baidu.tieba.bq8;
 import com.baidu.tieba.gq8;
+import com.baidu.tieba.hq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
 import com.baidu.tieba.tu4;
@@ -42,7 +42,7 @@ public class NewStyleStampDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public gq8 b;
+    public hq8 b;
     public View c;
     public ImageView d;
     public TextView e;
@@ -298,13 +298,13 @@ public class NewStyleStampDialogView extends LinearLayout {
         return (View) invokeV.objValue;
     }
 
-    public gq8 getmStampData() {
+    public hq8 getmStampData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (gq8) invokeV.objValue;
+        return (hq8) invokeV.objValue;
     }
 
     public final void p() {
@@ -417,11 +417,11 @@ public class NewStyleStampDialogView extends LinearLayout {
         if ((interceptable == null || interceptable.invokeL(65549, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.l.setVisibility(0);
             this.l.setStampIconsList(list);
-            this.l.setSignStampIconClickListener(new fq8() { // from class: com.baidu.tieba.jq8
+            this.l.setSignStampIconClickListener(new gq8() { // from class: com.baidu.tieba.kq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.fq8
+                @Override // com.baidu.tieba.gq8
                 public final void a(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -432,10 +432,10 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    public void setStampData(gq8 gq8Var) {
+    public void setStampData(hq8 hq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, gq8Var) == null) {
-            this.b = gq8Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, hq8Var) == null) {
+            this.b = hq8Var;
             n();
         }
     }
@@ -502,13 +502,13 @@ public class NewStyleStampDialogView extends LinearLayout {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            gq8 gq8Var = this.b;
-            if (gq8Var instanceof aq8) {
-                aq8 aq8Var = (aq8) gq8Var;
-                this.e.setText(aq8Var.b());
-                this.k.K(aq8Var.a(), 10, false);
-            } else if (gq8Var instanceof tu4) {
-                tu4 tu4Var = (tu4) gq8Var;
+            hq8 hq8Var = this.b;
+            if (hq8Var instanceof bq8) {
+                bq8 bq8Var = (bq8) hq8Var;
+                this.e.setText(bq8Var.b());
+                this.k.K(bq8Var.a(), 10, false);
+            } else if (hq8Var instanceof tu4) {
+                tu4 tu4Var = (tu4) hq8Var;
                 List<tu4.a> a2 = tu4Var.a();
                 if (tu4Var.b() == -1) {
                     this.f.setText(getResources().getString(R.string.stamp_full_level));
@@ -557,7 +557,7 @@ public class NewStyleStampDialogView extends LinearLayout {
                 i2 = 0;
             }
             tBLottieAnimationView.setRepeatCount(i2);
-            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.iq8
+            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.jq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

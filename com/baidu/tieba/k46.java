@@ -115,7 +115,7 @@ public class k46 extends h46<z96> {
                 SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.r, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
-                mt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                nt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.s.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
                 } else {
@@ -181,7 +181,7 @@ public class k46 extends h46<z96> {
             }
             this.k.K(str, 10, false);
             this.n.setText(z96Var.getThreadData().getTitle());
-            mt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            nt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(z96Var.getThreadData().getId())) {
                 SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
             } else {

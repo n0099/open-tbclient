@@ -12,9 +12,9 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.up9;
 import com.baidu.tieba.vp9;
 import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ import java.util.Set;
 /* loaded from: classes7.dex */
 public class SVG {
     public static /* synthetic */ Interceptable $ic = null;
-    public static wp9 e = null;
+    public static xp9 e = null;
     public static boolean f = true;
     public transient /* synthetic */ FieldHolder $fh;
     public d0 a;
@@ -2407,12 +2407,12 @@ public class SVG {
             return invokeF.floatValue;
         }
 
-        public float c(vp9 vp9Var) {
+        public float c(wp9 wp9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vp9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wp9Var)) == null) {
                 if (this.b == Unit.percent) {
-                    b a0 = vp9Var.a0();
+                    b a0 = wp9Var.a0();
                     if (a0 == null) {
                         return this.a;
                     }
@@ -2423,46 +2423,46 @@ public class SVG {
                     }
                     return (this.a * ((float) (Math.sqrt((f * f) + (f2 * f2)) / 1.414213562373095d))) / 100.0f;
                 }
-                return e(vp9Var);
+                return e(wp9Var);
             }
             return invokeL.floatValue;
         }
 
-        public float d(vp9 vp9Var, float f) {
+        public float d(wp9 wp9Var, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, vp9Var, f)) == null) {
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, wp9Var, f)) == null) {
                 if (this.b == Unit.percent) {
                     return (this.a * f) / 100.0f;
                 }
-                return e(vp9Var);
+                return e(wp9Var);
             }
             return invokeLF.floatValue;
         }
 
-        public float e(vp9 vp9Var) {
+        public float e(wp9 wp9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vp9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, wp9Var)) == null) {
                 switch (a.a[this.b.ordinal()]) {
                     case 1:
                         return this.a;
                     case 2:
-                        return this.a * vp9Var.Y();
+                        return this.a * wp9Var.Y();
                     case 3:
-                        return this.a * vp9Var.Z();
+                        return this.a * wp9Var.Z();
                     case 4:
-                        return this.a * vp9Var.b0();
+                        return this.a * wp9Var.b0();
                     case 5:
-                        return (this.a * vp9Var.b0()) / 2.54f;
+                        return (this.a * wp9Var.b0()) / 2.54f;
                     case 6:
-                        return (this.a * vp9Var.b0()) / 25.4f;
+                        return (this.a * wp9Var.b0()) / 25.4f;
                     case 7:
-                        return (this.a * vp9Var.b0()) / 72.0f;
+                        return (this.a * wp9Var.b0()) / 72.0f;
                     case 8:
-                        return (this.a * vp9Var.b0()) / 6.0f;
+                        return (this.a * wp9Var.b0()) / 6.0f;
                     case 9:
-                        b a0 = vp9Var.a0();
+                        b a0 = wp9Var.a0();
                         if (a0 == null) {
                             return this.a;
                         }
@@ -2474,18 +2474,18 @@ public class SVG {
             return invokeL.floatValue;
         }
 
-        public float f(vp9 vp9Var) {
+        public float f(wp9 wp9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vp9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, wp9Var)) == null) {
                 if (this.b == Unit.percent) {
-                    b a0 = vp9Var.a0();
+                    b a0 = wp9Var.a0();
                     if (a0 == null) {
                         return this.a;
                     }
                     return (this.a * a0.d) / 100.0f;
                 }
-                return e(vp9Var);
+                return e(wp9Var);
             }
             return invokeL.floatValue;
         }
@@ -3367,13 +3367,13 @@ public class SVG {
         this.d = new HashMap();
     }
 
-    public static wp9 g() {
+    public static xp9 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return e;
         }
-        return (wp9) invokeV.objValue;
+        return (xp9) invokeV.objValue;
     }
 
     public void b() {
@@ -3529,40 +3529,40 @@ public class SVG {
         return (j0) invokeLL.objValue;
     }
 
-    public Picture n(int i2, int i3, up9 up9Var) {
+    public Picture n(int i2, int i3, vp9 vp9Var) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, up9Var)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, vp9Var)) == null) {
             Picture picture = new Picture();
             Canvas beginRecording = picture.beginRecording(i2, i3);
-            if (up9Var == null || up9Var.f == null) {
-                if (up9Var == null) {
-                    up9Var = new up9();
+            if (vp9Var == null || vp9Var.f == null) {
+                if (vp9Var == null) {
+                    vp9Var = new vp9();
                 } else {
-                    up9Var = new up9(up9Var);
+                    vp9Var = new vp9(vp9Var);
                 }
-                up9Var.h(0.0f, 0.0f, i2, i3);
+                vp9Var.h(0.0f, 0.0f, i2, i3);
             }
-            new vp9(beginRecording, this.b).O0(this, up9Var);
+            new wp9(beginRecording, this.b).O0(this, vp9Var);
             picture.endRecording();
             return picture;
         }
         return (Picture) invokeIIL.objValue;
     }
 
-    public Picture o(up9 up9Var) {
+    public Picture o(vp9 vp9Var) {
         InterceptResult invokeL;
         b bVar;
         o oVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, up9Var)) == null) {
-            if (up9Var != null && up9Var.f()) {
-                bVar = up9Var.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, vp9Var)) == null) {
+            if (vp9Var != null && vp9Var.f()) {
+                bVar = vp9Var.d;
             } else {
                 bVar = this.a.o;
             }
-            if (up9Var != null && up9Var.g()) {
-                return n((int) Math.ceil(up9Var.f.b()), (int) Math.ceil(up9Var.f.c()), up9Var);
+            if (vp9Var != null && vp9Var.g()) {
+                return n((int) Math.ceil(vp9Var.f.b()), (int) Math.ceil(vp9Var.f.c()), vp9Var);
             }
             d0 d0Var = this.a;
             o oVar2 = d0Var.r;
@@ -3570,20 +3570,20 @@ public class SVG {
                 Unit unit = oVar2.b;
                 Unit unit2 = Unit.percent;
                 if (unit != unit2 && (oVar = d0Var.s) != null && oVar.b != unit2) {
-                    return n((int) Math.ceil(oVar2.b(this.b)), (int) Math.ceil(this.a.s.b(this.b)), up9Var);
+                    return n((int) Math.ceil(oVar2.b(this.b)), (int) Math.ceil(this.a.s.b(this.b)), vp9Var);
                 }
             }
             o oVar3 = this.a.r;
             if (oVar3 != null && bVar != null) {
                 float b2 = oVar3.b(this.b);
-                return n((int) Math.ceil(b2), (int) Math.ceil((bVar.d * b2) / bVar.c), up9Var);
+                return n((int) Math.ceil(b2), (int) Math.ceil((bVar.d * b2) / bVar.c), vp9Var);
             }
             o oVar4 = this.a.s;
             if (oVar4 != null && bVar != null) {
                 float b3 = oVar4.b(this.b);
-                return n((int) Math.ceil((bVar.c * b3) / bVar.d), (int) Math.ceil(b3), up9Var);
+                return n((int) Math.ceil((bVar.c * b3) / bVar.d), (int) Math.ceil(b3), vp9Var);
             }
-            return n(512, 512, up9Var);
+            return n(512, 512, vp9Var);
         }
         return (Picture) invokeL.objValue;
     }

@@ -45,12 +45,12 @@ public class gz6 extends CustomMessageTask {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<m17> customMessage) {
             InterceptResult invokeL;
-            cn7 c;
+            dn7 c;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof m17)) {
                     m17 data = customMessage.getData();
-                    if (data.d() == null && (c = bn7.d().c(data.c(), data.g())) != null) {
+                    if (data.d() == null && (c = cn7.d().c(data.c(), data.g())) != null) {
                         c.b(new hz6(data.f()));
                         data.j(c);
                     }

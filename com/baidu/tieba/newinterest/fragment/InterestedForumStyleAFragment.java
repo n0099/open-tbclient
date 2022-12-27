@@ -20,7 +20,7 @@ import com.baidu.tieba.newinterest.model.InterestedForumModel;
 import com.baidu.tieba.oz4;
 import com.baidu.tieba.qz4;
 import com.baidu.tieba.rw4;
-import com.baidu.tieba.wx7;
+import com.baidu.tieba.xx7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View k;
     public LinearLayout l;
     public View m;
-    public wx7 n;
+    public xx7 n;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.f.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, B1(R.dimen.tbds78)));
             this.f.s(view2);
-            this.n = new wx7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            this.n = new xx7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 
@@ -209,9 +209,9 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             rw4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
             rw4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
-            wx7 wx7Var = this.n;
-            if (wx7Var != null) {
-                wx7Var.k(i);
+            xx7 xx7Var = this.n;
+            if (xx7Var != null) {
+                xx7Var.k(i);
             }
         }
     }

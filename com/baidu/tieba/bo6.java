@@ -168,25 +168,25 @@ public class bo6 extends ck6<yu4, FrsCardVideoViewHolder<zo6>> implements f56, a
         TiebaStatic.log(statisticItem);
     }
 
-    public final yf8 W(ThreadData threadData) {
+    public final zf8 W(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
             if (threadData != null) {
-                yf8 yf8Var = new yf8();
-                yf8Var.a = V(threadData.getInsertFloor());
-                yf8Var.d = this.n.c;
-                yf8Var.c = threadData.getTid();
-                yf8Var.l = threadData.mRecomAbTag;
+                zf8 zf8Var = new zf8();
+                zf8Var.a = V(threadData.getInsertFloor());
+                zf8Var.d = this.n.c;
+                zf8Var.c = threadData.getTid();
+                zf8Var.l = threadData.mRecomAbTag;
                 if (threadData.getThreadVideoInfo() != null) {
-                    yf8Var.m = threadData.getThreadVideoInfo().video_md5;
+                    zf8Var.m = threadData.getThreadVideoInfo().video_md5;
                 }
                 threadData.updateShowStatus();
-                return yf8Var;
+                return zf8Var;
             }
             return null;
         }
-        return (yf8) invokeL.objValue;
+        return (zf8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

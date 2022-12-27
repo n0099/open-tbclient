@@ -173,12 +173,12 @@ public class tv4 implements View.OnClickListener {
             if (xi.isEmpty(nn4Var.p)) {
                 SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
             } else {
-                this.c.setTextColor(fm7.b(nn4Var.p));
+                this.c.setTextColor(gm7.b(nn4Var.p));
             }
             if (xi.isEmpty(nn4Var.q)) {
                 SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1);
             } else {
-                this.d.setTextColor(fm7.b(nn4Var.q));
+                this.d.setTextColor(gm7.b(nn4Var.q));
             }
             if (!xi.isEmpty(nn4Var.o)) {
                 this.d.setBackgroundDrawable(b(nn4Var.o));
@@ -205,7 +205,7 @@ public class tv4 implements View.OnClickListener {
             Drawable drawable = this.a.getResources().getDrawable(R.drawable.shape_new_complete_toast_btn_bg_pressed);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(yi.g(this.a, R.dimen.tbds10));
-            gradientDrawable.setColor(fm7.b(str));
+            gradientDrawable.setColor(gm7.b(str));
             stateListDrawable.addState(new int[]{16842919}, drawable);
             stateListDrawable.addState(new int[0], gradientDrawable);
             return stateListDrawable;

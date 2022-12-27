@@ -282,6 +282,7 @@ public class TbadkCoreStatisticKey {
     public static final String UPDATE_TIEFA_DOWNLOAD_FAILED = "c10662";
     public static final String UPGRADE_DIALOG_CHOOSE_IMAGE = "c10489";
     public static final String UPGRADE_SUCCESS = "c10500";
+    public static final String WEBVIEW_PERF_DATA_KEY = "c15167";
     public static final String WEBVIEW_SHARE = "c10898";
     public static final String WRITE_MORE_LINK_DIALOG_SHOW = "c13745";
     public static final String WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK = "c13746";

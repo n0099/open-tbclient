@@ -7,7 +7,7 @@ import com.baidu.tieba.db6;
 import com.baidu.tieba.eb6;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.ya6;
-import com.baidu.tieba.ys8;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class EasterEggBridge implements ys8 {
+public class EasterEggBridge implements zs8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
     public static final String KEY_ARGS_EXT = "native_exts";
@@ -71,7 +71,7 @@ public class EasterEggBridge implements ys8 {
         }
     }
 
-    @Override // com.baidu.tieba.ys8
+    @Override // com.baidu.tieba.zs8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

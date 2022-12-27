@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.et7;
 import com.baidu.tieba.ft7;
 import com.baidu.tieba.gt7;
-import com.baidu.tieba.it7;
+import com.baidu.tieba.ht7;
+import com.baidu.tieba.jt7;
 import com.baidu.tieba.m65;
 import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,9 +26,9 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements y65 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public et7 b;
-    public gt7 c;
-    public it7 d;
+    public ft7 b;
+    public ht7 c;
+    public jt7 d;
     public EditorTools e;
     public View.OnClickListener f;
 
@@ -79,14 +79,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements y65 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ft7 ft7Var;
+            gt7 gt7Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (ft7Var = (ft7) view2.getTag()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (gt7Var = (gt7) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(ft7Var.b());
+            this.a.c.c(gt7Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.B(new m65(26, -1, ft7Var.b()));
+            this.a.e.B(new m65(26, -1, gt7Var.b()));
         }
     }
 
@@ -168,13 +168,13 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements y65 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
             LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0885, (ViewGroup) this, true);
-            this.d = new it7(this);
-            gt7 gt7Var = new gt7(tbPageContext);
-            this.c = gt7Var;
-            gt7Var.c(str);
-            et7 et7Var = new et7(tbPageContext, this.c, this.f);
-            this.b = et7Var;
-            this.d.a(et7Var);
+            this.d = new jt7(this);
+            ht7 ht7Var = new ht7(tbPageContext);
+            this.c = ht7Var;
+            ht7Var.c(str);
+            ft7 ft7Var = new ft7(tbPageContext, this.c, this.f);
+            this.b = ft7Var;
+            this.d.a(ft7Var);
         }
     }
 }

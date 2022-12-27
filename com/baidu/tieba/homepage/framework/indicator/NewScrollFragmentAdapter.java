@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.df;
-import com.baidu.tieba.du8;
+import com.baidu.tieba.eu8;
 import com.baidu.tieba.hl6;
 import com.baidu.tieba.homepage.concern.ConcernFragment;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
@@ -913,7 +913,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     ((BaseFragment) hl6Var).setPrimary(false);
                 }
                 this.s = i;
-                VoiceManager a2 = du8.a(this.f);
+                VoiceManager a2 = eu8.a(this.f);
                 if (a2 != null) {
                     a2.stopPlay();
                 }

@@ -30,7 +30,7 @@ public class hx2 implements xi3<HybridUbcFlow> {
 
         /* renamed from: com.baidu.tieba.hx2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0304a {
+        public static class C0305a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class hx2 implements xi3<HybridUbcFlow> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0304a.a;
+                return C0305a.a;
             }
             return (a) invokeV.objValue;
         }

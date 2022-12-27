@@ -13,8 +13,8 @@ import com.baidu.tieba.qp5;
 import com.baidu.tieba.rp5;
 import com.baidu.tieba.sp5;
 import com.baidu.tieba.vp5;
-import com.baidu.tieba.wi8;
 import com.baidu.tieba.wp5;
+import com.baidu.tieba.xi8;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.xp5;
 import com.baidu.tieba.yp5;
@@ -62,10 +62,10 @@ public class FrsFeedAdStatic {
             eq5 eq5Var;
             wp5 c;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof eq5) || (c = (eq5Var = (eq5) customResponsedMessage.getData()).c()) == null || !(c instanceof wi8)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof eq5) || (c = (eq5Var = (eq5) customResponsedMessage.getData()).c()) == null || !(c instanceof xi8)) {
                 return;
             }
-            wi8 wi8Var = (wi8) c;
+            xi8 xi8Var = (xi8) c;
             vp5 T0 = c.T0(1);
             if (T0 == null) {
                 yp5 a = zp5.b().a(1);
@@ -74,7 +74,7 @@ public class FrsFeedAdStatic {
                 }
                 T0 = a.a();
                 c.t0(1, T0);
-                T0.f(new xp5(wi8Var), eq5Var.i());
+                T0.f(new xp5(xi8Var), eq5Var.i());
             }
             if (!(T0 instanceof sp5)) {
                 return;
@@ -84,8 +84,8 @@ public class FrsFeedAdStatic {
                 List list = (List) eq5Var.f();
                 qp5.b(sp5Var.d());
                 for (BdUniqueId bdUniqueId : qp5.c()) {
-                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(wi8Var, bdUniqueId);
-                    frsFeedAdAdapter.setPageContext(wi8Var.p());
+                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(xi8Var, bdUniqueId);
+                    frsFeedAdAdapter.setPageContext(xi8Var.p());
                     list.add(frsFeedAdAdapter);
                 }
             } else if (eq5Var.a() == 2) {

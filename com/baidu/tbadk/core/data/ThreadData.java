@@ -57,11 +57,11 @@ import com.baidu.tieba.en;
 import com.baidu.tieba.es4;
 import com.baidu.tieba.ez4;
 import com.baidu.tieba.fz4;
-import com.baidu.tieba.gu8;
 import com.baidu.tieba.h55;
+import com.baidu.tieba.hu8;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
-import com.baidu.tieba.js8;
 import com.baidu.tieba.jv4;
+import com.baidu.tieba.ks8;
 import com.baidu.tieba.lj5;
 import com.baidu.tieba.mt4;
 import com.baidu.tieba.ns4;
@@ -260,7 +260,7 @@ public class ThreadData extends vr4 implements PreLoadImageProvider, xn, IVideoD
     public uu4 forumData;
     public String forum_name;
     public String from;
-    public js8 funAdData;
+    public ks8 funAdData;
     public String funAdId;
     public boolean hasRecommend;
     public int has_commented;
@@ -3389,9 +3389,9 @@ public class ThreadData extends vr4 implements PreLoadImageProvider, xn, IVideoD
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048759, this)) == null) {
-            js8 js8Var = this.funAdData;
-            if (js8Var != null) {
-                return js8Var.h();
+            ks8 ks8Var = this.funAdData;
+            if (ks8Var != null) {
+                return ks8Var.h();
             }
             return false;
         }
@@ -4364,9 +4364,9 @@ public class ThreadData extends vr4 implements PreLoadImageProvider, xn, IVideoD
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) {
-            js8 js8Var = this.funAdData;
-            if (js8Var != null) {
-                if (js8Var.h()) {
+            ks8 ks8Var = this.funAdData;
+            if (ks8Var != null) {
+                if (ks8Var.h()) {
                     if (this.funAdData.i()) {
                         return AdvertAppInfo.G;
                     }
@@ -5087,10 +5087,10 @@ public class ThreadData extends vr4 implements PreLoadImageProvider, xn, IVideoD
                 i = 0;
             }
             builder.is_vertical = Integer.valueOf(i);
-            if (xi.isEmpty(gu8.k().n())) {
+            if (xi.isEmpty(hu8.k().n())) {
                 n = writeData.getVideoInfo().getThumbPath();
             } else {
-                n = gu8.k().n();
+                n = hu8.k().n();
             }
             builder.thumbnail_url = n;
             builder.video_url = writeData.getVideoInfo().getVideoUrl();

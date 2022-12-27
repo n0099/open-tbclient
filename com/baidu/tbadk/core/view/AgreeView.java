@@ -53,9 +53,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.as4;
 import com.baidu.tieba.bs4;
-import com.baidu.tieba.bs8;
-import com.baidu.tieba.ci8;
+import com.baidu.tieba.cs8;
 import com.baidu.tieba.cz4;
+import com.baidu.tieba.di8;
 import com.baidu.tieba.iz4;
 import com.baidu.tieba.jz4;
 import com.baidu.tieba.k65;
@@ -109,7 +109,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public TBLottieAnimationView e;
     public TextView f;
     public AgreeData g;
-    public bs8 h;
+    public cs8 h;
     public ScaleAnimation i;
     public Animator.AnimatorListener j;
     public boolean k;
@@ -442,17 +442,17 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeView agreeView;
-            bs8 bs8Var;
+            cs8 cs8Var;
             AgreeData agreeData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (agreeView = this.a.get()) == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof bs8) || (bs8Var = (bs8) customResponsedMessage.getData()) == null || (agreeData = bs8Var.b) == null || agreeView.g == null || TextUtils.isEmpty(agreeView.g.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !agreeView.g.postId.equals(agreeData.postId) || agreeView.g.isInThread) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (agreeView = this.a.get()) == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof cs8) || (cs8Var = (cs8) customResponsedMessage.getData()) == null || (agreeData = cs8Var.b) == null || agreeView.g == null || TextUtils.isEmpty(agreeView.g.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !agreeView.g.postId.equals(agreeData.postId) || agreeView.g.isInThread) {
                 return;
             }
             if (agreeView.m) {
                 if (agreeView.g.indexOfPic == agreeData.indexOfPic) {
                     return;
                 }
-            } else if (agreeView.h.a == bs8Var.a) {
+            } else if (agreeView.h.a == cs8Var.a) {
                 return;
             }
             agreeView.W(agreeData);
@@ -490,10 +490,10 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeView agreeView;
-            bs8 bs8Var;
+            cs8 cs8Var;
             AgreeData agreeData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (agreeView = this.a.get()) != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bs8) && (bs8Var = (bs8) customResponsedMessage.getData()) != null && (agreeData = bs8Var.b) != null && agreeView.g != null && agreeData != null && agreeView.h != null && !agreeView.g.isInPost && agreeView.h.a != bs8Var.a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (agreeView = this.a.get()) != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof cs8) && (cs8Var = (cs8) customResponsedMessage.getData()) != null && (agreeData = cs8Var.b) != null && agreeView.g != null && agreeData != null && agreeView.h != null && !agreeView.g.isInPost && agreeView.h.a != cs8Var.a) {
                 String str = agreeData.nid;
                 if (agreeView.g.baijiahaoData != null && !"0".equals(str) && !TextUtils.isEmpty(str)) {
                     if (!TextUtils.equals(str, agreeView.g.baijiahaoData.oriUgcNid)) {
@@ -1086,9 +1086,9 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
             HeadCustomImageView headCustomImageView = new HeadCustomImageView(getContext());
             this.l = headCustomImageView;
             headCustomImageView.setId(R.id.bottom_head_custom_image_view);
-            bs8 bs8Var = new bs8();
-            this.h = bs8Var;
-            bs8Var.a = getPageId();
+            cs8 cs8Var = new cs8();
+            this.h = cs8Var;
+            cs8Var.a = getPageId();
             this.H = new ny4();
             E();
             SkinManager.setLottieAnimation(this.e, this.s);
@@ -1371,13 +1371,13 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         return invokeV.booleanValue;
     }
 
-    public bs8 getMsgData() {
+    public cs8 getMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return this.h;
         }
-        return (bs8) invokeV.objValue;
+        return (cs8) invokeV.objValue;
     }
 
     public BdUniqueId getPageId() {
@@ -1661,7 +1661,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                         agreeData4.hasAgree = true;
                                         agreeData4.agreeNum++;
                                         Y(true);
-                                        ci8.g().l(getTbPageContext());
+                                        di8.g().l(getTbPageContext());
                                     }
                                     bs4 bs4Var12 = this.o;
                                     if (bs4Var12 != null) {
@@ -1676,7 +1676,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                     agreeData5.hasAgree = true;
                                     agreeData5.agreeNum++;
                                     Y(true);
-                                    ci8.g().l(getTbPageContext());
+                                    di8.g().l(getTbPageContext());
                                 }
                                 bs4 bs4Var13 = this.o;
                                 if (bs4Var13 != null) {

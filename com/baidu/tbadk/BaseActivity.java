@@ -83,10 +83,10 @@ import com.baidu.tieba.pe5;
 import com.baidu.tieba.qs5;
 import com.baidu.tieba.rq4;
 import com.baidu.tieba.rv4;
-import com.baidu.tieba.rx8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.se5;
 import com.baidu.tieba.sr4;
+import com.baidu.tieba.sx8;
 import com.baidu.tieba.ta5;
 import com.baidu.tieba.te5;
 import com.baidu.tieba.tq4;
@@ -1931,7 +1931,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             iw4.m(false);
             zm4.a(motionEvent, getPageId(), getMissionTid());
-            rx8.getInstance().behaviorRecordEvent(motionEvent, this);
+            sx8.getInstance().behaviorRecordEvent(motionEvent, this);
             qs5.K().H();
             try {
                 if (this.mProgressBar != null && this.mProgressBar.isShown()) {
@@ -2387,7 +2387,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
-            rx8.getInstance().onPause(this);
+            sx8.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -2416,7 +2416,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            rx8.getInstance().onResume(this);
+            sx8.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {

@@ -41,7 +41,7 @@ public class a67 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, tr8.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, ur8.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

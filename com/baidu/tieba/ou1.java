@@ -32,13 +32,13 @@ public class ou1 extends ku1 {
 
         /* renamed from: com.baidu.tieba.ou1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0387a implements de3.c {
+        public class C0385a implements de3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ wu1 a;
             public final /* synthetic */ a b;
 
-            public C0387a(a aVar, wu1 wu1Var) {
+            public C0385a(a aVar, wu1 wu1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class ou1 extends ku1 {
                 wu1 wu1Var = new wu1("compassChange", jSONObject, str);
                 de3 i = de3.i();
                 i.l(this.a.getContext());
-                i.o(new C0387a(this, wu1Var));
+                i.o(new C0385a(this, wu1Var));
                 e12.i("CompassApi", "start listen compass");
                 i.p();
                 wu1Var.b(this.a);

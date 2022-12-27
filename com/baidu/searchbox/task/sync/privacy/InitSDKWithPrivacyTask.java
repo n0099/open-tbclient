@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.aj0;
+import com.baidu.tieba.ao7;
 import com.baidu.tieba.tf;
-import com.baidu.tieba.vn7;
 import com.baidu.tieba.wn7;
 import com.baidu.tieba.x65;
-import com.baidu.tieba.yn7;
+import com.baidu.tieba.xn7;
 import com.baidu.tieba.zn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -91,13 +91,13 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initBaiduMap() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            tf.n().r(wn7.t());
+            tf.n().r(xn7.t());
             boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
             if (Build.VERSION.SDK_INT <= 4) {
                 loadBoolean = false;
             }
             if (loadBoolean) {
-                tf.n().r(vn7.j());
+                tf.n().r(wn7.j());
             }
             MessageManager.getInstance().registerListener(new CustomMessageListener(this, 2010044) { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.1
                 public static /* synthetic */ Interceptable $ic;
@@ -133,9 +133,9 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
                         EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                         if (editorTools.getCollectTools().indexOf(8) != -1) {
                             if (editorTools.u()) {
-                                editorTools.d(new yn7(editorTools.getContext(), true));
+                                editorTools.d(new zn7(editorTools.getContext(), true));
                             } else {
-                                editorTools.d(new yn7(editorTools.getContext()));
+                                editorTools.d(new zn7(editorTools.getContext()));
                             }
                         }
                     }
@@ -169,7 +169,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        return new CustomResponsedMessage<>(2016556, new zn7(customMessage.getData(), 0));
+                        return new CustomResponsedMessage<>(2016556, new ao7(customMessage.getData(), 0));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }

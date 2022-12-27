@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h05;
 import com.baidu.tieba.pw4;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,16 +50,16 @@ public class ThreadRecommendTagUtil {
                 if (!isElementValid(themeColorInfo.night)) {
                     return 0;
                 }
-                return qq8.f(themeColorInfo.night.common_color);
+                return rq8.f(themeColorInfo.night.common_color);
             } else if (TbadkApplication.getInst().getSkinType() == 4) {
                 if (!isElementValid(themeColorInfo.dark)) {
                     return 0;
                 }
-                return qq8.f(themeColorInfo.dark.common_color);
+                return rq8.f(themeColorInfo.dark.common_color);
             } else if (!isElementValid(themeColorInfo.day)) {
                 return 0;
             } else {
-                return qq8.f(themeColorInfo.day.common_color);
+                return rq8.f(themeColorInfo.day.common_color);
             }
         }
         return invokeL.intValue;

@@ -54,13 +54,13 @@ public class dx6 extends ea5 {
 
         /* renamed from: com.baidu.tieba.dx6$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0256a implements View.OnClickListener {
+        public class View$OnClickListenerC0258a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0256a(a aVar, int i) {
+            public View$OnClickListenerC0258a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -157,7 +157,7 @@ public class dx6 extends ea5 {
                     bVar.e.K(getItem(i).avatar, 10, false);
                     bVar.c.setText(StringHelper.numberUniformFormat(getItem(i).member_count.intValue()));
                     bVar.b.setText(StringHelper.numberUniformFormat(getItem(i).post_num.intValue()));
-                    bVar.f.setOnClickListener(new View$OnClickListenerC0256a(this, i));
+                    bVar.f.setOnClickListener(new View$OnClickListenerC0258a(this, i));
                     SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0105);
                     SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
                     SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0109);

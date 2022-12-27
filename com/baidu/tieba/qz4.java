@@ -118,7 +118,7 @@ public class qz4 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setStroke(g, qq8.a(i, pw4.b(this.w)));
+                gradientDrawable.setStroke(g, rq8.a(i, pw4.b(this.w)));
             }
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f);

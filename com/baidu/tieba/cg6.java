@@ -18,24 +18,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class cg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void Z(List<String> list);
 
         void w0();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(ImageUploadResult imageUploadResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class cg6 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class cg6 {
                     this.b.a(imageUploader.uploadInBackground(filePath, true, false));
                     return;
                 }
-                Bitmap b = vw7.b(this.a);
+                Bitmap b = ww7.b(this.a);
                 if (b == null) {
                     this.b.a(null);
                     return;
@@ -169,7 +169,7 @@ public class cg6 {
     public final void b(ImageFileInfo imageFileInfo, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            lw7.b().a(new b(this, imageFileInfo, dVar));
+            mw7.b().a(new b(this, imageFileInfo, dVar));
         }
     }
 }

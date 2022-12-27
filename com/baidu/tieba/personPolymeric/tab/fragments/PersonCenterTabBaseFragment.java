@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ze8;
+import com.baidu.tieba.af8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import tbclient.User;
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ze8 a;
+    public af8 a;
 
     public void A1(MetaData metaData) {
         Interceptable interceptable = $ic;
@@ -48,10 +48,10 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        ze8 ze8Var;
+        af8 af8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (ze8Var = this.a) != null) {
-            ze8Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (af8Var = this.a) != null) {
+            af8Var.dettachView(view2);
         }
     }
 
@@ -60,9 +60,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            ze8 ze8Var = this.a;
-            if (ze8Var != null) {
-                ze8Var.onChangeSkinType();
+            af8 af8Var = this.a;
+            if (af8Var != null) {
+                af8Var.onChangeSkinType();
             }
         }
     }
@@ -72,9 +72,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048580, this, view2, str, z) == null) {
             if (this.a == null) {
-                ze8 ze8Var = new ze8(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = ze8Var;
-                ze8Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                af8 af8Var = new af8(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = af8Var;
+                af8Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.d(null);
                 this.a.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.f();

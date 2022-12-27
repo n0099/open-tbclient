@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface kf9 {
-    void setUBCConfigStatisticData(JSONObject jSONObject);
+    boolean isAgreePrivacy();
 }

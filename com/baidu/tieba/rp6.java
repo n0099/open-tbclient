@@ -982,7 +982,7 @@ public class rp6 implements View.OnClickListener {
                 this.k.setEnabled(false);
                 this.t.setEnabled(false);
                 this.H = false;
-                this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080987, qq8.a(SkinManager.getColor(R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080987, rq8.a(SkinManager.getColor(R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_PRESS));
                 rw4 d2 = rw4.d(this.k);
                 d2.k(R.color.CAM_X0902);
                 d2.l(R.dimen.L_X02);
@@ -1280,7 +1280,7 @@ public class rp6 implements View.OnClickListener {
             if (this.H) {
                 this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080987, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080987, qq8.a(SkinManager.getColor(R.color.CAM_X0304), SkinManager.RESOURCE_ALPHA_PRESS), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080987, rq8.a(SkinManager.getColor(R.color.CAM_X0304), SkinManager.RESOURCE_ALPHA_PRESS), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
             NavigationBar navigationBar = this.y;
             if (navigationBar != null) {
@@ -1291,11 +1291,11 @@ public class rp6 implements View.OnClickListener {
                 wv4Var.i();
             }
             if (i2 == 0) {
-                i79.l(this.u, R.drawable.edittext_cursor);
-                i79.l(this.v, R.drawable.edittext_cursor);
+                j79.l(this.u, R.drawable.edittext_cursor);
+                j79.l(this.v, R.drawable.edittext_cursor);
             } else {
-                i79.l(this.u, R.drawable.edittext_cursor_1);
-                i79.l(this.v, R.drawable.edittext_cursor_1);
+                j79.l(this.u, R.drawable.edittext_cursor_1);
+                j79.l(this.v, R.drawable.edittext_cursor_1);
             }
             rw4 d5 = rw4.d(this.k);
             d5.k(R.color.CAM_X0902);

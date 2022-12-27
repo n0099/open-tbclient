@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cu8;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.ec5;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.m65;
@@ -340,7 +340,7 @@ public class NewVoiceRecordButton extends LinearLayout implements oj, y65 {
         }
     }
 
-    public cu8 getRecorderManager() {
+    public du8 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -350,7 +350,7 @@ public class NewVoiceRecordButton extends LinearLayout implements oj, y65 {
             }
             return null;
         }
-        return (cu8) invokeV.objValue;
+        return (du8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.y65
@@ -395,7 +395,7 @@ public class NewVoiceRecordButton extends LinearLayout implements oj, y65 {
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092453);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924da);
             this.a.setOnTouchListener(new a(this));
-            cu8 recorderManager = getRecorderManager();
+            du8 recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(this);
                 recorderManager.d(mj.a);
@@ -433,7 +433,7 @@ public class NewVoiceRecordButton extends LinearLayout implements oj, y65 {
             if (voiceModel != null) {
                 y05.a(y05.b(voiceModel.getVoiceId()));
             }
-            cu8 recorderManager = getRecorderManager();
+            du8 recorderManager = getRecorderManager();
             if (recorderManager != null && recorderManager.f()) {
                 this.i = recorderManager.c(this, -1);
                 ec5.b().l(true);
@@ -467,7 +467,7 @@ public class NewVoiceRecordButton extends LinearLayout implements oj, y65 {
             this.c.setVisibility(4);
             this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f160b));
             this.d.setVisibility(4);
-            cu8 recorderManager = getRecorderManager();
+            du8 recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
                 recorderManager.stopRecord();
             }

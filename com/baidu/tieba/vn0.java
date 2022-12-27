@@ -30,7 +30,7 @@ public class vn0 extends yf1<bo0> {
 
         /* renamed from: com.baidu.tieba.vn0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0464a implements cr0<JSONObject> {
+        public class C0465a implements cr0<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ wp0 a;
@@ -45,7 +45,7 @@ public class vn0 extends yf1<bo0> {
                 }
             }
 
-            public C0464a(a aVar, wp0 wp0Var, bo0.b bVar, hq0 hq0Var) {
+            public C0465a(a aVar, wp0 wp0Var, bo0.b bVar, hq0 hq0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,7 +193,7 @@ public class vn0 extends yf1<bo0> {
                 kr0Var.l(d(wp0Var.d()));
                 kr0Var.h(fr0.c);
                 kr0Var.d("User-Agent", zi0.c().a().h());
-                a.a(kr0Var, new C0464a(this, wp0Var, bVar, hq0Var));
+                a.a(kr0Var, new C0465a(this, wp0Var, bVar, hq0Var));
             }
         }
 

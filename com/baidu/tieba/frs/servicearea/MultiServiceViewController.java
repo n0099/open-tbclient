@@ -28,8 +28,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bu6;
 import com.baidu.tieba.dm6;
 import com.baidu.tieba.du6;
-import com.baidu.tieba.qr8;
 import com.baidu.tieba.rr8;
+import com.baidu.tieba.sr8;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.yi;
@@ -46,7 +46,7 @@ public class MultiServiceViewController implements bu6 {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public RecyclerView b;
-    public List<rr8> c;
+    public List<sr8> c;
     public FrsViewData d;
     public RecyclerView.Adapter e;
 
@@ -58,7 +58,7 @@ public class MultiServiceViewController implements bu6 {
         public FrameLayout b;
         public TbClipImageView c;
         public TextView d;
-        public rr8 e;
+        public sr8 e;
         public List<String> f;
         public FrsViewData g;
         public View.OnClickListener h;
@@ -165,25 +165,25 @@ public class MultiServiceViewController implements bu6 {
             view2.setOnClickListener(this.h);
         }
 
-        public void c(rr8 rr8Var) {
+        public void c(sr8 sr8Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, rr8Var) != null) || rr8Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, sr8Var) != null) || sr8Var == null) {
                 return;
             }
-            this.e = rr8Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f08f6), rr8Var.b)) {
+            this.e = sr8Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f08f6), sr8Var.b)) {
                 this.c.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
                 layoutParams.width = yi.g(this.c.getContext(), R.dimen.tbds62);
                 layoutParams.height = yi.g(this.c.getContext(), R.dimen.tbds62);
             } else {
-                this.c.K(rr8Var.b, 10, false);
+                this.c.K(sr8Var.b, 10, false);
             }
-            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(rr8Var.c, 10, ""));
+            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(sr8Var.c, 10, ""));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            if (!this.f.contains(rr8Var.c)) {
-                du6.d(rr8Var);
-                this.f.add(rr8Var.c);
+            if (!this.f.contains(sr8Var.c)) {
+                du6.d(sr8Var);
+                this.f.add(sr8Var.c);
             }
         }
     }
@@ -218,7 +218,7 @@ public class MultiServiceViewController implements bu6 {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.c((rr8) this.a.c.get(i));
+                serviceViewHolder.c((sr8) this.a.c.get(i));
             }
         }
 
@@ -279,10 +279,10 @@ public class MultiServiceViewController implements bu6 {
     }
 
     @Override // com.baidu.tieba.bu6
-    public void a(qr8 qr8Var, FrsViewData frsViewData) {
+    public void a(rr8 rr8Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, qr8Var, frsViewData) == null) && qr8Var != null && !ListUtils.isEmpty(qr8Var.b)) {
-            this.c = qr8Var.b;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, rr8Var, frsViewData) == null) && rr8Var != null && !ListUtils.isEmpty(rr8Var.b)) {
+            this.c = rr8Var.b;
             this.d = frsViewData;
             this.e.notifyDataSetChanged();
             RecyclerView recyclerView = this.b;

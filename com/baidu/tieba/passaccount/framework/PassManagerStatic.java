@@ -63,11 +63,12 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
+import com.baidu.tieba.az7;
 import com.baidu.tieba.br5;
 import com.baidu.tieba.h15;
 import com.baidu.tieba.i15;
 import com.baidu.tieba.ir4;
-import com.baidu.tieba.ly7;
+import com.baidu.tieba.my7;
 import com.baidu.tieba.passaccount.app.LoginActivity;
 import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 import com.baidu.tieba.passaccount.app.OneKeyLoginActivity;
@@ -76,9 +77,8 @@ import com.baidu.tieba.passaccount.framework.certification.CertificationRequestP
 import com.baidu.tieba.passaccount.framework.certification.ICheckCertificationCallback;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.uf5;
-import com.baidu.tieba.wy7;
 import com.baidu.tieba.xy7;
-import com.baidu.tieba.zy7;
+import com.baidu.tieba.yy7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -965,7 +965,7 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<ly7> {
+    public static class d implements CustomMessageTask.CustomRunnable<my7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -984,13 +984,13 @@ public class PassManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ly7> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<my7> customMessage) {
             InterceptResult invokeL;
             BaseResp baseResp;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof ly7)) {
-                    ly7 data = customMessage.getData();
+                if (customMessage != null && (customMessage.getData() instanceof my7)) {
+                    my7 data = customMessage.getData();
                     if (data.a != null && (baseResp = data.b) != null && (baseResp instanceof SendAuth.Resp)) {
                         PassportSDK.getInstance().handleWXLoginResp(data.a, ((SendAuth.Resp) baseResp).state, ((SendAuth.Resp) baseResp).code, data.b.errCode);
                     }
@@ -1108,7 +1108,7 @@ public class PassManagerStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001268, zy7.d());
+                return new CustomResponsedMessage<>(2001268, az7.d());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -1138,7 +1138,7 @@ public class PassManagerStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001293, wy7.e());
+                return new CustomResponsedMessage<>(2001293, xy7.e());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -1347,7 +1347,7 @@ public class PassManagerStatic {
         y();
         v();
         o();
-        xy7.o();
+        yy7.o();
         t();
         u();
         n();

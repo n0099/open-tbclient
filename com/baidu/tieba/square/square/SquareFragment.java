@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az4;
 import com.baidu.tieba.square.square.SquareModel;
-import com.baidu.tieba.up8;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.vp8;
+import com.baidu.tieba.xp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public wp8 a;
+    public xp8 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -82,13 +82,13 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, up8 up8Var) {
+        public void a(boolean z, String str, vp8 vp8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, up8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, vp8Var}) == null) {
                 this.a.a.m(true, "");
                 SquareFragment squareFragment = this.a;
                 squareFragment.hideLoadingView(squareFragment.a.n());
-                if (z && up8Var != null && !up8Var.g()) {
+                if (z && vp8Var != null && !vp8Var.g()) {
                     this.a.a.q(this.a.b.P());
                     this.a.c = true;
                     this.a.a.o();
@@ -289,9 +289,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            wp8 wp8Var = this.a;
-            if (wp8Var != null) {
-                wp8Var.onChangeSkinType(i);
+            xp8 xp8Var = this.a;
+            if (xp8Var != null) {
+                xp8Var.onChangeSkinType(i);
             }
         }
     }
@@ -313,9 +313,9 @@ public class SquareFragment extends BaseFragment {
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wp8 wp8Var = new wp8(this.f, getUniqueId(), this.g, this.j);
-            this.a = wp8Var;
-            wp8Var.s(this.k);
+            xp8 xp8Var = new xp8(this.f, getUniqueId(), this.g, this.j);
+            this.a = xp8Var;
+            xp8Var.s(this.k);
         }
     }
 

@@ -98,12 +98,12 @@ public final class n32 {
 
         /* renamed from: com.baidu.tieba.n32$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0366b implements Runnable {
+        public class RunnableC0368b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ k32 a;
 
-            public RunnableC0366b(b bVar, k32 k32Var) {
+            public RunnableC0368b(b bVar, k32 k32Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,7 +244,7 @@ public final class n32 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0366b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0368b(this, this.c.m()));
             }
         }
 

@@ -835,13 +835,13 @@ public class dy6 {
         }
     }
 
-    public static void N(int i, String str, String str2, js8 js8Var) {
+    public static void N(int i, String str, String str2, ks8 ks8Var) {
         List<String> list;
         String str3;
         String str4;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), str, str2, js8Var}) == null) && js8Var != null && js8Var.e() != null) {
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) js8Var.e();
+        if ((interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), str, str2, ks8Var}) == null) && ks8Var != null && ks8Var.e() != null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) ks8Var.e();
             String str5 = null;
             if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
                 String title = funNativeAd2.getNativeInfo().getTitle();
@@ -855,8 +855,8 @@ public class dy6 {
                 str4 = null;
             }
             String valueOf = String.valueOf(i);
-            String g = js8Var.g();
-            String d = js8Var.d();
+            String g = ks8Var.g();
+            String d = ks8Var.d();
             if (list != null) {
                 str5 = list.toString();
             }
@@ -864,14 +864,14 @@ public class dy6 {
         }
     }
 
-    public static void a(StatisticItem statisticItem, js8 js8Var) {
+    public static void a(StatisticItem statisticItem, ks8 ks8Var) {
         List<String> list;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65550, null, statisticItem, js8Var) == null) && statisticItem != null && js8Var != null && js8Var.e() != null) {
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) js8Var.e();
-            statisticItem.param("tid", js8Var.g());
-            statisticItem.param("fid", js8Var.d());
+        if ((interceptable == null || interceptable.invokeLL(65550, null, statisticItem, ks8Var) == null) && statisticItem != null && ks8Var != null && ks8Var.e() != null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) ks8Var.e();
+            statisticItem.param("tid", ks8Var.g());
+            statisticItem.param("fid", ks8Var.d());
             statisticItem.param(TiebaStatic.Params.AD_TYPE, x(funNativeAd2));
             statisticItem.param(TiebaStatic.Params.AD_SOURCE, t(funNativeAd2));
             String str2 = null;

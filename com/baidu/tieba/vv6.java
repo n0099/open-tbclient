@@ -86,7 +86,7 @@ public class vv6 {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            oj8.n().w(arrayList);
+            pj8.n().w(arrayList);
         }
     }
 }

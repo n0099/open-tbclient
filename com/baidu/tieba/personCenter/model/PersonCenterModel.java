@@ -21,14 +21,14 @@ import com.baidu.tieba.ah;
 import com.baidu.tieba.df;
 import com.baidu.tieba.kc6;
 import com.baidu.tieba.kv4;
-import com.baidu.tieba.oa8;
+import com.baidu.tieba.pa8;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.rf5;
-import com.baidu.tieba.u98;
+import com.baidu.tieba.v98;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,7 +42,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_NO_NETWORK = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public oa8 a;
+    public pa8 a;
     public d b;
     public boolean c;
     public boolean d;
@@ -52,7 +52,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes5.dex */
     public interface d {
-        void a(oa8 oa8Var);
+        void a(pa8 pa8Var);
 
         void onFail(int i, String str);
     }
@@ -312,13 +312,13 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public oa8 K() {
+    public pa8 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (oa8) invokeV.objValue;
+        return (pa8) invokeV.objValue;
     }
 
     public void L() {
@@ -331,7 +331,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = new oa8();
+            this.a = new pa8();
         }
     }
 
@@ -360,24 +360,24 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void M(boolean z, ResponsedMessage<?> responsedMessage, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), responsedMessage, Long.valueOf(j)}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && u98.d().b() > 0) {
-            long f = u98.d().f();
-            long b2 = u98.d().b();
-            long c2 = u98.d().c();
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), responsedMessage, Long.valueOf(j)}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && v98.d().b() > 0) {
+            long f = v98.d().f();
+            long b2 = v98.d().b();
+            long c2 = v98.d().c();
             long j2 = f + b2;
-            long a2 = u98.d().a();
+            long a2 = v98.d().a();
             if (a2 > 0 && j > a2) {
                 j2 = j - a2;
             }
             new rf5(1008, z, responsedMessage, 0L, b2, c2, false, 0L, 0L, j2).c();
-            u98.d().h(0L);
+            v98.d().h(0L);
         }
     }
 
     public final void N(PersonChangeData personChangeData) {
-        oa8 oa8Var;
+        pa8 pa8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, personChangeData) == null) && personChangeData != null && (oa8Var = this.a) != null && oa8Var.y() != null && TbadkCoreApplication.getCurrentAccount() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, personChangeData) == null) && personChangeData != null && (pa8Var = this.a) != null && pa8Var.y() != null && TbadkCoreApplication.getCurrentAccount() != null) {
             P();
             O(xg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
@@ -416,9 +416,9 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                 profileRequestMessage.setNeedUsergrowthTask(1);
                 profileRequestMessage.setHistoryForumIds(kc6.n().k());
                 profileRequestMessage.setHistoryForumNames(kc6.n().l());
-                oa8 oa8Var = new oa8();
-                this.a = oa8Var;
-                profileRequestMessage.setPersonCenterData(oa8Var);
+                pa8 pa8Var = new pa8();
+                this.a = pa8Var;
+                profileRequestMessage.setPersonCenterData(pa8Var);
                 sendMessage(profileRequestMessage);
             }
         }

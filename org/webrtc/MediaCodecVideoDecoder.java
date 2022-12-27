@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
-import com.baidu.tieba.t2a;
-import com.baidu.tieba.w2a;
+import com.baidu.tieba.u2a;
+import com.baidu.tieba.x2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -348,7 +348,7 @@ public class MediaCodecVideoDecoder {
         @javax.annotation.Nullable
         @Deprecated
         public /* synthetic */ VideoDecoder createDecoder(String str) {
-            return w2a.$default$createDecoder(this, str);
+            return x2a.$default$createDecoder(this, str);
         }
 
         public HwDecoderFactory() {
@@ -1105,7 +1105,7 @@ public class MediaCodecVideoDecoder {
                 Logging.w(TAG, "Egl context already set.");
                 eglBase.release();
             }
-            eglBase = t2a.b(context);
+            eglBase = u2a.b(context);
         }
     }
 

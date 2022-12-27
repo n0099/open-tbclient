@@ -29,7 +29,7 @@ import com.baidu.tieba.k17;
 import com.baidu.tieba.m17;
 import com.baidu.tieba.n67;
 import com.baidu.tieba.uf5;
-import com.baidu.tieba.uu8;
+import com.baidu.tieba.vu8;
 import com.baidu.tieba.wi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -343,7 +343,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements hl6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            uu8.b(new a(this, bundle), 3);
+            vu8.b(new a(this, bundle), 3);
         }
     }
 

@@ -108,7 +108,7 @@ public class AcceleratorFragment extends BaseFragment {
 
             /* renamed from: com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment$k$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0275a implements wv4.e {
+            public class C0276a implements wv4.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ cm6 a;
@@ -116,17 +116,17 @@ public class AcceleratorFragment extends BaseFragment {
 
                 /* renamed from: com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment$k$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes4.dex */
-                public class RunnableC0276a implements Runnable {
+                public class RunnableC0277a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C0275a a;
+                    public final /* synthetic */ C0276a a;
 
-                    public RunnableC0276a(C0275a c0275a) {
+                    public RunnableC0277a(C0276a c0276a) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c0275a};
+                            Object[] objArr = {c0276a};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -136,7 +136,7 @@ public class AcceleratorFragment extends BaseFragment {
                                 return;
                             }
                         }
-                        this.a = c0275a;
+                        this.a = c0276a;
                     }
 
                     @Override // java.lang.Runnable
@@ -150,7 +150,7 @@ public class AcceleratorFragment extends BaseFragment {
                     }
                 }
 
-                public C0275a(a aVar, cm6 cm6Var) {
+                public C0276a(a aVar, cm6 cm6Var) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,7 +179,7 @@ public class AcceleratorFragment extends BaseFragment {
                         this.b.a.a.a.e = pkgNameAndNodeInfoData.getNodeInfo().getNodeName();
                         this.a.b();
                         this.b.a.a.g2();
-                        this.b.a.a.y.postDelayed(new RunnableC0276a(this), 100L);
+                        this.b.a.a.y.postDelayed(new RunnableC0277a(this), 100L);
                     }
                 }
             }
@@ -207,7 +207,7 @@ public class AcceleratorFragment extends BaseFragment {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     cm6 c = cm6.c(this.a.a.getPageContext());
-                    c.e(new C0275a(this, c));
+                    c.e(new C0276a(this, c));
                     c.d(this.a.a.a.e);
                     c.f(em6.b(this.a.a.c.getAvailableTornadoNodeInfoList(), this.a.a.c.getAvailableNodesNum()));
                     c.g(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0063));

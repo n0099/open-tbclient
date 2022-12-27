@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
+import com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hr7 extends yf1<ThirdPartAliRechargeService> {
+public class hr7 extends yf1<ThirdPartAccountService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,12 +30,12 @@ public class hr7 extends yf1<ThirdPartAliRechargeService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.yf1
     /* renamed from: a */
-    public ThirdPartAliRechargeService createService() throws ServiceNotFoundException {
+    public ThirdPartAccountService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ir7();
+            return new ThirdPartyAccountServiceImpl();
         }
-        return (ThirdPartAliRechargeService) invokeV.objValue;
+        return (ThirdPartAccountService) invokeV.objValue;
     }
 }

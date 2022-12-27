@@ -28,7 +28,7 @@ public class nz6 {
     public q77 e;
     @Nullable
     public String f;
-    public lv7 g;
+    public mv7 g;
 
     public nz6() {
         Interceptable interceptable = $ic;
@@ -73,13 +73,13 @@ public class nz6 {
         return (q77) invokeV.objValue;
     }
 
-    public lv7 d() {
+    public mv7 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.g;
         }
-        return (lv7) invokeV.objValue;
+        return (mv7) invokeV.objValue;
     }
 
     public ArrayList<ThreadData> e() {
@@ -199,9 +199,9 @@ public class nz6 {
             this.a = z;
             JSONObject optJSONObject5 = jSONObject.optJSONObject("nearby_person");
             if (optJSONObject5 != null) {
-                lv7 lv7Var = new lv7();
-                this.g = lv7Var;
-                lv7Var.a(optJSONObject5);
+                mv7 mv7Var = new mv7();
+                this.g = mv7Var;
+                mv7Var.a(optJSONObject5);
             }
         } catch (JSONException e) {
             e.printStackTrace();

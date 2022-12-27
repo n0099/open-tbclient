@@ -63,7 +63,7 @@ public class kt4 extends BaseCardInfo {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ICardInfo i = sl7.i(this.b);
+            ICardInfo i = tl7.i(this.b);
             this.c = i;
             if (i != null) {
                 z = true;

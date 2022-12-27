@@ -64,8 +64,8 @@ import com.baidu.tieba.frs.vc.FrsTopView;
 import com.baidu.tieba.frs.view.FrsHeaderVideoImageShadeView;
 import com.baidu.tieba.frs.view.HotRankEntryView;
 import com.baidu.tieba.frs.voiceroom.view.FrsVoiceRoomListLayout;
-import com.baidu.tieba.lf8;
 import com.baidu.tieba.lv4;
+import com.baidu.tieba.mf8;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoView;
 import com.baidu.tieba.tbadkCore.FrsViewData;
@@ -912,7 +912,7 @@ public class jn6 extends ex6 {
     }
 
     /* loaded from: classes5.dex */
-    public class r implements lf8.c {
+    public class r implements mf8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xs4 a;
@@ -937,7 +937,7 @@ public class jn6 extends ex6 {
             this.a = xs4Var;
         }
 
-        @Override // com.baidu.tieba.lf8.c
+        @Override // com.baidu.tieba.mf8.c
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeII(1048576, this, i, i2) != null) {
@@ -1185,8 +1185,8 @@ public class jn6 extends ex6 {
         view2.setVisibility(i2);
         Y1(frsViewData, frsGameRankInfoData, "c15055");
         this.F0.setVisibility(8);
-        int b2 = fm7.b(frsGameRankInfoData.rankColor);
-        if (fm7.a(b2)) {
+        int b2 = gm7.b(frsGameRankInfoData.rankColor);
+        if (gm7.a(b2)) {
             this.P.setUseStrokeColorInt(false);
         } else {
             this.P.setStrokeColorInt(b2);
@@ -1217,26 +1217,26 @@ public class jn6 extends ex6 {
         this.J0.setOnClickListener(new o(this, frsGameRankInfoData, frsViewData));
     }
 
-    public final void n1(vq8 vq8Var) {
+    public final void n1(wq8 wq8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048623, this, vq8Var) == null) && vq8Var != null && this.z1 != null && !this.h1) {
+        if ((interceptable == null || interceptable.invokeL(1048623, this, wq8Var) == null) && wq8Var != null && this.z1 != null && !this.h1) {
             this.h1 = true;
             StatisticItem statisticItem = new StatisticItem("common_exp");
             statisticItem.param("page_type", "a006");
             statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
             int i2 = 6;
-            if (vq8Var.getType() != 1) {
-                if (vq8Var.getType() == 2) {
+            if (wq8Var.getType() != 1) {
+                if (wq8Var.getType() == 2) {
                     i2 = 7;
-                } else if (vq8Var.getType() == 3) {
+                } else if (wq8Var.getType() == 3) {
                     i2 = 8;
-                } else if (vq8Var.getType() == 4) {
+                } else if (wq8Var.getType() == 4) {
                     i2 = 21;
                 }
             }
             statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
             statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-            statisticItem.param("obj_id", vq8Var.c());
+            statisticItem.param("obj_id", wq8Var.c());
             ForumData forum = this.z1.getForum();
             if (forum != null) {
                 statisticItem.param("fid", forum.getId());
@@ -1244,16 +1244,16 @@ public class jn6 extends ex6 {
                 statisticItem.param(TiebaStatic.Params.FIRST_DIR, forum.getFirst_class());
                 statisticItem.param(TiebaStatic.Params.SECOND_DIR, forum.getSecond_class());
             }
-            if (vq8Var.getType() == 1) {
-                statisticItem.param("tid", vq8Var.m());
-                statisticItem.param("thread_type", vq8Var.n());
+            if (wq8Var.getType() == 1) {
+                statisticItem.param("tid", wq8Var.m());
+                statisticItem.param("thread_type", wq8Var.n());
             }
-            if (StringUtils.isNull(vq8Var.q())) {
+            if (StringUtils.isNull(wq8Var.q())) {
                 statisticItem.param("obj_type", 1);
             } else {
                 statisticItem.param("obj_type", 2);
             }
-            if (YYLiveUtil.isYYLiveLink(vq8Var.p())) {
+            if (YYLiveUtil.isYYLiveLink(wq8Var.p())) {
                 statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
             } else {
                 statisticItem.param(TiebaStatic.YYParams.YYLIVEID, "");
@@ -1883,10 +1883,10 @@ public class jn6 extends ex6 {
             }
             ServiceAreaView serviceAreaView = this.y;
             if (serviceAreaView != null) {
-                serviceAreaView.setThemeFontColor(fm7.b(themeElement.common_color));
+                serviceAreaView.setThemeFontColor(gm7.b(themeElement.common_color));
             }
             if (this.B != null) {
-                this.B.setUrlAndColor(forum.getTopIcon(), fm7.b(themeElement.common_color));
+                this.B.setUrlAndColor(forum.getTopIcon(), gm7.b(themeElement.common_color));
             }
         }
     }
@@ -2005,12 +2005,12 @@ public class jn6 extends ex6 {
         Z1(frsViewData);
     }
 
-    public final void S1(List<xn> list, vq8 vq8Var) {
+    public final void S1(List<xn> list, wq8 wq8Var) {
         ForumData forumData;
         ForumData forumData2;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048602, this, list, vq8Var) != null) || this.B == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048602, this, list, wq8Var) != null) || this.B == null) {
             return;
         }
         this.Y0 = list;
@@ -2033,7 +2033,7 @@ public class jn6 extends ex6 {
             }
         }
         UserData userData = null;
-        if (vq8Var != null) {
+        if (wq8Var != null) {
             this.A = new qm6(this.a.getPageActivity());
             this.z.setVisibility(0);
             this.z.addView(this.A.f());
@@ -2050,8 +2050,8 @@ public class jn6 extends ex6 {
             } else {
                 z = true;
             }
-            qm6Var.e(forumData2, vq8Var, z);
-            n1(vq8Var);
+            qm6Var.e(forumData2, wq8Var, z);
+            n1(wq8Var);
         } else {
             this.z.setVisibility(8);
         }
@@ -2076,14 +2076,14 @@ public class jn6 extends ex6 {
                 userData = frsViewData5.getUserData();
             }
             this.B.setForum(this.W, this.V, forumData, userData, this.b.q3());
-            if (list.size() > 0 && (list.get(0) instanceof er8)) {
+            if (list.size() > 0 && (list.get(0) instanceof fr8)) {
                 this.a1 = 0;
-            } else if (list.size() > 1 && (list.get(1) instanceof er8)) {
+            } else if (list.size() > 1 && (list.get(1) instanceof fr8)) {
                 this.a1 = 1;
             } else {
                 this.a1 = -1;
             }
-            this.B.setDatas(list, vq8Var);
+            this.B.setDatas(list, wq8Var);
             if (this.z0 == null) {
                 this.z0 = new p(this);
             }
@@ -2254,13 +2254,13 @@ public class jn6 extends ex6 {
     public final int s1(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         List<xn> list;
-        List<rr8> list2;
+        List<sr8> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int i2 = 0;
             if (z2) {
-                qr8 qr8Var = this.z1.serviceAreaData;
-                if (qr8Var != null && (list2 = qr8Var.b) != null && list2.size() == 1) {
+                rr8 rr8Var = this.z1.serviceAreaData;
+                if (rr8Var != null && (list2 = rr8Var.b) != null && list2.size() == 1) {
                     i2 = 0 + yi.g(this.a.getPageActivity(), R.dimen.tbds83);
                 } else {
                     i2 = 0 + yi.g(this.a.getPageActivity(), R.dimen.tbds84);
@@ -2404,7 +2404,7 @@ public class jn6 extends ex6 {
                 b2 = bw6.b(xs4Var, i2);
             }
             if (!StringUtils.isNull(b2)) {
-                int b3 = fm7.b(b2);
+                int b3 = gm7.b(b2);
                 this.v1.setGradientColors(0, b3);
                 this.u1.setBackgroundColor(b3);
             }

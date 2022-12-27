@@ -31,7 +31,7 @@ import com.baidu.tieba.cg6;
 import com.baidu.tieba.ig6;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.n95;
-import com.baidu.tieba.pw7;
+import com.baidu.tieba.qw7;
 import com.baidu.tieba.tf6;
 import com.baidu.tieba.tq4;
 import com.baidu.tieba.uy4;
@@ -227,7 +227,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (pw7.o().p()) {
+                if (qw7.o().p()) {
                     yi.P(view2.getContext(), R.string.obfuscated_res_0x7f0f0606);
                     return;
                 }

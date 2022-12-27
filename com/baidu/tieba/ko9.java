@@ -1,12 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
 public interface ko9 {
-    public static final ServiceReference a = new ServiceReference("voyager", HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM);
-
-    void a();
-
-    void b();
+    void a(no9 no9Var);
 }

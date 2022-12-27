@@ -32,7 +32,7 @@ public class l16 extends kn<b26, CardViewHolder<y26>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public hz8 b;
+    public iz8 b;
     public boolean c;
     public String d;
     public String e;
@@ -280,7 +280,7 @@ public class l16 extends kn<b26, CardViewHolder<y26>> {
                 lv4Var.create(this.a).show();
             } else if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                 if (this.b == null) {
-                    this.b = new hz8(this.a);
+                    this.b = new iz8(this.a);
                 }
                 if (this.c) {
                     if (this.b.c()) {

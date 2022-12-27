@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.aj;
 import com.baidu.tieba.br5;
 import com.baidu.tieba.dr4;
-import com.baidu.tieba.eu7;
+import com.baidu.tieba.fu7;
 import com.baidu.tieba.ni;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.yi;
@@ -95,7 +95,7 @@ public class SyncLoginService extends BdBaseService {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<String, Integer, eu7> {
+    public class b extends BdAsyncTask<String, Integer, fu7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -123,10 +123,10 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(eu7 eu7Var) {
+        public void onPostExecute(fu7 fu7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eu7Var) == null) {
-                super.onPostExecute(eu7Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fu7Var) == null) {
+                super.onPostExecute(fu7Var);
                 this.b.mSyncTask = null;
             }
         }
@@ -138,12 +138,12 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public eu7 doInBackground(String... strArr) {
+        public fu7 doInBackground(String... strArr) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                eu7 eu7Var = null;
+                fu7 fu7Var = null;
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
                     this.a = netWork;
@@ -197,22 +197,22 @@ public class SyncLoginService extends BdBaseService {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    eu7 eu7Var2 = new eu7();
+                    fu7 fu7Var2 = new fu7();
                     try {
-                        eu7Var2.a(postNetData);
+                        fu7Var2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return eu7Var2;
+                        return fu7Var2;
                     } catch (Exception e) {
                         e = e;
-                        eu7Var = eu7Var2;
+                        fu7Var = fu7Var2;
                         BdLog.e(e.getMessage());
-                        return eu7Var;
+                        return fu7Var;
                     }
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else {
-                return (eu7) invokeL.objValue;
+                return (fu7) invokeL.objValue;
             }
         }
 

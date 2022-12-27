@@ -1,7 +1,7 @@
 package com.baidu.searchbox.looper.ioc;
 
 import com.baidu.tieba.if1;
-import com.baidu.tieba.un8;
+import com.baidu.tieba.vn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +30,6 @@ public class ILooperNeedContext_LooperRuntime_Provider implements if1 {
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new un8() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new vn8() : invokeV.objValue;
     }
 }

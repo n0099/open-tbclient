@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,9 +37,10 @@ public class wj8 {
                 return null;
             }
             wj8 wj8Var = new wj8();
-            wj8Var.a = jSONObject.optString("apk_name");
-            wj8Var.b = jSONObject.optString("apk_url");
-            wj8Var.c = jSONObject.optString("download_key");
+            jSONObject.optString("brand_name");
+            wj8Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            wj8Var.b = jSONObject.optString("button_scheme");
+            wj8Var.c = jSONObject.optString("cmd_scheme");
             return wj8Var;
         }
         return (wj8) invokeL.objValue;

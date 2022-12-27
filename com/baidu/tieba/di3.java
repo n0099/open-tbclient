@@ -34,12 +34,12 @@ public class di3 implements xi3<Exception> {
 
         /* renamed from: com.baidu.tieba.di3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0251a implements Runnable {
+        public class RunnableC0254a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0251a(a aVar) {
+            public RunnableC0254a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class di3 implements xi3<Exception> {
                     if (this.a.c != null) {
                         this.a.b.removeCallbacks(this.a.c);
                     }
-                    this.a.c = new RunnableC0251a(this);
+                    this.a.c = new RunnableC0254a(this);
                     long a = kg4.a(300) * 1000;
                     this.a.b.postDelayed(this.a.c, a);
                     if (di3.e) {

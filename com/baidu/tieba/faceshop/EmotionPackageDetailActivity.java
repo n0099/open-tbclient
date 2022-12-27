@@ -50,8 +50,8 @@ import com.baidu.tieba.faceshop.EmotionPackageDetailModel;
 import com.baidu.tieba.faceshop.packagedetail.PackageDetailListView;
 import com.baidu.tieba.fh6;
 import com.baidu.tieba.gh6;
-import com.baidu.tieba.lr8;
 import com.baidu.tieba.lv4;
+import com.baidu.tieba.mr8;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.newfaceshop.NewFaceGroupShareModel;
 import com.baidu.tieba.oi;
@@ -979,11 +979,11 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                     EmotionPackageDetailActivity emotionPackageDetailActivity = this.a;
                     emotionPackageDetailActivity.showToast(emotionPackageDetailActivity.L.getErrorString());
                 } else {
-                    lr8 lr8Var = (lr8) obj;
-                    if (lr8Var != null) {
+                    mr8 mr8Var = (mr8) obj;
+                    if (mr8Var != null) {
                         TbadkApplication.getInst().addLikeForum(this.a.C.forum_name);
-                        lr8Var.x(1);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, lr8Var));
+                        mr8Var.x(1);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, mr8Var));
                     } else {
                         yi.P(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0cb8);
                     }

@@ -44,13 +44,13 @@ public class ei3 {
 
         /* renamed from: com.baidu.tieba.ei3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0260a implements Runnable {
+        public class RunnableC0262a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0260a(a aVar, Activity activity) {
+            public RunnableC0262a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,11 +145,11 @@ public class ei3 {
             }
             super.onActivityCreated(activity, bundle);
             if (activity != null && activity.getIntent() != null) {
-                RunnableC0260a runnableC0260a = new RunnableC0260a(this, activity);
+                RunnableC0262a runnableC0262a = new RunnableC0262a(this, activity);
                 if (lg3.a()) {
-                    runnableC0260a.run();
+                    runnableC0262a.run();
                 } else {
-                    yg3.j(runnableC0260a, "moveTaskToFront");
+                    yg3.j(runnableC0262a, "moveTaskToFront");
                 }
             }
         }

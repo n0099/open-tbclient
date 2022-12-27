@@ -157,7 +157,7 @@ public class fg6 extends b75 {
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
             for (int i = 0; i < this.a.size(); i++) {
                 eg6 eg6Var = (eg6) this.a.get(i);
-                if (eg6Var.u() && ow7.i().g(eg6Var.f()) == null && aVar != null) {
+                if (eg6Var.u() && pw7.i().g(eg6Var.f()) == null && aVar != null) {
                     aVar.a(eg6Var);
                 }
             }

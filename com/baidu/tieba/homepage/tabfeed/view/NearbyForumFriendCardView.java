@@ -17,8 +17,8 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kv7;
 import com.baidu.tieba.lv7;
+import com.baidu.tieba.mv7;
 import com.baidu.tieba.q67;
 import com.baidu.tieba.r55;
 import com.baidu.tieba.rw4;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements tx, sx<lv7>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements tx, sx<mv7>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements tx, sx<lv
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public kv7 j;
-    public lv7 k;
+    public lv7 j;
+    public mv7 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -69,16 +69,16 @@ public class NearbyForumFriendCardView extends LinearLayout implements tx, sx<lv
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.sx
     /* renamed from: d */
-    public void a(lv7 lv7Var) {
+    public void a(mv7 mv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lv7Var) == null) {
-            this.k = lv7Var;
-            kv7 kv7Var = this.j;
-            if (kv7Var != null) {
-                kv7Var.B(lv7Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, mv7Var) == null) {
+            this.k = mv7Var;
+            lv7 lv7Var = this.j;
+            if (lv7Var != null) {
+                lv7Var.B(mv7Var.a);
             }
-            this.i.setData(lv7Var.b);
-            if (lv7Var.c) {
+            this.i.setData(mv7Var.b);
+            if (mv7Var.c) {
                 this.d.setVisibility(0);
                 q67.q();
                 return;
@@ -143,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements tx, sx<lv
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new kv7(context, r55.l, 1);
+            this.j = new lv7(context, r55.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.a(linkedList);
@@ -153,13 +153,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements tx, sx<lv
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            lv7 lv7Var = this.k;
-            if (lv7Var != null) {
-                lv7Var.a = z;
+            mv7 mv7Var = this.k;
+            if (mv7Var != null) {
+                mv7Var.a = z;
             }
-            kv7 kv7Var = this.j;
-            if (kv7Var != null) {
-                kv7Var.B(z);
+            lv7 lv7Var = this.j;
+            if (lv7Var != null) {
+                lv7Var.B(z);
             }
         }
     }

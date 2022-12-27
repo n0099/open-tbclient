@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.vr4;
 import com.baidu.tieba.yj5;
@@ -446,16 +446,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048585, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (g(themeElement)) {
-                this.g.setTextColor(qq8.f(themeElement.common_color));
+                this.g.setTextColor(rq8.f(themeElement.common_color));
             }
             if (g(themeElement2)) {
-                this.h.setBackgroundColor(qq8.f(themeElement2.common_color));
+                this.h.setBackgroundColor(rq8.f(themeElement2.common_color));
             }
             if (g(themeElement3)) {
-                this.i.setTextColor(qq8.f(themeElement3.common_color));
+                this.i.setTextColor(rq8.f(themeElement3.common_color));
             }
             if (g(themeElement4)) {
-                this.o.g(qq8.f(themeElement4.common_color));
+                this.o.g(rq8.f(themeElement4.common_color));
             }
         }
     }

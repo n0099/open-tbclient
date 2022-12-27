@@ -189,9 +189,9 @@ public class t45 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
             if (i == 0) {
-                tz8.d(this.d, i2);
+                uz8.d(this.d, i2);
             } else {
-                tz8.b(this.d, i2);
+                uz8.b(this.d, i2);
             }
         }
     }

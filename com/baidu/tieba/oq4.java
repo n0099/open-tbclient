@@ -43,11 +43,11 @@ public class oq4 {
 
         /* renamed from: com.baidu.tieba.oq4$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0385a extends Thread {
+        public class C0383a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0385a(a aVar) {
+            public C0383a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class oq4 {
                     n = currentTimeMillis;
                 }
                 if (currentTimeMillis - n > oq4.a) {
-                    new C0385a(this).start();
+                    new C0383a(this).start();
                     ry4.l().y("key_clear_resource", currentTimeMillis);
                 }
             }

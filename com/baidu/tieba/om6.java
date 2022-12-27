@@ -43,7 +43,7 @@ public class om6 {
     public final AnimatorSet i;
     public long j;
     public ForumData k;
-    public vq8 l;
+    public wq8 l;
     public Dialog m;
     public int n;
     public int o;
@@ -855,13 +855,13 @@ public class om6 {
         }
     }
 
-    public void s(vq8 vq8Var, ForumData forumData, long j2) {
+    public void s(wq8 wq8Var, ForumData forumData, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{vq8Var, forumData, Long.valueOf(j2)}) == null) && this.c != null && this.e != null && this.f != null && vq8Var != null && !StringUtils.isNull(vq8Var.q())) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{wq8Var, forumData, Long.valueOf(j2)}) == null) && this.c != null && this.e != null && this.f != null && wq8Var != null && !StringUtils.isNull(wq8Var.q())) {
             this.j = j2;
             this.k = forumData;
-            this.l = vq8Var;
-            this.f.setVideoData(vq8Var.q(), this.l.b());
+            this.l = wq8Var;
+            this.f.setVideoData(wq8Var.q(), this.l.b());
             this.b.d();
         }
     }

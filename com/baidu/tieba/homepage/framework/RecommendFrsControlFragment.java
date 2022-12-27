@@ -39,14 +39,14 @@ import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.dr4;
-import com.baidu.tieba.du8;
 import com.baidu.tieba.en4;
+import com.baidu.tieba.eu8;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
 import com.baidu.tieba.j17;
-import com.baidu.tieba.jx8;
 import com.baidu.tieba.k17;
+import com.baidu.tieba.kx8;
 import com.baidu.tieba.l55;
 import com.baidu.tieba.m17;
 import com.baidu.tieba.my4;
@@ -55,8 +55,8 @@ import com.baidu.tieba.ry4;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.tieba.u9;
 import com.baidu.tieba.uf5;
-import com.baidu.tieba.uu8;
 import com.baidu.tieba.vm4;
+import com.baidu.tieba.vu8;
 import com.baidu.tieba.we5;
 import com.baidu.tieba.wi5;
 import com.baidu.tieba.xq4;
@@ -943,7 +943,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements xq4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            uu8.b(new c(this, bundle), 3);
+            vu8.b(new c(this, bundle), 3);
         }
     }
 
@@ -1219,7 +1219,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements xq4 {
     public void onPrimary() {
         String str;
         String str2;
-        jx8 Z0;
+        kx8 Z0;
         int intExtra;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -1287,7 +1287,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements xq4 {
             if (isPrimary()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "c10702", "click");
             } else {
-                VoiceManager a2 = du8.a(getActivity());
+                VoiceManager a2 = eu8.a(getActivity());
                 if (a2 != null) {
                     a2.stopPlay();
                 }

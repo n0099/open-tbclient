@@ -6,8 +6,8 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.by6;
-import com.baidu.tieba.ik8;
-import com.baidu.tieba.lk8;
+import com.baidu.tieba.jk8;
+import com.baidu.tieba.mk8;
 import com.baidu.tieba.qd5;
 import com.baidu.tieba.td5;
 import com.baidu.tieba.ti5;
@@ -529,7 +529,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
             builder.yuelaou_locate = this.s;
             builder.sort_type = Integer.valueOf(this.y);
             builder.last_click_tid = Long.valueOf(this.x);
-            builder.app_pos = ik8.e().a();
+            builder.app_pos = jk8.e().a();
             builder.load_type = Integer.valueOf(this.z);
             builder.obj_locate = this.C;
             builder.obj_source = this.D;
@@ -549,7 +549,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.I);
             if (this.z != 1) {
-                str = lk8.f().d("FRS");
+                str = mk8.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.J;

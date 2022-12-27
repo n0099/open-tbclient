@@ -26,8 +26,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.aj8;
 import com.baidu.tieba.al5;
+import com.baidu.tieba.bj8;
 import com.baidu.tieba.gp5;
 import com.baidu.tieba.ir4;
 import com.baidu.tieba.oi;
@@ -589,7 +589,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) {
-            return aj8.l(str, getApplicationContext());
+            return bj8.l(str, getApplicationContext());
         }
         return invokeL.booleanValue;
     }

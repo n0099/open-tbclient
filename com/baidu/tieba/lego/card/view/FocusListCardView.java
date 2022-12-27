@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a56;
-import com.baidu.tieba.dl7;
-import com.baidu.tieba.hl7;
+import com.baidu.tieba.el7;
 import com.baidu.tieba.ig5;
-import com.baidu.tieba.kr8;
+import com.baidu.tieba.il7;
 import com.baidu.tieba.lego.card.model.FocusListCard;
+import com.baidu.tieba.lr8;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -74,12 +74,12 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                 return;
             }
             a56.b().d(true);
-            dl7 e = hl7.e(this.a);
+            el7 e = il7.e(this.a);
             e.b("obj_locate", this.b + 1);
             e.d(TiebaStatic.Params.OBJ_URL, this.a.getFocusItemList().get(this.b).f);
             e.c("obj_id", this.a.getFocusItemList().get(this.b).g);
             e.a(this.a);
-            kr8.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
+            lr8.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
         }
     }
 

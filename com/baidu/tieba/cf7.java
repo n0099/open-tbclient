@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class cf7<T> implements we7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +41,13 @@ public abstract class cf7<T> implements we7 {
     public MetaData k;
     public View.OnAttachStateChangeListener l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cf7 a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public abstract class cf7<T> implements we7 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public abstract class cf7<T> implements we7 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -282,9 +282,9 @@ public abstract class cf7<T> implements we7 {
             d2.f(R.color.CAM_X0207);
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                i79.l(this.c, R.drawable.edittext_cursor);
+                j79.l(this.c, R.drawable.edittext_cursor);
             } else {
-                i79.l(this.c, R.drawable.edittext_cursor_1);
+                j79.l(this.c, R.drawable.edittext_cursor_1);
             }
             this.c.setHintTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
             rw4.d(this.d).x(R.color.CAM_X0107);

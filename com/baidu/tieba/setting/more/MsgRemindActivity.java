@@ -22,8 +22,8 @@ import com.baidu.tieba.p35;
 import com.baidu.tieba.r35;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.tieba.ur4;
-import com.baidu.tieba.xl8;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl8 a;
+    public yl8 a;
     public MsgRemindModel b;
     public final lo5 c;
     public MsgRemindModel.f d;
@@ -205,9 +205,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            xl8 xl8Var = new xl8(this);
-            this.a = xl8Var;
-            xl8Var.C(this);
+            yl8 yl8Var = new yl8(this);
+            this.a = yl8Var;
+            yl8Var.C(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }

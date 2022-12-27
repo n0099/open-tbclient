@@ -1,346 +1,185 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NavigationBarShadowView;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.myCollection.ThreadFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ev7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public c b;
-    public a c;
-    public ArrayList<MarkData> d;
-    public int e;
-    public int f;
-    public boolean g;
-    public bv7 h;
+    public BaseFragmentActivity a;
+    public NavigationBarShadowView b;
+    public BdListView c;
+    public View d;
+    public bz4 e;
+    public NoDataView f;
+    public dv7 g;
+    public RelativeLayout h;
+    public ProgressBar i;
+    public lv4 j;
+    public lv4.e k;
+    public c l;
+    public boolean m;
+    public AbsListView.OnScrollListener n;
 
-    /* loaded from: classes4.dex */
-    public class c extends BdAsyncTask<ev7, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public int g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091f51 : R.id.obfuscated_res_0x7f090e1d : invokeZ.intValue;
+    }
+
+    public int h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091f53 : R.id.obfuscated_res_0x7f091557 : invokeZ.intValue;
+    }
+
+    public int i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091f52 : R.id.obfuscated_res_0x7f090e1f : invokeZ.intValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
+    public class a implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-        public String b;
-        public String c;
-        public int d;
-        public gv7 e;
-        public final /* synthetic */ ev7 f;
+        public final /* synthetic */ ev7 a;
 
-        public a(ev7 ev7Var, String str, int i, String str2) {
+        public a(ev7 ev7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ev7Var, str, Integer.valueOf(i), str2};
+                Object[] objArr = {ev7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = ev7Var;
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = 0;
-            this.e = null;
-            this.b = str;
-            this.d = i;
-            this.c = str2;
-            this.e = new gv7();
+            this.a = ev7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(Boolean... boolArr) {
-            InterceptResult invokeL;
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.a = netWork;
-                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.a.addPostData("tid", this.b);
-                this.a.addPostData("fid", this.c);
-                this.e.c(this.a.postNetData());
-                if (this.a.getNetContext().getResponse().isRequestSuccess() && this.e.a() == 0) {
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                String str = null;
-                this.f.c = null;
-                if (bool.booleanValue()) {
-                    if (this.d < this.f.d.size()) {
-                        this.f.d.remove(this.d);
-                        ev7.i(this.f);
-                    }
-                } else {
-                    str = this.a.getNetContext().getResponse().isRequestSuccess() ? this.e.b() : this.a.getErrorString();
-                }
-                bv7 bv7Var = this.f.h;
-                if (bv7Var != null) {
-                    bv7Var.a(2, bool, str);
+            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0) {
+                View childAt = absListView.getChildAt(0);
+                if (this.a.b != null && childAt != null && childAt.getTop() == 0) {
+                    this.a.b.a();
                 }
             }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i) {
+            NavigationBarShadowView navigationBarShadowView;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.cancel(true);
-                NetWork netWork = this.a;
-                if (netWork != null) {
-                    netWork.cancelNetConnect();
-                }
-                this.f.c = null;
-                bv7 bv7Var = this.f.h;
-                if (bv7Var != null) {
-                    bv7Var.a(2, Boolean.FALSE, null);
-                }
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && (navigationBarShadowView = this.a.b) != null && i == 1) {
+                navigationBarShadowView.c();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<Boolean, String, ev7> {
+    public class b implements lv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-        public String b;
-        public int c;
-        public gv7 d;
-        public Boolean e;
-        public final /* synthetic */ ev7 f;
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            }
-        }
-
-        public b(ev7 ev7Var, int i) {
+        public b(ev7 ev7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ev7Var, Integer.valueOf(i)};
+                Object[] objArr = {ev7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.lv4.e
+        public void onClick(lv4 lv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                lv4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public fv7 a;
+
+        public c(fv7 fv7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fv7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = ev7Var;
-            this.a = null;
-            this.b = null;
-            this.c = 0;
-            this.d = null;
-            this.e = Boolean.FALSE;
-            this.c = i;
-            this.d = new gv7();
+            this.a = fv7Var;
         }
 
-        public final void b(String str) {
-            String currentAccount;
+        @Override // java.lang.Runnable
+        public void run() {
+            fv7 fv7Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (currentAccount = TbadkCoreApplication.getCurrentAccount()) == null) {
-                return;
-            }
-            kv4.f();
-            df<String> g = kv4.g("tb.my_bookmarks");
-            if (g != null) {
-                g.e(currentAccount, str, 604800000L);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public ev7 doInBackground(Boolean... boolArr) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, boolArr)) == null) {
-                this.e = boolArr[0];
-                if (boolArr.length >= 2 && boolArr[1] != null) {
-                    z = boolArr[1].booleanValue();
-                } else {
-                    z = true;
-                }
-                ev7 ev7Var = new ev7();
-                if (this.e.booleanValue() && z) {
-                    kv4.f();
-                    df<String> g = kv4.g("tb.my_bookmarks");
-                    if (g != null) {
-                        publishProgress(g.get(TbadkCoreApplication.getCurrentAccount()));
-                    }
-                    if (this.f.d == null) {
-                        this.f.d = new ArrayList();
-                    } else {
-                        this.f.d.clear();
-                    }
-                    this.f.e = 0;
-                }
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_GETSTORE);
-                this.a = netWork;
-                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                if (this.f.g) {
-                    this.a.addPostData("offset", String.valueOf(0));
-                } else {
-                    this.a.addPostData("offset", String.valueOf(this.c));
-                }
-                this.a.addPostData("rn", String.valueOf(20));
-                String postNetData = this.a.postNetData();
-                this.b = postNetData;
-                this.d.c(postNetData);
-                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    ev7Var.u(this.b);
-                    if (this.c == 0) {
-                        if (this.f.d == null) {
-                            this.f.d = new ArrayList();
-                        } else {
-                            this.f.d.clear();
-                        }
-                        this.f.e = 0;
-                        if (this.e.booleanValue()) {
-                            b(this.b);
-                        }
-                    }
-                }
-                return ev7Var;
-            }
-            return (ev7) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(ev7 ev7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, ev7Var) == null) {
-                if (ev7Var == null) {
-                    ev7Var = new ev7();
-                }
-                gv7 gv7Var = this.d;
-                if (gv7Var != null) {
-                    gy4.a("collection", 0L, 0, "collection_thread_list_result", gv7Var.a(), this.d.b(), new Object[0]);
-                }
-                this.f.e = ev7Var.m();
-                ArrayList<MarkData> n = ev7Var.n();
-                if (this.e.booleanValue()) {
-                    if (n != null && n.size() != 0) {
-                        this.f.B(n);
-                    }
-                } else {
-                    this.f.k(n);
-                }
-                Iterator<MarkData> it = n.iterator();
-                int i = 0;
-                while (it.hasNext()) {
-                    if (it.next().getNewCounts() > 0) {
-                        i++;
-                        this.f.C(i);
-                    }
-                }
-                if (this.f.h != null) {
-                    String str = null;
-                    if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        if (this.d.a() != 0) {
-                            str = this.d.b();
-                        }
-                        this.f.h.a(0, str, Boolean.FALSE);
-                    } else {
-                        this.f.h.a(3, this.a.getErrorString());
-                    }
-                }
-                this.f.g = false;
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.cancel(true);
-                NetWork netWork = this.a;
-                if (netWork != null) {
-                    netWork.cancelNetConnect();
-                }
-                this.f.a = null;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: e */
-        public void onProgressUpdate(String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, strArr) == null) {
-                super.onProgressUpdate(strArr);
-                String str = strArr[0];
-                ArrayList<MarkData> arrayList = new ArrayList<>();
-                if (str != null) {
-                    arrayList = this.f.t(str);
-                    if (this.e.booleanValue()) {
-                        this.f.B(arrayList);
-                    } else {
-                        this.f.k(arrayList);
-                    }
-                } else {
-                    this.f.B(arrayList);
-                }
-                if (ListUtils.isEmpty(arrayList)) {
-                    return;
-                }
-                this.f.h.a(0, null, Boolean.TRUE);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fv7Var = this.a) != null) {
+                fv7Var.w(Boolean.TRUE);
             }
         }
     }
 
-    public ev7() {
+    public ev7(ThreadFragment threadFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -351,311 +190,289 @@ public class ev7 {
             }
         }
         this.a = null;
-        this.b = null;
         this.c = null;
-        this.e = 0;
-        this.f = 0;
-        this.g = false;
+        this.d = null;
+        this.f = null;
+        this.g = null;
         this.h = null;
-        this.d = new ArrayList<>();
-        this.g = true;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.m = false;
+        this.n = new a(this);
+        this.a = threadFragment.getBaseFragmentActivity();
+        this.b = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f0916e0);
+        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091b72);
+        this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091835);
+        this.f = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, yi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07027b)), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0b02, R.string.obfuscated_res_0x7f0f0b03), null);
+        dv7 dv7Var = new dv7(threadFragment.getPageContext());
+        this.g = dv7Var;
+        dv7Var.notifyDataSetChanged();
+        this.e = new bz4(threadFragment.getPageContext());
+        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0913ba);
+        this.c = bdListView;
+        bdListView.setPullRefresh(this.e);
+        this.e.f(threadFragment);
+        this.d = new TextView(this.a.getActivity());
+        this.d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070306)));
+        this.c.x(this.d, 0);
+        this.c.setAdapter((ListAdapter) this.g);
+        this.c.setOnSrollToBottomListener(threadFragment);
+        this.c.setOnItemClickListener(threadFragment);
+        this.c.setOnScrollListener(this.n);
+        this.g.k(threadFragment);
+        this.g.r(threadFragment);
+        this.g.q(threadFragment);
     }
 
-    public final void y() {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || this.d == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.g.l(z);
+            this.g.notifyDataSetChanged();
         }
-        HashSet hashSet = new HashSet();
-        Iterator<MarkData> it = this.d.iterator();
-        while (it.hasNext()) {
-            MarkData next = it.next();
-            String id = next.getId();
-            int replyNum = next.getReplyNum();
-            if (!hashSet.add(id)) {
-                l(id, replyNum);
-                it.remove();
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            BdListViewHelper.c(this.d, BdListViewHelper.HeadType.DEFAULT, z);
+        }
+    }
+
+    public void q(lv4.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
+            this.k = eVar;
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.m = z;
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            if (i == 0) {
+                this.c.F();
+                return;
             }
+            this.g.p(true);
+            this.g.notifyDataSetChanged();
         }
     }
 
-    public static /* synthetic */ int i(ev7 ev7Var) {
-        int i = ev7Var.f;
-        ev7Var.f = i - 1;
-        return i;
-    }
-
-    public void A(bv7 bv7Var) {
+    public void w(ArrayList<MarkData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bv7Var) == null) {
-            this.h = bv7Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, arrayList) == null) {
+            this.g.j(arrayList);
         }
     }
 
-    public void B(ArrayList<MarkData> arrayList) {
+    public void c() {
+        BdListView bdListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.d = arrayList;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdListView = this.c) != null) {
+            bdListView.A(0L);
         }
     }
 
-    public void C(int i) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.i.setVisibility(8);
         }
     }
 
-    public void j(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, markData) == null) {
-            this.d.add(markData);
-        }
-    }
-
-    public void k(ArrayList<MarkData> arrayList) {
-        ArrayList<MarkData> arrayList2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) && (arrayList2 = this.d) != null && arrayList != null) {
-            arrayList2.addAll(arrayList);
-            y();
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            try {
-                v(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public void w(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bool) == null) {
-            x(bool, true);
-        }
-    }
-
-    public boolean D(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            a aVar = this.c;
-            if (aVar != null) {
-                aVar.cancel();
-            }
-            if (i >= this.d.size() || this.d.get(i) == null || this.d.get(i).getId() == null) {
-                return false;
-            }
-            a aVar2 = new a(this, this.d.get(i).getId(), i, this.d.get(i).getForumId());
-            this.c = aVar2;
-            aVar2.setPriority(2);
-            this.c.execute(new Boolean[0]);
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final ArrayList<MarkData> t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            ArrayList<MarkData> arrayList = new ArrayList<>();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (!jSONObject.optJSONObject("error").optString("errno").equals("0")) {
-                    return null;
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    MarkData markData = new MarkData();
-                    markData.paserJson(optJSONArray.getJSONObject(i));
-                    arrayList.add(markData);
-                }
-                return arrayList;
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-                return null;
-            }
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public void v(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
-            try {
-                if (!jSONObject.optJSONObject("error").optString("errno").equals("0")) {
-                    return;
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    MarkData markData = new MarkData();
-                    markData.paserJson(optJSONArray.getJSONObject(i));
-                    this.d.add(markData);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public String E(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-            ArrayList<MarkData> arrayList = this.d;
-            if (arrayList == null) {
-                return null;
-            }
-            if (i >= arrayList.size()) {
-                i2 -= (i - this.d.size()) - 1;
-                i = this.d.size() - 1;
-            }
-            JSONArray jSONArray = new JSONArray();
-            int i3 = 0;
-            for (int i4 = i; i4 >= 0 && i4 > i - i2; i4--) {
-                try {
-                    JSONObject json = this.d.get(i4).toJson();
-                    if (json != null && i3 >= 0) {
-                        int i5 = i3 + 1;
-                        jSONArray.put(i3, json);
-                        i3 = i5;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.toString());
-                    jSONArray = null;
-                }
-            }
-            if (jSONArray == null) {
-                return null;
-            }
-            return jSONArray.toString();
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public final void l(String str, int i) {
-        ArrayList<MarkData> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && (arrayList = this.d) != null && ListUtils.getCount(arrayList) > 0) {
-            Iterator<MarkData> it = this.d.iterator();
-            while (it.hasNext()) {
-                MarkData next = it.next();
-                if (next != null && next.getId().equals(str)) {
-                    next.setReplyNum(i);
-                }
-            }
-        }
-    }
-
-    public void x(Boolean bool, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048595, this, bool, z) == null) {
-            b bVar = this.a;
-            if (bVar != null) {
-                bVar.cancel();
-            }
-            b bVar2 = new b(this, q());
-            this.a = bVar2;
-            bVar2.setPriority(3);
-            this.a.execute(bool, Boolean.valueOf(z));
-        }
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList<MarkData> arrayList = this.d;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<MarkData> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int o() {
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ArrayList<MarkData> arrayList = this.d;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.e > 0) {
-                return true;
-            }
-            return false;
+            return this.m;
         }
         return invokeV.booleanValue;
     }
 
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.g.notifyDataSetChanged();
+        }
+    }
+
     public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            b bVar = this.a;
-            if (bVar != null) {
-                bVar.cancel();
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.f.d(this.a.getPageContext());
+            this.c.removeHeaderView(this.f);
+            this.c.addHeaderView(this.f);
+            this.f.setVisibility(0);
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.i.setVisibility(0);
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && this.f.isShown()) {
+            this.f.d(this.a.getPageContext());
+        }
+    }
+
+    public void d(boolean z, String str, fv7 fv7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), str, fv7Var}) == null) {
+            if (z) {
+                BaseFragmentActivity baseFragmentActivity = this.a;
+                baseFragmentActivity.showToast(baseFragmentActivity.getPageContext().getString(R.string.delete_success));
+                if (fv7Var != null && fv7Var.n() != null) {
+                    this.g.j(fv7Var.n());
+                    if (fv7Var.n().size() == 0) {
+                        if (this.l == null) {
+                            this.l = new c(fv7Var);
+                        } else {
+                            ah.a().removeCallbacks(this.l);
+                        }
+                        ah.a().postDelayed(this.l, 600L);
+                    }
+                } else {
+                    this.i.setVisibility(8);
+                    return;
+                }
+            } else {
+                this.a.showToast(str);
             }
-            c cVar = this.b;
-            if (cVar != null) {
-                cVar.cancel();
+            this.g.m(false);
+            this.i.setVisibility(8);
+        }
+    }
+
+    public void e(String str, fv7 fv7Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048580, this, str, fv7Var, z) == null) {
+            this.g.p(true);
+            if (str != null) {
+                this.a.showToast(str);
             }
-            a aVar = this.c;
-            if (aVar != null) {
-                aVar.cancel();
+            if (fv7Var != null) {
+                if (fv7Var.p() < 20) {
+                    this.g.n(false);
+                    this.g.m(true);
+                } else {
+                    this.g.n(true);
+                    this.g.m(true);
+                }
+                this.g.j(fv7Var.n());
+                p(fv7Var, z);
+            }
+            this.g.p(false);
+            this.g.notifyDataSetChanged();
+            if (k()) {
+                r(false);
             }
         }
     }
 
-    public void z() {
+    public void f(boolean z, String str, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f = 0;
-            this.e = 0;
-            this.g = true;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
+            this.a.closeLoadingDialog();
+            if (str != null) {
+                this.a.showToast(str);
+            }
+            if (z2) {
+                t();
+            }
+            this.g.notifyDataSetChanged();
+        }
+    }
+
+    public void l(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, markData) == null) && markData != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getPageContext().getPageActivity()).createNormalConfig(xg.g(markData.getUesrId(), 0L), false, markData.isGod())));
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
+            bz4 bz4Var = this.e;
+            if (bz4Var != null) {
+                bz4Var.H(i);
+            }
+            m();
+            NoDataView noDataView = this.f;
+            if (noDataView != null) {
+                noDataView.f(this.a.getPageContext(), i);
+                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
+            }
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            lv4 lv4Var = this.j;
+            if (lv4Var != null) {
+                lv4Var.dismiss();
+                this.j = null;
+            }
+            ProgressBar progressBar = this.i;
+            if (progressBar != null) {
+                progressBar.setVisibility(8);
+            }
+            if (this.l != null) {
+                ah.a().removeCallbacks(this.l);
+            }
+            dv7 dv7Var = this.g;
+            if (dv7Var != null) {
+                dv7Var.i();
+            }
+        }
+    }
+
+    public void p(fv7 fv7Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048591, this, fv7Var, z) == null) {
+            if (fv7Var == null) {
+                s();
+            } else if (fv7Var.m() > 0) {
+                this.f.setVisibility(8);
+                this.c.removeHeaderView(this.f);
+                this.g.notifyDataSetChanged();
+            } else if (fv7Var.m() == 0 && !z) {
+                s();
+            }
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            if (this.j == null) {
+                lv4 lv4Var = new lv4(this.a.getPageContext().getPageActivity());
+                this.j = lv4Var;
+                lv4Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13d2));
+                this.j.setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb8));
+                if (this.k != null) {
+                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1096), this.k);
+                }
+                this.j.setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0446), new b(this));
+                this.j.create(this.a.getPageContext());
+                this.j.setCanceledOnTouchOutside(true);
+            }
+            this.j.show();
         }
     }
 }

@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jx7;
+import com.baidu.tieba.kx7;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yw7;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jx7 a;
+    public kx7 a;
     public CustomMessageListener b;
 
     /* loaded from: classes5.dex */
@@ -116,9 +116,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            jx7 jx7Var = this.a;
-            if (jx7Var != null) {
-                jx7Var.h();
+            kx7 kx7Var = this.a;
+            if (kx7Var != null) {
+                kx7Var.h();
             }
         }
     }
@@ -150,9 +150,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            jx7 jx7Var = this.a;
-            if (jx7Var != null) {
-                jx7Var.g(i);
+            kx7 kx7Var = this.a;
+            if (kx7Var != null) {
+                kx7Var.g(i);
             }
         }
     }
@@ -163,9 +163,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             registerListener(this.b);
-            jx7 jx7Var = new jx7(getPageContext(), z1());
-            this.a = jx7Var;
-            return jx7Var.f();
+            kx7 kx7Var = new kx7(getPageContext(), z1());
+            this.a = kx7Var;
+            return kx7Var.f();
         }
         return (View) invokeLLL.objValue;
     }
@@ -175,9 +175,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
             return;
         }
-        if (yw7.l().r()) {
+        if (zw7.l().r()) {
             this.a.j();
-        } else if (yw7.l().k() == null) {
+        } else if (zw7.l().k() == null) {
             this.a.i();
         } else {
             this.a.m(getString(R.string.obfuscated_res_0x7f0f0570));

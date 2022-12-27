@@ -1,145 +1,156 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 /* loaded from: classes6.dex */
 public class vaa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static PaysSettingInfo a = null;
-    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
-    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
-    public static String e = "https://web.yy.com/yy_wallet/help-faq.html?";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ProductInfo a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948235443, "Lcom/baidu/tieba/vaa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public vaa(ProductInfo productInfo) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948235443, "Lcom/baidu/tieba/vaa;");
-        }
-    }
-
-    public static String a(String str, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                StringBuilder sb = new StringBuilder(str);
-                sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
-                sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
-                sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
-                sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
-                sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
-                sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
-                sb.append("&sdkVersion=4.3.36-bdpay");
-                int i = 0;
-                ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
-                if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100155) {
-                    i = 1;
-                }
-                sb.append("&theme=" + i);
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(d, payUIKitConfig);
-            }
-            return d;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(e, payUIKitConfig);
-            }
-            return e;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(c, payUIKitConfig);
-            }
-            return c;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-                return b;
-            }
-            return a(b, payUIKitConfig);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static PaysSettingInfo d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
-        }
-        return (PaysSettingInfo) invokeV.objValue;
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            if (z) {
-                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
-                e = "https://webtest.yy.com/yy_wallet/help-faq.html?";
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {productInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-            c = "https://web.yy.com/yy_wallet/wallet.html?";
-            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
-            e = "https://web.yy.com/yy_wallet/help-faq.html?";
+        }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.a = productInfo;
+    }
+
+    public vaa(ProductInfo productInfo, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {productInfo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.a = productInfo;
+        this.b = i;
+    }
+
+    public vaa(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.c = z;
+    }
+
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.destAmount / 100.0d;
+            }
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public double c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.srcAmount;
+            }
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
         }
     }
 
-    public static void h(PaysSettingInfo paysSettingInfo, String str) {
+    public String toString() {
+        InterceptResult invokeV;
+        double d;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, paysSettingInfo, str) == null) {
-            RLog.info("PaySettingConfig", "setPaysSettingInfo info:" + paysSettingInfo + " from:" + str);
-            a = paysSettingInfo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PayAmount{currencyType=");
+            sb.append(this.b);
+            sb.append("splitDetailId=");
+            sb.append(this.f);
+            sb.append(", srcAmount=");
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                d = productInfo.srcAmount;
+            } else {
+                d = 0.0d;
+            }
+            sb.append(d);
+            sb.append(", dstAmount=");
+            ProductInfo productInfo2 = this.a;
+            if (productInfo2 != null) {
+                j = productInfo2.destAmount;
+            } else {
+                j = 0;
+            }
+            sb.append(j);
+            sb.append('}');
+            return sb.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

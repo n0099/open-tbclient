@@ -35,7 +35,7 @@ public class xi5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements p3a<String> {
+    public static class a implements q3a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -59,7 +59,7 @@ public class xi5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -81,7 +81,7 @@ public class xi5 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements p3a<String> {
+    public static class b implements q3a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -105,7 +105,7 @@ public class xi5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -188,7 +188,7 @@ public class xi5 {
     public static void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            b3a.f("").k(Schedulers.io()).w(new a(str));
+            c3a.f("").k(Schedulers.io()).w(new a(str));
         }
     }
 
@@ -209,7 +209,7 @@ public class xi5 {
     public static void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
-            b3a.f("").k(Schedulers.io()).w(new b(z));
+            c3a.f("").k(Schedulers.io()).w(new b(z));
         }
     }
 

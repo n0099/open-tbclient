@@ -48,7 +48,7 @@ public class l10 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return hn8.a();
+            return in8.a();
         }
         return (m10) invokeV.objValue;
     }

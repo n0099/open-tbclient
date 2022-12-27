@@ -171,7 +171,7 @@ public class lr6 {
             z(frsViewData);
             y();
             u(arrayList);
-            kr8.f(arrayList, 1);
+            lr8.f(arrayList, 1);
             k(arrayList);
             ArrayList<xn> switchThreadDataToThreadCardInfo = frsViewData.switchThreadDataToThreadCardInfo();
             this.b.setData(switchThreadDataToThreadCardInfo);
@@ -385,7 +385,7 @@ public class lr6 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdTypeRecyclerView)) == null) {
             if (this.a != null && bdTypeRecyclerView != null) {
                 this.c = new ArrayList();
-                ArrayList<BdUniqueId> g = kr8.g();
+                ArrayList<BdUniqueId> g = lr8.g();
                 if (g != null && g.size() > 0) {
                     int size = g.size();
                     for (int i = 0; i < size; i++) {
@@ -431,8 +431,8 @@ public class lr6 {
             jk6 jk6Var = new jk6(frsGoodFragment.getPageContext(), kk6.b);
             kn<? extends yu4, ? extends TypeAdapter.ViewHolder> a2 = wj6.e().a(frsGoodFragment.getPageContext(), this.a.getUniqueId(), true);
             kn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = wj6.e().d(frsGoodFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
-            kn<?, ?> d2 = zi8.l().d(this.a, AdvertAppInfo.w);
-            kn<?, ?> d3 = zi8.l().d(this.a, AdvertAppInfo.z);
+            kn<?, ?> d2 = aj8.l().d(this.a, AdvertAppInfo.w);
+            kn<?, ?> d3 = aj8.l().d(this.a, AdvertAppInfo.z);
             ko6 ko6Var = new ko6(frsGoodFragment.getPageContext(), ThreadData.TYPE_SHARE_THREAD, this.a.getUniqueId());
             nn6 nn6Var = new nn6(frsGoodFragment.getPageContext(), ThreadData.TYPE_ARTICLE_SHARE_THREAD, this.a.getUniqueId());
             sn6 sn6Var = new sn6(frsGoodFragment.getPageContext(), ThreadData.TYPE_NEW_NORMAL_SHARE_THREAD, this.a.getUniqueId());

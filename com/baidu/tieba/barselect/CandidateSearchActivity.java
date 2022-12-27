@@ -29,8 +29,8 @@ import com.baidu.tieba.ah;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
 import com.baidu.tieba.h36;
-import com.baidu.tieba.pt8;
 import com.baidu.tieba.qb;
+import com.baidu.tieba.qt8;
 import com.baidu.tieba.s36;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.xg;
@@ -251,10 +251,10 @@ public class CandidateSearchActivity extends BaseActivity {
                     }
                 }
             } else if (error == 3250023) {
-                pt8.b(error, "", null);
+                qt8.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    pt8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    qt8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 yi.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());

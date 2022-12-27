@@ -1,16 +1,16 @@
 package rx.internal.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d3a;
-import com.baidu.tieba.h3a;
-import com.baidu.tieba.n3a;
+import com.baidu.tieba.e3a;
+import com.baidu.tieba.i3a;
+import com.baidu.tieba.o3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements d3a {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements e3a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
@@ -18,15 +18,15 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements d3a
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h3a<? super T> child;
+    public final i3a<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(h3a<? super T> h3aVar) {
+    public SingleDelayedProducer(i3a<? super T> i3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h3aVar};
+            Object[] objArr = {i3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,7 +36,7 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements d3a
                 return;
             }
         }
-        this.child = h3aVar;
+        this.child = i3aVar;
     }
 
     public void setValue(T t) {
@@ -58,23 +58,23 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements d3a
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(h3a<? super T> h3aVar, T t) {
+    public static <T> void emit(i3a<? super T> i3aVar, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, h3aVar, t) != null) || h3aVar.isUnsubscribed()) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, i3aVar, t) != null) || i3aVar.isUnsubscribed()) {
             return;
         }
         try {
-            h3aVar.onNext(t);
-            if (h3aVar.isUnsubscribed()) {
+            i3aVar.onNext(t);
+            if (i3aVar.isUnsubscribed()) {
                 return;
             }
-            h3aVar.onCompleted();
+            i3aVar.onCompleted();
         } catch (Throwable th) {
-            n3a.g(th, h3aVar, t);
+            o3a.g(th, i3aVar, t);
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

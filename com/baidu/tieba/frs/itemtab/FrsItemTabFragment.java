@@ -27,7 +27,7 @@ import com.baidu.tieba.ga5;
 import com.baidu.tieba.jl6;
 import com.baidu.tieba.ll6;
 import com.baidu.tieba.mk6;
-import com.baidu.tieba.nq8;
+import com.baidu.tieba.oq8;
 import com.baidu.tieba.rr6;
 import com.baidu.tieba.sr6;
 import com.baidu.tieba.tr6;
@@ -207,7 +207,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            nq8.g().k(getUniqueId());
+            oq8.g().k(getUniqueId());
             a56.b().e(false);
             super.onDestroy();
             rr6 rr6Var = this.i;
@@ -245,7 +245,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             D1(false);
             this.i.m(tr6Var);
         }
-        nq8.g().h(getUniqueId(), false);
+        oq8.g().h(getUniqueId(), false);
     }
 
     public void C1(BdUniqueId bdUniqueId) {
@@ -370,7 +370,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onStop();
-            nq8.g().h(getUniqueId(), false);
+            oq8.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.m;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
@@ -534,7 +534,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             VoiceManager r0 = r0();
             this.m = r0;
             r0.onCreate(getPageContext());
-            nq8.g().i(getUniqueId());
+            oq8.g().i(getUniqueId());
             this.j = new sr6(this, this.c);
             if (this.n != -1) {
                 xz4 xz4Var = new xz4(5);

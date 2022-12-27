@@ -57,7 +57,7 @@ public class mu2 extends HandlerThread implements lu2 {
 
             /* renamed from: com.baidu.tieba.mu2$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0360a implements Runnable {
+            public class RunnableC0362a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bitmap a;
@@ -66,17 +66,17 @@ public class mu2 extends HandlerThread implements lu2 {
 
                 /* renamed from: com.baidu.tieba.mu2$a$b$a$a  reason: collision with other inner class name */
                 /* loaded from: classes5.dex */
-                public class RunnableC0361a implements Runnable {
+                public class RunnableC0363a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SwanAppActivity a;
 
-                    public RunnableC0361a(RunnableC0360a runnableC0360a, SwanAppActivity swanAppActivity) {
+                    public RunnableC0363a(RunnableC0362a runnableC0362a, SwanAppActivity swanAppActivity) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {runnableC0360a, swanAppActivity};
+                            Object[] objArr = {runnableC0362a, swanAppActivity};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -101,7 +101,7 @@ public class mu2 extends HandlerThread implements lu2 {
                     }
                 }
 
-                public RunnableC0360a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
+                public RunnableC0362a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class mu2 extends HandlerThread implements lu2 {
                 public final void a(SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, swanAppActivity) == null) {
-                        yh3.a0(new RunnableC0361a(this, swanAppActivity));
+                        yh3.a0(new RunnableC0363a(this, swanAppActivity));
                     }
                 }
 
@@ -173,20 +173,20 @@ public class mu2 extends HandlerThread implements lu2 {
                 SwanAppActivity activity;
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (activity = rp2.U().getActivity()) != null && !activity.isFinishing() && !activity.isDestroyed() && this.a.a != null) {
-                    yg3.f().execute(new RunnableC0360a(this, vh3.p(), activity), "SwanPageMonitorRecheck");
+                    yg3.f().execute(new RunnableC0362a(this, vh3.p(), activity), "SwanPageMonitorRecheck");
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.mu2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0359a implements Runnable {
+        public class RunnableC0361a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ou2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0359a(a aVar, ou2 ou2Var) {
+            public RunnableC0361a(a aVar, ou2 ou2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,7 +248,7 @@ public class mu2 extends HandlerThread implements lu2 {
         public final void g(ou2 ou2Var) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, ou2Var) == null) && ou2Var != null && i(ou2Var.a)) {
-                yh3.e0(new RunnableC0359a(this, ou2Var));
+                yh3.e0(new RunnableC0361a(this, ou2Var));
             }
         }
 

@@ -30,7 +30,6 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.gu8;
 import com.baidu.tieba.gw4;
 import com.baidu.tieba.hl6;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
@@ -38,6 +37,7 @@ import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+import com.baidu.tieba.hu8;
 import com.baidu.tieba.iw4;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.qb;
@@ -185,7 +185,7 @@ public class ConcernFragment extends BaseFragment implements hl6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = xg.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = xg.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = xg.g(gu8.k().l(), 0L);
+                long g3 = xg.g(hu8.k().l(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     ah.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -289,7 +289,7 @@ public class ConcernFragment extends BaseFragment implements hl6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = xg.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = xg.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = xg.g(gu8.k().l(), 0L);
+                long g3 = xg.g(hu8.k().l(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     ah.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -696,8 +696,8 @@ public class ConcernFragment extends BaseFragment implements hl6 {
                 if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                     builder.author = builder2.build(true);
                 }
-                builder.fname = gu8.k().m();
-                builder.fid = Long.valueOf(xg.g(gu8.k().m(), 0L));
+                builder.fname = hu8.k().m();
+                builder.fid = Long.valueOf(xg.g(hu8.k().m(), 0L));
                 st4Var.parserProtobuf(builder.build(true));
                 this.a.C(st4Var, true);
             }

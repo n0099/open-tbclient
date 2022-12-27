@@ -44,7 +44,7 @@ import com.baidu.tieba.ah;
 import com.baidu.tieba.g25;
 import com.baidu.tieba.h25;
 import com.baidu.tieba.h75;
-import com.baidu.tieba.i79;
+import com.baidu.tieba.j79;
 import com.baidu.tieba.lf6;
 import com.baidu.tieba.m65;
 import com.baidu.tieba.mf6;
@@ -1042,10 +1042,10 @@ public class PbNewInputContainer extends LinearLayout implements y65, View.OnCli
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207, i2);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i2);
             if (i2 == 0) {
-                i79.l(this.b, R.drawable.edittext_cursor);
+                j79.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             } else {
-                i79.l(this.b, R.drawable.edittext_cursor_1);
+                j79.l(this.b, R.drawable.edittext_cursor_1);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             }
             this.c.l(i2);
@@ -1100,7 +1100,7 @@ public class PbNewInputContainer extends LinearLayout implements y65, View.OnCli
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
-            i79.l(this.b, R.drawable.edittext_cursor);
+            j79.l(this.b, R.drawable.edittext_cursor);
             this.b.setLineSpacing(yi.g(context, R.dimen.M_T_X002), 1.0f);
             this.b.setPadding(yi.g(context, R.dimen.M_W_X006), yi.g(context, R.dimen.M_H_X004), yi.g(context, R.dimen.M_W_X006), yi.g(context, R.dimen.M_H_X004));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});

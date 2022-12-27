@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lj7 extends kn<jj7, CardViewHolder<mj7>> {
+public class lj7 extends kn<kj7, CardViewHolder<pj7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -54,16 +54,16 @@ public class lj7 extends kn<jj7, CardViewHolder<mj7>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: s */
-    public CardViewHolder<mj7> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<pj7> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            mj7 mj7Var = new mj7(this.a, viewGroup);
+            pj7 pj7Var = new pj7(this.a, viewGroup);
             h56 h56Var = this.b;
             if (h56Var != null) {
-                mj7Var.n(h56Var);
+                pj7Var.n(h56Var);
             }
-            return new CardViewHolder<>(mj7Var);
+            return new CardViewHolder<>(pj7Var);
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -75,16 +75,31 @@ public class lj7 extends kn<jj7, CardViewHolder<mj7>> {
         }
     }
 
+    public void v(h56 h56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, h56Var) == null) {
+            this.b = h56Var;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jj7 jj7Var, CardViewHolder<mj7> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kj7 kj7Var, CardViewHolder<pj7> cardViewHolder) {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jj7Var, cardViewHolder})) == null) {
-            if (jj7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().w(this.c);
-                cardViewHolder.a().i(jj7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kj7Var, cardViewHolder})) == null) {
+            if (kj7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().x(this.c);
+                pj7 a = cardViewHolder.a();
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                a.y(z);
+                cardViewHolder.a().i(kj7Var);
                 return cardViewHolder.getView();
             }
             return null;

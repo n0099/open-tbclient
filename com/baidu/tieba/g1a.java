@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface g1a {
-    g1a a();
+public interface g1a extends a1a, f1a {
+    void c(String str);
 
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+    void h(short s);
 }

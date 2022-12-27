@@ -18,7 +18,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -199,7 +199,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             } else {
                 rw4 d2 = rw4.d(this.c);
                 d2.n(R.string.J_X07);
-                d2.g(qq8.f(this.g));
+                d2.g(rq8.f(this.g));
             }
             rw4.d(this.d).x(R.color.CAM_X0101);
             rw4.d(this.e).f(R.color.CAM_X0617);

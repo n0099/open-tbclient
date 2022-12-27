@@ -22,8 +22,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.kg5;
-import com.baidu.tieba.y08;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -175,17 +175,17 @@ public class CommentFloatSusPendedView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            y08 y08Var;
+            z08 z08Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof y08) || (y08Var = (y08) customResponsedMessage.getData()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof z08) || (z08Var = (z08) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.a.m = y08Var.d;
-            this.a.e = y08Var.b;
-            this.a.f = y08Var.a;
-            this.a.k = y08Var.c;
-            this.a.h = y08Var.e;
+            this.a.m = z08Var.d;
+            this.a.e = z08Var.b;
+            this.a.f = z08Var.a;
+            this.a.k = z08Var.c;
+            this.a.h = z08Var.e;
             CommentFloatSusPendedView commentFloatSusPendedView = this.a;
             commentFloatSusPendedView.t((commentFloatSusPendedView.f - this.a.e) / yi.j(this.a.getContext()));
             if (this.a.f > this.a.e) {

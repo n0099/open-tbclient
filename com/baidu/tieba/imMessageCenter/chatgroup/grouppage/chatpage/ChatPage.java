@@ -58,17 +58,17 @@ import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.Voi
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.inputTool.GroupInputViewController;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.nh7;
 import com.baidu.tieba.oh7;
 import com.baidu.tieba.ph7;
 import com.baidu.tieba.qh7;
-import com.baidu.tieba.sh7;
+import com.baidu.tieba.rh7;
 import com.baidu.tieba.th7;
+import com.baidu.tieba.uh7;
 import com.baidu.tieba.uv4;
 import com.baidu.tieba.vg7;
-import com.baidu.tieba.vh7;
+import com.baidu.tieba.wh7;
 import com.baidu.tieba.wv4;
-import com.baidu.tieba.xh7;
+import com.baidu.tieba.yh7;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -95,17 +95,17 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
     public s g;
     @Nullable
     public ChatRoomDetail h;
-    public final nh7<BaseMsg> i;
-    public final oh7<BaseMsg> j;
+    public final oh7<BaseMsg> i;
+    public final ph7<BaseMsg> j;
     public final FastRequest.b<TreeSet<ChatMsg>> k;
     public final GroupChatRepo.l<TreeSet<ChatMsg>> l;
     public Runnable m;
 
     /* loaded from: classes4.dex */
-    public class r implements xh7.f {
+    public class r implements yh7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final sh7 a;
+        public final th7 a;
         public final /* synthetic */ ChatPage b;
 
         /* loaded from: classes4.dex */
@@ -118,12 +118,12 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
 
             /* renamed from: com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.ChatPage$r$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class RunnableC0315a implements Runnable {
+            public class RunnableC0319a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0315a(a aVar) {
+                public RunnableC0319a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     this.c.b.g.b.I(this.a, true, BaseMsg.DIFF_ITEM_CALLBACK);
                     if (this.b) {
-                        eh.c(new RunnableC0315a(this));
+                        eh.c(new RunnableC0319a(this));
                     }
                 }
             }
@@ -199,37 +199,38 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
                 }
             }
             this.b = chatPage;
-            this.a = new sh7(this.b.g.b);
+            this.a = new th7(this.b.g.b);
         }
 
-        @Override // com.baidu.tieba.xh7.f
+        @Override // com.baidu.tieba.yh7.f
         @MainThread
-        public void a(long j, @NonNull List<BaseMsg> list, @NonNull xh7.g gVar) {
+        public void a(long j, @NonNull List<BaseMsg> list, @NonNull yh7.g gVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), list, gVar}) == null) {
-                boolean z = true;
-                if (!gVar.a && (!gVar.b || this.b.g.b.getLastVisiblePosition() != this.b.g.b.getCount() - 1)) {
-                    z = false;
-                }
-                this.a.e(new a(this, list, z));
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), list, gVar}) != null) || this.b.b.K1()) {
+                return;
             }
+            boolean z = true;
+            if (!gVar.a && (!gVar.b || this.b.g.b.getLastVisiblePosition() != this.b.g.b.getCount() - 1)) {
+                z = false;
+            }
+            this.a.e(new a(this, list, z));
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d extends ph7<BaseChatAdapter, VoiceMsg> {
+    public class d extends qh7<BaseChatAdapter, VoiceMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
 
         /* loaded from: classes4.dex */
-        public class a implements vh7 {
+        public class a implements wh7 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ph7.e a;
+            public final /* synthetic */ qh7.e a;
             public final /* synthetic */ d b;
 
-            public a(d dVar, ph7.e eVar) {
+            public a(d dVar, qh7.e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,7 +249,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.vh7
+            @Override // com.baidu.tieba.wh7
             public void a(BaseMsg baseMsg, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, baseMsg, str) == null) {
@@ -263,7 +264,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
                 }
             }
 
-            @Override // com.baidu.tieba.vh7
+            @Override // com.baidu.tieba.wh7
             public void isFailed() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -291,7 +292,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: p */
         public boolean j(@NonNull VoiceMsg voiceMsg) {
             InterceptResult invokeL;
@@ -303,18 +304,18 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: o */
-        public void i(@NonNull VoiceMsg voiceMsg, @NonNull ph7.e eVar) {
+        public void i(@NonNull VoiceMsg voiceMsg, @NonNull qh7.e eVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, voiceMsg, eVar) == null) && this.c.b.K1() != null) {
-                this.c.b.K1().X(voiceMsg, new a(this, eVar));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, voiceMsg, eVar) == null) && this.c.b.L1() != null) {
+                this.c.b.L1().X(voiceMsg, new a(this, eVar));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e extends ph7<BaseChatAdapter, ImageMsg> {
+    public class e extends qh7<BaseChatAdapter, ImageMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
@@ -323,11 +324,11 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         public class a implements GroupInputViewController.k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ph7.e a;
+            public final /* synthetic */ qh7.e a;
             public final /* synthetic */ ImageMsg b;
             public final /* synthetic */ e c;
 
-            public a(e eVar, ph7.e eVar2, ImageMsg imageMsg) {
+            public a(e eVar, qh7.e eVar2, ImageMsg imageMsg) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -398,7 +399,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: p */
         public boolean j(@NonNull ImageMsg imageMsg) {
             InterceptResult invokeL;
@@ -410,18 +411,18 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: o */
-        public void i(@NonNull ImageMsg imageMsg, @NonNull ph7.e eVar) {
+        public void i(@NonNull ImageMsg imageMsg, @NonNull qh7.e eVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageMsg, eVar) == null) && this.c.b.K1() != null) {
-                this.c.b.K1().W(imageMsg, new a(this, eVar, imageMsg));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageMsg, eVar) == null) && this.c.b.L1() != null) {
+                this.c.b.L1().W(imageMsg, new a(this, eVar, imageMsg));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class h extends ph7<BaseChatAdapter, ImageMsg> {
+    public class h extends qh7<BaseChatAdapter, ImageMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
@@ -430,11 +431,11 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         public class a implements GroupInputViewController.k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ph7.e a;
+            public final /* synthetic */ qh7.e a;
             public final /* synthetic */ ImageMsg b;
             public final /* synthetic */ h c;
 
-            public a(h hVar, ph7.e eVar, ImageMsg imageMsg) {
+            public a(h hVar, qh7.e eVar, ImageMsg imageMsg) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -505,7 +506,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: p */
         public boolean j(@NonNull ImageMsg imageMsg) {
             InterceptResult invokeL;
@@ -517,12 +518,12 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: o */
-        public void i(@NonNull ImageMsg imageMsg, @NonNull ph7.e eVar) {
+        public void i(@NonNull ImageMsg imageMsg, @NonNull qh7.e eVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageMsg, eVar) == null) && this.c.b.K1() != null) {
-                this.c.b.K1().W(imageMsg, new a(this, eVar, imageMsg));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageMsg, eVar) == null) && this.c.b.L1() != null) {
+                this.c.b.L1().W(imageMsg, new a(this, eVar, imageMsg));
             }
         }
     }
@@ -561,13 +562,13 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends ph7<TextAdapter, TextMsg> {
+    public class b extends qh7<TextAdapter, TextMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: o */
         public boolean j(@NonNull TextMsg textMsg) {
             InterceptResult invokeL;
@@ -596,7 +597,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
             this.c = chatPage;
         }
 
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         public void k(BaseMsg baseMsg, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseMsg, i, i2) == null) {
@@ -613,7 +614,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements nh7<NoticeModifySysMsg> {
+    public class c implements oh7<NoticeModifySysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -637,7 +638,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nh7
+        @Override // com.baidu.tieba.oh7
         /* renamed from: b */
         public void a(@NonNull View view2, @NonNull NoticeModifySysMsg noticeModifySysMsg, int i) {
             Interceptable interceptable = $ic;
@@ -652,12 +653,12 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
     }
 
     /* loaded from: classes4.dex */
-    public class f extends ph7<BaseChatAdapter, ShareForumSysMsg> {
+    public class f extends qh7<BaseChatAdapter, ShareForumSysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: o */
         public boolean j(@NonNull ShareForumSysMsg shareForumSysMsg) {
             InterceptResult invokeL;
@@ -686,12 +687,12 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
     }
 
     /* loaded from: classes4.dex */
-    public class g extends ph7<BaseChatAdapter, ShareThreadSysMsg> {
+    public class g extends qh7<BaseChatAdapter, ShareThreadSysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ph7
+        @Override // com.baidu.tieba.qh7
         /* renamed from: o */
         public boolean j(@NonNull ShareThreadSysMsg shareThreadSysMsg) {
             InterceptResult invokeL;
@@ -724,17 +725,17 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ qh7 b;
+        public final /* synthetic */ rh7 b;
         public final /* synthetic */ BaseMsg c;
         public final /* synthetic */ int d;
         public final /* synthetic */ uv4 e;
 
-        public i(ChatPage chatPage, String str, qh7 qh7Var, BaseMsg baseMsg, int i, uv4 uv4Var) {
+        public i(ChatPage chatPage, String str, rh7 rh7Var, BaseMsg baseMsg, int i, uv4 uv4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {chatPage, str, qh7Var, baseMsg, Integer.valueOf(i), uv4Var};
+                Object[] objArr = {chatPage, str, rh7Var, baseMsg, Integer.valueOf(i), uv4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -745,7 +746,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
                 }
             }
             this.a = str;
-            this.b = qh7Var;
+            this.b = rh7Var;
             this.c = baseMsg;
             this.d = i;
             this.e = uv4Var;
@@ -765,7 +766,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
     }
 
     /* loaded from: classes4.dex */
-    public class j implements nh7<BaseMsg> {
+    public class j implements oh7<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -788,18 +789,18 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
             this.a = chatPage;
         }
 
-        @Override // com.baidu.tieba.nh7
+        @Override // com.baidu.tieba.oh7
         public void a(@NonNull View view2, @NonNull BaseMsg baseMsg, int i) {
-            qh7 b;
+            rh7 b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, view2, baseMsg, i) == null) && view2.getId() == R.id.btn_msgitem_resend && (b = qh7.b(view2)) != null) {
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, view2, baseMsg, i) == null) && view2.getId() == R.id.btn_msgitem_resend && (b = rh7.b(view2)) != null) {
                 this.a.K(b, baseMsg, i);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class k implements oh7<BaseMsg> {
+    public class k implements ph7<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -822,7 +823,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
             this.a = chatPage;
         }
 
-        @Override // com.baidu.tieba.oh7
+        @Override // com.baidu.tieba.ph7
         public boolean a(@NonNull View view2, @NonNull BaseMsg baseMsg, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
@@ -1107,7 +1108,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public BdTypeRecyclerView b;
-        public th7 c;
+        public uh7 c;
 
         public s() {
             Interceptable interceptable = $ic;
@@ -1131,7 +1132,7 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
                 sVar.a = view2;
                 BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09062e);
                 sVar.b = bdTypeRecyclerView;
-                sVar.c = new th7(bdTypeRecyclerView);
+                sVar.c = new uh7(bdTypeRecyclerView);
                 return sVar;
             }
             return (s) invokeL.objValue;
@@ -1375,8 +1376,8 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
             voiceAdapter.w(this.i, null);
             voiceAdapter.x(this.j, null);
             GroupChatFragment groupChatFragment = this.b;
-            if (groupChatFragment != null && groupChatFragment.K1() != null) {
-                voiceAdapter.P(this.b.K1().r0());
+            if (groupChatFragment != null && groupChatFragment.L1() != null) {
+                voiceAdapter.P(this.b.L1().r0());
             }
             voiceAdapter.z(new d(this));
             return voiceAdapter;
@@ -1397,12 +1398,12 @@ public class ChatPage implements LifecycleObserver, GroupInputViewController.j {
         }
     }
 
-    public final void K(@NonNull qh7 qh7Var, @NonNull BaseMsg baseMsg, int i2) {
+    public final void K(@NonNull rh7 rh7Var, @NonNull BaseMsg baseMsg, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048585, this, qh7Var, baseMsg, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, rh7Var, baseMsg, i2) == null) {
             uv4 uv4Var = new uv4(this.a);
             String string = this.a.getString(R.string.msg_resend);
-            uv4Var.i(null, new String[]{string}, new i(this, string, qh7Var, baseMsg, i2, uv4Var));
+            uv4Var.i(null, new String[]{string}, new i(this, string, rh7Var, baseMsg, i2, uv4Var));
             uv4Var.k();
         }
     }

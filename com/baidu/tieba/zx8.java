@@ -1,20 +1,14 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.ay8;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,29 +17,57 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class zx8 extends p9<AvatarPendantActivity> {
+public class zx8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ay8 a;
-    public BdListView b;
-    public NoNetworkView c;
-    public MemberRecommendView d;
-    public NavigationBar e;
-    public int f;
-    public TextView g;
-    public TextView h;
-    public AvatarPendantActivity i;
-    public View j;
-    public TextView k;
+    public AvatarPendantActivity a;
+    public List<DressItemData> b;
+    public ay8.a c;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void P0(DressItemData dressItemData);
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public AvatarPendantPerItemView a;
+
+        public b(zx8 zx8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zx8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(zx8 zx8Var, a aVar) {
+            this(zx8Var);
+        }
+    }
+
     public zx8(AvatarPendantActivity avatarPendantActivity) {
-        super(avatarPendantActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,159 +77,97 @@ public class zx8 extends p9<AvatarPendantActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = 0;
-        this.i = avatarPendantActivity;
-        avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d012a);
-        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091d41);
-        this.f = yi.g(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
-        this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09031d);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
-        this.e = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.setTitleText(R.string.obfuscated_res_0x7f0f02cf);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09031f);
-        this.d = memberRecommendView;
-        memberRecommendView.setFromType(8);
-        this.d.getButton().setOnClickListener(avatarPendantActivity);
-        TextView textView = new TextView(avatarPendantActivity.getActivity());
-        this.g = textView;
-        textView.setHeight(yi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        this.k = new TextView(avatarPendantActivity.getActivity());
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + yi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
-        TextView textView2 = new TextView(avatarPendantActivity.getActivity());
-        this.h = textView2;
-        textView2.setHeight(yi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0702d2));
-        this.k.setLayoutParams(layoutParams);
-        this.b.x(this.k, 0);
-        this.b.addFooterView(this.h);
-        ay8 ay8Var = new ay8(avatarPendantActivity);
-        this.a = ay8Var;
-        this.b.setAdapter((ListAdapter) ay8Var);
+        this.a = avatarPendantActivity;
     }
 
-    public void g(NoNetworkView.b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public DressItemData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.c.a(bVar);
-        }
-    }
-
-    public void p(List<xx8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.b.setVisibility(0);
-                this.a.c(list);
-                this.a.notifyDataSetChanged();
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<DressItemData> list = this.b;
+            if (list != null && list.size() > 0 && this.b.size() > i) {
+                return this.b.get(i);
             }
-            this.b.setVisibility(8);
+            return null;
         }
+        return (DressItemData) invokeI.objValue;
     }
 
-    public void r(a aVar) {
+    public final void b(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.a.b(aVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            int skinType = TbadkApplication.getInst().getSkinType();
+            if (view2 != null) {
+                tq4 layoutMode = this.a.getLayoutMode();
+                boolean z = true;
+                if (skinType != 1) {
+                    z = false;
+                }
+                layoutMode.l(z);
+                this.a.getLayoutMode().k(view2);
+            }
         }
     }
 
-    public void k() {
+    public void c(ay8.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i.hideNetRefreshView(this.j);
-            this.b.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.c = aVar;
         }
     }
 
-    public MemberRecommendView l() {
-        InterceptResult invokeV;
+    public void d(List<DressItemData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.b = list;
         }
-        return (MemberRecommendView) invokeV.objValue;
     }
 
-    public View m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public TextView n() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.k;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ig5.a(this.i.getPageContext(), this.j);
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.a.notifyDataSetChanged();
-            this.e.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.c.d(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.d.d();
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-        }
-    }
-
-    public final boolean q(zy8 zy8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, zy8Var)) == null) {
-            if (zy8Var != null && !StringUtils.isNull(zy8Var.c())) {
-                this.d.setVisibility(0);
-                this.d.e(zy8Var);
-                return true;
+            List<DressItemData> list = this.b;
+            if (list != null) {
+                return list.size();
             }
-            this.d.setVisibility(8);
-            return false;
+            return 0;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void s() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.setVisibility(8);
-            String string = this.i.getPageContext().getResources().getString(R.string.no_data_text);
-            this.i.setNetRefreshViewTopMargin(this.f);
-            this.i.showNetRefreshView(this.j, string, false);
-        }
-    }
-
-    public void t(zy8 zy8Var, List<xx8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, zy8Var, list) == null) {
-            if ((zy8Var != null && !StringUtils.isNull(zy8Var.c())) || (list != null && list.size() > 0)) {
-                k();
-                if (q(zy8Var)) {
-                    this.b.removeHeaderView(this.g);
-                    this.b.addHeaderView(this.g);
-                } else {
-                    this.b.removeHeaderView(this.g);
-                }
-                p(list);
-                return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d012b, viewGroup, false);
+                bVar = new b(this, null);
+                AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view2.findViewById(R.id.obfuscated_res_0x7f09031e);
+                bVar.a = avatarPendantPerItemView;
+                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.c);
+                view2.setTag(bVar);
             }
-            s();
+            DressItemData item = getItem(i);
+            if (item != null) {
+                bVar.a.c(item);
+            }
+            b(view2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

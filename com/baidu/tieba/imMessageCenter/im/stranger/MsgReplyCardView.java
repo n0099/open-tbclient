@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.cb7;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.qi7;
+import com.baidu.tieba.ri7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,7 +109,7 @@ public class MsgReplyCardView extends cb7 {
         return (String) invokeI.objValue;
     }
 
-    public final String Z(qi7.a aVar, String str) {
+    public final String Z(ri7.a aVar, String str) {
         InterceptResult invokeLL;
         String b0;
         Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class MsgReplyCardView extends cb7 {
         return (String) invokeLL.objValue;
     }
 
-    public final String a0(qi7.a aVar, String str) {
+    public final String a0(ri7.a aVar, String str) {
         InterceptResult invokeLL;
         String string;
         String b0;
@@ -167,7 +167,7 @@ public class MsgReplyCardView extends cb7 {
         if ((interceptable != null && interceptable.invokeLLL(1048580, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        qi7.a a2 = qi7.a(chatMessage.getContent());
+        ri7.a a2 = ri7.a(chatMessage.getContent());
         String valueOf = String.valueOf(chatMessage.getUserId());
         this.I.setText(a0(a2, valueOf));
         this.J.setText(a2.b);

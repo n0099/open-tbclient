@@ -1,15 +1,15 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b3a;
-import com.baidu.tieba.e7a;
-import com.baidu.tieba.h3a;
+import com.baidu.tieba.c3a;
+import com.baidu.tieba.f7a;
 import com.baidu.tieba.i3a;
-import com.baidu.tieba.n3a;
-import com.baidu.tieba.t3a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.o3a;
 import com.baidu.tieba.u3a;
-import com.baidu.tieba.v7a;
-import com.baidu.tieba.x7a;
+import com.baidu.tieba.v3a;
+import com.baidu.tieba.w7a;
+import com.baidu.tieba.y7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,27 +19,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes9.dex */
-public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements b3a.a<R> {
+public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements c3a.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b3a<TLeft> a;
-    public final b3a<TRight> b;
-    public final t3a<TLeft, b3a<TLeftDuration>> c;
-    public final t3a<TRight, b3a<TRightDuration>> d;
-    public final u3a<TLeft, TRight, R> e;
+    public final c3a<TLeft> a;
+    public final c3a<TRight> b;
+    public final u3a<TLeft, c3a<TLeftDuration>> c;
+    public final u3a<TRight, c3a<TRightDuration>> d;
+    public final v3a<TLeft, TRight, R> e;
 
     /* loaded from: classes9.dex */
     public final class ResultSink extends HashMap<Integer, TLeft> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3491669543549085380L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final v7a group;
+        public final w7a group;
         public boolean leftDone;
         public int leftId;
         public boolean rightDone;
         public int rightId;
         public final Map<Integer, TRight> rightMap;
-        public final h3a<? super R> subscriber;
+        public final i3a<? super R> subscriber;
         public final /* synthetic */ OnSubscribeJoin this$0;
 
         public HashMap<Integer, TLeft> leftMap() {
@@ -49,14 +49,14 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
         }
 
         /* loaded from: classes9.dex */
-        public final class a extends h3a<TLeft> {
+        public final class a extends i3a<TLeft> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResultSink e;
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public final class C0744a extends h3a<TLeftDuration> {
+            public final class C0744a extends i3a<TLeftDuration> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final int e;
@@ -83,7 +83,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     this.e = i;
                 }
 
-                @Override // com.baidu.tieba.c3a
+                @Override // com.baidu.tieba.d3a
                 public void onCompleted() {
                     Interceptable interceptable = $ic;
                     if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
@@ -92,7 +92,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     }
                 }
 
-                @Override // com.baidu.tieba.c3a
+                @Override // com.baidu.tieba.d3a
                 public void onError(Throwable th) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -100,7 +100,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     }
                 }
 
-                @Override // com.baidu.tieba.c3a
+                @Override // com.baidu.tieba.d3a
                 public void onNext(TLeftDuration tleftduration) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tleftduration) == null) {
@@ -127,7 +127,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 this.e = resultSink;
             }
 
-            @Override // com.baidu.tieba.c3a
+            @Override // com.baidu.tieba.d3a
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -136,10 +136,10 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 }
             }
 
-            public void g(int i, i3a i3aVar) {
+            public void g(int i, j3a j3aVar) {
                 boolean z;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048576, this, i, i3aVar) == null) {
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, j3aVar) == null) {
                     synchronized (this.e) {
                         if (this.e.leftMap().remove(Integer.valueOf(i)) != null && this.e.leftMap().isEmpty() && this.e.leftDone) {
                             z = true;
@@ -152,11 +152,11 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         this.e.subscriber.unsubscribe();
                         return;
                     }
-                    this.e.group.b(i3aVar);
+                    this.e.group.b(j3aVar);
                 }
             }
 
-            @Override // com.baidu.tieba.c3a
+            @Override // com.baidu.tieba.d3a
             public void onCompleted() {
                 boolean z;
                 Interceptable interceptable = $ic;
@@ -177,9 +177,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 }
             }
 
-            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.u3a<TLeft, TRight, R> */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.v3a<TLeft, TRight, R> */
             /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.baidu.tieba.c3a
+            @Override // com.baidu.tieba.d3a
             public void onNext(TLeft tleft) {
                 int i;
                 int i2;
@@ -208,20 +208,20 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                             this.e.subscriber.onNext(this.e.this$0.e.call(tleft, obj));
                         }
                     } catch (Throwable th) {
-                        n3a.f(th, this);
+                        o3a.f(th, this);
                     }
                 }
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class b extends h3a<TRight> {
+        public final class b extends i3a<TRight> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResultSink e;
 
             /* loaded from: classes9.dex */
-            public final class a extends h3a<TRightDuration> {
+            public final class a extends i3a<TRightDuration> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final int e;
@@ -248,7 +248,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     this.e = i;
                 }
 
-                @Override // com.baidu.tieba.c3a
+                @Override // com.baidu.tieba.d3a
                 public void onCompleted() {
                     Interceptable interceptable = $ic;
                     if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
@@ -257,7 +257,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     }
                 }
 
-                @Override // com.baidu.tieba.c3a
+                @Override // com.baidu.tieba.d3a
                 public void onError(Throwable th) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -265,7 +265,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     }
                 }
 
-                @Override // com.baidu.tieba.c3a
+                @Override // com.baidu.tieba.d3a
                 public void onNext(TRightDuration trightduration) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, trightduration) == null) {
@@ -292,7 +292,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 this.e = resultSink;
             }
 
-            @Override // com.baidu.tieba.c3a
+            @Override // com.baidu.tieba.d3a
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -301,10 +301,10 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 }
             }
 
-            public void g(int i, i3a i3aVar) {
+            public void g(int i, j3a j3aVar) {
                 boolean z;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048576, this, i, i3aVar) == null) {
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, j3aVar) == null) {
                     synchronized (this.e) {
                         if (this.e.rightMap.remove(Integer.valueOf(i)) != null && this.e.rightMap.isEmpty() && this.e.rightDone) {
                             z = true;
@@ -317,11 +317,11 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         this.e.subscriber.unsubscribe();
                         return;
                     }
-                    this.e.group.b(i3aVar);
+                    this.e.group.b(j3aVar);
                 }
             }
 
-            @Override // com.baidu.tieba.c3a
+            @Override // com.baidu.tieba.d3a
             public void onCompleted() {
                 boolean z;
                 Interceptable interceptable = $ic;
@@ -342,9 +342,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 }
             }
 
-            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.u3a<TLeft, TRight, R> */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.v3a<TLeft, TRight, R> */
             /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.baidu.tieba.c3a
+            @Override // com.baidu.tieba.d3a
             public void onNext(TRight tright) {
                 int i;
                 int i2;
@@ -357,7 +357,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         this.e.rightMap.put(Integer.valueOf(i), tright);
                         i2 = this.e.leftId;
                     }
-                    this.e.group.a(new x7a());
+                    this.e.group.a(new y7a());
                     try {
                         a aVar = new a(this, i);
                         this.e.group.a(aVar);
@@ -374,18 +374,18 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                             this.e.subscriber.onNext(this.e.this$0.e.call(obj, tright));
                         }
                     } catch (Throwable th) {
-                        n3a.f(th, this);
+                        o3a.f(th, this);
                     }
                 }
             }
         }
 
-        public ResultSink(OnSubscribeJoin onSubscribeJoin, h3a<? super R> h3aVar) {
+        public ResultSink(OnSubscribeJoin onSubscribeJoin, i3a<? super R> i3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {onSubscribeJoin, h3aVar};
+                Object[] objArr = {onSubscribeJoin, i3aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -396,8 +396,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 }
             }
             this.this$0 = onSubscribeJoin;
-            this.subscriber = h3aVar;
-            this.group = new v7a();
+            this.subscriber = i3aVar;
+            this.group = new w7a();
             this.rightMap = new HashMap();
         }
 
@@ -415,15 +415,15 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
         }
     }
 
-    public void call(h3a<? super R> h3aVar) {
+    public void call(i3a<? super R> i3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h3aVar) == null) {
-            new ResultSink(this, new e7a(h3aVar)).run();
+        if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
+            new ResultSink(this, new f7a(i3aVar)).run();
         }
     }
 
-    @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
+    @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((h3a) ((h3a) obj));
+        call((i3a) ((i3a) obj));
     }
 }

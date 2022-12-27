@@ -145,7 +145,7 @@ public class s46 {
     }
 
     public static void a(String str) {
-        mt8 readThreadHistory;
+        nt8 readThreadHistory;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !StringUtils.isNull(str) && !"0".equalsIgnoreCase(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.b(str)) {
             readThreadHistory.a(str);
@@ -154,7 +154,7 @@ public class s46 {
 
     public static boolean k(String str) {
         InterceptResult invokeL;
-        mt8 readThreadHistory;
+        nt8 readThreadHistory;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             if (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.d(str)) {
@@ -311,7 +311,7 @@ public class s46 {
             threadData.threadTitleSpanOffset = 0;
             threadData.parserSpecTitleForFrsAndPb(false, true);
             SpannableStringBuilder span_str = threadData.getSpan_str();
-            textView.setOnTouchListener(new t49(span_str));
+            textView.setOnTouchListener(new u49(span_str));
             textView.setText(span_str);
             l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         }

@@ -14,7 +14,7 @@ public class fi6 implements xn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public lr8 a;
+    public mr8 a;
     public String b;
     public String c;
 
@@ -66,13 +66,13 @@ public class fi6 implements xn {
         return (String) invokeV.objValue;
     }
 
-    public lr8 c() {
+    public mr8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (lr8) invokeV.objValue;
+        return (mr8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.xn
@@ -99,10 +99,10 @@ public class fi6 implements xn {
         }
     }
 
-    public void h(lr8 lr8Var) {
+    public void h(mr8 mr8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lr8Var) == null) {
-            this.a = lr8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mr8Var) == null) {
+            this.a = mr8Var;
         }
     }
 }

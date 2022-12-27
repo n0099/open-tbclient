@@ -34,7 +34,7 @@ import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.lv4;
-import com.baidu.tieba.or8;
+import com.baidu.tieba.pr8;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -64,7 +64,7 @@ public class s85 extends q65 {
     public String o;
     public p85 p;
     public ThreadData q;
-    public or8.g r;
+    public pr8.g r;
     public boolean s;
     public int t;
     public int u;
@@ -203,7 +203,7 @@ public class s85 extends q65 {
                         }
                     } else if (postWriteCallBackData != null && i == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    } else if (i != 238010 && !oz8.d(i)) {
+                    } else if (i != 238010 && !pz8.d(i)) {
                         this.a.getContext().showToast(str);
                     }
                 } else {
@@ -252,7 +252,7 @@ public class s85 extends q65 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements or8.g {
+    public class c implements pr8.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s85 a;
@@ -275,7 +275,7 @@ public class s85 extends q65 {
             this.a = s85Var;
         }
 
-        @Override // com.baidu.tieba.or8.g
+        @Override // com.baidu.tieba.pr8.g
         public void a(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
@@ -408,7 +408,7 @@ public class s85 extends q65 {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.h = newWriteModel;
         newWriteModel.h0(this.v);
-        or8.q(this.j.I(), new c(this));
+        pr8.q(this.j.I(), new c(this));
     }
 
     public final void K(ArrayList<AtSelectData> arrayList) {
@@ -467,7 +467,7 @@ public class s85 extends q65 {
         }
     }
 
-    public void S(or8.g gVar) {
+    public void S(pr8.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, gVar) == null) {
             this.r = gVar;
@@ -632,7 +632,7 @@ public class s85 extends q65 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            or8.A(this.e, null);
+            pr8.A(this.e, null);
         }
     }
 
@@ -845,7 +845,7 @@ public class s85 extends q65 {
             }
             writeData.setReplyId(this.d);
             writeData.setThreadId(this.e);
-            or8.A(this.e, writeData);
+            pr8.A(this.e, writeData);
         }
     }
 

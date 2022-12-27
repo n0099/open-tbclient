@@ -36,8 +36,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.MembershipUserInfo;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.fd8;
+import com.baidu.tieba.ce8;
+import com.baidu.tieba.gd8;
 import com.baidu.tieba.qe6;
 import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.sp4;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes5.dex */
-public class PersonPolymericEventController extends be8 {
+public class PersonPolymericEventController extends ce8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fd8 e;
+    public gd8 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, fd8 fd8Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, gd8 gd8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, fd8Var};
+            Object[] objArr = {tbPageContext, gd8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,10 +80,10 @@ public class PersonPolymericEventController extends be8 {
                 return;
             }
         }
-        this.e = fd8Var;
+        this.e = gd8Var;
     }
 
-    @Override // com.baidu.tieba.be8, com.baidu.tieba.q49
+    @Override // com.baidu.tieba.ce8, com.baidu.tieba.r49
     public void a(View view2, qe6 qe6Var) {
         UserData userData;
         String str;
@@ -141,8 +141,8 @@ public class PersonPolymericEventController extends be8 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    fd8 fd8Var = this.e;
-                    if (fd8Var != null && fd8Var.l() != null) {
+                    gd8 gd8Var = this.e;
+                    if (gd8Var != null && gd8Var.l() != null) {
                         TiebaStatic.log("c12207");
                         this.e.l().e();
                         return;

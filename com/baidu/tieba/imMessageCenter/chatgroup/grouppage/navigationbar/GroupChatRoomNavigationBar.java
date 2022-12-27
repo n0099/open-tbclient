@@ -37,6 +37,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ah9;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.o45;
@@ -44,7 +45,6 @@ import com.baidu.tieba.rw4;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -253,7 +253,7 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{zg9.a(zg9.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.g)), "forumId", String.valueOf(this.a.h))});
+                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{ah9.a(ah9.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.g)), "forumId", String.valueOf(this.a.h))});
                 TiebaStatic.log(new StatisticItem("c15094").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.h).param("room_id", this.a.g));
             }
         }

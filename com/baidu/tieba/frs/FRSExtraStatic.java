@@ -29,16 +29,16 @@ import com.baidu.tieba.oq6;
 import com.baidu.tieba.pq6;
 import com.baidu.tieba.ra5;
 import com.baidu.tieba.up6;
-import com.baidu.tieba.ur8;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity;
+import com.baidu.tieba.vr8;
 import com.baidu.tieba.wj6;
 import com.baidu.tieba.wl6;
 import com.baidu.tieba.wp6;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.yq8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +89,7 @@ public class FRSExtraStatic {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, lu4.c, null));
                 absDelegateAdapterList.add(new cp6(null, a66.g, true));
-                absDelegateAdapterList.add(new dp6(null, ur8.d, null));
+                absDelegateAdapterList.add(new dp6(null, vr8.d, null));
                 absDelegateAdapterList.add(new oq6(null, my6.e, null));
             }
         }
@@ -291,7 +291,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new wp6(null, yq8.c, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new wp6(null, zq8.c, true));
             }
         }
     }

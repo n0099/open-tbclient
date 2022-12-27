@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.md8;
+import com.baidu.tieba.nd8;
 import com.baidu.tieba.og;
-import com.baidu.tieba.pd8;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.qd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public md8 b;
+    public nd8 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<pd8> e = this.a.e(i);
+                List<qd8> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<pd8> e(int i) {
+    public final List<qd8> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            md8 md8Var = this.b;
-            if (md8Var != null && !ListUtils.isEmpty(md8Var.a)) {
+            nd8 nd8Var = this.b;
+            if (nd8Var != null && !ListUtils.isEmpty(nd8Var.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    pd8 pd8Var = (pd8) ListUtils.getItem(this.b.a, i3);
-                    if (pd8Var != null) {
-                        arrayList.add(pd8Var);
+                    qd8 qd8Var = (qd8) ListUtils.getItem(this.b.a, i3);
+                    if (qd8Var != null) {
+                        arrayList.add(qd8Var);
                     }
                 }
                 return arrayList;

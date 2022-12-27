@@ -46,7 +46,7 @@ public class vq3 {
 
         /* renamed from: com.baidu.tieba.vq3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0465a extends RequestBody {
+        public class C0466a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
@@ -61,7 +61,7 @@ public class vq3 {
                 return invokeV.longValue;
             }
 
-            public C0465a(a aVar, RequestBody requestBody) {
+            public C0466a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class vq3 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
-                return new C0465a(this, requestBody);
+                return new C0466a(this, requestBody);
             }
             return (RequestBody) invokeL.objValue;
         }

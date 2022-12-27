@@ -27,38 +27,38 @@ public class bw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, vq8 vq8Var, ForumData forumData, int i, String str2) {
+    public static void a(String str, wq8 wq8Var, ForumData forumData, int i, String str2) {
         StatisticItem i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, vq8Var, forumData, Integer.valueOf(i), str2}) != null) || (i2 = i(str, vq8Var, forumData, i, str2)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, wq8Var, forumData, Integer.valueOf(i), str2}) != null) || (i2 = i(str, wq8Var, forumData, i, str2)) == null) {
             return;
         }
-        if (vq8Var != null && YYLiveUtil.isYYLiveLink(vq8Var.p())) {
+        if (wq8Var != null && YYLiveUtil.isYYLiveLink(wq8Var.p())) {
             i2.param(TiebaStatic.YYParams.YYLIVEID, 1);
         } else {
             i2.param(TiebaStatic.YYParams.YYLIVEID, "");
         }
         i2.param("obj_locate", 3);
         TiebaStatic.log(i2);
-        if (vq8Var != null) {
-            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(vq8Var.l(), 1));
+        if (wq8Var != null) {
+            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(wq8Var.l(), 1));
         }
     }
 
-    public static void k(String str, vq8 vq8Var, ForumData forumData, int i, String str2) {
+    public static void k(String str, wq8 wq8Var, ForumData forumData, int i, String str2) {
         StatisticItem i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{str, vq8Var, forumData, Integer.valueOf(i), str2}) != null) || (i2 = i(str, vq8Var, forumData, i, str2)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{str, wq8Var, forumData, Integer.valueOf(i), str2}) != null) || (i2 = i(str, wq8Var, forumData, i, str2)) == null) {
             return;
         }
-        if (vq8Var != null && YYLiveUtil.isYYLiveLink(vq8Var.p())) {
+        if (wq8Var != null && YYLiveUtil.isYYLiveLink(wq8Var.p())) {
             i2.param(TiebaStatic.YYParams.YYLIVEID, 1);
         } else {
             i2.param(TiebaStatic.YYParams.YYLIVEID, "");
         }
         TiebaStatic.log(i2);
-        if (vq8Var != null) {
-            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(vq8Var.l(), 0));
+        if (wq8Var != null) {
+            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(wq8Var.l(), 0));
         }
     }
 
@@ -121,7 +121,7 @@ public class bw6 {
         StatisticItem h;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(65539, null, frsViewData, i, bdUniqueId) == null) && (h = h("common_click", frsViewData, i)) != null) {
-            nq8.g().c(bdUniqueId, h);
+            oq8.g().c(bdUniqueId, h);
         }
     }
 
@@ -129,7 +129,7 @@ public class bw6 {
         StatisticItem h;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, frsViewData, i, bdUniqueId) == null) && (h = h("common_exp", frsViewData, i)) != null && frsViewData != null && frsViewData.getActivityHeadData() != null && frsViewData.getActivityHeadData().c() != null) {
-            nq8.g().d(bdUniqueId, lq8.b("", frsViewData.getActivityHeadData().c(), "", null), h);
+            oq8.g().d(bdUniqueId, mq8.b("", frsViewData.getActivityHeadData().c(), "", null), h);
         }
     }
 
@@ -146,26 +146,26 @@ public class bw6 {
         return invokeV.booleanValue;
     }
 
-    public static void g(String str, vq8 vq8Var, ForumData forumData) {
+    public static void g(String str, wq8 wq8Var, ForumData forumData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65542, null, str, vq8Var, forumData) != null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeLLL(65542, null, str, wq8Var, forumData) != null) || StringUtils.isNull(str)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(str);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        if (vq8Var != null) {
+        if (wq8Var != null) {
             int i = 11;
-            if (vq8Var.getType() != 1) {
-                if (vq8Var.getType() == 2) {
+            if (wq8Var.getType() != 1) {
+                if (wq8Var.getType() == 2) {
                     i = 12;
-                } else if (vq8Var.getType() == 3) {
+                } else if (wq8Var.getType() == 3) {
                     i = 13;
-                } else if (vq8Var.getType() == 4) {
+                } else if (wq8Var.getType() == 4) {
                     i = 22;
                 }
             }
             statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i);
-            statisticItem.param("obj_id", vq8Var.c());
+            statisticItem.param("obj_id", wq8Var.c());
         }
         if (forumData != null) {
             statisticItem.param("fid", forumData.getId()).param("fname", forumData.getName());
@@ -187,32 +187,32 @@ public class bw6 {
         return (StatisticItem) invokeLLI.objValue;
     }
 
-    public static StatisticItem i(String str, vq8 vq8Var, ForumData forumData, int i, String str2) {
+    public static StatisticItem i(String str, wq8 wq8Var, ForumData forumData, int i, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, vq8Var, forumData, Integer.valueOf(i), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, wq8Var, forumData, Integer.valueOf(i), str2})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             StatisticItem statisticItem = new StatisticItem(str);
             statisticItem.param("page_type", "a006");
             statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
-            if (vq8Var != null) {
+            if (wq8Var != null) {
                 int i2 = 11;
-                if (vq8Var.getType() != 1) {
-                    if (vq8Var.getType() == 2) {
+                if (wq8Var.getType() != 1) {
+                    if (wq8Var.getType() == 2) {
                         i2 = 12;
-                    } else if (vq8Var.getType() == 3) {
+                    } else if (wq8Var.getType() == 3) {
                         i2 = 13;
-                    } else if (vq8Var.getType() == 4) {
+                    } else if (wq8Var.getType() == 4) {
                         i2 = 22;
                     }
                 }
                 statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-                statisticItem.param("obj_id", vq8Var.c());
-                if (vq8Var.getType() == 1) {
-                    statisticItem.param("tid", vq8Var.m());
-                    statisticItem.param("thread_type", vq8Var.n());
+                statisticItem.param("obj_id", wq8Var.c());
+                if (wq8Var.getType() == 1) {
+                    statisticItem.param("tid", wq8Var.m());
+                    statisticItem.param("thread_type", wq8Var.n());
                 }
             }
             statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
@@ -231,11 +231,11 @@ public class bw6 {
         return (StatisticItem) invokeCommon.objValue;
     }
 
-    public static boolean j(vq8 vq8Var, String str) {
+    public static boolean j(wq8 wq8Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, vq8Var, str)) == null) {
-            if (vq8Var != null && !StringUtils.isNull(vq8Var.q())) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, wq8Var, str)) == null) {
+            if (wq8Var != null && !StringUtils.isNull(wq8Var.q())) {
                 ry4 l = ry4.l();
                 long n = l.n("key_frs_video_ad_last_show_time" + str, 0L);
                 if (n < 0) {

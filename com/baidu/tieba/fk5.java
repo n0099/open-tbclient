@@ -38,12 +38,12 @@ public class fk5 {
 
         /* renamed from: com.baidu.tieba.fk5$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0273a implements Runnable {
+        public class RunnableC0274a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0273a(a aVar) {
+            public RunnableC0274a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class fk5 {
         public void call(boolean z, Void r6) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
-                this.b.e = new RunnableC0273a(this);
+                this.b.e = new RunnableC0274a(this);
                 this.b.a.postDelayed(this.b.e, this.b.c);
             }
         }

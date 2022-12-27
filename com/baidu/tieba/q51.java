@@ -38,12 +38,12 @@ public class q51 {
 
         /* renamed from: com.baidu.tieba.q51$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0417a implements Runnable {
+        public class RunnableC0419a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0417a(a aVar) {
+            public RunnableC0419a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class q51 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int unused = q51.a = 3;
-                nj0.b(new RunnableC0417a(this));
+                nj0.b(new RunnableC0419a(this));
             }
         }
     }

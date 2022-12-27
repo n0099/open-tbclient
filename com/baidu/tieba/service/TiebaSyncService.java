@@ -33,7 +33,7 @@ import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.aj;
 import com.baidu.tieba.br5;
 import com.baidu.tieba.by6;
-import com.baidu.tieba.ce9;
+import com.baidu.tieba.de9;
 import com.baidu.tieba.dr4;
 import com.baidu.tieba.e25;
 import com.baidu.tieba.fh;
@@ -53,7 +53,7 @@ import com.baidu.tieba.v25;
 import com.baidu.tieba.wallet.YYLiveConfig;
 import com.baidu.tieba.x35;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yk7;
+import com.baidu.tieba.zk7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -459,7 +459,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteYYLiveTabConfigData() {
-        ce9 x;
+        de9 x;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65562, this) == null) && (x = this.mModel.x()) != null) {
             TbSingleton.getInstance().setYYLiveTabConfig(x);
@@ -512,7 +512,7 @@ public class TiebaSyncService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             if (!PermissionUtil.isBrowseMode()) {
-                yk7.b().a(false);
+                zk7.b().a(false);
             }
             VersionData u = this.mModel.u();
             if (u != null && u.hasNewVer() && TbConfig.COULD_UPDATE) {

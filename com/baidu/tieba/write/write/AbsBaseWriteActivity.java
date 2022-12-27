@@ -72,24 +72,24 @@ import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a99;
+import com.baidu.tieba.b99;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.d35;
 import com.baidu.tieba.dl5;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.g25;
-import com.baidu.tieba.g79;
 import com.baidu.tieba.h75;
+import com.baidu.tieba.h79;
 import com.baidu.tieba.in;
 import com.baidu.tieba.lf6;
 import com.baidu.tieba.lj5;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.m65;
 import com.baidu.tieba.mf6;
-import com.baidu.tieba.n49;
 import com.baidu.tieba.n65;
-import com.baidu.tieba.ou8;
+import com.baidu.tieba.o49;
+import com.baidu.tieba.pu8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.t65;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
@@ -98,13 +98,13 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tq4;
 import com.baidu.tieba.uy4;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
-import com.baidu.tieba.w89;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.tieba.write.view.PostCategoryView;
-import com.baidu.tieba.x79;
+import com.baidu.tieba.x89;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
+import com.baidu.tieba.y79;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +116,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
 /* loaded from: classes6.dex */
-public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements g79.a, PopupWindow.OnDismissListener {
+public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements h79.a, PopupWindow.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText A;
@@ -129,7 +129,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public RelativeLayout H;
     public Toast I;
     public TextView J;
-    public g79 K;
+    public h79 K;
     public ImageView L;
     public View M;
     public PostCategoryView N;
@@ -139,13 +139,13 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public GestureDetector R;
     public EditorTools S;
     public InputMethodManager T;
-    public x79 U;
-    public a99 V;
+    public y79 U;
+    public b99 V;
     public TextWatcher W;
     public TextWatcher X;
     public TbFaceManager.a Y;
     public final AntiHelper.k Z;
-    public final w89 a;
+    public final x89 a;
     public final NewWriteModel.d a0;
     public final KeyEvent b;
     public final CustomMessageListener b0;
@@ -156,7 +156,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public String e;
     public final n65 e0;
     public String f;
-    public n49 f0;
+    public o49 f0;
     public String g;
     public String h;
     public int i;
@@ -1181,7 +1181,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 return;
             }
         }
-        this.a = new w89();
+        this.a = new x89();
         this.b = new KeyEvent(0, 67);
         this.c = new Handler();
         this.e = null;
@@ -1261,9 +1261,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
             this.o = z;
-            x79 x79Var = this.U;
-            if (x79Var != null && !z) {
-                x79Var.g();
+            y79 y79Var = this.U;
+            if (y79Var != null && !z) {
+                y79Var.g();
             }
             if (this.V != null && !z) {
                 X1();
@@ -1357,8 +1357,8 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            g79 g79Var = this.K;
-            if (g79Var != null && g79Var.isShowing()) {
+            h79 h79Var = this.K;
+            if (h79Var != null && h79Var.isShowing()) {
                 ch.d(this.K, getPageContext().getPageActivity());
                 return true;
             } else if (this.S.v()) {
@@ -1403,7 +1403,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 }
                 showToast(errorString);
             } else if (!K1(postWriteCallBackData)) {
-                ou8.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                pu8.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
             }
         }
     }
@@ -1472,9 +1472,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         PostPrefixData postPrefixData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && (postPrefixData = this.d) != null && postPrefixData.getPrefixs().size() > 1) {
-            g79 g79Var = new g79(getPageContext().getPageActivity());
-            this.K = g79Var;
-            g79Var.e(this);
+            h79 h79Var = new h79(getPageContext().getPageActivity());
+            this.K = h79Var;
+            h79Var.e(this);
             this.K.d(yi.g(getActivity(), R.dimen.obfuscated_res_0x7f0702d6));
             this.K.setOutsideTouchable(true);
             this.K.setFocusable(true);
@@ -1493,10 +1493,10 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     }
 
     public void X1() {
-        a99 a99Var;
+        b99 b99Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && (a99Var = this.V) != null) {
-            a99Var.b();
+        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && (b99Var = this.V) != null) {
+            b99Var.b();
         }
     }
 
@@ -1678,7 +1678,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         }
     }
 
-    @Override // com.baidu.tieba.g79.a
+    @Override // com.baidu.tieba.h79.a
     public void Q0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
@@ -1905,9 +1905,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             }
             H2();
             I2();
-            w89 w89Var = this.a;
-            if (w89Var != null) {
-                w89Var.l(U1(), T1());
+            x89 x89Var = this.a;
+            if (x89Var != null) {
+                x89Var.l(U1(), T1());
             }
             ForumTabSelectedView forumTabSelectedView = this.Q;
             if (forumTabSelectedView != null) {
@@ -1921,9 +1921,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i2)) == null) {
-            n49 n49Var = new n49(getPageContext().getPageActivity(), new e(this), new Date().getHours(), new Date().getMinutes(), false);
-            this.f0 = n49Var;
-            n49Var.setTitle(R.string.no_disturb_start_time);
+            o49 o49Var = new o49(getPageContext().getPageActivity(), new e(this), new Date().getHours(), new Date().getMinutes(), false);
+            this.f0 = o49Var;
+            o49Var.setTitle(R.string.no_disturb_start_time);
             this.f0.setButton(-1, getPageContext().getString(R.string.alert_yes_button), this.f0);
             this.f0.setButton(-2, getPageContext().getString(R.string.obfuscated_res_0x7f0f037c), this.f0);
             return this.f0;

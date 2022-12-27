@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.cr0;
 import com.baidu.tieba.dr0;
-import com.baidu.tieba.em7;
+import com.baidu.tieba.fm7;
 import com.baidu.tieba.gr4;
 import com.baidu.tieba.hr4;
 import com.baidu.tieba.jr0;
@@ -280,7 +280,7 @@ public class NadAsyncRequester {
                 }
             }
             jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "5.10.0.26"));
-            if (!em7.f(map)) {
+            if (!fm7.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }

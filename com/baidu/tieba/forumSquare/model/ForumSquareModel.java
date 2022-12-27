@@ -20,7 +20,7 @@ import com.baidu.tieba.enterForum.data.ForumSquareSocketResponsedMessage;
 import com.baidu.tieba.forumSquare.ForumSquareStatic;
 import com.baidu.tieba.forumSquare.message.ForumSquareRequestMessage;
 import com.baidu.tieba.gc6;
-import com.baidu.tieba.ku8;
+import com.baidu.tieba.lu8;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.vi6;
@@ -90,10 +90,10 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ku8)) {
-                ku8 ku8Var = (ku8) customResponsedMessage.getData();
-                if (ku8Var.b) {
-                    this.a.c0(ku8Var.a, true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lu8)) {
+                lu8 lu8Var = (lu8) customResponsedMessage.getData();
+                if (lu8Var.b) {
+                    this.a.c0(lu8Var.a, true);
                 }
             }
         }
@@ -130,10 +130,10 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ku8)) {
-                ku8 ku8Var = (ku8) customResponsedMessage.getData();
-                if (ku8Var.b) {
-                    this.a.c0(ku8Var.a, false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lu8)) {
+                lu8 lu8Var = (lu8) customResponsedMessage.getData();
+                if (lu8Var.b) {
+                    this.a.c0(lu8Var.a, false);
                 }
             }
         }

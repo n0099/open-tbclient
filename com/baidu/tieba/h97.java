@@ -55,7 +55,7 @@ public class h97 {
     public x87 k;
     public View l;
     public FrameLayout m;
-    public of8 n;
+    public pf8 n;
     public NEGFeedBackView.b o;
     public h17 p;
     public int q;
@@ -499,10 +499,10 @@ public class h97 {
     }
 
     public void G() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (of8Var = this.n) != null && this.t) {
-            of8Var.n(this.q, this.r, this.u, true);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pf8Var = this.n) != null && this.t) {
+            pf8Var.n(this.q, this.r, this.u, true);
         }
     }
 
@@ -535,10 +535,10 @@ public class h97 {
     }
 
     public void Y() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (of8Var = this.n) != null) {
-            of8Var.y();
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (pf8Var = this.n) != null) {
+            pf8Var.y();
         }
     }
 
@@ -640,11 +640,11 @@ public class h97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             this.s = z;
-            of8 of8Var = this.n;
-            if (of8Var == null) {
+            pf8 pf8Var = this.n;
+            if (pf8Var == null) {
                 return;
             }
-            of8Var.r(!z);
+            pf8Var.r(!z);
             ThreadCardViewHolder q = q();
             boolean z2 = false;
             if (q != null && q.a() != null) {
@@ -705,9 +705,9 @@ public class h97 {
             if (x87Var != null) {
                 x87Var.d();
             }
-            of8 of8Var = this.n;
-            if (of8Var != null) {
-                of8Var.h();
+            pf8 pf8Var = this.n;
+            if (pf8Var != null) {
+                pf8Var.h();
             }
             p();
             MessageManager.getInstance().unRegisterListener(this.z);
@@ -745,8 +745,8 @@ public class h97 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            of8 of8Var = this.n;
-            if (of8Var != null && of8Var.j() != null && (this.n.j().getTag() instanceof ThreadCardViewHolder)) {
+            pf8 pf8Var = this.n;
+            if (pf8Var != null && pf8Var.j() != null && (this.n.j().getTag() instanceof ThreadCardViewHolder)) {
                 return (ThreadCardViewHolder) this.n.j().getTag();
             }
             return null;
@@ -880,9 +880,9 @@ public class h97 {
                 this.p.p(this.a.getArguments().getString("tab_name"));
             }
             this.p.o(this.b);
-            of8 of8Var = new of8(this.b, this.d);
-            this.n = of8Var;
-            of8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            pf8 pf8Var = new pf8(this.b, this.d);
+            this.n = pf8Var;
+            pf8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.n.u(this.v);
             this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09263a);
             k57 k57Var = new k57(this.b);

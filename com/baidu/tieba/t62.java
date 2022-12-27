@@ -74,7 +74,7 @@ public class t62 implements b13 {
 
         /* renamed from: com.baidu.tieba.t62$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0438c extends e62 {
+        public class C0442c extends e62 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c f;
@@ -84,16 +84,16 @@ public class t62 implements b13 {
             public class a extends d62 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0438c e;
+                public final /* synthetic */ C0442c e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public a(C0438c c0438c, String str, String str2) {
+                public a(C0442c c0442c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0438c, str, str2};
+                        Object[] objArr = {c0442c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class t62 implements b13 {
                             return;
                         }
                     }
-                    this.e = c0438c;
+                    this.e = c0442c;
                 }
 
                 @Override // com.baidu.tieba.d62
@@ -123,7 +123,7 @@ public class t62 implements b13 {
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0438c(c cVar, Context context) {
+            public C0442c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -282,7 +282,7 @@ public class t62 implements b13 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new C0438c(this, AppRuntime.getAppContext());
+                return new C0442c(this, AppRuntime.getAppContext());
             }
             return (a62) invokeV.objValue;
         }

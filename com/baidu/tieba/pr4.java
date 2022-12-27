@@ -251,8 +251,8 @@ public class pr4 {
         }
         this.f = false;
         this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        tr8.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        tr8.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        ur8.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
+        ur8.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
         MessageManager.getInstance().registerListener(this.g);
         this.c = new SparseArray<>();
     }

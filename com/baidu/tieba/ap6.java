@@ -634,7 +634,7 @@ public class ap6 extends h46<ThreadData> implements f56, Object {
                 SpannableString parseAbstract = threadData.parseAbstract();
                 if (parseAbstract != null && !xi.isEmpty(parseAbstract.toString())) {
                     this.y.setVisibility(0);
-                    this.y.setOnTouchListener(new t49(parseAbstract));
+                    this.y.setOnTouchListener(new u49(parseAbstract));
                     this.y.setText(parseAbstract);
                     s46.l(this.y, threadData.getId(), R.color.CAM_X0107, R.color.CAM_X0109);
                     return;
@@ -656,7 +656,7 @@ public class ap6 extends h46<ThreadData> implements f56, Object {
             SpannableStringBuilder parseTitleOrAbstractForFrsNew = threadData.parseTitleOrAbstractForFrsNew(false, true);
             if (parseTitleOrAbstractForFrsNew != null && !StringUtils.isNull(parseTitleOrAbstractForFrsNew.toString())) {
                 this.x.setVisibility(0);
-                this.x.setOnTouchListener(new t49(parseTitleOrAbstractForFrsNew));
+                this.x.setOnTouchListener(new u49(parseTitleOrAbstractForFrsNew));
                 this.x.setText(parseTitleOrAbstractForFrsNew);
                 s46.l(this.x, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             } else {

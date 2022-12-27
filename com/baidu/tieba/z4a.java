@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,78 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.schedulers.GenericScheduledExecutorServiceFactory;
 /* loaded from: classes7.dex */
-public final class z4a extends e3a {
+public final class z4a implements d5a {
     public static /* synthetic */ Interceptable $ic;
-    public static final z4a a;
+    public static final ScheduledExecutorService[] b;
+    public static final ScheduledExecutorService c;
+    public static final z4a d;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public final class a extends e3a.a implements i3a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final u7a a;
-        public final /* synthetic */ z4a b;
-
-        public a(z4a z4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = z4aVar;
-            this.a = new u7a();
-        }
-
-        @Override // com.baidu.tieba.e3a.a
-        public i3a b(o3a o3aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o3aVar)) == null) {
-                o3aVar.call();
-                return y7a.c();
-            }
-            return (i3a) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.e3a.a
-        public i3a c(o3a o3aVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{o3aVar, Long.valueOf(j), timeUnit})) == null) {
-                return b(new d5a(o3aVar, this, this.b.now() + timeUnit.toMillis(j)));
-            }
-            return (i3a) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.i3a
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.i3a
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.a.unsubscribe();
-            }
-        }
-    }
+    public final AtomicReference<ScheduledExecutorService[]> a;
 
     static {
         InterceptResult invokeClinit;
@@ -95,7 +36,49 @@ public final class z4a extends e3a {
                 return;
             }
         }
-        a = new z4a();
+        b = new ScheduledExecutorService[0];
+        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(0);
+        c = newScheduledThreadPool;
+        newScheduledThreadPool.shutdown();
+        d = new z4a();
+    }
+
+    public static ScheduledExecutorService a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ScheduledExecutorService[] scheduledExecutorServiceArr = d.a.get();
+            if (scheduledExecutorServiceArr == b) {
+                return c;
+            }
+            int i = e + 1;
+            if (i >= scheduledExecutorServiceArr.length) {
+                i = 0;
+            }
+            e = i;
+            return scheduledExecutorServiceArr[i];
+        }
+        return (ScheduledExecutorService) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d5a
+    public void shutdown() {
+        ScheduledExecutorService[] scheduledExecutorServiceArr;
+        ScheduledExecutorService[] scheduledExecutorServiceArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            do {
+                scheduledExecutorServiceArr = this.a.get();
+                scheduledExecutorServiceArr2 = b;
+                if (scheduledExecutorServiceArr == scheduledExecutorServiceArr2) {
+                    return;
+                }
+            } while (!this.a.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
+            for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
+                c5a.d(scheduledExecutorService);
+                scheduledExecutorService.shutdownNow();
+            }
+        }
     }
 
     public z4a() {
@@ -108,17 +91,43 @@ public final class z4a extends e3a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>(b);
+        start();
     }
 
-    @Override // com.baidu.tieba.e3a
-    public e3a.a createWorker() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d5a
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int availableProcessors = Runtime.getRuntime().availableProcessors();
+            if (availableProcessors > 4) {
+                availableProcessors /= 2;
+            }
+            if (availableProcessors > 8) {
+                availableProcessors = 8;
+            }
+            ScheduledExecutorService[] scheduledExecutorServiceArr = new ScheduledExecutorService[availableProcessors];
+            int i = 0;
+            for (int i2 = 0; i2 < availableProcessors; i2++) {
+                scheduledExecutorServiceArr[i2] = GenericScheduledExecutorServiceFactory.create();
+            }
+            if (this.a.compareAndSet(b, scheduledExecutorServiceArr)) {
+                while (i < availableProcessors) {
+                    ScheduledExecutorService scheduledExecutorService = scheduledExecutorServiceArr[i];
+                    if (!c5a.k(scheduledExecutorService) && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
+                        c5a.g((ScheduledThreadPoolExecutor) scheduledExecutorService);
+                    }
+                    i++;
+                }
+                return;
+            }
+            while (i < availableProcessors) {
+                scheduledExecutorServiceArr[i].shutdownNow();
+                i++;
+            }
         }
-        return (e3a.a) invokeV.objValue;
     }
 }

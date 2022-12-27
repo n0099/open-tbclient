@@ -84,7 +84,7 @@ public class j90 {
                         jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
                         jSONObject.put("app_id", b2);
                         jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2300016");
+                        jSONObject.put("sdk_version", "2310016");
                         jSONObject.put("ts", currentTimeMillis);
                         jSONObject.put("sign", e(b2, e, "android", currentTimeMillis));
                         return jSONObject;
@@ -97,7 +97,7 @@ public class j90 {
                 newBuilder.x("android");
                 newBuilder.u(b2);
                 newBuilder.v(b);
-                newBuilder.y("2300016");
+                newBuilder.y("2310016");
                 return newBuilder.build();
             } catch (Exception e2) {
                 l90.c("LCPCommon", "getData :", e2);

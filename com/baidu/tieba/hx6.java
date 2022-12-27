@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.lv4;
-import com.baidu.tieba.qs8;
+import com.baidu.tieba.rs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,26 +122,26 @@ public class hx6 extends BaseAdapter implements av6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if ((this.a.b == null || ViewHelper.checkUpIsLogin(this.a.b)) && view2 != null) {
-                    if ((view2.getTag() instanceof xq8) || (view2.getTag() instanceof e)) {
-                        xq8 xq8Var = null;
-                        if (view2.getTag() instanceof xq8) {
-                            xq8Var = (xq8) view2.getTag();
-                        } else if ((view2.getTag() instanceof e) && (textView = (eVar = (e) view2.getTag()).c) != null && (textView.getTag() instanceof xq8)) {
-                            xq8Var = (xq8) eVar.c.getTag();
+                    if ((view2.getTag() instanceof yq8) || (view2.getTag() instanceof e)) {
+                        yq8 yq8Var = null;
+                        if (view2.getTag() instanceof yq8) {
+                            yq8Var = (yq8) view2.getTag();
+                        } else if ((view2.getTag() instanceof e) && (textView = (eVar = (e) view2.getTag()).c) != null && (textView.getTag() instanceof yq8)) {
+                            yq8Var = (yq8) eVar.c.getTag();
                         }
-                        if (xq8Var != null && xq8Var.i() == 2) {
-                            if (!StringUtils.isNull(xq8Var.h())) {
-                                String h = xq8Var.h();
+                        if (yq8Var != null && yq8Var.i() == 2) {
+                            if (!StringUtils.isNull(yq8Var.h())) {
+                                String h = yq8Var.h();
                                 if ((h.contains("nohead:url") || h.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
                                     yi.P(this.a.b, R.string.book_plugin_not_install_tip);
                                     return;
                                 }
                                 UrlManager.getInstance().dealOneLink(this.a.c, new String[]{h});
-                                qs8.b b = qs8.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", xq8Var.b(), this.a.d, this.a.e, null);
-                                b.d(TiebaStatic.Params.OBJ_URL, xq8Var.h());
+                                rs8.b b = rs8.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", yq8Var.b(), this.a.d, this.a.e, null);
+                                b.d(TiebaStatic.Params.OBJ_URL, yq8Var.h());
                                 b.e();
                             }
-                        } else if (xq8Var != null && xq8Var.i() == 3) {
+                        } else if (yq8Var != null && yq8Var.i() == 3) {
                             new StatisticItem("c13442").param("forum_id", this.a.d).eventStat();
                             if (this.a.c != null && !TextUtils.isEmpty(this.a.d)) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this.a.c.getPageActivity()).createNormalConfig(xg.g(this.a.d, 0L), 1)));
@@ -199,8 +199,8 @@ public class hx6 extends BaseAdapter implements av6 {
                     }
                     hoVar.b(view2, threadData, gen, null, i, 0L);
                     TiebaStatic.log(new StatisticItem("c13124").param("fid", threadData.getFid()).param("tid", threadData.getTid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", eVar.a + 1));
-                } else if (xnVar instanceof er8) {
-                    this.a.g.b(view2, (er8) xnVar, BdUniqueId.gen(), null, eVar.a, 0L);
+                } else if (xnVar instanceof fr8) {
+                    this.a.g.b(view2, (fr8) xnVar, BdUniqueId.gen(), null, eVar.a, 0L);
                 }
             }
         }
@@ -388,14 +388,14 @@ public class hx6 extends BaseAdapter implements av6 {
         this.c = p();
     }
 
-    public final String o(xq8 xq8Var) {
+    public final String o(yq8 yq8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, xq8Var)) == null) {
-            if (!TextUtils.isEmpty(xq8Var.g()) && xq8Var.g().trim().length() != 0) {
-                return xq8Var.g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, yq8Var)) == null) {
+            if (!TextUtils.isEmpty(yq8Var.g()) && yq8Var.g().trim().length() != 0) {
+                return yq8Var.g();
             }
-            if (xq8Var.a() == 1) {
+            if (yq8Var.a() == 1) {
                 return TbadkCoreApplication.getInst().getString(R.string.thread_recruit);
             }
             return TbadkCoreApplication.getInst().getString(R.string.top_announcement);
@@ -539,13 +539,13 @@ public class hx6 extends BaseAdapter implements av6 {
                 if (xnVar instanceof ThreadData) {
                     j(fVar, (ThreadData) xnVar, i);
                     fVar.a = i;
-                } else if (xnVar instanceof xq8) {
-                    k(fVar, (xq8) xnVar);
-                } else if (xnVar instanceof dr8) {
-                    y((dr8) xnVar, fVar, i);
+                } else if (xnVar instanceof yq8) {
+                    k(fVar, (yq8) xnVar);
                 } else if (xnVar instanceof er8) {
+                    y((er8) xnVar, fVar, i);
+                } else if (xnVar instanceof fr8) {
                     fVar.a = i;
-                    l(fVar, (er8) xnVar, i);
+                    l(fVar, (fr8) xnVar, i);
                 }
             }
             return view2;
@@ -553,23 +553,23 @@ public class hx6 extends BaseAdapter implements av6 {
         return (View) invokeILL.objValue;
     }
 
-    public final void l(f fVar, er8 er8Var, int i) {
+    public final void l(f fVar, fr8 fr8Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048585, this, fVar, er8Var, i) == null) && fVar != null && er8Var != null && er8Var.a() != null && this.f != null) {
+        if ((interceptable == null || interceptable.invokeLLI(1048585, this, fVar, fr8Var, i) == null) && fVar != null && fr8Var != null && fr8Var.a() != null && this.f != null) {
             fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules));
             ru6.b(fVar.d, this.h);
             if (this.f.getIs_manager() == 1) {
-                if (er8Var.a().audit_status.intValue() == 0 && er8Var.a().has_forum_rule.intValue() == 0) {
+                if (fr8Var.a().audit_status.intValue() == 0 && fr8Var.a().has_forum_rule.intValue() == 0) {
                     fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_none));
-                } else if (er8Var.a().audit_status.intValue() == 0) {
-                    fVar.c.setText(er8Var.a().title);
-                } else if (er8Var.a().audit_status.intValue() == 1) {
+                } else if (fr8Var.a().audit_status.intValue() == 0) {
+                    fVar.c.setText(fr8Var.a().title);
+                } else if (fr8Var.a().audit_status.intValue() == 1) {
                     fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_chenking));
-                } else if (er8Var.a().audit_status.intValue() == 2) {
+                } else if (fr8Var.a().audit_status.intValue() == 2) {
                     fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_refuse));
                 }
             } else {
-                fVar.c.setText(er8Var.a().title);
+                fVar.c.setText(fr8Var.a().title);
             }
             fVar.b.setOnClickListener(this.n);
             h(fVar);
@@ -587,46 +587,46 @@ public class hx6 extends BaseAdapter implements av6 {
                 span_str = new SpannableStringBuilder(threadData.getAbstractText());
                 TiePlusEventController.i(threadData.getTiePlusLinkOriginData());
             }
-            fVar.c.setOnTouchListener(new t49(span_str));
+            fVar.c.setOnTouchListener(new u49(span_str));
             fVar.c.setText(span_str);
             fVar.b.setOnClickListener(this.n);
             h(fVar);
         }
     }
 
-    public final void k(f fVar, xq8 xq8Var) {
+    public final void k(f fVar, yq8 yq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar, xq8Var) == null) {
-            String o = o(xq8Var);
-            fVar.c.setText(xq8Var.f());
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar, yq8Var) == null) {
+            String o = o(yq8Var);
+            fVar.c.setText(yq8Var.f());
             fVar.d.setText(o);
             ru6.b(fVar.d, this.h);
-            if (xq8Var.c() != 0) {
+            if (yq8Var.c() != 0) {
                 fVar.e.setVisibility(0);
-                if (xq8Var.c() == -1) {
+                if (yq8Var.c() == -1) {
                     fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0cfc));
-                } else if (xq8Var.c() > 999) {
+                } else if (yq8Var.c() > 999) {
                     fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1004));
                 } else {
                     TextView textView = fVar.e;
-                    textView.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1003) + xq8Var.c());
+                    textView.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1003) + yq8Var.c());
                 }
-                if (!StringUtils.isNull(xq8Var.f())) {
-                    fVar.c.setText(xq8Var.f());
+                if (!StringUtils.isNull(yq8Var.f())) {
+                    fVar.c.setText(yq8Var.f());
                 }
             } else {
                 fVar.e.setVisibility(8);
             }
             h(fVar);
-            fVar.c.setTag(xq8Var);
+            fVar.c.setTag(yq8Var);
             View.OnClickListener onClickListener = this.m;
             if (onClickListener != null) {
                 fVar.b.setOnClickListener(onClickListener);
             }
             HashSet<String> hashSet = this.j;
-            if (hashSet != null && hashSet.add(xq8Var.b())) {
-                qs8.b b2 = qs8.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", xq8Var.b(), this.d, this.e, null);
-                b2.d(TiebaStatic.Params.OBJ_URL, xq8Var.h());
+            if (hashSet != null && hashSet.add(yq8Var.b())) {
+                rs8.b b2 = rs8.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", yq8Var.b(), this.d, this.e, null);
+                b2.d(TiebaStatic.Params.OBJ_URL, yq8Var.h());
                 b2.e();
             }
         }
@@ -644,7 +644,7 @@ public class hx6 extends BaseAdapter implements av6 {
                     TiePlusEventController.i(threadData.getTiePlusLinkOriginData());
                 }
                 gVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d1));
-                gVar.c.setOnTouchListener(new t49(span_str));
+                gVar.c.setOnTouchListener(new u49(span_str));
                 gVar.c.setText(span_str);
                 if (StringUtils.isNull(this.i)) {
                     gVar.e.setVisibility(8);
@@ -659,48 +659,48 @@ public class hx6 extends BaseAdapter implements av6 {
                 gVar.d.setTextColor(this.h);
                 gVar.b.setOnClickListener(this.n);
                 h(gVar);
-            } else if (xnVar instanceof xq8) {
-                xq8 xq8Var = (xq8) xnVar;
-                String o = o(xq8Var);
+            } else if (xnVar instanceof yq8) {
+                yq8 yq8Var = (yq8) xnVar;
+                String o = o(yq8Var);
                 if (StringUtils.isNull(this.i)) {
                     gVar.d.setText(o);
                     gVar.d.setVisibility(0);
-                    gVar.c.setText(xq8Var.f());
+                    gVar.c.setText(yq8Var.f());
                     gVar.e.setVisibility(8);
                 } else {
                     gVar.d.setVisibility(8);
                     gVar.e.setVisibility(0);
                     TextView textView = gVar.c;
-                    textView.setText(o + "：" + xq8Var.f());
+                    textView.setText(o + "：" + yq8Var.f());
                     gVar.e.K(this.i, 10, false);
                 }
-                if (xq8Var.c() != 0) {
+                if (yq8Var.c() != 0) {
                     gVar.f.setVisibility(0);
-                    if (xq8Var.c() == -1) {
+                    if (yq8Var.c() == -1) {
                         gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0cfc));
-                    } else if (xq8Var.c() > 999) {
+                    } else if (yq8Var.c() > 999) {
                         gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1004));
                     } else {
                         TextView textView2 = gVar.f;
-                        textView2.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1003) + xq8Var.c());
+                        textView2.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1003) + yq8Var.c());
                     }
-                    if (!StringUtils.isNull(xq8Var.f())) {
-                        gVar.c.setText(xq8Var.f());
+                    if (!StringUtils.isNull(yq8Var.f())) {
+                        gVar.c.setText(yq8Var.f());
                     }
                 } else {
                     gVar.f.setVisibility(8);
                 }
                 gVar.d.setTextColor(this.h);
                 h(gVar);
-                gVar.c.setTag(xq8Var);
+                gVar.c.setTag(yq8Var);
                 View.OnClickListener onClickListener = this.m;
                 if (onClickListener != null) {
                     gVar.b.setOnClickListener(onClickListener);
                 }
                 HashSet<String> hashSet = this.j;
-                if (hashSet != null && hashSet.add(xq8Var.b())) {
-                    qs8.b b2 = qs8.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", xq8Var.b(), this.d, this.e, null);
-                    b2.d(TiebaStatic.Params.OBJ_URL, xq8Var.h());
+                if (hashSet != null && hashSet.add(yq8Var.b())) {
+                    rs8.b b2 = rs8.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", yq8Var.b(), this.d, this.e, null);
+                    b2.d(TiebaStatic.Params.OBJ_URL, yq8Var.h());
                     b2.e();
                 }
             }
@@ -719,19 +719,19 @@ public class hx6 extends BaseAdapter implements av6 {
         }
     }
 
-    public final boolean y(dr8 dr8Var, f fVar, int i) {
+    public final boolean y(er8 er8Var, f fVar, int i) {
         InterceptResult invokeLLI;
         boolean z;
         String riskTipNotice;
         String riskTipPopTitle;
         String riskTipPop;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048598, this, dr8Var, fVar, i)) == null) {
-            if (i != 0 || dr8Var == null || dr8Var.a() == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048598, this, er8Var, fVar, i)) == null) {
+            if (i != 0 || er8Var == null || er8Var.a() == null) {
                 return false;
             }
-            ForumData a2 = dr8Var.a();
-            if (dr8Var.b() && !ListUtils.isEmpty(a2.getTipInfos())) {
+            ForumData a2 = er8Var.a();
+            if (er8Var.b() && !ListUtils.isEmpty(a2.getTipInfos())) {
                 z = true;
             } else {
                 z = false;

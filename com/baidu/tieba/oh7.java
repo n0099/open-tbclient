@@ -5,5 +5,5 @@ import androidx.annotation.NonNull;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 /* loaded from: classes5.dex */
 public interface oh7<ChildItemData extends BaseMsg> {
-    boolean a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
+    void a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
 }

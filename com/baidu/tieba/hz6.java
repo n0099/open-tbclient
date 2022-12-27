@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 /* loaded from: classes4.dex */
-public class hz6 implements dn7 {
+public class hz6 implements en7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public m17.d a;
 
-    @Override // com.baidu.tieba.dn7
+    @Override // com.baidu.tieba.en7
     public void c(long j, String str, Message message, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
@@ -38,15 +38,15 @@ public class hz6 implements dn7 {
         this.a = dVar;
     }
 
-    @Override // com.baidu.tieba.dn7
+    @Override // com.baidu.tieba.en7
     public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
             iz6 iz6Var = new iz6();
-            wm7 wm7Var = new wm7();
-            wm7Var.a = j;
-            wm7Var.b = str;
-            sm7 a = bn7.d().a(wm7Var);
+            xm7 xm7Var = new xm7();
+            xm7Var.a = j;
+            xm7Var.b = str;
+            tm7 a = cn7.d().a(xm7Var);
             if (a != null) {
                 a.c(z, message, z2, i);
             }
@@ -58,7 +58,7 @@ public class hz6 implements dn7 {
         }
     }
 
-    @Override // com.baidu.tieba.dn7
+    @Override // com.baidu.tieba.en7
     public void b(long j, String str, String str2, int i) {
         m17.d dVar;
         Interceptable interceptable = $ic;

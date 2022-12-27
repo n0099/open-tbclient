@@ -67,7 +67,7 @@ import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.cl5;
-import com.baidu.tieba.cu8;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.eg7;
 import com.baidu.tieba.g25;
 import com.baidu.tieba.gg7;
@@ -1318,7 +1318,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
     }
 
-    public cu8 Z0() {
+    public du8 Z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -1328,7 +1328,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             }
             return null;
         }
-        return (cu8) invokeV.objValue;
+        return (du8) invokeV.objValue;
     }
 
     public MsglistModel a1() {

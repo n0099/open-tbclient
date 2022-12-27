@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vw8 extends HttpMessageListener {
+public class vw8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public hu4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vw8(MainTabActivity mainTabActivity) {
-        super(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
+    public vw8(MainTabActivity mainTabActivity, av8 av8Var) {
+        super(2921333);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, av8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,37 +33,26 @@ public class vw8 extends HttpMessageListener {
                 return;
             }
         }
-    }
-
-    public final void a(Message<?> message, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, message, str, z) == null) {
-            int i = 4;
-            if (message instanceof HttpMessage) {
-                HttpMessage httpMessage = (HttpMessage) message;
-                if (httpMessage.getParams() != null) {
-                    Object obj = httpMessage.getParams().get(GroupInfoData.SHARE_KEY_TYPE);
-                    if (obj instanceof String) {
-                        i = qm9.b((String) obj, 4);
-                    }
-                }
-            }
-            hg7.a(str, z, i, 2, true);
-        }
+        this.a = mainTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
             return;
         }
-        JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
-        if (jsonHttpResponsedMessage.getError() != 0) {
-            a(httpResponsedMessage.getOrginalMessage(), ld7.a(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString()), false);
-        } else {
-            a(httpResponsedMessage.getOrginalMessage(), TbadkCoreApplication.getInst().getResources().getString(R.string.share_success), true);
+        if (this.b == null && !(customResponsedMessage.getData() instanceof hu4)) {
+            return;
+        }
+        if (customResponsedMessage.getData() != null) {
+            this.b = (hu4) customResponsedMessage.getData();
+        }
+        if (this.b != null && TbadkCoreApplication.isLogin()) {
+            yu8 yu8Var = this.a.v;
+            hu4 hu4Var = this.b;
+            yu8Var.j(hu4Var.a, hu4Var.b, hu4Var.c);
         }
     }
 }

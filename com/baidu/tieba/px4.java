@@ -324,7 +324,7 @@ public class px4 extends WebViewClient {
             if (webResourceRequest != null && webResourceRequest.getUrl() != null && QuickWebViewSwitch.getInOn()) {
                 try {
                     String path = new URL(webResourceRequest.getUrl().toString()).getPath();
-                    zh8 c = yh8.a().c(path);
+                    ai8 c = zh8.a().c(path);
                     if (c == null) {
                         if (this.a != null) {
                             return this.a.shouldInterceptRequest(webView, webResourceRequest);
@@ -341,16 +341,16 @@ public class px4 extends WebViewClient {
                         }
                         return super.shouldInterceptRequest(webView, webResourceRequest);
                     } else {
-                        ?? s = xh8.q().s(c.b);
+                        ?? s = yh8.q().s(c.b);
                         ?? sb = new StringBuilder();
-                        String p = xh8.q().p();
+                        String p = yh8.q().p();
                         sb.append(p);
                         sb.append("/");
                         sb.append(c.b);
                         sb.append("/");
                         sb.append(s);
                         sb.append("/");
-                        String str = sb.toString() + yh8.a().e(path);
+                        String str = sb.toString() + zh8.a().e(path);
                         InputStreamReader inputStreamReader2 = null;
                         try {
                             try {

@@ -42,7 +42,7 @@ import com.baidu.tieba.l17;
 import com.baidu.tieba.m55;
 import com.baidu.tieba.o67;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.uu8;
+import com.baidu.tieba.vu8;
 import com.baidu.tieba.x66;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -978,7 +978,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements l17 
             this.d.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007));
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e29);
             this.f = frameLayout;
-            uu8.c(frameLayout, 5);
+            vu8.c(frameLayout, 5);
             this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091eeb);
             this.h = findViewById(R.id.obfuscated_res_0x7f09084d);
             this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0903ff);

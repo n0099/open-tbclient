@@ -72,13 +72,13 @@ import com.baidu.tieba.n9;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tq4;
-import com.baidu.tieba.uu7;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.tieba.vu7;
 import com.baidu.tieba.wu7;
 import com.baidu.tieba.x66;
 import com.baidu.tieba.xu7;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yu7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +115,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public TextView f;
     public View g;
     public TextView h;
-    public uu7 i;
+    public vu7 i;
     public PersonListModel j;
     public NoDataView k;
     public NoPressedRelativeLayout l;
@@ -1003,7 +1003,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                         str = "c14286";
                         str2 = YYLiveUtil.SOURCE_PERSON_LIST_OWNER;
                     }
-                    xu7.a(str, userData);
+                    yu7.a(str, userData);
                     AlaInfoData alaInfo = userData.getAlaInfo();
                     if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
                         YYLiveUtil.jumpYYLiveRoom(this.b.getPageContext(), alaInfo, str2);
@@ -1121,10 +1121,10 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     public final void v1() {
-        uu7 uu7Var;
+        vu7 vu7Var;
         UserData userData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (uu7Var = this.i) != null && uu7Var.getItemViewType(this.z) == 0 && (userData = (UserData) this.i.getItem(this.z)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (vu7Var = this.i) != null && vu7Var.getItemViewType(this.z) == 0 && (userData = (UserData) this.i.getItem(this.z)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "enter_chat", "personlistclick", 1, new Object[0]);
             try {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex())));
@@ -1200,12 +1200,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     public final void r2(cu4 cu4Var, boolean z) {
-        uu7 uu7Var;
+        vu7 vu7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048604, this, cu4Var, z) == null) && (uu7Var = this.i) != null) {
+        if ((interceptable == null || interceptable.invokeLZ(1048604, this, cu4Var, z) == null) && (vu7Var = this.i) != null) {
             if (!z) {
                 if (cu4Var.d == 1) {
-                    uu7Var.e();
+                    vu7Var.e();
                 }
                 this.i.f(cu4Var.f);
                 this.i.a(cu4Var);
@@ -1213,7 +1213,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 this.i.notifyDataSetChanged();
                 return;
             }
-            uu7Var.f(false);
+            vu7Var.f(false);
             this.i.a(cu4Var);
             this.i.b();
             this.i.notifyDataSetChanged();
@@ -1352,9 +1352,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public final void q2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            uu7 uu7Var = this.i;
-            if (uu7Var != null) {
-                uu7Var.notifyDataSetChanged();
+            vu7 vu7Var = this.i;
+            if (vu7Var != null) {
+                vu7Var.notifyDataSetChanged();
             }
             this.j.U();
         }
@@ -1564,11 +1564,11 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
             int sex = this.j.getSex();
             if (getIntent().getBooleanExtra("follow", false)) {
-                this.i = new wu7(this, getIntent().getBooleanExtra("follow", false), z, sex, qVar, aVar, bVar, rVar);
+                this.i = new xu7(this, getIntent().getBooleanExtra("follow", false), z, sex, qVar, aVar, bVar, rVar);
                 this.d.setVisibility(0);
                 this.k = NoDataViewFactory.a(getPageContext().getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, yi.g(getActivity(), R.dimen.tbds530)), null, null);
             } else {
-                this.i = new vu7(getPageContext(), z, sex, qVar, bVar);
+                this.i = new wu7(getPageContext(), z, sex, qVar, bVar);
                 this.d.setVisibility(8);
                 this.k = NoDataViewFactory.a(getPageContext().getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, yi.g(getActivity(), R.dimen.tbds530)), null, null);
             }
@@ -1759,9 +1759,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (bdListView != null) {
                 bdListView.setVisibility(8);
             }
-            uu7 uu7Var = this.i;
-            if (uu7Var != null) {
-                uu7Var.e();
+            vu7 vu7Var = this.i;
+            if (vu7Var != null) {
+                vu7Var.e();
             }
             PersonListModel personListModel = this.j;
             if (personListModel != null) {
@@ -1795,9 +1795,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             SkinManager.setBackgroundResource(this.l, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.a, R.color.CAM_X0201);
             this.o.onChangeSkinType(getPageContext(), i2);
-            uu7 uu7Var = this.i;
-            if (uu7Var != null) {
-                uu7Var.notifyDataSetChanged();
+            vu7 vu7Var = this.i;
+            if (vu7Var != null) {
+                vu7Var.notifyDataSetChanged();
             }
             NoDataView noDataView = this.k;
             if (noDataView != null) {

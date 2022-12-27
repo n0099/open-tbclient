@@ -64,8 +64,8 @@ public class bd5 implements gc5<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.J(locationData);
-                it8.a().f(System.currentTimeMillis());
-                it8.a().d(locationEvent.locationData);
+                jt8.a().f(System.currentTimeMillis());
+                jt8.a().d(locationEvent.locationData);
             }
             mc5.i(locationEvent);
         }
@@ -111,7 +111,7 @@ public class bd5 implements gc5<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                it8.a().d(locationEvent.locationData);
+                jt8.a().d(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

@@ -76,7 +76,7 @@ public class ux extends wy {
             this.A = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.y = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            dg8 t = t();
+            eg8 t = t();
             this.j = t;
             t.getMainView().setBackgroundResource(R.color.transparent);
         }
@@ -108,15 +108,15 @@ public class ux extends wy {
     }
 
     @Override // com.baidu.tieba.wy
-    public dg8 t() {
+    public eg8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            eg8 eg8Var = new eg8(this.b, this.i);
-            eg8Var.setStageType("2003");
-            return eg8Var;
+            fg8 fg8Var = new fg8(this.b, this.i);
+            fg8Var.setStageType("2003");
+            return fg8Var;
         }
-        return (dg8) invokeV.objValue;
+        return (eg8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.wy, com.baidu.tieba.tx

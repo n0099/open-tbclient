@@ -120,7 +120,7 @@ public abstract class ju6 implements lu6 {
             }
         }
         this.h = true;
-        qq8.b();
+        rq8.b();
     }
 
     @Override // com.baidu.tieba.lu6

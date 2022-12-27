@@ -53,7 +53,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
     /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0282a e;
+        public static final C0283a e;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
         public final NavigationBar b;
@@ -73,7 +73,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                     return;
                 }
             }
-            e = new C0282a(null);
+            e = new C0283a(null);
         }
 
         public boolean equals(Object obj) {
@@ -109,15 +109,15 @@ public final class VoiceRoomListFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static final class C0282a {
+        public static final class C0283a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0282a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0283a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0282a() {
+            public C0283a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

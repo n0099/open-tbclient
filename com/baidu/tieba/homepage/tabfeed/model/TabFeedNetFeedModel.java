@@ -20,7 +20,7 @@ import com.baidu.tieba.r9;
 import com.baidu.tieba.s67;
 import com.baidu.tieba.s77;
 import com.baidu.tieba.t67;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.ur8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -131,8 +131,8 @@ public class TabFeedNetFeedModel extends BdBaseModel implements t67 {
         this.b = false;
         this.c = 1;
         this.h = new a(this, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        tr8.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        tr8.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        ur8.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        ur8.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
         this.g = new s77();
         this.f = s67Var;
     }

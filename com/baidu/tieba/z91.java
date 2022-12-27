@@ -126,13 +126,13 @@ public class z91 {
 
         /* renamed from: com.baidu.tieba.z91$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0503b implements Runnable {
+        public class RunnableC0502b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ b b;
 
-            public RunnableC0503b(b bVar, int i) {
+            public RunnableC0502b(b bVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,7 +228,7 @@ public class z91 {
         public void onPackageDownloadFail(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                p91.a().b().run(new RunnableC0503b(this, i));
+                p91.a().b().run(new RunnableC0502b(this, i));
             }
         }
 

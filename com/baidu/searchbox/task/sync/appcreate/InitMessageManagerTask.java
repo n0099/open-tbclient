@@ -33,8 +33,8 @@ import com.baidu.tieba.bz6;
 import com.baidu.tieba.cg5;
 import com.baidu.tieba.cz6;
 import com.baidu.tieba.dg5;
-import com.baidu.tieba.dt8;
 import com.baidu.tieba.eg5;
+import com.baidu.tieba.et8;
 import com.baidu.tieba.fg5;
 import com.baidu.tieba.fp4;
 import com.baidu.tieba.gg5;
@@ -44,7 +44,7 @@ import com.baidu.tieba.ib;
 import com.baidu.tieba.n9;
 import com.baidu.tieba.ng5;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.qz8;
+import com.baidu.tieba.rz8;
 import com.baidu.tieba.tt4;
 import com.baidu.tieba.xj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,10 +119,10 @@ public class InitMessageManagerTask extends LaunchTask {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof dt8)) {
-                    dt8 dt8Var = (dt8) customResponsedMessage.getData();
-                    DescriptionTableInfo.setModuleSet(dt8Var.a);
-                    DescriptionTableInfo.setDescriptionTable(dt8Var.b);
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof et8)) {
+                    et8 et8Var = (et8) customResponsedMessage.getData();
+                    DescriptionTableInfo.setModuleSet(et8Var.a);
+                    DescriptionTableInfo.setDescriptionTable(et8Var.b);
                 }
             }
         };
@@ -185,7 +185,7 @@ public class InitMessageManagerTask extends LaunchTask {
             messageManager.addResponsedMessageRule(new bz6());
             messageManager.addResponsedMessageRule(new cg5());
             messageManager.addResponsedMessageRule(new dg5());
-            messageManager.addResponsedMessageRule(new qz8());
+            messageManager.addResponsedMessageRule(new rz8());
         }
     }
 

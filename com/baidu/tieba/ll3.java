@@ -39,13 +39,13 @@ public class ll3 extends hs1 {
 
         /* renamed from: com.baidu.tieba.ll3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0348a implements xi3<h93<j93.e>> {
+        public class C0349a implements xi3<h93<j93.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gs1.b a;
             public final /* synthetic */ a b;
 
-            public C0348a(a aVar, gs1.b bVar) {
+            public C0349a(a aVar, gs1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class ll3 extends hs1 {
                 if (b0 == null) {
                     return new ew1(1001, "null swan runtime");
                 }
-                b0.e0().g(d43.K(), "mapp_i_get_bduss", new C0348a(this, bVar));
+                b0.e0().g(d43.K(), "mapp_i_get_bduss", new C0349a(this, bVar));
                 return ew1.f();
             }
             return (ew1) invokeLL.objValue;

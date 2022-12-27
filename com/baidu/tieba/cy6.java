@@ -136,10 +136,10 @@ public class cy6 {
                         break;
                     }
                     ThreadData threadData = new ThreadData();
-                    js8 js8Var = new js8();
-                    js8Var.n(true);
-                    threadData.funAdData = js8Var;
-                    js8Var.m(str);
+                    ks8 ks8Var = new ks8();
+                    ks8Var.n(true);
+                    threadData.funAdData = ks8Var;
+                    ks8Var.m(str);
                     list.add(i, threadData);
                     if (i5 == 0) {
                         i5 = i + 1;
@@ -181,10 +181,10 @@ public class cy6 {
                 AdMixFloor adMixFloor = list2.get(i4);
                 if (adMixFloor.ad_type.intValue() != 1) {
                     ThreadData threadData = new ThreadData();
-                    js8 js8Var = new js8();
-                    js8Var.n(true);
-                    threadData.funAdData = js8Var;
-                    js8Var.m(str);
+                    ks8 ks8Var = new ks8();
+                    ks8Var.n(true);
+                    threadData.funAdData = ks8Var;
+                    ks8Var.m(str);
                     ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
                     if (i3 == 0) {
                         i3 = adMixFloor.floor_num.intValue() + i;

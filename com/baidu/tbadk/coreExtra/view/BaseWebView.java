@@ -31,11 +31,11 @@ import com.baidu.tbadk.browser.TbChannelJsInterface;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aq4;
+import com.baidu.tieba.at8;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.xs8;
-import com.baidu.tieba.zs8;
+import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,11 +52,11 @@ public class BaseWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public long initFinishedTime;
     public final long initStartTime;
-    public zs8 jsCallback;
+    public at8 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public boolean mIsLoaded;
-    public xs8 mJsBridge;
+    public ys8 mJsBridge;
     public c mOnLoadUrlListener;
     public d mOnPageFinishedListener;
     public e mOnPageStartedListener;
@@ -112,7 +112,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements zs8 {
+    public class a implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -135,15 +135,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                xs8 xs8Var = baseWebView.mJsBridge;
-                if (xs8Var != null) {
-                    return xs8Var.b(baseWebView.getWebView(), str, jsPromptResult);
+                ys8 ys8Var = baseWebView.mJsBridge;
+                if (ys8Var != null) {
+                    return ys8Var.b(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -512,10 +512,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(zs8 zs8Var) {
+    public void setOnJsPromptCallback(at8 at8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, zs8Var) == null) {
-            this.jsCallback = zs8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, at8Var) == null) {
+            this.jsCallback = at8Var;
         }
     }
 
@@ -608,10 +608,10 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        xs8 xs8Var;
+        ys8 ys8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (xs8Var = this.mJsBridge) != null) {
-            xs8Var.h(getWebView(), str, hashMap);
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (ys8Var = this.mJsBridge) != null) {
+            ys8Var.h(getWebView(), str, hashMap);
         }
     }
 
@@ -664,10 +664,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        xs8 xs8Var;
+        ys8 ys8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (xs8Var = this.mJsBridge) != null) {
-            xs8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (ys8Var = this.mJsBridge) != null) {
+            ys8Var.h(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -681,7 +681,7 @@ public class BaseWebView extends WebView {
             sp4.a(getSettings());
             this.mWebViewClient = new b(this);
             this.mWebChromeClient = new j(this, null);
-            this.mJsBridge = new xs8();
+            this.mJsBridge = new ys8();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {

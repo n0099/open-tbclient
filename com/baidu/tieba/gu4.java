@@ -63,14 +63,14 @@ public class gu4 {
         }
     }
 
-    public void d(yf8 yf8Var) {
+    public void d(zf8 zf8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, yf8Var) != null) || yf8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, zf8Var) != null) || zf8Var == null) {
             return;
         }
-        yf8Var.g = this.a;
-        yf8Var.f = this.b;
-        yf8Var.l = this.c;
-        yf8Var.o = this.d;
+        zf8Var.g = this.a;
+        zf8Var.f = this.b;
+        zf8Var.l = this.c;
+        zf8Var.o = this.d;
     }
 }

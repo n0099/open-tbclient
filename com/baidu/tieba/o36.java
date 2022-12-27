@@ -63,12 +63,12 @@ public class o36 implements q36 {
 
         /* renamed from: com.baidu.tieba.o36$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0379a implements Camera.PictureCallback {
+        public class C0378a implements Camera.PictureCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0379a(a aVar) {
+            public C0378a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class o36 implements q36 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.b.g.takePicture(null, null, new C0379a(this));
+                    this.b.g.takePicture(null, null, new C0378a(this));
                 } catch (Exception e) {
                     e.printStackTrace();
                     this.b.J(false);

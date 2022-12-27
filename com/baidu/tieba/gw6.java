@@ -24,7 +24,7 @@ public class gw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsActivity a;
-    public ar8 b;
+    public br8 b;
     public HttpMessageListener c;
     public CustomMessageListener d;
 
@@ -36,12 +36,12 @@ public class gw6 {
 
         /* renamed from: com.baidu.tieba.gw6$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0291a implements View.OnClickListener {
+        public class View$OnClickListenerC0293a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0291a(a aVar) {
+            public View$OnClickListenerC0293a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class gw6 {
                     screenTopToast.m(this.a.a.getString(R.string.frs_recommend_suc_tip_title));
                     screenTopToast.l(this.a.a.getString(R.string.frs_recommend_suc_tip_content));
                     screenTopToast.k(this.a.a.getString(R.string.dialog_confirm_see));
-                    screenTopToast.j(new View$OnClickListenerC0291a(this));
+                    screenTopToast.j(new View$OnClickListenerC0293a(this));
                     screenTopToast.n((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b17));
                     return;
                 }
@@ -220,10 +220,10 @@ public class gw6 {
         this.a = frsActivity;
     }
 
-    public void c(ar8 ar8Var) {
+    public void c(br8 br8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ar8Var) == null) {
-            this.b = ar8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, br8Var) == null) {
+            this.b = br8Var;
         }
     }
 }

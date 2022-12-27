@@ -43,15 +43,15 @@ public class uv6 {
         }
     }
 
-    public static void c(cs8 cs8Var, List<xn> list, List<xn> list2) {
+    public static void c(ds8 ds8Var, List<xn> list, List<xn> list2) {
         int[] iArr;
         int indexOf;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, cs8Var, list, list2) == null) && cs8Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
-            for (int i : cs8.f) {
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, ds8Var, list, list2) == null) && ds8Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
+            for (int i : ds8.f) {
                 xn xnVar = (xn) ListUtils.getItem(list, i);
                 if (xnVar != null && (indexOf = list2.indexOf(xnVar)) >= 0) {
-                    cs8Var.a(i, indexOf);
+                    ds8Var.a(i, indexOf);
                 }
             }
         }

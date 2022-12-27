@@ -1,24 +1,12 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes9.dex */
 public final class AlaUserInfo extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Long DEFAULT_ALAID;
     public static final Integer DEFAULT_ANCHORFANS;
-    public static final Long DEFAULT_ANCHORLIVE;
     public static final Long DEFAULT_CHARMCOUNT;
     public static final String DEFAULT_DESCRIPTION = "";
-    public static final Long DEFAULT_ENTERLIVE;
     public static final String DEFAULT_GREATANCHORDESCGRADE = "";
     public static final String DEFAULT_GREATANCHORDESCROLE = "";
     public static final String DEFAULT_GREATANCHORICON = "";
@@ -27,8 +15,6 @@ public final class AlaUserInfo extends Message {
     public static final Long DEFAULT_LEVELEXP;
     public static final Integer DEFAULT_LEVELID;
     public static final String DEFAULT_LEVELNAME = "";
-    public static final Long DEFAULT_LIVEID;
-    public static final Integer DEFAULT_LIVESTATUS;
     public static final Double DEFAULT_LNG;
     public static final String DEFAULT_LOCATION = "";
     public static final String DEFAULT_PORTRAIT = "";
@@ -37,7 +23,6 @@ public final class AlaUserInfo extends Message {
     public static final Long DEFAULT_USERID;
     public static final String DEFAULT_USERNAME = "";
     public static final String DEFAULT_VERIFYSTATUS = "";
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 1, type = Message.Datatype.UINT64)
     public final Long alaId;
     @ProtoField(tag = 24, type = Message.Datatype.INT32)
@@ -88,17 +73,14 @@ public final class AlaUserInfo extends Message {
     public final String verifyStatus;
     @ProtoField(tag = 25)
     public final YyExt yyExt;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Long DEFAULT_ALAID = 0L;
+    public static final Long DEFAULT_ENTERLIVE = 0L;
+    public static final Long DEFAULT_ANCHORLIVE = 0L;
+    public static final Integer DEFAULT_LIVESTATUS = 0;
+    public static final Long DEFAULT_LIVEID = 0L;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<AlaUserInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Long alaId;
         public Integer anchorFans;
         public Long anchorLive;
@@ -126,37 +108,10 @@ public final class AlaUserInfo extends Message {
         public YyExt yyExt;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(AlaUserInfo alaUserInfo) {
             super(alaUserInfo);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaUserInfo};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (alaUserInfo == null) {
                 return;
             }
@@ -190,33 +145,11 @@ public final class AlaUserInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public AlaUserInfo build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new AlaUserInfo(this, z, null);
-            }
-            return (AlaUserInfo) invokeZ.objValue;
+            return new AlaUserInfo(this, z);
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-474102108, "Lprotobuf/AlaUserInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-474102108, "Lprotobuf/AlaUserInfo;");
-                return;
-            }
-        }
-        DEFAULT_ALAID = 0L;
-        DEFAULT_ENTERLIVE = 0L;
-        DEFAULT_ANCHORLIVE = 0L;
-        DEFAULT_LIVESTATUS = 0;
-        DEFAULT_LIVEID = 0L;
         Double valueOf = Double.valueOf(0.0d);
         DEFAULT_LNG = valueOf;
         DEFAULT_LAT = valueOf;
@@ -229,24 +162,8 @@ public final class AlaUserInfo extends Message {
         DEFAULT_ANCHORFANS = 0;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaUserInfo(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Long l = builder.alaId;
             if (l == null) {
@@ -420,9 +337,5 @@ public final class AlaUserInfo extends Message {
         this.userId = builder.userId;
         this.anchorFans = builder.anchorFans;
         this.yyExt = builder.yyExt;
-    }
-
-    public /* synthetic */ AlaUserInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

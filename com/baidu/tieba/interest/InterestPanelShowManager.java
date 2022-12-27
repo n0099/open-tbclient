@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nk7;
 import com.baidu.tieba.o25;
 import com.baidu.tieba.ok7;
 import com.baidu.tieba.pk7;
+import com.baidu.tieba.qk7;
 import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public pk7 a;
+    public qk7 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -147,10 +147,10 @@ public class InterestPanelShowManager {
         return invokeJ.booleanValue;
     }
 
-    public void c(pk7 pk7Var) {
+    public void c(qk7 qk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pk7Var) == null) {
-            this.a = pk7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qk7Var) == null) {
+            this.a = qk7Var;
         }
     }
 
@@ -186,14 +186,14 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        pk7 pk7Var;
+        qk7 qk7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(ry4.l().n("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (pk7Var = this.a) != null && pk7Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(ry4.l().n("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (qk7Var = this.a) != null && qk7Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                nk7 a = this.a.a();
-                List<ok7> b = a.b();
+                ok7 a = this.a.a();
+                List<pk7> b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }

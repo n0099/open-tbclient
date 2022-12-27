@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aj7;
 import com.baidu.tieba.gw4;
 import com.baidu.tieba.iw4;
 import com.baidu.tieba.uc7;
-import com.baidu.tieba.zi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MessageCenterFragment extends LazyBaseFragment implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zi7 g;
+    public aj7 g;
     public VoiceManager h;
     public CustomMessageListener i;
 
@@ -134,9 +134,9 @@ public class MessageCenterFragment extends LazyBaseFragment implements VoiceMana
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             uc7.m().c();
-            zi7 zi7Var = this.g;
-            if (zi7Var != null) {
-                zi7Var.s();
+            aj7 aj7Var = this.g;
+            if (aj7Var != null) {
+                aj7Var.s();
             }
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
@@ -239,10 +239,10 @@ public class MessageCenterFragment extends LazyBaseFragment implements VoiceMana
     }
 
     public final void F1(Intent intent) {
-        zi7 zi7Var;
+        aj7 aj7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, intent) == null) && (zi7Var = this.g) != null) {
-            zi7Var.u(1);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, intent) == null) && (aj7Var = this.g) != null) {
+            aj7Var.u(1);
         }
     }
 
@@ -259,9 +259,9 @@ public class MessageCenterFragment extends LazyBaseFragment implements VoiceMana
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            zi7 zi7Var = this.g;
-            if (zi7Var != null) {
-                zi7Var.onChangeSkinType(i);
+            aj7 aj7Var = this.g;
+            if (aj7Var != null) {
+                aj7Var.onChangeSkinType(i);
             }
         }
     }
@@ -277,10 +277,10 @@ public class MessageCenterFragment extends LazyBaseFragment implements VoiceMana
 
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
-        zi7 zi7Var;
+        aj7 aj7Var;
         TbTabLayout.f k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) && (zi7Var = this.g) != null && (k = zi7Var.k()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) && (aj7Var = this.g) != null && (k = aj7Var.k()) != null) {
             bundle.putInt("Selected_Tab", k.d());
         }
     }
@@ -290,9 +290,9 @@ public class MessageCenterFragment extends LazyBaseFragment implements VoiceMana
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             super.setPrimary(z);
-            zi7 zi7Var = this.g;
-            if (zi7Var != null) {
-                zi7Var.v(z);
+            aj7 aj7Var = this.g;
+            if (aj7Var != null) {
+                aj7Var.v(z);
             }
         }
     }
@@ -301,9 +301,9 @@ public class MessageCenterFragment extends LazyBaseFragment implements VoiceMana
     public void A1(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, bundle) == null) {
-            zi7 zi7Var = new zi7(this);
-            this.g = zi7Var;
-            zi7Var.o(view2);
+            aj7 aj7Var = new aj7(this);
+            this.g = aj7Var;
+            aj7Var.o(view2);
             this.g.u(2);
             F1(getActivity().getIntent());
             VoiceManager r0 = r0();
@@ -318,9 +318,9 @@ public class MessageCenterFragment extends LazyBaseFragment implements VoiceMana
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            zi7 zi7Var = this.g;
-            if (zi7Var != null) {
-                zi7Var.r(i, i2, intent);
+            aj7 aj7Var = this.g;
+            if (aj7Var != null) {
+                aj7Var.r(i, i2, intent);
             }
         }
     }

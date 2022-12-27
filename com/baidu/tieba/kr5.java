@@ -72,15 +72,15 @@ public class kr5 implements View.OnClickListener {
                     return;
                 }
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    pl8 pl8Var = null;
+                    ql8 ql8Var = null;
                     if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
-                        pl8Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
+                        ql8Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
                     }
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
-                        pl8Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
+                        ql8Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
                     if (this.a.c != null) {
-                        this.a.c.M(pl8Var);
+                        this.a.c.M(ql8Var);
                     }
                     if (this.a.b != null && this.a.c != null && this.a.c.H() != null) {
                         this.a.b.d(this.a.c.H().f());

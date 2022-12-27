@@ -126,14 +126,14 @@ public class r45 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                dq8 dq8Var = new dq8();
+                eq8 eq8Var = new eq8();
                 PostWriteCallBackData postWriteCallBackData = this.a;
                 if (postWriteCallBackData != null) {
                     IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    dq8Var.f(iconStampData.stampType);
-                    dq8Var.h(iconStampData.stampTitle);
+                    eq8Var.f(iconStampData.stampType);
+                    eq8Var.h(iconStampData.stampTitle);
                 }
-                new cq8(this.b.getPageActivity(), dq8Var).a();
+                new dq8(this.b.getPageActivity(), eq8Var).a();
                 r45.f();
             }
         }

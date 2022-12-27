@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -12,21 +13,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ve8 extends h46<td8> implements View.OnClickListener {
+public class ve8 extends h46<td8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
-    public bd8 j;
-    public View k;
-    public TextView l;
-    public TextView m;
-    public ImageView n;
+    public ImageView j;
+    public TextView k;
+    public String l;
 
     @Override // com.baidu.tieba.h46
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01aa : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,43 +56,12 @@ public class ve8 extends h46<td8> implements View.OnClickListener {
         r(h());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.h46
-    /* renamed from: s */
-    public void i(td8 td8Var) {
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, td8Var) == null) {
-            if (td8Var == null) {
-                this.i.setVisibility(8);
-                return;
-            }
-            if (this.i.getVisibility() != 0) {
-                this.i.setVisibility(0);
-            }
-            View view2 = this.k;
-            if (view2 != null) {
-                if (td8Var.a) {
-                    view2.setVisibility(8);
-                } else {
-                    view2.setVisibility(0);
-                }
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        bd8 bd8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 != null && (bd8Var = this.j) != null && view2 == this.l) {
-            bd8Var.a();
-        }
-    }
-
-    public void t(bd8 bd8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bd8Var) == null) {
-            this.j = bd8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090580);
+            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09057f);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090581);
         }
     }
 
@@ -96,24 +71,43 @@ public class ve8 extends h46<td8> implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             if (this.a != i) {
                 SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-                SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1);
-                SkinManager.setImageResource(this.n, R.drawable.pic_pop_key);
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0304, 1);
+                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
             }
             this.a = i;
         }
     }
 
-    public final void r(View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.h46
+    /* renamed from: s */
+    public void i(td8 td8Var) {
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090591);
-            this.k = view2.findViewById(R.id.top_divider_line);
-            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914d6);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917de);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090550);
-            this.l.setOnClickListener(this);
+        if (interceptable == null || interceptable.invokeL(1048581, this, td8Var) == null) {
+            if (td8Var == null) {
+                this.i.setVisibility(8);
+                return;
+            }
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            if (StringUtils.isNull(this.l)) {
+                TextView textView = this.k;
+                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0ee4);
+                Object[] objArr = new Object[1];
+                if (td8Var.a) {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f16ab);
+                } else if (td8Var.b == 2) {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1204);
+                } else {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f0894);
+                }
+                objArr[0] = string;
+                textView.setText(String.format(string2, objArr));
+                return;
+            }
+            this.k.setText(this.l);
         }
     }
 }

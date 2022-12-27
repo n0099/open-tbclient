@@ -247,11 +247,11 @@ public class dn6 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kn<?, ?> d = zi8.l().d(this.a, AdvertAppInfo.w);
-            kn<?, ?> d2 = zi8.l().d(this.a, AdvertAppInfo.z);
-            kn<?, ?> d3 = zi8.l().d(this.a, AdvertAppInfo.A);
-            kn<?, ?> d4 = zi8.l().d(this.a, AdvertAppInfo.B);
-            kn<?, ?> d5 = zi8.l().d(this.a, AdvertAppInfo.C);
+            kn<?, ?> d = aj8.l().d(this.a, AdvertAppInfo.w);
+            kn<?, ?> d2 = aj8.l().d(this.a, AdvertAppInfo.z);
+            kn<?, ?> d3 = aj8.l().d(this.a, AdvertAppInfo.A);
+            kn<?, ?> d4 = aj8.l().d(this.a, AdvertAppInfo.B);
+            kn<?, ?> d5 = aj8.l().d(this.a, AdvertAppInfo.C);
             this.d.add(d);
             this.d.add(d2);
             this.d.add(d3);
@@ -302,8 +302,8 @@ public class dn6 {
             for (kn knVar : this.d) {
                 if (knVar instanceof ck6) {
                     ((ck6) knVar).v();
-                } else if (knVar instanceof qi8) {
-                    ((qi8) knVar).onDestroy();
+                } else if (knVar instanceof ri8) {
+                    ((ri8) knVar).onDestroy();
                 }
             }
         }

@@ -3,7 +3,7 @@ package com.baidu.ugc.bean;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yj9;
+import com.baidu.tieba.zj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,7 +114,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new yj9().a(list);
+                return new zj9().a(list);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -131,7 +131,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new yj9().a(localAlbumInfo);
+                return new zj9().a(localAlbumInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

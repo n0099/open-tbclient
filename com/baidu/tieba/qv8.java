@@ -1,30 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class qv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
-    public PollingModel b;
-    public List<Map<String, Long>> c;
-    public final Runnable d;
+    public final MainTabActivity a;
+    public final av8 b;
+    public final Runnable c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -53,19 +42,26 @@ public class qv8 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.l0(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), this.a.c());
-                ah.a().postDelayed(this.a.d, dy4.a().c());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
+                if (this.a.b != null && this.a.b.x() != null && this.a.b.x().getCurrentTabType() == 22) {
+                    videoRedIconRequest.setCallFrom("video_tab");
+                }
+                this.a.a.sendMessage(videoRedIconRequest);
+                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
+                if (videoRedIconInterval > 5) {
+                    ah.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
+                }
             }
         }
     }
 
-    public qv8(MainTabActivity mainTabActivity) {
+    public qv8(MainTabActivity mainTabActivity, av8 av8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, av8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,49 +71,15 @@ public class qv8 {
                 return;
             }
         }
-        this.c = null;
-        this.d = new a(this);
+        this.c = new a(this);
         this.a = mainTabActivity;
-        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
+        this.b = av8Var;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new ArrayList();
-            }
-            this.c.clear();
-            List<GroupChatRoomPojo> h = rc7.f().h(TbadkCoreApplication.getCurrentAccount());
-            if (ListUtils.isEmpty(h)) {
-                return "";
-            }
-            for (GroupChatRoomPojo groupChatRoomPojo : h) {
-                if (groupChatRoomPojo.H() == 0) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
-                    hashMap.put("msg_id", Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
-                    this.c.add(hashMap);
-                }
-            }
-            if (ListUtils.isEmpty(this.c)) {
-                return "";
-            }
-            String json = DataExt.toJson(this.c);
-            if (TextUtils.isEmpty(json)) {
-                return "";
-            }
-            return json;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ah.a().removeCallbacks(this.d);
-            this.a = null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ah.a().removeCallbacks(this.c);
         }
     }
 }

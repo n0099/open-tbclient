@@ -91,9 +91,9 @@ public class wo6 {
                     this.a.e = i;
                     if (this.a.e != 7) {
                         ek5.c();
-                        nt8.a();
+                        ot8.a();
                     } else {
-                        nt8.b();
+                        ot8.b();
                     }
                     if (this.a.b instanceof FrsNewAreaFragment) {
                         ((FrsNewAreaFragment) this.a.b).g2().W(this.a.d.w(this.a.e));

@@ -1,106 +1,130 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class j69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
 
-    /* loaded from: classes5.dex */
-    public class a extends LruCache<String, Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(j69 j69Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j69Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
                 }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) && bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
             }
+            return jArr;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: b */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
-                return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
-            }
-            return invokeLL.intValue;
-        }
+        return (long[]) invokeCommon.objValue;
     }
 
-    public j69(int i) {
+    public static m69 b(o69 o69Var, e69 e69Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (i > 0) {
-            this.a = new a(this, i);
-            return;
-        }
-        throw new IllegalArgumentException("maxSize <= 0");
-    }
-
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, o69Var, e69Var)) == null) {
+            if (o69Var == null || e69Var == null || o69Var.e == null) {
                 return null;
             }
-            return this.a.get(str);
+            long[] a = a(o69Var.b, o69Var.a);
+            MultiMediaData multiMediaData = o69Var.e;
+            m69 m69Var = new m69();
+            m69Var.e = new ArrayList();
+            m69Var.a = multiMediaData.path;
+            m69Var.c = o69Var.c;
+            m69Var.d = o69Var.d;
+            m69Var.b = multiMediaData.rotation;
+            for (int i = 0; i < o69Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                g69 g69Var = new g69();
+                g69Var.a = z59.b(multiMediaData.path, j, multiMediaData.type);
+                g69Var.b = multiMediaData.path;
+                g69Var.f = i;
+                g69Var.g = multiMediaData.type;
+                g69Var.h = o69Var.c;
+                g69Var.i = o69Var.d;
+                g69Var.j = e69Var;
+                g69Var.d = j;
+                g69Var.c = multiMediaData.rotation;
+                m69Var.e.add(g69Var);
+            }
+            return m69Var;
         }
-        return (Bitmap) invokeL.objValue;
+        return (m69) invokeLL.objValue;
     }
 
-    public void b(String str, Bitmap bitmap) {
+    public static List<m69> c(n69 n69Var, e69 e69Var) {
+        InterceptResult invokeLL;
+        List<g69> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) && !TextUtils.isEmpty(str) && bitmap != null && !bitmap.isRecycled()) {
-            this.a.put(str, bitmap);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, n69Var, e69Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (n69Var == null || e69Var == null || n69Var.b <= 0 || sm9.e(n69Var.e) || sm9.e(n69Var.f)) {
+                return null;
+            }
+            long[] a = a(n69Var.b, n69Var.a);
+            ArrayList arrayList = new ArrayList();
+            m69 m69Var = null;
+            for (int i = 0; i < n69Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(n69Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) sm9.c(n69Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        m69Var = new m69();
+                        m69Var.e = new ArrayList();
+                        m69Var.a = multiMediaData2.path;
+                        m69Var.c = n69Var.c;
+                        m69Var.d = n69Var.d;
+                        m69Var.b = multiMediaData2.rotation;
+                        arrayList.add(m69Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) sm9.c(n69Var.e, findInputIndexInSegments), j) * 1000;
+                    g69 g69Var = new g69();
+                    g69Var.a = z59.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    g69Var.b = multiMediaData2.path;
+                    g69Var.f = i;
+                    g69Var.g = multiMediaData2.type;
+                    g69Var.h = n69Var.c;
+                    g69Var.i = n69Var.d;
+                    g69Var.d = multiMediaDataSeekTime;
+                    g69Var.j = e69Var;
+                    g69Var.c = multiMediaData2.rotation;
+                    if (m69Var != null && (list = m69Var.e) != null) {
+                        list.add(g69Var);
+                    }
+                    multiMediaData = multiMediaData2;
+                }
+            }
+            return arrayList;
         }
+        return (List) invokeLL.objValue;
     }
 }

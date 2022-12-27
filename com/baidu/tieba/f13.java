@@ -70,13 +70,13 @@ public final class f13 {
 
         /* renamed from: com.baidu.tieba.f13$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0263a implements xi3<b13> {
+        public class C0265a implements xi3<b13> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ d13 b;
 
-            public C0263a(a aVar, String str, d13 d13Var) {
+            public C0265a(a aVar, String str, d13 d13Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class f13 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + d13Var.b);
                 }
                 synchronized (this.a.g) {
-                    wi3.a(d43.M(), new C0263a(this, str, d13Var), this.a.g);
+                    wi3.a(d43.M(), new C0265a(this, str, d13Var), this.a.g);
                 }
             }
         }

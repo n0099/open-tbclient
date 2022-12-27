@@ -2,8 +2,8 @@ package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.az9;
-import com.baidu.tieba.ez9;
-import com.baidu.tieba.zy9;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.fz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                     return;
                 }
             }
-            this.frames = ez9.i();
+            this.frames = fz9.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                ez9.a(list);
+                fz9.a(list);
                 this.frames = list;
                 return this;
             }
@@ -114,27 +114,27 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public SpriteEntity decode(zy9 zy9Var) throws IOException {
+        public SpriteEntity decode(az9 az9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zy9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, az9Var)) == null) {
                 Builder builder = new Builder();
-                long c = zy9Var.c();
+                long c = az9Var.c();
                 while (true) {
-                    int f = zy9Var.f();
+                    int f = az9Var.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
-                                FieldEncoding g = zy9Var.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(zy9Var));
+                                FieldEncoding g = az9Var.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(az9Var));
                             } else {
-                                builder.frames.add(FrameEntity.ADAPTER.decode(zy9Var));
+                                builder.frames.add(FrameEntity.ADAPTER.decode(az9Var));
                             }
                         } else {
-                            builder.imageKey(ProtoAdapter.STRING.decode(zy9Var));
+                            builder.imageKey(ProtoAdapter.STRING.decode(az9Var));
                         }
                     } else {
-                        zy9Var.d(c);
+                        az9Var.d(c);
                         return builder.build();
                     }
                 }
@@ -151,7 +151,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spriteEntity)) == null) {
                 ?? newBuilder2 = spriteEntity.newBuilder2();
-                ez9.k(newBuilder2.frames, FrameEntity.ADAPTER);
+                fz9.k(newBuilder2.frames, FrameEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -160,15 +160,15 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(az9 az9Var, SpriteEntity spriteEntity) throws IOException {
+        public void encode(bz9 bz9Var, SpriteEntity spriteEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, az9Var, spriteEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bz9Var, spriteEntity) == null) {
                 String str = spriteEntity.imageKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(az9Var, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(bz9Var, 1, str);
                 }
-                FrameEntity.ADAPTER.asRepeated().encodeWithTag(az9Var, 2, spriteEntity.frames);
-                az9Var.k(spriteEntity.unknownFields());
+                FrameEntity.ADAPTER.asRepeated().encodeWithTag(bz9Var, 2, spriteEntity.frames);
+                bz9Var.k(spriteEntity.unknownFields());
             }
         }
 
@@ -217,7 +217,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.imageKey = this.imageKey;
-            builder.frames = ez9.c("frames", this.frames);
+            builder.frames = fz9.c("frames", this.frames);
             builder.addUnknownFields(unknownFields());
             return builder;
         }
@@ -265,7 +265,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             }
         }
         this.imageKey = str;
-        this.frames = ez9.g("frames", list);
+        this.frames = fz9.g("frames", list);
     }
 
     public boolean equals(Object obj) {
@@ -279,7 +279,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                 return false;
             }
             SpriteEntity spriteEntity = (SpriteEntity) obj;
-            if (unknownFields().equals(spriteEntity.unknownFields()) && ez9.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
+            if (unknownFields().equals(spriteEntity.unknownFields()) && fz9.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
                 return true;
             }
             return false;

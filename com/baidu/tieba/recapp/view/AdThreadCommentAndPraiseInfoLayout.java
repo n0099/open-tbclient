@@ -37,7 +37,7 @@ import com.baidu.tieba.j45;
 import com.baidu.tieba.oi;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tj8;
+import com.baidu.tieba.uj8;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.z01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -58,7 +58,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int u0;
     public int v0;
     public int w0;
-    public tj8 x0;
+    public uj8 x0;
 
     static {
         InterceptResult invokeClinit;
@@ -231,11 +231,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(tj8 tj8Var) {
+    public void setShareData(uj8 uj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, tj8Var) == null) {
-            this.x0 = tj8Var;
-            setData(tj8Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048594, this, uj8Var) == null) {
+            this.x0 = uj8Var;
+            setData(uj8Var.getThreadData());
         }
     }
 
@@ -269,11 +269,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void B(View view2) {
-        tj8 tj8Var;
+        uj8 uj8Var;
         Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (tj8Var = this.x0) != null) {
-            i0(tj8Var.getThreadData(), "share", 0);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (uj8Var = this.x0) != null) {
+            i0(uj8Var.getThreadData(), "share", 0);
             j0(this.x0.getThreadData(), "2", "1");
             if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.E)) {
                 return;

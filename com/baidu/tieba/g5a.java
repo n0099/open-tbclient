@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class g5a<T> extends h3a<T> {
+public final class g5a<T> implements d3a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p3a<? super T> e;
-    public final p3a<Throwable> f;
-    public final o3a g;
+    public final q3a<? super T> a;
+    public final q3a<? super Throwable> b;
+    public final p3a c;
 
-    public g5a(p3a<? super T> p3aVar, p3a<Throwable> p3aVar2, o3a o3aVar) {
+    public g5a(q3a<? super T> q3aVar, q3a<? super Throwable> q3aVar2, p3a p3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p3aVar, p3aVar2, o3aVar};
+            Object[] objArr = {q3aVar, q3aVar2, p3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,32 +28,32 @@ public final class g5a<T> extends h3a<T> {
                 return;
             }
         }
-        this.e = p3aVar;
-        this.f = p3aVar2;
-        this.g = o3aVar;
+        this.a = q3aVar;
+        this.b = q3aVar2;
+        this.c = p3aVar;
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.call();
+            this.c.call();
         }
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f.call(th);
+            this.b.call(th);
         }
     }
 
-    @Override // com.baidu.tieba.c3a
+    @Override // com.baidu.tieba.d3a
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.call(t);
+            this.a.call(t);
         }
     }
 }

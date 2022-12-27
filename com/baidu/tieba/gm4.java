@@ -40,12 +40,12 @@ public final class gm4 implements dh4 {
 
         /* renamed from: com.baidu.tieba.gm4$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0288a implements Runnable {
+        public class RunnableC0291a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0288a(a aVar) {
+            public RunnableC0291a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class gm4 implements dh4 {
                             z = false;
                         }
                     }
-                    if (z && d43.M().postDelayed(new RunnableC0288a(this), 1000L)) {
+                    if (z && d43.M().postDelayed(new RunnableC0291a(this), 1000L)) {
                         return;
                     }
                 }

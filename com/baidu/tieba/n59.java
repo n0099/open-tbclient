@@ -3,13 +3,11 @@ package com.baidu.tieba;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes5.dex */
 public interface n59 {
-    void a();
+    void B(CloudMusicData cloudMusicData);
 
-    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
+    void l0(boolean z);
 
-    void c();
+    void m(boolean z);
 
-    void d(CloudMusicData.MusicTagList musicTagList);
-
-    void e(int i);
+    void y0(m59 m59Var);
 }

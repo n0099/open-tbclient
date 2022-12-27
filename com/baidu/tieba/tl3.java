@@ -49,12 +49,12 @@ public class tl3 extends gv2 {
 
         /* renamed from: com.baidu.tieba.tl3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0442a implements xi3<String> {
+        public class C0445a implements xi3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0442a(a aVar) {
+            public C0445a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +115,7 @@ public class tl3 extends gv2 {
                 if (!c93.h(h93Var)) {
                     c93.q(h93Var, this.a, this.b);
                 } else {
-                    tl3.z(this.c, new C0442a(this));
+                    tl3.z(this.c, new C0445a(this));
                 }
             }
         }

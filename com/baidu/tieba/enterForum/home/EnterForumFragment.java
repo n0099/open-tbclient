@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ig5;
 import com.baidu.tieba.lc6;
 import com.baidu.tieba.nc6;
-import com.baidu.tieba.nq8;
+import com.baidu.tieba.oq8;
 import com.baidu.tieba.zb6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -198,7 +198,7 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            nq8.g().k(getUniqueId());
+            oq8.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
@@ -260,7 +260,7 @@ public class EnterForumFragment extends BaseFragment {
             this.b = null;
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.g);
-            nq8.g().k(getUniqueId());
+            oq8.g().k(getUniqueId());
             super.onDestroy();
         }
     }
@@ -303,7 +303,7 @@ public class EnterForumFragment extends BaseFragment {
             super.onCreate(bundle);
             registerListener(this.f);
             registerListener(this.g);
-            nq8.g().i(getUniqueId());
+            oq8.g().i(getUniqueId());
         }
     }
 
@@ -336,7 +336,7 @@ public class EnterForumFragment extends BaseFragment {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02de, viewGroup, false);
             C1(inflate);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            nq8.g().i(getUniqueId());
+            oq8.g().i(getUniqueId());
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -353,7 +353,7 @@ public class EnterForumFragment extends BaseFragment {
                 if (lc6Var != null) {
                     refreshImage(lc6Var.B());
                 }
-                nq8.g().h(getUniqueId(), false);
+                oq8.g().h(getUniqueId(), false);
             }
             lc6 lc6Var2 = this.a;
             if (lc6Var2 != null) {

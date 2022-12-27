@@ -16,23 +16,23 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class yg3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public static volatile k b;
     public static volatile k c;
     public static volatile k d;
-    public static final p3a e;
+    public static final q3a e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface j extends Executor {
         void execute(@NonNull Runnable runnable, @NonNull String str);
     }
 
-    /* loaded from: classes7.dex */
-    public static class a implements p3a<Pair<Runnable, String>> {
+    /* loaded from: classes6.dex */
+    public static class a implements q3a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Pair<Runnable, String> pair) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -78,8 +78,8 @@ public final class yg3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements t3a<Pair<Runnable, String>, b3a<?>> {
+    /* loaded from: classes6.dex */
+    public static class b implements u3a<Pair<Runnable, String>, c3a<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,19 +98,19 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t3a
-        public b3a<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.u3a
+        public c3a<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return f3a.g(pair).h(Schedulers.io()).f(yg3.e).l();
+                return g3a.g(pair).h(Schedulers.io()).f(yg3.e).l();
             }
-            return (b3a) invokeL.objValue;
+            return (c3a) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class c implements t3a<Pair<Runnable, String>, b3a<?>> {
+    /* loaded from: classes6.dex */
+    public static class c implements u3a<Pair<Runnable, String>, c3a<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,19 +129,19 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t3a
-        public b3a<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.u3a
+        public c3a<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return f3a.g(pair).h(Schedulers.computation()).f(yg3.e).l();
+                return g3a.g(pair).h(Schedulers.computation()).f(yg3.e).l();
             }
-            return (b3a) invokeL.objValue;
+            return (c3a) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class d implements p3a<Throwable> {
+    /* loaded from: classes6.dex */
+    public static class d implements q3a<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -165,7 +165,7 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && yg3.a) {
@@ -174,8 +174,8 @@ public final class yg3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class e implements p3a<Pair<Runnable, String>> {
+    /* loaded from: classes6.dex */
+    public static class e implements q3a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -194,7 +194,7 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -203,8 +203,8 @@ public final class yg3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class f implements p3a<Throwable> {
+    /* loaded from: classes6.dex */
+    public static class f implements q3a<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -228,7 +228,7 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && yg3.a) {
@@ -237,8 +237,8 @@ public final class yg3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class g implements p3a<Pair<Runnable, String>> {
+    /* loaded from: classes6.dex */
+    public static class g implements q3a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -257,7 +257,7 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -266,8 +266,8 @@ public final class yg3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class h implements p3a<Throwable> {
+    /* loaded from: classes6.dex */
+    public static class h implements q3a<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -291,7 +291,7 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && yg3.a) {
@@ -300,8 +300,8 @@ public final class yg3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class i implements p3a<Pair<Runnable, String>> {
+    /* loaded from: classes6.dex */
+    public static class i implements q3a<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -320,7 +320,7 @@ public final class yg3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.q3a
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -329,24 +329,24 @@ public final class yg3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class k extends s7a<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
+    /* loaded from: classes6.dex */
+    public static class k extends t7a<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(t7a t7aVar) {
-            super(t7aVar);
+        public k(u7a u7aVar) {
+            super(u7aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t7aVar};
+                Object[] objArr = {u7aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((t7a) newInitContext.callArgs[0]);
+                    super((u7a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -402,31 +402,31 @@ public final class yg3 {
         }
     }
 
-    public static i3a c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static j3a c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return f3a.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
+            return g3a.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
         }
-        return (i3a) invokeCommon.objValue;
+        return (j3a) invokeCommon.objValue;
     }
 
-    public static i3a d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static j3a d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return f3a.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
+            return g3a.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
         }
-        return (i3a) invokeCommon.objValue;
+        return (j3a) invokeCommon.objValue;
     }
 
-    public static i3a e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static j3a e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return f3a.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
+            return g3a.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
         }
-        return (i3a) invokeCommon.objValue;
+        return (j3a) invokeCommon.objValue;
     }
 
     public static j f() {

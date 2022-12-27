@@ -105,7 +105,7 @@ public class j46 extends h46<y96> {
             if (this.a != i) {
                 SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.t, R.color.CAM_X0204);
-                mt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                nt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.u.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.j, R.color.CAM_X0108, 1);
                 } else {
@@ -189,7 +189,7 @@ public class j46 extends h46<y96> {
             }
             this.l.K(str, 10, false);
             this.j.setText(y96Var.getThreadData().getTitle());
-            mt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            nt8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(y96Var.getThreadData().getId())) {
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
             } else {

@@ -55,7 +55,7 @@ public class ae6 {
     public TextView m;
     public RecommendForumLayout n;
     public boolean o;
-    public of8 p;
+    public pf8 p;
     public id6 q;
     public BdListView.p r;
     public RecyclerView.OnScrollListener s;
@@ -519,9 +519,9 @@ public class ae6 {
             this.j = smartBubbleAnimatedView;
             smartBubbleAnimatedView.setLayoutParams(new FrameLayout.LayoutParams(-1, yi.g(this.a.getContext(), R.dimen.tbds83)));
             if (this.p == null) {
-                of8 of8Var = new of8(this.a.getPageContext(), this.f);
-                this.p = of8Var;
-                of8Var.p(2);
+                pf8 pf8Var = new pf8(this.a.getPageContext(), this.f);
+                this.p = pf8Var;
+                pf8Var.p(2);
                 this.p.u(this.a.getUniqueId());
             }
             be6 be6Var = new be6(this.a.getPageContext());
@@ -559,19 +559,19 @@ public class ae6 {
     }
 
     public void n() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (of8Var = this.p) != null) {
-            of8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (pf8Var = this.p) != null) {
+            pf8Var.z();
             this.p.r(false);
         }
     }
 
     public void p() {
-        of8 of8Var;
+        pf8 pf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (of8Var = this.p) != null) {
-            of8Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (pf8Var = this.p) != null) {
+            pf8Var.r(true);
             BdTypeRecyclerView bdTypeRecyclerView = this.f;
             if (bdTypeRecyclerView != null) {
                 this.p.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
@@ -657,9 +657,9 @@ public class ae6 {
                 if (yd6Var.h) {
                     s(yd6Var.f);
                 }
-                of8 of8Var = this.p;
-                if (of8Var != null) {
-                    of8Var.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
+                pf8 pf8Var = this.p;
+                if (pf8Var != null) {
+                    pf8Var.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
                 }
             }
         }

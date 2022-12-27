@@ -68,12 +68,12 @@ public class qs5 {
     public os5 y;
     public long z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface f {
         void onClick();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface g {
         void a();
     }
@@ -93,20 +93,20 @@ public class qs5 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qs5 a;
 
         /* renamed from: com.baidu.tieba.qs5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0420a implements ValueAnimator.AnimatorUpdateListener {
+        /* loaded from: classes5.dex */
+        public class C0422a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0420a(a aVar) {
+            public C0422a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class qs5 {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public class b implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -227,7 +227,7 @@ public class qs5 {
                                 ValueAnimator ofInt = ValueAnimator.ofInt(this.a.i.x, this.a.i.x - (ps5.b - ps5.a));
                                 ofInt.setDuration(200L);
                                 ofInt.setInterpolator(new DecelerateInterpolator());
-                                ofInt.addUpdateListener(new C0420a(this));
+                                ofInt.addUpdateListener(new C0422a(this));
                                 ofInt.start();
                             }
                             this.a.f.d();
@@ -263,7 +263,7 @@ public class qs5 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,7 +298,7 @@ public class qs5 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,7 +352,7 @@ public class qs5 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements os5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -400,7 +400,7 @@ public class qs5 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -29,7 +29,7 @@ import com.baidu.tieba.jm4;
 import com.baidu.tieba.k17;
 import com.baidu.tieba.km4;
 import com.baidu.tieba.l17;
-import com.baidu.tieba.nq8;
+import com.baidu.tieba.oq8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.ta5;
 import com.baidu.tieba.ye5;
@@ -310,7 +310,7 @@ public class PersonalizeFragment extends BaseFragment implements hl6, VoiceManag
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            nq8.g().k(getUniqueId());
+            oq8.g().k(getUniqueId());
             MessageManager.getInstance().unRegisterListener(this.e);
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.h);
@@ -447,7 +447,7 @@ public class PersonalizeFragment extends BaseFragment implements hl6, VoiceManag
         if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
-            nq8.g().i(getUniqueId());
+            oq8.g().i(getUniqueId());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -544,7 +544,7 @@ public class PersonalizeFragment extends BaseFragment implements hl6, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             super.onStop();
-            nq8.g().h(getUniqueId(), false);
+            oq8.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());

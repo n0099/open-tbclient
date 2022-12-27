@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q49;
 import com.baidu.tieba.qe6;
+import com.baidu.tieba.r49;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +41,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public q49 l;
+    public r49 l;
     public UserData m;
     public View n;
     public View o;
@@ -218,10 +218,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         m(0);
     }
 
-    public void setOnViewResponseListener(q49 q49Var) {
+    public void setOnViewResponseListener(r49 r49Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, q49Var) == null) {
-            this.l = q49Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, r49Var) == null) {
+            this.l = r49Var;
         }
     }
 

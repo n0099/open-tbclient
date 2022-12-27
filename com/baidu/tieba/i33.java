@@ -74,13 +74,13 @@ public class i33 extends d33 {
 
         /* renamed from: com.baidu.tieba.i33$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0307a implements View.OnClickListener {
+        public class View$OnClickListenerC0308a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0307a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0308a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -425,7 +425,7 @@ public class i33 extends d33 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0307a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0308a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

@@ -140,7 +140,7 @@ public class c17 {
                             threadData.setFromConcern(true);
                             AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
                             threadData.parserProtobuf(concernData.thread_list);
-                            JSONObject b2 = lk8.b(concernData.thread_list);
+                            JSONObject b2 = mk8.b(concernData.thread_list);
                             if (b2 != null) {
                                 arrayList.add(b2);
                             }
@@ -150,7 +150,7 @@ public class c17 {
                     }
                 }
                 AbsGroupUbsABTest.setCardInfoUbsABTest(linkedList);
-                lk8.f().h("CONCERN", arrayList);
+                mk8.f().h("CONCERN", arrayList);
                 y57 y57Var = this.a;
                 y57Var.a = linkedList;
                 return y57Var;
@@ -159,7 +159,7 @@ public class c17 {
             while (r11.hasNext()) {
             }
             AbsGroupUbsABTest.setCardInfoUbsABTest(linkedList);
-            lk8.f().h("CONCERN", arrayList);
+            mk8.f().h("CONCERN", arrayList);
             y57 y57Var2 = this.a;
             y57Var2.a = linkedList;
             return y57Var2;

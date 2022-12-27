@@ -1,10 +1,5 @@
 package com.baidu.tieba;
-
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface mf9 {
-    boolean a(JSONObject jSONObject, boolean z, boolean z2);
-
-    boolean b(File file, long j, boolean z, boolean z2);
+    void a(boolean z, gf9 gf9Var);
 }

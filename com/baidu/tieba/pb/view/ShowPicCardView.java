@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.xr8;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public xr8 b;
+    public yr8 b;
     public TbImageView c;
     public LinearLayout d;
     public ImageView e;
@@ -114,13 +114,13 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         }
     }
 
-    public xr8 getData() {
+    public yr8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (xr8) invokeV.objValue;
+        return (yr8) invokeV.objValue;
     }
 
     public ImageView getIcon() {
@@ -141,10 +141,10 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        xr8 xr8Var;
+        yr8 yr8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (xr8Var = this.b) != null) {
-            sp4.o(this.a, xr8Var.e());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (yr8Var = this.b) != null) {
+            sp4.o(this.a, yr8Var.e());
         }
     }
 
@@ -155,34 +155,34 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         }
     }
 
-    public void setData(xr8 xr8Var) {
+    public void setData(yr8 yr8Var) {
         float f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, xr8Var) == null) && xr8Var != null && this.b != xr8Var) {
-            this.b = xr8Var;
-            if (!StringUtils.isNULL(xr8Var.f())) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, yr8Var) == null) && yr8Var != null && this.b != yr8Var) {
+            this.b = yr8Var;
+            if (!StringUtils.isNULL(yr8Var.f())) {
                 this.f.setVisibility(0);
-                this.f.setText(xr8Var.f());
+                this.f.setText(yr8Var.f());
             } else {
                 this.f.setVisibility(8);
             }
-            if (!StringUtils.isNULL(xr8Var.a())) {
+            if (!StringUtils.isNULL(yr8Var.a())) {
                 this.g.setVisibility(0);
-                this.g.setText(xr8Var.a());
+                this.g.setText(yr8Var.a());
             } else {
                 this.g.setVisibility(8);
             }
             if (this.i) {
                 this.c.setSupportNoImage(true);
             }
-            int d = xr8Var.d();
-            int b = xr8Var.b();
+            int d = yr8Var.d();
+            int b = yr8Var.b();
             if (d > 0 && b > 0) {
                 this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.c.setOnClickListener(this);
                 this.c.setInterceptOnClick(true);
                 this.c.setDefaultResource(R.drawable.icon_click);
-                this.c.K(xr8Var.c(), 18, false);
+                this.c.K(yr8Var.c(), 18, false);
                 int l = yi.l(this.a) - (yi.g(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
                 float f2 = b / d;
                 if (f2 > 1.7777778f) {

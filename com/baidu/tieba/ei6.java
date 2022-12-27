@@ -125,10 +125,10 @@ public class ei6 extends ck6<fi6, FrsMemberHeaderViewHolder> {
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if ((obj instanceof lr8) && this.a.l.getErrorCode() == 0) {
-                    lr8 lr8Var = (lr8) obj;
-                    lr8Var.x(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, lr8Var));
+                if ((obj instanceof mr8) && this.a.l.getErrorCode() == 0) {
+                    mr8 mr8Var = (mr8) obj;
+                    mr8Var.x(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, mr8Var));
                 } else if (AntiHelper.m(this.a.l.getErrorCode(), this.a.l.getErrorString())) {
                     AntiHelper.u(this.a.c.getPageActivity(), this.a.l.getErrorString());
                 } else {
@@ -215,7 +215,7 @@ public class ei6 extends ck6<fi6, FrsMemberHeaderViewHolder> {
             if (fi6Var != null && fi6Var.c() != null) {
                 int parseColor = Color.parseColor("#56cfa1");
                 int color = SkinManager.getColor(R.color.CAM_X0109);
-                lr8 c = fi6Var.c();
+                mr8 c = fi6Var.c();
                 if (TbadkCoreApplication.isLogin()) {
                     if (c.m() == 1) {
                         frsMemberHeaderViewHolder.a.setVisibility(8);
@@ -290,7 +290,7 @@ public class ei6 extends ck6<fi6, FrsMemberHeaderViewHolder> {
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
                     scaleAnimation.setFillAfter(true);
                     scaleAnimation.setDuration(1000L);
-                    oq8.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
+                    pq8.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
                 }
             }
             return view2;

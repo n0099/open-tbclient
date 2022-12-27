@@ -256,12 +256,12 @@ public class cc6 extends ts4 implements nd5 {
             ThemeColorInfo themeColorInfo = this.p;
             if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
-                arrayList.add(Integer.valueOf(fm7.b(this.p.day.light_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.p.day.dark_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.p.night.light_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.p.night.dark_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.p.dark.light_color)));
-                arrayList.add(Integer.valueOf(fm7.b(this.p.dark.dark_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.p.day.light_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.p.day.dark_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.p.night.light_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.p.night.dark_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.p.dark.light_color)));
+                arrayList.add(Integer.valueOf(gm7.b(this.p.dark.dark_color)));
                 return arrayList;
             }
             return null;

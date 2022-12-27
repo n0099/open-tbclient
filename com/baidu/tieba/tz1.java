@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.tieba.b3a;
+import com.baidu.tieba.c3a;
 import com.baidu.tieba.uz1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,7 +39,7 @@ public abstract class tz1<V extends View, M extends uz1> {
     @Nullable
     public SwanAppComponentContainerView e;
     @Nullable
-    public h3a f;
+    public i3a f;
     public int g;
 
     public void A(@NonNull V v) {
@@ -58,7 +58,7 @@ public abstract class tz1<V extends View, M extends uz1> {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends h3a<Object> {
+    public class a extends i3a<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String e;
@@ -86,7 +86,7 @@ public abstract class tz1<V extends View, M extends uz1> {
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.tz1 */
         /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.tz1 */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.c3a
+        @Override // com.baidu.tieba.d3a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -103,7 +103,7 @@ public abstract class tz1<V extends View, M extends uz1> {
             }
         }
 
-        @Override // com.baidu.tieba.c3a
+        @Override // com.baidu.tieba.d3a
         @SuppressLint({"BDThrowableCheck"})
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public abstract class tz1<V extends View, M extends uz1> {
             }
         }
 
-        @Override // com.baidu.tieba.c3a
+        @Override // com.baidu.tieba.d3a
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -126,7 +126,7 @@ public abstract class tz1<V extends View, M extends uz1> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements b3a.a<Object> {
+    public class b implements c3a.a<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -152,17 +152,17 @@ public abstract class tz1<V extends View, M extends uz1> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
-        public void call(h3a<? super Object> h3aVar) {
+        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
+        public void call(i3a<? super Object> i3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h3aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
                 if (tz1.h) {
                     Log.d("Component-Base", "insert delayed => save thread: " + Thread.currentThread().getName());
                 }
                 if (this.a != Thread.currentThread().getId()) {
                     x02.a("Component-Base", "save subscriber and return subscriber: nolinear !");
                 }
-                this.b.f = h3aVar;
+                this.b.f = i3aVar;
             }
         }
     }
@@ -226,9 +226,9 @@ public abstract class tz1<V extends View, M extends uz1> {
     }
 
     public final void E() {
-        h3a h3aVar;
+        i3a i3aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (h3aVar = this.f) != null && !h3aVar.isUnsubscribed()) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (i3aVar = this.f) != null && !i3aVar.isUnsubscribed()) {
             this.f.unsubscribe();
         }
     }
@@ -543,7 +543,7 @@ public abstract class tz1<V extends View, M extends uz1> {
 
     @Nullable
     @UiThread
-    public final h3a w() {
+    public final i3a w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -563,8 +563,8 @@ public abstract class tz1<V extends View, M extends uz1> {
             if (this.e != null) {
                 e12.o("Component-Base", o + " repeat insert delayed: container view repeat");
             }
-            h3a h3aVar = this.f;
-            if (h3aVar != null && !h3aVar.isUnsubscribed()) {
+            i3a i3aVar = this.f;
+            if (i3aVar != null && !i3aVar.isUnsubscribed()) {
                 this.f.unsubscribe();
                 this.f = null;
                 e12.o("Component-Base", o + " insert delayed repeat: subscriber repeat");
@@ -575,13 +575,13 @@ public abstract class tz1<V extends View, M extends uz1> {
                 if (h) {
                     Log.d("Component-Base", o + " insert delayed（container view）: success");
                 }
-                b3a.a(new b(this, Thread.currentThread().getId())).u(new a(this, o));
+                c3a.a(new b(this, Thread.currentThread().getId())).u(new a(this, o));
                 return this.f;
             }
             e12.c("Component-Base", o + " insert delayed: attach fail");
             return null;
         }
-        return (h3a) invokeV.objValue;
+        return (i3a) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0023  */

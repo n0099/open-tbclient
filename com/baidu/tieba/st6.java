@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.bq8;
+import com.baidu.tieba.cq8;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class st6 extends PriorityOrganizer.Task {
     public boolean o;
 
     /* loaded from: classes6.dex */
-    public class a implements bq8.c {
+    public class a implements cq8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ st6 a;
@@ -47,7 +47,7 @@ public class st6 extends PriorityOrganizer.Task {
             this.a = st6Var;
         }
 
-        @Override // com.baidu.tieba.bq8.c
+        @Override // com.baidu.tieba.cq8.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -55,7 +55,7 @@ public class st6 extends PriorityOrganizer.Task {
             }
         }
 
-        @Override // com.baidu.tieba.bq8.c
+        @Override // com.baidu.tieba.cq8.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -63,7 +63,7 @@ public class st6 extends PriorityOrganizer.Task {
             }
         }
 
-        @Override // com.baidu.tieba.bq8.c
+        @Override // com.baidu.tieba.cq8.c
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -188,10 +188,10 @@ public class st6 extends PriorityOrganizer.Task {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (PollingModel.h0()) {
                 IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                bq8 bq8Var = new bq8();
-                bq8Var.d(iconPopData);
-                bq8Var.e(new a(this));
-                bq8Var.f(new b(this));
+                cq8 cq8Var = new cq8();
+                cq8Var.d(iconPopData);
+                cq8Var.e(new a(this));
+                cq8Var.f(new b(this));
                 iw4.n("userIcon");
                 if (!this.o) {
                     this.n.C4(true);

@@ -9,7 +9,7 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.model.PMSException;
 import com.baidu.tieba.a72;
-import com.baidu.tieba.b3a;
+import com.baidu.tieba.c3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +24,13 @@ public abstract class m72 extends i72 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public h3a<? super bd4> c;
-    public h3a<? super zc4> d;
+    public i3a<? super bd4> c;
+    public i3a<? super zc4> d;
     public mh4 e;
     public xi3<Exception> f;
     public vb4<bd4> g;
     public vb4<zc4> h;
-    public h3a<cd4> i;
+    public i3a<cd4> i;
 
     public abstract int U();
 
@@ -390,7 +390,7 @@ public abstract class m72 extends i72 {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements b3a.a<bd4> {
+    public class e implements c3a.a<bd4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m72 a;
@@ -414,18 +414,18 @@ public abstract class m72 extends i72 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
-        public void call(h3a<? super bd4> h3aVar) {
+        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
+        public void call(i3a<? super bd4> i3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, h3aVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, i3aVar) != null) {
                 return;
             }
-            this.a.c = h3aVar;
+            this.a.c = i3aVar;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements b3a.a<zc4> {
+    public class f implements c3a.a<zc4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m72 a;
@@ -449,18 +449,18 @@ public abstract class m72 extends i72 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b3a.a, com.baidu.tieba.p3a
-        public void call(h3a<? super zc4> h3aVar) {
+        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
+        public void call(i3a<? super zc4> i3aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, h3aVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, i3aVar) != null) {
                 return;
             }
-            this.a.d = h3aVar;
+            this.a.d = i3aVar;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class g extends h3a<cd4> {
+    public class g extends i3a<cd4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m72 e;
@@ -484,7 +484,7 @@ public abstract class m72 extends i72 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c3a
+        @Override // com.baidu.tieba.d3a
         /* renamed from: g */
         public void onNext(cd4 cd4Var) {
             Interceptable interceptable = $ic;
@@ -493,7 +493,7 @@ public abstract class m72 extends i72 {
             }
         }
 
-        @Override // com.baidu.tieba.c3a
+        @Override // com.baidu.tieba.d3a
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -502,7 +502,7 @@ public abstract class m72 extends i72 {
             }
         }
 
-        @Override // com.baidu.tieba.c3a
+        @Override // com.baidu.tieba.d3a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -549,7 +549,7 @@ public abstract class m72 extends i72 {
         }
     }
 
-    public final h3a<cd4> Y() {
+    public final i3a<cd4> Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -558,7 +558,7 @@ public abstract class m72 extends i72 {
             }
             return this.i;
         }
-        return (h3a) invokeV.objValue;
+        return (i3a) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.zb4
@@ -675,13 +675,13 @@ public abstract class m72 extends i72 {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.e.e()) {
-                arrayList.add(b3a.a(new e(this)));
+                arrayList.add(c3a.a(new e(this)));
             }
             if (this.e.d()) {
-                arrayList.add(b3a.a(new f(this)));
+                arrayList.add(c3a.a(new f(this)));
             }
             if (!arrayList.isEmpty()) {
-                b3a.i(arrayList).u(Y());
+                c3a.i(arrayList).u(Y());
             }
         }
     }

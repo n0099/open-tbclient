@@ -1,41 +1,14 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes9.dex */
 public final class OriginThreadInfo extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final List<Abstract> DEFAULT_ABSTRACT;
-    public static final List<PbContent> DEFAULT_CONTENT;
-    public static final Long DEFAULT_FID;
     public static final String DEFAULT_FNAME = "";
-    public static final Integer DEFAULT_GOODTYPES;
-    public static final Integer DEFAULT_ISDELETED;
-    public static final Integer DEFAULT_ISFRSMASK;
-    public static final Integer DEFAULT_ISNEWSTYLE;
-    public static final Integer DEFAULT_ISUGC;
-    public static final List<HeadItem> DEFAULT_ITEMSTAR;
-    public static final List<Media> DEFAULT_MEDIA;
-    public static final List<PbLinkInfo> DEFAULT_PBLINKINFO;
-    public static final Long DEFAULT_PID;
-    public static final Integer DEFAULT_REPLYNUM;
-    public static final Integer DEFAULT_SHAREDNUM;
-    public static final Integer DEFAULT_THREADTYPE;
     public static final String DEFAULT_TID = "";
     public static final String DEFAULT_TITLE = "";
-    public static final Integer DEFAULT_TOPTYPES;
-    public static final List<Voice> DEFAULT_VOICEINFO;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(label = Message.Label.REPEATED, tag = 3)
     public final List<Abstract> _abstract;
     @ProtoField(tag = 19)
@@ -90,17 +63,26 @@ public final class OriginThreadInfo extends Message {
     public final VideoInfo videoInfo;
     @ProtoField(label = Message.Label.REPEATED, tag = 12)
     public final List<Voice> voiceInfo;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final List<Media> DEFAULT_MEDIA = Collections.emptyList();
+    public static final List<Abstract> DEFAULT_ABSTRACT = Collections.emptyList();
+    public static final Long DEFAULT_FID = 0L;
+    public static final Integer DEFAULT_THREADTYPE = 0;
+    public static final Integer DEFAULT_ISDELETED = 0;
+    public static final Integer DEFAULT_ISUGC = 0;
+    public static final List<Voice> DEFAULT_VOICEINFO = Collections.emptyList();
+    public static final List<PbContent> DEFAULT_CONTENT = Collections.emptyList();
+    public static final Integer DEFAULT_ISNEWSTYLE = 0;
+    public static final Integer DEFAULT_REPLYNUM = 0;
+    public static final Integer DEFAULT_SHAREDNUM = 0;
+    public static final List<HeadItem> DEFAULT_ITEMSTAR = Collections.emptyList();
+    public static final List<PbLinkInfo> DEFAULT_PBLINKINFO = Collections.emptyList();
+    public static final Long DEFAULT_PID = 0L;
+    public static final Integer DEFAULT_GOODTYPES = 0;
+    public static final Integer DEFAULT_TOPTYPES = 0;
+    public static final Integer DEFAULT_ISFRSMASK = 0;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<OriginThreadInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public List<Abstract> _abstract;
         public Agree agree;
         public AlaLiveInfo alaInfo;
@@ -130,37 +112,10 @@ public final class OriginThreadInfo extends Message {
         public List<Voice> voiceInfo;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(OriginThreadInfo originThreadInfo) {
             super(originThreadInfo);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {originThreadInfo};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (originThreadInfo == null) {
                 return;
             }
@@ -196,65 +151,12 @@ public final class OriginThreadInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public OriginThreadInfo build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new OriginThreadInfo(this, z, null);
-            }
-            return (OriginThreadInfo) invokeZ.objValue;
+            return new OriginThreadInfo(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1443747323, "Lprotobuf/OriginThreadInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1443747323, "Lprotobuf/OriginThreadInfo;");
-                return;
-            }
-        }
-        DEFAULT_MEDIA = Collections.emptyList();
-        DEFAULT_ABSTRACT = Collections.emptyList();
-        DEFAULT_FID = 0L;
-        DEFAULT_THREADTYPE = 0;
-        DEFAULT_ISDELETED = 0;
-        DEFAULT_ISUGC = 0;
-        DEFAULT_VOICEINFO = Collections.emptyList();
-        DEFAULT_CONTENT = Collections.emptyList();
-        DEFAULT_ISNEWSTYLE = 0;
-        DEFAULT_REPLYNUM = 0;
-        DEFAULT_SHAREDNUM = 0;
-        DEFAULT_ITEMSTAR = Collections.emptyList();
-        DEFAULT_PBLINKINFO = Collections.emptyList();
-        DEFAULT_PID = 0L;
-        DEFAULT_GOODTYPES = 0;
-        DEFAULT_TOPTYPES = 0;
-        DEFAULT_ISFRSMASK = 0;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OriginThreadInfo(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             String str = builder.title;
             if (str == null) {
@@ -413,9 +315,5 @@ public final class OriginThreadInfo extends Message {
         this.goodTypes = builder.goodTypes;
         this.topTypes = builder.topTypes;
         this.isFrsMask = builder.isFrsMask;
-    }
-
-    public /* synthetic */ OriginThreadInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

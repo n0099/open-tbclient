@@ -225,7 +225,7 @@ public class t85 extends o65 {
                 o.l = 1;
             }
             if (!this.c) {
-                if (eu8.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), x65.class)) != null && (x65Var = (x65) runTask.getData()) != null) {
+                if (fu8.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), x65.class)) != null && (x65Var = (x65) runTask.getData()) != null) {
                     x65Var.l = 2;
                     b.d(x65Var);
                 }

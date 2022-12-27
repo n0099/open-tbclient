@@ -39,13 +39,13 @@ public class et6 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            og5 h = tr8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
+            og5 h = ur8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
             h.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
             h.g(true);
             h.h(false);
             h.f(SocketMessageTask.DupLicateMode.NONE);
             MessageManager.getInstance().registerTask(h);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, tr8.a(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, ur8.a(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -59,13 +59,13 @@ public class et6 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            og5 h = tr8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
+            og5 h = ur8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
             h.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
             h.g(true);
             h.h(false);
             h.f(SocketMessageTask.DupLicateMode.NONE);
             MessageManager.getInstance().registerTask(h);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, tr8.a(TbConfig.SET_COMMON_FORUM_STATE, 309365));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, ur8.a(TbConfig.SET_COMMON_FORUM_STATE, 309365));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

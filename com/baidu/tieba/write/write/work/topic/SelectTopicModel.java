@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.ra7;
-import com.baidu.tieba.wd9;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
+import com.baidu.tieba.xd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,8 +88,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof wd9)) {
-                    this.a.K(((wd9) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof xd9)) {
+                    this.a.K(((xd9) responsedMessage).getTopicList());
                 }
             }
         }

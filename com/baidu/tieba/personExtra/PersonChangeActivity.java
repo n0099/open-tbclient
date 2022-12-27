@@ -84,9 +84,9 @@ import com.baidu.tieba.ah;
 import com.baidu.tieba.dz6;
 import com.baidu.tieba.ez6;
 import com.baidu.tieba.g95;
-import com.baidu.tieba.hz7;
 import com.baidu.tieba.in;
-import com.baidu.tieba.jt8;
+import com.baidu.tieba.iz7;
+import com.baidu.tieba.kt8;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.m95;
 import com.baidu.tieba.nv4;
@@ -529,7 +529,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
                 this.a.postMultiNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    jt8.j();
+                    kt8.j();
                 }
                 return null;
             }
@@ -1371,7 +1371,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onClick(lv4 lv4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), null, hz7.a(), true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), null, iz7.a(), true)));
                 lv4Var.dismiss();
             }
         }

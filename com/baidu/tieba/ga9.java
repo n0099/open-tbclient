@@ -1,17 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface ga9 {
-    void A();
+    void i(String str);
 
-    void c();
+    void k(String str);
 
-    void d(String str);
+    void u(String str);
 
-    void finish();
-
-    void setResult(int i);
-
-    void v0(int i, boolean z);
-
-    void x();
+    void v(String str);
 }

@@ -34,12 +34,12 @@ public class xt5 extends yf1<b61> {
 
         /* renamed from: com.baidu.tieba.xt5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0487a implements View.OnClickListener {
+        public class View$OnClickListenerC0490a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e51 a;
 
-            public View$OnClickListenerC0487a(a aVar, e51 e51Var) {
+            public View$OnClickListenerC0490a(a aVar, e51 e51Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class xt5 extends yf1<b61> {
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, e51Var) == null) {
                 int intValue = ((Integer) view2.getTag()).intValue();
                 if (intValue == R.drawable.nad_web_back) {
-                    view2.setOnClickListener(new View$OnClickListenerC0487a(this, e51Var));
+                    view2.setOnClickListener(new View$OnClickListenerC0490a(this, e51Var));
                 } else if (intValue == R.drawable.nad_web_close) {
                     view2.setOnClickListener(new b(this, e51Var));
                 }

@@ -45,7 +45,7 @@ import com.baidu.tieba.ad.AbsDataRecorder;
 import com.baidu.tieba.ala.LiveRoomClosedQueryMessage;
 import com.baidu.tieba.az4;
 import com.baidu.tieba.frs.SmartBubbleAnimatedView;
-import com.baidu.tieba.gl8;
+import com.baidu.tieba.hl8;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
@@ -106,13 +106,13 @@ public class c47 {
     public BdUniqueId M;
     public zy.a N;
     public ThreadInfo O;
-    public gl8 P;
+    public hl8 P;
     public PollingModel Q;
     public n45 R;
     public RecyclerView.OnScrollListener S;
     public View.OnTouchListener T;
     public va6.b U;
-    public final gl8.b V;
+    public final hl8.b V;
     public final CustomMessageListener W;
     public final CustomMessageListener X;
     public final CustomMessageListener Y;
@@ -151,7 +151,7 @@ public class c47 {
     public CustomMessageListener p0;
     public final w57 q;
     public qb q0;
-    public cs8 r;
+    public ds8 r;
     public CustomMessageListener r0;
     public mf5 s;
     public CustomMessageListener s0;
@@ -161,7 +161,7 @@ public class c47 {
     public final qb u0;
     public boolean v;
     public CustomMessageListener v0;
-    public of8 w;
+    public pf8 w;
     public int x;
     public int y;
     public boolean z;
@@ -1457,12 +1457,12 @@ public class c47 {
     }
 
     /* loaded from: classes3.dex */
-    public class m0 implements gl8.b {
+    public class m0 implements hl8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c47 a;
 
-        @Override // com.baidu.tieba.gl8.b
+        @Override // com.baidu.tieba.hl8.b
         public void onFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -1487,11 +1487,11 @@ public class c47 {
             this.a = c47Var;
         }
 
-        @Override // com.baidu.tieba.gl8.b
-        public void a(jl8 jl8Var) {
+        @Override // com.baidu.tieba.hl8.b
+        public void a(kl8 kl8Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jl8Var) == null) && this.a.k != null && this.a.q != null) {
-                this.a.q.m(this.a.d, jl8Var, this.a.k.getFirstVisiblePosition());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, kl8Var) == null) && this.a.k != null && this.a.q != null) {
+                this.a.q.m(this.a.d, kl8Var, this.a.k.getFirstVisiblePosition());
                 this.a.n.y(this.a.d);
             }
         }
@@ -2099,7 +2099,7 @@ public class c47 {
                     this.d.s.e();
                     a56.b().d(true);
                     fr5.c().h("page_recommend", "show_");
-                    nq8.g().h(this.d.H, false);
+                    oq8.g().h(this.d.H, false);
                     this.c = false;
                     if (this.d.w != null && this.d.A && !this.d.z) {
                         this.d.w.m(this.d.x, this.d.y, this.d.v, 1);
@@ -2371,9 +2371,9 @@ public class c47 {
         bdTypeRecyclerView.setOnScrollListener(this.S);
         this.p = new yl6();
         r0();
-        of8 of8Var = new of8(this.j, this.k);
-        this.w = of8Var;
-        of8Var.p(2);
+        pf8 pf8Var = new pf8(this.j, this.k);
+        this.w = pf8Var;
+        pf8Var.p(2);
         this.w.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.b = new z37(this.d, this.n);
         SmartBubbleAnimatedView smartBubbleAnimatedView = new SmartBubbleAnimatedView(tbPageContext.getContext());
@@ -2485,7 +2485,7 @@ public class c47 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z2)) == null) {
-            String e2 = di8.e(this.d, z2);
+            String e2 = ei8.e(this.d, z2);
             int a02 = a0(z2);
             wi5 wi5Var = new wi5();
             wi5Var.b = e2;
@@ -2715,30 +2715,30 @@ public class c47 {
         }
     }
 
-    public of8 o0() {
+    public pf8 o0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             return this.w;
         }
-        return (of8) invokeV.objValue;
+        return (pf8) invokeV.objValue;
     }
 
-    public gl8 p0() {
+    public hl8 p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
             return this.P;
         }
-        return (gl8) invokeV.objValue;
+        return (hl8) invokeV.objValue;
     }
 
     public void r0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            cs8 cs8Var = new cs8("new_index", null);
-            this.r = cs8Var;
-            cs8Var.d();
+            ds8 ds8Var = new ds8("new_index", null);
+            this.r = ds8Var;
+            ds8Var.d();
         }
     }
 
@@ -2811,11 +2811,11 @@ public class c47 {
             if (l17Var != null) {
                 l17Var.f(z2);
             }
-            of8 of8Var = this.w;
-            if (of8Var == null) {
+            pf8 pf8Var = this.w;
+            if (pf8Var == null) {
                 return;
             }
-            of8Var.r(!z2);
+            pf8Var.r(!z2);
             ThreadCardViewHolder k02 = k0();
             boolean z3 = false;
             if (k02 != null && k02.a() != null) {
@@ -2830,9 +2830,9 @@ public class c47 {
             }
             if (!z2) {
                 if (this.P == null) {
-                    gl8 gl8Var = new gl8();
-                    this.P = gl8Var;
-                    gl8Var.h(this.V);
+                    hl8 hl8Var = new hl8();
+                    this.P = hl8Var;
+                    hl8Var.h(this.V);
                 }
                 this.P.g();
             }
@@ -2858,7 +2858,7 @@ public class c47 {
             if (z2) {
                 int i6 = 0;
                 while (i4 < this.d.size()) {
-                    xn xnVar = (xn) em7.d(this.d, i4);
+                    xn xnVar = (xn) fm7.d(this.d, i4);
                     if ((xnVar instanceof o56) && (i3 = ((o56) xnVar).position) != i5) {
                         i6++;
                         i5 = i3;
@@ -2870,7 +2870,7 @@ public class c47 {
                 }
             } else {
                 for (int size = this.d.size() - 1; size >= 0; size--) {
-                    xn xnVar2 = (xn) em7.d(this.d, size);
+                    xn xnVar2 = (xn) fm7.d(this.d, size);
                     if ((xnVar2 instanceof o56) && (i2 = ((o56) xnVar2).position) != i5) {
                         i4++;
                         i5 = i2;
@@ -2893,7 +2893,7 @@ public class c47 {
         if ((interceptable == null || interceptable.invokeL(1048614, this, str) == null) && !TextUtils.isEmpty(str) && (builder = this.e) != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (App app : this.e.banner_list.app) {
-                if (app != null && str.equals(ei8.a(app))) {
+                if (app != null && str.equals(fi8.a(app))) {
                     arrayList.add(app);
                 }
             }
@@ -2915,9 +2915,9 @@ public class c47 {
             j17.d().j(System.currentTimeMillis(), 1);
             this.f = 1;
             this.E = true;
-            gl8 gl8Var = this.P;
-            if (gl8Var != null) {
-                gl8Var.e();
+            hl8 hl8Var = this.P;
+            if (hl8Var != null) {
+                hl8Var.e();
             }
             this.Q.k0("live,level,icon,live_follow_second_floor,live_index_second_floor");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.FALSE));
@@ -2938,9 +2938,9 @@ public class c47 {
     public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            of8 of8Var = this.w;
-            if (of8Var != null) {
-                of8Var.h();
+            pf8 pf8Var = this.w;
+            if (pf8Var != null) {
+                pf8Var.h();
             }
             yl6 yl6Var = this.p;
             if (yl6Var != null) {
@@ -2973,9 +2973,9 @@ public class c47 {
     public void P0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            of8 of8Var = this.w;
-            if (of8Var != null && !this.z && this.A) {
-                of8Var.n(this.x, this.y, this.v, true);
+            pf8 pf8Var = this.w;
+            if (pf8Var != null && !this.z && this.A) {
+                pf8Var.n(this.x, this.y, this.v, true);
             }
             if (!this.B) {
                 return;
@@ -2984,7 +2984,7 @@ public class c47 {
             if (bigdaySwipeRefreshLayout != null && !bigdaySwipeRefreshLayout.u()) {
                 boolean z2 = this.C;
                 if (z2) {
-                    nq8.g().h(this.H, false);
+                    oq8.g().h(this.H, false);
                     if (t0(false)) {
                         d1(3, this.i);
                     } else if (this.D > 0) {
@@ -3001,15 +3001,15 @@ public class c47 {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
             }
             this.E = false;
-            gl8 gl8Var = this.P;
-            if (gl8Var != null) {
-                gl8Var.d();
+            hl8 hl8Var = this.P;
+            if (hl8Var != null) {
+                hl8Var.d();
             }
         }
     }
 
     public final void f0() {
-        js8 js8Var;
+        ks8 ks8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             List<xn> list = this.d;
@@ -3018,8 +3018,8 @@ public class c47 {
                 while (it.hasNext()) {
                     xn next = it.next();
                     if (!(next instanceof m57) && !(next instanceof kt4) && !(next instanceof ms5)) {
-                        if ((next instanceof ThreadData) && (js8Var = ((ThreadData) next).funAdData) != null) {
-                            js8Var.p(true);
+                        if ((next instanceof ThreadData) && (ks8Var = ((ThreadData) next).funAdData) != null) {
+                            ks8Var.p(true);
                             it.remove();
                         }
                     } else {
@@ -3169,9 +3169,9 @@ public class c47 {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            cs8 cs8Var = this.r;
-            if (cs8Var != null) {
-                i3 = cs8Var.b(i2);
+            ds8 ds8Var = this.r;
+            if (ds8Var != null) {
+                i3 = ds8Var.b(i2);
             } else {
                 i3 = -1;
             }
@@ -3296,9 +3296,9 @@ public class c47 {
                 }
                 j57Var.s(z5);
                 this.n.z(linkedList, i2);
-                of8 of8Var = this.w;
-                if (of8Var != null && this.A) {
-                    of8Var.n(this.x, this.y, this.v, true);
+                pf8 pf8Var = this.w;
+                if (pf8Var != null && this.A) {
+                    pf8Var.n(this.x, this.y, this.v, true);
                 }
                 z5 = true;
             }
@@ -3311,7 +3311,7 @@ public class c47 {
             }
             Anti anti = dataRes.anti;
             if (anti != null && (blockPopInfo = anti.block_pop_info) != null) {
-                hz8.h(blockPopInfo);
+                iz8.h(blockPopInfo);
             }
             hu4 hu4Var = new hu4();
             hu4Var.a(dataRes.recom_post_topic);
@@ -3346,7 +3346,7 @@ public class c47 {
     }
 
     public final void e0(String str, List<xn> list) {
-        js8 js8Var;
+        ks8 ks8Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048613, this, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
             Iterator<xn> it = list.iterator();
@@ -3367,7 +3367,7 @@ public class c47 {
                     if (kt4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
                         advertAppInfo = ((AdvertAppInfo.ILegoAdvert) kt4Var.c()).getAdvertAppInfo();
                     }
-                } else if ((next instanceof ThreadData) && (js8Var = ((ThreadData) next).funAdData) != null && js8Var.i()) {
+                } else if ((next instanceof ThreadData) && (ks8Var = ((ThreadData) next).funAdData) != null && ks8Var.i()) {
                     it.remove();
                     i4 = i2;
                 }
@@ -3415,9 +3415,9 @@ public class c47 {
         MessageManager.getInstance().registerListener(this.n0);
         this.o0.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.o0);
-        of8 of8Var = this.w;
-        if (of8Var != null) {
-            of8Var.u(bdUniqueId);
+        pf8 pf8Var = this.w;
+        if (pf8Var != null) {
+            pf8Var.u(bdUniqueId);
         }
         this.b.i(bdUniqueId);
         this.j0.setTag(bdUniqueId);
@@ -3433,17 +3433,17 @@ public class c47 {
     }
 
     public void S0(int i2, List<xn> list, int i3) {
-        cs8 cs8Var;
+        ds8 ds8Var;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3)}) != null) || (cs8Var = this.r) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3)}) != null) || (ds8Var = this.r) == null) {
             return;
         }
         if (i2 == 0) {
-            cs8Var.d();
+            ds8Var.d();
         }
         if (list != null && !list.isEmpty()) {
-            int[] iArr = cs8.e;
+            int[] iArr = ds8.e;
             int i5 = 0;
             int i6 = 0;
             for (int i7 = 0; i7 < list.size() && i5 < iArr.length && (i4 = iArr[i5]) >= 0; i7++) {
@@ -3461,9 +3461,9 @@ public class c47 {
     public final void X(List<xn> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048599, this, list, i2) == null) {
-            Set<xn> a2 = di8.a(list, this.f, "HOME");
+            Set<xn> a2 = ei8.a(list, this.f, "HOME");
             if (a2.size() > 0) {
-                nq8.g().c(this.H, lq8.e("a002", "common_fill", true, a2.size()));
+                oq8.g().c(this.H, mq8.e("a002", "common_fill", true, a2.size()));
             }
         }
     }
@@ -3481,7 +3481,7 @@ public class c47 {
         while (it.hasNext()) {
             App next = it.next();
             if (next != null) {
-                int b2 = ei8.b(next);
+                int b2 = fi8.b(next);
                 if (b2 < 0) {
                     it.remove();
                 } else if (b2 < i2 + i3 + 1) {
@@ -3597,7 +3597,7 @@ public class c47 {
             int i2 = this.i;
             boolean z2 = this.C;
             if (z2) {
-                nq8.g().h(this.H, false);
+                oq8.g().h(this.H, false);
                 if (t0(false)) {
                     c2 = 3;
                 } else if (this.D <= 0) {
@@ -3855,8 +3855,8 @@ public class c47 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            of8 of8Var = this.w;
-            if (of8Var != null && of8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
+            pf8 pf8Var = this.w;
+            if (pf8Var != null && pf8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
                 return (ThreadCardViewHolder) this.w.j().getTag();
             }
             return null;

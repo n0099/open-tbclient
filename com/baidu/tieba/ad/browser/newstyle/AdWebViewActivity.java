@@ -46,6 +46,7 @@ import com.baidu.tieba.ad.download.view.ApkDownloadView;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.as5;
+import com.baidu.tieba.at8;
 import com.baidu.tieba.ck0;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.cs5;
@@ -66,7 +67,6 @@ import com.baidu.tieba.wi0;
 import com.baidu.tieba.wx4;
 import com.baidu.tieba.xr4;
 import com.baidu.tieba.xr5;
-import com.baidu.tieba.xs8;
 import com.baidu.tieba.xx4;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yr5;
@@ -97,8 +97,8 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public cs5 A;
     public lk0 B;
     public TBAdWebView t;
-    public xs8 u;
-    public zs8 v;
+    public ys8 u;
+    public at8 v;
     public vx4 w;
     public boolean x;
     public boolean y;
@@ -379,7 +379,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     /* loaded from: classes3.dex */
-    public class c implements zs8 {
+    public class c implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdWebViewActivity a;
@@ -402,7 +402,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.a = adWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -1032,9 +1032,9 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            xs8 xs8Var = new xs8();
-            this.u = xs8Var;
-            xs8Var.a(new XiubaTbJsBridge(getPageContext()));
+            ys8 ys8Var = new ys8();
+            this.u = ys8Var;
+            ys8Var.a(new XiubaTbJsBridge(getPageContext()));
             this.u.a(new CommonTbJsBridge(getPageContext()));
             this.u.a(buildGameDownloadJSPrompt());
             if (this.e) {
@@ -1139,26 +1139,26 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         }
     }
 
-    public final ys8 buildGameDownloadJSPrompt() {
+    public final zs8 buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, ys8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, zs8.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (ys8) runTask.getData();
+                return (zs8) runTask.getData();
             }
             return null;
         }
-        return (ys8) invokeV.objValue;
+        return (zs8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            xs8 xs8Var = this.u;
-            if (xs8Var != null) {
-                xs8Var.g();
+            ys8 ys8Var = this.u;
+            if (ys8Var != null) {
+                ys8Var.g();
             }
             TBAdWebView tBAdWebView = this.t;
             if (tBAdWebView != null) {

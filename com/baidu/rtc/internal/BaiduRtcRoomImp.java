@@ -44,7 +44,7 @@ import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.d;
 import com.baidu.tieba.g10;
-import com.baidu.tieba.t2a;
+import com.baidu.tieba.u2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1074,7 +1074,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.mWebSocketChannel.setSDK(Constraints.sdkVersion());
         this.mAppId = str;
         this.mWebSocketChannel.setDelegate(this);
-        this.rootEglBase = t2a.a();
+        this.rootEglBase = u2a.a();
         int i3 = 0;
         while (true) {
             boolean[] zArr = this.mHasVideoView;

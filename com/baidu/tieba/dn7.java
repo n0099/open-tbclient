@@ -1,11 +1,9 @@
 package com.baidu.tieba;
-
-import com.squareup.wire.Message;
 /* loaded from: classes4.dex */
 public interface dn7 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
+    void a(long j, String str);
 
-    void b(long j, String str, String str2, int i);
+    void b(en7 en7Var);
 
-    void c(long j, String str, Message message, boolean z);
+    void c(int i, long j, String str, int i2, String str2);
 }

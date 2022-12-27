@@ -42,8 +42,8 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b45;
-import com.baidu.tieba.di7;
 import com.baidu.tieba.eg7;
+import com.baidu.tieba.ei7;
 import com.baidu.tieba.ic7;
 import com.baidu.tieba.ie7;
 import com.baidu.tieba.ik5;
@@ -67,16 +67,16 @@ import com.baidu.tieba.imMessageCenter.im.model.GamePlayServiceModel;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 import com.baidu.tieba.jc7;
 import com.baidu.tieba.je5;
-import com.baidu.tieba.li7;
 import com.baidu.tieba.mi7;
 import com.baidu.tieba.mj5;
 import com.baidu.tieba.mk5;
 import com.baidu.tieba.n35;
 import com.baidu.tieba.nd7;
+import com.baidu.tieba.ni7;
 import com.baidu.tieba.og;
 import com.baidu.tieba.pd7;
-import com.baidu.tieba.qi7;
 import com.baidu.tieba.re7;
+import com.baidu.tieba.ri7;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.xg;
@@ -99,7 +99,7 @@ import org.json.JSONObject;
 public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalChatActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public di7 A;
+    public ei7 A;
     public boolean B;
     public boolean C;
     public PersonalMsglistModel D;
@@ -1261,7 +1261,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             if (this.A == null) {
-                this.A = new di7();
+                this.A = new ei7();
             }
             this.A.a(this.D, getListView());
         }
@@ -1532,7 +1532,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                     return;
                 }
                 sendMessage(new CustomMessage(2002001, new PersonalTalkSettingActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong())));
-                mi7.a("c14627");
+                ni7.a("c14627");
             } else if (view2 == this.E.z()) {
                 if (this.D.P() != PersonalMsglistModel.CardStatus.APPLY && this.D.P() != PersonalMsglistModel.CardStatus.WAIT) {
                     if (this.D.P() == PersonalMsglistModel.CardStatus.AGREE) {
@@ -1552,7 +1552,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         ChatMessage msg;
         ChatMessage msg2;
         String j3;
-        qi7.a a2;
+        ri7.a a2;
         ChatMessage findIceBreakMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
@@ -1576,7 +1576,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                         return;
                     }
                     ChatMessage msg3 = this.c.getMsg(i3);
-                    if (msg3 != null && msg3.getContent() != null && (a2 = qi7.a(msg3.getContent())) != null) {
+                    if (msg3 != null && msg3.getContent() != null && (a2 = ri7.a(msg3.getContent())) != null) {
                         if (a2.h == 1) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(a2.e, a2.f, null, false)));
                         } else {
@@ -1616,7 +1616,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 registerListener(this.S);
                 registerListener(this.T);
                 if (PersonalChatActivityStatic.b() == null) {
-                    PersonalChatActivityStatic.d(new li7());
+                    PersonalChatActivityStatic.d(new mi7());
                 }
                 PersonalMsglistModel personalMsglistModel = new PersonalMsglistModel(this);
                 this.c = personalMsglistModel;

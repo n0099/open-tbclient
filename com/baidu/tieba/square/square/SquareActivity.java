@@ -20,8 +20,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.az4;
 import com.baidu.tieba.my4;
 import com.baidu.tieba.square.square.SquareModel;
-import com.baidu.tieba.up8;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.vp8;
+import com.baidu.tieba.xp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public static /* synthetic */ Interceptable $ic;
     public static boolean m;
     public transient /* synthetic */ FieldHolder $fh;
-    public wp8 a;
+    public xp8 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -120,13 +120,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, up8 up8Var) {
+        public void a(boolean z, String str, vp8 vp8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, up8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, vp8Var}) == null) {
                 this.a.a.m(true, "");
                 SquareActivity squareActivity = this.a;
                 squareActivity.hideLoadingView(squareActivity.a.n());
-                if (z && up8Var != null && !up8Var.g()) {
+                if (z && vp8Var != null && !vp8Var.g()) {
                     this.a.a.q(this.a.b.P());
                     this.a.c = true;
                     this.a.a.o();
@@ -313,9 +313,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wp8 wp8Var = new wp8(getPageContext(), this.h, this.k);
-            this.a = wp8Var;
-            wp8Var.s(this.l);
+            xp8 xp8Var = new xp8(getPageContext(), this.h, this.k);
+            this.a = xp8Var;
+            xp8Var.s(this.l);
             NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
@@ -328,9 +328,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            wp8 wp8Var = this.a;
-            if (wp8Var != null) {
-                wp8Var.onChangeSkinType(i);
+            xp8 xp8Var = this.a;
+            if (xp8Var != null) {
+                xp8Var.onChangeSkinType(i);
                 this.f.onChangeSkinType(getPageContext(), i);
             }
         }

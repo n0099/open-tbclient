@@ -35,7 +35,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
 import com.baidu.tieba.lq4;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.wz8;
+import com.baidu.tieba.xz8;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.z27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,7 +94,7 @@ public class HotTopicHeaderView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                wz8.b();
+                xz8.b();
             }
         }
     }

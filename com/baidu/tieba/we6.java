@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.tk9;
+import com.baidu.tieba.uk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,19 +100,19 @@ public abstract class we6 implements ze6 {
             if (!cf6Var.g && !cf6Var.e) {
                 float f = cf6Var.d;
                 if (f != 0.0f) {
-                    tk9.a e = tk9.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    uk9.a e = uk9.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
                     iArr[0] = e.b();
                     iArr[1] = e.a();
                 }
             } else {
-                tk9.a e2 = e();
+                uk9.a e2 = e();
                 float f2 = this.a.d;
                 if (f2 != 0.0f) {
-                    tk9.a f3 = tk9.f(f2, e2.b(), e2.a());
+                    uk9.a f3 = uk9.f(f2, e2.b(), e2.a());
                     iArr[0] = f3.b();
                     iArr[1] = f3.a();
                 }
-                tk9.a d = tk9.d(iArr[0], iArr[1]);
+                uk9.a d = uk9.d(iArr[0], iArr[1]);
                 iArr[0] = d.b();
                 iArr[1] = d.a();
             }
@@ -171,13 +171,13 @@ public abstract class we6 implements ze6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
             if (i != 0 && i2 != 0) {
-                Bitmap h = nm9.h(bitmap, i, i2, z);
+                Bitmap h = om9.h(bitmap, i, i2, z);
                 if (this.d) {
-                    a2 = q69.b();
+                    a2 = r69.b();
                 } else {
-                    a2 = q69.a();
+                    a2 = r69.a();
                 }
-                String c = q69.c(a2, h, System.currentTimeMillis() + ".jpg");
+                String c = r69.c(a2, h, System.currentTimeMillis() + ".jpg");
                 if (h != null) {
                     h.recycle();
                     return c;
@@ -189,7 +189,7 @@ public abstract class we6 implements ze6 {
         return (String) invokeCommon.objValue;
     }
 
-    public tk9.a e() {
+    public uk9.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -197,7 +197,7 @@ public abstract class we6 implements ze6 {
             int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
             int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
             if (multiMediaData == null) {
-                return new tk9.a(i, i2);
+                return new uk9.a(i, i2);
             }
             if (multiMediaData.type == 1) {
                 float f = multiMediaData.angle;
@@ -210,9 +210,9 @@ public abstract class we6 implements ze6 {
                     i2 = multiMediaData.width;
                 }
             }
-            return new tk9.a(i, i2);
+            return new uk9.a(i, i2);
         }
-        return (tk9.a) invokeV.objValue;
+        return (uk9.a) invokeV.objValue;
     }
 
     public void g(bf6 bf6Var, Bitmap bitmap) {

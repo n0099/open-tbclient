@@ -1,10 +1,10 @@
 package rx.internal.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.i7a;
-import com.baidu.tieba.n3a;
-import com.baidu.tieba.r3a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.j7a;
+import com.baidu.tieba.o3a;
+import com.baidu.tieba.s3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class CancellableSubscription extends AtomicReference<r3a> implements i3a {
+public final class CancellableSubscription extends AtomicReference<s3a> implements j3a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CancellableSubscription(r3a r3aVar) {
-        super(r3aVar);
+    public CancellableSubscription(s3a s3aVar) {
+        super(s3aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r3aVar};
+            Object[] objArr = {s3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,7 +37,7 @@ public final class CancellableSubscription extends AtomicReference<r3a> implemen
         }
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public final class CancellableSubscription extends AtomicReference<r3a> implemen
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i3a
+    @Override // com.baidu.tieba.j3a
     public void unsubscribe() {
-        r3a andSet;
+        s3a andSet;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && get() != null && (andSet = getAndSet(null)) != null) {
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                n3a.e(e);
-                i7a.j(e);
+                o3a.e(e);
+                j7a.j(e);
             }
         }
     }

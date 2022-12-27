@@ -32,16 +32,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a48;
+import com.baidu.tieba.b48;
 import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.tieba.danmu.ui.DanmakuView;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.f86;
 import com.baidu.tieba.g86;
-import com.baidu.tieba.h08;
-import com.baidu.tieba.j39;
+import com.baidu.tieba.i08;
 import com.baidu.tieba.j76;
 import com.baidu.tieba.j86;
+import com.baidu.tieba.k39;
 import com.baidu.tieba.k86;
 import com.baidu.tieba.lf6;
 import com.baidu.tieba.m86;
@@ -127,7 +127,7 @@ public final class VideoDanmuController {
 
     /* loaded from: classes6.dex */
     public interface b {
-        boolean a(PostData postData, h08 h08Var);
+        boolean a(PostData postData, i08 i08Var);
     }
 
     /* loaded from: classes6.dex */
@@ -167,7 +167,7 @@ public final class VideoDanmuController {
                 Intrinsics.checkNotNullParameter(item, "item");
                 this.a.u++;
                 if ((((float) this.a.u) * 1.0f) / ((float) this.a.t) >= 0.5f) {
-                    h08 r0 = this.a.H.r0();
+                    i08 r0 = this.a.H.r0();
                     boolean z2 = true;
                     if (r0 == null || (z = r0.z()) == null || z.b() != 1) {
                         z2 = false;
@@ -265,9 +265,9 @@ public final class VideoDanmuController {
         }
 
         @Override // com.baidu.tieba.videoplay.danmu.PbDanmuModel.g
-        public void b(h08 h08Var) {
+        public void b(i08 i08Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h08Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i08Var) == null) {
             }
         }
 
@@ -290,7 +290,7 @@ public final class VideoDanmuController {
         }
 
         @Override // com.baidu.tieba.videoplay.danmu.PbDanmuModel.g
-        public void c(boolean z, int i, int i2, int i3, h08 pbData, String str, int i4) {
+        public void c(boolean z, int i, int i2, int i3, i08 pbData, String str, int i4) {
             boolean z2;
             Long valueOf;
             Interceptable interceptable = $ic;
@@ -380,7 +380,7 @@ public final class VideoDanmuController {
                     return;
                 }
                 PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) responsedMessage;
-                h08 pbData = pbPageReadLocalResponseMessage.getPbData();
+                i08 pbData = pbPageReadLocalResponseMessage.getPbData();
                 if (pbData != null) {
                     ThreadData Q = pbData.Q();
                     if (Q != null) {
@@ -481,10 +481,10 @@ public final class VideoDanmuController {
         return invokeL.intValue;
     }
 
-    public final void N(h08 h08Var) {
+    public final void N(i08 i08Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, h08Var) == null) {
-            this.H.z0(h08Var, 3, "");
+        if (interceptable == null || interceptable.invokeL(1048589, this, i08Var) == null) {
+            this.H.z0(i08Var, 3, "");
         }
     }
 
@@ -492,7 +492,7 @@ public final class VideoDanmuController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, key) == null) {
             Intrinsics.checkNotNullParameter(key, "key");
-            TiebaStatic.log(j39.b(key, this.e.thread_id, this.f));
+            TiebaStatic.log(k39.b(key, this.e.thread_id, this.f));
         }
     }
 
@@ -501,7 +501,7 @@ public final class VideoDanmuController {
         if (interceptable == null || interceptable.invokeL(1048591, this, danmuOnClickListener) == null) {
             Intrinsics.checkNotNullParameter(danmuOnClickListener, "danmuOnClickListener");
             this.o = danmuOnClickListener;
-            z().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.i39
+            z().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.j39
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -536,12 +536,12 @@ public final class VideoDanmuController {
         }
     }
 
-    public final void b0(h08 h08Var) {
+    public final void b0(i08 i08Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, h08Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, i08Var) == null) {
             this.G.D();
             this.r = this.h;
-            N(h08Var);
+            N(i08Var);
         }
     }
 
@@ -614,15 +614,15 @@ public final class VideoDanmuController {
         return (c) invokeV.objValue;
     }
 
-    public final h08 F() {
+    public final i08 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            h08 h08Var = this.H.C;
-            Intrinsics.checkNotNullExpressionValue(h08Var, "pbDanmuModel.mPbData");
-            return h08Var;
+            i08 i08Var = this.H.C;
+            Intrinsics.checkNotNullExpressionValue(i08Var, "pbDanmuModel.mPbData");
+            return i08Var;
         }
-        return (h08) invokeV.objValue;
+        return (i08) invokeV.objValue;
     }
 
     public final n96 G() {
@@ -639,7 +639,7 @@ public final class VideoDanmuController {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.H.setUniqueId(this.b);
             K();
-            a48.b().p(this.H.i0(), this.H.n0());
+            b48.b().p(this.H.i0(), this.H.n0());
             J();
         }
     }
@@ -791,7 +791,7 @@ public final class VideoDanmuController {
             }
             this.r = this.h;
             this.D.x(this.G);
-            a48.b().p(this.H.i0(), this.H.n0());
+            b48.b().p(this.H.i0(), this.H.n0());
         }
     }
 

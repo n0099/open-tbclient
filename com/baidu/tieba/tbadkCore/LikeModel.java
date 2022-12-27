@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tieba.bj5;
-import com.baidu.tieba.ku8;
-import com.baidu.tieba.lr8;
+import com.baidu.tieba.lu8;
+import com.baidu.tieba.mr8;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.xg;
@@ -70,7 +70,7 @@ public class LikeModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, Integer, lr8> {
+    public class b extends BdAsyncTask<Object, Integer, mr8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
@@ -102,7 +102,7 @@ public class LikeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public lr8 doInBackground(Object... objArr) {
+        public mr8 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
@@ -131,53 +131,53 @@ public class LikeModel extends BdBaseModel {
                     this.b.setErrorString(errorString);
                     AuthTokenData.parse(postNetData);
                     if (postNetData != null) {
-                        lr8 lr8Var = new lr8();
-                        lr8Var.q(postNetData);
+                        mr8 mr8Var = new mr8();
+                        mr8Var.q(postNetData);
                         if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            lr8Var.s(null);
+                            mr8Var.s(null);
                         }
-                        this.b.j = lr8Var.a();
-                        lr8Var.u(this.b.b);
-                        return lr8Var;
+                        this.b.j = mr8Var.a();
+                        mr8Var.u(this.b.b);
+                        return mr8Var;
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                lr8 lr8Var2 = new lr8();
-                lr8Var2.x(0);
-                lr8Var2.u(this.b.b);
-                return lr8Var2;
+                mr8 mr8Var2 = new mr8();
+                mr8Var2.x(0);
+                mr8Var2.u(this.b.b);
+                return mr8Var2;
             }
-            return (lr8) invokeL.objValue;
+            return (mr8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(lr8 lr8Var) {
+        public void onPostExecute(mr8 mr8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lr8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mr8Var) == null) {
                 this.b.i = null;
-                if (this.a == null || lr8Var == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), lr8Var.b())) {
+                if (this.a == null || mr8Var == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), mr8Var.b())) {
                     return;
                 }
-                ku8 ku8Var = new ku8();
-                ku8Var.a = xg.g(lr8Var.g(), 0L);
-                lr8Var.j();
-                if (lr8Var != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(xg.g(lr8Var.g(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new bj5.a(this.b.a, lr8Var.l())));
+                lu8 lu8Var = new lu8();
+                lu8Var.a = xg.g(mr8Var.g(), 0L);
+                mr8Var.j();
+                if (mr8Var != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(xg.g(mr8Var.g(), 0L))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new bj5.a(this.b.a, mr8Var.l())));
                     TbadkCoreApplication.getInst().addLikeForum(this.b.a);
-                    ku8Var.b = true;
-                    ku8Var.c = this.b.getErrorString();
+                    lu8Var.b = true;
+                    lu8Var.c = this.b.getErrorString();
                 } else {
-                    ku8Var.b = false;
-                    ku8Var.c = this.b.getErrorString();
+                    lu8Var.b = false;
+                    lu8Var.c = this.b.getErrorString();
                 }
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(lr8Var);
+                    this.b.mLoadDataCallBack.c(mr8Var);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, ku8Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, lu8Var));
             }
         }
 

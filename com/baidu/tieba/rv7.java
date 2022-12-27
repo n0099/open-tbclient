@@ -1,55 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.NonNull;
+import tbclient.RecomTopicList;
 /* loaded from: classes6.dex */
 public interface rv7 {
-    void a();
+    void M(@NonNull RecomTopicList recomTopicList);
 
-    void b(boolean z);
+    void T0(y97 y97Var);
 
-    void c(int i);
+    void c1(int i);
 
-    void d(y97 y97Var);
+    void o0(int i, y97 y97Var);
 
-    void destroy();
+    void o1(int i, long j, long j2, int i2);
 
-    void e();
-
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    y97 h();
-
-    void i();
-
-    void j(boolean z, int i);
-
-    void k(int i);
-
-    int l();
-
-    void m();
-
-    void n(y97 y97Var);
-
-    void o(long j, long j2, int i);
-
-    x97 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resetView();
-
-    void resume();
-
-    void s(int i);
-
-    void t(x97 x97Var, boolean z, int i);
+    void p(int i, x97 x97Var);
 }

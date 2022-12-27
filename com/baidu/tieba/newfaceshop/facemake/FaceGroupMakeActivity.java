@@ -38,9 +38,9 @@ import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
 import com.baidu.tieba.pk5;
 import com.baidu.tieba.tq4;
-import com.baidu.tieba.xw7;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yw7;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInformationModel.b {
+public class FaceGroupMakeActivity extends BaseActivity implements yw7.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -66,7 +66,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public xw7 m;
+    public yw7 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -156,7 +156,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(this.a.n);
                 arrayList.remove(this.a.o);
-                yw7 l = yw7.l();
+                zw7 l = zw7.l();
                 if (this.a.u != null) {
                     i = this.a.u.forum_id;
                 } else {
@@ -266,7 +266,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
                 lv4Var.dismiss();
-                yw7.l().i();
+                zw7.l().i();
                 this.a.finish();
             }
         }
@@ -413,7 +413,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.xw7.c
+    @Override // com.baidu.tieba.yw7.c
     public void W0(FaceData faceData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048586, this, faceData) != null) || faceData == null) {
@@ -446,7 +446,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
             this.k.setClickable(true);
             this.k.setText(R.string.obfuscated_res_0x7f0f0618);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = yw7.l().k();
+            FaceGroupDraft k = zw7.l().k();
             if (k != null && k.getForumId() != 0) {
                 Iterator<BazhuInfoData.BaInfo> it = this.t.iterator();
                 while (it.hasNext()) {
@@ -460,7 +460,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.xw7.c
+    @Override // com.baidu.tieba.yw7.c
     public void I0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -482,7 +482,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
     public final void M1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (k = yw7.l().k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (k = zw7.l().k()) != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.f.setText(k.getName());
             }
@@ -551,7 +551,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = yw7.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = zw7.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             J1();
@@ -587,9 +587,9 @@ public class FaceGroupMakeActivity extends BaseActivity implements xw7.c, BarInf
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092421);
             O1();
             this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090d40);
-            xw7 xw7Var = new xw7(this.n);
-            this.m = xw7Var;
-            xw7Var.f(this);
+            yw7 yw7Var = new yw7(this.n);
+            this.m = yw7Var;
+            yw7Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090352);

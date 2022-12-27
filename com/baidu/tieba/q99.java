@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.SelectForumConfig;
+import com.baidu.tbadk.core.data.GameData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.write.view.ForumTabSelectedView;
+import com.baidu.tieba.ob9;
+import com.baidu.tieba.write.view.ForumSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,31 +24,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class q99 extends ca9<ra9> implements ea9 {
+public class q99 extends da9<ra9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public ForumTabSelectedView g;
+    public ForumSelectedView g;
     @Nullable
-    public View h;
-    public final ForumTabSelectedView.d i;
+    public ob9 h;
+    @Nullable
+    public SelectForumData i;
+    public final ob9.b j;
 
-    @Override // com.baidu.tieba.ha9
+    @Override // com.baidu.tieba.ia9
     public void a(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ha9
+    @Override // com.baidu.tieba.ia9
     public void e(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements ForumTabSelectedView.d {
+    public class a implements ob9.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ q99 a;
@@ -69,14 +73,21 @@ public class q99 extends ca9<ra9> implements ea9 {
             this.a = q99Var;
         }
 
-        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
-        public void a(FrsTabItemData frsTabItemData) {
+        @Override // com.baidu.tieba.ob9.b
+        public void a(@NonNull SelectForumData selectForumData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
-                ((ra9) this.a.d).b = frsTabItemData;
-                q99 q99Var = this.a;
-                q99Var.y(q99Var.d);
+            if (interceptable != null && interceptable.invokeL(1048576, this, selectForumData) != null) {
+                return;
             }
+            this.a.i = selectForumData;
+            if (this.a.e != null) {
+                this.a.e.setForumId(selectForumData.forumId);
+                this.a.e.setForumName(selectForumData.forumName);
+            }
+            if (this.a.g != null) {
+                this.a.g.setSelectedForum(selectForumData.forumName);
+            }
+            this.a.y(selectForumData);
         }
     }
 
@@ -99,147 +110,126 @@ public class q99 extends ca9<ra9> implements ea9 {
                 return;
             }
         }
-        this.i = new a(this);
+        this.j = new a(this);
     }
 
-    @Override // com.baidu.tieba.ha9
-    public void onChangeSkinType(int i) {
+    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
+    public void q(@NonNull List<ia9<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ForumTabSelectedView forumTabSelectedView = this.g;
-            if (forumTabSelectedView != null) {
-                forumTabSelectedView.o(i);
-            }
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
-        }
-    }
-
-    @Override // com.baidu.tieba.ca9, com.baidu.tieba.ha9
-    public void q(@NonNull List<ha9<?>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             super.q(list);
-            for (ha9<?> ha9Var : list) {
-                if (ha9Var instanceof l99) {
-                    w((l99) ha9Var);
+            for (ia9<?> ia9Var : list) {
+                if (ia9Var instanceof r99) {
+                    w((r99) ia9Var);
+                } else if (ia9Var instanceof z99) {
+                    w((z99) ia9Var);
+                } else if (ia9Var instanceof n99) {
+                    w((n99) ia9Var);
                 }
             }
         }
     }
 
-    public final boolean C(FrsTabInfoData frsTabInfoData, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ia9
+    public void c(WriteData writeData) {
+        SelectForumData selectForumData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsTabInfoData, str)) == null) {
-            if (frsTabInfoData == null || ListUtils.isEmpty(frsTabInfoData.tabList)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && (selectForumData = this.i) != null) {
+            writeData.setForumId(selectForumData.forumId);
+            writeData.setForumName(this.i.forumName);
+        }
+    }
+
+    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
+    public void j(@NonNull ka9 ka9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ka9Var) == null) {
+            super.j(ka9Var);
+            if (this.h == null) {
+                ob9 ob9Var = new ob9();
+                this.h = ob9Var;
+                ob9Var.c(this.j);
             }
-            int i = 0;
-            while (true) {
-                if (i < frsTabInfoData.tabList.size()) {
-                    if (str.equals(frsTabInfoData.tabList.get(i).name)) {
-                        break;
-                    }
-                    i++;
-                } else {
-                    i = -1;
-                    break;
-                }
+            this.h.b(this.a.getUniqueId());
+        }
+    }
+
+    @Override // com.baidu.tieba.ia9
+    public void onChangeSkinType(int i) {
+        ForumSelectedView forumSelectedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (forumSelectedView = this.g) != null) {
+            forumSelectedView.c();
+        }
+    }
+
+    public final boolean F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WriteData writeData = this.e;
+            if (writeData != null && "2".equals(writeData.getCallFrom())) {
+                return TextUtils.isEmpty(this.e.getForumName());
             }
-            if (i != -1) {
-                frsTabInfoData.tabList.remove(i);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.d();
+            ob9 ob9Var = this.h;
+            if (ob9Var != null) {
+                ob9Var.d();
             }
-            if (i == -1) {
+        }
+    }
+
+    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (F()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.getPageActivity())));
                 return false;
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ha9
-    public void c(WriteData writeData) {
-        ForumTabSelectedView forumTabSelectedView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
-            return;
-        }
-        D d = this.d;
-        if (((ra9) d).a != null) {
-            writeData.setIsForumBusinessAccount(((ra9) d).a.isForumBusinessAccount);
-        }
-        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
-        if (selectedTabItemData == null) {
-            return;
-        }
-        writeData.setTabId(selectedTabItemData.tabId);
-        writeData.setTabName(selectedTabItemData.name);
-        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
-    }
-
-    @Override // com.baidu.tieba.ea9
-    public void onUpdate(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
-            return;
-        }
-        SelectForumData selectForumData = (SelectForumData) obj;
-        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
-            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
-            frsTabInfoData.selectedTabId = -1;
-            List<FrsTabItemData> list = selectForumData.tabInfoList;
-            frsTabInfoData.tabList = list;
-            if (selectForumData.isForumBusinessAccount && list != null) {
-                FrsTabItemData frsTabItemData = new FrsTabItemData();
-                frsTabItemData.tabId = 505;
-                frsTabItemData.name = "官方";
-                frsTabInfoData.tabList.add(0, frsTabItemData);
-            }
-            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
-            if (this.g != null) {
-                C(frsTabInfoData, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ec));
-                this.g.setData(frsTabInfoData);
-                if (this.g.getVisibility() == 0) {
-                    this.c.setVisibility(0);
-                } else {
-                    this.c.setVisibility(8);
-                }
-            }
-            ((ra9) this.d).a = frsTabInfoData;
-            WriteData writeData = this.e;
-            if (writeData != null) {
-                writeData.setFrsTabInfoData(frsTabInfoData);
-                return;
-            }
-            return;
-        }
-        this.c.setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.ha9
+    @Override // com.baidu.tieba.ia9
     public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04bf, viewGroup, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04be, viewGroup, false);
             this.c = inflate;
-            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090c42);
-            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090c3f);
-            ForumTabSelectedView forumTabSelectedView = this.g;
-            if (forumTabSelectedView != null) {
-                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    C(writeData.getFrsTabInfoData(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ec));
-                    this.g.setData(this.e.getFrsTabInfoData());
-                    if (this.g.getVisibility() == 0) {
-                        this.c.setVisibility(0);
+            ForumSelectedView forumSelectedView = (ForumSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f091efe);
+            this.g = forumSelectedView;
+            WriteData writeData = this.e;
+            if (writeData != null && forumSelectedView != null) {
+                if ("main_tab".equals(writeData.getFrom()) && !this.e.isFromErrorDialog()) {
+                    this.g.setVisibility(0);
+                } else if (!TextUtils.isEmpty(this.e.getForumName())) {
+                    this.g.setVisibility(0);
+                    this.g.setSelectedForum(this.e.getForumName());
+                    if (this.e.isFromGameRank()) {
+                        GameData gameData = new GameData();
+                        gameData.gameId = this.e.getGameId();
+                        gameData.gameName = this.e.getGameName();
+                        this.g.setGameData(gameData);
                     } else {
-                        this.c.setVisibility(8);
+                        this.g.a();
+                        this.g.setOnClickListener(null);
                     }
+                } else {
+                    this.g.setVisibility(8);
                 }
-                this.g.setActivity(this.a);
-                this.g.setTabSelectedListener(this.i);
             }
             return this.c;
         }

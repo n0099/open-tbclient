@@ -50,7 +50,7 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0214a implements f09 {
+        public class C0214a implements g09 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
@@ -131,7 +131,7 @@ public class CaptureStatic {
                 this.a = customResponsedMessage;
             }
 
-            @Override // com.baidu.tieba.f09
+            @Override // com.baidu.tieba.g09
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
@@ -151,7 +151,7 @@ public class CaptureStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.f09
+            @Override // com.baidu.tieba.g09
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -186,7 +186,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                zz8.b(TbadkCoreApplication.getInst(), new C0214a(this, customResponsedMessage));
+                a09.b(TbadkCoreApplication.getInst(), new C0214a(this, customResponsedMessage));
             }
         }
     }

@@ -18,7 +18,7 @@ import com.baidu.tieba.dy6;
 import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
 import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
 import com.baidu.tieba.funad.view.FunAbsAdView;
-import com.baidu.tieba.js8;
+import com.baidu.tieba.ks8;
 import com.baidu.tieba.vx6;
 import com.baidu.tieba.xx6;
 import com.baidu.tieba.zx6;
@@ -46,7 +46,7 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-        public final /* synthetic */ js8 b;
+        public final /* synthetic */ ks8 b;
         public final /* synthetic */ FunAdNativeViewHolder c;
 
         @Override // com.baidu.tieba.vx6.i
@@ -63,12 +63,12 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             }
         }
 
-        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, js8 js8Var) {
+        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, ks8 ks8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), js8Var};
+                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), ks8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -80,7 +80,7 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             }
             this.c = funAdNativeViewHolder;
             this.a = i;
-            this.b = js8Var;
+            this.b = ks8Var;
         }
 
         @Override // com.baidu.tieba.vx6.i
@@ -266,13 +266,13 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         return (String) invokeV.objValue;
     }
 
-    public void m(@NonNull js8 js8Var, int i) {
+    public void m(@NonNull ks8 ks8Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, js8Var, i) == null) {
-            Object e = js8Var.e();
+        if (interceptable == null || interceptable.invokeLI(1048588, this, ks8Var, i) == null) {
+            Object e = ks8Var.e();
             if (e == null) {
                 e = vx6.m().n(this.b, this.d);
-                js8Var.o(e);
+                ks8Var.o(e);
                 if (!TextUtils.isEmpty(this.g) && e != null) {
                     FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
                     FunNativeAd2 funNativeAd2 = (FunNativeAd2) e;
@@ -300,11 +300,11 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", e()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", xx6.a));
             }
             this.c.d(0);
-            this.c.f(js8Var, this.b);
+            this.c.f(ks8Var, this.b);
             this.c.e(this.a);
             FunNativeAd2 funNativeAd22 = (FunNativeAd2) obj;
             ViewGroup c = this.c.c(funNativeAd22);
-            vx6.m().F(this.b, obj, new a(this, i, js8Var), c, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem(), this.d);
+            vx6.m().F(this.b, obj, new a(this, i, ks8Var), c, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem(), this.d);
             if (a(funNativeAd22) && c != null && (c.getParent() instanceof ViewGroup)) {
                 ViewGroup viewGroup = (ViewGroup) c.getParent();
                 if (viewGroup.getChildCount() > 1) {

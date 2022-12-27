@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l19;
+import com.baidu.tieba.m19;
 import com.baidu.tieba.pk5;
-import com.baidu.tieba.q19;
+import com.baidu.tieba.r19;
 import com.baidu.tieba.video.editvideo.data.PendantData;
-import com.baidu.tieba.y09;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,7 +90,7 @@ public class CoverPendantDragView extends FrameLayout {
     public float w;
     public float x;
     public float y;
-    public q19 z;
+    public r19 z;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnTouchListener {
@@ -343,14 +343,14 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public static class f implements l19.b {
+    public static class f implements m19.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<y09.c> a;
+        public WeakReference<z09.c> a;
         public WeakReference<CoverPendantDragView> b;
         public WeakReference<PendantData> c;
 
-        public f(y09.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
+        public f(z09.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -376,11 +376,11 @@ public class CoverPendantDragView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.l19.b
+        @Override // com.baidu.tieba.m19.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                WeakReference<y09.c> weakReference = this.a;
+                WeakReference<z09.c> weakReference = this.a;
                 if (weakReference != null && weakReference.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
@@ -391,21 +391,21 @@ public class CoverPendantDragView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.l19.b
+        @Override // com.baidu.tieba.m19.b
         public void b() {
-            WeakReference<y09.c> weakReference;
+            WeakReference<z09.c> weakReference;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && weakReference.get() != null) {
                 this.a.get().c.setVisibility(8);
             }
         }
 
-        @Override // com.baidu.tieba.l19.b
+        @Override // com.baidu.tieba.m19.b
         public void c(String str, String str2) {
             WeakReference<PendantData> weakReference;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                WeakReference<y09.c> weakReference2 = this.a;
+                WeakReference<z09.c> weakReference2 = this.a;
                 if (weakReference2 != null && weakReference2.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
@@ -545,10 +545,10 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    public void setParentViewController(q19 q19Var) {
+    public void setParentViewController(r19 r19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, q19Var) == null) {
-            this.z = q19Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, r19Var) == null) {
+            this.z = r19Var;
         }
     }
 
@@ -1165,12 +1165,12 @@ public class CoverPendantDragView extends FrameLayout {
                 if (i != 2) {
                     if (i != 3) {
                         A();
-                        String f2 = l19.g().f(pendantData.resource);
+                        String f2 = m19.g().f(pendantData.resource);
                         if (TextUtils.isEmpty(f2)) {
-                            if (view2 != null && (view2.getTag() instanceof y09.c)) {
-                                y09.c cVar = (y09.c) view2.getTag();
+                            if (view2 != null && (view2.getTag() instanceof z09.c)) {
+                                z09.c cVar = (z09.c) view2.getTag();
                                 cVar.c.setVisibility(0);
-                                l19.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
+                                m19.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
                             }
                         } else {
                             G(f2, pendantData);

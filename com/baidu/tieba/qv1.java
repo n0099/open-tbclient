@@ -20,7 +20,7 @@ public class qv1 {
     public transient /* synthetic */ FieldHolder $fh;
     public yv1 a;
     public boolean b;
-    public i3a c;
+    public j3a c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {

@@ -16,15 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y58 extends s58 {
+public class y58 extends t58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout f;
-    public jy g;
-    public ItemCardView h;
-    public ThreadData i;
-    public vr4 j;
-    public vy k;
+    public ItemCardView g;
+    public ThreadData h;
+    public vr4 i;
+    public px j;
 
     /* loaded from: classes6.dex */
     public class a extends vr4 {
@@ -75,7 +74,7 @@ public class y58 extends s58 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.i;
+                return this.a.h;
             }
             return (ThreadData) invokeV.objValue;
         }
@@ -111,7 +110,7 @@ public class y58 extends s58 {
             ax.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (y58Var = this.a).c) != null) {
-                aVar.a(y58Var.j);
+                aVar.a(y58Var.i);
             }
         }
     }
@@ -136,7 +135,7 @@ public class y58 extends s58 {
         }
     }
 
-    @Override // com.baidu.tieba.s58
+    @Override // com.baidu.tieba.t58
     public void c(OriginalThreadInfo originalThreadInfo) {
         ThreadData b2;
         Interceptable interceptable = $ic;
@@ -147,36 +146,27 @@ public class y58 extends s58 {
             } else {
                 b2 = originalThreadInfo.b();
             }
-            this.i = b2;
-            a aVar = new a(this);
-            this.j = aVar;
-            vy vyVar = this.k;
-            if (vyVar != null) {
-                vyVar.a(aVar);
-            }
-            ItemCardView itemCardView = this.h;
+            this.h = b2;
+            this.i = new a(this);
+            ItemCardView itemCardView = this.g;
             if (itemCardView != null && originalThreadInfo != null) {
                 itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
             }
-            jy jyVar = this.g;
-            if (jyVar != null) {
-                jyVar.a(this.j);
+            px pxVar = this.j;
+            if (pxVar != null) {
+                pxVar.a(this.i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s58
+    @Override // com.baidu.tieba.t58
     public void d(ax.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            vy vyVar = this.k;
-            if (vyVar != null) {
-                vyVar.B(aVar);
-            }
-            jy jyVar = this.g;
-            if (jyVar != null) {
-                jyVar.A(aVar);
+            px pxVar = this.j;
+            if (pxVar != null) {
+                pxVar.E(aVar);
             }
             LinearLayout linearLayout = this.f;
             if (linearLayout != null) {
@@ -185,19 +175,19 @@ public class y58 extends s58 {
         }
     }
 
-    @Override // com.baidu.tieba.s58
+    @Override // com.baidu.tieba.t58
     public void e(h56 h56Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, h56Var) == null) {
             super.e(h56Var);
-            vy vyVar = this.k;
-            if (vyVar != null) {
-                vyVar.p(this.b);
+            px pxVar = this.j;
+            if (pxVar != null) {
+                pxVar.p(this.b);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s58
+    @Override // com.baidu.tieba.t58
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -212,57 +202,47 @@ public class y58 extends s58 {
                 this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
             this.f.removeAllViews();
-            if (this.g == null) {
-                jy jyVar = new jy(this.a);
-                this.g = jyVar;
-                jyVar.r(Boolean.TRUE);
+            if (this.j == null) {
+                px pxVar = new px(this.a.getPageActivity());
+                this.j = pxVar;
+                pxVar.r(Boolean.TRUE);
+                this.j.B("pb");
+                this.j.D(0);
+                this.j.I(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
+                this.j.J(false);
+                this.j.H(true);
             }
+            this.f.addView(this.j.k());
+            if (this.g == null) {
+                ItemCardView itemCardView = new ItemCardView(this.a.getPageActivity());
+                this.g = itemCardView;
+                itemCardView.setIsShowRightBtn(true);
+            }
+            this.g.setBackGroundColor(R.color.CAM_X0205);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
             layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            this.f.addView(this.g.k(), layoutParams);
-            if (this.k == null) {
-                vy vyVar = new vy(this.a.getPageActivity());
-                this.k = vyVar;
-                vyVar.A("pb");
-            }
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.tbds_30);
-            this.f.addView(this.k.k(), layoutParams2);
-            if (this.h == null) {
-                this.h = new ItemCardView(this.a.getPageActivity());
-            }
-            this.h.setBackGroundColor(R.color.CAM_X0205);
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams3.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams3.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams3.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams3.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.h, layoutParams3);
+            layoutParams.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            this.f.addView(this.g, layoutParams);
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s58
+    @Override // com.baidu.tieba.t58
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
             this.e = i;
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-            jy jyVar = this.g;
-            if (jyVar != null) {
-                jyVar.onChangeSkinType(tbPageContext, i);
+            px pxVar = this.j;
+            if (pxVar != null) {
+                pxVar.onChangeSkinType(tbPageContext, i);
             }
-            ItemCardView itemCardView = this.h;
+            ItemCardView itemCardView = this.g;
             if (itemCardView != null) {
                 itemCardView.G();
-            }
-            vy vyVar = this.k;
-            if (vyVar != null) {
-                vyVar.onChangeSkinType(tbPageContext, i);
             }
         }
     }

@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -10,6 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.oy;
 import com.baidu.tieba.zy;
@@ -19,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class aw7 extends vv7<yu4, ThreadCardViewHolder<ThreadData>> {
+public class aw7 extends wv7<yu4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
@@ -152,10 +154,10 @@ public class aw7 extends vv7<yu4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             oy.b bVar = new oy.b(this.d.getPageActivity(), false);
-            cy cyVar = new cy(this.d.getPageActivity());
-            cyVar.v("index");
-            cyVar.w(this.e);
-            bVar.n(cyVar);
+            by byVar = new by(this.d.getPageActivity());
+            byVar.u("index");
+            byVar.v(this.e);
+            bVar.n(byVar);
             oy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.s(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -180,7 +182,14 @@ public class aw7 extends vv7<yu4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(yu4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().q(this.g);
-                sv7.c(this, yu4Var);
+                tv7.c(this, yu4Var);
+                by byVar = (by) threadCardViewHolder.a().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) byVar.f.d.getLayoutParams();
+                layoutParams.width = yu4Var.u;
+                layoutParams.height = yu4Var.v;
+                if (byVar.f.d.getVisibility() != 8) {
+                    byVar.f.d.setLayoutParams(layoutParams);
+                }
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -191,7 +200,10 @@ public class aw7 extends vv7<yu4, ThreadCardViewHolder<ThreadData>> {
     public final void z(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
-            sv7.b(this, threadData);
+            tv7.b(this, threadData);
+            if (view2 instanceof TbImageView) {
+                tv7.e(threadData);
+            }
         }
     }
 }

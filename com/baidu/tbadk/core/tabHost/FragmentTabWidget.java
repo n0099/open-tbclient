@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.va5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -204,7 +204,7 @@ public class FragmentTabWidget extends LinearLayout {
                 int color = SkinManager.getColor(i);
                 String dynamicStyleNavBarColor = getDynamicStyleNavBarColor();
                 if (StringUtils.isNotNull(dynamicStyleNavBarColor)) {
-                    color = qq8.f(dynamicStyleNavBarColor);
+                    color = rq8.f(dynamicStyleNavBarColor);
                 }
                 UtilHelper.setNavigationBarBg((Activity) context, color);
             }

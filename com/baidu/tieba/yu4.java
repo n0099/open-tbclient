@@ -199,8 +199,8 @@ public class yu4 extends vr4 implements xn {
                         }
                         return ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    js8 js8Var = this.t.funAdData;
-                    if (js8Var != null && js8Var.h()) {
+                    ks8 ks8Var = this.t.funAdData;
+                    if (ks8Var != null && ks8Var.h()) {
                         if (this.t.funAdData.i()) {
                             return AdvertAppInfo.G;
                         }

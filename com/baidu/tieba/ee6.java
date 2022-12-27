@@ -144,7 +144,7 @@ public class ee6 extends ee5<xb6, zb6> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ir8
+    @Override // com.baidu.tieba.jr8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

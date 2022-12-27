@@ -42,7 +42,7 @@ import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tbadk.core.view.commonMountCard.TbMountCardLinkLayout;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h08;
+import com.baidu.tieba.i08;
 import com.baidu.tieba.p56;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.sz4;
@@ -540,11 +540,11 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void i(h08 h08Var, List<p56> list, String str, PbFragment pbFragment, boolean z) {
+    public void i(i08 i08Var, List<p56> list, String str, PbFragment pbFragment, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{h08Var, list, str, pbFragment, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{i08Var, list, str, pbFragment, Boolean.valueOf(z)}) == null) {
             this.q = pbFragment;
-            k(h08Var, list, str, z);
+            k(i08Var, list, str, z);
             PbFragment pbFragment2 = this.q;
             if (pbFragment2 != null) {
                 l(pbFragment2.y5());
@@ -552,11 +552,11 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void j(h08 h08Var, List<p56> list, String str, AbsVideoPbFragment absVideoPbFragment, boolean z) {
+    public void j(i08 i08Var, List<p56> list, String str, AbsVideoPbFragment absVideoPbFragment, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{h08Var, list, str, absVideoPbFragment, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{i08Var, list, str, absVideoPbFragment, Boolean.valueOf(z)}) == null) {
             this.r = absVideoPbFragment;
-            k(h08Var, list, str, z);
+            k(i08Var, list, str, z);
             AbsVideoPbFragment absVideoPbFragment2 = this.r;
             if (absVideoPbFragment2 != null) {
                 l(absVideoPbFragment2.T3());
@@ -564,14 +564,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void k(h08 h08Var, List<p56> list, String str, boolean z) {
+    public void k(i08 i08Var, List<p56> list, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{h08Var, list, str, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{i08Var, list, str, Boolean.valueOf(z)}) == null) {
             this.m = list;
-            ThreadData Q = h08Var.Q();
+            ThreadData Q = i08Var.Q();
             this.s = Q;
-            Q.setForum_name(h08Var.n());
-            this.s.setFid(Long.valueOf(h08Var.m()).longValue());
+            Q.setForum_name(i08Var.n());
+            this.s.setFid(Long.valueOf(i08Var.m()).longValue());
             this.p = z;
             this.n = list.size();
             if (list.size() < 4) {

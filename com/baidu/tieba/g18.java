@@ -1,7 +1,16 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface g18 {
-    void onStart();
 
-    void onStop();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: IEjectionAnimationViewCallback.java */
+/* loaded from: classes4.dex */
+public final /* synthetic */ class g18 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(h18 h18Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, h18Var) == null) {
+        }
+    }
 }

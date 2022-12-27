@@ -42,7 +42,7 @@ public class pm6 implements tx {
     public RoundRelativeLayout f;
     public TextView g;
     public lv4 h;
-    public vq8 i;
+    public wq8 i;
     public ForumData j;
     public View k;
     public LinearLayout l;
@@ -179,9 +179,9 @@ public class pm6 implements tx {
     }
 
     public final void g() {
-        vq8 vq8Var;
+        wq8 wq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (vq8Var = this.i) != null && !StringUtils.isNull(vq8Var.p())) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (wq8Var = this.i) != null && !StringUtils.isNull(wq8Var.p())) {
             if (!jn5.a(this.a.getPageActivity(), this.i.i())) {
                 dw6.b(this.a, this.i.k(), this.i.p(), this.i.j());
             }
@@ -233,9 +233,9 @@ public class pm6 implements tx {
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b19);
             this.d = textView;
             textView.setOnClickListener(this.p);
-            vq8 vq8Var = this.i;
-            if (vq8Var != null) {
-                this.c.K(vq8Var.e(), 10, false);
+            wq8 wq8Var = this.i;
+            if (wq8Var != null) {
+                this.c.K(wq8Var.e(), 10, false);
             }
             new an6(this.f, this.m).g();
         }
@@ -261,9 +261,9 @@ public class pm6 implements tx {
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b19);
             this.d = textView;
             textView.setOnClickListener(this.p);
-            vq8 vq8Var = this.i;
-            if (vq8Var != null) {
-                this.c.K(vq8Var.e(), 10, false);
+            wq8 wq8Var = this.i;
+            if (wq8Var != null) {
+                this.c.K(wq8Var.e(), 10, false);
             }
         }
     }
@@ -271,8 +271,8 @@ public class pm6 implements tx {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            vq8 vq8Var = this.i;
-            if (vq8Var != null && vq8Var.r()) {
+            wq8 wq8Var = this.i;
+            if (wq8Var != null && wq8Var.r()) {
                 h();
             } else {
                 i();
@@ -296,8 +296,8 @@ public class pm6 implements tx {
                 viewGroup.removeAllViews();
                 viewGroup.addView(this.b);
             }
-            vq8 vq8Var2 = this.i;
-            if (vq8Var2 != null && vq8Var2.f()) {
+            wq8 wq8Var2 = this.i;
+            if (wq8Var2 != null && wq8Var2.f()) {
                 rw4 d = rw4.d(this.g);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0602);
@@ -311,16 +311,16 @@ public class pm6 implements tx {
         }
     }
 
-    public boolean j(ar8 ar8Var) {
+    public boolean j(br8 br8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ar8Var)) == null) {
-            if (ar8Var == null || ar8Var.getForum() == null || ar8Var.getBusinessPromot() == null || ar8Var.getBusinessPromot().g()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, br8Var)) == null) {
+            if (br8Var == null || br8Var.getForum() == null || br8Var.getBusinessPromot() == null || br8Var.getBusinessPromot().g()) {
                 return false;
             }
-            this.j = ar8Var.getForum();
-            this.i = ar8Var.getBusinessPromot();
-            String str = "key_frs_dialog_ad_last_show_time" + ar8Var.getForum().getId();
+            this.j = br8Var.getForum();
+            this.i = br8Var.getBusinessPromot();
+            String str = "key_frs_dialog_ad_last_show_time" + br8Var.getForum().getId();
             long n = ry4.l().n(str, 0L);
             if (n >= 0 && TimeHelper.isSameDay(new Date(n), new Date(System.currentTimeMillis()))) {
                 return false;

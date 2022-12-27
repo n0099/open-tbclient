@@ -36,7 +36,7 @@ import com.baidu.tbadk.editortools.pb.ImageModel;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.lv4;
-import com.baidu.tieba.or8;
+import com.baidu.tieba.pr8;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -133,7 +133,7 @@ public class j87 extends q65 {
                         }
                     } else if (postWriteCallBackData != null && i == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    } else if (i != 238010 && !oz8.d(i)) {
+                    } else if (i != 238010 && !pz8.d(i)) {
                         this.a.getContext().showToast(str);
                     }
                 } else {
@@ -245,7 +245,7 @@ public class j87 extends q65 {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements or8.g {
+    public class e implements pr8.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j87 a;
@@ -268,7 +268,7 @@ public class j87 extends q65 {
             this.a = j87Var;
         }
 
-        @Override // com.baidu.tieba.or8.g
+        @Override // com.baidu.tieba.pr8.g
         public void a(WriteData writeData) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, writeData) != null) || writeData == null) {
@@ -428,14 +428,14 @@ public class j87 extends q65 {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            or8.B(String.valueOf(this.d), null);
+            pr8.B(String.valueOf(this.d), null);
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            or8.r(String.valueOf(this.d), new e(this));
+            pr8.r(String.valueOf(this.d), new e(this));
         }
     }
 
@@ -491,7 +491,7 @@ public class j87 extends q65 {
             writeData.setContent(this.c);
             writeData.setTopicId(String.valueOf(this.d));
             writeData.setWriteImagesInfo(this.k);
-            or8.B(String.valueOf(this.d), writeData);
+            pr8.B(String.valueOf(this.d), writeData);
         }
     }
 

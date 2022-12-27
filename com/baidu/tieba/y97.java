@@ -267,12 +267,12 @@ public class y97 {
             for (SpecialTopic specialTopic : dataRes.special_topic) {
                 if (!ListUtils.isEmpty(specialTopic.thread_list)) {
                     if (!TextUtils.isEmpty(specialTopic.title)) {
-                        kw7 kw7Var = new kw7(specialTopic.title);
+                        lw7 lw7Var = new lw7(specialTopic.title);
                         if (!z) {
-                            kw7Var.b = false;
+                            lw7Var.b = false;
                             z = true;
                         }
-                        this.n.add(kw7Var);
+                        this.n.add(lw7Var);
                     }
                     int size = specialTopic.thread_list.size();
                     int i = 0;
@@ -284,9 +284,9 @@ public class y97 {
                         } else {
                             z2 = false;
                         }
-                        jw7 jw7Var = new jw7(threadInfo2, z2);
-                        jw7Var.c(i);
-                        this.n.add(jw7Var);
+                        kw7 kw7Var = new kw7(threadInfo2, z2);
+                        kw7Var.c(i);
+                        this.n.add(kw7Var);
                     }
                 }
             }

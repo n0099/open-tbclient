@@ -27,13 +27,13 @@ public class wn3 {
 
         /* renamed from: com.baidu.tieba.wn3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0473a implements Runnable {
+        public class RunnableC0475a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0473a(a aVar, byte[] bArr) {
+            public RunnableC0475a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class wn3 {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                yg3.l(new RunnableC0473a(this, bArr), "HandshakeRequest");
+                yg3.l(new RunnableC0475a(this, bArr), "HandshakeRequest");
             }
         }
 

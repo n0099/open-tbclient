@@ -1,30 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.data.AtSelectData;
+import java.util.ArrayList;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class ka9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ka9 {
+    void B();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947906502, "Lcom/baidu/tieba/ka9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947906502, "Lcom/baidu/tieba/ka9;");
-                return;
-            }
-        }
-        a = TbConfig.VIRTUAL_IMAGE_MAIN_URL;
-    }
+    void C();
+
+    void D(m65 m65Var);
+
+    void E();
+
+    LinkedList<j05> F();
+
+    void b(boolean z);
+
+    void c();
+
+    void d(String str);
+
+    void e(int i, boolean z);
+
+    void f();
+
+    int g();
+
+    void h();
+
+    boolean i();
+
+    void j();
+
+    void k(boolean z);
+
+    void m();
+
+    void n(@Nullable ArrayList<AtSelectData> arrayList);
+
+    void o(boolean z);
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    boolean onBackPressed();
+
+    void onChangeSkinType(int i);
+
+    void onCreate(Bundle bundle);
+
+    void onDestroy();
+
+    void onNewIntent(Intent intent);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void onStart();
+
+    void onStop();
+
+    void p(boolean z);
+
+    void r();
+
+    void s();
+
+    @NonNull
+    PermissionJudgePolicy t();
+
+    void u();
+
+    void v();
+
+    void w();
+
+    void x(int[] iArr);
+
+    void y(boolean z);
+
+    void z(m65 m65Var);
 }

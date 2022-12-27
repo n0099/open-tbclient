@@ -27,7 +27,7 @@ import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
 import com.baidu.tieba.ug6;
 import com.baidu.tieba.wg6;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yw7;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -338,7 +338,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ug6 {
     public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (yw7.l().r()) {
+            if (zw7.l().r()) {
                 wg6 wg6Var = this.a;
                 if (wg6Var != null) {
                     wg6Var.r();

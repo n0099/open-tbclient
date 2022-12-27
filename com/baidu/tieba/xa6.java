@@ -37,14 +37,14 @@ public class xa6 {
     public transient /* synthetic */ FieldHolder $fh;
     public PopupWindow a;
     public Handler b;
-    public xs8 c;
+    public ys8 c;
     public ActivityLifeCycleListener d;
     public BaseWebView e;
-    public zs8 f;
+    public at8 f;
     public Runnable g;
 
     /* loaded from: classes6.dex */
-    public class a implements zs8 {
+    public class a implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xa6 a;
@@ -67,7 +67,7 @@ public class xa6 {
             this.a = xa6Var;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -431,7 +431,7 @@ public class xa6 {
         this.b = new Handler();
         this.f = new a(this);
         this.g = new b(this);
-        this.c = new xs8();
+        this.c = new ys8();
         this.c.a(new EasterEggBridge());
         this.d = new ActivityLifeCycleListener();
     }

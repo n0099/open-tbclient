@@ -41,10 +41,10 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f55;
-import com.baidu.tieba.n88;
+import com.baidu.tieba.o88;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.sz8;
+import com.baidu.tieba.tz8;
 import com.baidu.tieba.wp4;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
@@ -77,7 +77,7 @@ public class FallingView extends FrameLayout {
     public View c;
     public View d;
     public TextView e;
-    public final List<n88> f;
+    public final List<o88> f;
     public final Context g;
     public int h;
     public int i;
@@ -447,7 +447,7 @@ public class FallingView extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class j implements n88.c {
+    public class j implements o88.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -472,7 +472,7 @@ public class FallingView extends FrameLayout {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.n88.c
+        @Override // com.baidu.tieba.o88.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -520,7 +520,7 @@ public class FallingView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && (f55Var = this.b) != null) {
                 if (!UtilHelper.isMatchScheme(this.a.getPageActivity(), f55Var.g(), this.b.f())) {
                     TbPageContext tbPageContext = this.a;
-                    sz8.a(tbPageContext, wp4.a + xi.getUrlEncode(this.b.h()));
+                    tz8.a(tbPageContext, wp4.a + xi.getUrlEncode(this.b.h()));
                 }
                 TiebaStatic.log(new StatisticItem("c14126").param("obj_type", this.c).param("obj_locate", this.d.B).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 ThirdStatisticHelper.sendReq(this.b.c());
@@ -788,9 +788,9 @@ public class FallingView extends FrameLayout {
         }
     }
 
-    public final void o(n88 n88Var, int i2) {
+    public final void o(o88 o88Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, n88Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, o88Var, i2) == null) {
             if (this.h == 0) {
                 this.h = yi.l(this.g);
             }
@@ -799,9 +799,9 @@ public class FallingView extends FrameLayout {
             }
             this.f.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                n88 n88Var2 = new n88(n88Var.i, this.h, this.i);
-                n88Var2.e = (-i3) * 180;
-                this.f.add(n88Var2);
+                o88 o88Var2 = new o88(o88Var.i, this.h, this.i);
+                o88Var2.e = (-i3) * 180;
+                this.f.add(o88Var2);
             }
         }
     }
@@ -959,13 +959,13 @@ public class FallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, f55Var, bitmap, i2) == null) {
             Random random = new Random();
-            n88.b bVar = new n88.b(bitmap);
+            o88.b bVar = new o88.b(bitmap);
             bVar.p(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             bVar.o(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
             bVar.m(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.n(new j(this, random));
             bVar.q(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40), true, true);
-            n88 l2 = bVar.l();
+            o88 l2 = bVar.l();
             this.A = i2;
             o(l2, 19);
             postDelayed(this.y, 1500L);

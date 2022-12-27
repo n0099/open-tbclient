@@ -28,8 +28,8 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.i79;
 import com.baidu.tieba.j05;
+import com.baidu.tieba.j79;
 import com.baidu.tieba.lc;
 import com.baidu.tieba.pk5;
 import com.baidu.tieba.rw4;
@@ -629,7 +629,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
             spanGroupEditText.setLineSpacing(yi.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            i79.l(spanGroupEditText, R.drawable.edittext_cursor);
+            j79.l(spanGroupEditText, R.drawable.edittext_cursor);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
             rw4.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);

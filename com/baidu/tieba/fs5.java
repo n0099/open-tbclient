@@ -49,13 +49,13 @@ public class fs5 {
 
         /* renamed from: com.baidu.tieba.fs5$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0283a extends BdRunnable {
+        public class C0284a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0283a(a aVar, JSONObject jSONObject) {
+            public C0284a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class fs5 {
                     e2.printStackTrace();
                 }
                 try {
-                    jw.f().h(new C0283a(this, new JSONObject(response.body().string())));
+                    jw.f().h(new C0284a(this, new JSONObject(response.body().string())));
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 } catch (JSONException e4) {
@@ -231,7 +231,7 @@ public class fs5 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (em7.f(map)) {
+            if (fm7.f(map)) {
                 return jSONObject;
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {

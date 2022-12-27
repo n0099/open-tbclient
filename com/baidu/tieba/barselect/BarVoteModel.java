@@ -21,8 +21,8 @@ import com.baidu.tieba.barselect.data.VoteElectionRequestMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.k36;
 import com.baidu.tieba.m36;
-import com.baidu.tieba.pt8;
 import com.baidu.tieba.qb;
+import com.baidu.tieba.qt8;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.v36;
 import com.baidu.tieba.xi;
@@ -80,12 +80,12 @@ public class BarVoteModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.barselect.BarVoteModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0223a implements Runnable {
+        public class RunnableC0227a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0223a(a aVar) {
+            public RunnableC0227a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -211,7 +211,7 @@ public class BarVoteModel extends BdBaseModel {
                     if (voteData != null && voteData.a() != null) {
                         if (voteData.a().h() != v36.c) {
                             if (this.a.a != null) {
-                                ah.a().postDelayed(new RunnableC0223a(this), 5000L);
+                                ah.a().postDelayed(new RunnableC0227a(this), 5000L);
                                 return;
                             }
                             return;
@@ -288,9 +288,9 @@ public class BarVoteModel extends BdBaseModel {
                         }
                     }
                 } else if (error == 3250023) {
-                    pt8.b(error, "", null);
+                    qt8.b(error, "", null);
                 } else if (error == 3250021) {
-                    pt8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    qt8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 } else if (error != 3250002 && error != 3250004) {
                     yi.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
                 } else {

@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm7;
-import com.baidu.tieba.ml7;
+import com.baidu.tieba.cm7;
+import com.baidu.tieba.nl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,26 +102,26 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public void b(bm7 bm7Var) {
+    public void b(cm7 cm7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bm7Var) != null) || bm7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cm7Var) != null) || cm7Var == null) {
             return;
         }
-        if (!bm7Var.j()) {
-            ml7.a().d(bm7Var, bm7Var.h());
+        if (!cm7Var.j()) {
+            nl7.a().d(cm7Var, cm7Var.h());
         }
-        if (bm7Var.a()) {
-            c(bm7Var);
+        if (cm7Var.a()) {
+            c(cm7Var);
         } else {
-            d(bm7Var);
+            d(cm7Var);
         }
     }
 
-    public final void c(bm7 bm7Var) {
+    public final void c(cm7 cm7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bm7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cm7Var) == null) {
             this.d.setVisibility(8);
-            int f = bm7Var.f();
+            int f = cm7Var.f();
             if (f != 0) {
                 this.c.setVisibility(0);
                 SkinManager.setBackgroundResource(this.c, f);
@@ -131,10 +131,10 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public final void d(bm7 bm7Var) {
+    public final void d(cm7 cm7Var) {
         String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bm7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, cm7Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
             boolean z = true;
@@ -142,9 +142,9 @@ public class CommonImageButton extends FrameLayout {
                 z = false;
             }
             if (z) {
-                d = bm7Var.e();
+                d = cm7Var.e();
             } else {
-                d = bm7Var.d();
+                d = cm7Var.d();
             }
             this.d.K(d, 10, false);
         }

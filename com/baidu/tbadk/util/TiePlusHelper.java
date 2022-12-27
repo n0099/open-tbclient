@@ -56,8 +56,8 @@ import com.baidu.tieba.f65;
 import com.baidu.tieba.in5;
 import com.baidu.tieba.ja6;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.sz8;
 import com.baidu.tieba.tk5;
+import com.baidu.tieba.tz8;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.tieba.w55;
@@ -1082,7 +1082,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("need_scheme_blacklist", true);
-                sz8.b(this.b, str, bundle);
+                tz8.b(this.b, str, bundle);
             }
         }
     }

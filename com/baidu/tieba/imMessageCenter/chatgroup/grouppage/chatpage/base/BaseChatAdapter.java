@@ -21,10 +21,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bk5;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
-import com.baidu.tieba.mh7;
-import com.baidu.tieba.ph7;
+import com.baidu.tieba.nh7;
 import com.baidu.tieba.qh7;
 import com.baidu.tieba.rh7;
+import com.baidu.tieba.sh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,11 +33,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHolder extends BaseViewHolder> extends mh7<ChildItemData, Holder<ChildViewHolder>> {
+public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHolder extends BaseViewHolder> extends nh7<ChildItemData, Holder<ChildViewHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public ph7<? extends BaseChatAdapter, ChildItemData> f;
+    public qh7<? extends BaseChatAdapter, ChildItemData> f;
 
     @NonNull
     public abstract ChildViewHolder A(@NonNull ViewGroup viewGroup);
@@ -109,14 +109,14 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         }
 
         @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void d(@NonNull qh7 qh7Var) {
+        public void d(@NonNull rh7 rh7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qh7Var) == null) {
-                super.d(qh7Var);
-                this.a.d(qh7Var);
-                this.b.d(qh7Var);
-                this.c.d(qh7Var);
-                this.d.d(qh7Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rh7Var) == null) {
+                super.d(rh7Var);
+                this.a.d(rh7Var);
+                this.b.d(rh7Var);
+                this.c.d(rh7Var);
+                this.d.d(rh7Var);
             }
         }
     }
@@ -177,11 +177,11 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         }
 
         @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void d(@NonNull qh7 qh7Var) {
+        public void d(@NonNull rh7 rh7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qh7Var) == null) {
-                super.d(qh7Var);
-                qh7.d(this.c, qh7Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rh7Var) == null) {
+                super.d(rh7Var);
+                rh7.d(this.c, rh7Var);
             }
         }
     }
@@ -225,12 +225,12 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         return (SelfHolder) invokeL.objValue;
     }
 
-    public <T extends BaseChatAdapter> void z(@NonNull ph7<T, ChildItemData> ph7Var) {
+    public <T extends BaseChatAdapter> void z(@NonNull qh7<T, ChildItemData> qh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ph7Var) == null) {
-            this.f = ph7Var;
-            ph7Var.f(this);
-            this.e.c(ph7Var);
+        if (interceptable == null || interceptable.invokeL(1048589, this, qh7Var) == null) {
+            this.f = qh7Var;
+            qh7Var.f(this);
+            this.e.c(qh7Var);
         }
     }
 
@@ -261,9 +261,9 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
     public final void G(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull SelfHolder selfHolder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), viewGroup, childitemdata, selfHolder, list, Integer.valueOf(i2)}) == null) {
-            rh7.f(childitemdata, selfHolder);
-            rh7.e(childitemdata, selfHolder);
-            rh7.d(childitemdata, selfHolder);
+            sh7.f(childitemdata, selfHolder);
+            sh7.e(childitemdata, selfHolder);
+            sh7.d(childitemdata, selfHolder);
         }
     }
 
@@ -314,7 +314,7 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         }
     }
 
-    @Override // com.baidu.tieba.mh7
+    @Override // com.baidu.tieba.nh7
     @NonNull
     public Context getContext() {
         InterceptResult invokeV;

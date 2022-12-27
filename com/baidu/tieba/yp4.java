@@ -38,7 +38,7 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.m49;
+import com.baidu.tieba.n49;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.wv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class yp4 {
     public boolean v;
     public boolean w;
     public boolean x;
-    public d98 y;
+    public e98 y;
     public uv4 z;
 
     /* loaded from: classes7.dex */
@@ -363,7 +363,7 @@ public class yp4 {
     }
 
     /* loaded from: classes7.dex */
-    public class i implements m49.d {
+    public class i implements n49.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yp4 a;
@@ -386,7 +386,7 @@ public class yp4 {
             this.a = yp4Var;
         }
 
-        @Override // com.baidu.tieba.m49.d
+        @Override // com.baidu.tieba.n49.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y != null && this.a.a != null) {
@@ -399,7 +399,7 @@ public class yp4 {
     }
 
     /* loaded from: classes7.dex */
-    public class j implements m49.c {
+    public class j implements n49.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yp4 a;
@@ -422,7 +422,7 @@ public class yp4 {
             this.a = yp4Var;
         }
 
-        @Override // com.baidu.tieba.m49.c
+        @Override // com.baidu.tieba.n49.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.y == null) {
@@ -774,16 +774,16 @@ public class yp4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.y == null) {
-                m49 m49Var = new m49(this.a);
+                n49 n49Var = new n49(this.a);
                 ArrayList arrayList = new ArrayList();
-                m49.b bVar = new m49.b(this.a.getString(R.string.report_text), m49Var);
+                n49.b bVar = new n49.b(this.a.getString(R.string.report_text), n49Var);
                 bVar.h(new i(this));
                 arrayList.add(bVar);
-                m49Var.g(new j(this));
-                m49Var.f(arrayList);
-                d98 d98Var = new d98(this.a, m49Var.b());
-                this.y = d98Var;
-                d98Var.a(0.7f);
+                n49Var.g(new j(this));
+                n49Var.f(arrayList);
+                e98 e98Var = new e98(this.a, n49Var.b());
+                this.y = e98Var;
+                e98Var.a(0.7f);
             }
             this.y.show();
         }

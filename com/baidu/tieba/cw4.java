@@ -33,12 +33,12 @@ public class cw4 {
 
         /* renamed from: com.baidu.tieba.cw4$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0244a implements Runnable {
+        public class RunnableC0246a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0244a(a aVar) {
+            public RunnableC0246a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class cw4 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    cw4.d.post(new RunnableC0244a(this));
+                    cw4.d.post(new RunnableC0246a(this));
                 } else {
                     cw4.d.post(new b(this));
                 }

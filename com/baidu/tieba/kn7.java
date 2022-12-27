@@ -1,339 +1,550 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.IConnectListener;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.android.imsdk.chatmessage.IChatRoomExitListener;
+import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.mcast.IChatRoomMsgReceiveListener;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.fk5;
+import com.baidu.tieba.livesdk.AlaLiveSdkStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.TreeSet;
 /* loaded from: classes5.dex */
-public class kn7 {
+public class kn7 extends yf1<cb5> {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<qn7> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918933, "Lcom/baidu/tieba/kn7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947918933, "Lcom/baidu/tieba/kn7;");
-                return;
-            }
-        }
-        a = new ArrayList();
-    }
+    /* loaded from: classes5.dex */
+    public class a implements cb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public final List<gb5> c;
+        @NonNull
+        public final Map<Long, hb5> d;
+        public final IChatRoomMsgReceiveListener e;
+        public final Map<Long, fk5> f;
+        public final Map<ib5, IConnectListener> g;
+        @NonNull
+        public final Map<Long, String> h;
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            dp7.j().D(context, "");
-        }
-    }
+        /* loaded from: classes5.dex */
+        public class b implements fk5.b<fk5.b<Void>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
+            public final /* synthetic */ Long b;
+            public final /* synthetic */ eb5 c;
+            public final /* synthetic */ a d;
 
-    public static void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            dp7.j().q(context);
-        }
-    }
+            /* renamed from: com.baidu.tieba.kn7$a$b$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class C0338a implements IChatRoomEnterListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ boolean a;
+                public final /* synthetic */ fk5.b b;
+                public final /* synthetic */ b c;
 
-    public static void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            dp7.j().t(context);
-        }
-    }
-
-    public static void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            dp7.j().z(context);
-        }
-    }
-
-    public static void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
-            for (int i = 0; i < a.size(); i++) {
-                a.get(i).onCallback(jSONObject);
-            }
-            a.clear();
-        }
-    }
-
-    public static void q(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", Long.valueOf(j));
-            dp7.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
-        }
-    }
-
-    public static void b(Context context, String str, HashMap<String, Object> hashMap) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, hashMap) == null) {
-            if (hashMap != null) {
-                String str3 = (String) hashMap.get("enterroom_type");
-                String str4 = (String) hashMap.get("live_activity_type");
-                String str5 = (String) hashMap.get("extra");
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("live_activity_type", str4);
-                    jSONObject.put("extra", str5);
-                    str2 = jSONObject.toString();
-                } catch (JSONException unused) {
-                    str2 = "";
-                }
-                if ("1".equals(str3)) {
-                    dp7.j().H(context, str2);
-                    return;
-                } else {
-                    dp7.j().D(context, "");
-                    return;
-                }
-            }
-            dp7.j().D(context, "");
-        }
-    }
-
-    public static void e(Context context, un7 un7Var, qn7 qn7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65541, null, context, un7Var, qn7Var) != null) || context == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (un7Var != null) {
-            try {
-                if (!TextUtils.isEmpty(un7Var.a)) {
-                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, un7Var.a);
-                    if (qn7Var != null) {
-                        a.add(qn7Var);
-                    }
-                }
-                jSONObject.put("isTranslucent", un7Var.b);
-                if (!TextUtils.isEmpty(un7Var.c)) {
-                    jSONObject.put("from", un7Var.c);
-                }
-            } catch (JSONException unused) {
-            }
-        }
-        dp7.j().B(context, jSONObject.toString());
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(Context context, String str, Map<String, Object> map) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, map) == null) {
-            String str3 = (String) map.get("enterroom_type");
-            String str4 = (String) map.get("room_id");
-            String str5 = (String) map.get("live_id");
-            String str6 = (String) map.get("username");
-            String str7 = (String) map.get("userrec");
-            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
-            String str10 = (String) map.get("screen_direction");
-            String str11 = (String) map.get("open_giftlist");
-            String str12 = (String) map.get("tab");
-            String str13 = (String) map.get("tag");
-            String str14 = (String) map.get("source");
-            String str15 = (String) map.get("from");
-            String str16 = (String) map.get("extra");
-            String str17 = (String) map.get("audioUrl");
-            String str18 = (String) map.get("audio_bg");
-            String str19 = (String) map.get("chat_mcast_id");
-            String str20 = (String) map.get("open_msgpanel");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str12)) {
-                    jSONObject.put("tab", str12);
-                }
-                if (!TextUtils.isEmpty(str13)) {
-                    jSONObject.put("tag", str13);
-                }
-                if (!TextUtils.isEmpty(str14)) {
-                    jSONObject.put("source", str14);
-                }
-                if (!TextUtils.isEmpty(str15)) {
-                    jSONObject.put("from", str15);
-                }
-                if (!TextUtils.isEmpty(str8)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
-                }
-                if (!TextUtils.isEmpty(str9)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
-                }
-                if (!TextUtils.isEmpty(str10)) {
-                    jSONObject.put("screen_direction", str10);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
-                }
-                if (!TextUtils.isEmpty(str5)) {
-                    str2 = str5;
-                    try {
-                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
-                    } catch (JSONException e) {
-                        e = e;
-                        e.printStackTrace();
-                        if (!"1".equals(str3)) {
+                public C0338a(b bVar, boolean z, fk5.b bVar2) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar, Boolean.valueOf(z), bVar2};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
+                    this.c = bVar;
+                    this.a = z;
+                    this.b = bVar2;
+                }
+
+                @Override // com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener
+                public void onResult(int i, String str, IChatRoomEnterListener.ChatRoomInfo chatRoomInfo) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, chatRoomInfo) == null) {
+                        if (i != 0) {
+                            if (this.a) {
+                                b bVar = this.c;
+                                bVar.c.a(bVar.b.longValue(), i, str, chatRoomInfo);
+                                return;
+                            }
+                            this.b.call(false, null);
+                            return;
+                        }
+                        this.c.d.f.remove(this.c.b);
+                        b bVar2 = this.c;
+                        bVar2.c.a(bVar2.b.longValue(), i, str, chatRoomInfo);
+                    }
+                }
+            }
+
+            public b(a aVar, Context context, Long l, eb5 eb5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, context, l, eb5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.a = context;
+                this.b = l;
+                this.c = eb5Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.fk5.b
+            public void call(boolean z, fk5.b<Void> bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZL(1048576, this, z, bVar) == null) {
+                    BIMManager.enterChatRoom(this.a, this.b.longValue(), new C0338a(this, z, bVar));
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class c implements fk5.b<fk5.b<Void>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
+            public final /* synthetic */ Long b;
+            public final /* synthetic */ fb5 c;
+            public final /* synthetic */ a d;
+
+            /* renamed from: com.baidu.tieba.kn7$a$c$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class C0339a implements IChatRoomExitListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ boolean a;
+                public final /* synthetic */ fk5.b b;
+                public final /* synthetic */ c c;
+
+                public C0339a(c cVar, boolean z, fk5.b bVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cVar, Boolean.valueOf(z), bVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = cVar;
+                    this.a = z;
+                    this.b = bVar;
+                }
+
+                @Override // com.baidu.android.imsdk.chatmessage.IChatRoomExitListener
+                public void onResult(int i, String str) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                        if (i != 0) {
+                            if (this.a) {
+                                c cVar = this.c;
+                                cVar.c.a(cVar.b.longValue(), i, str);
+                                return;
+                            }
+                            this.b.call(false, null);
+                            return;
+                        }
+                        this.c.d.f.remove(this.c.b);
+                        c cVar2 = this.c;
+                        cVar2.c.a(cVar2.b.longValue(), i, str);
+                    }
+                }
+            }
+
+            public c(a aVar, Context context, Long l, fb5 fb5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, context, l, fb5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.a = context;
+                this.b = l;
+                this.c = fb5Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.fk5.b
+            public void call(boolean z, fk5.b<Void> bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZL(1048576, this, z, bVar) == null) {
+                    BIMManager.exitChatRoom(this.a, this.b.longValue(), new C0339a(this, z, bVar));
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.kn7$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0337a implements IChatRoomMsgReceiveListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0337a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.android.imsdk.mcast.IChatRoomMsgReceiveListener
+            public void onReceiveMessage(int i, long j, List<ChatMsg> list) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), list}) == null) {
+                    for (gb5 gb5Var : this.a.c) {
+                        if (gb5Var.a(i, j, list)) {
+                            return;
+                        }
+                    }
+                    TreeSet<ChatMsg> treeSet = new TreeSet<>(cb5.b);
+                    treeSet.addAll(list);
+                    ((hb5) this.a.d.get(Long.valueOf(j))).a(i, j, treeSet);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class d implements ISendMessageListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ kb5 a;
+
+            public d(a aVar, kb5 kb5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, kb5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = kb5Var;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+            public void onSendMessageResult(int i, ChatMsg chatMsg) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, chatMsg) == null) {
+                    this.a.onSendMessageResult(i, chatMsg);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class e implements IFetchMsgByIdListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ jb5 a;
+
+            public e(a aVar, jb5 jb5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jb5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = jb5Var;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
+            public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j, long j2, long j3, int i3, int i4, long j4, ArrayList<ChatMsg> arrayList) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j4), arrayList}) == null) {
+                    TreeSet<ChatMsg> treeSet = new TreeSet<>(cb5.b);
+                    treeSet.addAll(arrayList);
+                    this.a.a(i, str, treeSet);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class f implements IConnectListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ib5 a;
+
+            public f(a aVar, ib5 ib5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ib5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = ib5Var;
+            }
+
+            @Override // com.baidu.android.imsdk.account.IConnectListener
+            public void onResult(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                    this.a.onResult(i);
+                }
+            }
+        }
+
+        public a(kn7 kn7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            AlaLiveSdkStatic.k();
+            this.c = new ArrayList();
+            this.d = new HashMap();
+            this.e = new C0337a(this);
+            this.f = new HashMap();
+            this.g = new HashMap();
+            this.h = new HashMap();
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void d(@NonNull ib5 ib5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ib5Var) == null) {
+                f fVar = new f(this, ib5Var);
+                this.g.put(ib5Var, fVar);
+                BIMManager.registerConnectListenerToList(fVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void g(@NonNull ib5 ib5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, ib5Var) == null) {
+                BIMManager.unregisterConnectListenerFromList(this.g.remove(ib5Var));
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void a(@NonNull Context context, @NonNull List<Long> list, @NonNull hb5 hb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, list, hb5Var) == null) {
+                for (Long l : list) {
+                    bk5.b(l);
+                    if (this.d.get(l) == hb5Var) {
+                        BIMManager.unregisterChatRoomMsgReceiveListener(context, l.longValue(), this.e);
+                        this.d.remove(l);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void h(@NonNull Context context, @NonNull String str, @NonNull List<Long> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048583, this, context, str, list) == null) {
+                for (Long l : list) {
+                    bk5.b(l);
+                    Map<Long, String> map = this.h;
+                    map.put(l, str + context);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void b(@NonNull Context context, @NonNull List<Long> list, @NonNull hb5 hb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, hb5Var) == null) {
+                for (Long l : list) {
+                    bk5.b(l);
+                    this.d.put(l, hb5Var);
+                    BIMManager.registerChatRoomMsgReceiveListener(context, l.longValue(), this.e);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void c(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull eb5 eb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, list, eb5Var) == null) {
+                for (Long l : list) {
+                    bk5.b(l);
+                    Map<Long, String> map = this.h;
+                    map.put(l, str + context);
+                    m(l.longValue()).h(new b(this, context, l, eb5Var));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void e(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull fb5 fb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, list, fb5Var) == null) {
+                for (Long l : list) {
+                    bk5.b(l);
+                    if (TextUtils.equals(this.h.get(l), str + context)) {
+                        m(l.longValue()).h(new c(this, context, l, fb5Var));
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void f(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @NonNull jb5 jb5Var) {
+            long j3;
+            int i2;
+            long j4;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), jb5Var}) == null) {
+                if (z) {
+                    j4 = Long.MAX_VALUE;
+                    j3 = 0;
+                    i2 = i * (-1);
+                } else if (z2) {
+                    j4 = j2;
+                    i2 = i * (-1);
+                    j3 = 0;
                 } else {
-                    str2 = str5;
+                    j3 = j2;
+                    i2 = i;
+                    j4 = Long.MAX_VALUE;
                 }
-                if (!TextUtils.isEmpty(str16)) {
-                    jSONObject.put("extra", str16);
+                BIMManager.fetchChatRoomMsgRequest(context, Constants.APPID_TIEBA, AccountManager.getUK(context), 4, j, j3, j4, i2, z ? 1 : 0, new e(this, jb5Var));
+            }
+        }
+
+        @Override // com.baidu.tieba.cb5
+        public void i(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull kb5 kb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Long.valueOf(j), chatMsg, kb5Var}) == null) {
+                BIMManager.sendMsgToChatRoom(context, j, BIMManager.getBdUKFromBdUid(chatMsg.getSenderUid()), chatMsg, new d(this, kb5Var));
+            }
+        }
+
+        @NonNull
+        public final fk5 m(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                fk5 fk5Var = this.f.get(Long.valueOf(j));
+                if (fk5Var == null) {
+                    fk5 f2 = fk5.f();
+                    this.f.put(Long.valueOf(j), f2);
+                    return f2;
                 }
-                if (!TextUtils.isEmpty(str17)) {
-                    jSONObject.put("audioUrl", str17);
-                }
-                if (!TextUtils.isEmpty(str18)) {
-                    jSONObject.put("audio_bg", str18);
-                }
-                if (!TextUtils.isEmpty(str19)) {
-                    jSONObject.put("chat_mcast_id", str19);
-                }
-                if (!TextUtils.isEmpty(str20)) {
-                    jSONObject.put("open_msgpanel", str20);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-                str2 = str5;
+                fk5Var.g();
+                return fk5Var;
             }
-            if (!"1".equals(str3)) {
-                dp7.j().y(context, str, jSONObject.toString(), map);
-                return;
+            return (fk5) invokeJ.objValue;
+        }
+    }
+
+    public kn7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("user_name", str6);
-                jSONObject2.put("open_giftlist", str11);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("live_id", str2);
-                jSONObject3.put("useRecommend", true);
-                jSONObject3.put("otherParams", jSONObject);
-            } catch (JSONException e4) {
-                e4.printStackTrace();
-            }
-            dp7.j().x(context, jSONObject3.toString());
         }
     }
 
-    public static void d(Context context, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public cb5 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            dp7.j().h(context, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    public static void m(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            dp7.j().A(context, str);
-        }
-    }
-
-    public static void p(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", str);
-            hashMap.put("isSubscribe", Boolean.valueOf(z));
-            dp7.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
-        }
-    }
-
-    public static void g(Context context, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            dp7.j().v(context, j, i);
-        }
-    }
-
-    public static void h(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65544, null, context, str, i) == null) {
-            dp7.j().s(context, str, i);
-        }
-    }
-
-    public static void j(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            dp7.j().u(context, str, str2);
-        }
-    }
-
-    public static void n(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
-            dp7.j().C(context, str, str2);
-        }
-    }
-
-    public static void r(Application application, String str, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
-            dp7.j().r(application, str, uri);
-        }
-    }
-
-    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) && alaLiveInfoCoreData != null) {
-            long j = alaLiveInfoCoreData.liveID;
-            String str2 = alaLiveInfoCoreData.userName;
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
-                jSONObject.put("user_name", str2);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
-                jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
-                jSONObject.put("open_giftlist", "0");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("live_id", j);
-                jSONObject2.put("useRecommend", true);
-                jSONObject2.put("otherParams", jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            dp7.j().x(context, jSONObject2.toString());
-        }
+        return (cb5) invokeV.objValue;
     }
 }

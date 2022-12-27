@@ -46,12 +46,12 @@ public class nu2 {
 
         /* renamed from: com.baidu.tieba.nu2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0374a implements so1.a {
+        public class C0377a implements so1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0374a(a aVar, File[] fileArr) {
+            public C0377a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class nu2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0374a(this, fileArr));
+                    u.d(p, null, fileArr, new C0377a(this, fileArr));
                 }
             }
         }

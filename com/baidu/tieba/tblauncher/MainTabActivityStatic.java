@@ -33,7 +33,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ec5;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.i79;
+import com.baidu.tieba.j79;
 import com.baidu.tieba.my4;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.xg;
@@ -387,11 +387,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                i79.j(tbPageContext, "", forumWriteData);
+                                j79.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                i79.j(tbPageContext, str2, forumWriteData2);
+                                j79.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));

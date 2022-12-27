@@ -328,7 +328,7 @@ public class bu5 {
                             if (String.valueOf((int) e(next)).equals(hu5.c)) {
                                 BaseVM.m(28);
                             }
-                            uu8.a(MainTabScheduleStrategy.UNSCHEDULE);
+                            vu8.a(MainTabScheduleStrategy.UNSCHEDULE);
                             if (this.f != null) {
                                 String str = null;
                                 if (next instanceof mt5) {

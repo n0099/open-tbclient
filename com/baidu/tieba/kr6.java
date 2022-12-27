@@ -806,7 +806,7 @@ public class kr6 implements TabLayout.OnTabSelectedListener {
 
     public void H(String str) {
         ThreadData threadData;
-        js8 js8Var;
+        ks8 ks8Var;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || ListUtils.isEmpty(this.h.l())) {
             return;
@@ -819,8 +819,8 @@ public class kr6 implements TabLayout.OnTabSelectedListener {
             xn next = it.next();
             if (StringUtils.isNull(str)) {
                 if (!(next instanceof tp5) && !(next instanceof ms5)) {
-                    if ((next instanceof yu4) && (threadData = ((yu4) next).t) != null && (js8Var = threadData.funAdData) != null) {
-                        js8Var.p(true);
+                    if ((next instanceof yu4) && (threadData = ((yu4) next).t) != null && (ks8Var = threadData.funAdData) != null) {
+                        ks8Var.p(true);
                         it.remove();
                     }
                 } else {
@@ -934,7 +934,7 @@ public class kr6 implements TabLayout.OnTabSelectedListener {
             if (xi.isEmpty(this.l)) {
                 qz4Var.r(R.color.CAM_X0105);
             } else {
-                qz4Var.q(fm7.b(this.l));
+                qz4Var.q(gm7.b(this.l));
             }
         }
     }
@@ -1092,7 +1092,7 @@ public class kr6 implements TabLayout.OnTabSelectedListener {
                     J(intValue, this.f, false);
                     this.a.h2(this.o);
                     a56.b().e(false);
-                    nq8.g().h(this.a.getUniqueId(), false);
+                    oq8.g().h(this.a.getUniqueId(), false);
                 }
             }
             S(tab);
@@ -1124,7 +1124,7 @@ public class kr6 implements TabLayout.OnTabSelectedListener {
                     } else if (xi.isEmpty(this.l)) {
                         qz4Var.r(R.color.CAM_X0105);
                     } else {
-                        qz4Var.q(fm7.b(this.l));
+                        qz4Var.q(gm7.b(this.l));
                     }
                 }
             }

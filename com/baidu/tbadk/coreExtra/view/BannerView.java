@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj8;
+import com.baidu.tieba.bj8;
 import com.baidu.tieba.ct4;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +170,7 @@ public class BannerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, ct4Var) == null) {
             this.l = ct4Var;
-            aj8.f(ct4Var.g, this.f, ct4Var.h, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+            bj8.f(ct4Var.g, this.f, ct4Var.h, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

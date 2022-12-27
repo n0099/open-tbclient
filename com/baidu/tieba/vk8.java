@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
 /* loaded from: classes6.dex */
-public class vk8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vk8 {
+    void a();
 
-    public abstract void a();
+    void b();
 
-    public abstract void b();
+    void setButtonText(String str, int i);
 
-    public abstract void c();
+    void setButtonTextColor(@ColorRes int i);
 
-    public abstract void d();
+    void setButtonTextNightColor(int i);
+
+    void setButtonTextSize(@DimenRes int i);
+
+    void setInitText(String str);
+
+    void setRatio(int i);
 }

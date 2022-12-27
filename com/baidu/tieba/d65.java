@@ -38,7 +38,7 @@ public class d65 implements h65 {
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            oj8 n = oj8.n();
+            pj8 n = pj8.n();
             if (i == 3) {
                 n.v(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
@@ -46,7 +46,7 @@ public class d65 implements h65 {
                 n.B(downloadData);
             }
             e65.a(downloadData);
-            oj8.n().y(downloadData);
+            pj8.n().y(downloadData);
         }
     }
 
@@ -64,7 +64,7 @@ public class d65 implements h65 {
         }
         e65.c(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        oj8.n().y(downloadData);
+        pj8.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
             UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
         }
@@ -111,7 +111,7 @@ public class d65 implements h65 {
             edit.putLong(downloadData.getId(), downloadData.getSize());
             edit.commit();
         }
-        oj8.n().C(downloadData);
-        oj8.n().y(downloadData);
+        pj8.n().C(downloadData);
+        pj8.n().y(downloadData);
     }
 }

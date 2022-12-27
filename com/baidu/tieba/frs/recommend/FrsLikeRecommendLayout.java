@@ -21,6 +21,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ar8;
 import com.baidu.tieba.ho;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.tx;
@@ -28,7 +29,6 @@ import com.baidu.tieba.wt6;
 import com.baidu.tieba.xn;
 import com.baidu.tieba.xt6;
 import com.baidu.tieba.yt6;
-import com.baidu.tieba.zq8;
 import com.baidu.tieba.zt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,15 +102,15 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements tx {
         @Override // com.baidu.tieba.ho
         public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(xnVar instanceof zq8)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(xnVar instanceof ar8)) {
                 return;
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f090bbb) {
                 if (this.a.g != null) {
-                    this.a.g.b((zq8) xnVar);
+                    this.a.g.b((ar8) xnVar);
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090ab9 && this.a.g != null) {
-                this.a.g.c((zq8) xnVar, i, new a(this, i));
+                this.a.g.c((ar8) xnVar, i, new a(this, i));
             }
         }
     }

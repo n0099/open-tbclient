@@ -63,7 +63,7 @@ public class hg7 {
                     arrayList.add(contentBean);
                     String userGrowthWeight = TbSingleton.getInstance().getUserGrowthWeight(UserGrowthTaskRequestMessage.SHARE_THREAD);
                     if (userGrowthWeight != null) {
-                        if (TbadkCoreApplication.getCurrentMemberType() > 0 && (b = qm9.b(userGrowthWeight, -1)) >= 0) {
+                        if (TbadkCoreApplication.getCurrentMemberType() > 0 && (b = rm9.b(userGrowthWeight, -1)) >= 0) {
                             userGrowthWeight = (b * 2) + "";
                         }
                         spannableStringBuilder.append((CharSequence) BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX).append((CharSequence) userGrowthWeight);

@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface yg7 {
     int a();
 

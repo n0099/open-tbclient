@@ -10,13 +10,13 @@ import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tx8;
+import com.baidu.tieba.ux8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jz6 implements tx8.a {
+public class jz6 implements ux8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,7 +39,7 @@ public class jz6 implements tx8.a {
         }
     }
 
-    @Override // com.baidu.tieba.tx8.a
+    @Override // com.baidu.tieba.ux8.a
     public void a(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
@@ -47,7 +47,7 @@ public class jz6 implements tx8.a {
         }
     }
 
-    @Override // com.baidu.tieba.tx8.a
+    @Override // com.baidu.tieba.ux8.a
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
@@ -56,7 +56,7 @@ public class jz6 implements tx8.a {
         }
     }
 
-    @Override // com.baidu.tieba.tx8.a
+    @Override // com.baidu.tieba.ux8.a
     public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
@@ -64,7 +64,7 @@ public class jz6 implements tx8.a {
         }
     }
 
-    @Override // com.baidu.tieba.tx8.a
+    @Override // com.baidu.tieba.ux8.a
     public void d(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {

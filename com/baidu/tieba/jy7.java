@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface jy7 {
-    void a();
+    void d(int i, String str, int i2);
 }

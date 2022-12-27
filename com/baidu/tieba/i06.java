@@ -781,7 +781,7 @@ public class i06 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             if (!str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) && !str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW)) {
-                    wz8.b();
+                    xz8.b();
                     return true;
                 }
                 return false;

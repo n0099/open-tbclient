@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dn8;
+import com.baidu.tieba.aj8;
 import com.baidu.tieba.ek5;
+import com.baidu.tieba.en8;
 import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.kw6;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +123,7 @@ public class FrsActivityConfig extends IntentConfig {
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
-        dn8.b("frs");
+        en8.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -279,9 +279,9 @@ public class FrsActivityConfig extends IntentConfig {
             kw6.e(i2, frsRequestData);
             frsRequestData.b0(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && zi8.l().b() != null) {
-                int d = zi8.l().b().d(stringExtra, false);
-                int e = zi8.l().b().e(stringExtra, false);
+            if (ThreadData.isRecAppLoaded.get() && aj8.l().b() != null) {
+                int d = aj8.l().b().d(stringExtra, false);
+                int e = aj8.l().b().e(stringExtra, false);
                 if (frsRequestData.L() == 1) {
                     d++;
                 } else if (frsRequestData.L() == 2) {

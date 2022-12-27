@@ -41,11 +41,11 @@ public class sw6 implements vo6 {
     public FrsFragment a;
     public NoPressedRelativeLayout b;
     public ax6 c;
-    public hz8 d;
+    public iz8 d;
     public vt6 e;
-    public e79 f;
+    public f79 f;
     public OvalActionButton g;
-    public f79 h;
+    public g79 h;
     public vt6.d i;
     public final View.OnClickListener j;
     public final sg<in> k;
@@ -284,11 +284,11 @@ public class sw6 implements vo6 {
         if (frsFragment != null && noPressedRelativeLayout != null) {
             this.a = frsFragment;
             this.b = noPressedRelativeLayout;
-            this.d = new hz8(frsFragment.getPageContext());
+            this.d = new iz8(frsFragment.getPageContext());
             vt6 vt6Var = new vt6(frsFragment.getPageContext());
             this.e = vt6Var;
             vt6Var.i(this.i);
-            this.f = new e79(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
+            this.f = new f79(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
             u(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -303,17 +303,17 @@ public class sw6 implements vo6 {
     public void u(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            f79 f79Var = this.h;
+            g79 g79Var = this.h;
+            if (g79Var != null) {
+                g79Var.d(i);
+            }
+            f79 f79Var = this.f;
             if (f79Var != null) {
-                f79Var.d(i);
+                f79Var.i(i);
             }
-            e79 e79Var = this.f;
-            if (e79Var != null) {
-                e79Var.i(i);
-            }
-            hz8 hz8Var = this.d;
-            if (hz8Var != null) {
-                hz8Var.f();
+            iz8 iz8Var = this.d;
+            if (iz8Var != null) {
+                iz8Var.f();
             }
         }
     }
@@ -359,7 +359,7 @@ public class sw6 implements vo6 {
                 itemInfo = this.a.S0().itemInfo;
             }
             if (this.f == null) {
-                this.f = new e79(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
+                this.f = new f79(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
             }
             this.f.j(p3);
             this.f.l(m());
@@ -408,11 +408,11 @@ public class sw6 implements vo6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            f79 f79Var = this.h;
-            if (f79Var == null) {
+            g79 g79Var = this.h;
+            if (g79Var == null) {
                 return false;
             }
-            return f79Var.b();
+            return g79Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -421,11 +421,11 @@ public class sw6 implements vo6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            f79 f79Var = this.h;
-            if (f79Var == null) {
+            g79 g79Var = this.h;
+            if (g79Var == null) {
                 return false;
             }
-            return f79Var.b();
+            return g79Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -433,9 +433,9 @@ public class sw6 implements vo6 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            f79 f79Var = this.h;
-            if (f79Var != null) {
-                f79Var.e();
+            g79 g79Var = this.h;
+            if (g79Var != null) {
+                g79Var.e();
             }
             ax6 ax6Var = this.c;
             if (ax6Var != null) {
@@ -456,8 +456,8 @@ public class sw6 implements vo6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            f79 f79Var = this.h;
-            if (f79Var != null && f79Var.b()) {
+            g79 g79Var = this.h;
+            if (g79Var != null && g79Var.b()) {
                 this.h.a(true);
                 return true;
             }

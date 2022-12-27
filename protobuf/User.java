@@ -1,109 +1,33 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes9.dex */
 public final class User extends Message {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Integer DEFAULT_AGREENUM;
     public static final String DEFAULT_APPEALTHREADPOPOVER = "";
     public static final String DEFAULT_BAWUTYPE = "";
     public static final String DEFAULT_BGPIC = "";
-    public static final Integer DEFAULT_BIMGENDTIME;
     public static final String DEFAULT_BIMGURL = "";
-    public static final Integer DEFAULT_BOOKMARKCOUNT;
-    public static final Integer DEFAULT_BOOKMARKNEWCOUNT;
-    public static final Integer DEFAULT_CANMODIFYAVATAR;
-    public static final Integer DEFAULT_CONCERNNUM;
-    public static final Integer DEFAULT_DISPLAYAUTHTYPE;
-    public static final Integer DEFAULT_EACHOTHERFRIEND;
     public static final String DEFAULT_FANSNICKNAME = "";
-    public static final Integer DEFAULT_FANSNUM;
-    public static final Integer DEFAULT_FAVORITENUM;
     public static final String DEFAULT_FOLLOWFROM = "";
-    public static final List<ForumToolPerm> DEFAULT_FORUMTOOLAUTH;
-    public static final Long DEFAULT_FRIENDNUM;
-    public static final Integer DEFAULT_GENDER;
-    public static final List<GiftInfo> DEFAULT_GIFTLIST;
-    public static final Integer DEFAULT_GIFTNUM;
-    public static final List<MyGroupInfo> DEFAULT_GROUPLIST;
-    public static final Integer DEFAULT_HASBOTTLEENTER;
-    public static final Integer DEFAULT_HASCONCERNED;
-    public static final Integer DEFAULT_HEAVYUSER;
-    public static final List<Icon> DEFAULT_ICONINFO;
-    public static final Long DEFAULT_ID;
-    public static final Integer DEFAULT_INFLUENCE;
     public static final String DEFAULT_INTRO = "";
     public static final String DEFAULT_IOSBIMGFORMAT = "";
     public static final String DEFAULT_IP = "";
-    public static final Integer DEFAULT_ISBAWU;
-    public static final Integer DEFAULT_ISCOREUSER;
-    public static final Integer DEFAULT_ISDEFAULTAVATAR;
-    public static final Integer DEFAULT_ISFANS;
-    public static final Integer DEFAULT_ISFRIEND;
-    public static final Integer DEFAULT_ISGUANFANG;
-    public static final Integer DEFAULT_ISHUINIBUKE;
-    public static final Integer DEFAULT_ISINTERESTMAN;
-    public static final Integer DEFAULT_ISINVITED;
-    public static final Integer DEFAULT_ISLIKE;
-    public static final Integer DEFAULT_ISLOGIN;
-    public static final Integer DEFAULT_ISMANAGER;
-    public static final Integer DEFAULT_ISMASK;
-    public static final Integer DEFAULT_ISMEM;
-    public static final Integer DEFAULT_ISSELECTTAIL;
-    public static final Integer DEFAULT_ISSHOWREDPACKET;
-    public static final Integer DEFAULT_ISVERIFY;
-    public static final Integer DEFAULT_ISVIDEOBIGGIE;
-    public static final Integer DEFAULT_LEFTCALLNUM;
-    public static final Integer DEFAULT_LEVELID;
     public static final String DEFAULT_LEVELINFLUENCE = "";
     public static final String DEFAULT_LEVELNAME = "";
-    public static final List<LikeForumInfo> DEFAULT_LIKEFORUM;
-    public static final List<BazhuSign> DEFAULT_MANAGERFORUM;
-    public static final Integer DEFAULT_MEIZHILEVEL;
     public static final String DEFAULT_MODIFYAVATARDESC = "";
-    public static final List<SimpleUser> DEFAULT_MUTEUSER;
-    public static final Integer DEFAULT_MYLIKENUM;
     public static final String DEFAULT_NAME = "";
     public static final String DEFAULT_NAMESHOW = "";
-    public static final List<TshowInfo> DEFAULT_NEWTSHOWICON;
-    public static final Integer DEFAULT_NICKNAMEUPDATETIME;
-    public static final Integer DEFAULT_NOPOSTHIGH;
-    public static final Integer DEFAULT_NOUN;
     public static final String DEFAULT_PASSWD = "";
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_PORTRAITH = "";
-    public static final Integer DEFAULT_POSTNUM;
-    public static final Integer DEFAULT_PRIVTHREAD;
-    public static final List<TwAnchorProfitItem> DEFAULT_PROFITLIST;
     public static final String DEFAULT_RANK = "";
     public static final String DEFAULT_SEALPREFIX = "";
-    public static final Integer DEFAULT_SEX;
-    public static final Integer DEFAULT_SHOWPBPRIVATEFLAG;
     public static final String DEFAULT_TBAGE = "";
-    public static final Integer DEFAULT_THREADNUM;
     public static final String DEFAULT_TIEBAUID = "";
-    public static final Integer DEFAULT_TOTALAGREENUM;
-    public static final Integer DEFAULT_TOTALVISITORNUM;
-    public static final List<TshowInfo> DEFAULT_TSHOWICON;
-    public static final Integer DEFAULT_TYPE;
     public static final String DEFAULT_UK = "";
-    public static final Integer DEFAULT_USERHIDE;
-    public static final List<UserPics> DEFAULT_USERPICS;
-    public static final Integer DEFAULT_USERTYPE;
-    public static final Integer DEFAULT_VISITORNUM;
-    public static final Integer DEFAULT_WORKNUM;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 71)
     public final ActivitySponsor activitySponsor;
     @ProtoField(tag = 88, type = Message.Datatype.INT32)
@@ -348,17 +272,75 @@ public final class User extends Message {
     public final Integer workNum;
     @ProtoField(tag = 119)
     public final CreationData workcreationData;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Integer DEFAULT_ISLOGIN = 0;
+    public static final Long DEFAULT_ID = 0L;
+    public static final Integer DEFAULT_NOUN = 0;
+    public static final Integer DEFAULT_TYPE = 0;
+    public static final Integer DEFAULT_USERHIDE = 0;
+    public static final Integer DEFAULT_ISMANAGER = 0;
+    public static final Integer DEFAULT_MEIZHILEVEL = 0;
+    public static final Integer DEFAULT_ISVERIFY = 0;
+    public static final Integer DEFAULT_ISINTERESTMAN = 0;
+    public static final List<Icon> DEFAULT_ICONINFO = Collections.emptyList();
+    public static final List<TshowInfo> DEFAULT_TSHOWICON = Collections.emptyList();
+    public static final Integer DEFAULT_USERTYPE = 0;
+    public static final Integer DEFAULT_ISCOREUSER = 0;
+    public static final Integer DEFAULT_ISHUINIBUKE = 0;
+    public static final Integer DEFAULT_LEVELID = 0;
+    public static final Integer DEFAULT_ISLIKE = 0;
+    public static final Integer DEFAULT_ISBAWU = 0;
+    public static final Integer DEFAULT_FANSNUM = 0;
+    public static final Integer DEFAULT_CONCERNNUM = 0;
+    public static final Integer DEFAULT_SEX = 0;
+    public static final Integer DEFAULT_MYLIKENUM = 0;
+    public static final Integer DEFAULT_HASCONCERNED = 0;
+    public static final Integer DEFAULT_POSTNUM = 0;
+    public static final Integer DEFAULT_ISMEM = 0;
+    public static final Integer DEFAULT_BIMGENDTIME = 0;
+    public static final Integer DEFAULT_GENDER = 0;
+    public static final Integer DEFAULT_ISMASK = 0;
+    public static final List<UserPics> DEFAULT_USERPICS = Collections.emptyList();
+    public static final Integer DEFAULT_ISFRIEND = 0;
+    public static final List<LikeForumInfo> DEFAULT_LIKEFORUM = Collections.emptyList();
+    public static final List<MyGroupInfo> DEFAULT_GROUPLIST = Collections.emptyList();
+    public static final Integer DEFAULT_GIFTNUM = 0;
+    public static final List<GiftInfo> DEFAULT_GIFTLIST = Collections.emptyList();
+    public static final Integer DEFAULT_ISSELECTTAIL = 0;
+    public static final Integer DEFAULT_ISGUANFANG = 0;
+    public static final Integer DEFAULT_BOOKMARKCOUNT = 0;
+    public static final Integer DEFAULT_BOOKMARKNEWCOUNT = 0;
+    public static final List<SimpleUser> DEFAULT_MUTEUSER = Collections.emptyList();
+    public static final Long DEFAULT_FRIENDNUM = 0L;
+    public static final Integer DEFAULT_HEAVYUSER = 0;
+    public static final List<TshowInfo> DEFAULT_NEWTSHOWICON = Collections.emptyList();
+    public static final List<TwAnchorProfitItem> DEFAULT_PROFITLIST = Collections.emptyList();
+    public static final Integer DEFAULT_NOPOSTHIGH = 0;
+    public static final Integer DEFAULT_VISITORNUM = 0;
+    public static final Integer DEFAULT_TOTALVISITORNUM = 0;
+    public static final Integer DEFAULT_HASBOTTLEENTER = 0;
+    public static final Integer DEFAULT_EACHOTHERFRIEND = 0;
+    public static final Integer DEFAULT_NICKNAMEUPDATETIME = 0;
+    public static final Integer DEFAULT_THREADNUM = 0;
+    public static final Integer DEFAULT_AGREENUM = 0;
+    public static final Integer DEFAULT_LEFTCALLNUM = 0;
+    public static final Integer DEFAULT_ISINVITED = 0;
+    public static final Integer DEFAULT_ISFANS = 0;
+    public static final Integer DEFAULT_PRIVTHREAD = 0;
+    public static final Integer DEFAULT_ISVIDEOBIGGIE = 0;
+    public static final Integer DEFAULT_ISSHOWREDPACKET = 0;
+    public static final Integer DEFAULT_CANMODIFYAVATAR = 0;
+    public static final Integer DEFAULT_INFLUENCE = 0;
+    public static final Integer DEFAULT_ISDEFAULTAVATAR = 0;
+    public static final Integer DEFAULT_FAVORITENUM = 0;
+    public static final List<ForumToolPerm> DEFAULT_FORUMTOOLAUTH = Collections.emptyList();
+    public static final Integer DEFAULT_WORKNUM = 0;
+    public static final Integer DEFAULT_SHOWPBPRIVATEFLAG = 0;
+    public static final Integer DEFAULT_TOTALAGREENUM = 0;
+    public static final List<BazhuSign> DEFAULT_MANAGERFORUM = Collections.emptyList();
+    public static final Integer DEFAULT_DISPLAYAUTHTYPE = 0;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<User> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public ActivitySponsor activitySponsor;
         public Integer agreeNum;
         public AlaUserInfo alaInfo;
@@ -483,37 +465,10 @@ public final class User extends Message {
         public CreationData workcreationData;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(User user) {
             super(user);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {user};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (user == null) {
                 return;
             }
@@ -644,114 +599,12 @@ public final class User extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public User build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new User(this, z, null);
-            }
-            return (User) invokeZ.objValue;
+            return new User(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(317941112, "Lprotobuf/User;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(317941112, "Lprotobuf/User;");
-                return;
-            }
-        }
-        DEFAULT_ISLOGIN = 0;
-        DEFAULT_ID = 0L;
-        DEFAULT_NOUN = 0;
-        DEFAULT_TYPE = 0;
-        DEFAULT_USERHIDE = 0;
-        DEFAULT_ISMANAGER = 0;
-        DEFAULT_MEIZHILEVEL = 0;
-        DEFAULT_ISVERIFY = 0;
-        DEFAULT_ISINTERESTMAN = 0;
-        DEFAULT_ICONINFO = Collections.emptyList();
-        DEFAULT_TSHOWICON = Collections.emptyList();
-        DEFAULT_USERTYPE = 0;
-        DEFAULT_ISCOREUSER = 0;
-        DEFAULT_ISHUINIBUKE = 0;
-        DEFAULT_LEVELID = 0;
-        DEFAULT_ISLIKE = 0;
-        DEFAULT_ISBAWU = 0;
-        DEFAULT_FANSNUM = 0;
-        DEFAULT_CONCERNNUM = 0;
-        DEFAULT_SEX = 0;
-        DEFAULT_MYLIKENUM = 0;
-        DEFAULT_HASCONCERNED = 0;
-        DEFAULT_POSTNUM = 0;
-        DEFAULT_ISMEM = 0;
-        DEFAULT_BIMGENDTIME = 0;
-        DEFAULT_GENDER = 0;
-        DEFAULT_ISMASK = 0;
-        DEFAULT_USERPICS = Collections.emptyList();
-        DEFAULT_ISFRIEND = 0;
-        DEFAULT_LIKEFORUM = Collections.emptyList();
-        DEFAULT_GROUPLIST = Collections.emptyList();
-        DEFAULT_GIFTNUM = 0;
-        DEFAULT_GIFTLIST = Collections.emptyList();
-        DEFAULT_ISSELECTTAIL = 0;
-        DEFAULT_ISGUANFANG = 0;
-        DEFAULT_BOOKMARKCOUNT = 0;
-        DEFAULT_BOOKMARKNEWCOUNT = 0;
-        DEFAULT_MUTEUSER = Collections.emptyList();
-        DEFAULT_FRIENDNUM = 0L;
-        DEFAULT_HEAVYUSER = 0;
-        DEFAULT_NEWTSHOWICON = Collections.emptyList();
-        DEFAULT_PROFITLIST = Collections.emptyList();
-        DEFAULT_NOPOSTHIGH = 0;
-        DEFAULT_VISITORNUM = 0;
-        DEFAULT_TOTALVISITORNUM = 0;
-        DEFAULT_HASBOTTLEENTER = 0;
-        DEFAULT_EACHOTHERFRIEND = 0;
-        DEFAULT_NICKNAMEUPDATETIME = 0;
-        DEFAULT_THREADNUM = 0;
-        DEFAULT_AGREENUM = 0;
-        DEFAULT_LEFTCALLNUM = 0;
-        DEFAULT_ISINVITED = 0;
-        DEFAULT_ISFANS = 0;
-        DEFAULT_PRIVTHREAD = 0;
-        DEFAULT_ISVIDEOBIGGIE = 0;
-        DEFAULT_ISSHOWREDPACKET = 0;
-        DEFAULT_CANMODIFYAVATAR = 0;
-        DEFAULT_INFLUENCE = 0;
-        DEFAULT_ISDEFAULTAVATAR = 0;
-        DEFAULT_FAVORITENUM = 0;
-        DEFAULT_FORUMTOOLAUTH = Collections.emptyList();
-        DEFAULT_WORKNUM = 0;
-        DEFAULT_SHOWPBPRIVATEFLAG = 0;
-        DEFAULT_TOTALAGREENUM = 0;
-        DEFAULT_MANAGERFORUM = Collections.emptyList();
-        DEFAULT_DISPLAYAUTHTYPE = 0;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public User(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Integer num = builder.isLogin;
             if (num == null) {
@@ -1439,9 +1292,5 @@ public final class User extends Message {
         this.workCreatorInfo = builder.workCreatorInfo;
         this.levelName = builder.levelName;
         this.editConfig = builder.editConfig;
-    }
-
-    public /* synthetic */ User(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

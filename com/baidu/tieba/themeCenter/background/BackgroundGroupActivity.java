@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cy8;
+import com.baidu.tieba.az8;
 import com.baidu.tieba.dy8;
 import com.baidu.tieba.ey8;
+import com.baidu.tieba.fy8;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
 import com.baidu.tieba.ye5;
-import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public dy8 c;
-    public ey8 d;
+    public ey8 c;
+    public fy8 d;
     public BackgroundGroupModel.c e;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ve5
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, zy8 zy8Var, List<cy8> list) {
+        public void a(int i, String str, az8 az8Var, List<dy8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, zy8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, az8Var, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(zy8Var, list, this.a.b.P());
+                this.a.c.k(az8Var, list, this.a.b.P());
             }
         }
     }
@@ -115,10 +115,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        dy8 dy8Var;
+        ey8 ey8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (dy8Var = this.c) != null) {
-            showLoadingView(dy8Var.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (ey8Var = this.c) != null) {
+            showLoadingView(ey8Var.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            dy8 dy8Var = this.c;
-            if (dy8Var != null) {
-                dy8Var.f();
+            ey8 ey8Var = this.c;
+            if (ey8Var != null) {
+                ey8Var.f();
             }
         }
     }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
             backgroundGroupModel.S(this.e);
-            ey8 ey8Var = new ey8(this.a, this.b.getUniqueId());
-            this.d = ey8Var;
-            ey8Var.c(1);
-            dy8 dy8Var = new dy8(this, this.d);
-            this.c = dy8Var;
-            dy8Var.e();
+            fy8 fy8Var = new fy8(this.a, this.b.getUniqueId());
+            this.d = fy8Var;
+            fy8Var.c(1);
+            ey8 ey8Var = new ey8(this, this.d);
+            this.c = ey8Var;
+            ey8Var.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

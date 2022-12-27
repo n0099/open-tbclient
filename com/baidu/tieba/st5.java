@@ -44,13 +44,13 @@ public class st5 extends yf1<qi0> {
 
         /* renamed from: com.baidu.tieba.st5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0436a implements ti0 {
+        public class C0440a implements ti0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean[] a;
             public final /* synthetic */ ri0 b;
 
-            public C0436a(a aVar, boolean[] zArr, ri0 ri0Var) {
+            public C0440a(a aVar, boolean[] zArr, ri0 ri0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class st5 extends yf1<qi0> {
                 if (UrlSchemaJumpHelper.isHitBlackList(str)) {
                     return true;
                 }
-                vi0.a(context, str, null, new C0436a(this, new boolean[1], ri0Var), false);
+                vi0.a(context, str, null, new C0440a(this, new boolean[1], ri0Var), false);
                 return true;
             }
             return invokeLLLL.booleanValue;

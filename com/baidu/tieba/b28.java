@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.Align;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,8 +24,9 @@ public class b28 extends kn<w56, ThreadCardViewHolder<w56>> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
-    public Cdo c;
-    public h56<w56> d;
+    public boolean c;
+    public Cdo d;
+    public h56<w56> e;
 
     /* loaded from: classes3.dex */
     public class a extends h56<w56> {
@@ -57,11 +57,8 @@ public class b28 extends kn<w56, ThreadCardViewHolder<w56>> {
         /* renamed from: d */
         public void a(View view2, w56 w56Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, w56Var) == null) {
-                a56.b().d(true);
-                if (view2 != null && w56Var != null && w56Var.getThreadData() != null && !StringUtils.isNull(w56Var.getThreadData().getTid())) {
-                    this.b.w(view2, w56Var);
-                }
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, w56Var) == null) && view2 != null && w56Var != null && w56Var.getThreadData() != null && !StringUtils.isNull(w56Var.getThreadData().getTid())) {
+                this.b.w(view2, w56Var);
             }
         }
     }
@@ -97,10 +94,10 @@ public class b28 extends kn<w56, ThreadCardViewHolder<w56>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 w56 w56Var = (w56) xnVar;
                 w56Var.f = 1;
-                if (this.a.d != null) {
-                    this.a.d.a(threadCardViewHolder.getView(), w56Var);
+                if (this.a.e != null) {
+                    this.a.e.a(threadCardViewHolder.getView(), w56Var);
                 }
-                ThreadCardUtils.jumpToPB((vr4) w56Var, view2.getContext(), w56Var.C, false, ex.a((Cdo) viewGroup, view2, i));
+                ThreadCardUtils.jumpToPB((vr4) w56Var, view2.getContext(), w56Var.C, false);
                 threadCardViewHolder.a().p(new zy.a(1));
             }
         }
@@ -125,14 +122,15 @@ public class b28 extends kn<w56, ThreadCardViewHolder<w56>> {
                 return;
             }
         }
-        this.d = new a(this);
+        this.c = true;
+        this.e = new a(this);
         this.b = tbPageContext;
     }
 
     public void x(Cdo cdo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cdo) == null) {
-            this.c = cdo;
+            this.d = cdo;
         }
     }
 
@@ -143,10 +141,15 @@ public class b28 extends kn<w56, ThreadCardViewHolder<w56>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            oy.b bVar = new oy.b(this.b.getPageActivity());
+            oy.b bVar = new oy.b(this.b.getPageActivity(), false);
             bVar.l().k(true);
-            bVar.o(new mx(this.b.getPageActivity()));
-            ThreadCardViewHolder<w56> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c));
+            cy cyVar = new cy(this.b.getPageActivity());
+            cyVar.v("pb");
+            cyVar.w(this.c);
+            bVar.n(cyVar);
+            oy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            k.s(0);
+            ThreadCardViewHolder<w56> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.a);
             setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
@@ -161,16 +164,16 @@ public class b28 extends kn<w56, ThreadCardViewHolder<w56>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w56Var, threadCardViewHolder})) == null) {
-            if (w56Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || w56Var.a == null) {
-                return null;
+            if (w56Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && w56Var.a != null) {
+                w56Var.I(w56Var.position + 1);
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(w56Var);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.e);
+                j78.n(w56Var, this.b);
+                return threadCardViewHolder.getView();
             }
-            w56Var.I(w56Var.position + 1);
-            threadCardViewHolder.a().r(i);
-            threadCardViewHolder.p(false, Align.ALIGN_RIGHT_TOP, null);
-            threadCardViewHolder.e(w56Var);
-            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().q(this.d);
-            return threadCardViewHolder.getView();
+            return null;
         }
         return (View) invokeCommon.objValue;
     }
@@ -178,15 +181,7 @@ public class b28 extends kn<w56, ThreadCardViewHolder<w56>> {
     public final void w(View view2, w56 w56Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, w56Var) == null) {
-            int id = view2.getId();
-            if (w56Var == null) {
-                return;
-            }
-            if (id != R.id.forum_head_image && id != R.id.forum_head_barname && id != R.id.forum_head_info_attention && id != R.id.forum_head_info_thread) {
-                i78.m(w56Var, 1, this.b);
-            } else {
-                i78.m(w56Var, 2, this.b);
-            }
+            j78.m(w56Var, 1, this.b);
         }
     }
 }

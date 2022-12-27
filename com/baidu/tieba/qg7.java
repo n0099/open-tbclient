@@ -99,9 +99,9 @@ public class qg7 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921773 && (customResponsedMessage.getData() instanceof yh7)) {
-                yh7 yh7Var = (yh7) customResponsedMessage.getData();
-                ChatRoomInfo p = this.a.p(yh7Var.a, yh7Var.b, 0);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921773 && (customResponsedMessage.getData() instanceof zh7)) {
+                zh7 zh7Var = (zh7) customResponsedMessage.getData();
+                ChatRoomInfo p = this.a.p(zh7Var.a, zh7Var.b, 0);
                 if (p == null) {
                     return;
                 }
@@ -225,7 +225,7 @@ public class qg7 {
             if (ListUtils.isEmpty(e) || (chatMsg = e.get(e.size() - 1)) == null) {
                 return;
             }
-            chatMsg.setMsgTime(zh7.c(chatMsg));
+            chatMsg.setMsgTime(ai7.c(chatMsg));
             if (chatMsg.getMsgTime() <= chatRoomInfo.getTimestamp()) {
                 return;
             }
@@ -280,9 +280,9 @@ public class qg7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{chatMsg, Long.valueOf(j), Integer.valueOf(i)})) == null) {
             if (chatMsg.getMsgType() == 10000) {
-                a2 = zh7.b(chatMsg);
+                a2 = ai7.b(chatMsg);
             } else {
-                a2 = zh7.a(j, chatMsg);
+                a2 = ai7.a(j, chatMsg);
             }
             return p(a2, j, i);
         }

@@ -30,8 +30,8 @@ import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.sa5;
 import com.baidu.tieba.ta5;
-import com.baidu.tieba.tr8;
 import com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity;
+import com.baidu.tieba.ur8;
 import com.baidu.tieba.xa5;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -244,8 +244,8 @@ public class PersonInfoDelegateStatic extends qa5 {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            tr8.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, tr8.a("c/u/user/profile", 303012));
+            ur8.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, ur8.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ch9;
+import com.baidu.tieba.dh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -155,7 +155,7 @@ public class er5 {
             if (xi.isEmpty(e)) {
                 return 0;
             }
-            SampleResult a = bh9.a(e);
+            SampleResult a = ch9.a(e);
             if (a != SampleResult.T1 && a != SampleResult.T2 && a != SampleResult.T3 && a != SampleResult.T4 && a != SampleResult.T5) {
                 return 0;
             }
@@ -172,7 +172,7 @@ public class er5 {
                 return false;
             }
             try {
-                ch9.a aVar = new ch9.a();
+                dh9.a aVar = new dh9.a();
                 aVar.e(TbadkCoreApplication.getInst());
                 aVar.j(false);
                 aVar.n(30L);
@@ -180,7 +180,7 @@ public class er5 {
                 aVar.l(false);
                 aVar.o(15L);
                 aVar.k(1000);
-                bh9.b(aVar.c());
+                ch9.b(aVar.c());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

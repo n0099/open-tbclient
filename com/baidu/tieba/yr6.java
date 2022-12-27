@@ -34,12 +34,12 @@ public class yr6 extends kn<js6, a> {
 
         /* renamed from: com.baidu.tieba.yr6$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0493a implements View.OnClickListener {
+        public class View$OnClickListenerC0497a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0493a(a aVar, yr6 yr6Var) {
+            public View$OnClickListenerC0497a(a aVar, yr6 yr6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class yr6 extends kn<js6, a> {
             view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba7);
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ba6);
-            this.a.setOnClickListener(new View$OnClickListenerC0493a(this, yr6Var));
+            this.a.setOnClickListener(new View$OnClickListenerC0497a(this, yr6Var));
         }
 
         public void e(int i) {

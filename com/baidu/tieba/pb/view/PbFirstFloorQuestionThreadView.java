@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i78;
+import com.baidu.tieba.j78;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.x66;
@@ -68,9 +68,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.h != null && this.a.h.i()) {
                     this.a.h.h();
-                    i78.t("c14884");
+                    j78.t("c14884");
                 }
-                i78.t("c14885");
+                j78.t("c14885");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921724));
             }
         }
@@ -279,7 +279,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             String string = getContext().getString(R.string.pb_ask_post_first_tip);
             this.h.m(new b(this));
             this.h.R(string);
-            i78.t("c14883");
+            j78.t("c14883");
         }
     }
 

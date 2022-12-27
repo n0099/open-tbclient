@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i48;
+import com.baidu.tieba.j48;
 import com.baidu.tieba.oz4;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.xi;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public i48 c;
+    public j48 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,8 +130,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            i48 i48Var = this.c;
-            if (i48Var != null && i48Var.j() != null && this.c.j().getIsLike()) {
+            j48 j48Var = this.c;
+            if (j48Var != null && j48Var.j() != null && this.c.j().getIsLike()) {
                 return true;
             }
             return false;
@@ -176,9 +176,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             int a = a(threadData);
             if (this.c == null) {
                 if (getContext() instanceof AbsPbActivity) {
-                    i48 i48Var = new i48(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-                    this.c = i48Var;
-                    i48Var.m("11");
+                    j48 j48Var = new j48(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+                    this.c = j48Var;
+                    j48Var.m("11");
                     this.c.l(this.d);
                 } else {
                     return;
@@ -187,9 +187,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             this.c.n(threadData.getAuthor());
             this.c.x(str);
             this.c.v(threadData);
-            i48 i48Var2 = this.c;
-            i48Var2.p = true;
-            i48Var2.w(a);
+            j48 j48Var2 = this.c;
+            j48Var2.p = true;
+            j48Var2.w(a);
         }
     }
 }

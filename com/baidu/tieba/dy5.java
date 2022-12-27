@@ -103,7 +103,7 @@ public class dy5 {
                 EmotionStrategy.getInstance().setErrorImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
                 EmotionStrategy.getInstance().setNetworkImageRes(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
                 EmotionStrategy.getInstance().setPlaceHolderRes(R.drawable.obfuscated_res_0x7f080d53, R.drawable.obfuscated_res_0x7f080d54, R.drawable.obfuscated_res_0x7f080d52, R.drawable.obfuscated_res_0x7f080d53);
-                LiveFeedPageSdk.getInstance().initNetWork(new iq7());
+                LiveFeedPageSdk.getInstance().initNetWork(new jq7());
                 LiveFeedPageSdk.getInstance().initHostInfo("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
                 LiveFeedPageSdk.getInstance().initInvoke(new ey5());
                 LiveFeedPageSdk.getInstance().setInit();

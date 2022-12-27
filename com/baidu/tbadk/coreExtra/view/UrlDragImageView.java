@@ -56,7 +56,7 @@ import com.baidu.tieba.i65;
 import com.baidu.tieba.in;
 import com.baidu.tieba.l95;
 import com.baidu.tieba.lv4;
-import com.baidu.tieba.o49;
+import com.baidu.tieba.p49;
 import com.baidu.tieba.p95;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.ry4;
@@ -1005,7 +1005,7 @@ public class UrlDragImageView extends RelativeLayout {
                 progressBar.setVisibility(8);
             }
             ah.a().removeCallbacks(this.e0);
-            o49.a().d(-1);
+            p49.a().d(-1);
             ImageUrlData imageUrlData = this.J;
             if (imageUrlData != null) {
                 i65.k().f(TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl), 13);

@@ -374,7 +374,7 @@ public class cb7 extends o9<MsglistActivity<?>> {
                 if (((Boolean) view2.getTag()).booleanValue()) {
                     if (this.b.z.size() < 20) {
                         this.b.B.setChecked(true);
-                        this.b.z.add(new ReportPrivateMsgData(String.valueOf(this.a.getMsgId()), uz8.b(this.b.mContext, this.a), String.valueOf(this.a.getTime())));
+                        this.b.z.add(new ReportPrivateMsgData(String.valueOf(this.a.getMsgId()), vz8.b(this.b.mContext, this.a), String.valueOf(this.a.getTime())));
                         if (this.b.D != null) {
                             this.b.D.a(this.b.z, true);
                         }

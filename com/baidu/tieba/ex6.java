@@ -617,7 +617,7 @@ public abstract class ex6 {
         }
     }
 
-    public void U(List<zq8> list) {
+    public void U(List<ar8> list) {
         ForumData forum;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048596, this, list) != null) || this.a == null || this.Z == null || TextUtils.isEmpty(this.W) || ListUtils.isEmpty(list) || (forum = this.Z.getForum()) == null || forum.getThemeColorInfo() == null || !d(forum.getThemeColorInfo())) {

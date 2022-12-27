@@ -6,12 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rp8 extends gp8 {
+public class rp8 extends hp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sp8 c;
+    public ArrayList<tp8> c;
 
     public rp8() {
         Interceptable interceptable = $ic;
@@ -23,34 +25,42 @@ public class rp8 extends gp8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList<>();
     }
 
-    public sp8 h() {
+    public ArrayList<tp8> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (sp8) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gp8
+    @Override // com.baidu.tieba.hp8
     public void d(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
-            sp8 sp8Var = new sp8();
-            sp8Var.a(optJSONObject);
-            i(sp8Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            ArrayList<tp8> arrayList = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    tp8 tp8Var = new tp8();
+                    tp8Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(tp8Var);
+                }
+            }
+            i(arrayList);
         }
     }
 
-    public void i(sp8 sp8Var) {
+    public void i(ArrayList<tp8> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sp8Var) == null) {
-            this.c = sp8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.c = arrayList;
             g(null);
         }
     }

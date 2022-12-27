@@ -3,31 +3,36 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import javax.annotation.Nullable;
 import org.webrtc.CalledByNative;
-import org.webrtc.VideoEncoder;
-/* compiled from: VideoEncoder.java */
+import org.webrtc.VideoCodecInfo;
+import org.webrtc.VideoDecoder;
+import org.webrtc.VideoDecoderFactory;
+/* compiled from: VideoDecoderFactory.java */
 /* loaded from: classes6.dex */
 public final /* synthetic */ class x2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @CalledByNative
-    public static long $default$createNativeVideoEncoder(VideoEncoder videoEncoder) {
-        InterceptResult invokeL;
+    @Nullable
+    @Deprecated
+    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoEncoder)) == null) {
-            return 0L;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
-        return invokeL.longValue;
+        return (VideoDecoder) invokeLL.objValue;
     }
 
+    @Nullable
     @CalledByNative
-    public static boolean $default$isHardwareEncoder(VideoEncoder videoEncoder) {
-        InterceptResult invokeL;
+    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, VideoCodecInfo videoCodecInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoEncoder)) == null) {
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, videoDecoderFactory, videoCodecInfo)) == null) {
+            return videoDecoderFactory.createDecoder(videoCodecInfo.getName());
         }
-        return invokeL.booleanValue;
+        return (VideoDecoder) invokeLL.objValue;
     }
 }

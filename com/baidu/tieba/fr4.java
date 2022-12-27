@@ -109,7 +109,7 @@ public class fr4 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jt8.a("", 7);
+                kt8.a("", 7);
             }
         }
     }
@@ -647,7 +647,7 @@ public class fr4 {
                 }
             }
             this.a = accountData;
-            jt8.n();
+            kt8.n();
             if (this.b) {
                 BdSocketLinkService.setHasAbsoluteClose(false);
                 BdSocketLinkService.setAvailable(true);

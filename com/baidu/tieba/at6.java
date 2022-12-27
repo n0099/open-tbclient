@@ -706,8 +706,8 @@ public class at6 {
         ArrayList arrayList = new ArrayList();
         for (xn xnVar : list) {
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
-                if (xnVar instanceof uq8) {
-                    arrayList.add((uq8) xnVar);
+                if (xnVar instanceof vq8) {
+                    arrayList.add((vq8) xnVar);
                 }
             } else if (str.equals("ala_frs_demo_hell_live_feed_back_type") && (xnVar instanceof yu4)) {
                 ThreadData threadData = ((yu4) xnVar).t;
@@ -734,7 +734,7 @@ public class at6 {
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
                 i2 = 0;
                 while (i3 < bdTypeRecyclerView.getAdapter().getItemCount()) {
-                    if (bdTypeRecyclerView.E(i3) instanceof uq8) {
+                    if (bdTypeRecyclerView.E(i3) instanceof vq8) {
                         i2 = i3;
                     }
                     i3++;

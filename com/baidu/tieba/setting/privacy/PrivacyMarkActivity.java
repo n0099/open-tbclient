@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm8;
+import com.baidu.tieba.gm8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fm8 a;
+    public gm8 a;
     public HttpMessageListener b;
 
     /* loaded from: classes6.dex */
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            fm8 fm8Var = new fm8(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = fm8Var;
-            setContentView(fm8Var.o());
+            gm8 gm8Var = new gm8(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = gm8Var;
+            setContentView(gm8Var.o());
             registerListener(this.b);
         }
     }

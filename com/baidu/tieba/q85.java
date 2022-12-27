@@ -343,7 +343,7 @@ public class q85 extends o65 {
             arrayList.add(6);
             arrayList.add(9);
             b.d(new i75(b.getContext(), 1));
-            if (eu8.a() && jr8.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), x65.class)) != null && (x65Var = (x65) runTask.getData()) != null) {
+            if (fu8.a() && kr8.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), x65.class)) != null && (x65Var = (x65) runTask.getData()) != null) {
                 x65Var.l = 2;
                 b.d(x65Var);
             }

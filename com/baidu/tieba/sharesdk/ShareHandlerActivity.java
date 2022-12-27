@@ -7,16 +7,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tieba.jm8;
 import com.baidu.tieba.km8;
 import com.baidu.tieba.lm8;
 import com.baidu.tieba.mm8;
 import com.baidu.tieba.model.ShareReportModel;
 import com.baidu.tieba.nm8;
 import com.baidu.tieba.om8;
-import com.baidu.tieba.qm8;
+import com.baidu.tieba.pm8;
+import com.baidu.tieba.rm8;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-import com.baidu.tieba.tm8;
+import com.baidu.tieba.um8;
 import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,14 +28,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 /* loaded from: classes6.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbShareCallback {
+public class ShareHandlerActivity extends ShareBaseActivity implements rm8, WbShareCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
     public ShareEntity c;
-    public jm8 d;
-    public nm8 e;
+    public km8 d;
+    public om8 e;
     public ShareReportModel f;
     public PermissionJudgePolicy g;
 
@@ -93,9 +93,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbSh
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            jm8 jm8Var = this.d;
-            if (jm8Var != null) {
-                jm8Var.s();
+            km8 km8Var = this.d;
+            if (km8Var != null) {
+                km8Var.s();
             }
             ShareReportModel shareReportModel = this.f;
             if (shareReportModel != null) {
@@ -120,43 +120,43 @@ public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbSh
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        nm8 nm8Var;
+        om8 om8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (nm8Var = this.e) != null) {
-            nm8Var.P();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (om8Var = this.e) != null) {
+            om8Var.P();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        nm8 nm8Var;
+        om8 om8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (nm8Var = this.e) != null) {
-            nm8Var.Q();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (om8Var = this.e) != null) {
+            om8Var.Q();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        nm8 nm8Var;
+        om8 om8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (nm8Var = this.e) != null) {
-            nm8Var.R();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (om8Var = this.e) != null) {
+            om8Var.R();
         }
     }
 
-    @Override // com.baidu.tieba.qm8
+    @Override // com.baidu.tieba.rm8
     public void a1(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             if (i2 == 1) {
-                tm8.b(i, this.c);
+                um8.b(i, this.c);
             }
             if (i2 == 3) {
                 if (i != 8 && i != 6) {
-                    tm8.a(i, this.c);
+                    um8.a(i, this.c);
                 } else {
-                    tm8.b(i, this.c);
+                    um8.b(i, this.c);
                 }
             }
             if (this.c.getStats() != null) {
@@ -177,9 +177,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbSh
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i != 10103 && i != 10104) {
-                jm8 jm8Var = this.d;
-                if (jm8Var != null) {
-                    jm8Var.o(intent);
+                km8 km8Var = this.d;
+                if (km8Var != null) {
+                    km8Var.o(intent);
                     return;
                 }
                 return;
@@ -207,14 +207,14 @@ public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbSh
             }
             x1(shareEntity.getStats());
             this.b = this.c.getShareTo();
-            jm8 jm8Var = this.d;
-            if (jm8Var != null) {
-                jm8Var.s();
+            km8 km8Var = this.d;
+            if (km8Var != null) {
+                km8Var.s();
                 this.d = null;
             }
-            nm8 nm8Var = this.e;
-            if (nm8Var != null) {
-                nm8Var.s();
+            om8 om8Var = this.e;
+            if (om8Var != null) {
+                om8Var.s();
                 this.e = null;
             }
             int i = this.b;
@@ -226,28 +226,28 @@ public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbSh
                                 if (i != 4) {
                                     this.d = null;
                                 } else {
-                                    this.d = new lm8(this);
+                                    this.d = new mm8(this);
                                 }
                             } else {
-                                this.d = new om8(this, 3);
+                                this.d = new pm8(this, 3);
                             }
                         } else {
-                            this.d = new om8(this, 2);
+                            this.d = new pm8(this, 2);
                         }
                     } else {
-                        this.d = new km8(this);
+                        this.d = new lm8(this);
                     }
                 } else {
-                    nm8 nm8Var2 = new nm8(this, this, this);
-                    this.e = nm8Var2;
-                    this.d = nm8Var2;
+                    om8 om8Var2 = new om8(this, this, this);
+                    this.e = om8Var2;
+                    this.d = om8Var2;
                 }
             } else {
-                this.d = new mm8(this);
+                this.d = new nm8(this);
             }
-            jm8 jm8Var2 = this.d;
-            if (jm8Var2 != null) {
-                jm8Var2.A(this.c.getTid());
+            km8 km8Var2 = this.d;
+            if (km8Var2 != null) {
+                km8Var2.A(this.c.getTid());
                 this.d.y(this.c.getExtLiveInfo());
                 this.d.B(this.c.getUserGrowthWeight());
                 this.d.z(this.c.getTopicId());
@@ -262,9 +262,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbSh
                     return;
                 }
             }
-            jm8 jm8Var3 = this.d;
-            if (jm8Var3 != null) {
-                jm8Var3.t(getUniqueId());
+            km8 km8Var3 = this.d;
+            if (km8Var3 != null) {
+                km8Var3.t(getUniqueId());
                 this.d.o(getIntent());
                 this.d.a(this.c, this);
                 return;
@@ -284,9 +284,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements qm8, WbSh
             if (intent != null) {
                 intent.getIntExtra("extra_skin", 3);
             }
-            jm8 jm8Var = this.d;
-            if (jm8Var != null) {
-                jm8Var.o(intent);
+            km8 km8Var = this.d;
+            if (km8Var != null) {
+                km8Var.o(intent);
             }
         }
     }

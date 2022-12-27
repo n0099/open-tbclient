@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,15 +12,16 @@ public class hw8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public final lv8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hw8(MainTabActivity mainTabActivity, zu8 zu8Var) {
-        super(2921666);
+    public hw8(MainTabActivity mainTabActivity, av8 av8Var) {
+        super(2921543);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, zu8Var};
+            Object[] objArr = {mainTabActivity, av8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,24 +33,16 @@ public class hw8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        lv8 lv8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                MainTabActivity mainTabActivity = this.a;
-                mainTabActivity.J = 0;
-                mainTabActivity.K = System.currentTimeMillis();
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(false);
-                mk7.o = false;
-                mk7.p = false;
-                return;
-            }
-            xk5.a(2);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (lv8Var = this.b) != null && lv8Var.i() != null) {
+            this.b.i().a();
         }
     }
 }

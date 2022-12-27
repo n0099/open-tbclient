@@ -39,10 +39,10 @@ import com.baidu.tieba.dr4;
 import com.baidu.tieba.hj;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.s46;
-import com.baidu.tieba.t49;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tn5;
+import com.baidu.tieba.u49;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -732,7 +732,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                         spannableStringBuilder.replace(spannableStringBuilder.length() - i, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder3);
                     }
                     this.a.setText(spannableStringBuilder);
-                    this.a.setOnTouchListener(new t49(spannableStringBuilder));
+                    this.a.setOnTouchListener(new u49(spannableStringBuilder));
                     a56.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_SHOW));
                 }
                 l();

@@ -36,12 +36,12 @@ public class pw6 implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.pw6$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0414a implements Runnable {
+        public class RunnableC0416a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0414a(a aVar) {
+            public RunnableC0416a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class pw6 implements View.OnClickListener {
                 this.a.e = new PopupWindow(h, -2, g);
                 GreyUtil.grey(this.a.e);
                 this.a.e.showAtLocation(this.a.d, 53, g2, g3);
-                this.a.f.postDelayed(new RunnableC0414a(this), 3000L);
+                this.a.f.postDelayed(new RunnableC0416a(this), 3000L);
             }
         }
     }

@@ -10,8 +10,8 @@ import com.baidu.tieba.aq5;
 import com.baidu.tieba.qp5;
 import com.baidu.tieba.sp5;
 import com.baidu.tieba.vp5;
-import com.baidu.tieba.wi8;
 import com.baidu.tieba.wp5;
+import com.baidu.tieba.xi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FrsFeedAdAdapter extends aq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wi8 mRecAppContext;
+    public xi8 mRecAppContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsFeedAdAdapter(wi8 wi8Var, BdUniqueId bdUniqueId) {
-        super(wi8Var.p().getPageActivity(), bdUniqueId);
+    public FrsFeedAdAdapter(xi8 xi8Var, BdUniqueId bdUniqueId) {
+        super(xi8Var.p().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wi8Var, bdUniqueId};
+            Object[] objArr = {xi8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,7 +42,7 @@ public class FrsFeedAdAdapter extends aq5 {
                 return;
             }
         }
-        this.mRecAppContext = wi8Var;
+        this.mRecAppContext = xi8Var;
     }
 
     @Override // com.baidu.tieba.aq5, com.baidu.tieba.kn

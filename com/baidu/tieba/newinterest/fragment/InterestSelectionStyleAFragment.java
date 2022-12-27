@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.oz4;
-import com.baidu.tieba.qx7;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.rx7;
+import com.baidu.tieba.sx7;
 import com.baidu.tieba.view.NoScrollGridView;
-import com.baidu.tieba.xx7;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.yx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements qx7.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements rx7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public xx7 m;
+    public yx7 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -153,9 +153,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            rx7 rx7Var = new rx7(null, getContext());
-            this.c = rx7Var;
-            this.m = new xx7(this, rx7Var);
+            sx7 sx7Var = new sx7(null, getContext());
+            this.c = sx7Var;
+            this.m = new yx7(this, sx7Var);
         }
     }
 

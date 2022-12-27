@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.livesdk.share.message.AlaShareInBarResponsedMessage;
-import com.baidu.tieba.sn7;
+import com.baidu.tieba.tn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i, String str, sn7 sn7Var);
+        void a(int i, String str, tn7 tn7Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

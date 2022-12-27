@@ -16,7 +16,7 @@ public class oz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<ThreadData> a;
-    public lv7 b;
+    public mv7 b;
 
     public oz6() {
         Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class oz6 {
     }
 
     public final void a(r77 r77Var) {
-        lv7 lv7Var;
+        mv7 mv7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, r77Var) == null) && (lv7Var = this.b) != null && !ListUtils.isEmpty(lv7Var.b)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, r77Var) == null) && (mv7Var = this.b) != null && !ListUtils.isEmpty(mv7Var.b)) {
             r77Var.a.add(0, this.b);
         }
     }
@@ -89,8 +89,8 @@ public class oz6 {
             o67.h(true, arrayList, nz6Var.c());
             r77Var.a = o67.c(arrayList);
             a(r77Var);
-            lv7 lv7Var = this.b;
-            if (lv7Var != null && lv7Var.a && TbSingleton.getInstance().isShouldShowHomeLocalCompleteInfoCard()) {
+            mv7 mv7Var = this.b;
+            if (mv7Var != null && mv7Var.a && TbSingleton.getInstance().isShouldShowHomeLocalCompleteInfoCard()) {
                 r77Var.a.add(0, new o77());
             }
             return r77Var;

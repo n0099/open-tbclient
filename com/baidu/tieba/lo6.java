@@ -309,7 +309,7 @@ public class lo6 extends ck6<yu4, ThreadCardViewHolder<ThreadData>> implements f
             }
             FrsViewData frsViewData = this.b;
             if (frsViewData != null && (((i2 = frsViewData.frsCurrentTabId) == 503 || i2 == 1) && i == 0)) {
-                dn8.a("frs", true);
+                en8.a("frs", true);
             }
             threadCardViewHolder.a().b(this.m);
             threadCardViewHolder.a().r(i);

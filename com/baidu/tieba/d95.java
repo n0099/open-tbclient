@@ -394,7 +394,7 @@ public class d95 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = xz8.a(2002);
+            layoutParams.type = yz8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             int i = this.i;

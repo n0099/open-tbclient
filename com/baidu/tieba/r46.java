@@ -40,7 +40,7 @@ import com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.lf8;
+import com.baidu.tieba.mf8;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
     public View A;
     public TextView B;
     public View C;
-    public vf8 D;
+    public wf8 D;
     public x56 E;
     public View F;
     public int G;
@@ -64,7 +64,7 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
     public boolean I;
     public boolean J;
     public String K;
-    public lf8 L;
+    public mf8 L;
     public Animation M;
     public TextView N;
     public TextView O;
@@ -148,7 +148,7 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements lf8.c {
+    public class b implements mf8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r46 a;
@@ -171,7 +171,7 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
             this.a = r46Var;
         }
 
-        @Override // com.baidu.tieba.lf8.c
+        @Override // com.baidu.tieba.mf8.c
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i2 < i && i != 0 && (i2 * 100) / i >= 80 && i > 15000) {
@@ -331,9 +331,9 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
             TbVideoViewContainer tbVideoViewContainer = this.w;
             if (tbVideoViewContainer != null) {
                 tbVideoViewContainer.getControl().stopPlayback();
-                lf8 lf8Var = this.L;
-                if (lf8Var != null) {
-                    lf8Var.n();
+                mf8 mf8Var = this.L;
+                if (mf8Var != null) {
+                    mf8Var.n();
                 }
             }
             this.I = false;
@@ -379,7 +379,7 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
                     String str = ry4.l().r("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.E.getThreadData().getTid();
                     spannableStringBuilder.append((CharSequence) this.E.getThreadData().generateNaniTail(new a(this, 2, str, str)));
                 }
-                this.r.setOnTouchListener(new t49(spannableStringBuilder));
+                this.r.setOnTouchListener(new u49(spannableStringBuilder));
                 this.r.setText(spannableStringBuilder);
                 this.s.j(this.E.getThreadData());
                 this.s.setUserAfterClickListener(this.S);
@@ -463,29 +463,29 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (x56Var = this.E) != null && x56Var.a != null) {
-            yf8 yf8Var = new yf8();
+            zf8 zf8Var = new zf8();
             if (this.E.T == 0) {
                 str = "index";
             } else {
                 str = "hot_juhe";
             }
-            yf8Var.a = str;
-            yf8Var.c = this.E.a.getTid();
-            yf8Var.d = this.E.a.getFid() + "";
-            yf8Var.e = TbadkCoreApplication.getCurrentAccount();
+            zf8Var.a = str;
+            zf8Var.c = this.E.a.getTid();
+            zf8Var.d = this.E.a.getFid() + "";
+            zf8Var.e = TbadkCoreApplication.getCurrentAccount();
             x56 x56Var2 = this.E;
             ThreadData threadData = x56Var2.a;
-            yf8Var.f = threadData.mRecomSource;
+            zf8Var.f = threadData.mRecomSource;
             String str2 = threadData.mRecomAbTag;
-            yf8Var.l = str2;
-            yf8Var.g = str2;
-            yf8Var.h = threadData.mRecomWeight;
-            yf8Var.i = "";
-            yf8Var.k = x56Var2.g();
+            zf8Var.l = str2;
+            zf8Var.g = str2;
+            zf8Var.h = threadData.mRecomWeight;
+            zf8Var.i = "";
+            zf8Var.k = x56Var2.g();
             if (this.E.a.getThreadVideoInfo() != null) {
-                yf8Var.m = this.E.a.getThreadVideoInfo().video_md5;
+                zf8Var.m = this.E.a.getThreadVideoInfo().video_md5;
             }
-            nf8.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", yf8Var, this.w.getControl().getPcdnState());
+            of8.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", zf8Var, this.w.getControl().getPcdnState());
         }
     }
 
@@ -751,9 +751,9 @@ public class r46 extends h46<x56> implements View.OnClickListener, gr5 {
                 }
                 this.I = true;
                 this.w.getControl().setVideoPath(this.K, this.E.g);
-                lf8 lf8Var = this.L;
-                if (lf8Var != null) {
-                    lf8Var.m();
+                mf8 mf8Var = this.L;
+                if (mf8Var != null) {
+                    mf8Var.m();
                 }
                 J();
             }

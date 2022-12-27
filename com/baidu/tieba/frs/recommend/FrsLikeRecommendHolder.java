@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ar8;
 import com.baidu.tieba.pz4;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.rq8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -77,23 +77,23 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(zq8 zq8Var) {
+    public void a(ar8 ar8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zq8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ar8Var) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.K(zq8Var.a, 10, false);
+                barImageView.K(ar8Var.a, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(zq8Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0683));
+                symbolEMTextView.setText(ar8Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0683));
             }
             TextView textView = this.d;
             if (textView != null) {
-                textView.setText(zq8Var.c);
+                textView.setText(ar8Var.c);
             }
             if (this.e != null) {
-                if (zq8Var.d) {
+                if (ar8Var.d) {
                     pz4 pz4Var = new pz4();
                     pz4Var.p(R.color.CAM_X0903, R.color.CAM_X0109);
                     this.e.setConfig(pz4Var);
@@ -118,7 +118,7 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                     }
                 }
                 pz4 pz4Var2 = new pz4();
-                pz4Var2.s(qq8.f(str));
+                pz4Var2.s(rq8.f(str));
                 this.e.setConfig(pz4Var2);
                 TBSpecificationBtn tBSpecificationBtn2 = this.e;
                 tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f0749));

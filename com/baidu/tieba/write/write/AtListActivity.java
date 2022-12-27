@@ -50,12 +50,12 @@ import com.baidu.tieba.bo;
 import com.baidu.tieba.kg5;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.tq4;
-import com.baidu.tieba.u89;
-import com.baidu.tieba.v79;
+import com.baidu.tieba.v89;
+import com.baidu.tieba.w79;
 import com.baidu.tieba.write.write.AtSelectFriendList;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.y79;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class AtListActivity extends SuspendedActivity implements kg5, AdapterView.OnItemClickListener, u89.c {
+public class AtListActivity extends SuspendedActivity implements kg5, AdapterView.OnItemClickListener, v89.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView A;
@@ -95,8 +95,8 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
     public LinearLayout s;
     public Button t;
     public l u;
-    public y79 v;
-    public u89 w;
+    public z79 v;
+    public v89 w;
     public String x;
     public RelativeLayout y;
     public View z;
@@ -116,12 +116,12 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0476a implements View.OnClickListener {
+        public class View$OnClickListenerC0477a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0476a(a aVar) {
+            public View$OnClickListenerC0477a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
                 this.a.B.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0501), new View$OnClickListenerC0476a(this));
+                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0501), new View$OnClickListenerC0477a(this));
                 }
             }
         }
@@ -605,7 +605,7 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
     }
 
     /* loaded from: classes6.dex */
-    public class l extends BdAsyncTask<String, Integer, v79> {
+    public class l extends BdAsyncTask<String, Integer, w79> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -637,7 +637,7 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public v79 doInBackground(String... strArr) {
+        public w79 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -661,21 +661,21 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    v79 v79Var = new v79();
-                    v79Var.b(postNetData);
-                    return v79Var;
+                    w79 w79Var = new w79();
+                    w79Var.b(postNetData);
+                    return w79Var;
                 }
                 return null;
             }
-            return (v79) invokeL.objValue;
+            return (w79) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(v79 v79Var) {
+        public void onPostExecute(w79 w79Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v79Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w79Var) == null) {
                 this.b.u = null;
                 AtListActivity atListActivity = this.b;
                 atListActivity.hideNetRefreshView(atListActivity.H);
@@ -683,17 +683,17 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
                     this.b.z.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.v.b(v79Var);
+                    this.b.v.b(w79Var);
                     if (this.b.w == null) {
                         return;
                     }
-                    if (v79Var == null || v79Var.a() == null || !v79Var.a().isEmpty()) {
+                    if (w79Var == null || w79Var.a() == null || !w79Var.a().isEmpty()) {
                         this.b.T1(0);
                     } else {
                         this.b.T1(2);
                     }
-                    if (v79Var != null) {
-                        this.b.k = v79Var.a();
+                    if (w79Var != null) {
+                        this.b.k = w79Var.a();
                     }
                     this.b.w.f(this.b.k);
                     this.b.w.notifyDataSetInvalidated();
@@ -703,7 +703,7 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
                     AtListActivity atListActivity2 = this.b;
                     atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.refresh_view_title_text), null, this.b.getString(R.string.refresh_view_button_text), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(v79Var);
+                super.onPostExecute(w79Var);
             }
         }
 
@@ -799,7 +799,7 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
         return (kg5) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.u89.c
+    @Override // com.baidu.tieba.v89.c
     public void p0(View view2, MetaData metaData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048598, this, view2, metaData) != null) || metaData == null) {
@@ -899,7 +899,7 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
     public final void O1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.v = new y79();
+            this.v = new z79();
             if (bundle != null) {
                 this.I = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
                 this.J = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -954,9 +954,9 @@ public class AtListActivity extends SuspendedActivity implements kg5, AdapterVie
             this.p = (LinearLayout) findViewById(R.id.bt_search_left);
             this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906fd);
             this.q = (BdListView) findViewById(R.id.obfuscated_res_0x7f0913ba);
-            u89 u89Var = new u89(this, this.I);
-            this.w = u89Var;
-            u89Var.g(this);
+            v89 v89Var = new v89(this, this.I);
+            this.w = v89Var;
+            v89Var.g(this);
             this.w.e(new e(this));
             this.q.setAdapter((ListAdapter) this.w);
             this.q.setOnItemClickListener(this);

@@ -9,7 +9,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.g95;
-import com.baidu.tieba.ky8;
+import com.baidu.tieba.ly8;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
 import com.baidu.tieba.ye5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public ky8 b;
+    public ly8 b;
     public int c;
     public int d;
     public int e;
@@ -161,19 +161,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            ky8 ky8Var = this.b;
-            if (ky8Var != null) {
-                ky8Var.h();
+            ly8 ly8Var = this.b;
+            if (ly8Var != null) {
+                ly8Var.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        ky8 ky8Var;
+        ly8 ly8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (ky8Var = this.b) != null) {
-            showLoadingView(ky8Var.f());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (ly8Var = this.b) != null) {
+            showLoadingView(ly8Var.f());
             this.a.loadData();
         }
     }
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ky8 ky8Var = this.b;
-            if (ky8Var != null) {
-                ky8Var.g();
+            ly8 ly8Var = this.b;
+            if (ly8Var != null) {
+                ly8Var.g();
             }
         }
     }
@@ -225,9 +225,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
             backgroundPreviewModel.L(this.f);
-            ky8 ky8Var = new ky8(this);
-            this.b = ky8Var;
-            showLoadingView(ky8Var.f());
+            ly8 ly8Var = new ly8(this);
+            this.b = ly8Var;
+            showLoadingView(ly8Var.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

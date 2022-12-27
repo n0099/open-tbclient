@@ -23,7 +23,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dy6;
-import com.baidu.tieba.js8;
+import com.baidu.tieba.ks8;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.vx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -204,14 +204,14 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull js8 js8Var, @NonNull Activity activity) {
+    public void f(@NonNull ks8 ks8Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, js8Var, activity) == null) {
-            super.f(js8Var, activity);
-            if (js8Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, ks8Var, activity) == null) {
+            super.f(ks8Var, activity);
+            if (ks8Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) js8Var.e();
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) ks8Var.e();
             this.w.setText(this.c);
             this.u.K(dy6.j(funNativeAd2), 10, false);
             if (dy6.m(funNativeAd2) != null) {

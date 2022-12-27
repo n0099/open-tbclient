@@ -132,12 +132,12 @@ public abstract class rg1 implements ch1, AdView.a, SensorEventListener {
 
         /* renamed from: com.baidu.tieba.rg1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0429a implements View.OnClickListener {
+        public class View$OnClickListenerC0432a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0429a(a aVar) {
+            public View$OnClickListenerC0432a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,7 +194,7 @@ public abstract class rg1 implements ch1, AdView.a, SensorEventListener {
                         this.c.V.setComposition(lottieComposition);
                         this.c.V.playAnimation();
                         this.c.n(this.c.V, this.a, this.b, "click_float_lottie", this.c.K);
-                        this.c.V.setOnClickListener(new View$OnClickListenerC0429a(this));
+                        this.c.V.setOnClickListener(new View$OnClickListenerC0432a(this));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

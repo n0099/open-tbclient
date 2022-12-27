@@ -36,14 +36,14 @@ public class iy6 {
     public PopupWindow f;
 
     /* loaded from: classes5.dex */
-    public class a implements g18 {
+    public class a implements h18 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ iy6 a;
 
-        @Override // com.baidu.tieba.g18
+        @Override // com.baidu.tieba.h18
         public /* synthetic */ void onStart() {
-            f18.a(this);
+            g18.a(this);
         }
 
         public a(iy6 iy6Var) {
@@ -64,7 +64,7 @@ public class iy6 {
             this.a = iy6Var;
         }
 
-        @Override // com.baidu.tieba.g18
+        @Override // com.baidu.tieba.h18
         public void onStop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bp5;
-import com.baidu.tieba.j49;
-import com.baidu.tieba.oi8;
+import com.baidu.tieba.k49;
+import com.baidu.tieba.pi8;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.view.GestureInterceptTouchFrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
+public class AdVideoFlowFragment extends BaseFragment implements bp5.b, k49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public oi8 c;
+    public pi8 c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -134,7 +134,7 @@ public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
         this.g = new a(this, 2921612);
     }
 
-    @Override // com.baidu.tieba.j49
+    @Override // com.baidu.tieba.k49
     public VideoItemModel G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,11 +149,11 @@ public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            oi8 oi8Var = this.c;
-            if (oi8Var == null) {
+            pi8 pi8Var = this.c;
+            if (pi8Var == null) {
                 return;
             }
-            oi8Var.onDestroy();
+            pi8Var.onDestroy();
         }
     }
 
@@ -174,11 +174,11 @@ public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
-            oi8 oi8Var = this.c;
-            if (oi8Var == null) {
+            pi8 pi8Var = this.c;
+            if (pi8Var == null) {
                 return;
             }
-            oi8Var.onPause();
+            pi8Var.onPause();
         }
     }
 
@@ -187,35 +187,35 @@ public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPrimary();
-            oi8 oi8Var = this.c;
-            if (oi8Var == null) {
+            pi8 pi8Var = this.c;
+            if (pi8Var == null) {
                 return;
             }
-            oi8Var.onPrimary(isPrimary());
+            pi8Var.onPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.bp5.b
     public void onViewClick() {
-        oi8 oi8Var;
+        pi8 pi8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (oi8Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (pi8Var = this.c) == null) {
             return;
         }
-        oi8Var.onViewClick();
+        pi8Var.onViewClick();
     }
 
     @Override // com.baidu.tieba.bp5.b
     public void onViewDragToRight() {
-        oi8 oi8Var;
+        pi8 pi8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (oi8Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (pi8Var = this.c) == null) {
             return;
         }
-        oi8Var.onViewDragToRight();
+        pi8Var.onViewDragToRight();
     }
 
-    @Override // com.baidu.tieba.j49
+    @Override // com.baidu.tieba.k49
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -227,12 +227,12 @@ public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
 
     @Override // com.baidu.tieba.bp5.b
     public void n0(float f, float f2) {
-        oi8 oi8Var;
+        pi8 pi8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (oi8Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (pi8Var = this.c) == null) {
             return;
         }
-        oi8Var.onViewDoubleClick();
+        pi8Var.onViewDoubleClick();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -251,7 +251,7 @@ public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
         }
     }
 
-    @Override // com.baidu.tieba.j49
+    @Override // com.baidu.tieba.k49
     public void p0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -264,18 +264,18 @@ public class AdVideoFlowFragment extends BaseFragment implements bp5.b, j49 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             super.setUserVisibleHint(z);
-            oi8 oi8Var = this.c;
-            if (oi8Var == null) {
+            pi8 pi8Var = this.c;
+            if (pi8Var == null) {
                 return;
             }
-            oi8Var.onUserVisibleHint(z);
+            pi8Var.onUserVisibleHint(z);
         }
     }
 
-    public void x1(oi8 oi8Var) {
+    public void x1(pi8 pi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, oi8Var) == null) {
-            this.c = oi8Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, pi8Var) == null) {
+            this.c = pi8Var;
         }
     }
 

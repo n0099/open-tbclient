@@ -46,12 +46,12 @@ public class vf6 extends b75 {
 
         /* renamed from: com.baidu.tieba.vf6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0457a implements Runnable {
+        public class RunnableC0459a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0457a(a aVar) {
+            public RunnableC0459a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class vf6 extends b75 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                new Thread(new RunnableC0457a(this)).start();
+                new Thread(new RunnableC0459a(this)).start();
             }
         }
     }

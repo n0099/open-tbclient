@@ -56,12 +56,12 @@ public class j93 extends p93<e> {
 
             /* renamed from: com.baidu.tieba.j93$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0323a implements z83 {
+            public class C0326a implements z83 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0323a(a aVar) {
+                public C0326a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class j93 extends p93<e> {
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing()) {
                     return;
                 }
-                c93.u(this.a, this.c.c.M(), this.b, null, new C0323a(this));
+                c93.u(this.a, this.c.c.M(), this.b, null, new C0326a(this));
             }
         }
 

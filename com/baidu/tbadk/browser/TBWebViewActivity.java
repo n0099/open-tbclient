@@ -90,8 +90,10 @@ import com.baidu.tbadk.switchs.RedirectInterceptionSwitch;
 import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
+import com.baidu.tieba.ai8;
 import com.baidu.tieba.al5;
 import com.baidu.tieba.aq4;
+import com.baidu.tieba.at8;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.el5;
 import com.baidu.tieba.fl5;
@@ -107,15 +109,13 @@ import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.tieba.sp4;
-import com.baidu.tieba.tx8;
+import com.baidu.tieba.ux8;
 import com.baidu.tieba.v55;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.tieba.vx4;
-import com.baidu.tieba.wh8;
 import com.baidu.tieba.wx4;
 import com.baidu.tieba.xh8;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.xs8;
 import com.baidu.tieba.xx4;
 import com.baidu.tieba.yh8;
 import com.baidu.tieba.yi;
@@ -162,8 +162,8 @@ public class TBWebViewActivity extends BaseWebViewActivity {
     public boolean isDisableGoBack;
     public boolean isNewHotTopicView;
     public boolean isShowFullScreen;
-    public xs8 jsBridge;
-    public zs8 jsCallback;
+    public ys8 jsBridge;
+    public at8 jsCallback;
     public boolean loadMyself;
     public String mBid;
     public CommonTbJsBridge mCommonTbJsBridge;
@@ -178,7 +178,7 @@ public class TBWebViewActivity extends BaseWebViewActivity {
     public String mPageTranslucent;
     public String mPageType;
     public PermissionJudgePolicy mPermissionJudgement;
-    public wh8 mProxy;
+    public xh8 mProxy;
     public final CustomMessageListener mSelfLoadJsListener;
     public final CustomMessageListener mSetShareInfoListener;
     public String mShareInfo;
@@ -876,7 +876,7 @@ public class TBWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class h implements zs8 {
+    public class h implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBWebViewActivity a;
@@ -899,7 +899,7 @@ public class TBWebViewActivity extends BaseWebViewActivity {
             this.a = tBWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -1689,10 +1689,10 @@ public class TBWebViewActivity extends BaseWebViewActivity {
         sendBroadcast(intent, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW);
     }
 
-    public void addJsPromptInterface(ys8 ys8Var) {
+    public void addJsPromptInterface(zs8 zs8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ys8Var) == null) && ys8Var != null) {
-            this.jsBridge.a(ys8Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zs8Var) == null) && zs8Var != null) {
+            this.jsBridge.a(zs8Var);
         }
     }
 
@@ -1801,17 +1801,17 @@ public class TBWebViewActivity extends BaseWebViewActivity {
         }
     }
 
-    private ys8 buildGameDownloadJSPrompt() {
+    private zs8 buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, ys8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, zs8.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (ys8) runTask.getData();
+                return (zs8) runTask.getData();
             }
             return null;
         }
-        return (ys8) invokeV.objValue;
+        return (zs8) invokeV.objValue;
     }
 
     private void checkH5PersonlizedSwitch() {
@@ -1867,9 +1867,9 @@ public class TBWebViewActivity extends BaseWebViewActivity {
             callHiddenWebViewMethod(MissionEvent.MESSAGE_PAUSE);
             MessageManager.getInstance().unRegisterTask(2016568);
             ItemCardHelper.w(null);
-            xs8 xs8Var = this.jsBridge;
-            if (xs8Var != null) {
-                xs8Var.h(this.mWebView, CommonTbJsBridge.RE_HIDE, null);
+            ys8 ys8Var = this.jsBridge;
+            if (ys8Var != null) {
+                ys8Var.h(this.mWebView, CommonTbJsBridge.RE_HIDE, null);
             }
         }
     }
@@ -1878,9 +1878,9 @@ public class TBWebViewActivity extends BaseWebViewActivity {
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            xs8 xs8Var = this.jsBridge;
-            if (xs8Var != null) {
-                xs8Var.g();
+            ys8 ys8Var = this.jsBridge;
+            if (ys8Var != null) {
+                ys8Var.g();
             }
             BridgeWebView bridgeWebView = this.mWebView;
             if (bridgeWebView != null) {
@@ -1958,10 +1958,10 @@ public class TBWebViewActivity extends BaseWebViewActivity {
             String str6 = null;
             try {
                 URL url = new URL(str5);
-                zh8 d2 = yh8.a().d(url.getPath());
+                ai8 d2 = zh8.a().d(url.getPath());
                 if (d2 == null) {
                     try {
-                        if (yh8.a().b() != null) {
+                        if (zh8.a().b() != null) {
                             this.mOfflineErrorType = 3;
                         }
                         return null;
@@ -1977,11 +1977,11 @@ public class TBWebViewActivity extends BaseWebViewActivity {
                             return null;
                         }
                         try {
-                            String s2 = xh8.q().s(d2.b);
+                            String s2 = yh8.q().s(d2.b);
                             if (!TextUtils.isEmpty(d2.b) && !TextUtils.isEmpty(d2.c) && !TextUtils.isEmpty(s2)) {
-                                this.mModuleName = xh8.A(true, d2.b);
-                                this.mVersion = xh8.A(false, s2);
-                                String str7 = xh8.q().p() + "/" + d2.b + "/" + s2 + "/";
+                                this.mModuleName = yh8.A(true, d2.b);
+                                this.mVersion = yh8.A(false, s2);
+                                String str7 = yh8.q().p() + "/" + d2.b + "/" + s2 + "/";
                                 String str8 = d2.c;
                                 if (!d2.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                                     str8 = d2.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
@@ -2463,9 +2463,9 @@ public class TBWebViewActivity extends BaseWebViewActivity {
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             sendFinishMessage();
             super.onDestroy();
-            wh8 wh8Var = this.mProxy;
-            if (wh8Var != null) {
-                wh8Var.h();
+            xh8 xh8Var = this.mProxy;
+            if (xh8Var != null) {
+                xh8Var.h();
                 this.mProxy = null;
             }
             if (this.shareDialogRunnable != null) {
@@ -2519,9 +2519,9 @@ public class TBWebViewActivity extends BaseWebViewActivity {
             callHiddenWebViewMethod("onResume");
             registerGetShareContentTask();
             ItemCardHelper.w(this.mOrderCallback);
-            xs8 xs8Var = this.jsBridge;
-            if (xs8Var != null) {
-                xs8Var.h(this.mWebView, CommonTbJsBridge.RE_SHOW, null);
+            ys8 ys8Var = this.jsBridge;
+            if (ys8Var != null) {
+                ys8Var.h(this.mWebView, CommonTbJsBridge.RE_SHOW, null);
                 if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.firstEnter) {
                     this.jsBridge.h(this.mWebView, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
                 }
@@ -2574,7 +2574,7 @@ public class TBWebViewActivity extends BaseWebViewActivity {
                 TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
                 tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
                 this.mWebView.setWebChromeClient(tbWebChromeClient);
-                tx8.b().g(this, this.mWebView, tbWebChromeClient);
+                ux8.b().g(this, this.mWebView, tbWebChromeClient);
                 if (this.mEnableJs) {
                     addJavascriptInterface();
                 }
@@ -2811,7 +2811,7 @@ public class TBWebViewActivity extends BaseWebViewActivity {
                         } else {
                             str3 = "2";
                         }
-                        TiebaStatic.log(statisticItem.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.mOfflineErrorType).param("obj_name", xh8.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
+                        TiebaStatic.log(statisticItem.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.mOfflineErrorType).param("obj_name", yh8.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
                         this.mOfflineErrorType = 0;
                         this.mModuleName = "none";
                         this.mVersion = "0.0.0.0";
@@ -2824,7 +2824,7 @@ public class TBWebViewActivity extends BaseWebViewActivity {
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL);
                 if (!z) {
                 }
-                TiebaStatic.log(statisticItem2.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.mOfflineErrorType).param("obj_name", xh8.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
+                TiebaStatic.log(statisticItem2.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.mOfflineErrorType).param("obj_name", yh8.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
                 this.mOfflineErrorType = 0;
                 this.mModuleName = "none";
                 this.mVersion = "0.0.0.0";
@@ -3031,16 +3031,16 @@ public class TBWebViewActivity extends BaseWebViewActivity {
                 this.mView.B(this.mLoadingStyle);
             }
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            this.jsBridge = new xs8();
+            this.jsBridge = new ys8();
             this.mCommonTbJsBridge = new CommonTbJsBridge(getPageContext().getPageActivity(), this.mWebView);
             this.jsBridge.a(new XiubaTbJsBridge(getPageContext()));
             this.jsBridge.a(this.mCommonTbJsBridge);
             this.jsBridge.a(new UegTbJsBridge(getPageContext()));
             this.jsBridge.a(buildGameDownloadJSPrompt());
             this.mCommonTbJsBridge.setJsPromptBridge(this.jsBridge);
-            wh8 wh8Var = new wh8(this.mWebView);
-            this.mProxy = wh8Var;
-            wh8Var.l(this.jsBridge);
+            xh8 xh8Var = new xh8(this.mWebView);
+            this.mProxy = xh8Var;
+            xh8Var.l(this.jsBridge);
             this.jsBridge.a(new SingleQuickWebViewBridge(this, this.mProxy));
             if (this.mNeedCookie) {
                 initCookie();

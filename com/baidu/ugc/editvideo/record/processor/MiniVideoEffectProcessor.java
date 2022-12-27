@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.tieba.eg0;
 import com.baidu.tieba.mg0;
-import com.baidu.tieba.rm9;
+import com.baidu.tieba.sm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,11 +50,11 @@ public class MiniVideoEffectProcessor extends BaseEffectProcessor {
             }
             int i3 = 1;
             while (true) {
-                if (i3 >= rm9.b(eg0Var.l())) {
+                if (i3 >= sm9.b(eg0Var.l())) {
                     i2 = i;
                     break;
                 }
-                MediaTrack mediaTrack = (MediaTrack) rm9.c(eg0Var.l(), i3);
+                MediaTrack mediaTrack = (MediaTrack) sm9.c(eg0Var.l(), i3);
                 if (mediaTrack != null && mg0.m(mediaTrack, "effect")) {
                     i2 = eg0Var.i(mediaTrack, i, null);
                     break;

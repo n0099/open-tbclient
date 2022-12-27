@@ -40,7 +40,7 @@ public class cu6 implements bu6, au6 {
     public TextView c;
     public TextView d;
     public TbClipImageView e;
-    public rr8 f;
+    public sr8 f;
     public ImageView g;
     public ImageOverlayView h;
     public FrsViewData i;
@@ -140,32 +140,32 @@ public class cu6 implements bu6, au6 {
     }
 
     @Override // com.baidu.tieba.bu6
-    public void a(qr8 qr8Var, FrsViewData frsViewData) {
+    public void a(rr8 rr8Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, qr8Var, frsViewData) == null) && qr8Var != null && !ListUtils.isEmpty(qr8Var.b)) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, rr8Var, frsViewData) == null) && rr8Var != null && !ListUtils.isEmpty(rr8Var.b)) {
             this.i = frsViewData;
-            rr8 rr8Var = qr8Var.b.get(0);
-            if (rr8Var == null) {
+            sr8 sr8Var = rr8Var.b.get(0);
+            if (sr8Var == null) {
                 return;
             }
-            this.f = rr8Var;
+            this.f = sr8Var;
             if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08f6), this.f.b)) {
                 this.c.setText(this.a.getContext().getString(R.string.forum_exclusive));
             } else {
                 this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0776));
                 this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f08c9));
             }
-            this.d.setText(StringHelper.cutStringWithEllipsisStrict(rr8Var.c, 20));
-            if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08f6), rr8Var.b)) {
+            this.d.setText(StringHelper.cutStringWithEllipsisStrict(sr8Var.c, 20));
+            if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08f6), sr8Var.b)) {
                 this.h.setVisibility(0);
                 this.e.setVisibility(8);
                 f(frsViewData);
             } else {
-                this.e.K(rr8Var.b, 10, false);
+                this.e.K(sr8Var.b, 10, false);
                 this.e.setVisibility(0);
                 this.h.setVisibility(8);
             }
-            du6.d(rr8Var);
+            du6.d(sr8Var);
         }
     }
 

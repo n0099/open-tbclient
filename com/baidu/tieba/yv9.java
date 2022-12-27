@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cr9;
+import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.HashMap;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class yv9 {
+public class yv9 implements zv9.a<zq9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kq9 a;
-    public final br9 b;
-    public final HashMap<String, dr9> c;
+    public final /* synthetic */ zv9 a;
 
-    /* loaded from: classes7.dex */
-    public interface a<E> {
-        void a(E e);
-
-        void b(E e);
-    }
-
-    public yv9() {
+    public yv9(zv9 zv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,19 +30,31 @@ public class yv9 {
                 return;
             }
         }
-        this.b = new br9();
-        this.c = new HashMap<>();
+        this.a = zv9Var;
     }
 
-    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.zv9.a
+    public void a(zq9 zq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
-            for (E e : set2) {
-                if (set == null || !set.contains(e)) {
-                    aVar.b(e);
-                } else {
-                    aVar.a(e);
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, zq9Var) == null) {
+            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", zq9Var.a);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.zv9.a
+    public void b(zq9 zq9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zq9Var) == null) {
+            zq9 zq9Var2 = zq9Var;
+            LogPrinter.v("Update SerialSlotId:%s", zq9Var2.a);
+            HashMap<String, er9> hashMap = this.a.c;
+            String str = zq9Var2.a;
+            hashMap.put(str, new er9(str, new lr9(this, zq9Var2)));
+            cr9 cr9Var = this.a.b;
+            synchronized (cr9Var.a) {
+                cr9Var.a(zq9Var2.a).add(new cr9.b(zq9Var2));
             }
         }
     }

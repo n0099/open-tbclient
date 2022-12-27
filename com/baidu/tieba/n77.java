@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n77 extends kn<lv7, AdapterViewHolder<NearbyForumFriendCardView>> {
+public class n77 extends kn<mv7, AdapterViewHolder<NearbyForumFriendCardView>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -23,7 +23,7 @@ public class n77 extends kn<lv7, AdapterViewHolder<NearbyForumFriendCardView>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n77(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), lv7.d);
+        super(tbPageContext.getPageActivity(), mv7.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,12 +68,12 @@ public class n77 extends kn<lv7, AdapterViewHolder<NearbyForumFriendCardView>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lv7 lv7Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mv7 mv7Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lv7Var, adapterViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mv7Var, adapterViewHolder})) == null) {
             NearbyForumFriendCardView a = adapterViewHolder.a();
-            a.a(lv7Var);
+            a.a(mv7Var);
             a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
             return adapterViewHolder.getView();
         }

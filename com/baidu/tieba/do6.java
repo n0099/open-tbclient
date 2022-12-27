@@ -353,7 +353,7 @@ public class do6 implements ro6 {
         if (interceptable == null || interceptable.invokeLL(1048582, this, arrayList, frsViewData) == null) {
             v(frsViewData);
             u();
-            kr8.f(arrayList, 1);
+            lr8.f(arrayList, 1);
             n(arrayList);
             x(arrayList);
             r(arrayList);
@@ -418,7 +418,7 @@ public class do6 implements ro6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, frsFragment, cdo) == null) {
             this.a = frsFragment;
-            this.j = wj6.e().c(frsFragment.getPageContext(), nr8.d, this.a.getUniqueId(), false);
+            this.j = wj6.e().c(frsFragment.getPageContext(), or8.d, this.a.getUniqueId(), false);
             lo6 lo6Var = new lo6(frsFragment.p(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId());
             this.k = lo6Var;
             lo6Var.A(cdo);
@@ -479,7 +479,7 @@ public class do6 implements ro6 {
             bo6Var.A(cdo);
             ao6 ao6Var = new ao6(frsFragment.getPageContext(), ThreadData.TYPE_FRS_HOTTOPIC, this.a.getUniqueId());
             ao6Var.A(cdo);
-            this.i = new qo6(frsFragment.getPageContext(), fr8.c, this.a.getUniqueId());
+            this.i = new qo6(frsFragment.getPageContext(), gr8.c, this.a.getUniqueId());
             go6 go6Var = new go6(frsFragment.getPageContext(), ThreadData.TYPE_GOD_NORMAL, this.a.getUniqueId());
             this.w = go6Var;
             go6Var.A(cdo);
@@ -568,8 +568,8 @@ public class do6 implements ro6 {
             for (kn knVar : this.c) {
                 if (knVar instanceof ck6) {
                     ((ck6) knVar).v();
-                } else if (knVar instanceof qi8) {
-                    ((qi8) knVar).onDestroy();
+                } else if (knVar instanceof ri8) {
+                    ((ri8) knVar).onDestroy();
                 }
             }
         }

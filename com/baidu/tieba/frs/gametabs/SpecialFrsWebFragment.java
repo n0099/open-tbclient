@@ -62,6 +62,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.al5;
 import com.baidu.tieba.aq4;
+import com.baidu.tieba.at8;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.fh;
 import com.baidu.tieba.gr6;
@@ -75,7 +76,6 @@ import com.baidu.tieba.tx4;
 import com.baidu.tieba.vx4;
 import com.baidu.tieba.wx4;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.xs8;
 import com.baidu.tieba.xx4;
 import com.baidu.tieba.ye5;
 import com.baidu.tieba.ys8;
@@ -106,7 +106,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements kl6 {
     public NoNetworkView k;
     public FrameLayout l;
     public FrameLayout m;
-    public xs8 n;
+    public ys8 n;
     public jr6 o;
     public vx4 p;
     public boolean q;
@@ -115,7 +115,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements kl6 {
     public boolean t;
     public boolean u;
     public String v;
-    public zs8 w;
+    public at8 w;
     public CustomMessageListener x;
     public CustomMessageListener y;
     public final View.OnClickListener z;
@@ -205,7 +205,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements kl6 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements zs8 {
+    public class c implements at8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialFrsWebFragment a;
@@ -228,7 +228,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements kl6 {
             this.a = specialFrsWebFragment;
         }
 
-        @Override // com.baidu.tieba.zs8
+        @Override // com.baidu.tieba.at8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -648,9 +648,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements kl6 {
             if (ir6Var != null) {
                 ir6Var.m();
             }
-            xs8 xs8Var = this.n;
-            if (xs8Var != null) {
-                xs8Var.g();
+            ys8 ys8Var = this.n;
+            if (ys8Var != null) {
+                ys8Var.g();
             }
             ScrollBridgeWebview scrollBridgeWebview = this.i;
             if (scrollBridgeWebview != null) {
@@ -897,17 +897,17 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements kl6 {
         qx4.a().b(16, new b(this));
     }
 
-    public final ys8 b2() {
+    public final zs8 b2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, ys8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, zs8.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (ys8) runTask.getData();
+                return (zs8) runTask.getData();
             }
             return null;
         }
-        return (ys8) invokeV.objValue;
+        return (zs8) invokeV.objValue;
     }
 
     public final SparseArray<String> g2() {
@@ -1350,9 +1350,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements kl6 {
                 this.f = getArguments().getString("fid");
                 this.g = getArguments().getString("fname");
             }
-            xs8 xs8Var = new xs8();
-            this.n = xs8Var;
-            xs8Var.a(new XiubaTbJsBridge(getPageContext()));
+            ys8 ys8Var = new ys8();
+            this.n = ys8Var;
+            ys8Var.a(new XiubaTbJsBridge(getPageContext()));
             this.n.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
             this.n.a(b2());
             i2();

@@ -1,29 +1,9 @@
 package protobuf;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes9.dex */
 public final class ParrScores extends Message {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Long DEFAULT_IMONEY;
-    public static final Long DEFAULT_IOTHER;
-    public static final Long DEFAULT_ITOTAL;
-    public static final Integer DEFAULT_LEVEL;
-    public static final Integer DEFAULT_LIMIT;
-    public static final Integer DEFAULT_SCORESFETCH;
-    public static final Integer DEFAULT_SCORESMONEY;
-    public static final Integer DEFAULT_SCORESOTHER;
-    public static final Integer DEFAULT_SCORESTOTAL;
-    public static final Integer DEFAULT_UPDATETIME;
-    public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 9, type = Message.Datatype.UINT64)
     public final Long iMoney;
     @ProtoField(tag = 10, type = Message.Datatype.UINT64)
@@ -44,17 +24,19 @@ public final class ParrScores extends Message {
     public final Integer scoresTotal;
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
     public final Integer updateTime;
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public static final Integer DEFAULT_SCORESTOTAL = 0;
+    public static final Integer DEFAULT_SCORESFETCH = 0;
+    public static final Integer DEFAULT_SCORESMONEY = 0;
+    public static final Integer DEFAULT_SCORESOTHER = 0;
+    public static final Integer DEFAULT_UPDATETIME = 0;
+    public static final Integer DEFAULT_LEVEL = 0;
+    public static final Integer DEFAULT_LIMIT = 0;
+    public static final Long DEFAULT_ITOTAL = 0L;
+    public static final Long DEFAULT_IMONEY = 0L;
+    public static final Long DEFAULT_IOTHER = 0L;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<ParrScores> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Long iMoney;
         public Long iOther;
         public Long iTotal;
@@ -67,37 +49,10 @@ public final class ParrScores extends Message {
         public Integer updateTime;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Builder(ParrScores parrScores) {
             super(parrScores);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parrScores};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             if (parrScores == null) {
                 return;
             }
@@ -116,58 +71,12 @@ public final class ParrScores extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public ParrScores build(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return new ParrScores(this, z, null);
-            }
-            return (ParrScores) invokeZ.objValue;
+            return new ParrScores(this, z);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2001830735, "Lprotobuf/ParrScores;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2001830735, "Lprotobuf/ParrScores;");
-                return;
-            }
-        }
-        DEFAULT_SCORESTOTAL = 0;
-        DEFAULT_SCORESFETCH = 0;
-        DEFAULT_SCORESMONEY = 0;
-        DEFAULT_SCORESOTHER = 0;
-        DEFAULT_UPDATETIME = 0;
-        DEFAULT_LEVEL = 0;
-        DEFAULT_LIMIT = 0;
-        DEFAULT_ITOTAL = 0L;
-        DEFAULT_IMONEY = 0L;
-        DEFAULT_IOTHER = 0L;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ParrScores(Builder builder, boolean z) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Message.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (z) {
             Integer num = builder.scoresTotal;
             if (num == null) {
@@ -242,9 +151,5 @@ public final class ParrScores extends Message {
         this.iTotal = builder.iTotal;
         this.iMoney = builder.iMoney;
         this.iOther = builder.iOther;
-    }
-
-    public /* synthetic */ ParrScores(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 }

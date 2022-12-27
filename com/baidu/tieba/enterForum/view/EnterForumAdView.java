@@ -20,8 +20,8 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.home.EnterForumDelegateStatic;
-import com.baidu.tieba.lq8;
-import com.baidu.tieba.nq8;
+import com.baidu.tieba.mq8;
+import com.baidu.tieba.oq8;
 import com.baidu.tieba.sp4;
 import com.baidu.tieba.xd5;
 import com.baidu.tieba.yb6;
@@ -188,8 +188,8 @@ public class EnterForumAdView extends FrameLayout {
                 if (context != null) {
                     sp4.o(context, str);
                 }
-                if (bdUniqueId != null && (i = lq8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(L.b), String.valueOf(L.b), 5)) != null) {
-                    nq8.g().c(bdUniqueId, i);
+                if (bdUniqueId != null && (i = mq8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(L.b), String.valueOf(L.b), 5)) != null) {
+                    oq8.g().c(bdUniqueId, i);
                 }
             }
         }
@@ -376,11 +376,11 @@ public class EnterForumAdView extends FrameLayout {
                     this.g.dispatchMvcEvent(xd5Var);
                 }
                 setVisibility(0);
-                if (this.l != L && (i = lq8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(L.b), String.valueOf(L.b), 5)) != null) {
-                    nq8 g = nq8.g();
+                if (this.l != L && (i = mq8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(L.b), String.valueOf(L.b), 5)) != null) {
+                    oq8 g = oq8.g();
                     BdUniqueId bdUniqueId = this.h;
-                    g.d(bdUniqueId, lq8.a("" + L.b), i);
-                    nq8.g().h(this.h, false);
+                    g.d(bdUniqueId, mq8.a("" + L.b), i);
+                    oq8.g().h(this.h, false);
                 }
             } else {
                 if (this.g != null) {

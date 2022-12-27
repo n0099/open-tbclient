@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.ni8;
+import com.baidu.tieba.oi8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,23 +23,23 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public final class sr5 implements ni8 {
+public final class sr5 implements oi8 {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern d;
     public static sr5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ni8.a> a;
-    public final ConcurrentHashMap<String, ni8.b> b;
-    public ni8.c c;
+    public final List<oi8.a> a;
+    public final ConcurrentHashMap<String, oi8.b> b;
+    public oi8.c c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ni8.a a;
+        public final /* synthetic */ oi8.a a;
         public final /* synthetic */ sr5 b;
 
-        public a(sr5 sr5Var, ni8.a aVar) {
+        public a(sr5 sr5Var, oi8.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public final class sr5 implements ni8 {
         this.c = null;
     }
 
-    @Override // com.baidu.tieba.ni8
+    @Override // com.baidu.tieba.oi8
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public final class sr5 implements ni8 {
         return invokeL.booleanValue;
     }
 
-    public void e(ni8.a aVar) {
+    public void e(oi8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (yi.E()) {
@@ -136,7 +136,7 @@ public final class sr5 implements ni8 {
         }
     }
 
-    public final void f(ni8.a aVar) {
+    public final void f(oi8.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && !this.a.contains(aVar)) {
             this.a.add(aVar);
@@ -171,14 +171,14 @@ public final class sr5 implements ni8 {
         return (String) invokeL.objValue;
     }
 
-    public void o(ni8.c cVar) {
+    public void o(oi8.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             this.c = cVar;
         }
     }
 
-    @Override // com.baidu.tieba.ni8
+    @Override // com.baidu.tieba.oi8
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
@@ -186,7 +186,7 @@ public final class sr5 implements ni8 {
         }
     }
 
-    @Override // com.baidu.tieba.ni8
+    @Override // com.baidu.tieba.oi8
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -196,7 +196,7 @@ public final class sr5 implements ni8 {
         return invokeLLL.booleanValue;
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, ni8.d dVar, boolean z2, Bundle bundle) {
+    public boolean g(Context context, String str, String[] strArr, boolean z, oi8.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z3;
         Interceptable interceptable = $ic;
@@ -205,15 +205,15 @@ public final class sr5 implements ni8 {
                 return false;
             }
             String str2 = strArr[0];
-            ni8.b bVar = this.b.get(m(str2));
+            oi8.b bVar = this.b.get(m(str2));
             if (bVar != null) {
                 bVar.a(context, j(k(str2)));
                 return true;
             }
-            Iterator<ni8.a> it = this.a.iterator();
+            Iterator<oi8.a> it = this.a.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    ni8.a next = it.next();
+                    oi8.a next = it.next();
                     if (next != null && next.a(context, strArr) != 3) {
                         z3 = true;
                         break;
@@ -234,7 +234,7 @@ public final class sr5 implements ni8 {
         return invokeCommon.booleanValue;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, ni8.d dVar, boolean z2, Bundle bundle) {
+    public boolean h(Context context, String[] strArr, boolean z, oi8.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -249,7 +249,7 @@ public final class sr5 implements ni8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
             if (strArr != null && strArr.length != 0) {
-                for (ni8.a aVar : this.a) {
+                for (oi8.a aVar : this.a) {
                     if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                         return a2;
                     }
@@ -284,7 +284,7 @@ public final class sr5 implements ni8 {
         return (Map) invokeL.objValue;
     }
 
-    public final void n(Context context, String str, String str2, boolean z, ni8.d dVar, boolean z2, Bundle bundle) {
+    public final void n(Context context, String str, String str2, boolean z, oi8.d dVar, boolean z2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
             this.c.a(context, str, str2, z, dVar, z2, bundle);

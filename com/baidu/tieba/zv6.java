@@ -30,7 +30,7 @@ public class zv6 {
     public FrsFragment f;
     public boolean g;
     public boolean h;
-    public ar8 i;
+    public br8 i;
     public CustomMessageListener j;
 
     /* loaded from: classes7.dex */
@@ -158,12 +158,12 @@ public class zv6 {
         }
     }
 
-    public zv6(FrsFragment frsFragment, ar8 ar8Var) {
+    public zv6(FrsFragment frsFragment, br8 br8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, ar8Var};
+            Object[] objArr = {frsFragment, br8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -180,7 +180,7 @@ public class zv6 {
         this.a = new aw6();
         this.b = new LongSparseArray<>();
         this.f = frsFragment;
-        this.i = ar8Var;
+        this.i = br8Var;
     }
 
     public zv6(String str, String str2) {
@@ -217,8 +217,8 @@ public class zv6 {
         ForumData forum;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            ar8 ar8Var = this.i;
-            if (ar8Var == null || j == 0 || (forum = ar8Var.getForum()) == null || xg.g(forum.getId(), 0L) != j) {
+            br8 br8Var = this.i;
+            if (br8Var == null || j == 0 || (forum = br8Var.getForum()) == null || xg.g(forum.getId(), 0L) != j) {
                 return false;
             }
             return true;
@@ -329,11 +329,11 @@ public class zv6 {
 
     public void i(ForumData forumData) {
         FrsFragment frsFragment;
-        ar8 ar8Var;
+        br8 br8Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, forumData) == null) && (frsFragment = this.f) != null && frsFragment.q0() != null) {
-            if (forumData == null && (ar8Var = this.i) != null) {
-                forumData = ar8Var.getForum();
+            if (forumData == null && (br8Var = this.i) != null) {
+                forumData = br8Var.getForum();
             }
             if (forumData != null && forumData.isLike() != 1) {
                 if (!this.h) {

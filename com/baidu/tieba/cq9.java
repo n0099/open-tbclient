@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.qq9;
+import com.baidu.tieba.pw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Comparator;
 /* compiled from: lambda */
 /* loaded from: classes4.dex */
-public final /* synthetic */ class cq9 implements qq9.a {
+public final /* synthetic */ class cq9 implements Comparator {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ cq9 a = new cq9();
     public transient /* synthetic */ FieldHolder $fh;
@@ -13,11 +15,10 @@ public final /* synthetic */ class cq9 implements qq9.a {
     private /* synthetic */ cq9() {
     }
 
-    @Override // com.baidu.tieba.qq9.a
-    public final void a(oq9 oq9Var) {
+    @Override // java.util.Comparator
+    public final int compare(Object obj, Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, oq9Var) == null) {
-            uq9.d(oq9Var);
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? pw9.b.h((Double) obj, (Double) obj2) : invokeLL.intValue;
     }
 }

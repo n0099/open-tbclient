@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tieba.a66;
-import com.baidu.tieba.ar8;
-import com.baidu.tieba.cr8;
+import com.baidu.tieba.br8;
 import com.baidu.tieba.cy6;
 import com.baidu.tieba.dr8;
 import com.baidu.tieba.eq5;
 import com.baidu.tieba.er8;
 import com.baidu.tieba.fr8;
-import com.baidu.tieba.lr8;
+import com.baidu.tieba.gr8;
+import com.baidu.tieba.mr8;
 import com.baidu.tieba.my6;
 import com.baidu.tieba.nd5;
 import com.baidu.tieba.pk6;
@@ -38,17 +38,17 @@ import com.baidu.tieba.ry4;
 import com.baidu.tieba.sj6;
 import com.baidu.tieba.st4;
 import com.baidu.tieba.tj6;
-import com.baidu.tieba.tq8;
 import com.baidu.tieba.uj6;
 import com.baidu.tieba.uq8;
+import com.baidu.tieba.vq8;
 import com.baidu.tieba.vt4;
 import com.baidu.tieba.wp5;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.xq8;
 import com.baidu.tieba.yq8;
 import com.baidu.tieba.yu4;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ import tbclient.FrsTabInfo;
 import tbclient.SmartApp;
 import tbclient.User;
 /* loaded from: classes6.dex */
-public class FrsViewData extends ar8 implements nd5, Serializable {
+public class FrsViewData extends br8 implements nd5, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumActiveInfo forumActiveInfo;
@@ -144,7 +144,7 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ar8
+    @Override // com.baidu.tieba.br8
     public List<RecmForumInfo> getRecm_forum_list() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -215,14 +215,14 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
     public void removeAlaInsertLiveData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            removeTopSameClassDataFromList(tq8.class, getThreadList());
+            removeTopSameClassDataFromList(uq8.class, getThreadList());
         }
     }
 
     public void removeAlaStageLiveDat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            removeTopSameClassDataFromList(uq8.class, getThreadList());
+            removeTopSameClassDataFromList(vq8.class, getThreadList());
         }
     }
 
@@ -296,10 +296,10 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
             }
         }
         if (this.threadList.size() - i > 7 && (feedForumList = this.forum.getBannerListData().getFeedForumList()) != null && feedForumList.size() > 0) {
-            yq8 yq8Var = new yq8();
-            yq8Var.f(this.forum.getId());
-            yq8Var.c(feedForumList);
-            this.threadList.add(i + 6, yq8Var);
+            zq8 zq8Var = new zq8();
+            zq8Var.f(this.forum.getId());
+            zq8Var.c(feedForumList);
+            this.threadList.add(i + 6, zq8Var);
         }
     }
 
@@ -469,11 +469,11 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
     }
 
     public void addStageLiveDataToThreadList() {
-        uq8 frsStageLiveData;
+        vq8 frsStageLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsStageLiveData = getFrsStageLiveData()) != null) {
             ArrayList<xn> threadList = getThreadList();
-            removeTopSameClassDataFromList(uq8.class, threadList);
+            removeTopSameClassDataFromList(vq8.class, threadList);
             if (!ListUtils.isEmpty(frsStageLiveData.a)) {
                 threadList.add(getAlaLiveThreadCardInsertPos(1, threadList.size()), frsStageLiveData);
             }
@@ -489,7 +489,7 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
                     break;
                 }
                 xn next = it.next();
-                if (next != null && next.getType() == fr8.c) {
+                if (next != null && next.getType() == gr8.c) {
                     this.threadList.remove(next);
                     break;
                 }
@@ -576,11 +576,11 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
     }
 
     public void addInsertLiveDataToThreadList() {
-        tq8 frsInsertLiveData;
+        uq8 frsInsertLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsInsertLiveData = getFrsInsertLiveData()) != null) {
             ArrayList<xn> threadList = getThreadList();
-            removeTopSameClassDataFromList(tq8.class, threadList);
+            removeTopSameClassDataFromList(uq8.class, threadList);
             threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.b, threadList.size()), frsInsertLiveData);
         }
     }
@@ -642,7 +642,7 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
         FrsTabInfo frsTabInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            cr8 entelechyTabInfo = getEntelechyTabInfo();
+            dr8 entelechyTabInfo = getEntelechyTabInfo();
             if (entelechyTabInfo == null || (list = entelechyTabInfo.a) == null || list.size() <= 0 || (frsTabInfo = list.get(0)) == null || frsTabInfo.tab_id.intValue() != 1) {
                 return false;
             }
@@ -824,12 +824,12 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
         }
     }
 
-    public void filterEnterList(List<xq8> list) {
+    public void filterEnterList(List<yq8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, list) == null) && list != null && list.size() != 0) {
-            Iterator<xq8> it = list.iterator();
+            Iterator<yq8> it = list.iterator();
             while (it.hasNext()) {
-                xq8 next = it.next();
+                yq8 next = it.next();
                 if (next == null) {
                     it.remove();
                 } else if (StringUtils.isNull(next.h()) || StringUtils.isNull(next.f())) {
@@ -843,7 +843,7 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
 
     public List<xn> getShowTopThreadList() {
         InterceptResult invokeV;
-        List<xq8> list;
+        List<yq8> list;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
@@ -867,12 +867,12 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
             }
             ForumData forum = getForum();
             if (forum != null && getForum().getIsShowRule() && this.forumRule != null && (getUserData().getIs_manager() == 1 || this.forumRule.has_forum_rule.intValue() == 1)) {
-                arrayList.add(new er8(forum, this.forumRule));
+                arrayList.add(new fr8(forum, this.forumRule));
             }
             if (forum != null && !xi.isEmpty(forum.getRiskTipNotice())) {
-                arrayList.add(new dr8(forum, false));
+                arrayList.add(new er8(forum, false));
             } else if (forum != null && !ListUtils.isEmpty(forum.getTipInfos())) {
-                arrayList.add(new dr8(forum, true));
+                arrayList.add(new er8(forum, true));
             }
             int i3 = 3 - i;
             int size = arrayList.size();
@@ -957,127 +957,127 @@ public class FrsViewData extends ar8 implements nd5, Serializable {
         }
     }
 
-    public void updateLikeData(lr8 lr8Var) {
+    public void updateLikeData(mr8 mr8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048620, this, lr8Var) != null) || lr8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048620, this, mr8Var) != null) || mr8Var == null) {
             return;
         }
-        this.forum.setCurScore(lr8Var.c());
-        this.forum.setLevelupScore(lr8Var.i());
-        this.forum.setLike(lr8Var.m());
-        this.forum.setUser_level(lr8Var.l());
-        this.forum.setLevelName(lr8Var.h());
+        this.forum.setCurScore(mr8Var.c());
+        this.forum.setLevelupScore(mr8Var.i());
+        this.forum.setLike(mr8Var.m());
+        this.forum.setUser_level(mr8Var.l());
+        this.forum.setLevelName(mr8Var.h());
     }
 
-    public boolean receiveData(ar8 ar8Var) {
+    public boolean receiveData(br8 br8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, ar8Var)) == null) {
-            if (ar8Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, br8Var)) == null) {
+            if (br8Var == null) {
                 return false;
             }
-            this.isFromCache = ar8Var.isFromCache;
-            setBaWuNoticeNum(ar8Var.getBaWuNoticeNum());
-            setSortType(ar8Var.getSortType());
-            setAnti(ar8Var.getAnti());
-            setChatGroup(ar8Var.getChatGroup());
-            setFortuneBag(ar8Var.isFortuneBag());
-            setFortuneDesc(ar8Var.getFortuneDesc());
-            setForum(ar8Var.getForum());
-            setGameName(ar8Var.getGameName());
-            setGameUrl(ar8Var.getGameUrl());
-            setGconAccount(ar8Var.getGconAccount());
-            setHasGame(ar8Var.isHasGame());
-            setIsNewUrl(ar8Var.getIsNewUrl());
-            setPhotoLivePos(ar8Var.getPhotoLivePos());
-            setPage(ar8Var.getPage());
-            setStar(ar8Var.getStar());
-            setStarEnter(ar8Var.getStarEnter());
-            setThreadList(ar8Var.threadList);
-            setThreadListIds(ar8Var.getThreadListIds());
-            setUserData(ar8Var.getUserData());
-            setUserMap(ar8Var.getUserMap());
-            setActivityHeadData(ar8Var.getActivityHeadData());
-            setFrsDefaultTabId(ar8Var.getFrsDefaultTabId());
-            this.defaultShowTab = ar8Var.defaultShowTab;
-            setCategoryInfos(ar8Var.getCategoryInfos());
-            setBawuCenterUrl(ar8Var.getBawuCenterUrl());
-            setCardVideoInfo(ar8Var.getCardVideoInfo());
-            setHeadSdkData(ar8Var.getHeadSdkData());
-            setSchoolRecommendPos(ar8Var.getSchoolRecommendPos());
-            setSchoolRecommendInfo(ar8Var.getSchoolRecommendUserInfo());
-            setEntelechyTabInfo(ar8Var.getEntelechyTabInfo());
-            setAlaLiveCount(ar8Var.getAlaLiveCount());
-            setCarrierEnterData(ar8Var.getCarrierEnterData());
-            setForumState(ar8Var.getForumState());
-            setAccessFlag(ar8Var.getAccessFlag());
-            this.needLog = ar8Var.needLog;
-            this.recommendBookData = ar8Var.recommendBookData;
-            this.presentInfoData = ar8Var.presentInfoData;
-            setBookInfo(ar8Var.getBookInfo());
-            setMangaReadRecordChapterId(ar8Var.getMangaReadRecordChapterId());
-            setHeadlineImgInfoData(ar8Var.getHeadlineImgInfoData());
-            setCardShipinPos(ar8Var.getCardShipinPos());
-            setCardShipinNew(ar8Var.getCardShipinNew());
-            this.enterFrsDialogInfo = ar8Var.enterFrsDialogInfo;
-            setGameRankListData(ar8Var.getGameRankListData());
-            setAgreeBanner(ar8Var.getAgreeBanner());
-            setLiveNotify(ar8Var.getLiveNotify());
-            setGameTabInfo(ar8Var.getGameTabInfo());
-            setGameDefaultTabId(ar8Var.getGameDefaultTabId());
-            setForumHeadIcon(ar8Var.getForumHeadIcon());
-            setUserRecommend(ar8Var.getUserRecommend());
-            setFrsVideoActivityData(ar8Var.getFrsVideoActivityData());
-            this.mNewChapterInfo = ar8Var.mNewChapterInfo;
-            setFrsInsertLiveData(ar8Var.getFrsInsertLiveData());
-            this.recm_forum_list = ar8Var.getRecm_forum_list();
-            setFrsStageLiveData(ar8Var.getFrsStageLiveData());
-            this.forumArIno = ar8Var.forumArIno;
-            this.starRank = ar8Var.starRank;
-            this.postTopic = ar8Var.postTopic;
-            this.mWindowToast = ar8Var.mWindowToast;
-            this.activityConfig = ar8Var.activityConfig;
-            setIsShowRedTip(ar8Var.isShowRedTip());
-            this.isBrandForum = ar8Var.isBrandForum;
-            this.brandAdData = ar8Var.brandAdData;
-            this.oriForumInfoList = ar8Var.oriForumInfoList;
-            this.bottomMenuList = ar8Var.bottomMenuList;
-            this.adMixFloor = ar8Var.adMixFloor;
-            this.adShowSelect = ar8Var.adShowSelect;
-            this.adSampleMapKey = ar8Var.adSampleMapKey;
+            this.isFromCache = br8Var.isFromCache;
+            setBaWuNoticeNum(br8Var.getBaWuNoticeNum());
+            setSortType(br8Var.getSortType());
+            setAnti(br8Var.getAnti());
+            setChatGroup(br8Var.getChatGroup());
+            setFortuneBag(br8Var.isFortuneBag());
+            setFortuneDesc(br8Var.getFortuneDesc());
+            setForum(br8Var.getForum());
+            setGameName(br8Var.getGameName());
+            setGameUrl(br8Var.getGameUrl());
+            setGconAccount(br8Var.getGconAccount());
+            setHasGame(br8Var.isHasGame());
+            setIsNewUrl(br8Var.getIsNewUrl());
+            setPhotoLivePos(br8Var.getPhotoLivePos());
+            setPage(br8Var.getPage());
+            setStar(br8Var.getStar());
+            setStarEnter(br8Var.getStarEnter());
+            setThreadList(br8Var.threadList);
+            setThreadListIds(br8Var.getThreadListIds());
+            setUserData(br8Var.getUserData());
+            setUserMap(br8Var.getUserMap());
+            setActivityHeadData(br8Var.getActivityHeadData());
+            setFrsDefaultTabId(br8Var.getFrsDefaultTabId());
+            this.defaultShowTab = br8Var.defaultShowTab;
+            setCategoryInfos(br8Var.getCategoryInfos());
+            setBawuCenterUrl(br8Var.getBawuCenterUrl());
+            setCardVideoInfo(br8Var.getCardVideoInfo());
+            setHeadSdkData(br8Var.getHeadSdkData());
+            setSchoolRecommendPos(br8Var.getSchoolRecommendPos());
+            setSchoolRecommendInfo(br8Var.getSchoolRecommendUserInfo());
+            setEntelechyTabInfo(br8Var.getEntelechyTabInfo());
+            setAlaLiveCount(br8Var.getAlaLiveCount());
+            setCarrierEnterData(br8Var.getCarrierEnterData());
+            setForumState(br8Var.getForumState());
+            setAccessFlag(br8Var.getAccessFlag());
+            this.needLog = br8Var.needLog;
+            this.recommendBookData = br8Var.recommendBookData;
+            this.presentInfoData = br8Var.presentInfoData;
+            setBookInfo(br8Var.getBookInfo());
+            setMangaReadRecordChapterId(br8Var.getMangaReadRecordChapterId());
+            setHeadlineImgInfoData(br8Var.getHeadlineImgInfoData());
+            setCardShipinPos(br8Var.getCardShipinPos());
+            setCardShipinNew(br8Var.getCardShipinNew());
+            this.enterFrsDialogInfo = br8Var.enterFrsDialogInfo;
+            setGameRankListData(br8Var.getGameRankListData());
+            setAgreeBanner(br8Var.getAgreeBanner());
+            setLiveNotify(br8Var.getLiveNotify());
+            setGameTabInfo(br8Var.getGameTabInfo());
+            setGameDefaultTabId(br8Var.getGameDefaultTabId());
+            setForumHeadIcon(br8Var.getForumHeadIcon());
+            setUserRecommend(br8Var.getUserRecommend());
+            setFrsVideoActivityData(br8Var.getFrsVideoActivityData());
+            this.mNewChapterInfo = br8Var.mNewChapterInfo;
+            setFrsInsertLiveData(br8Var.getFrsInsertLiveData());
+            this.recm_forum_list = br8Var.getRecm_forum_list();
+            setFrsStageLiveData(br8Var.getFrsStageLiveData());
+            this.forumArIno = br8Var.forumArIno;
+            this.starRank = br8Var.starRank;
+            this.postTopic = br8Var.postTopic;
+            this.mWindowToast = br8Var.mWindowToast;
+            this.activityConfig = br8Var.activityConfig;
+            setIsShowRedTip(br8Var.isShowRedTip());
+            this.isBrandForum = br8Var.isBrandForum;
+            this.brandAdData = br8Var.brandAdData;
+            this.oriForumInfoList = br8Var.oriForumInfoList;
+            this.bottomMenuList = br8Var.bottomMenuList;
+            this.adMixFloor = br8Var.adMixFloor;
+            this.adShowSelect = br8Var.adShowSelect;
+            this.adSampleMapKey = br8Var.adSampleMapKey;
             tj6.f().n(getAnti());
-            tj6.f().q(ar8Var.getForum().getId());
-            tj6.f().r(ar8Var.getForum().getName());
-            sj6.h().q(ar8Var.getForum().getId());
-            if (ar8Var.getEntelechyTabInfo() != null) {
-                sj6.h().r(ar8Var.getEntelechyTabInfo().a);
+            tj6.f().q(br8Var.getForum().getId());
+            tj6.f().r(br8Var.getForum().getName());
+            sj6.h().q(br8Var.getForum().getId());
+            if (br8Var.getEntelechyTabInfo() != null) {
+                sj6.h().r(br8Var.getEntelechyTabInfo().a);
             }
-            if (ar8Var.getUserData() != null) {
-                uj6.c().e(ar8Var.getUserData().bawuThrones);
+            if (br8Var.getUserData() != null) {
+                uj6.c().e(br8Var.getUserData().bawuThrones);
             }
-            setPrivateForumTotalInfo(ar8Var.getPrivateForumTotalInfo());
-            setPrivateForumPopInfoData(ar8Var.getPrivateForumPopInfo());
+            setPrivateForumTotalInfo(br8Var.getPrivateForumTotalInfo());
+            setPrivateForumPopInfoData(br8Var.getPrivateForumPopInfo());
             this.isFrsVideoAutoPlay = TbadkCoreApplication.getInst().canAutoPlaySwitch();
-            this.smartAppAvatar = ar8Var.smartAppAvatar;
-            this.smartApp = ar8Var.smartApp;
-            this.nebulaHotThreads = ar8Var.nebulaHotThreads;
-            this.forumActiveInfo = ar8Var.forumActiveInfo;
-            this.userList = ar8Var.userList;
-            setBusinessPromot(ar8Var.getBusinessPromot());
-            this.serviceAreaData = ar8Var.serviceAreaData;
-            setHotUserRankData(ar8Var.getHotUserRankData());
-            this.itemInfo = ar8Var.itemInfo;
-            this.toLoadHorseData = ar8Var.toLoadHorseData;
-            this.forumRule = ar8Var.forumRule;
-            this.mSignActivityInfo = ar8Var.mSignActivityInfo;
-            this.showAdsense = ar8Var.showAdsense;
-            setVoiceRoomConfig(ar8Var.getVoiceRoomConfig());
-            setVoiceRoomData(ar8Var.getVoiceRoomData());
-            this.serviceAreaFlutterData = ar8Var.serviceAreaFlutterData;
-            this.liveFuseForumDataList = ar8Var.liveFuseForumDataList;
-            this.frsGameRankInfoData = ar8Var.frsGameRankInfoData;
-            this.forumTagInfo = ar8Var.forumTagInfo;
-            this.firstCategory = ar8Var.firstCategory;
+            this.smartAppAvatar = br8Var.smartAppAvatar;
+            this.smartApp = br8Var.smartApp;
+            this.nebulaHotThreads = br8Var.nebulaHotThreads;
+            this.forumActiveInfo = br8Var.forumActiveInfo;
+            this.userList = br8Var.userList;
+            setBusinessPromot(br8Var.getBusinessPromot());
+            this.serviceAreaData = br8Var.serviceAreaData;
+            setHotUserRankData(br8Var.getHotUserRankData());
+            this.itemInfo = br8Var.itemInfo;
+            this.toLoadHorseData = br8Var.toLoadHorseData;
+            this.forumRule = br8Var.forumRule;
+            this.mSignActivityInfo = br8Var.mSignActivityInfo;
+            this.showAdsense = br8Var.showAdsense;
+            setVoiceRoomConfig(br8Var.getVoiceRoomConfig());
+            setVoiceRoomData(br8Var.getVoiceRoomData());
+            this.serviceAreaFlutterData = br8Var.serviceAreaFlutterData;
+            this.liveFuseForumDataList = br8Var.liveFuseForumDataList;
+            this.frsGameRankInfoData = br8Var.frsGameRankInfoData;
+            this.forumTagInfo = br8Var.forumTagInfo;
+            this.firstCategory = br8Var.firstCategory;
             return true;
         }
         return invokeL.booleanValue;

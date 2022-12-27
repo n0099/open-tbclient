@@ -99,7 +99,7 @@ public class ik6 {
     public GifView N;
     public TbImageView O;
     public HashSet<String> P;
-    public of8 Q;
+    public pf8 Q;
     public int R;
     public int S;
     public View T;
@@ -108,7 +108,7 @@ public class ik6 {
     public boolean W;
     public so6 X;
     public boolean Y;
-    public s09 Z;
+    public t09 Z;
     public FrsFragment a;
     public AppBarLayout a0;
     public NoPressedRelativeLayout b;
@@ -146,7 +146,7 @@ public class ik6 {
     public FrsTabViewPager r;
     public vn r0;
     public PbListView s;
-    public y69 s0;
+    public z69 s0;
     public BdTypeRecyclerView t;
     public CustomMessageListener t0;
     public ro6 u;
@@ -1026,10 +1026,10 @@ public class ik6 {
     }
 
     public void V0(boolean z) {
-        y69 y69Var;
+        z69 z69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048629, this, z) == null) && z && (y69Var = this.s0) != null) {
-            y69Var.i(2000);
+        if ((interceptable == null || interceptable.invokeZ(1048629, this, z) == null) && z && (z69Var = this.s0) != null) {
+            z69Var.i(2000);
         }
     }
 
@@ -1416,10 +1416,10 @@ public class ik6 {
     }
 
     public void O0() {
-        y69 y69Var;
+        z69 z69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (y69Var = this.s0) != null) {
-            y69Var.d();
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (z69Var = this.s0) != null) {
+            z69Var.d();
         }
     }
 
@@ -1758,13 +1758,13 @@ public class ik6 {
         return invokeV.intValue;
     }
 
-    public of8 m0() {
+    public pf8 m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
             return this.Q;
         }
-        return (of8) invokeV.objValue;
+        return (pf8) invokeV.objValue;
     }
 
     public TextView n0() {
@@ -2150,12 +2150,12 @@ public class ik6 {
                 this.U = E3.findViewById(R.id.obfuscated_res_0x7f092047);
             }
             if (this.Q == null) {
-                this.Q = new of8(this.a.getPageContext(), this.t);
+                this.Q = new pf8(this.a.getPageContext(), this.t);
             }
             this.Q.p(2);
             this.Q.u(this.a.getUniqueId());
             if (this.s0 == null) {
-                this.s0 = new y69(this.a.getPageContext(), this.t);
+                this.s0 = new z69(this.a.getPageContext(), this.t);
             }
             NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) E3.findViewById(R.id.obfuscated_res_0x7f0916ff);
             this.l0 = navigationBarCoverTip;
@@ -2217,9 +2217,9 @@ public class ik6 {
             }
         }
         this.u.g(switchThreadDataToThreadCardInfo, frsViewData);
-        of8 of8Var = this.Q;
-        if (of8Var != null && (i2 = this.R) != 0) {
-            of8Var.n(i2, this.S, this.I, true);
+        pf8 pf8Var = this.Q;
+        if (pf8Var != null && (i2 = this.R) != 0) {
+            pf8Var.n(i2, this.S, this.I, true);
         }
         FrsFragment frsFragment2 = this.a;
         if (frsFragment2 != null) {
@@ -2229,9 +2229,9 @@ public class ik6 {
         if (frsMultiDelBottomMenuView != null) {
             frsMultiDelBottomMenuView.setFrsViewData(frsViewData);
         }
-        y69 y69Var = this.s0;
-        if (y69Var != null) {
-            y69Var.i(2000);
+        z69 z69Var = this.s0;
+        if (z69Var != null) {
+            z69Var.i(2000);
         }
     }
 
@@ -2327,7 +2327,7 @@ public class ik6 {
                 return;
             }
             if (this.Z == null) {
-                this.Z = new s09(this.a.getActivity(), this.b);
+                this.Z = new t09(this.a.getActivity(), this.b);
             }
             this.Z.g(postWriteCallBackData);
         }
@@ -2555,18 +2555,18 @@ public class ik6 {
     public void P0(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048611, this, i2, i3) == null) {
-            y69 y69Var = this.s0;
-            if (y69Var != null) {
-                y69Var.i(100);
+            z69 z69Var = this.s0;
+            if (z69Var != null) {
+                z69Var.i(100);
             }
             if (this.s0 != null && !G0()) {
                 this.s0.g();
             }
-            of8 of8Var = this.Q;
-            if (of8Var == null) {
+            pf8 pf8Var = this.Q;
+            if (pf8Var == null) {
                 return;
             }
-            of8Var.m(i2, i3, this.I, 1);
+            pf8Var.m(i2, i3, this.I, 1);
             this.Q.p(2);
             this.Q.q(false);
         }
@@ -2588,9 +2588,9 @@ public class ik6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.t0);
-            of8 of8Var = this.Q;
-            if (of8Var != null) {
-                of8Var.h();
+            pf8 pf8Var = this.Q;
+            if (pf8Var != null) {
+                pf8Var.h();
             }
             bx6 bx6Var = this.M;
             if (bx6Var != null) {
@@ -2617,9 +2617,9 @@ public class ik6 {
             if (sw6Var != null) {
                 sw6Var.r();
             }
-            s09 s09Var = this.Z;
-            if (s09Var != null) {
-                s09Var.e();
+            t09 t09Var = this.Z;
+            if (t09Var != null) {
+                t09Var.e();
             }
             NavigationBarCoverTip navigationBarCoverTip = this.l0;
             if (navigationBarCoverTip != null) {

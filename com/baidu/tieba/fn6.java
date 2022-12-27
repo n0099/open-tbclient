@@ -165,16 +165,16 @@ public class fn6 implements NetModel.k {
     public final void b(List<xn> list) {
         JSONObject b;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || em7.e(list)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || fm7.e(list)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         for (xn xnVar : list) {
-            if ((xnVar instanceof ThreadData) && (b = lk8.b(((ThreadData) xnVar).getRawThreadInfo())) != null) {
+            if ((xnVar instanceof ThreadData) && (b = mk8.b(((ThreadData) xnVar).getRawThreadInfo())) != null) {
                 arrayList.add(b);
             }
         }
-        lk8.f().h(this.n, arrayList);
+        mk8.f().h(this.n, arrayList);
     }
 
     public void k(int i) {
@@ -217,12 +217,12 @@ public class fn6 implements NetModel.k {
             if (this.h) {
                 b = 0;
             } else {
-                b = di8.b(this.b.c);
+                b = ei8.b(this.b.c);
             }
             if (this.h) {
                 d = "";
             } else {
-                d = lk8.f().d(this.n);
+                d = mk8.f().d(this.n);
             }
             gn6 gn6Var = this.b;
             if (gn6Var == null) {
@@ -230,7 +230,7 @@ public class fn6 implements NetModel.k {
             } else {
                 arrayList = gn6Var.c;
             }
-            String e = di8.e(arrayList, this.h);
+            String e = ei8.e(arrayList, this.h);
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(b);
             b2.e(e);
@@ -298,8 +298,8 @@ public class fn6 implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             b(list2);
-            di8.i(di8.h(list, "FRS_GENERAL_TAB"), list2, 0);
-            di8.a(list2, this.j, "FRS_GENERAL_TAB");
+            ei8.i(ei8.h(list, "FRS_GENERAL_TAB"), list2, 0);
+            ei8.a(list2, this.j, "FRS_GENERAL_TAB");
         }
     }
 
@@ -320,8 +320,8 @@ public class fn6 implements NetModel.k {
     public void l(String str) {
         gn6 gn6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (gn6Var = this.b) != null && !em7.e(gn6Var.c)) {
-            di8.d(str, this.b.c);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (gn6Var = this.b) != null && !fm7.e(gn6Var.c)) {
+            ei8.d(str, this.b.c);
             this.a.T1(this.b);
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey8;
+import com.baidu.tieba.fy8;
 import com.baidu.tieba.themeCenter.SkinProgressView;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public class BackgroundItemView extends LinearLayout {
     public DressItemData i;
     public int j;
     public int k;
-    public ey8 l;
+    public fy8 l;
     public View.OnClickListener m;
 
     /* loaded from: classes6.dex */
@@ -149,10 +149,10 @@ public class BackgroundItemView extends LinearLayout {
         g();
     }
 
-    public void setController(ey8 ey8Var) {
+    public void setController(fy8 fy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ey8Var) == null) {
-            this.l = ey8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fy8Var) == null) {
+            this.l = fy8Var;
         }
     }
 

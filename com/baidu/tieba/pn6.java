@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class pn6 extends ck6<nr8, a> implements View.OnClickListener {
+public class pn6 extends ck6<or8, a> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
@@ -128,16 +128,16 @@ public class pn6 extends ck6<nr8, a> implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ck6, com.baidu.tieba.kn
     /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nr8 nr8Var, a aVar) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, or8 or8Var, a aVar) {
         InterceptResult invokeCommon;
         boolean z;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nr8Var, aVar})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) nr8Var, (nr8) aVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, or8Var, aVar})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) or8Var, (or8) aVar);
             boolean z2 = true;
-            if (nr8Var.g()) {
-                String c = nr8Var.c();
+            if (or8Var.g()) {
+                String c = or8Var.c();
                 if (c != null) {
                     aVar.b.setText(c);
                 } else {
@@ -163,7 +163,7 @@ public class pn6 extends ck6<nr8, a> implements View.OnClickListener {
                 aVar.a.setVisibility(8);
                 aVar.h.setVisibility(8);
             }
-            gr8 f = nr8Var.f();
+            hr8 f = or8Var.f();
             if (f != null && f.b() && !TextUtils.isEmpty(f.a())) {
                 aVar.d.setText(f.a());
                 aVar.c.setTag(Integer.valueOf(i));
@@ -198,7 +198,7 @@ public class pn6 extends ck6<nr8, a> implements View.OnClickListener {
                 aVar.f.setVisibility(8);
                 aVar.j.setVisibility(8);
             }
-            if (!this.l && !nr8Var.g()) {
+            if (!this.l && !or8Var.g()) {
                 if (z2) {
                     aVar.a.setVisibility(8);
                     aVar.c.setVisibility(8);

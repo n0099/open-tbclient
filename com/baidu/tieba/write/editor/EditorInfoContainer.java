@@ -33,8 +33,8 @@ import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.pz4;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.w79;
 import com.baidu.tieba.write.view.CustomPrivacyDialogView;
+import com.baidu.tieba.x79;
 import com.baidu.tieba.y65;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +143,7 @@ public class EditorInfoContainer extends LinearLayout implements y65 {
                         }
                         this.a.b.x(i);
                         if ("2".equals(this.a.b.g)) {
-                            w79.b(this.a.b.i, i);
+                            x79.b(this.a.b.i, i);
                         }
                     }
                 }
@@ -374,7 +374,7 @@ public class EditorInfoContainer extends LinearLayout implements y65 {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements w79.c {
+    public class g implements x79.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -397,7 +397,7 @@ public class EditorInfoContainer extends LinearLayout implements y65 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.baidu.tieba.w79.c
+        @Override // com.baidu.tieba.x79.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -597,7 +597,7 @@ public class EditorInfoContainer extends LinearLayout implements y65 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048591, this, str, i2) == null) && "2".equals(this.g)) {
             this.i = str;
-            w79.a(str, i2, new g(this));
+            x79.a(str, i2, new g(this));
         }
     }
 

@@ -32,11 +32,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.az4;
 import com.baidu.tieba.fr5;
-import com.baidu.tieba.gu8;
 import com.baidu.tieba.h17;
 import com.baidu.tieba.homepage.concern.view.ConcernNotLoginLayout;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
+import com.baidu.tieba.hu8;
 import com.baidu.tieba.k57;
 import com.baidu.tieba.ka5;
 import com.baidu.tieba.la5;
@@ -48,8 +48,8 @@ import com.baidu.tieba.w56;
 import com.baidu.tieba.wi5;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.xn;
-import com.baidu.tieba.y69;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +81,7 @@ public class ConcernPageView extends FrameLayout {
     public int p;
     public boolean q;
     public h17 r;
-    public y69 s;
+    public z69 s;
     public RecyclerView.OnScrollListener t;
     public BdListView.p u;
     public ScrollFragmentTabHost.s v;
@@ -407,7 +407,7 @@ public class ConcernPageView extends FrameLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PublishProgressData publishProgressData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !gu8.k().s() && gu8.k().i() != null && this.a.l != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !hu8.k().s() && hu8.k().i() != null && this.a.l != null) {
                 this.a.l.c(publishProgressData);
             }
         }
@@ -831,9 +831,9 @@ public class ConcernPageView extends FrameLayout {
                 if (h17Var != null) {
                     h17Var.n();
                 }
-                y69 y69Var = this.s;
-                if (y69Var != null) {
-                    y69Var.i(2000);
+                z69 z69Var = this.s;
+                if (z69Var != null) {
+                    z69Var.i(2000);
                 }
             }
             this.n = i2;
@@ -1184,10 +1184,10 @@ public class ConcernPageView extends FrameLayout {
     }
 
     public void O() {
-        y69 y69Var;
+        z69 z69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (y69Var = this.s) != null) {
-            y69Var.i(2000);
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (z69Var = this.s) != null) {
+            z69Var.i(2000);
         }
     }
 
@@ -1449,7 +1449,7 @@ public class ConcernPageView extends FrameLayout {
         this.l.setVisibility(8);
         K(TbadkCoreApplication.getInst().getSkinType());
         if (this.s == null) {
-            this.s = new y69(this.e, this.c);
+            this.s = new z69(this.e, this.c);
         }
     }
 }
